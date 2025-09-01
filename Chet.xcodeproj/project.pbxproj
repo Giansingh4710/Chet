@@ -6,6 +6,27 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		A053D0422E662787004E371B /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A053D0412E662787004E371B /* WidgetKit.framework */; };
+		A053D0442E662787004E371B /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A053D0432E662787004E371B /* SwiftUI.framework */; };
+		A053D04F2E662789004E371B /* RandomShabadWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A053D03F2E662787004E371B /* RandomShabadWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A053D05A2E662F0E004E371B /* SharedModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053D0592E662F0E004E371B /* SharedModels.swift */; };
+		A053D05B2E662F0E004E371B /* SharedModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053D0592E662F0E004E371B /* SharedModels.swift */; };
+		A053D05D2E664BEC004E371B /* helper_funcs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053D05C2E664BEC004E371B /* helper_funcs.swift */; };
+		A053D05E2E664BEC004E371B /* helper_funcs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053D05C2E664BEC004E371B /* helper_funcs.swift */; };
+		A053D0642E6654FF004E371B /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A053D0412E662787004E371B /* WidgetKit.framework */; };
+		A053D0652E6654FF004E371B /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A053D0432E662787004E371B /* SwiftUI.framework */; };
+		A053D0702E665500004E371B /* HukamnamaWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A053D0632E6654FF004E371B /* HukamnamaWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A053D0772E665540004E371B /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053D0762E665540004E371B /* SampleData.swift */; };
+		A053D0782E665540004E371B /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053D0762E665540004E371B /* SampleData.swift */; };
+		A053D0842E665D2E004E371B /* WidgetViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053D0832E665D2E004E371B /* WidgetViews.swift */; };
+		A053D0852E665D2E004E371B /* WidgetViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053D0832E665D2E004E371B /* WidgetViews.swift */; };
+		A053D0862E665D2E004E371B /* WidgetViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053D0832E665D2E004E371B /* WidgetViews.swift */; };
+		A053D0872E665E75004E371B /* SharedModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053D0592E662F0E004E371B /* SharedModels.swift */; };
+		A053D0882E66640C004E371B /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053D0762E665540004E371B /* SampleData.swift */; };
+		A053D0892E666411004E371B /* helper_funcs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053D05C2E664BEC004E371B /* helper_funcs.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		A053D00D2E6626C0004E371B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -21,13 +42,67 @@
 			remoteGlobalIDString = A053CFFB2E6626BF004E371B;
 			remoteInfo = Chet;
 		};
+		A053D04D2E662789004E371B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A053CFF42E6626BF004E371B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A053D03E2E662787004E371B;
+			remoteInfo = RandomShabadWidgetExtension;
+		};
+		A053D06E2E665500004E371B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A053CFF42E6626BF004E371B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A053D0622E6654FF004E371B;
+			remoteInfo = HukamnamaWidgetExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A053D0542E662789004E371B /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A053D0702E665500004E371B /* HukamnamaWidgetExtension.appex in Embed Foundation Extensions */,
+				A053D04F2E662789004E371B /* RandomShabadWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A053CFFC2E6626BF004E371B /* Chet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A053D00C2E6626C0004E371B /* ChetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A053D0162E6626C0004E371B /* ChetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A053D03F2E662787004E371B /* RandomShabadWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = RandomShabadWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A053D0412E662787004E371B /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		A053D0432E662787004E371B /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		A053D0592E662F0E004E371B /* SharedModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedModels.swift; sourceTree = "<group>"; };
+		A053D05C2E664BEC004E371B /* helper_funcs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helper_funcs.swift; sourceTree = "<group>"; };
+		A053D0632E6654FF004E371B /* HukamnamaWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HukamnamaWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A053D0762E665540004E371B /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
+		A053D0832E665D2E004E371B /* WidgetViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		A053D0502E662789004E371B /* Exceptions for "RandomShabadWidget" folder in "RandomShabadWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = A053D03E2E662787004E371B /* RandomShabadWidgetExtension */;
+		};
+		A053D0712E665500004E371B /* Exceptions for "HukamnamaWidget" folder in "HukamnamaWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = A053D0622E6654FF004E371B /* HukamnamaWidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		A053CFFE2E6626BF004E371B /* Chet */ = {
@@ -43,6 +118,22 @@
 		A053D0192E6626C0004E371B /* ChetUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = ChetUITests;
+			sourceTree = "<group>";
+		};
+		A053D0452E662787004E371B /* RandomShabadWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				A053D0502E662789004E371B /* Exceptions for "RandomShabadWidget" folder in "RandomShabadWidgetExtension" target */,
+			);
+			path = RandomShabadWidget;
+			sourceTree = "<group>";
+		};
+		A053D0662E6654FF004E371B /* HukamnamaWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				A053D0712E665500004E371B /* Exceptions for "HukamnamaWidget" folder in "HukamnamaWidgetExtension" target */,
+			);
+			path = HukamnamaWidget;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -69,15 +160,40 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A053D03C2E662787004E371B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A053D0442E662787004E371B /* SwiftUI.framework in Frameworks */,
+				A053D0422E662787004E371B /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A053D0602E6654FF004E371B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A053D0652E6654FF004E371B /* SwiftUI.framework in Frameworks */,
+				A053D0642E6654FF004E371B /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		A053CFF32E6626BF004E371B = {
 			isa = PBXGroup;
 			children = (
+				A053D0832E665D2E004E371B /* WidgetViews.swift */,
+				A053D0762E665540004E371B /* SampleData.swift */,
+				A053D05C2E664BEC004E371B /* helper_funcs.swift */,
+				A053D0592E662F0E004E371B /* SharedModels.swift */,
 				A053CFFE2E6626BF004E371B /* Chet */,
 				A053D00F2E6626C0004E371B /* ChetTests */,
 				A053D0192E6626C0004E371B /* ChetUITests */,
+				A053D0452E662787004E371B /* RandomShabadWidget */,
+				A053D0662E6654FF004E371B /* HukamnamaWidget */,
+				A053D0402E662787004E371B /* Frameworks */,
 				A053CFFD2E6626BF004E371B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -88,8 +204,19 @@
 				A053CFFC2E6626BF004E371B /* Chet.app */,
 				A053D00C2E6626C0004E371B /* ChetTests.xctest */,
 				A053D0162E6626C0004E371B /* ChetUITests.xctest */,
+				A053D03F2E662787004E371B /* RandomShabadWidgetExtension.appex */,
+				A053D0632E6654FF004E371B /* HukamnamaWidgetExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		A053D0402E662787004E371B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A053D0412E662787004E371B /* WidgetKit.framework */,
+				A053D0432E662787004E371B /* SwiftUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -102,10 +229,13 @@
 				A053CFF82E6626BF004E371B /* Sources */,
 				A053CFF92E6626BF004E371B /* Frameworks */,
 				A053CFFA2E6626BF004E371B /* Resources */,
+				A053D0542E662789004E371B /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A053D04E2E662789004E371B /* PBXTargetDependency */,
+				A053D06F2E665500004E371B /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				A053CFFE2E6626BF004E371B /* Chet */,
@@ -163,6 +293,50 @@
 			productReference = A053D0162E6626C0004E371B /* ChetUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		A053D03E2E662787004E371B /* RandomShabadWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A053D0512E662789004E371B /* Build configuration list for PBXNativeTarget "RandomShabadWidgetExtension" */;
+			buildPhases = (
+				A053D03B2E662787004E371B /* Sources */,
+				A053D03C2E662787004E371B /* Frameworks */,
+				A053D03D2E662787004E371B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				A053D0452E662787004E371B /* RandomShabadWidget */,
+			);
+			name = RandomShabadWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = RandomShabadWidgetExtension;
+			productReference = A053D03F2E662787004E371B /* RandomShabadWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		A053D0622E6654FF004E371B /* HukamnamaWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A053D0722E665500004E371B /* Build configuration list for PBXNativeTarget "HukamnamaWidgetExtension" */;
+			buildPhases = (
+				A053D05F2E6654FF004E371B /* Sources */,
+				A053D0602E6654FF004E371B /* Frameworks */,
+				A053D0612E6654FF004E371B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				A053D0662E6654FF004E371B /* HukamnamaWidget */,
+			);
+			name = HukamnamaWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = HukamnamaWidgetExtension;
+			productReference = A053D0632E6654FF004E371B /* HukamnamaWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -184,6 +358,12 @@
 						CreatedOnToolsVersion = 16.0;
 						TestTargetID = A053CFFB2E6626BF004E371B;
 					};
+					A053D03E2E662787004E371B = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					A053D0622E6654FF004E371B = {
+						CreatedOnToolsVersion = 16.0;
+					};
 				};
 			};
 			buildConfigurationList = A053CFF72E6626BF004E371B /* Build configuration list for PBXProject "Chet" */;
@@ -203,6 +383,8 @@
 				A053CFFB2E6626BF004E371B /* Chet */,
 				A053D00B2E6626C0004E371B /* ChetTests */,
 				A053D0152E6626C0004E371B /* ChetUITests */,
+				A053D03E2E662787004E371B /* RandomShabadWidgetExtension */,
+				A053D0622E6654FF004E371B /* HukamnamaWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -229,6 +411,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A053D03D2E662787004E371B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A053D0612E6654FF004E371B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -236,6 +432,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A053D0852E665D2E004E371B /* WidgetViews.swift in Sources */,
+				A053D05E2E664BEC004E371B /* helper_funcs.swift in Sources */,
+				A053D05A2E662F0E004E371B /* SharedModels.swift in Sources */,
+				A053D0772E665540004E371B /* SampleData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +453,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A053D03B2E662787004E371B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A053D0842E665D2E004E371B /* WidgetViews.swift in Sources */,
+				A053D05D2E664BEC004E371B /* helper_funcs.swift in Sources */,
+				A053D0782E665540004E371B /* SampleData.swift in Sources */,
+				A053D05B2E662F0E004E371B /* SharedModels.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A053D05F2E6654FF004E371B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A053D0872E665E75004E371B /* SharedModels.swift in Sources */,
+				A053D0862E665D2E004E371B /* WidgetViews.swift in Sources */,
+				A053D0882E66640C004E371B /* SampleData.swift in Sources */,
+				A053D0892E666411004E371B /* helper_funcs.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -265,6 +487,16 @@
 			isa = PBXTargetDependency;
 			target = A053CFFB2E6626BF004E371B /* Chet */;
 			targetProxy = A053D0172E6626C0004E371B /* PBXContainerItemProxy */;
+		};
+		A053D04E2E662789004E371B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A053D03E2E662787004E371B /* RandomShabadWidgetExtension */;
+			targetProxy = A053D04D2E662789004E371B /* PBXContainerItemProxy */;
+		};
+		A053D06F2E665500004E371B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A053D0622E6654FF004E371B /* HukamnamaWidgetExtension */;
+			targetProxy = A053D06E2E665500004E371B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -518,6 +750,114 @@
 			};
 			name = Release;
 		};
+		A053D0522E662789004E371B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UXX67B9ASA;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RandomShabadWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = RandomShabadWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.gians.Chet.RandomShabadWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A053D0532E662789004E371B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UXX67B9ASA;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RandomShabadWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = RandomShabadWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.gians.Chet.RandomShabadWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A053D0732E665500004E371B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UXX67B9ASA;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HukamnamaWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = HukamnamaWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.gians.Chet.HukamnamaWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A053D0742E665500004E371B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UXX67B9ASA;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HukamnamaWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = HukamnamaWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.gians.Chet.HukamnamaWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -553,6 +893,24 @@
 			buildConfigurations = (
 				A053D0272E6626C0004E371B /* Debug */,
 				A053D0282E6626C0004E371B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A053D0512E662789004E371B /* Build configuration list for PBXNativeTarget "RandomShabadWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A053D0522E662789004E371B /* Debug */,
+				A053D0532E662789004E371B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A053D0722E665500004E371B /* Build configuration list for PBXNativeTarget "HukamnamaWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A053D0732E665500004E371B /* Debug */,
+				A053D0742E665500004E371B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

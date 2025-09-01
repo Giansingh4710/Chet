@@ -60,3 +60,15 @@ struct GurbaniSearchAPIResponse: Codable {
     }
 }
 
+extension LineOfShabad {
+    init(from searchLine: LineObjFromSearch) {
+        id = searchLine.id
+        type = searchLine.type
+        gurmukhi = searchLine.gurmukhi
+        larivaar = searchLine.larivaar
+        translation = searchLine.translation
+        transliteration = searchLine.transliteration
+        linenum = searchLine.lineno // maps to lineno
+        firstletters = searchLine.firstletters
+    }
+}
