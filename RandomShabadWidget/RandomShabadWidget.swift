@@ -44,11 +44,6 @@ private func fetchRandomShabadWrapper(completion: @escaping (ShabadAPIResponse?)
     }
 }
 
-struct ShabadEntry: TimelineEntry {
-    let date: Date
-    let sbd: ShabadAPIResponse
-}
-
 struct RandomShabadWidgetEntryView: View {
     var entry: ShabadEntry
     var body: some View {

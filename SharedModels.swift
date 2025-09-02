@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import WidgetKit // for TimelineEntry
 
 struct TextPair: Codable {
     let akhar: String
@@ -147,4 +148,9 @@ struct HukamnamaAPIResponse: Codable {
         let raag: Raag
         let count: Int
     }
+}
+
+struct ShabadEntry: TimelineEntry {
+    let date: Date
+    let sbd: ShabadAPIResponse
 }
