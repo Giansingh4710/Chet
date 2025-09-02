@@ -5,28 +5,29 @@
 //  Created by gian singh on 9/1/25.
 //
 
-import WidgetKit
-import SwiftUI
 import SwiftData
+import SwiftUI
+import WidgetKit
 
 struct Provider: TimelineProvider {
-    @Query(sort: \FavoriteShabad.dateViewed, order: .reverse) private var favoriteShabads: [FavoriteShabad]
-    func placeholder(in _: Context) -> ShabadEntry {
+    let modelContainer = ModelContainer.shared
+
+    @MainActor func placeholder(in _: Context) -> ShabadEntry {
         ShabadEntry(date: Date.now, sbd: SampleData.shabadResponse)
     }
 
-    func getSnapshot(in _: Context, completion: @escaping (ShabadEntry) -> Void) {
-        completion(ShabadEntry(date: Date.now, sbd: favoriteShabads.first?.shabad ?? SampleData.shabadResponse ))
+    @MainActor func getSnapshot(in _: Context, completion: @escaping (ShabadEntry) -> Void) {
+        let favSbds = getFavShabads()
+        completion(ShabadEntry(date: Date.now, sbd: favSbds.first ?? SampleData.shabadResponse))
     }
 
-    func getTimeline(in context: Context, completion: @escaping (Timeline<ShabadEntry>) -> ()) {
+    @MainActor func getTimeline(in _: Context, completion: @escaping (Timeline<ShabadEntry>) -> Void) {
+        let favSbds = getFavShabads()
         var entries: [ShabadEntry] = []
-
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
-        for hourOffset in 0 ..< favoriteShabads.count {
+        for hourOffset in 0 ..< favSbds.count {
             let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = ShabadEntry(date: entryDate, sbd: favoriteShabads[hourOffset].shabad)
+            let entry = ShabadEntry(date: entryDate, sbd: favSbds[hourOffset])
             print("added entry")
             print(entry)
             entries.append(entry)
@@ -36,12 +37,27 @@ struct Provider: TimelineProvider {
         completion(timeline)
     }
 
+    @MainActor
+    private func getFavShabads() -> [ShabadAPIResponse] {
+        do {
+            let context = modelContainer.mainContext
+            let descriptor = FetchDescriptor<FavoriteShabad>(sortBy: [SortDescriptor(\.dateViewed, order: .reverse)])
+            let results = try context.fetch(descriptor)
+            let lst = results.map{ $0.shabad }
+            print("Widget fetched \(lst.count) favorites")
+            return lst
+        } catch {
+            print("Widget fetch error: \(error)")
+            return []
+        }
+    }
+
     //    func relevances() async -> WidgetRelevances<Void> {
     //        // Generate a list containing the contexts this widget is relevant in.
     //    }
 }
 
-struct FavShabadsWidgetEntryView : View {
+struct FavShabadsWidgetEntryView: View {
     var entry: ShabadEntry
     var body: some View {
         WidgetEntryView(the_shabad: entry.sbd.shabad, heading: "From Favorites")

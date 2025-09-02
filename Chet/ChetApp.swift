@@ -16,6 +16,7 @@ struct ChetApp: App {
                 // .preferredColorScheme(.none) // Allow system to choose light/dark mode
                 .preferredColorScheme(.dark) // Allow system to choose light/dark mode
         }
-        .modelContainer(for: [FavoriteShabad.self, ShabadHistory.self], isAutosaveEnabled: true)
+        .modelContainer(ModelContainer.shared)
+        // .modelContainer(for: [FavoriteShabad.self, ShabadHistory.self], isAutosaveEnabled: true)
     }
 }

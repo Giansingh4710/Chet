@@ -37,3 +37,14 @@ final class ShabadHistory {
         self.dateViewed = Date()
     }
 } 
+
+extension ModelContainer {
+    static let shared: ModelContainer = {
+        let schema = Schema([FavoriteShabad.self, ShabadHistory.self])
+        let config = ModelConfiguration(
+            schema: schema,
+            groupContainer: .identifier("group.xyz.gians.Chet") // 👈 must match App Group ID
+        )
+        return try! ModelContainer(for: schema, configurations: [config])
+    }()
+}
