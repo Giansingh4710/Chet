@@ -11,13 +11,13 @@ import SwiftData
 @Model
 final class FavoriteShabad {
     @Attribute(.unique) var shabadID: String
-    @Relationship(deleteRule: .cascade)  var selectedLine: LineOfShabad
     @Relationship(deleteRule: .cascade) var shabad: ShabadAPIResponse
+    var indexOfSelectedLine: Int
     var dateViewed: Date
     
-    init(shabadResponse: ShabadAPIResponse, selectedLine: LineOfShabad) {
+    init(shabadResponse: ShabadAPIResponse, indexOfSelectedLine: Int) {
         self.shabadID = shabadResponse.shabadinfo.shabadid
-        self.selectedLine = selectedLine
+        self.indexOfSelectedLine = indexOfSelectedLine
         self.shabad = shabadResponse
         self.dateViewed = Date()
     }
@@ -26,13 +26,13 @@ final class FavoriteShabad {
 @Model
 final class ShabadHistory {
     @Attribute(.unique) var shabadID: String
-    @Relationship(deleteRule: .cascade)  var selectedLine: LineOfShabad
     @Relationship(deleteRule: .cascade) var shabad: ShabadAPIResponse
+    var indexOfSelectedLine: Int
     var dateViewed: Date
     
-    init(shabadResponse: ShabadAPIResponse, selectedLine: LineOfShabad) {
+    init(shabadResponse: ShabadAPIResponse, indexOfSelectedLine: Int) {
         self.shabadID = shabadResponse.shabadinfo.shabadid
-        self.selectedLine = selectedLine
+        self.indexOfSelectedLine = indexOfSelectedLine
         self.shabad = shabadResponse
         self.dateViewed = Date()
     }

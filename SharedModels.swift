@@ -149,8 +149,3 @@ struct HukamnamaAPIResponse: Codable {
         let count: Int
     }
 }
-
-struct ShabadEntry: TimelineEntry {
-    let date: Date
-    let sbd: ShabadAPIResponse
-}

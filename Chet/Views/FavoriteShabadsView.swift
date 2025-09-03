@@ -25,7 +25,7 @@ struct FavoriteShabadsView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 } else {
                     List(favoriteShabads) { favoriteShabad in
-                        NavigationLink(destination: ShabadViewDisplay(shabadResponse: favoriteShabad.shabad, foundByLine: favoriteShabad.selectedLine) ) {
+                        NavigationLink(destination: ShabadViewDisplay(shabadResponse: favoriteShabad.shabad, indexOfSelectedLine: favoriteShabad.indexOfSelectedLine) ) {
                             FavoriteShabadRowView(favoriteShabad: favoriteShabad, modelContext: modelContext)
                         }
                         .buttonStyle(PlainButtonStyle())
@@ -48,13 +48,13 @@ struct FavoriteShabadRowView: View {
         VStack(alignment: .leading, spacing: 8) {
             HStack {
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(favoriteShabad.selectedLine.gurmukhi.unicode)
+                    Text(favoriteShabad.shabad.shabad[favoriteShabad.indexOfSelectedLine].line.gurmukhi.unicode)
                         .font(.title3)
                         .fontWeight(.semibold)
                         .lineLimit(2)
                         .multilineTextAlignment(.leading)
 
-                    Text(favoriteShabad.selectedLine.translation.english.default)
+                    Text(favoriteShabad.shabad.shabad[favoriteShabad.indexOfSelectedLine].line.translation.english.default)
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                         .lineLimit(2)

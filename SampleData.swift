@@ -6,199 +6,10 @@
 //
 
 import Foundation
+
 enum SampleData {
-    static let shabadResponse: ShabadAPIResponse = .init(
-        shabadinfo: ShabadInfo(
-            shabadid: "4Z1",
-            pageno: 394,
-            source: Source(
-                id: 1,
-                akhar: "SRI gurU gRMQ swihb jI",
-                unicode: "ਸ਼੍ਰੀ ਗੁਰੂ ਗ੍ਰੰਥ ਸਾਹਿਬ ਜੀ",
-                english: "Sri Guru Granth Sahib Ji",
-                length: 1430,
-                pageName: Source.PageName(
-                    akhar: "AMg",
-                    unicode: "ਅੰਗ",
-                    english: "Ang"
-                )
-            ),
-            writer: Writer(
-                id: 5,
-                akhar: "gurU Arjn dyv jI",
-                unicode: "ਗੁਰੂ ਅਰਜਨ ਦੇਵ ਜੀ",
-                english: "Guru Arjan Dev Ji"
-            ),
-            raag: Raag(
-                id: 8,
-                akhar: "rwgu Awsw",
-                unicode: "ਰਾਗੁ ਆਸਾ",
-                english: "Raag Aasaa",
-                startang: 347,
-                endang: 488,
-                raagwithpage: "Raag Aasaa (347-488)"
-            ),
-            navigation: ShabadInfo.Navigation(
-                previous: ShabadInfo.Navigation.NavigationItem(id: "K8R"),
-                next: ShabadInfo.Navigation.NavigationItem(id: "BDU")
-            ),
-            count: 7
-        ),
-        shabad: [
-            ShabadLineWrapper(
-                line: LineOfShabad(
-                    id: "ZSLW",
-                    type: 2,
-                    gurmukhi: TextPair(akhar: "Awsw Gru 7 mhlw 5 ]", unicode: "ਆਸਾ ਘਰੁ ੭ ਮਹਲਾ ੫ ॥"),
-                    larivaar: TextPair(akhar: "Awsw​Gru​7​mhlw​5​]", unicode: "ਆਸਾ​ਘਰੁ​੭​ਮਹਲਾ​੫​॥"),
-                    translation: Translation(
-                        english: .init(default: "Aasaa, Seventh House, Fifth Mahalaa:"),
-                        punjabi: .init(default: TextPair(akhar: "", unicode: "")),
-                        spanish: "Asa, Mejl Guru Aryan, Quinto Canal Divino."
-                    ),
-                    transliteration: Transliteration(
-                        english: .init(text: "aasaa ghar 7 mahalaa 5 |", larivaar: "aasaa​ghar​7​mahalaa​5​|"),
-                        devanagari: .init(text: "आसा घरु ७ महला ५ ॥", larivaar: "आसा​घरु​७​महला​५​॥")
-                    ),
-                    linenum: 2,
-                    firstletters: TextPair(akhar: "AG7m5]", unicode: "ਅਘ੭ਮ੫॥")
-                )
-            ),
-            ShabadLineWrapper(
-                line: LineOfShabad(
-                    id: "L7HP",
-                    type: 4,
-                    gurmukhi: TextPair(akhar: "hir kw nwmu irdY inq iDAweI ]", unicode: "ਹਰਿ ਕਾ ਨਾਮੁ ਰਿਦੈ ਨਿਤ ਧਿਆਈ ॥"),
-                    larivaar: TextPair(akhar: "hir​kw​nwmu​irdY​inq​iDAweI​]", unicode: "ਹਰਿ​ਕਾ​ਨਾਮੁ​ਰਿਦੈ​ਨਿਤ​ਧਿਆਈ​॥"),
-                    translation: Translation(
-                        english: .init(default: "Meditate continually on the Name of the Lord within your heart."),
-                        punjabi: .init(default: TextPair(
-                            akhar: "(hy BweI! AMg-sMg v`sdy gurU dI hI ikrpw nwl) mYN prmwqmw dw nwm sdw Awpxy ihrdy ivc iDAwauNdw hW[",
-                            unicode: "(ਹੇ ਭਾਈ! ਅੰਗ-ਸੰਗ ਵੱਸਦੇ ਗੁਰੂ ਦੀ ਹੀ ਕਿਰਪਾ ਨਾਲ) ਮੈਂ ਪਰਮਾਤਮਾ ਦਾ ਨਾਮ ਸਦਾ ਆਪਣੇ ਹਿਰਦੇ ਵਿਚ ਧਿਆਉਂਦਾ ਹਾਂ।"
-                        )),
-                        spanish: "Contempla siempre el Nombre de tu Señor"
-                    ),
-                    transliteration: Transliteration(
-                        english: .init(text: "har kaa naam ridai nit dhiaaee |", larivaar: "har​kaa​naam​ridai​nit​dhiaaee​|"),
-                        devanagari: .init(text: "हरि का नामु रिदै नित धिआई ॥", larivaar: "हरि​का​नामु​रिदै​नित​धिआई​॥")
-                    ),
-                    linenum: 2,
-                    firstletters: TextPair(akhar: "hknrnD", unicode: "ਹਕਨਰਨਧ")
-                )
-            ),
-            ShabadLineWrapper(
-                line: LineOfShabad(
-                    id: "B5BZ",
-                    type: 4,
-                    gurmukhi: TextPair(akhar: "sMgI swQI sgl qrWeI ]1]", unicode: "ਸੰਗੀ ਸਾਥੀ ਸਗਲ ਤਰਾਂਈ ॥੧॥"),
-                    larivaar: TextPair(akhar: "sMgI​swQI​sgl​qrWeI​]1]", unicode: "ਸੰਗੀ​ਸਾਥੀ​ਸਗਲ​ਤਰਾਂਈ​॥੧॥"),
-                    translation: Translation(
-                        english: .init(default: "Thus you shall save all your companions and associates. ||1||"),
-                        punjabi: .init(default: TextPair(
-                            akhar: "(ies qrHW mYN sMswr-smuMdr qoN pwr lµGx jogw ho irhw hW) Awpxy sMgIAW swQIAW (igAwn-ieMidRAW) ƒ pwr lµGwx jogw bx irhw hW ]1]",
-                            unicode: "(ਇਸ ਤਰ੍ਹਾਂ ਮੈਂ ਸੰਸਾਰ-ਸਮੁੰਦਰ ਤੋਂ ਪਾਰ ਲੰਘਣ ਜੋਗਾ ਹੋ ਰਿਹਾ ਹਾਂ) ਆਪਣੇ ਸੰਗੀਆਂ ਸਾਥੀਆਂ (ਗਿਆਨ-ਇੰਦ੍ਰਿਆਂ) ਨੂੰ ਪਾਰ ਲੰਘਾਣ ਜੋਗਾ ਬਣ ਰਿਹਾ ਹਾਂ ॥੧॥"
-                        )),
-                        spanish: "y así salvarás a todos tus asociados y compañeros. (1)"
-                    ),
-                    transliteration: Transliteration(
-                        english: .init(text: "sangee saathee sagal taraanee |1|", larivaar: "sangee​saathee​sagal​taraanee​|1|"),
-                        devanagari: .init(text: "संगी साथी सगल तरांई ॥१॥", larivaar: "संगी​साथी​सगल​तरांई​॥१॥")
-                    ),
-                    linenum: 2,
-                    firstletters: TextPair(akhar: "sssq", unicode: "ਸਸਸਤ")
-                )
-            ),
-            ShabadLineWrapper(
-                line: LineOfShabad(
-                    id: "EHEH",
-                    type: 3,
-                    gurmukhi: TextPair(akhar: "guru myrY sMig sdw hY nwly ]", unicode: "ਗੁਰੁ ਮੇਰੈ ਸੰਗਿ ਸਦਾ ਹੈ ਨਾਲੇ ॥"),
-                    larivaar: TextPair(akhar: "guru​myrY​sMig​sdw​hY​nwly​]", unicode: "ਗੁਰੁ​ਮੇਰੈ​ਸੰਗਿ​ਸਦਾ​ਹੈ​ਨਾਲੇ​॥"),
-                    translation: Translation(
-                        english: .init(default: "My Guru is always with me, near at hand."),
-                        punjabi: .init(default: TextPair(
-                            akhar: "(hy BweI! myrw) gurU sdw myry nwl v`sdw hY myry AMg-sMg rihMdw hY[",
-                            unicode: "(ਹੇ ਭਾਈ! ਮੇਰਾ) ਗੁਰੂ ਸਦਾ ਮੇਰੇ ਨਾਲ ਵੱਸਦਾ ਹੈ ਮੇਰੇ ਅੰਗ-ਸੰਗ ਰਹਿੰਦਾ ਹੈ।"
-                        )),
-                        spanish: "Tu Guru siempre te brinda Compañía;"
-                    ),
-                    transliteration: Transliteration(
-                        english: .init(text: "gur merai sang sadaa hai naale |", larivaar: "gur​merai​sang​sadaa​hai​naale​|"),
-                        devanagari: .init(text: "गुरु मेरै संगि सदा है नाले ॥", larivaar: "गुरु​मेरै​संगि​सदा​है​नाले​॥")
-                    ),
-                    linenum: 3,
-                    firstletters: TextPair(akhar: "gmsshn", unicode: "ਗਮਸਸਹਨ")
-                )
-            ),
-            ShabadLineWrapper(
-                line: LineOfShabad(
-                    id: "4ZD2",
-                    type: 3,
-                    gurmukhi: TextPair(akhar: "ismir ismir iqsu sdw sm@wly ]1] rhwau ]", unicode: "ਸਿਮਰਿ ਸਿਮਰਿ ਤਿਸੁ ਸਦਾ ਸਮੑਾਲੇ ॥੧॥ ਰਹਾਉ ॥"),
-                    larivaar: TextPair(akhar: "ismir​ismir​iqsu​sdw​sm@wly​]1]​rhwau​]", unicode: "ਸਿਮਰਿ​ਸਿਮਰਿ​ਤਿਸੁ​ਸਦਾ​ਸਮੑਾਲੇ​॥੧॥​ਰਹਾਉ​॥"),
-                    translation: Translation(
-                        english: .init(default: "Meditating, meditating in remembrance on Him, I cherish Him forever. ||1||Pause||"),
-                        punjabi: .init(default: TextPair(
-                            akhar: "(gurU dI hI ikrpw nwl) mYN aus (prmwqmw) ƒ sdw ismr ky sdw Awpxy ihrdy ivc vsweI r`Kdw hW ]1] rhwau ]",
-                            unicode: "(ਗੁਰੂ ਦੀ ਹੀ ਕਿਰਪਾ ਨਾਲ) ਮੈਂ ਉਸ (ਪਰਮਾਤਮਾ) ਨੂੰ ਸਦਾ ਸਿਮਰ ਕੇ ਸਦਾ ਆਪਣੇ ਹਿਰਦੇ ਵਿਚ ਵਸਾਈ ਰੱਖਦਾ ਹਾਂ ॥੧॥ ਰਹਾਉ ॥"
-                        )),
-                        spanish: "así es que reside en Él y Aprécialo siempre. (1-Pausa)"
-                    ),
-                    transliteration: Transliteration(
-                        english: .init(text: "simar simar tis sadaa samaale |1| rahaau |", larivaar: "simar​simar​tis​sadaa​samaale​|1|​rahaau​|"),
-                        devanagari: .init(text: "सिमरि सिमरि तिसु सदा समाले ॥१॥ रहाउ ॥", larivaar: "सिमरि​सिमरि​तिसु​सदा​समाले​॥१॥​रहाउ​॥")
-                    ),
-                    linenum: 3,
-                    firstletters: TextPair(akhar: "ssqss", unicode: "ਸਸਤਸਸ")
-                )
-            ),
-            ShabadLineWrapper(
-                line: LineOfShabad(
-                    id: "2GYN",
-                    type: 4,
-                    gurmukhi: TextPair(akhar: "qyrw kIAw mITw lwgY ]", unicode: "ਤੇਰਾ ਕੀਆ ਮੀਠਾ ਲਾਗੈ ॥"),
-                    larivaar: TextPair(akhar: "qyrw​kIAw​mITw​lwgY​]", unicode: "ਤੇਰਾ​ਕੀਆ​ਮੀਠਾ​ਲਾਗੈ​॥"),
-                    translation: Translation(
-                        english: .init(default: "Your actions seem so sweet to me."),
-                        punjabi: .init(default: TextPair(
-                            akhar: "(hy pRBU! ieh qyry imlwey hoey gurU dI myhr hY ik) mYƒ qyrw kIqw hoieAw hryk kMm cMgw l`g irhw hY,",
-                            unicode: "(ਹੇ ਪ੍ਰਭੂ! ਇਹ ਤੇਰੇ ਮਿਲਾਏ ਹੋਏ ਗੁਰੂ ਦੀ ਮੇਹਰ ਹੈ ਕਿ) ਮੈਨੂੰ ਤੇਰਾ ਕੀਤਾ ਹੋਇਆ ਹਰੇਕ ਕੰਮ ਚੰਗਾ ਲੱਗ ਰਿਹਾ ਹੈ,"
-                        )),
-                        spanish: "Dulces son para mí Tus acciones,"
-                    ),
-                    transliteration: Transliteration(
-                        english: .init(text: "teraa keea meetthaa laagai |", larivaar: "teraa​keea​meetthaa​laagai​|"),
-                        devanagari: .init(text: "तेरा कीआ मीठा लागै ॥", larivaar: "तेरा​कीआ​मीठा​लागै​॥")
-                    ),
-                    linenum: 4,
-                    firstletters: TextPair(akhar: "qkml", unicode: "ਤਕਮਲ")
-                )
-            ),
-            ShabadLineWrapper(
-                line: LineOfShabad(
-                    id: "AAB6",
-                    type: 4,
-                    gurmukhi: TextPair(akhar: "hir nwmu pdwrQu nwnku mWgY ]2]42]93]", unicode: "ਹਰਿ ਨਾਮੁ ਪਦਾਰਥੁ ਨਾਨਕੁ ਮਾਂਗੈ ॥੨॥੪੨॥੯੩॥"),
-                    larivaar: TextPair(akhar: "hir​nwmu​pdwrQu​nwnku​mWgY​]2]42]93]", unicode: "ਹਰਿ​ਨਾਮੁ​ਪਦਾਰਥੁ​ਨਾਨਕੁ​ਮਾਂਗੈ​॥੨॥੪੨॥੯੩॥"),
-                    translation: Translation(
-                        english: .init(default: "Nanak begs for the treasure of the Naam, the Name of the Lord. ||2||42||93||"),
-                        punjabi: .init(default: TextPair(
-                            akhar: "qy (qyrw dws) nwnk qyry pwsoN sB qoN kImqI vsq qyrw nwm mMg irhw hY ]2]42]93]",
-                            unicode: "ਤੇ (ਤੇਰਾ ਦਾਸ) ਨਾਨਕ ਤੇਰੇ ਪਾਸੋਂ ਸਭ ਤੋਂ ਕੀਮਤੀ ਵਸਤ ਤੇਰਾ ਨਾਮ ਮੰਗ ਰਿਹਾ ਹੈ ॥੨॥੪੨॥੯੩॥"
-                        )),
-                        spanish: "oh Señor, y no busco ninguna otra Bendición más que Tu Nombre. (2-42-93)"
-                    ),
-                    transliteration: Transliteration(
-                        english: .init(text: "har naam padaarath naanak maangai |2|42|93|", larivaar: "har​naam​padaarath​naanak​maangai​|2|42|93|"),
-                        devanagari: .init(text: "हरि नामु पदारथु नानकु मांगै ॥२॥४२॥९३॥", larivaar: "हरि​नामु​पदारथु​नानकु​मांगै​॥२॥४२॥९३॥")
-                    ),
-                    linenum: 4,
-                    firstletters: TextPair(akhar: "hnpnm", unicode: "ਹਨਪਨਮ")
-                )
-            ),
-        ],
-        error: false
-    )
+    static let shabadResponse: ShabadAPIResponse = sbdRes
+    static let favSbd: FavoriteShabad = .init(shabadResponse: sbdRes, indexOfSelectedLine: 1)
     static let hukamnamResponse: HukamnamaAPIResponse = .init(
         date: .init(
             gregorian: .init(
@@ -540,8 +351,201 @@ enum SampleData {
                 ),
                 linenum: 2,
                 firstletters: .init(akhar: "knnGbgkb", unicode: "ਕਨਨਘਬਗਕਬ")
-            ))
+            )),
         ],
         error: false
     )
 }
+
+private let sbdRes: ShabadAPIResponse = .init(
+    shabadinfo: ShabadInfo(
+        shabadid: "4Z1",
+        pageno: 394,
+        source: Source(
+            id: 1,
+            akhar: "SRI gurU gRMQ swihb jI",
+            unicode: "ਸ਼੍ਰੀ ਗੁਰੂ ਗ੍ਰੰਥ ਸਾਹਿਬ ਜੀ",
+            english: "Sri Guru Granth Sahib Ji",
+            length: 1430,
+            pageName: Source.PageName(
+                akhar: "AMg",
+                unicode: "ਅੰਗ",
+                english: "Ang"
+            )
+        ),
+        writer: Writer(
+            id: 5,
+            akhar: "gurU Arjn dyv jI",
+            unicode: "ਗੁਰੂ ਅਰਜਨ ਦੇਵ ਜੀ",
+            english: "Guru Arjan Dev Ji"
+        ),
+        raag: Raag(
+            id: 8,
+            akhar: "rwgu Awsw",
+            unicode: "ਰਾਗੁ ਆਸਾ",
+            english: "Raag Aasaa",
+            startang: 347,
+            endang: 488,
+            raagwithpage: "Raag Aasaa (347-488)"
+        ),
+        navigation: ShabadInfo.Navigation(
+            previous: ShabadInfo.Navigation.NavigationItem(id: "K8R"),
+            next: ShabadInfo.Navigation.NavigationItem(id: "BDU")
+        ),
+        count: 7
+    ),
+    shabad: [
+        ShabadLineWrapper(
+            line: LineOfShabad(
+                id: "ZSLW",
+                type: 2,
+                gurmukhi: TextPair(akhar: "Awsw Gru 7 mhlw 5 ]", unicode: "ਆਸਾ ਘਰੁ ੭ ਮਹਲਾ ੫ ॥"),
+                larivaar: TextPair(akhar: "Awsw​Gru​7​mhlw​5​]", unicode: "ਆਸਾ​ਘਰੁ​੭​ਮਹਲਾ​੫​॥"),
+                translation: Translation(
+                    english: .init(default: "Aasaa, Seventh House, Fifth Mahalaa:"),
+                    punjabi: .init(default: TextPair(akhar: "", unicode: "")),
+                    spanish: "Asa, Mejl Guru Aryan, Quinto Canal Divino."
+                ),
+                transliteration: Transliteration(
+                    english: .init(text: "aasaa ghar 7 mahalaa 5 |", larivaar: "aasaa​ghar​7​mahalaa​5​|"),
+                    devanagari: .init(text: "आसा घरु ७ महला ५ ॥", larivaar: "आसा​घरु​७​महला​५​॥")
+                ),
+                linenum: 2,
+                firstletters: TextPair(akhar: "AG7m5]", unicode: "ਅਘ੭ਮ੫॥")
+            )
+        ),
+        ShabadLineWrapper(
+            line: LineOfShabad(
+                id: "L7HP",
+                type: 4,
+                gurmukhi: TextPair(akhar: "hir kw nwmu irdY inq iDAweI ]", unicode: "ਹਰਿ ਕਾ ਨਾਮੁ ਰਿਦੈ ਨਿਤ ਧਿਆਈ ॥"),
+                larivaar: TextPair(akhar: "hir​kw​nwmu​irdY​inq​iDAweI​]", unicode: "ਹਰਿ​ਕਾ​ਨਾਮੁ​ਰਿਦੈ​ਨਿਤ​ਧਿਆਈ​॥"),
+                translation: Translation(
+                    english: .init(default: "Meditate continually on the Name of the Lord within your heart."),
+                    punjabi: .init(default: TextPair(
+                        akhar: "(hy BweI! AMg-sMg v`sdy gurU dI hI ikrpw nwl) mYN prmwqmw dw nwm sdw Awpxy ihrdy ivc iDAwauNdw hW[",
+                        unicode: "(ਹੇ ਭਾਈ! ਅੰਗ-ਸੰਗ ਵੱਸਦੇ ਗੁਰੂ ਦੀ ਹੀ ਕਿਰਪਾ ਨਾਲ) ਮੈਂ ਪਰਮਾਤਮਾ ਦਾ ਨਾਮ ਸਦਾ ਆਪਣੇ ਹਿਰਦੇ ਵਿਚ ਧਿਆਉਂਦਾ ਹਾਂ।"
+                    )),
+                    spanish: "Contempla siempre el Nombre de tu Señor"
+                ),
+                transliteration: Transliteration(
+                    english: .init(text: "har kaa naam ridai nit dhiaaee |", larivaar: "har​kaa​naam​ridai​nit​dhiaaee​|"),
+                    devanagari: .init(text: "हरि का नामु रिदै नित धिआई ॥", larivaar: "हरि​का​नामु​रिदै​नित​धिआई​॥")
+                ),
+                linenum: 2,
+                firstletters: TextPair(akhar: "hknrnD", unicode: "ਹਕਨਰਨਧ")
+            )
+        ),
+        ShabadLineWrapper(
+            line: LineOfShabad(
+                id: "B5BZ",
+                type: 4,
+                gurmukhi: TextPair(akhar: "sMgI swQI sgl qrWeI ]1]", unicode: "ਸੰਗੀ ਸਾਥੀ ਸਗਲ ਤਰਾਂਈ ॥੧॥"),
+                larivaar: TextPair(akhar: "sMgI​swQI​sgl​qrWeI​]1]", unicode: "ਸੰਗੀ​ਸਾਥੀ​ਸਗਲ​ਤਰਾਂਈ​॥੧॥"),
+                translation: Translation(
+                    english: .init(default: "Thus you shall save all your companions and associates. ||1||"),
+                    punjabi: .init(default: TextPair(
+                        akhar: "(ies qrHW mYN sMswr-smuMdr qoN pwr lµGx jogw ho irhw hW) Awpxy sMgIAW swQIAW (igAwn-ieMidRAW) ƒ pwr lµGwx jogw bx irhw hW ]1]",
+                        unicode: "(ਇਸ ਤਰ੍ਹਾਂ ਮੈਂ ਸੰਸਾਰ-ਸਮੁੰਦਰ ਤੋਂ ਪਾਰ ਲੰਘਣ ਜੋਗਾ ਹੋ ਰਿਹਾ ਹਾਂ) ਆਪਣੇ ਸੰਗੀਆਂ ਸਾਥੀਆਂ (ਗਿਆਨ-ਇੰਦ੍ਰਿਆਂ) ਨੂੰ ਪਾਰ ਲੰਘਾਣ ਜੋਗਾ ਬਣ ਰਿਹਾ ਹਾਂ ॥੧॥"
+                    )),
+                    spanish: "y así salvarás a todos tus asociados y compañeros. (1)"
+                ),
+                transliteration: Transliteration(
+                    english: .init(text: "sangee saathee sagal taraanee |1|", larivaar: "sangee​saathee​sagal​taraanee​|1|"),
+                    devanagari: .init(text: "संगी साथी सगल तरांई ॥१॥", larivaar: "संगी​साथी​सगल​तरांई​॥१॥")
+                ),
+                linenum: 2,
+                firstletters: TextPair(akhar: "sssq", unicode: "ਸਸਸਤ")
+            )
+        ),
+        ShabadLineWrapper(
+            line: LineOfShabad(
+                id: "EHEH",
+                type: 3,
+                gurmukhi: TextPair(akhar: "guru myrY sMig sdw hY nwly ]", unicode: "ਗੁਰੁ ਮੇਰੈ ਸੰਗਿ ਸਦਾ ਹੈ ਨਾਲੇ ॥"),
+                larivaar: TextPair(akhar: "guru​myrY​sMig​sdw​hY​nwly​]", unicode: "ਗੁਰੁ​ਮੇਰੈ​ਸੰਗਿ​ਸਦਾ​ਹੈ​ਨਾਲੇ​॥"),
+                translation: Translation(
+                    english: .init(default: "My Guru is always with me, near at hand."),
+                    punjabi: .init(default: TextPair(
+                        akhar: "(hy BweI! myrw) gurU sdw myry nwl v`sdw hY myry AMg-sMg rihMdw hY[",
+                        unicode: "(ਹੇ ਭਾਈ! ਮੇਰਾ) ਗੁਰੂ ਸਦਾ ਮੇਰੇ ਨਾਲ ਵੱਸਦਾ ਹੈ ਮੇਰੇ ਅੰਗ-ਸੰਗ ਰਹਿੰਦਾ ਹੈ।"
+                    )),
+                    spanish: "Tu Guru siempre te brinda Compañía;"
+                ),
+                transliteration: Transliteration(
+                    english: .init(text: "gur merai sang sadaa hai naale |", larivaar: "gur​merai​sang​sadaa​hai​naale​|"),
+                    devanagari: .init(text: "गुरु मेरै संगि सदा है नाले ॥", larivaar: "गुरु​मेरै​संगि​सदा​है​नाले​॥")
+                ),
+                linenum: 3,
+                firstletters: TextPair(akhar: "gmsshn", unicode: "ਗਮਸਸਹਨ")
+            )
+        ),
+        ShabadLineWrapper(
+            line: LineOfShabad(
+                id: "4ZD2",
+                type: 3,
+                gurmukhi: TextPair(akhar: "ismir ismir iqsu sdw sm@wly ]1] rhwau ]", unicode: "ਸਿਮਰਿ ਸਿਮਰਿ ਤਿਸੁ ਸਦਾ ਸਮੑਾਲੇ ॥੧॥ ਰਹਾਉ ॥"),
+                larivaar: TextPair(akhar: "ismir​ismir​iqsu​sdw​sm@wly​]1]​rhwau​]", unicode: "ਸਿਮਰਿ​ਸਿਮਰਿ​ਤਿਸੁ​ਸਦਾ​ਸਮੑਾਲੇ​॥੧॥​ਰਹਾਉ​॥"),
+                translation: Translation(
+                    english: .init(default: "Meditating, meditating in remembrance on Him, I cherish Him forever. ||1||Pause||"),
+                    punjabi: .init(default: TextPair(
+                        akhar: "(gurU dI hI ikrpw nwl) mYN aus (prmwqmw) ƒ sdw ismr ky sdw Awpxy ihrdy ivc vsweI r`Kdw hW ]1] rhwau ]",
+                        unicode: "(ਗੁਰੂ ਦੀ ਹੀ ਕਿਰਪਾ ਨਾਲ) ਮੈਂ ਉਸ (ਪਰਮਾਤਮਾ) ਨੂੰ ਸਦਾ ਸਿਮਰ ਕੇ ਸਦਾ ਆਪਣੇ ਹਿਰਦੇ ਵਿਚ ਵਸਾਈ ਰੱਖਦਾ ਹਾਂ ॥੧॥ ਰਹਾਉ ॥"
+                    )),
+                    spanish: "así es que reside en Él y Aprécialo siempre. (1-Pausa)"
+                ),
+                transliteration: Transliteration(
+                    english: .init(text: "simar simar tis sadaa samaale |1| rahaau |", larivaar: "simar​simar​tis​sadaa​samaale​|1|​rahaau​|"),
+                    devanagari: .init(text: "सिमरि सिमरि तिसु सदा समाले ॥१॥ रहाउ ॥", larivaar: "सिमरि​सिमरि​तिसु​सदा​समाले​॥१॥​रहाउ​॥")
+                ),
+                linenum: 3,
+                firstletters: TextPair(akhar: "ssqss", unicode: "ਸਸਤਸਸ")
+            )
+        ),
+        ShabadLineWrapper(
+            line: LineOfShabad(
+                id: "2GYN",
+                type: 4,
+                gurmukhi: TextPair(akhar: "qyrw kIAw mITw lwgY ]", unicode: "ਤੇਰਾ ਕੀਆ ਮੀਠਾ ਲਾਗੈ ॥"),
+                larivaar: TextPair(akhar: "qyrw​kIAw​mITw​lwgY​]", unicode: "ਤੇਰਾ​ਕੀਆ​ਮੀਠਾ​ਲਾਗੈ​॥"),
+                translation: Translation(
+                    english: .init(default: "Your actions seem so sweet to me."),
+                    punjabi: .init(default: TextPair(
+                        akhar: "(hy pRBU! ieh qyry imlwey hoey gurU dI myhr hY ik) mYƒ qyrw kIqw hoieAw hryk kMm cMgw l`g irhw hY,",
+                        unicode: "(ਹੇ ਪ੍ਰਭੂ! ਇਹ ਤੇਰੇ ਮਿਲਾਏ ਹੋਏ ਗੁਰੂ ਦੀ ਮੇਹਰ ਹੈ ਕਿ) ਮੈਨੂੰ ਤੇਰਾ ਕੀਤਾ ਹੋਇਆ ਹਰੇਕ ਕੰਮ ਚੰਗਾ ਲੱਗ ਰਿਹਾ ਹੈ,"
+                    )),
+                    spanish: "Dulces son para mí Tus acciones,"
+                ),
+                transliteration: Transliteration(
+                    english: .init(text: "teraa keea meetthaa laagai |", larivaar: "teraa​keea​meetthaa​laagai​|"),
+                    devanagari: .init(text: "तेरा कीआ मीठा लागै ॥", larivaar: "तेरा​कीआ​मीठा​लागै​॥")
+                ),
+                linenum: 4,
+                firstletters: TextPair(akhar: "qkml", unicode: "ਤਕਮਲ")
+            )
+        ),
+        ShabadLineWrapper(
+            line: LineOfShabad(
+                id: "AAB6",
+                type: 4,
+                gurmukhi: TextPair(akhar: "hir nwmu pdwrQu nwnku mWgY ]2]42]93]", unicode: "ਹਰਿ ਨਾਮੁ ਪਦਾਰਥੁ ਨਾਨਕੁ ਮਾਂਗੈ ॥੨॥੪੨॥੯੩॥"),
+                larivaar: TextPair(akhar: "hir​nwmu​pdwrQu​nwnku​mWgY​]2]42]93]", unicode: "ਹਰਿ​ਨਾਮੁ​ਪਦਾਰਥੁ​ਨਾਨਕੁ​ਮਾਂਗੈ​॥੨॥੪੨॥੯੩॥"),
+                translation: Translation(
+                    english: .init(default: "Nanak begs for the treasure of the Naam, the Name of the Lord. ||2||42||93||"),
+                    punjabi: .init(default: TextPair(
+                        akhar: "qy (qyrw dws) nwnk qyry pwsoN sB qoN kImqI vsq qyrw nwm mMg irhw hY ]2]42]93]",
+                        unicode: "ਤੇ (ਤੇਰਾ ਦਾਸ) ਨਾਨਕ ਤੇਰੇ ਪਾਸੋਂ ਸਭ ਤੋਂ ਕੀਮਤੀ ਵਸਤ ਤੇਰਾ ਨਾਮ ਮੰਗ ਰਿਹਾ ਹੈ ॥੨॥੪੨॥੯੩॥"
+                    )),
+                    spanish: "oh Señor, y no busco ninguna otra Bendición más que Tu Nombre. (2-42-93)"
+                ),
+                transliteration: Transliteration(
+                    english: .init(text: "har naam padaarath naanak maangai |2|42|93|", larivaar: "har​naam​padaarath​naanak​maangai​|2|42|93|"),
+                    devanagari: .init(text: "हरि नामु पदारथु नानकु मांगै ॥२॥४२॥९३॥", larivaar: "हरि​नामु​पदारथु​नानकु​मांगै​॥२॥४२॥९३॥")
+                ),
+                linenum: 4,
+                firstletters: TextPair(akhar: "hnpnm", unicode: "ਹਨਪਨਮ")
+            )
+        ),
+    ],
+    error: false
+)

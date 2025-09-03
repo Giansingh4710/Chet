@@ -9,25 +9,25 @@ import SwiftData
 import SwiftUI
 import WidgetKit
 
-struct Provider: TimelineProvider {
+struct Provider: @preconcurrency TimelineProvider {
     let modelContainer = ModelContainer.shared
 
-    @MainActor func placeholder(in _: Context) -> ShabadEntry {
-        ShabadEntry(date: Date.now, sbd: SampleData.shabadResponse)
+    @MainActor func placeholder(in _: Context) -> FavShabadEntry {
+        FavShabadEntry(date: Date.now, obj: SampleData.favSbd)
     }
 
-    @MainActor func getSnapshot(in _: Context, completion: @escaping (ShabadEntry) -> Void) {
+    @MainActor func getSnapshot(in _: Context, completion: @escaping (FavShabadEntry) -> Void) {
         let favSbds = getFavShabads()
-        completion(ShabadEntry(date: Date.now, sbd: favSbds.first ?? SampleData.shabadResponse))
+        completion(FavShabadEntry(date: Date.now, obj: favSbds.first ?? SampleData.favSbd))
     }
 
-    @MainActor func getTimeline(in _: Context, completion: @escaping (Timeline<ShabadEntry>) -> Void) {
+    @MainActor func getTimeline(in _: Context, completion: @escaping (Timeline<FavShabadEntry>) -> Void) {
         let favSbds = getFavShabads()
-        var entries: [ShabadEntry] = []
+        var entries: [FavShabadEntry] = []
         let currentDate = Date()
         for hourOffset in 0 ..< favSbds.count {
             let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = ShabadEntry(date: entryDate, sbd: favSbds[hourOffset])
+            let entry = FavShabadEntry(date: entryDate, obj: favSbds[hourOffset])
             print("added entry")
             print(entry)
             entries.append(entry)
@@ -38,14 +38,12 @@ struct Provider: TimelineProvider {
     }
 
     @MainActor
-    private func getFavShabads() -> [ShabadAPIResponse] {
+    private func getFavShabads() -> [FavoriteShabad] {
         do {
             let context = modelContainer.mainContext
             let descriptor = FetchDescriptor<FavoriteShabad>(sortBy: [SortDescriptor(\.dateViewed, order: .reverse)])
             let results = try context.fetch(descriptor)
-            let lst = results.map{ $0.shabad }
-            print("Widget fetched \(lst.count) favorites")
-            return lst
+            return results
         } catch {
             print("Widget fetch error: \(error)")
             return []
@@ -57,11 +55,24 @@ struct Provider: TimelineProvider {
     //    }
 }
 
+struct FavShabadEntry: TimelineEntry {
+    let date: Date
+    let obj: FavoriteShabad
+}
+
 struct FavShabadsWidgetEntryView: View {
-    var entry: ShabadEntry
+    var entry: FavShabadEntry
     var body: some View {
-        WidgetEntryView(the_shabad: entry.sbd.shabad, heading: "From Favorites")
+        // WidgetEntryView(the_shabad: entry.obj.shabad, heading: "From Favorites")
+        Text("Favs")
     }
+    
+//    private getShabdObjFromFavLine(_ sbdObj:ShabadAPIResponse) -> {
+//        let ind = entry.obj.indexOfSelectedLine
+//        let lines = entry.obj.shabad.shabad
+//        let lns = Array(lines[ind..<lines.endIndex])
+//        entry.obj.shabad
+//    }
 }
 
 struct FavShabadsWidget: Widget {
@@ -86,29 +97,29 @@ struct FavShabadsWidget: Widget {
 #Preview(as: .accessoryInline) {
     FavShabadsWidget()
 } timeline: {
-    ShabadEntry(date: Date.now, sbd: SampleData.shabadResponse)
+    FavShabadEntry(date: Date.now, obj: SampleData.favSbd)
 }
 
 #Preview(as: .accessoryRectangular) {
     FavShabadsWidget()
 } timeline: {
-    ShabadEntry(date: Date.now, sbd: SampleData.shabadResponse)
+    FavShabadEntry(date: Date.now, obj: SampleData.favSbd)
 }
 
 #Preview(as: .systemSmall) {
     FavShabadsWidget()
 } timeline: {
-    ShabadEntry(date: Date.now, sbd: SampleData.shabadResponse)
+    FavShabadEntry(date: Date.now, obj: SampleData.favSbd)
 }
 
 #Preview(as: .systemMedium) {
     FavShabadsWidget()
 } timeline: {
-    ShabadEntry(date: Date.now, sbd: SampleData.shabadResponse)
+    FavShabadEntry(date: Date.now, obj: SampleData.favSbd)
 }
 
 #Preview(as: .systemLarge) {
     FavShabadsWidget()
 } timeline: {
-    ShabadEntry(date: Date.now, sbd: SampleData.shabadResponse)
+    FavShabadEntry(date: Date.now, obj: SampleData.favSbd)
 }

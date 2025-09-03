@@ -50,7 +50,7 @@ struct ShabadHistoryView: View {
                 } else {
                     List(historyItems) { historyItem in
                         // NavigationLink(destination: HistoryShabadDetailView(historyItem: historyItem)) {
-                        NavigationLink(destination: ShabadViewDisplay(shabadResponse: historyItem.shabad, foundByLine: historyItem.selectedLine) ) {
+                        NavigationLink(destination: ShabadViewDisplay(shabadResponse: historyItem.shabad, indexOfSelectedLine: historyItem.indexOfSelectedLine) ) {
                             HistoryShabadRowView(historyItem: historyItem)
                         }
                         .buttonStyle(PlainButtonStyle())
@@ -83,17 +83,18 @@ struct HistoryShabadRowView: View {
     let historyItem: ShabadHistory
     @Environment(\.colorScheme) private var colorScheme
 
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack {
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(historyItem.selectedLine.gurmukhi.unicode)
+                    Text(historyItem.shabad.shabad[historyItem.indexOfSelectedLine].line.gurmukhi.unicode)
                         .font(.title3)
                         .fontWeight(.semibold)
                         .lineLimit(2)
                         .multilineTextAlignment(.leading)
 
-                    Text(historyItem.selectedLine.translation.english.default)
+                    Text(historyItem.shabad.shabad[historyItem.indexOfSelectedLine].line.translation.english.default)
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                         .lineLimit(2)
@@ -214,12 +215,12 @@ struct HistoryShabadDetailView: View {
                         .font(.headline)
                         .foregroundColor(.primary)
 
-                    Text(historyItem.selectedLine.gurmukhi.unicode)
+                    Text(historyItem.shabad.shabad[historyItem.indexOfSelectedLine].line.gurmukhi.unicode)
                         .font(.title3)
                         .fontWeight(.medium)
                         .multilineTextAlignment(.leading)
 
-                    Text(historyItem.selectedLine.translation.english.default)
+                    Text(historyItem.shabad.shabad[historyItem.indexOfSelectedLine].line.translation.english.default)
                         .font(.body)
                         .foregroundColor(.secondary)
                         .lineSpacing(4)

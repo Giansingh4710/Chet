@@ -5,6 +5,7 @@ struct ShabadView: View {
     let searchedLine: LineObjFromSearch
     let alreadyInHistory = false
     @State private var shabadResponse: ShabadAPIResponse?
+    @State private var indexOfLine: Int = -1
     @State private var isLoadingShabad = true
     @State private var errorMessage: String?
     @Environment(\.colorScheme) private var colorScheme
@@ -19,20 +20,19 @@ struct ShabadView: View {
             } else if let errorMessage = errorMessage {
                 Text(errorMessage).foregroundColor(.red)
             } else if let shabadResponse = shabadResponse {
-                let foundByLine = LineOfShabad(from: searchedLine) // where `line` is LineObjFromSearch
-                ShabadViewDisplay(shabadResponse: shabadResponse, foundByLine: foundByLine)
+                ShabadViewDisplay(shabadResponse: shabadResponse, indexOfSelectedLine: indexOfLine)
             }
         }
         .background(colorScheme == .dark ? Color(.systemBackground) : Color(.systemGroupedBackground))
         // 👇 automatically runs when the view appears
         .task {
-            await fetchFullShabad(shabadId: searchedLine.shabadid)
+            await fetchFullShabad()
         }
     }
 
-    private func fetchFullShabad(shabadId: String) async {
-        let urlString = "https://data.gurbaninow.com/v2/shabad/\(shabadId)"
-        let foundByLine = LineOfShabad(from: searchedLine) // where `line` is LineObjFromSearch
+    private func fetchFullShabad() async {
+        let urlString = "https://data.gurbaninow.com/v2/shabad/\(searchedLine.shabadid)"
+        let foundByLineID = searchedLine.id // where `line` is LineObjFromSearch
         guard let url = URL(string: urlString) else {
             await MainActor.run {
                 errorMessage = "Invalid shabad URL"
@@ -48,10 +48,14 @@ struct ShabadView: View {
                 throw URLError(.badServerResponse)
             }
             let decoded = try JSONDecoder().decode(ShabadAPIResponse.self, from: data)
+            guard let aindexOfLine = decoded.shabad.firstIndex(where: { $0.line.id == foundByLineID }) else {
+                throw URLError(.badServerResponse)
+            }
             await MainActor.run {
                 isLoadingShabad = false
                 shabadResponse = decoded
-                addToHistory(decoded, foundByLine) // Automatically add to history
+                indexOfLine = aindexOfLine
+                addToHistory() // Automatically add to history
             }
         } catch {
             await MainActor.run {
@@ -61,13 +65,15 @@ struct ShabadView: View {
         }
     }
 
-    private func addToHistory(_ shabadResponse: ShabadAPIResponse, _ foundByLine: LineOfShabad) {
+    private func addToHistory() {
         // Check if already exists and update date
-        if let existing = historyItems.first(where: { $0.shabadID == shabadResponse.shabadinfo.shabadid }) {
+        if let existing = historyItems.first(where: { $0.shabadID == shabadResponse?.shabadinfo.shabadid }) {
             existing.dateViewed = Date()
         } else {
-            let historyEntry = ShabadHistory(shabadResponse: shabadResponse, selectedLine: foundByLine)
-            modelContext.insert(historyEntry)
+            if let sbdRes = shabadResponse {
+                let historyEntry = ShabadHistory(shabadResponse: sbdRes, indexOfSelectedLine: indexOfLine)
+                modelContext.insert(historyEntry)
+            }
         }
 
         // Keep only last 100 history entries
@@ -89,7 +95,7 @@ struct ShabadView: View {
 
 struct ShabadViewDisplay: View {
     let shabadResponse: ShabadAPIResponse
-    let foundByLine: LineOfShabad
+    let indexOfSelectedLine: Int
 
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
@@ -222,7 +228,7 @@ struct ShabadViewDisplay: View {
     }
 
     private func addFavorite() {
-        let favoriteShabad = FavoriteShabad(shabadResponse: shabadResponse, selectedLine: foundByLine)
+        let favoriteShabad = FavoriteShabad(shabadResponse: shabadResponse, indexOfSelectedLine: indexOfSelectedLine)
         modelContext.insert(favoriteShabad)
         isFavorite = true
         try? modelContext.save()

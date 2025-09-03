@@ -133,12 +133,28 @@
 			);
 			target = A053D08D2E666D47004E371B /* FavShabadsWidgetExtension */;
 		};
+		A053D0E22E679C24004E371B /* Exceptions for "Chet" folder in "RandomShabadWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Models/SavedShabadModel.swift,
+			);
+			target = A053D03E2E662787004E371B /* RandomShabadWidgetExtension */;
+		};
+		A053D0E32E679C24004E371B /* Exceptions for "Chet" folder in "HukamnamaWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Models/SavedShabadModel.swift,
+			);
+			target = A053D0622E6654FF004E371B /* HukamnamaWidgetExtension */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		A053CFFE2E6626BF004E371B /* Chet */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
+				A053D0E22E679C24004E371B /* Exceptions for "Chet" folder in "RandomShabadWidgetExtension" target */,
+				A053D0E32E679C24004E371B /* Exceptions for "Chet" folder in "HukamnamaWidgetExtension" target */,
 				A053D0A52E666EA5004E371B /* Exceptions for "Chet" folder in "FavShabadsWidgetExtension" target */,
 			);
 			path = Chet;
