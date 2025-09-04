@@ -22,7 +22,7 @@ struct Provider: TimelineProvider {
             var entries: [HukamEntry] = []
             let currentDate = Date()
             let entryDate = Calendar.current.date(byAdding: .hour, value: 24, to: currentDate)!
-            let hukam = response ?? SampleData.hukamnamResponse
+            let hukam = response ?? SampleData.emptyHukam
             let entry = HukamEntry(date: entryDate, hukam: hukam)
             entries.append(entry)
 

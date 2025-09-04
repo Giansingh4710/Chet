@@ -116,27 +116,12 @@ struct HukamnamaAPIResponse: Codable {
 
     struct DateInfo: Codable {
         let gregorian: GregorianDate
-        let nanakshahi: NanakshahiDate
-
         struct GregorianDate: Codable {
             let month: String
             let monthno: Int
             let date: Int
             let year: Int
             let day: String
-        }
-
-        struct NanakshahiDate: Codable {
-            let english: NanakshahiDateFormat
-            let punjabi: NanakshahiDateFormat
-
-            struct NanakshahiDateFormat: Codable {
-                let month: String
-                let monthno: String // Using String since Punjabi uses Unicode characters
-                let date: String // Using String for the same reason
-                let year: String // Using String for the same reason
-                let day: String
-            }
         }
     }
 

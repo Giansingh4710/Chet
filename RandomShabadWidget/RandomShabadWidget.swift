@@ -52,8 +52,33 @@ struct ShabadEntry: TimelineEntry {
 struct RandomShabadWidgetEntryView: View {
     var entry: ShabadEntry
     var body: some View {
-        WidgetEntryView(the_shabad: entry.sbd.shabad, heading: "Random Shabad")
+        WidgetEntryView(the_shabad: entry.sbd.shabad, heading: "Random Shabad" + getWidgetHeadingFromSbdInfo(entry.sbd.shabadinfo))
     }
+}
+
+func getWidgetHeadingFromSbdInfo(_ info: ShabadInfo) -> String {
+    var metaData = ": " + info.writer.unicode + " (" + info.raag.unicode + ")"
+    metaData = " ("
+    switch info.writer.id {
+    case 1:
+        metaData += "p:1"
+    case 2:
+        metaData +=  "p:2"
+    case 3:
+        metaData += "p:3"
+    case 4:
+        metaData += "p:4"
+    case 5:
+        metaData += "p:5"
+    case 6:
+        metaData += "p:9"
+    case 7:
+        metaData += "p:10"
+    default:
+        metaData += info.writer.unicode
+    }
+    metaData += ")"
+    return metaData
 }
 
 struct RandomShabadWidget: Widget {
@@ -76,32 +101,32 @@ struct RandomShabadWidget: Widget {
     }
 }
 
-#Preview(as: .accessoryInline) {
-    RandomShabadWidget()
-} timeline: {
-    ShabadEntry(date: Date.now, sbd: SampleData.shabadResponse)
-}
-
-#Preview(as: .accessoryRectangular) {
-    RandomShabadWidget()
-} timeline: {
-    ShabadEntry(date: Date.now, sbd: SampleData.shabadResponse)
-}
-
 #Preview(as: .systemSmall) {
     RandomShabadWidget()
 } timeline: {
     ShabadEntry(date: Date.now, sbd: SampleData.shabadResponse)
 }
 
-#Preview(as: .systemMedium) {
-    RandomShabadWidget()
-} timeline: {
-    ShabadEntry(date: Date.now, sbd: SampleData.shabadResponse)
-}
-
-#Preview(as: .systemLarge) {
-    RandomShabadWidget()
-} timeline: {
-    ShabadEntry(date: Date.now, sbd: SampleData.shabadResponse)
-}
+//#Preview(as: .accessoryInline) {
+//    RandomShabadWidget()
+//} timeline: {
+//    ShabadEntry(date: Date.now, sbd: SampleData.shabadResponse)
+//}
+//
+//#Preview(as: .accessoryRectangular) {
+//    RandomShabadWidget()
+//} timeline: {
+//    ShabadEntry(date: Date.now, sbd: SampleData.shabadResponse)
+//}
+//
+//#Preview(as: .systemMedium) {
+//    RandomShabadWidget()
+//} timeline: {
+//    ShabadEntry(date: Date.now, sbd: SampleData.shabadResponse)
+//}
+//
+//#Preview(as: .systemLarge) {
+//    RandomShabadWidget()
+//} timeline: {
+//    ShabadEntry(date: Date.now, sbd: SampleData.shabadResponse)
+//}

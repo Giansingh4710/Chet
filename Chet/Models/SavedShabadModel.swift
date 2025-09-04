@@ -14,12 +14,12 @@ final class FavoriteShabad {
     @Relationship(deleteRule: .cascade) var shabad: ShabadAPIResponse
     var indexOfSelectedLine: Int
     var dateViewed: Date
-    
+
     init(shabadResponse: ShabadAPIResponse, indexOfSelectedLine: Int) {
-        self.shabadID = shabadResponse.shabadinfo.shabadid
+        shabadID = shabadResponse.shabadinfo.shabadid
         self.indexOfSelectedLine = indexOfSelectedLine
-        self.shabad = shabadResponse
-        self.dateViewed = Date()
+        shabad = shabadResponse
+        dateViewed = Date()
     }
 }
 
@@ -29,14 +29,14 @@ final class ShabadHistory {
     @Relationship(deleteRule: .cascade) var shabad: ShabadAPIResponse
     var indexOfSelectedLine: Int
     var dateViewed: Date
-    
+
     init(shabadResponse: ShabadAPIResponse, indexOfSelectedLine: Int) {
-        self.shabadID = shabadResponse.shabadinfo.shabadid
+        shabadID = shabadResponse.shabadinfo.shabadid
         self.indexOfSelectedLine = indexOfSelectedLine
-        self.shabad = shabadResponse
-        self.dateViewed = Date()
+        shabad = shabadResponse
+        dateViewed = Date()
     }
-} 
+}
 
 extension ModelContainer {
     static let shared: ModelContainer = {

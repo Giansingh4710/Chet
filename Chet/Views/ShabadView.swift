@@ -103,56 +103,46 @@ struct ShabadViewDisplay: View {
     @Query private var favoriteShabads: [FavoriteShabad]
     @State private var isFavorite = false
 
+    // Persistent settings
+    @AppStorage("shabadTextScale") private var textScale: Double = 1.0
+    @AppStorage("showTranslations") private var showTranslations: Bool = true
+    @AppStorage("larivaar") private var larivaarOn: Bool = true
+
+    // Temporary scaling during pinch
+    @State private var gestureScale: CGFloat = 1.0
+
     var body: some View {
         NavigationView {
             ScrollView {
-                VStack(alignment: .leading, spacing: 20) {
-                    // Shabad Info Header
-                    VStack(alignment: .leading, spacing: 12) {
-                        HStack {
-                            VStack(alignment: .leading, spacing: 2) {
-                                Text("Source")
-                                    .font(.caption2)
-                                    .foregroundColor(.secondary)
-                                Text(shabadResponse.shabadinfo.source.english)
-                                    .font(.subheadline)
+                VStack(alignment: .leading, spacing: 16) {
+                    // --- Sleek Meta Info Card ---
+                    VStack(alignment: .leading) {
+                        HStack(spacing: 12) {
+                            Label {
+                                Text("Ang \(shabadResponse.shabadinfo.pageno)")
                                     .fontWeight(.semibold)
+                            } icon: {
+                                Image(systemName: "book.closed")
                             }
+                            .font(.subheadline)
                             Spacer()
-                            VStack(alignment: .trailing, spacing: 2) {
-                                Text("Writer")
-                                    .font(.caption2)
-                                    .foregroundColor(.secondary)
+                            Label {
                                 Text(shabadResponse.shabadinfo.writer.english)
-                                    .font(.subheadline)
                                     .fontWeight(.semibold)
+                            } icon: {
+                                Image(systemName: "pencil")
                             }
+                            .font(.subheadline)
                         }
-
-                        VStack(alignment: .leading, spacing: 2) {
-                            Text("Raag")
-                                .font(.caption2)
-                                .foregroundColor(.secondary)
-                            Text(shabadResponse.shabadinfo.raag.english)
-                                .font(.subheadline)
-                        }
-
-                        HStack {
-                            Text("Page \(shabadResponse.shabadinfo.pageno)")
-                                .font(.caption2)
-                                .foregroundColor(.secondary)
-                            Spacer()
-                            Text("\(shabadResponse.shabadinfo.count) lines")
-                                .font(.caption2)
-                                .foregroundColor(.secondary)
-                        }
+                        Spacer()
+                        Text("\(shabadResponse.shabad.count) Lines")
+                            .font(.system(size: 16, weight: .medium)) // Smaller font
+                            .foregroundColor(.secondary)
                     }
-                    .padding()
-                    .background(colorScheme == .dark ? Color(.systemGray6) : Color(.systemGray6))
-                    .cornerRadius(10)
+                    .padding(.horizontal)
 
-                    // Favorite Button
-                    HStack {
+                    HStack(spacing: 8) {
+                        // --- Favorite Button styled like toggles ---
                         Button(action: {
                             if isFavorite {
                                 removeFavorite()
@@ -160,67 +150,74 @@ struct ShabadViewDisplay: View {
                                 addFavorite()
                             }
                         }) {
-                            HStack {
-                                Image(systemName: isFavorite ? "heart.fill" : "heart")
-                                Text(isFavorite ? "Favorited" : "Add to Favorites")
-                            }
-                            .foregroundColor(isFavorite ? .red : .primary)
-                            .padding(.horizontal, 16)
-                            .padding(.vertical, 8)
-                            .background(Color(.systemGray5))
-                            .cornerRadius(8)
+                            Label(
+                                isFavorite ? "Favorited" : "Favorite",
+                                systemImage: isFavorite ? "heart.fill" : "heart"
+                            )
+                            .labelStyle(.titleAndIcon) // icon left, text right
+                            .font(.caption)
                         }
+                        .buttonStyle(.bordered)
+                        .tint(isFavorite ? .red : .gray)
 
-                        Spacer()
+                        // --- Translation Toggle ---
+                        Toggle(isOn: $showTranslations) {
+                            Label("Translation", systemImage: "text.alignleft").font(.caption2)
+                        }
+                        .toggleStyle(.button)
+                        .tint(.accentColor)
+
+                        // --- Larivaar Toggle ---
+                        Toggle(isOn: $larivaarOn) {
+                            Label("Larivaar", systemImage: "textformat").font(.caption)
+                        }
+                        .toggleStyle(.button)
+                        .tint(.accentColor)
                     }
                     .padding(.horizontal)
 
-                    // Shabad Lines (Compact, like bani)
+                    // --- Shabad Lines ---
                     VStack(alignment: .leading, spacing: 10) {
                         ForEach(shabadResponse.shabad, id: \.line.id) { shabadLine in
                             VStack(alignment: .leading, spacing: 4) {
-                                // Gurbani
-                                Text(shabadLine.line.gurmukhi.unicode)
-                                    .font(.title3)
+                                Text(getGurbaniLine(shabadLine))
+                                    .font(.system(size: 20 * textScale * gestureScale))
                                     .fontWeight(.medium)
                                     .multilineTextAlignment(.leading)
 
-                                // English Translation (smaller & subtle)
-                                Text(shabadLine.line.translation.english.default)
-                                    .font(.footnote)
-                                    .foregroundColor(.secondary)
-                                    .lineSpacing(2)
-
-                                // Small line type markers
-                                if shabadLine.line.type == 2 {
-                                    Text("• Title •")
-                                        .font(.caption2)
-                                        .foregroundColor(.blue)
-                                } else if shabadLine.line.type == 3 {
-                                    Text("• Refrain •")
-                                        .font(.caption2)
-                                        .foregroundColor(.orange)
+                                if showTranslations {
+                                    Text(shabadLine.line.translation.english.default)
+                                        .font(.system(size: 15 * textScale * gestureScale))
+                                        .foregroundColor(.secondary)
+                                        .lineSpacing(2)
                                 }
                             }
-                            .padding(.vertical, 4) // much smaller padding
+                            .padding(.vertical, 4)
                         }
                     }
+                    .gesture(
+                        MagnificationGesture()
+                            .onChanged { value in
+                                gestureScale = value
+                            }
+                            .onEnded { value in
+                                textScale *= value
+                                gestureScale = 1.0
+                            }
+                    )
                 }
-                .padding(.horizontal)
-                .padding(.top, 16)
+                .padding()
             }
-            .navigationTitle("Shabad")
+            .background(Color(.systemGroupedBackground))
             .navigationBarTitleDisplayMode(.inline)
-            .background(colorScheme == .dark ? Color(.systemBackground) : Color(.systemGroupedBackground))
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Done") { dismiss() }
-                }
-            }
         }
         .onAppear {
             checkFavoriteStatus()
         }
+    }
+
+    private func getGurbaniLine(_ shabadLine: ShabadLineWrapper) -> String {
+        larivaarOn ? shabadLine.line.larivaar.unicode : shabadLine.line.gurmukhi.unicode
     }
 
     private func checkFavoriteStatus() {
@@ -241,4 +238,10 @@ struct ShabadViewDisplay: View {
             try? modelContext.save()
         }
     }
+}
+
+#Preview {
+    // ShabadView(searchedLine: SampleData.searchedLine)
+    ShabadViewDisplay(shabadResponse: SampleData.shabadResponse,
+                      indexOfSelectedLine: 4)
 }

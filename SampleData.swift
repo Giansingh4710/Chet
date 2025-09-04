@@ -8,8 +8,121 @@
 import Foundation
 
 enum SampleData {
+    static let searchedLine: LineObjFromSearch  = srchedLine
     static let shabadResponse: ShabadAPIResponse = sbdRes
     static let favSbd: FavoriteShabad = .init(shabadResponse: sbdRes, indexOfSelectedLine: 1)
+    static let emptySbd: ShabadAPIResponse = .init(
+        shabadinfo: ShabadInfo(
+            shabadid: "",
+            pageno: 0,
+            source: Source(
+                id: 0,
+                akhar: "",
+                unicode: "",
+                english: "",
+                length: 0,
+                pageName: Source.PageName( akhar: "", unicode: "", english: "")
+            ),
+            writer: Writer( id: 0, akhar: "", unicode: "", english: ""),
+            raag: Raag( id: 0, akhar: "", unicode: "", english: "", startang: 0, endang: 0, raagwithpage: ""),
+            navigation: ShabadInfo.Navigation(
+                previous: ShabadInfo.Navigation.NavigationItem(id: ""),
+                next: ShabadInfo.Navigation.NavigationItem(id: "")
+            ),
+            count: 0
+        ),
+        shabad: [
+            ShabadLineWrapper(
+                line: LineOfShabad(
+                    id: "",
+                    type: 0,
+                    gurmukhi: TextPair(akhar: "No Favorite Shabads", unicode: "No Favorite Shabads"),
+                    larivaar: TextPair(akhar: "No Favorite Shabads", unicode: "No Favorite Shabads"),
+                    translation: Translation(
+                        english: .init(default: ""),
+                        punjabi: .init(default: TextPair(akhar: "", unicode: "")),
+                        spanish: ""
+                    ),
+                    transliteration: Transliteration(
+                        english: .init(text: "", larivaar: ""),
+                        devanagari: .init(text: "", larivaar: "")
+                    ),
+                    linenum: 2,
+                    firstletters: TextPair(akhar: "", unicode: "")
+                )
+            ),
+        ],
+        error: false
+    )
+    static let emptyHukam: HukamnamaAPIResponse = .init(
+        date: .init(
+            gregorian: .init(
+                month: "",
+                monthno: 9,
+                date: 1,
+                year: 2025,
+                day: ""
+            )
+        ),
+        hukamnamainfo: .init(
+            shabadid: [""],
+            pageno: 671,
+            source: .init(
+                id: 1,
+                akhar: "",
+                unicode: "",
+                english: "",
+                length: 0,
+                pageName: .init(
+                    akhar: "",
+                    unicode: "",
+                    english: ""
+                )
+            ),
+            writer: .init(
+                id: 5,
+                akhar: "",
+                unicode: "",
+                english: ""
+            ),
+            raag: .init(
+                id: 14,
+                akhar: "",
+                unicode: "",
+                english: "",
+                startang: 660,
+                endang: 695,
+                raagwithpage: ""
+            ),
+            count: 0
+        ),
+        hukamnama: [
+            .init(line: .init(
+                id: "",
+                type: 2,
+                gurmukhi: .init(
+                    akhar: "No Hukamnama",
+                    unicode: "No Hukamnama"
+                ),
+                larivaar: .init(
+                    akhar: "",
+                    unicode: ""
+                ),
+                translation: .init(
+                    english: .init(default: "No Hukamnama"),
+                    punjabi: .init(default: .init(akhar: "", unicode: "")),
+                    spanish: ""
+                ),
+                transliteration: .init(
+                    english: .init(text: "", larivaar: ""),
+                    devanagari: .init(text: "", larivaar: "")
+                ),
+                linenum: 16,
+                firstletters: .init(akhar: "", unicode: "")
+            )),
+        ],
+        error: false
+    )
     static let hukamnamResponse: HukamnamaAPIResponse = .init(
         date: .init(
             gregorian: .init(
@@ -18,22 +131,6 @@ enum SampleData {
                 date: 1,
                 year: 2025,
                 day: "Monday"
-            ),
-            nanakshahi: .init(
-                english: .init(
-                    month: "Bhadon",
-                    monthno: "6",
-                    date: "17",
-                    year: "557",
-                    day: "Somvaar"
-                ),
-                punjabi: .init(
-                    month: "ਭਾਦੋਂ",
-                    monthno: "੬",
-                    date: "੧੭",
-                    year: "੫੫੭",
-                    day: "ਸੋਮਵਾਰ"
-                )
             )
         ),
         hukamnamainfo: .init(
@@ -356,6 +453,61 @@ enum SampleData {
         error: false
     )
 }
+
+private let srchedLine: LineObjFromSearch = .init(
+         id: "2GYN",
+         type: 4,
+         shabadid: "4Z1",
+         gurmukhi: .init(
+             akhar: "qyrw kIAw mITw lwgY ]",
+             unicode: "ਤੇਰਾ ਕੀਆ ਮੀਠਾ ਲਾਗੈ ॥"
+         ),
+         larivaar: .init(
+             akhar: "qyrw​kIAw​mITw​lwgY​]",
+             unicode: "ਤੇਰਾ​ਕੀਆ​ਮੀਠਾ​ਲਾਗੈ​॥"
+         ),
+         translation: .init(
+             english: .init(default: "Your actions seem so sweet to me."),
+             punjabi: .init(default: .init(
+                 akhar: "(hy pRBU! ieh qyry imlwey hoey gurU dI myhr hY ik) mYƒ qyrw kIqw hoieAw hryk kMm cMgw l`g irhw hY,",
+                 unicode: "(ਹੇ ਪ੍ਰਭੂ! ਇਹ ਤੇਰੇ ਮਿਲਾਏ ਹੋਏ ਗੁਰੂ ਦੀ ਮੇਹਰ ਹੈ ਕਿ) ਮੈਨੂੰ ਤੇਰਾ ਕੀਤਾ ਹੋਇਆ ਹਰੇਕ ਕੰਮ ਚੰਗਾ ਲੱਗ ਰਿਹਾ ਹੈ,"
+             )),
+             spanish: "Dulces son para mí Tus acciones,"
+         ),
+         transliteration: .init(
+             english: .init(text: "teraa keea meetthaa laagai |", larivaar: "teraa​keea​meetthaa​laagai​|"),
+             devanagari: .init(text: "तेरा कीआ मीठा लागै ॥", larivaar: "तेरा​कीआ​मीठा​लागै​॥")
+         ),
+         source: .init(
+             id: 1,
+             akhar: "SRI gurU gRMQ swihb jI",
+             unicode: "ਸ਼੍ਰੀ ਗੁਰੂ ਗ੍ਰੰਥ ਸਾਹਿਬ ਜੀ",
+             english: "Sri Guru Granth Sahib Ji",
+             length: 1430,
+             pageName: .init(akhar: "AMg", unicode: "ਅੰਗ")
+         ),
+         writer: .init(
+             id: 5,
+             akhar: "gurU Arjn dyv jI",
+             unicode: "ਗੁਰੂ ਅਰਜਨ ਦੇਵ ਜੀ",
+             english: "Guru Arjan Dev Ji"
+         ),
+         raag: .init(
+             id: 8,
+             akhar: "rwgu Awsw",
+             unicode: "ਰਾਗੁ ਆਸਾ",
+             english: "Raag Aasaa",
+             startang: 347,
+             endang: 488,
+             raagwithpage: "Raag Aasaa (347-488)"
+         ),
+         firstletters: .init(
+             akhar: "qkml",
+             unicode: "ਤਕਮਲ"
+         ),
+         pageno: 394,
+         lineno: 4
+     )
 
 private let sbdRes: ShabadAPIResponse = .init(
     shabadinfo: ShabadInfo(

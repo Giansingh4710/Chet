@@ -59,9 +59,21 @@ func fetchHukam() async -> HukamnamaAPIResponse? {
         else {
             throw URLError(.badServerResponse)
         }
-        return try JSONDecoder().decode(HukamnamaAPIResponse.self, from: data)
+        print(data)
+        let decoded = try JSONDecoder().decode(HukamnamaAPIResponse.self, from: data)
+        return decoded
+    } catch let DecodingError.keyNotFound(key, context) {
+        print("❌ Missing key:", key.stringValue, "in", context.codingPath)
+    } catch let DecodingError.typeMismatch(type, context) {
+        print("❌ Type mismatch for type:", type, "in", context.codingPath)
+        print("Context debugDescription:", context.debugDescription)
+    } catch let DecodingError.valueNotFound(value, context) {
+        print("❌ Missing value:", value, "in", context.codingPath)
+    } catch let DecodingError.dataCorrupted(context) {
+        print("❌ Data corrupted:", context.debugDescription)
     } catch {
+        print("❌ Other error:", error)
         print("Error fetching random shabad: \(error.localizedDescription)")
-        return nil
     }
+    return nil
 }

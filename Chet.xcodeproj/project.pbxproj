@@ -129,6 +129,7 @@
 		A053D0A52E666EA5004E371B /* Exceptions for "Chet" folder in "FavShabadsWidgetExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Models/LineSearchModel.swift,
 				Models/SavedShabadModel.swift,
 			);
 			target = A053D08D2E666D47004E371B /* FavShabadsWidgetExtension */;
@@ -136,6 +137,7 @@
 		A053D0E22E679C24004E371B /* Exceptions for "Chet" folder in "RandomShabadWidgetExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Models/LineSearchModel.swift,
 				Models/SavedShabadModel.swift,
 			);
 			target = A053D03E2E662787004E371B /* RandomShabadWidgetExtension */;
@@ -143,6 +145,7 @@
 		A053D0E32E679C24004E371B /* Exceptions for "Chet" folder in "HukamnamaWidgetExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Models/LineSearchModel.swift,
 				Models/SavedShabadModel.swift,
 			);
 			target = A053D0622E6654FF004E371B /* HukamnamaWidgetExtension */;

@@ -7,35 +7,33 @@ struct FavoriteShabadsView: View {
     @Environment(\.colorScheme) private var colorScheme
 
     var body: some View {
-        NavigationView {
-            VStack(spacing: 0) {
-                if favoriteShabads.isEmpty {
-                    VStack(spacing: 16) {
-                        Image(systemName: "heart")
-                            .font(.system(size: 48))
-                            .foregroundColor(.gray)
-                        Text("No Favorite Shabads")
-                            .font(.headline)
-                        Text("Start favoriting shabads to see them here")
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
-                            .multilineTextAlignment(.center)
-                            .padding(.horizontal)
-                    }
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                } else {
-                    List(favoriteShabads) { favoriteShabad in
-                        NavigationLink(destination: ShabadViewDisplay(shabadResponse: favoriteShabad.shabad, indexOfSelectedLine: favoriteShabad.indexOfSelectedLine) ) {
-                            FavoriteShabadRowView(favoriteShabad: favoriteShabad, modelContext: modelContext)
-                        }
-                        .buttonStyle(PlainButtonStyle())
-                    }
-                    .listStyle(PlainListStyle())
+        VStack(spacing: 0) {
+            if favoriteShabads.isEmpty {
+                VStack(spacing: 16) {
+                    Image(systemName: "heart")
+                        .font(.system(size: 48))
+                        .foregroundColor(.gray)
+                    Text("No Favorite Shabads")
+                        .font(.headline)
+                    Text("Start favoriting shabads to see them here")
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal)
                 }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            } else {
+                List(favoriteShabads) { favoriteShabad in
+                    NavigationLink(destination: ShabadViewDisplay(shabadResponse: favoriteShabad.shabad, indexOfSelectedLine: favoriteShabad.indexOfSelectedLine) ) {
+                        FavoriteShabadRowView(favoriteShabad: favoriteShabad, modelContext: modelContext)
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                }
+                .listStyle(PlainListStyle())
             }
-            .navigationTitle("Favorites")
-            .background(colorScheme == .dark ? Color(.systemBackground) : Color(.systemGroupedBackground))
         }
+        .navigationTitle("Favorites")
+        .background(colorScheme == .dark ? Color(.systemBackground) : Color(.systemGroupedBackground))
     }
 }
 

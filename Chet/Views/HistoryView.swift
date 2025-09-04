@@ -8,6 +8,7 @@
 import SwiftData
 import SwiftUI
 
+// Remove the NavigationView wrapper in ShabadHistoryView
 struct ShabadHistoryView: View {
     @Query(sort: \ShabadHistory.dateViewed, order: .reverse) private var historyItems: [ShabadHistory]
     @State private var showingClearConfirmation = false
@@ -15,59 +16,54 @@ struct ShabadHistoryView: View {
     @Environment(\.modelContext) private var modelContext
 
     var body: some View {
-        NavigationView {
-            VStack(spacing: 0) {
-                // Clear History Button
-                HStack {
-                    Spacer()
-                    Button(action: {
-                        showingClearConfirmation = true
-                    }) {
-                        Image(systemName: "trash")
-                            .foregroundColor(.red)
-                            .padding(8)
-                            .background(Color(.systemGray5))
-                            .cornerRadius(8)
-                    }
-                }
-                .padding(.horizontal)
-                .padding(.vertical, 8)
-                
-                if historyItems.isEmpty {
-                    VStack(spacing: 16) {
-                        Image(systemName: "clock")
-                            .font(.system(size: 48))
-                            .foregroundColor(.gray)
-                        Text("No History")
-                            .font(.headline)
-                        Text("Your viewed shabads will appear here")
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
-                            .multilineTextAlignment(.center)
-                            .padding(.horizontal)
-                    }
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                } else {
-                    List(historyItems) { historyItem in
-                        // NavigationLink(destination: HistoryShabadDetailView(historyItem: historyItem)) {
-                        NavigationLink(destination: ShabadViewDisplay(shabadResponse: historyItem.shabad, indexOfSelectedLine: historyItem.indexOfSelectedLine) ) {
-                            HistoryShabadRowView(historyItem: historyItem)
-                        }
-                        .buttonStyle(PlainButtonStyle())
-                    }
-                    .listStyle(PlainListStyle())
+        VStack(spacing: 0) {
+            // Clear History Button
+            HStack {
+                Button(action: {
+                    showingClearConfirmation = true
+                }) {
+                    Image(systemName: "trash")
+                        .foregroundColor(.red)
+                        .padding(4)
+                        .background(Color(.systemGray5))
+                        .cornerRadius(8)
                 }
             }
-            .navigationTitle("History")
-            .background(colorScheme == .dark ? Color(.systemBackground) : Color(.systemGroupedBackground))
-            .alert("Clear History", isPresented: $showingClearConfirmation) {
-                Button("Cancel", role: .cancel) {}
-                Button("Clear All", role: .destructive) {
-                    clearHistory()
+            
+            if historyItems.isEmpty {
+                VStack(spacing: 16) {
+                    Image(systemName: "clock")
+                        .font(.system(size: 48))
+                        .foregroundColor(.gray)
+                    Text("No History")
+                        .font(.headline)
+                    Text("Your viewed shabads will appear here")
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal)
                 }
-            } message: {
-                Text("Are you sure you want to clear all history? This action cannot be undone.")
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            } else {
+                List(historyItems) { historyItem in
+                    // NavigationLink(destination: HistoryShabadDetailView(historyItem: historyItem)) {
+                    NavigationLink(destination: ShabadViewDisplay(shabadResponse: historyItem.shabad, indexOfSelectedLine: historyItem.indexOfSelectedLine) ) {
+                        HistoryShabadRowView(historyItem: historyItem)
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                }
+                .listStyle(PlainListStyle())
             }
+        }
+        .navigationTitle("History")
+        .background(colorScheme == .dark ? Color(.systemBackground) : Color(.systemGroupedBackground))
+        .alert("Clear History", isPresented: $showingClearConfirmation) {
+            Button("Cancel", role: .cancel) {}
+            Button("Clear All", role: .destructive) {
+                clearHistory()
+            }
+        } message: {
+            Text("Are you sure you want to clear all history? This action cannot be undone.")
         }
     }
 
