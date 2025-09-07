@@ -13,7 +13,7 @@ struct ContentView: View {
     @State private var searchNavPath = NavigationPath()
     @State private var favoritesNavPath = NavigationPath()
     @State private var historyNavPath = NavigationPath()
-    
+
     var body: some View {
         TabView(selection: $selectedTab) {
             NavigationStack(path: $searchNavPath) {
@@ -29,7 +29,7 @@ struct ContentView: View {
                 Text("Search")
             }
             .tag(0)
-            
+
             // Other tabs remain the same
             NavigationStack(path: $favoritesNavPath) {
                 FavoriteShabadsView()
@@ -44,7 +44,7 @@ struct ContentView: View {
                 Text("Favorites")
             }
             .tag(1)
-            
+
             NavigationStack(path: $historyNavPath) {
                 ShabadHistoryView()
             }

@@ -6,7 +6,9 @@
 //
 
 import Foundation
-import WidgetKit // for TimelineEntry
+import SwiftData
+
+// import WidgetKit // for TimelineEntry
 
 struct TextPair: Codable {
     let akhar: String
@@ -43,12 +45,12 @@ struct Source: Codable {
     let english: String
     let length: Int
     let pageName: PageName
+}
 
-    struct PageName: Codable {
-        let akhar: String
-        let unicode: String
-        let english: String
-    }
+struct PageName: Codable {
+    let akhar: String
+    let unicode: String
+    let english: String
 }
 
 struct Writer: Codable {
@@ -94,8 +96,8 @@ struct LineOfShabad: Codable {
     let larivaar: TextPair
     let translation: Translation
     let transliteration: Transliteration
-    let linenum: Int?
     let firstletters: TextPair
+    let linenum: Int?
 }
 
 struct ShabadLineWrapper: Codable {
@@ -133,4 +135,80 @@ struct HukamnamaAPIResponse: Codable {
         let raag: Raag
         let count: Int
     }
+}
+
+struct LineObjFromSearch: Codable, Identifiable {
+    let id: String
+    let shabadid: String
+    let type: Int
+    let gurmukhi: TextPair
+    let larivaar: TextPair
+    let translation: Translation
+    let transliteration: Transliteration
+    let firstletters: TextPair
+    let source: Source
+    let writer: Writer
+    let raag: Raag
+    let pageno: Int
+    let lineno: Int?
+}
+
+struct GurbaniSearchAPIResponse: Codable {
+    let inputvalues: InputValues
+    let count: Int
+    let shabads: [LineObjWrapper]
+    let error: Bool
+
+    struct InputValues: Codable {
+        let searchvalue: String
+        let searchtype: Int
+        let source: Int
+        let results: Int
+        let skip: Int
+    }
+
+    struct LineObjWrapper: Codable {
+        let shabad: LineObjFromSearch
+    }
+}
+
+@Model
+final class ShabadHistory {
+    @Attribute(.unique) var shabadID: String
+    @Relationship(deleteRule: .cascade) var sbdRes: ShabadAPIResponse
+    var indexOfSelectedLine: Int
+    var dateViewed: Date
+    var isFavorite = false
+
+    init(sbdRes: ShabadAPIResponse, indexOfSelectedLine: Int, isFavorite: Bool = false) {
+        shabadID = sbdRes.shabadinfo.shabadid
+        self.indexOfSelectedLine = indexOfSelectedLine
+        self.sbdRes = sbdRes
+        dateViewed = Date()
+        self.isFavorite = isFavorite
+    }
+}
+
+extension LineOfShabad {
+    init(from searchLine: LineObjFromSearch) {
+        id = searchLine.id
+        type = searchLine.type
+        gurmukhi = searchLine.gurmukhi
+        larivaar = searchLine.larivaar
+        translation = searchLine.translation
+        transliteration = searchLine.transliteration
+        linenum = searchLine.lineno // maps to lineno
+        firstletters = searchLine.firstletters
+    }
+}
+
+extension ModelContainer {
+    static let shared: ModelContainer = {
+        let schema = Schema([ShabadHistory.self])
+        let config = ModelConfiguration(
+            schema: schema,
+            groupContainer: .identifier("group.xyz.gians.Chet") // 👈 must match App Group ID
+        )
+        return try! ModelContainer(for: schema, configurations: [config])
+    }()
 }

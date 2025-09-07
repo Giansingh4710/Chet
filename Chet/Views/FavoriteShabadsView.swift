@@ -3,7 +3,12 @@ import SwiftUI
 
 struct FavoriteShabadsView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query(sort: \FavoriteShabad.dateViewed, order: .reverse) private var favoriteShabads: [FavoriteShabad]
+    @Query(
+        filter: #Predicate<ShabadHistory> { $0.isFavorite == true },
+        sort: \.dateViewed,
+        order: .reverse
+    ) private var favoriteShabads: [ShabadHistory]
+
     @Environment(\.colorScheme) private var colorScheme
 
     var body: some View {
@@ -24,7 +29,7 @@ struct FavoriteShabadsView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             } else {
                 List(favoriteShabads) { favoriteShabad in
-                    NavigationLink(destination: ShabadViewDisplay(shabadResponse: favoriteShabad.shabad, indexOfSelectedLine: favoriteShabad.indexOfSelectedLine) ) {
+                    NavigationLink(destination: ShabadViewDisplayWrapper(sbdHistory: favoriteShabad) ) {
                         FavoriteShabadRowView(favoriteShabad: favoriteShabad, modelContext: modelContext)
                     }
                     .buttonStyle(PlainButtonStyle())
@@ -38,7 +43,7 @@ struct FavoriteShabadsView: View {
 }
 
 struct FavoriteShabadRowView: View {
-    let favoriteShabad: FavoriteShabad
+    let favoriteShabad: ShabadHistory
     let modelContext: ModelContext
     @Environment(\.colorScheme) private var colorScheme
 
@@ -46,13 +51,13 @@ struct FavoriteShabadRowView: View {
         VStack(alignment: .leading, spacing: 8) {
             HStack {
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(favoriteShabad.shabad.shabad[favoriteShabad.indexOfSelectedLine].line.gurmukhi.unicode)
+                    Text(favoriteShabad.sbdRes.shabad[favoriteShabad.indexOfSelectedLine].line.gurmukhi.unicode)
                         .font(.title3)
                         .fontWeight(.semibold)
                         .lineLimit(2)
                         .multilineTextAlignment(.leading)
 
-                    Text(favoriteShabad.shabad.shabad[favoriteShabad.indexOfSelectedLine].line.translation.english.default)
+                    Text(favoriteShabad.sbdRes.shabad[favoriteShabad.indexOfSelectedLine].line.translation.english.default)
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                         .lineLimit(2)
@@ -72,7 +77,7 @@ struct FavoriteShabadRowView: View {
             }
 
             HStack {
-                Text(favoriteShabad.shabad.shabadinfo.source.unicode)
+                Text(favoriteShabad.sbdRes.shabadinfo.source.unicode)
                     .font(.caption)
                     .padding(.horizontal, 8)
                     .padding(.vertical, 4)
@@ -80,7 +85,7 @@ struct FavoriteShabadRowView: View {
                     .foregroundColor(.blue)
                     .cornerRadius(4)
 
-                Text(favoriteShabad.shabad.shabadinfo.writer.english)
+                Text(favoriteShabad.sbdRes.shabadinfo.writer.english)
                     .font(.caption)
                     .padding(.horizontal, 8)
                     .padding(.vertical, 4)
@@ -88,7 +93,7 @@ struct FavoriteShabadRowView: View {
                     .foregroundColor(.green)
                     .cornerRadius(4)
 
-                Text("Page \(favoriteShabad.shabad.shabadinfo.pageno)")
+                Text("Page \(favoriteShabad.sbdRes.shabadinfo.pageno)")
                     .font(.caption)
                     .padding(.horizontal, 8)
                     .padding(.vertical, 4)

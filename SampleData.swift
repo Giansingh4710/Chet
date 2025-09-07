@@ -10,7 +10,7 @@ import Foundation
 enum SampleData {
     static let searchedLine: LineObjFromSearch  = srchedLine
     static let shabadResponse: ShabadAPIResponse = sbdRes
-    static let favSbd: FavoriteShabad = .init(shabadResponse: sbdRes, indexOfSelectedLine: 1)
+    static let sbdHist: ShabadHistory = .init(sbdRes: sbdRes, indexOfSelectedLine: 1, isFavorite: true)
     static let emptySbd: ShabadAPIResponse = .init(
         shabadinfo: ShabadInfo(
             shabadid: "",
@@ -21,7 +21,7 @@ enum SampleData {
                 unicode: "",
                 english: "",
                 length: 0,
-                pageName: Source.PageName( akhar: "", unicode: "", english: "")
+                pageName: PageName( akhar: "", unicode: "", english: "")
             ),
             writer: Writer( id: 0, akhar: "", unicode: "", english: ""),
             raag: Raag( id: 0, akhar: "", unicode: "", english: "", startang: 0, endang: 0, raagwithpage: ""),
@@ -47,8 +47,8 @@ enum SampleData {
                         english: .init(text: "", larivaar: ""),
                         devanagari: .init(text: "", larivaar: "")
                     ),
-                    linenum: 2,
-                    firstletters: TextPair(akhar: "", unicode: "")
+                    firstletters: TextPair(akhar: "", unicode: ""),
+                    linenum: 2
                 )
             ),
         ],
@@ -117,8 +117,8 @@ enum SampleData {
                     english: .init(text: "", larivaar: ""),
                     devanagari: .init(text: "", larivaar: "")
                 ),
-                linenum: 16,
-                firstletters: .init(akhar: "", unicode: "")
+                firstletters: .init(akhar: "", unicode: ""),
+                linenum: 16
             )),
         ],
         error: false
@@ -186,8 +186,8 @@ enum SampleData {
                     english: .init(text: "dhanaasaree mahalaa 5 |", larivaar: "dhanaasaree​mahalaa​5​|"),
                     devanagari: .init(text: "धनासरी महला ५ ॥", larivaar: "धनासरी​महला​५​॥")
                 ),
-                linenum: 16,
-                firstletters: .init(akhar: "Dm5]", unicode: "ਧਮ੫॥")
+                firstletters: .init(akhar: "Dm5]", unicode: "ਧਮ੫॥"),
+                linenum: 16
             )),
             .init(line: .init(
                 id: "VC5W",
@@ -212,8 +212,8 @@ enum SampleData {
                     english: .init(text: "jis kaa tan man dhan sabh tis kaa soee sugharr sujaanee |", larivaar: "jis​kaa​tan​man​dhan​sabh​tis​kaa​soee​sugharr​sujaanee​|"),
                     devanagari: .init(text: "जिस का तनु मनु धनु सभु तिस का सोई सुघड़ु सुजानी ॥", larivaar: "जिस​का​तनु​मनु​धनु​सभु​तिस​का​सोई​सुघड़ु​सુजानी​॥")
                 ),
-                linenum: 16,
-                firstletters: .init(akhar: "jkqmDsqksss", unicode: "ਜਕਤਮਧਸਤਕਸਸਸ")
+                firstletters: .init(akhar: "jkqmDsqksss", unicode: "ਜਕਤਮਧਸਤਕਸਸਸ"),
+                linenum: 16
             )),
             .init(line: .init(
                 id: "LGXW",
@@ -238,8 +238,8 @@ enum SampleData {
                     english: .init(text: "tin hee suniaa dukh sukh meraa tau bidh neekee khattaanee |1|", larivaar: "tin​hee​suniaa​dukh​sukh​meraa​tau​bidh​neekee​khattaanee​|1|"),
                     devanagari: .init(text: "तिन ही सुणिआ दुखु सुखु मेरा तउ बिधि नीकी खटानी ॥१॥", larivaar: "तिन​ही​सुणिआ​दुखु​सुखु​मेरा​तउ​बिधि​नीकी​खटानी​॥१॥")
                 ),
-                linenum: 17,
-                firstletters: .init(akhar: "qhsdsmqbnK", unicode: "ਤਹਸਦਸਮਤਬਨਖ")
+                firstletters: .init(akhar: "qhsdsmqbnK", unicode: "ਤਹਸਦਸਮਤਬਨਖ"),
+                linenum: 17
             )),
             .init(line: .init(
                 id: "YDYH",
@@ -264,8 +264,8 @@ enum SampleData {
                     english: .init(text: "jeea kee ekai hee peh maanee |", larivaar: "jeea​kee​ekai​hee​peh​maanee​|"),
                     devanagari: .init(text: "जीअ की एकै ही पहि मानी ॥", larivaar: "जीअ​की​एकै​ही​पहि​मानी​॥")
                 ),
-                linenum: 17,
-                firstletters: .init(akhar: "jkehpm", unicode: "ਜਕੲਹਪਮ")
+                firstletters: .init(akhar: "jkehpm", unicode: "ਜਕੲਹਪਮ"),
+                linenum: 17
             )),
             .init(line: .init(
                 id: "VWJR",
@@ -290,8 +290,8 @@ enum SampleData {
                     english: .init(text: "avar jatan kar rahe bahutere tin til nahee keemat jaanee | rahaau |", larivaar: "avar​jatan​kar​rahe​bahutere​tin​til​nahee​keemat​jaanee​|​rahaau​|"),
                     devanagari: .init(text: "अवरि जतन करि रहे बहुतेरे तिन तिलु नही कीमति जानी ॥ रहाउ ॥", larivaar: "अवरि​जतन​करि​रहे​बहुतेरे​तिन​तिलु​नही​कीमति​जानी​॥​रहाउ​॥")
                 ),
-                linenum: 17,
-                firstletters: .init(akhar: "Ajkrbqqnkj", unicode: "ਅਜਕਰਬਤਤਨਕਜ")
+                firstletters: .init(akhar: "Ajkrbqqnkj", unicode: "ਅਜਕਰਬਤਤਨਕਜ"),
+                linenum: 17
             )),
             .init(line: .init(
                 id: "2DSL",
@@ -316,8 +316,8 @@ enum SampleData {
                     english: .init(text: "amrit naam niramolak heeraa gur deeno mantaanee |", larivaar: "amrit​naam​niramolak​heeraa​gur​deeno​mantaanee​|"),
                     devanagari: .init(text: "अंम्रित नामु निरमोलकु हीरा गुरि दीनो मंतानी ॥", larivaar: "अंम्रित​नामु​निरमोलकु​हीरा​गुरि​दीनो​मंतानी​॥")
                 ),
-                linenum: 18,
-                firstletters: .init(akhar: "Annhgdm", unicode: "ਅਨਨਹਗਦਮ")
+                firstletters: .init(akhar: "Annhgdm", unicode: "ਅਨਨਹਗਦਮ"),
+                linenum: 18
             )),
             .init(line: .init(
                 id: "JJSM",
@@ -342,8 +342,8 @@ enum SampleData {
                     english: .init(text: "ddigai na ddolai drirr kar rahio pooran hoe tripataanee |2|", larivaar: "ddigai​na​ddolai​drirr​kar​rahio​pooran​hoe​tripataanee​|2|"),
                     devanagari: .init(text: "डिगै न डोलै द्रिड़ु करि रहिओ पूरन होइ त्रिपतानी ॥२॥", larivaar: "डिगै​न​डोलै​द्रिड़ु​करि​रहिओ​पूरन​होइ​त्रिपतानी​॥२॥")
                 ),
-                linenum: 19,
-                firstletters: .init(akhar: "fnfdkrphq", unicode: "ਡਨਡਦਕਰਪਹਤ")
+                firstletters: .init(akhar: "fnfdkrphq", unicode: "ਡਨਡਦਕਰਪਹਤ"),
+                linenum: 19
             )),
             .init(line: .init(
                 id: "5JC2",
@@ -368,8 +368,8 @@ enum SampleData {
                     english: .init(text: "oe ju beech ham tum kachh hote tin kee baat bilaanee |", larivaar: "oe​ju​beech​ham​tum​kachh​hote​tin​kee​baat​bilaanee​|"),
                     devanagari: .init(text: "ओइ जु बीच हम तुम कछु होते तिन की बात बिलानी ॥", larivaar: "ओइ​जु​बीच​हम​तुम​कछु​होते​तिन​की​बात​बिलानी​॥")
                 ),
-                linenum: 19,
-                firstletters: .init(akhar: "ajbhqkhqkbb", unicode: "ੳਜਬਹਤਕਹਤਕਬਬ")
+                firstletters: .init(akhar: "ajbhqkhqkbb", unicode: "ੳਜਬਹਤਕਹਤਕਬਬ"),
+                linenum: 19
             )),
             .init(line: .init(
                 id: "EB06",
@@ -394,8 +394,8 @@ enum SampleData {
                     english: .init(text: "alankaar mil thailee hoee hai taa te kanik vakhaanee |3|", larivaar: "alankaar​mil​thailee​hoee​hai​taa​te​kanik​vakhaanee​|3|"),
                     devanagari: .init(text: "अलंकार मिलि थैली होई है ता ते कनिक वखानी ॥३॥", larivaar: "अलंकार​मिलि​थैली​होई​है​ता​ते​कनिक​वखानी​॥३॥")
                 ),
-                linenum: 1,
-                firstletters: .init(akhar: "AmQhhqqkv", unicode: "ਅਮਥਹਹਤਤਕਵ")
+                firstletters: .init(akhar: "AmQhhqqkv", unicode: "ਅਮਥਹਹਤਤਕਵ"),
+                linenum: 1
             )),
             .init(line: .init(
                 id: "75MQ",
@@ -420,8 +420,8 @@ enum SampleData {
                     english: .init(text: "pragattio jot sehaj sukh sobhaa baaje anahat baanee |", larivaar: "pragattio​jot​sehaj​sukh​sobhaa​baaje​anahat​baanee​|"),
                     devanagari: .init(text: "प्रगटिओ जोति सहज सुख सोभा बाजे अनहत बानी ॥", larivaar: "प्रगटिओ​जोति​सहज​सुख​सोभा​बाजे​अनहत​बानी​॥")
                 ),
-                linenum: 1,
-                firstletters: .init(akhar: "pjsssbAb", unicode: "ਪਜਸਸਸਬਅਬ")
+                firstletters: .init(akhar: "pjsssbAb", unicode: "ਪਜਸਸਸਬਅਬ"),
+                linenum: 1
             )),
             .init(line: .init(
                 id: "JZJC",
@@ -446,8 +446,8 @@ enum SampleData {
                     english: .init(text: "kahu naanak nihachal ghar baadhio gur keeo bandhaanee |4|5|", larivaar: "kahu​naanak​nihachal​ghar​baadhio​gur​keeo​bandhaanee​|4|5|"),
                     devanagari: .init(text: "कहु नानक निहचल घरु बाधिओ गुरि कीओ बंधानी ॥४॥५॥", larivaar: "कहु​नानक​निहचल​घरु​बाधिओ​गुरि​कीओ​बंधानी​॥४॥५॥")
                 ),
-                linenum: 2,
-                firstletters: .init(akhar: "knnGbgkb", unicode: "ਕਨਨਘਬਗਕਬ")
+                firstletters: .init(akhar: "knnGbgkb", unicode: "ਕਨਨਘਬਗਕਬ"),
+                linenum: 2
             )),
         ],
         error: false
@@ -456,8 +456,8 @@ enum SampleData {
 
 private let srchedLine: LineObjFromSearch = .init(
          id: "2GYN",
-         type: 4,
          shabadid: "4Z1",
+         type: 4,
          gurmukhi: .init(
              akhar: "qyrw kIAw mITw lwgY ]",
              unicode: "ਤੇਰਾ ਕੀਆ ਮੀਠਾ ਲਾਗੈ ॥"
@@ -478,13 +478,17 @@ private let srchedLine: LineObjFromSearch = .init(
              english: .init(text: "teraa keea meetthaa laagai |", larivaar: "teraa​keea​meetthaa​laagai​|"),
              devanagari: .init(text: "तेरा कीआ मीठा लागै ॥", larivaar: "तेरा​कीआ​मीठा​लागै​॥")
          ),
+         firstletters: .init(
+             akhar: "qkml",
+             unicode: "ਤਕਮਲ"
+         ),
          source: .init(
              id: 1,
              akhar: "SRI gurU gRMQ swihb jI",
              unicode: "ਸ਼੍ਰੀ ਗੁਰੂ ਗ੍ਰੰਥ ਸਾਹਿਬ ਜੀ",
              english: "Sri Guru Granth Sahib Ji",
              length: 1430,
-             pageName: .init(akhar: "AMg", unicode: "ਅੰਗ")
+             pageName: .init(akhar: "AMg", unicode: "ਅੰਗ", english: "Ang")
          ),
          writer: .init(
              id: 5,
@@ -501,10 +505,6 @@ private let srchedLine: LineObjFromSearch = .init(
              endang: 488,
              raagwithpage: "Raag Aasaa (347-488)"
          ),
-         firstletters: .init(
-             akhar: "qkml",
-             unicode: "ਤਕਮਲ"
-         ),
          pageno: 394,
          lineno: 4
      )
@@ -519,7 +519,7 @@ private let sbdRes: ShabadAPIResponse = .init(
             unicode: "ਸ਼੍ਰੀ ਗੁਰੂ ਗ੍ਰੰਥ ਸਾਹਿਬ ਜੀ",
             english: "Sri Guru Granth Sahib Ji",
             length: 1430,
-            pageName: Source.PageName(
+            pageName: PageName(
                 akhar: "AMg",
                 unicode: "ਅੰਗ",
                 english: "Ang"
@@ -562,8 +562,8 @@ private let sbdRes: ShabadAPIResponse = .init(
                     english: .init(text: "aasaa ghar 7 mahalaa 5 |", larivaar: "aasaa​ghar​7​mahalaa​5​|"),
                     devanagari: .init(text: "आसा घरु ७ महला ५ ॥", larivaar: "आसा​घरु​७​महला​५​॥")
                 ),
-                linenum: 2,
-                firstletters: TextPair(akhar: "AG7m5]", unicode: "ਅਘ੭ਮ੫॥")
+                firstletters: TextPair(akhar: "AG7m5]", unicode: "ਅਘ੭ਮ੫॥"),
+                linenum: 2
             )
         ),
         ShabadLineWrapper(
@@ -584,8 +584,8 @@ private let sbdRes: ShabadAPIResponse = .init(
                     english: .init(text: "har kaa naam ridai nit dhiaaee |", larivaar: "har​kaa​naam​ridai​nit​dhiaaee​|"),
                     devanagari: .init(text: "हरि का नामु रिदै नित धिआई ॥", larivaar: "हरि​का​नामु​रिदै​नित​धिआई​॥")
                 ),
-                linenum: 2,
-                firstletters: TextPair(akhar: "hknrnD", unicode: "ਹਕਨਰਨਧ")
+                firstletters: TextPair(akhar: "hknrnD", unicode: "ਹਕਨਰਨਧ"),
+                linenum: 2
             )
         ),
         ShabadLineWrapper(
@@ -606,8 +606,8 @@ private let sbdRes: ShabadAPIResponse = .init(
                     english: .init(text: "sangee saathee sagal taraanee |1|", larivaar: "sangee​saathee​sagal​taraanee​|1|"),
                     devanagari: .init(text: "संगी साथी सगल तरांई ॥१॥", larivaar: "संगी​साथी​सगल​तरांई​॥१॥")
                 ),
-                linenum: 2,
-                firstletters: TextPair(akhar: "sssq", unicode: "ਸਸਸਤ")
+                firstletters: TextPair(akhar: "sssq", unicode: "ਸਸਸਤ"),
+                linenum: 2
             )
         ),
         ShabadLineWrapper(
@@ -628,8 +628,8 @@ private let sbdRes: ShabadAPIResponse = .init(
                     english: .init(text: "gur merai sang sadaa hai naale |", larivaar: "gur​merai​sang​sadaa​hai​naale​|"),
                     devanagari: .init(text: "गुरु मेरै संगि सदा है नाले ॥", larivaar: "गुरु​मेरै​संगि​सदा​है​नाले​॥")
                 ),
-                linenum: 3,
-                firstletters: TextPair(akhar: "gmsshn", unicode: "ਗਮਸਸਹਨ")
+                firstletters: TextPair(akhar: "gmsshn", unicode: "ਗਮਸਸਹਨ"),
+                linenum: 3
             )
         ),
         ShabadLineWrapper(
@@ -650,8 +650,8 @@ private let sbdRes: ShabadAPIResponse = .init(
                     english: .init(text: "simar simar tis sadaa samaale |1| rahaau |", larivaar: "simar​simar​tis​sadaa​samaale​|1|​rahaau​|"),
                     devanagari: .init(text: "सिमरि सिमरि तिसु सदा समाले ॥१॥ रहाउ ॥", larivaar: "सिमरि​सिमरि​तिसु​सदा​समाले​॥१॥​रहाउ​॥")
                 ),
-                linenum: 3,
-                firstletters: TextPair(akhar: "ssqss", unicode: "ਸਸਤਸਸ")
+                firstletters: TextPair(akhar: "ssqss", unicode: "ਸਸਤਸਸ"),
+                linenum: 3
             )
         ),
         ShabadLineWrapper(
@@ -672,8 +672,8 @@ private let sbdRes: ShabadAPIResponse = .init(
                     english: .init(text: "teraa keea meetthaa laagai |", larivaar: "teraa​keea​meetthaa​laagai​|"),
                     devanagari: .init(text: "तेरा कीआ मीठा लागै ॥", larivaar: "तेरा​कीआ​मीठा​लागै​॥")
                 ),
-                linenum: 4,
-                firstletters: TextPair(akhar: "qkml", unicode: "ਤਕਮਲ")
+                firstletters: TextPair(akhar: "qkml", unicode: "ਤਕਮਲ"),
+                linenum: 4
             )
         ),
         ShabadLineWrapper(
@@ -694,8 +694,8 @@ private let sbdRes: ShabadAPIResponse = .init(
                     english: .init(text: "har naam padaarath naanak maangai |2|42|93|", larivaar: "har​naam​padaarath​naanak​maangai​|2|42|93|"),
                     devanagari: .init(text: "हरि नामु पदारथु नानकु मांगै ॥२॥४२॥९३॥", larivaar: "हरि​नामु​पदारथु​नानकु​मांगै​॥२॥४२॥९३॥")
                 ),
-                linenum: 4,
-                firstletters: TextPair(akhar: "hnpnm", unicode: "ਹਨਪਨਮ")
+                firstletters: TextPair(akhar: "hnpnm", unicode: "ਹਨਪਨਮ"),
+                linenum: 4
             )
         ),
     ],

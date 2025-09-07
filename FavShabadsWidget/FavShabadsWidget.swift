@@ -12,22 +12,22 @@ import WidgetKit
 struct Provider: @preconcurrency TimelineProvider {
     let modelContainer = ModelContainer.shared
 
-    @MainActor func placeholder(in _: Context) -> FavShabadEntry {
-        FavShabadEntry(date: Date.now, obj: SampleData.favSbd)
+    @MainActor func placeholder(in _: Context) -> ShabadInHistoryEntry {
+        ShabadInHistoryEntry(date: Date.now, obj: SampleData.sbdHist)
     }
 
-    @MainActor func getSnapshot(in _: Context, completion: @escaping (FavShabadEntry) -> Void) {
-        let favSbds = getFavShabads()
-        completion(FavShabadEntry(date: Date.now, obj: favSbds.first ?? SampleData.favSbd))
+    @MainActor func getSnapshot(in _: Context, completion: @escaping (ShabadInHistoryEntry) -> Void) {
+        let sbdHists = getFavShabads()
+        completion(ShabadInHistoryEntry(date: Date.now, obj: sbdHists.first ?? SampleData.sbdHist))
     }
 
-    @MainActor func getTimeline(in _: Context, completion: @escaping (Timeline<FavShabadEntry>) -> Void) {
-        let favSbds = getFavShabads()
-        var entries: [FavShabadEntry] = []
+    @MainActor func getTimeline(in _: Context, completion: @escaping (Timeline<ShabadInHistoryEntry>) -> Void) {
+        let sbdHists = getFavShabads()
+        var entries: [ShabadInHistoryEntry] = []
         let currentDate = Date()
-        for hourOffset in 0 ..< favSbds.count {
+        for hourOffset in 0 ..< sbdHists.count {
             let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = FavShabadEntry(date: entryDate, obj: favSbds[hourOffset])
+            let entry = ShabadInHistoryEntry(date: entryDate, obj: sbdHists[hourOffset])
             print("added entry")
             print(entry)
             entries.append(entry)
@@ -38,10 +38,14 @@ struct Provider: @preconcurrency TimelineProvider {
     }
 
     @MainActor
-    private func getFavShabads() -> [FavoriteShabad] {
+    private func getFavShabads() -> [ShabadHistory] {
         do {
             let context = modelContainer.mainContext
-            let descriptor = FetchDescriptor<FavoriteShabad>(sortBy: [SortDescriptor(\.dateViewed, order: .reverse)])
+            let descriptor = FetchDescriptor<ShabadHistory>(
+                predicate: #Predicate { $0.isFavorite == true },
+                sortBy: [SortDescriptor(\.dateViewed, order: .reverse)]
+                // fetchLimit: 100
+            )
             let results = try context.fetch(descriptor)
             return results
         } catch {
@@ -55,18 +59,18 @@ struct Provider: @preconcurrency TimelineProvider {
     //    }
 }
 
-struct FavShabadEntry: TimelineEntry {
+struct ShabadInHistoryEntry: TimelineEntry {
     let date: Date
-    let obj: FavoriteShabad
+    let obj: ShabadHistory
 }
 
 struct FavShabadsWidgetEntryView: View {
-    var entry: FavShabadEntry
+    var entry: ShabadInHistoryEntry
     var body: some View {
         // WidgetEntryView(the_shabad: entry.obj.shabad, heading: "From Favorites")
         Text("Favs")
     }
-    
+
 //    private getShabdObjFromFavLine(_ sbdObj:ShabadAPIResponse) -> {
 //        let ind = entry.obj.indexOfSelectedLine
 //        let lines = entry.obj.shabad.shabad
@@ -97,29 +101,29 @@ struct FavShabadsWidget: Widget {
 #Preview(as: .accessoryInline) {
     FavShabadsWidget()
 } timeline: {
-    FavShabadEntry(date: Date.now, obj: SampleData.favSbd)
+    ShabadInHistoryEntry(date: Date.now, obj: SampleData.sbdHist)
 }
 
 #Preview(as: .accessoryRectangular) {
     FavShabadsWidget()
 } timeline: {
-    FavShabadEntry(date: Date.now, obj: SampleData.favSbd)
+    ShabadInHistoryEntry(date: Date.now, obj: SampleData.sbdHist)
 }
 
 #Preview(as: .systemSmall) {
     FavShabadsWidget()
 } timeline: {
-    FavShabadEntry(date: Date.now, obj: SampleData.favSbd)
+    ShabadInHistoryEntry(date: Date.now, obj: SampleData.sbdHist)
 }
 
 #Preview(as: .systemMedium) {
     FavShabadsWidget()
 } timeline: {
-    FavShabadEntry(date: Date.now, obj: SampleData.favSbd)
+    ShabadInHistoryEntry(date: Date.now, obj: SampleData.sbdHist)
 }
 
 #Preview(as: .systemLarge) {
     FavShabadsWidget()
 } timeline: {
-    FavShabadEntry(date: Date.now, obj: SampleData.favSbd)
+    ShabadInHistoryEntry(date: Date.now, obj: SampleData.sbdHist)
 }
