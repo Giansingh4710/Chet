@@ -13,8 +13,8 @@ struct ChetApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                // .preferredColorScheme(.none) // Allow system to choose light/dark mode
-                .preferredColorScheme(.dark) // Allow system to choose light/dark mode
+                .preferredColorScheme(.none) // Allow system to choose light/dark mode
+                // .preferredColorScheme(.dark) // Allow system to choose light/dark mode
         }
         .modelContainer(ModelContainer.shared)
         // .modelContainer(for: [FavoriteShabad.self, ShabadHistory.self], isAutosaveEnabled: true)

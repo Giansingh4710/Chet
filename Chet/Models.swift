@@ -178,14 +178,60 @@ final class ShabadHistory {
     @Relationship(deleteRule: .cascade) var sbdRes: ShabadAPIResponse
     var indexOfSelectedLine: Int
     var dateViewed: Date
-    var isFavorite = false
 
-    init(sbdRes: ShabadAPIResponse, indexOfSelectedLine: Int, isFavorite: Bool = false) {
+    init(sbdRes: ShabadAPIResponse, indexOfSelectedLine: Int) {
         shabadID = sbdRes.shabadinfo.shabadid
         self.indexOfSelectedLine = indexOfSelectedLine
         self.sbdRes = sbdRes
         dateViewed = Date()
-        self.isFavorite = isFavorite
+    }
+}
+
+@Model
+final class SavedShabad {
+   // Cascade delete when the folder is deleted
+    @Relationship(deleteRule: .cascade, inverse: \Folder.savedShabads)
+    var folder: Folder
+    @Relationship(deleteRule: .cascade) var sbdRes: ShabadAPIResponse
+    var indexOfSelectedLine: Int
+
+    var sortIndex: Int
+    var addedAt: Date
+
+    init(folder: Folder, sbdRes: ShabadAPIResponse, indexOfSelectedLine: Int = 0, addedAt: Date = Date(), sortIndex: Int = 0) {
+        self.folder = folder
+        self.sbdRes = sbdRes
+        self.indexOfSelectedLine = indexOfSelectedLine
+        self.addedAt = addedAt
+        self.sortIndex = sortIndex
+    }
+}
+
+@Model
+final class Folder {
+    @Attribute(.unique) var id: UUID
+    var name: String
+    var isSystemFolder: Bool = false // for "Widgets"
+
+    @Relationship(deleteRule: .nullify)
+    var parentFolder: Folder?
+
+    @Relationship(deleteRule: .cascade)
+    var subfolders: [Folder] = []
+
+    @Relationship(deleteRule: .cascade)
+    var savedShabads: [SavedShabad] = []
+
+    // Custom ordering
+    var sortIndex: Int = 0
+
+    init(name: String, parentFolder: Folder? = nil, subfolders: [Folder] = [], isSystemFolder: Bool = false, sortIndex: Int = 0) {
+        id = UUID()
+        self.name = name
+        self.parentFolder = parentFolder
+        self.subfolders = subfolders
+        self.isSystemFolder = isSystemFolder
+        self.sortIndex = sortIndex
     }
 }
 
@@ -204,11 +250,28 @@ extension LineOfShabad {
 
 extension ModelContainer {
     static let shared: ModelContainer = {
-        let schema = Schema([ShabadHistory.self])
+        let schema = Schema([ShabadHistory.self, Folder.self, SavedShabad.self])
         let config = ModelConfiguration(
             schema: schema,
             groupContainer: .identifier("group.xyz.gians.Chet") // 👈 must match App Group ID
         )
-        return try! ModelContainer(for: schema, configurations: [config])
+        let container = try! ModelContainer(for: schema, configurations: [config])
+
+        // Prepopulate defaults
+        Task {
+            let context = ModelContext(container)
+            let existing = try? context.fetch(FetchDescriptor<Folder>())
+
+            if existing?.isEmpty ?? true {
+                let defaults = [
+                    Folder(name: "For Widgets", isSystemFolder: true),
+                    Folder(name: "Favorites", isSystemFolder: true),
+                ]
+                defaults.forEach { context.insert($0) }
+                try? context.save()
+            }
+        }
+
+        return container
     }()
 }

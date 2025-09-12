@@ -59,7 +59,6 @@ func fetchHukam() async -> HukamnamaAPIResponse? {
         else {
             throw URLError(.badServerResponse)
         }
-        print(data)
         let decoded = try JSONDecoder().decode(HukamnamaAPIResponse.self, from: data)
         return decoded
     } catch let DecodingError.keyNotFound(key, context) {
@@ -76,4 +75,71 @@ func fetchHukam() async -> HukamnamaAPIResponse? {
         print("Error fetching random shabad: \(error.localizedDescription)")
     }
     return nil
+}
+
+func searchGurbani(from searchText: String) async throws -> GurbaniSearchAPIResponse {
+    let trimmed = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
+    guard !trimmed.isEmpty else {
+        throw URLError(.badURL) // or define your own EmptySearchError
+    }
+
+    let urlString = "https://data.gurbaninow.com/v2/search/\(trimmed.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? trimmed)"
+
+    guard let url = URL(string: urlString) else {
+        throw URLError(.badURL)
+    }
+
+    let (data, response) = try await URLSession.shared.data(from: url)
+    guard let httpResponse = response as? HTTPURLResponse,
+          (200 ... 299).contains(httpResponse.statusCode)
+    else {
+        throw URLError(.badServerResponse)
+    }
+
+    return try JSONDecoder().decode(GurbaniSearchAPIResponse.self, from: data)
+}
+
+func fetchShabadResponse(from shabadId: String) async throws -> ShabadAPIResponse {
+    let urlString = "https://data.gurbaninow.com/v2/shabad/\(shabadId)"
+    guard let url = URL(string: urlString) else {
+        throw URLError(.badURL)
+    }
+
+    let (data, response) = try await URLSession.shared.data(from: url)
+    guard let httpResponse = response as? HTTPURLResponse,
+          (200 ... 299).contains(httpResponse.statusCode)
+    else {
+        throw URLError(.badServerResponse)
+    }
+
+    return try JSONDecoder().decode(ShabadAPIResponse.self, from: data)
+}
+
+func getFirstLetters(from text: String) -> String {
+    let matras: Set<Character> = [
+        "i", "o", "u", "w", "y", "H", "I", "M", "N", "O", "R", "U", "W", "Y", "`", "~", "@", "†", "ü", "®", "µ", "æ", "ƒ", "œ", "Í", "Ï", "Ò", "Ú", "§", "¤", "ç", "Î", "ï", "î",
+    ]
+    let subs: [Character: Character] = [
+        "E": "a",
+    ]
+
+    let words = text.components(separatedBy: .whitespacesAndNewlines)
+        .filter { !$0.isEmpty }
+    var initials = ""
+
+    for word in words {
+        if word.contains("]") {
+            break
+        }
+
+        if let first = word.first(where: { !matras.contains($0) }) {
+            if let sub = subs[first] {
+                initials.append(sub)
+            } else {
+                initials.append(first)
+            }
+        }
+    }
+
+    return initials
 }

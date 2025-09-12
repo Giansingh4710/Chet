@@ -10,7 +10,9 @@ import Foundation
 enum SampleData {
     static let searchedLine: LineObjFromSearch  = srchedLine
     static let shabadResponse: ShabadAPIResponse = sbdRes
-    static let sbdHist: ShabadHistory = .init(sbdRes: sbdRes, indexOfSelectedLine: 1, isFavorite: true)
+    static let sbdHist: ShabadHistory = .init(sbdRes: sbdRes, indexOfSelectedLine: 1)
+    static let fld: Folder = .init(name: "Test")
+    static let svdSbd: SavedShabad = .init(folder:fld, sbdRes: sbdRes, indexOfSelectedLine: 1)
     static let emptySbd: ShabadAPIResponse = .init(
         shabadinfo: ShabadInfo(
             shabadid: "",

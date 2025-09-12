@@ -33,7 +33,7 @@ struct ShabadHistoryView: View {
             } else {
                 List {
                     ForEach(historyItems) { historyItem in
-                        NavigationLink(destination: ShabadViewDisplayWrapper(sbdHistory: historyItem)) {
+                        NavigationLink(destination: ShabadViewDisplayWrapper(sbdRes: historyItem.sbdRes, indexOfLine: historyItem.indexOfSelectedLine)) {
                             HistoryShabadRowView(historyItem: historyItem)
                         }
                         .buttonStyle(PlainButtonStyle())

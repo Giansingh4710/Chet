@@ -1,5 +1,5 @@
-import SwiftUI
 import SwiftData
+import SwiftUI
 
 struct SearchView: View {
     @State private var searchText = "qkml"
@@ -8,28 +8,28 @@ struct SearchView: View {
     @State private var errorMessage: String?
     @Environment(\.colorScheme) private var colorScheme
     @FocusState private var isSearchFieldFocused: Bool
+    @Environment(\.modelContext) private var modelContext
+
+    // NEW
+    @State private var selectedShabad: ShabadAPIResponse?
+    @State private var isNavigating = false
 
     var body: some View {
         VStack(spacing: 0) {
-            // Search header
             VStack(spacing: 16) {
                 HStack {
                     TextField(
                         "Search Gurbani…",
                         text: $searchText,
                         onCommit: {
-                            Task {
-                                await fetchResults()
-                            }
+                            Task { await fetchResults() }
                         }
                     )
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .focused($isSearchFieldFocused)
 
                     Button(action: {
-                        Task {
-                            await fetchResults()
-                        }
+                        Task { await fetchResults() }
                     }) {
                         Text("Search")
                             .fontWeight(.medium)
@@ -42,12 +42,29 @@ struct SearchView: View {
                     .disabled(searchText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
                 }
                 .padding(.horizontal)
+
+                // NEW buttons
+                HStack(spacing: 12) {
+                    Button("Random Shabad") {
+                        Task { await openRandomShabad() }
+                    }
+                    .buttonStyle(.borderedProminent)
+                    Button("Hukamnama") {
+                        Task { await openHukamnama() }
+                    }
+                    .buttonStyle(.bordered)
+                }
+                .navigationDestination(isPresented: $isNavigating) {
+                    if let sbd = selectedShabad {
+                        ShabadViewDisplayWrapper(sbdRes: sbd, indexOfLine: 0)
+                    }
+                }
+                .padding(.top, 4)
             }
             .padding(.vertical)
             .background(colorScheme == .dark ? Color(.systemGray6) : Color(.systemBackground))
             .shadow(color: colorScheme == .dark ? .clear : .black.opacity(0.1), radius: 1, x: 0, y: 1)
 
-            // Content area
             ZStack {
                 if isLoading {
                     VStack(spacing: 16) {
@@ -134,50 +151,71 @@ struct SearchView: View {
             }
             .navigationTitle("Gurbani Search")
             .background(colorScheme == .dark ? Color(.systemBackground) : Color(.systemGroupedBackground))
-//            .onChange(of: searchState.shouldResetSearch) { _, newValue in
-//                if newValue {
-//                    searchText = ""
-//                    isSearchFieldFocused = true
-//                    // Force keyboard to appear
-//                    UIApplication.shared.sendAction(#selector(UIResponder.becomeFirstResponder), to: nil, from: nil, for: nil)
-//                }
-//            }
         }
     }
 
     private func fetchResults() async {
-        guard !searchText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }
-
         isLoading = true
         errorMessage = nil
 
-        let urlString = "https://data.gurbaninow.com/v2/search/\(searchText.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? searchText)"
-
-        guard let url = URL(string: urlString) else {
-            errorMessage = "Invalid URL"
-            isLoading = false
-            return
-        }
-
         do {
-            let (data, response) = try await URLSession.shared.data(from: url)
-            guard let httpResponse = response as? HTTPURLResponse,
-                  (200 ... 299).contains(httpResponse.statusCode)
-            else {
-                throw URLError(.badServerResponse)
-            }
-
-            let decoded = try JSONDecoder().decode(GurbaniSearchAPIResponse.self, from: data)
-            await MainActor.run {
-                results = decoded.shabads.map { $0.shabad }
-                isLoading = false
-            }
+            let decoded = try await searchGurbani(from: searchText)
+            results = decoded.shabads.map { $0.shabad }
+            isLoading = false
         } catch {
-            await MainActor.run {
-                errorMessage = "Failed to fetch results: \(error.localizedDescription)"
-                isLoading = false
-            }
+            errorMessage = "Failed to fetch results: \(error.localizedDescription)"
+            isLoading = false
         }
+    }
+
+    private func openRandomShabad() async {
+        if let response = await fetchRandomShabad() {
+            selectedShabad = response
+            isNavigating = true
+            let sbdHistory = ShabadHistory(sbdRes: response, indexOfSelectedLine: 0)
+            addToHistory(sbdHistory: sbdHistory)
+        }
+    }
+
+    private func openHukamnama() async {
+        if let hukam = await fetchHukam() {
+            // convert HukamnamaAPIResponse -> ShabadAPIResponse
+            let sbdRes = ShabadAPIResponse(
+                shabadinfo: .init(
+                    shabadid: hukam.hukamnamainfo.shabadid[0],
+                    pageno: hukam.hukamnamainfo.pageno,
+                    source: hukam.hukamnamainfo.source,
+                    writer: hukam.hukamnamainfo.writer,
+                    raag: hukam.hukamnamainfo.raag,
+                    navigation: .init(
+                        previous: nil,
+                        next: nil
+                    ),
+                    count: hukam.hukamnamainfo.count
+                ),
+                shabad: hukam.hukamnama,
+                error: false
+            )
+            isNavigating = true
+            selectedShabad = sbdRes
+            let sbdHistory = ShabadHistory(sbdRes: sbdRes, indexOfSelectedLine: 0)
+            addToHistory(sbdHistory: sbdHistory)
+        }
+    }
+
+    private func addToHistory(sbdHistory: ShabadHistory) {
+        let shabadID = sbdHistory.sbdRes.shabadinfo.shabadid
+        let descriptor = FetchDescriptor<ShabadHistory>(
+            predicate: #Predicate { $0.shabadID == shabadID }
+        )
+
+        if let existing = try? modelContext.fetch(descriptor).first {
+            existing.dateViewed = Date()
+        } else {
+            modelContext.insert(sbdHistory)
+        }
+
+        try? modelContext.save()
     }
 }
 
@@ -198,8 +236,8 @@ struct ShabadViewFromSearchedLine: View {
                 ProgressView("Loading Shabad…")
             } else if let errorMessage = errorMessage {
                 Text(errorMessage).foregroundColor(.red)
-            } else if let sbdHistory = sbdHistory {
-                ShabadViewDisplayWrapper(sbdHistory: sbdHistory)
+            } else if let sbdHist = sbdHistory {
+                ShabadViewDisplayWrapper(sbdRes: sbdHist.sbdRes, indexOfLine: indexOfLine)
             }
         }
         .background(colorScheme == .dark ? Color(.systemBackground) : Color(.systemGroupedBackground))
@@ -209,49 +247,30 @@ struct ShabadViewFromSearchedLine: View {
     }
 
     private func fetchFullShabad() async {
-        let urlString = "https://data.gurbaninow.com/v2/shabad/\(searchedLine.shabadid)"
-        let foundByLineID = searchedLine.id
-        var aindexOfLine = 0
-        guard let url = URL(string: urlString) else {
-            await MainActor.run {
-                errorMessage = "Invalid shabad URL"
-                isLoadingShabad = false
-            }
-            return
-        }
         do {
-            let (data, response) = try await URLSession.shared.data(from: url)
-            guard let httpResponse = response as? HTTPURLResponse,
-                  (200 ... 299).contains(httpResponse.statusCode)
-            else {
-                throw URLError(.badServerResponse)
+            let decoded = try await fetchShabadResponse(from: searchedLine.shabadid)
+            guard let indexOfLine = decoded.shabad.firstIndex(where: { $0.line.id == searchedLine.id }) else {
+                throw URLError(.cannotFindHost)
             }
-            let decoded = try JSONDecoder().decode(ShabadAPIResponse.self, from: data)
-            guard let aindexOfLine = decoded.shabad.firstIndex(where: { $0.line.id == foundByLineID }) else {
-                throw URLError(.badServerResponse)
+
+            isLoadingShabad = false
+            sbdHistory = ShabadHistory(sbdRes: decoded, indexOfSelectedLine: indexOfLine)
+            self.indexOfLine = indexOfLine
+            if let sbdHist = sbdHistory {
+                addToHistory(sbdHistory: sbdHist)
             }
-            await MainActor.run {
-                isLoadingShabad = false
-                sbdHistory = ShabadHistory(sbdRes: decoded, indexOfSelectedLine: aindexOfLine)
-                indexOfLine = aindexOfLine
-                addToHistory()
-            }
+
         } catch {
-            await MainActor.run {
-                isLoadingShabad = false
-                errorMessage = "Failed to fetch shabad: \(error.localizedDescription)"
-                print(error)
-                print(searchedLine.id, " ", searchedLine.shabadid)
-                print(error.localizedDescription)
-                print(url)
-            }
+            isLoadingShabad = false
+            errorMessage = "Failed to fetch shabad: \(error.localizedDescription)"
+
+            print("Error: \(error)")
+            print("LineId:", searchedLine.id, " ShabadId:", searchedLine.shabadid)
         }
     }
 
-    private func addToHistory() {
-        guard let sbdHist = sbdHistory else { return }
-
-        let shabadID = sbdHist.sbdRes.shabadinfo.shabadid
+    private func addToHistory(sbdHistory: ShabadHistory) {
+        let shabadID = sbdHistory.sbdRes.shabadinfo.shabadid
         let descriptor = FetchDescriptor<ShabadHistory>(
             predicate: #Predicate { $0.shabadID == shabadID }
         )
@@ -259,7 +278,7 @@ struct ShabadViewFromSearchedLine: View {
         if let existing = try? modelContext.fetch(descriptor).first {
             existing.dateViewed = Date()
         } else {
-            modelContext.insert(sbdHist)
+            modelContext.insert(sbdHistory)
         }
 
         try? modelContext.save()

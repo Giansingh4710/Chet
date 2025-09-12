@@ -32,7 +32,7 @@ struct ContentView: View {
 
             // Other tabs remain the same
             NavigationStack(path: $favoritesNavPath) {
-                FavoriteShabadsView()
+                SavedShabadsView()
             }
             .onChange(of: selectedTab) { oldValue, newValue in
                 if oldValue == newValue && newValue == 1 {
@@ -40,8 +40,8 @@ struct ContentView: View {
                 }
             }
             .tabItem {
-                Image(systemName: "heart")
-                Text("Favorites")
+                Image(systemName: "bookmark")
+                Text("Saved")
             }
             .tag(1)
 

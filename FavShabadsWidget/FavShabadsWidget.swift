@@ -12,22 +12,22 @@ import WidgetKit
 struct Provider: @preconcurrency TimelineProvider {
     let modelContainer = ModelContainer.shared
 
-    @MainActor func placeholder(in _: Context) -> ShabadInHistoryEntry {
-        ShabadInHistoryEntry(date: Date.now, obj: SampleData.sbdHist)
+    @MainActor func placeholder(in _: Context) -> SavedSbdEntry {
+        SavedSbdEntry(date: Date.now, obj: SampleData.svdSbd)
     }
 
-    @MainActor func getSnapshot(in _: Context, completion: @escaping (ShabadInHistoryEntry) -> Void) {
-        let sbdHists = getFavShabads()
-        completion(ShabadInHistoryEntry(date: Date.now, obj: sbdHists.first ?? SampleData.sbdHist))
+    @MainActor func getSnapshot(in _: Context, completion: @escaping (SavedSbdEntry) -> Void) {
+        let svdSbds = getFavShabads()
+        completion(SavedSbdEntry(date: Date.now, obj: svdSbds.first ?? SampleData.svdSbd))
     }
 
-    @MainActor func getTimeline(in _: Context, completion: @escaping (Timeline<ShabadInHistoryEntry>) -> Void) {
-        let sbdHists = getFavShabads()
-        var entries: [ShabadInHistoryEntry] = []
+    @MainActor func getTimeline(in _: Context, completion: @escaping (Timeline<SavedSbdEntry>) -> Void) {
+        let svdSbds = getFavShabads()
+        var entries: [SavedSbdEntry] = []
         let currentDate = Date()
-        for hourOffset in 0 ..< sbdHists.count {
+        for hourOffset in 0 ..< svdSbds.count {
             let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = ShabadInHistoryEntry(date: entryDate, obj: sbdHists[hourOffset])
+            let entry = SavedSbdEntry(date: entryDate, obj: svdSbds[hourOffset])
             print("added entry")
             print(entry)
             entries.append(entry)
@@ -38,16 +38,15 @@ struct Provider: @preconcurrency TimelineProvider {
     }
 
     @MainActor
-    private func getFavShabads() -> [ShabadHistory] {
+    private func getFavShabads() -> [SavedShabad] {
         do {
             let context = modelContainer.mainContext
-            let descriptor = FetchDescriptor<ShabadHistory>(
-                predicate: #Predicate { $0.isFavorite == true },
-                sortBy: [SortDescriptor(\.dateViewed, order: .reverse)]
-                // fetchLimit: 100
+            let descriptor = FetchDescriptor<Folder>(
+                predicate: #Predicate { $0.name == "For Widgets" }
             )
             let results = try context.fetch(descriptor)
-            return results
+            // return results[0].savedShabads.map { $0.res }
+            return results[0].savedShabads
         } catch {
             print("Widget fetch error: \(error)")
             return []
@@ -59,13 +58,13 @@ struct Provider: @preconcurrency TimelineProvider {
     //    }
 }
 
-struct ShabadInHistoryEntry: TimelineEntry {
+struct SavedSbdEntry: TimelineEntry {
     let date: Date
-    let obj: ShabadHistory
+    let obj: SavedShabad
 }
 
 struct FavShabadsWidgetEntryView: View {
-    var entry: ShabadInHistoryEntry
+    var entry: SavedSbdEntry
     var body: some View {
         // WidgetEntryView(the_shabad: entry.obj.shabad, heading: "From Favorites")
         Text("Favs")
@@ -98,32 +97,32 @@ struct FavShabadsWidget: Widget {
     }
 }
 
-#Preview(as: .accessoryInline) {
-    FavShabadsWidget()
-} timeline: {
-    ShabadInHistoryEntry(date: Date.now, obj: SampleData.sbdHist)
-}
-
-#Preview(as: .accessoryRectangular) {
-    FavShabadsWidget()
-} timeline: {
-    ShabadInHistoryEntry(date: Date.now, obj: SampleData.sbdHist)
-}
-
-#Preview(as: .systemSmall) {
-    FavShabadsWidget()
-} timeline: {
-    ShabadInHistoryEntry(date: Date.now, obj: SampleData.sbdHist)
-}
-
-#Preview(as: .systemMedium) {
-    FavShabadsWidget()
-} timeline: {
-    ShabadInHistoryEntry(date: Date.now, obj: SampleData.sbdHist)
-}
-
-#Preview(as: .systemLarge) {
-    FavShabadsWidget()
-} timeline: {
-    ShabadInHistoryEntry(date: Date.now, obj: SampleData.sbdHist)
-}
+// #Preview(as: .accessoryInline) {
+//     FavShabadsWidget()
+// } timeline: {
+//     SavedSbdEntry(date: Date.now, obj: SampleData.svdSbd)
+// }
+//
+// #Preview(as: .accessoryRectangular) {
+//     FavShabadsWidget()
+// } timeline: {
+//     SavedSbdEntry(date: Date.now, obj: SampleData.svdSbd)
+// }
+//
+// #Preview(as: .systemSmall) {
+//     FavShabadsWidget()
+// } timeline: {
+//     SavedSbdEntry(date: Date.now, obj: SampleData.svdSbd)
+// }
+//
+// #Preview(as: .systemMedium) {
+//     FavShabadsWidget()
+// } timeline: {
+//     SavedSbdEntry(date: Date.now, obj: SampleData.svdSbd)
+// }
+//
+// #Preview(as: .systemLarge) {
+//     FavShabadsWidget()
+// } timeline: {
+//     SavedSbdEntry(date: Date.now, obj: SampleData.svdSbd)
+// }

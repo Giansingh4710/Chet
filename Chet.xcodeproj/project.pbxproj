@@ -10,8 +10,6 @@
 		A053D0422E662787004E371B /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A053D0412E662787004E371B /* WidgetKit.framework */; };
 		A053D0442E662787004E371B /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A053D0432E662787004E371B /* SwiftUI.framework */; };
 		A053D04F2E662789004E371B /* RandomShabadWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A053D03F2E662787004E371B /* RandomShabadWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		A053D05D2E664BEC004E371B /* helper_funcs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053D05C2E664BEC004E371B /* helper_funcs.swift */; };
-		A053D05E2E664BEC004E371B /* helper_funcs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053D05C2E664BEC004E371B /* helper_funcs.swift */; };
 		A053D0642E6654FF004E371B /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A053D0412E662787004E371B /* WidgetKit.framework */; };
 		A053D0652E6654FF004E371B /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A053D0432E662787004E371B /* SwiftUI.framework */; };
 		A053D0702E665500004E371B /* HukamnamaWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A053D0632E6654FF004E371B /* HukamnamaWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -21,13 +19,11 @@
 		A053D0852E665D2E004E371B /* WidgetViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053D0832E665D2E004E371B /* WidgetViews.swift */; };
 		A053D0862E665D2E004E371B /* WidgetViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053D0832E665D2E004E371B /* WidgetViews.swift */; };
 		A053D0882E66640C004E371B /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053D0762E665540004E371B /* SampleData.swift */; };
-		A053D0892E666411004E371B /* helper_funcs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053D05C2E664BEC004E371B /* helper_funcs.swift */; };
 		A053D08F2E666D47004E371B /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A053D0412E662787004E371B /* WidgetKit.framework */; };
 		A053D0902E666D47004E371B /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A053D0432E662787004E371B /* SwiftUI.framework */; };
 		A053D09B2E666D48004E371B /* FavShabadsWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A053D08E2E666D47004E371B /* FavShabadsWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A053D0A02E666DDD004E371B /* WidgetViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053D0832E665D2E004E371B /* WidgetViews.swift */; };
 		A053D0A12E666DE2004E371B /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053D0762E665540004E371B /* SampleData.swift */; };
-		A053D0A22E666DE6004E371B /* helper_funcs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053D05C2E664BEC004E371B /* helper_funcs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,7 +87,6 @@
 		A053D03F2E662787004E371B /* RandomShabadWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = RandomShabadWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A053D0412E662787004E371B /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		A053D0432E662787004E371B /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		A053D05C2E664BEC004E371B /* helper_funcs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helper_funcs.swift; sourceTree = "<group>"; };
 		A053D0632E6654FF004E371B /* HukamnamaWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HukamnamaWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A053D0762E665540004E371B /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
 		A053D0832E665D2E004E371B /* WidgetViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViews.swift; sourceTree = "<group>"; };
@@ -124,6 +119,7 @@
 		A053D0A52E666EA5004E371B /* Exceptions for "Chet" folder in "FavShabadsWidgetExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				helpers/helper_funcs.swift,
 				Models.swift,
 			);
 			target = A053D08D2E666D47004E371B /* FavShabadsWidgetExtension */;
@@ -131,6 +127,7 @@
 		A053D0E22E679C24004E371B /* Exceptions for "Chet" folder in "RandomShabadWidgetExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				helpers/helper_funcs.swift,
 				Models.swift,
 			);
 			target = A053D03E2E662787004E371B /* RandomShabadWidgetExtension */;
@@ -138,6 +135,7 @@
 		A053D0E32E679C24004E371B /* Exceptions for "Chet" folder in "HukamnamaWidgetExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				helpers/helper_funcs.swift,
 				Models.swift,
 			);
 			target = A053D0622E6654FF004E371B /* HukamnamaWidgetExtension */;
@@ -249,7 +247,6 @@
 				A053D0DD2E668FF8004E371B /* FavShabadsWidgetExtension.entitlements */,
 				A053D0832E665D2E004E371B /* WidgetViews.swift */,
 				A053D0762E665540004E371B /* SampleData.swift */,
-				A053D05C2E664BEC004E371B /* helper_funcs.swift */,
 				A053CFFE2E6626BF004E371B /* Chet */,
 				A053D00F2E6626C0004E371B /* ChetTests */,
 				A053D0192E6626C0004E371B /* ChetUITests */,
@@ -531,7 +528,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A053D0852E665D2E004E371B /* WidgetViews.swift in Sources */,
-				A053D05E2E664BEC004E371B /* helper_funcs.swift in Sources */,
 				A053D0772E665540004E371B /* SampleData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -555,7 +551,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A053D0842E665D2E004E371B /* WidgetViews.swift in Sources */,
-				A053D05D2E664BEC004E371B /* helper_funcs.swift in Sources */,
 				A053D0782E665540004E371B /* SampleData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -566,7 +561,6 @@
 			files = (
 				A053D0862E665D2E004E371B /* WidgetViews.swift in Sources */,
 				A053D0882E66640C004E371B /* SampleData.swift in Sources */,
-				A053D0892E666411004E371B /* helper_funcs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -574,7 +568,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A053D0A22E666DE6004E371B /* helper_funcs.swift in Sources */,
 				A053D0A02E666DDD004E371B /* WidgetViews.swift in Sources */,
 				A053D0A12E666DE2004E371B /* SampleData.swift in Sources */,
 			);
