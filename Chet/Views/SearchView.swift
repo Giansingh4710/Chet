@@ -25,6 +25,15 @@ struct SearchView: View {
                             Task { await fetchResults() }
                         }
                     )
+                    .onAppear {
+                        for family in UIFont.familyNames {
+                            print("Family: \(family)")
+                            for name in UIFont.fontNames(forFamilyName: family) {
+                                print("  \(name)")
+                            }
+                        }
+                    }
+                    .font(.custom("AmrLipiHeavy", size: 16)) // "AmrLipiHeavy", "AnmolLipi", "Choti Script 7 Bold", "GHW Adhiapak Black", "GHW Adhiapak Bold", "GHW Adhiapak Book", "GHW Adhiapak Chisel Blk", "GHW Adhiapak Extra Light", "GHW Adhiapak Light", "GHW Adhiapak Medium"
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .focused($isSearchFieldFocused)
 
@@ -42,24 +51,6 @@ struct SearchView: View {
                     .disabled(searchText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
                 }
                 .padding(.horizontal)
-
-                // NEW buttons
-                HStack(spacing: 12) {
-                    Button("Random Shabad") {
-                        Task { await openRandomShabad() }
-                    }
-                    .buttonStyle(.borderedProminent)
-                    Button("Hukamnama") {
-                        Task { await openHukamnama() }
-                    }
-                    .buttonStyle(.bordered)
-                }
-                .navigationDestination(isPresented: $isNavigating) {
-                    if let sbd = selectedShabad {
-                        ShabadViewDisplayWrapper(sbdRes: sbd, indexOfLine: 0)
-                    }
-                }
-                .padding(.top, 4)
             }
             .padding(.vertical)
             .background(colorScheme == .dark ? Color(.systemGray6) : Color(.systemBackground))
@@ -114,6 +105,23 @@ struct SearchView: View {
                             .foregroundColor(.secondary)
                             .multilineTextAlignment(.center)
                             .padding(.horizontal)
+
+                        HStack(spacing: 12) {
+                            Button("Random Shabad") {
+                                Task { await openRandomShabad() }
+                            }
+                            .buttonStyle(.borderedProminent)
+                            Button("Hukamnama") {
+                                Task { await openHukamnama() }
+                            }
+                            .buttonStyle(.bordered)
+                        }
+                        .navigationDestination(isPresented: $isNavigating) {
+                            if let sbd = selectedShabad {
+                                ShabadViewDisplayWrapper(sbdRes: sbd, indexOfLine: 0)
+                            }
+                        }
+                        .padding(.top, 4)
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 } else {
@@ -198,8 +206,6 @@ struct SearchView: View {
             )
             isNavigating = true
             selectedShabad = sbdRes
-            let sbdHistory = ShabadHistory(sbdRes: sbdRes, indexOfSelectedLine: 0)
-            addToHistory(sbdHistory: sbdHistory)
         }
     }
 

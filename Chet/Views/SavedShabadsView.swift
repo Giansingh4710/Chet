@@ -148,7 +148,7 @@ struct SavedShabadsView: View {
 }
 
 struct FoldersContentView: View {
-    var folder: Folder
+    let folder: Folder
 
     // UI state for new-folder sheet
     @State private var showingNewFolderAlert = false
@@ -197,6 +197,7 @@ struct FoldersContentView: View {
 struct FoldersDisplay: View {
     let foldersList: [Folder] // ✅ plain array, not Binding
     @Environment(\.modelContext) private var modelContext
+
 
     var body: some View {
         Section("Subfolders") {
