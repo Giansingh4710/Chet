@@ -5,19 +5,19 @@
 //  Created by gian singh on 9/1/25.
 //
 
-import WidgetKit
 import SwiftUI
+import WidgetKit
 
 struct Provider: TimelineProvider {
-    func placeholder(in context: Context) -> HukamEntry {
+    func placeholder(in _: Context) -> HukamEntry {
         HukamEntry(date: Date(), hukam: SampleData.hukamnamResponse)
     }
 
-    func getSnapshot(in context: Context, completion: @escaping (HukamEntry) -> ()) {
+    func getSnapshot(in _: Context, completion: @escaping (HukamEntry) -> Void) {
         completion(HukamEntry(date: Date(), hukam: SampleData.hukamnamResponse))
     }
 
-    func getTimeline(in context: Context, completion: @escaping (Timeline<HukamEntry>) -> ()) {
+    func getTimeline(in _: Context, completion: @escaping (Timeline<HukamEntry>) -> Void) {
         fetchHukamWrapper { response in
             var entries: [HukamEntry] = []
             let currentDate = Date()
@@ -44,10 +44,11 @@ struct HukamEntry: TimelineEntry {
     let hukam: HukamnamaAPIResponse
 }
 
-struct HukamnamaWidgetEntryView : View {
+struct HukamnamaWidgetEntryView: View {
     var entry: Provider.Entry
     var body: some View {
         WidgetEntryView(the_shabad: entry.hukam.hukamnama, heading: "Today's Hukamnama")
+            .widgetURL(URL(string: "chet://shabadid/\(entry.hukam.hukamnamainfo.shabadid[0])")) // custom deep link
     }
 }
 

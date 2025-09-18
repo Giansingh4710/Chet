@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Binding var selectedID: WidgetUrlShabadID?
+
     @Environment(\.colorScheme) private var colorScheme
     @State private var selectedTab = 0
     @State private var searchNavPath = NavigationPath()
@@ -59,10 +61,43 @@ struct ContentView: View {
             }
             .tag(2)
         }
+        .onAppear {
+            UIApplication.shared.isIdleTimerDisabled = true
+        }
+        .onDisappear {
+            UIApplication.shared.isIdleTimerDisabled = false
+        }
         .background(colorScheme == .dark ? Color(.systemBackground) : Color(.systemGroupedBackground))
+        .sheet(item: $selectedID) { id_obj in
+            ShabadViewFromWidgetURL(id: id_obj.id)
+        }
     }
 }
 
-#Preview {
-    ContentView()
+struct ShabadViewFromWidgetURL: View {
+    let id: String
+    @State private var sbd: ShabadAPIResponse?
+
+    var body: some View {
+        Group {
+            if let sbd {
+                ShabadViewDisplayWrapper(sbdRes: sbd, indexOfLine: 0)
+            } else {
+                ProgressView("Loading…")
+                    .task {
+                        if sbd == nil {
+                            do {
+                                sbd = try await fetchShabadResponse(from: id)
+                            } catch {
+                                print(error)
+                            }
+                        }
+                    }
+            }
+        }
+    }
 }
+
+// #Preview {
+//     ContentView()
+// }

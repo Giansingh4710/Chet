@@ -143,3 +143,44 @@ func getFirstLetters(from text: String) -> String {
 
     return initials
 }
+
+func getWidgetHeadingFromSbdInfo(_ info: ShabadInfo) -> String {
+    var metaData = ": " + info.writer.unicode + " (" + info.raag.unicode + ")"
+    metaData = " ("
+    switch info.writer.id {
+    case 1:
+        metaData += "p:1"
+    case 2:
+        metaData += "p:2"
+    case 3:
+        metaData += "p:3"
+    case 4:
+        metaData += "p:4"
+    case 5:
+        metaData += "p:5"
+    case 6:
+        metaData += "p:9"
+    case 7:
+        metaData += "p:10"
+    default:
+        metaData += info.writer.unicode
+    }
+    metaData += ")"
+    return metaData
+}
+
+func getRandShabads(interval: Int) async -> [RandSbdForWidget] {
+    var newList: [RandSbdForWidget] = []
+    for offset in 0 ..< (24 / interval) {
+        let entryDate = Calendar.current.date(byAdding: .hour, value: offset * interval, to: Date())!
+        if let response = await fetchRandomShabad() { // your API call
+            newList.append(RandSbdForWidget(sbd: response, date: entryDate, index: offset))
+        }
+    }
+    if let encoded = try? JSONEncoder().encode(newList) { // Save to shared defaults for widget + app
+        await MainActor.run {
+            UserDefaults.appGroup.set(encoded, forKey: "randShabadList")
+        }
+    }
+    return newList
+}

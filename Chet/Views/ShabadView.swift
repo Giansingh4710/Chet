@@ -1,5 +1,6 @@
 import SwiftData
 import SwiftUI
+import WidgetKit
 
 struct ShabadViewDisplayWrapper: View {
     let sbdRes: ShabadAPIResponse
@@ -60,7 +61,6 @@ struct ShabadViewDisplay: View {
     let sbdRes: ShabadAPIResponse
     let fetchNewShabad: (String) async -> Void
     let indexOfLine: Int?
-    @Environment(\.modelContext) private var modelContext
 
     @AppStorage("shabadTextScale") private var textScale: Double = 1.0
     @AppStorage("showTranslations") private var showTranslations: Bool = true
@@ -70,157 +70,195 @@ struct ShabadViewDisplay: View {
     @State private var showingSaveSheet = false
 
     var body: some View {
-        NavigationView {
-            VStack {
-                ScrollView {
-                    VStack(alignment: .leading, spacing: 16) {
-                        // --- Meta Info Card ---
-                        VStack(alignment: .leading, spacing: 12) {
-                            HStack {
-                                Label {
-                                    Text("Ang \(sbdRes.shabadinfo.pageno)")
-                                        .font(.subheadline)
-                                        .fontWeight(.semibold)
-                                } icon: {
-                                    Image(systemName: "book.closed")
-                                }
-
-                                Spacer()
-
-                                Label {
-                                    Text(sbdRes.shabadinfo.writer.english)
-                                        .font(.subheadline)
-                                        .fontWeight(.semibold)
-                                } icon: {
-                                    Image(systemName: "pencil")
-                                }
-                            }
-
-                            Divider()
-
-                            HStack(spacing: 20) {
-                                Text("\(sbdRes.shabad.count) lines")
-                                    .font(.caption)
-                                    .foregroundColor(.secondary)
-
-                                Spacer()
-
-                                VStack(alignment: .trailing, spacing: 4) {
-                                    Text("Shabad ID")
-                                        .font(.caption)
-                                        .foregroundColor(.secondary)
-                                    Text(sbdRes.shabadinfo.shabadid)
-                                        .font(.callout)
-                                        .fontWeight(.medium)
-                                        .foregroundColor(.primary)
-                                        .monospaced() // keeps IDs aligned
-                                }
-                            }
+        ScrollView {
+            VStack(alignment: .leading, spacing: 16) {
+                // --- Meta Info Card ---
+                VStack(alignment: .leading, spacing: 12) {
+                    HStack {
+                        Label {
+                            Text("Ang \(sbdRes.shabadinfo.pageno)")
+                                .font(.subheadline)
+                                .fontWeight(.semibold)
+                        } icon: {
+                            Image(systemName: "book.closed")
                         }
-                        .padding()
-                        .background(
-                            RoundedRectangle(cornerRadius: 16, style: .continuous)
-                                .fill(Color(.systemBackground))
-                                .shadow(color: .black.opacity(0.1), radius: 6, x: 0, y: 3)
-                        )
-                        .padding(.horizontal)
 
-                        HStack(spacing: 8) {
-                            Button(action: {
-                                showingSaveSheet = true
-                            }) {
-                                Label("Save", systemImage: "bookmark")
-                                    .labelStyle(.titleAndIcon)
-                                    .font(.caption)
-                            }
-                            .buttonStyle(.bordered)
-                            .tint(.accentColor)
+                        Spacer()
 
-                            Toggle(isOn: $showTranslations) {
-                                Label("Translation", systemImage: "text.alignleft").font(.caption2)
-                            }
-                            .toggleStyle(.button)
-                            .tint(.accentColor)
-
-                            Toggle(isOn: $larivaarOn) {
-                                Label("Larivaar", systemImage: "textformat").font(.caption)
-                            }
-                            .toggleStyle(.button)
-                            .tint(.accentColor)
+                        Label {
+                            Text(sbdRes.shabadinfo.writer.english)
+                                .font(.subheadline)
+                                .fontWeight(.semibold)
+                        } icon: {
+                            Image(systemName: "pencil")
                         }
-                        .padding(.horizontal)
-
-                        // --- Shabad Lines ---
-                        VStack(alignment: .leading, spacing: 10) {
-                            ForEach(sbdRes.shabad, id: \.line.id) { shabadLine in
-                                VStack(alignment: .leading, spacing: 4) {
-                                    Text(getGurbaniLine(shabadLine))
-                                        .font(.system(size: 20 * textScale * gestureScale))
-                                        .fontWeight(.medium)
-                                        .multilineTextAlignment(.leading)
-
-                                    if showTranslations {
-                                        Text(shabadLine.line.translation.english.default)
-                                            .font(.system(size: 15 * textScale * gestureScale))
-                                            .foregroundColor(.secondary)
-                                            .lineSpacing(2)
-                                    }
-                                }
-                                .padding(.vertical, 4)
-                            }
-                        }
-                        .gesture(
-                            MagnificationGesture()
-                                .onChanged { value in
-                                    gestureScale = value
-                                }
-                                .onEnded { value in
-                                    textScale *= value
-                                    gestureScale = 1.0
-                                }
-                        )
-
-                        // --- Next / Previous Navigation ---
-                        HStack {
-                            if let prevID = sbdRes.shabadinfo.navigation.previous?.id {
-                                Button("◀︎ Previous") {
-                                    Task {
-                                        await fetchNewShabad(prevID)
-                                    }
-                                }
-                            }
-                            Spacer()
-                            if let nextID = sbdRes.shabadinfo.navigation.next?.id {
-                                Button("Next ▶︎") {
-                                    Task {
-                                        await fetchNewShabad(nextID)
-                                    }
-                                }
-                            }
-                        }
-                        .padding()
                     }
-                    .padding()
+
+                    Divider()
+
+                    HStack(spacing: 20) {
+                        Text("\(sbdRes.shabad.count) lines")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+
+                        Spacer()
+
+                        VStack(alignment: .trailing, spacing: 4) {
+                            Text("Shabad ID")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                            Text(sbdRes.shabadinfo.shabadid)
+                                .font(.callout)
+                                .fontWeight(.medium)
+                                .foregroundColor(.primary)
+                                .monospaced() // keeps IDs aligned
+                        }
+                    }
+                }
+                .padding()
+                .background(
+                    RoundedRectangle(cornerRadius: 16, style: .continuous)
+                        .fill(Color(.systemBackground))
+                        .shadow(color: .black.opacity(0.1), radius: 6, x: 0, y: 3)
+                )
+                .padding(.horizontal)
+
+                HStack(spacing: 8) {
+                    Button(action: {
+                        showingSaveSheet = true
+                    }) {
+                        Label("Save", systemImage: "bookmark")
+                            .labelStyle(.titleAndIcon)
+                            .font(.caption)
+                    }
+                    .buttonStyle(.bordered)
+                    .tint(.accentColor)
+
+                    Toggle(isOn: $showTranslations) {
+                        Label("Translation", systemImage: "text.alignleft").font(.caption2)
+                    }
+                    .toggleStyle(.button)
+                    .tint(.accentColor)
+
+                    Toggle(isOn: $larivaarOn) {
+                        Label("Larivaar", systemImage: "textformat").font(.caption)
+                    }
+                    .toggleStyle(.button)
+                    .tint(.accentColor)
+                }
+                .padding(.horizontal)
+
+                // --- Next / Previous Navigation ---
+                HStack {
+                    if let prevID = sbdRes.shabadinfo.navigation.previous?.id {
+                        Button("◀︎ Previous") {
+                            Task {
+                                await fetchNewShabad(prevID)
+                            }
+                        }
+                    }
+                    Spacer()
+                    if let nextID = sbdRes.shabadinfo.navigation.next?.id {
+                        Button("Next ▶︎") {
+                            Task {
+                                await fetchNewShabad(nextID)
+                            }
+                        }
+                    }
+                }
+                .padding()
+
+                // --- Shabad Lines ---
+                VStack(alignment: .leading, spacing: 10) {
+                    ForEach(sbdRes.shabad, id: \.line.id) { shabadLine in
+                        VStack(alignment: .leading, spacing: 4) {
+                            GurbaniLineView(shabadLine: shabadLine, larivaarOn: $larivaarOn, textScale: textScale, gestureScale: gestureScale)
+
+                            if showTranslations {
+                                Text(shabadLine.line.translation.english.default)
+                                    .font(.system(size: 15 * textScale * gestureScale))
+                                    .foregroundColor(.secondary)
+                                    .lineSpacing(2)
+                            }
+                        }
+                        .padding(.vertical, 4)
+                    }
+                }
+                .gesture(
+                    MagnificationGesture()
+                        .onChanged { value in
+                            gestureScale = value
+                        }
+                        .onEnded { value in
+                            textScale *= value
+                            gestureScale = 1.0
+                        }
+                )
+            }
+            .padding()
+        }
+        .gesture(
+            DragGesture().onEnded { value in
+                let horizontalAmount = value.translation.width
+                if horizontalAmount < -50 { // swipe left
+                    if let nextID = sbdRes.shabadinfo.navigation.next?.id {
+                        Task { await fetchNewShabad(nextID) }
+                    }
+                } else if horizontalAmount > 50 { // swipe right
+                    if let prevID = sbdRes.shabadinfo.navigation.previous?.id {
+                        Task { await fetchNewShabad(prevID) }
+                    }
                 }
             }
-            .background(Color(.systemGroupedBackground))
-            .navigationBarTitleDisplayMode(.inline)
-        }
+        )
+        .navigationBarTitle("Shabad", displayMode: .inline) // or .large
         .sheet(isPresented: $showingSaveSheet) {
             SaveToFolderSheet(sbdRes: sbdRes, indexOfLine: indexOfLine)
                 .presentationDetents([.medium, .large])
         }
+        .onAppear {
+            UIApplication.shared.isIdleTimerDisabled = true
+        }
+        .onDisappear {
+            UIApplication.shared.isIdleTimerDisabled = false
+        }
+    }
+}
+
+struct GurbaniLineView: View {
+    let shabadLine: ShabadLineWrapper
+    // let larivaarOn: Bool
+    @Binding var larivaarOn: Bool
+    let textScale: Double
+    let gestureScale: Double
+
+    @State private var lineLarivaar = false
+
+    var body: some View {
+        Text(getGurbaniLine(shabadLine))
+            .font(.system(size: 20 * textScale * gestureScale))
+            .fontWeight(.medium)
+            .multilineTextAlignment(.leading)
+            .contentShape(Rectangle()) // makes the whole area tappable
+            .onTapGesture {
+                lineLarivaar.toggle()
+            }
+            .onAppear {
+                lineLarivaar = larivaarOn
+            }
+            .onChange(of: larivaarOn) {
+                lineLarivaar = larivaarOn
+            }
     }
 
     private func getGurbaniLine(_ shabadLine: ShabadLineWrapper) -> String {
-        larivaarOn ? shabadLine.line.larivaar.unicode : shabadLine.line.gurmukhi.unicode
+        lineLarivaar ? shabadLine.line.larivaar.unicode : shabadLine.line.gurmukhi.unicode
     }
 }
 
 struct SaveToFolderSheet: View {
     let sbdRes: ShabadAPIResponse
     let indexOfLine: Int?
-    @Environment(\.modelContext) private var modelContext
     @Query(
         filter: #Predicate<Folder> { $0.parentFolder == nil }, // only top-level
         sort: \.sortIndex
@@ -259,7 +297,6 @@ struct FolderRow: View {
     @Environment(\.modelContext) private var modelContext
     @State private var isExpanded = false
 
-
     var body: some View {
         DisclosureGroup(
             isExpanded: Binding(
@@ -274,7 +311,7 @@ struct FolderRow: View {
             )
         ) {
             if !folder.subfolders.isEmpty {
-                ForEach(folder.subfolders) { sub in
+                ForEach(folder.subfolders) { _ in
                     FolderRow(
                         folder: folder,
                         sbdRes: sbdRes,
@@ -315,20 +352,20 @@ struct FolderRow: View {
             indexOfSelectedLine: indexOfLine ?? 0,
             sortIndex: folder.savedShabads.count
         )
-        modelContext.insert(saved) // <-- Important
         folder.savedShabads.append(saved)
+        // modelContext.insert(saved) // <-- Important
         try? modelContext.save()
+        WidgetCenter.shared.reloadTimelines(ofKind: "xyz.gians.Chet.FavShabadsWidget")
     }
 
     private func remove(from folder: Folder) {
         if let existing = folder.savedShabads.first(where: { $0.sbdRes.shabadinfo.shabadid == sbdRes.shabadinfo.shabadid }) {
-            folder.savedShabads.removeAll(where: { $0.sbdRes.shabadinfo.shabadid == sbdRes.shabadinfo.shabadid })
-            modelContext.delete(existing)
+            modelContext.delete(existing) // deletes and removes from folder.savedShabads
         }
         try? modelContext.save()
     }
 }
 
-//#Preview {
-    // ShabadViewDisplayWrapper(sbdRes: SampleData.sbdHist)
-//}
+// #Preview {
+// ShabadViewDisplayWrapper(sbdRes: SampleData.sbdHist)
+// }

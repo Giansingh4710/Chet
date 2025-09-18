@@ -7,8 +7,7 @@
 
 import Foundation
 import SwiftData
-
-// import WidgetKit // for TimelineEntry
+import WidgetKit // for TimelineEntry
 
 struct TextPair: Codable {
     let akhar: String
@@ -189,10 +188,8 @@ final class ShabadHistory {
 
 @Model
 final class SavedShabad {
-   // Cascade delete when the folder is deleted
-    @Relationship(deleteRule: .cascade, inverse: \Folder.savedShabads)
-    var folder: Folder
-    @Relationship(deleteRule: .cascade) var sbdRes: ShabadAPIResponse
+    @Relationship(deleteRule: .cascade, inverse: \Folder.savedShabads) var folder: Folder?
+    @Relationship(deleteRule: .nullify) var sbdRes: ShabadAPIResponse
     var indexOfSelectedLine: Int
 
     var sortIndex: Int
@@ -202,8 +199,8 @@ final class SavedShabad {
         self.folder = folder
         self.sbdRes = sbdRes
         self.indexOfSelectedLine = indexOfSelectedLine
-        self.addedAt = addedAt
         self.sortIndex = sortIndex
+        self.addedAt = addedAt
     }
 }
 
@@ -217,7 +214,7 @@ final class Folder {
     var parentFolder: Folder?
 
     @Relationship(deleteRule: .cascade)
-    var subfolders: [Folder] = []
+    var subfolders: [Folder] = [] // You do not need to append. The @Relationship keeps folder.savedShabads in sync for you. Just insert the SavedShabad into the context, and SwiftData will handle the array.
 
     @Relationship(deleteRule: .cascade)
     var savedShabads: [SavedShabad] = []
@@ -274,4 +271,14 @@ extension ModelContainer {
 
         return container
     }()
+}
+
+extension UserDefaults { // for RandomShabadWidget data to be shown in app
+    static let appGroup = UserDefaults(suiteName: "group.xyz.gians.Chet")!
+}
+
+struct RandSbdForWidget: Codable, TimelineEntry {
+    let sbd: ShabadAPIResponse
+    let date: Date
+    let index: Int
 }

@@ -9,26 +9,31 @@ import SwiftUI
 import WidgetKit
 
 struct Provider: TimelineProvider {
-    func placeholder(in _: Context) -> ShabadEntry {
-        ShabadEntry(date: Date.now, sbd: SampleData.shabadResponse)
+    func placeholder(in _: Context) -> RandSbdForWidget {
+        RandSbdForWidget(sbd: SampleData.shabadResponse, date: Date.now, index: 0)
     }
 
-    func getSnapshot(in _: Context, completion: @escaping (ShabadEntry) -> Void) {
-        completion(ShabadEntry(date: Date.now, sbd: SampleData.shabadResponse))
+    func getSnapshot(in _: Context, completion: @escaping (RandSbdForWidget) -> Void) {
+        if let historyData = UserDefaults.appGroup.data(forKey: "randShabadList"),
+           let first = try? JSONDecoder().decode([RandSbdForWidget].self, from: historyData).first
+        {
+            completion(first)
+        } else {
+            completion(RandSbdForWidget(sbd: SampleData.shabadResponse, date: Date.now, index: 0))
+        }
     }
 
-    func getTimeline(in _: Context, completion: @escaping (Timeline<ShabadEntry>) -> Void) {
-        fetchRandomShabadWrapper { response in
 
-            var entries: [ShabadEntry] = []
-
-            // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-            let currentDate = Date()
-            for hourOffset in 0 ..< 8 {
-                let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset * 3, to: currentDate)!
-                let the_rand_sbd = response ?? SampleData.shabadResponse
-                let entry = ShabadEntry(date: entryDate, sbd: the_rand_sbd)
-                entries.append(entry)
+    func getTimeline(in _: Context, completion: @escaping (Timeline<RandSbdForWidget>) -> Void) {
+        Task {
+            let entries: [RandSbdForWidget]
+            if let saved = UserDefaults.appGroup.data(forKey: "randShabadList"),
+               let decoded = try? JSONDecoder().decode([RandSbdForWidget].self, from: saved)
+            {
+                entries = decoded
+            } else {
+                let refreshInterval = UserDefaults.appGroup.integer(forKey: "refreshInterval")
+                entries = await getRandShabads(interval: refreshInterval > 0 ? refreshInterval : 3)
             }
 
             let timeline = Timeline(entries: entries, policy: .atEnd)
@@ -37,48 +42,18 @@ struct Provider: TimelineProvider {
     }
 }
 
-private func fetchRandomShabadWrapper(completion: @escaping (ShabadAPIResponse?) -> Void) {
-    Task {
-        let response = await fetchRandomShabad()
-        completion(response)
-    }
-}
-
-struct ShabadEntry: TimelineEntry {
-    let date: Date
-    let sbd: ShabadAPIResponse
-}
+// struct ShabadEntry: TimelineEntry {
+//     let date: Date
+//     let sbd: ShabadAPIResponse
+//     let index: Int
+// }
 
 struct RandomShabadWidgetEntryView: View {
-    var entry: ShabadEntry
+    var entry: RandSbdForWidget
     var body: some View {
         WidgetEntryView(the_shabad: entry.sbd.shabad, heading: "Random Shabad" + getWidgetHeadingFromSbdInfo(entry.sbd.shabadinfo))
+            .widgetURL(URL(string: "chet://shabadid/\(entry.sbd.shabadinfo.shabadid)")) // custom deep link
     }
-}
-
-func getWidgetHeadingFromSbdInfo(_ info: ShabadInfo) -> String {
-    var metaData = ": " + info.writer.unicode + " (" + info.raag.unicode + ")"
-    metaData = " ("
-    switch info.writer.id {
-    case 1:
-        metaData += "p:1"
-    case 2:
-        metaData +=  "p:2"
-    case 3:
-        metaData += "p:3"
-    case 4:
-        metaData += "p:4"
-    case 5:
-        metaData += "p:5"
-    case 6:
-        metaData += "p:9"
-    case 7:
-        metaData += "p:10"
-    default:
-        metaData += info.writer.unicode
-    }
-    metaData += ")"
-    return metaData
 }
 
 struct RandomShabadWidget: Widget {
@@ -104,29 +79,29 @@ struct RandomShabadWidget: Widget {
 #Preview(as: .systemSmall) {
     RandomShabadWidget()
 } timeline: {
-    ShabadEntry(date: Date.now, sbd: SampleData.shabadResponse)
+    RandSbdForWidget(sbd: SampleData.shabadResponse, date: Date.now, index: 0)
 }
 
-//#Preview(as: .accessoryInline) {
+// #Preview(as: .accessoryInline) {
 //    RandomShabadWidget()
-//} timeline: {
-//    ShabadEntry(date: Date.now, sbd: SampleData.shabadResponse)
-//}
+// } timeline: {
+//    RandSbdForWidget(date: Date.now, sbd: SampleData.shabadResponse)
+// }
 //
-//#Preview(as: .accessoryRectangular) {
+// #Preview(as: .accessoryRectangular) {
 //    RandomShabadWidget()
-//} timeline: {
-//    ShabadEntry(date: Date.now, sbd: SampleData.shabadResponse)
-//}
+// } timeline: {
+//    RandSbdForWidget(date: Date.now, sbd: SampleData.shabadResponse)
+// }
 //
-//#Preview(as: .systemMedium) {
+// #Preview(as: .systemMedium) {
 //    RandomShabadWidget()
-//} timeline: {
-//    ShabadEntry(date: Date.now, sbd: SampleData.shabadResponse)
-//}
+// } timeline: {
+//    RandSbdForWidget(date: Date.now, sbd: SampleData.shabadResponse)
+// }
 //
-//#Preview(as: .systemLarge) {
+// #Preview(as: .systemLarge) {
 //    RandomShabadWidget()
-//} timeline: {
-//    ShabadEntry(date: Date.now, sbd: SampleData.shabadResponse)
-//}
+// } timeline: {
+//    RandSbdForWidget(date: Date.now, sbd: SampleData.shabadResponse)
+// }

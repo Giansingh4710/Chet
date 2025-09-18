@@ -66,8 +66,9 @@ struct SavedSbdEntry: TimelineEntry {
 struct FavShabadsWidgetEntryView: View {
     var entry: SavedSbdEntry
     var body: some View {
-        // WidgetEntryView(the_shabad: entry.obj.shabad, heading: "From Favorites")
-        Text("Favs")
+        WidgetEntryView(the_shabad: entry.obj.sbdRes.shabad, heading: "From Favorites" + getWidgetHeadingFromSbdInfo(entry.obj.sbdRes.shabadinfo))
+            .widgetURL(URL(string: "chet://shabadid/\(entry.obj.sbdRes.shabadinfo.shabadid)")) // custom deep link
+        // Text("Favs")
     }
 
 //    private getShabdObjFromFavLine(_ sbdObj:ShabadAPIResponse) -> {

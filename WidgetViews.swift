@@ -42,8 +42,8 @@ struct LockScreenInLineView: View {
             .minimumScaleFactor(0.7) // Allow text to scale down more to fit
     }
 }
-        
-private func filterOutHeadings(_ the_shabad: [ShabadLineWrapper]) -> [ShabadLineWrapper]{
+
+private func filterOutHeadings(_ the_shabad: [ShabadLineWrapper]) -> [ShabadLineWrapper] {
     // return the_shabad.filter { $0.line.type != 2 }.prefix(4).map { $0 }
     return the_shabad.filter { $0.line.type != 2 }.map { $0 }
 }
@@ -62,6 +62,7 @@ struct LockScreenRectangularView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
         .padding(.horizontal, 4) // Add horizontal padding
     }
+
     private func getOptimizedLines() -> [ShabadLineWrapper] {
         return the_shabad.filter { $0.line.type != 2 }.prefix(4).map { $0 }
     }
@@ -70,7 +71,7 @@ struct LockScreenRectangularView: View {
 struct HomeScreenSmallView: View {
     let the_shabad: [ShabadLineWrapper]
     let heading: String?
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: 2) { // Reduced spacing for more content
             if let title = heading {
@@ -78,14 +79,14 @@ struct HomeScreenSmallView: View {
                     .font(.system(size: 9, weight: .medium)) // Smaller font
                     .foregroundColor(.secondary)
                     .lineLimit(1)
-                    // .padding(.bottom, 1) // Small padding below title
+                // .padding(.bottom, 1) // Small padding below title
             }
-            
+
             VStack(alignment: .leading) {
                 Text(filterOutHeadings(the_shabad).map { $0.line.gurmukhi.unicode }.joined(separator: " "))
                     .font(.system(size: 16, weight: .medium)) // Smaller font
             }
-            //.clipped() // Clip any content that exceeds the frame
+            // .clipped() // Clip any content that exceeds the frame
         }
     }
 }
@@ -94,7 +95,7 @@ struct HomeScreenSmallView: View {
 struct HomeScreenMediumView: View {
     let the_shabad: [ShabadLineWrapper]
     let heading: String?
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
             if let title = heading {
@@ -104,11 +105,11 @@ struct HomeScreenMediumView: View {
                     .foregroundColor(.secondary)
                     .lineLimit(1)
             }
-            
+
             // Use a grid layout for more efficient space usage
             LazyVGrid(columns: [
                 GridItem(.flexible()),
-                GridItem(.flexible())
+                GridItem(.flexible()),
             ], alignment: .leading, spacing: 4) {
                 ForEach(getDisplayLines(), id: \.line.id) { lineWrapper in
                     VStack(alignment: .leading, spacing: 0) {
@@ -137,7 +138,7 @@ struct HomeScreenMediumView: View {
         .padding(10)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
     }
-    
+
     private func getDisplayLines() -> [ShabadLineWrapper] {
         // For medium widget, show up to 8 lines intelligently
         let maxLines = 8
@@ -149,7 +150,7 @@ struct HomeScreenMediumView: View {
 struct HomeScreenLargeView: View {
     let the_shabad: [ShabadLineWrapper]
     let heading: String?
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
             if let title = heading {
@@ -159,14 +160,14 @@ struct HomeScreenLargeView: View {
                     .foregroundColor(.secondary)
                     .lineLimit(1)
             }
-            
+
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 3) {
                     // Group lines by type for better organization
                     let headings = the_shabad.filter { $0.line.type == 2 }
                     let rahaoLines = the_shabad.filter { $0.line.type == 3 }
                     let normalLines = the_shabad.filter { $0.line.type == 4 }
-                    
+
                     // Display headings first
                     if !headings.isEmpty {
                         ForEach(headings, id: \.line.id) { lineWrapper in
@@ -177,7 +178,7 @@ struct HomeScreenLargeView: View {
                                 .padding(.top, 2)
                         }
                     }
-                    
+
                     // Display Rahao lines with emphasis
                     if !rahaoLines.isEmpty {
                         ForEach(rahaoLines, id: \.line.id) { lineWrapper in
@@ -188,11 +189,11 @@ struct HomeScreenLargeView: View {
                                 .padding(.vertical, 1)
                         }
                     }
-                    
+
                     // Display normal lines in a grid for better space usage
                     LazyVGrid(columns: [
                         GridItem(.flexible()),
-                        GridItem(.flexible())
+                        GridItem(.flexible()),
                     ], alignment: .leading, spacing: 3) {
                         ForEach(normalLines, id: \.line.id) { lineWrapper in
                             Text(lineWrapper.line.gurmukhi.unicode)
@@ -214,7 +215,7 @@ struct WidgetEntryView: View {
     let the_shabad: [ShabadLineWrapper]
     let heading: String?
     @Environment(\.widgetFamily) var widgetFamily
-    
+
     init(the_shabad: [ShabadLineWrapper], heading: String? = nil) {
         self.the_shabad = the_shabad
         self.heading = heading

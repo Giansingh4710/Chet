@@ -14,6 +14,8 @@ struct ShabadHistoryView: View {
     @Environment(\.colorScheme) private var colorScheme
     @Environment(\.modelContext) private var modelContext
 
+    @State private var showingSettingsSheet = false
+
     var body: some View {
         VStack(spacing: 0) {
             if historyItems.isEmpty {
@@ -34,7 +36,7 @@ struct ShabadHistoryView: View {
                 List {
                     ForEach(historyItems) { historyItem in
                         NavigationLink(destination: ShabadViewDisplayWrapper(sbdRes: historyItem.sbdRes, indexOfLine: historyItem.indexOfSelectedLine)) {
-                            HistoryShabadRowView(historyItem: historyItem)
+                            RowView(sbdRes: historyItem.sbdRes, indexOfLine: historyItem.indexOfSelectedLine, the_date: historyItem.dateViewed)
                         }
                         .buttonStyle(PlainButtonStyle())
                     }
@@ -44,7 +46,15 @@ struct ShabadHistoryView: View {
             }
         }
         .navigationTitle("History")
-        .background(colorScheme == .dark ? Color(.systemBackground) : Color(.systemGroupedBackground))
+        .toolbar {
+            Text("\(historyItems.count)").font(.caption).foregroundColor(.secondary)
+            Button(action: { showingSettingsSheet = true }) {
+                Label("Import", systemImage: "gear")
+            }
+        }
+        .sheet(isPresented: $showingSettingsSheet) {
+            SettingsView()
+        }
     }
 
     private func deleteHistoryItems(at offsets: IndexSet) {
@@ -63,73 +73,82 @@ struct ShabadHistoryView: View {
     }
 }
 
-struct HistoryShabadRowView: View {
-    let historyItem: ShabadHistory
-    @Environment(\.colorScheme) private var colorScheme
+struct RowView: View {
+    let sbdRes: ShabadAPIResponse
+    let indexOfLine: Int
+    let the_date: Date
+
+    @AppStorage("CompactRowViewSetting") private var compactRowViewSetting = false
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            HStack {
-                VStack(alignment: .leading, spacing: 4) {
-                    Text(historyItem.sbdRes.shabad[historyItem.indexOfSelectedLine].line.gurmukhi.unicode)
-                        .font(.title3)
-                        .fontWeight(.semibold)
-                        .lineLimit(2)
-                        .multilineTextAlignment(.leading)
+        if compactRowViewSetting {
+            Text(sbdRes.shabad[indexOfLine].line.gurmukhi.unicode)
+                .font(.title3)
+                .fontWeight(.semibold)
+                .lineLimit(1)
+                .multilineTextAlignment(.leading)
 
-                    Text(historyItem.sbdRes.shabad[historyItem.indexOfSelectedLine].line.translation.english.default)
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-                        .lineLimit(2)
-                        .multilineTextAlignment(.leading)
+        } else {
+            VStack(alignment: .leading, spacing: 8) {
+                HStack {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(sbdRes.shabad[indexOfLine].line.gurmukhi.unicode)
+                            .font(.title3)
+                            .fontWeight(.semibold)
+                            .lineLimit(2)
+                            .multilineTextAlignment(.leading)
+
+                        Text(sbdRes.shabad[indexOfLine].line.translation.english.default)
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                            .lineLimit(2)
+                            .multilineTextAlignment(.leading)
+                    }
+
+                    Spacer()
+
+                    VStack(alignment: .trailing, spacing: 4) {
+                        Text(the_date, style: .date)
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+
+                        Text(the_date, style: .time)
+                            .font(.caption2)
+                            .foregroundColor(.secondary)
+                    }
                 }
 
-                Spacer()
-
-                VStack(alignment: .trailing, spacing: 4) {
-                    Text(historyItem.dateViewed, style: .date)
+                HStack {
+                    Text(sbdRes.shabadinfo.source.unicode)
                         .font(.caption)
-                        .foregroundColor(.secondary)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 4)
+                        .background(Color.blue.opacity(0.2))
+                        .foregroundColor(.blue)
+                        .cornerRadius(4)
 
-                    Text(historyItem.dateViewed, style: .time)
-                        .font(.caption2)
-                        .foregroundColor(.secondary)
+                    Text(sbdRes.shabadinfo.writer.english)
+                        .font(.caption)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 4)
+                        .background(Color.green.opacity(0.2))
+                        .foregroundColor(.green)
+                        .cornerRadius(4)
+
+                    Text("Ang \(sbdRes.shabadinfo.pageno)")
+                        .font(.caption)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 4)
+                        .background(Color.orange.opacity(0.2))
+                        .foregroundColor(.orange)
+                        .cornerRadius(4)
+
+                    Spacer()
                 }
             }
-
-            HStack {
-                Text(historyItem.sbdRes.shabadinfo.source.unicode)
-                    .font(.caption)
-                    .padding(.horizontal, 8)
-                    .padding(.vertical, 4)
-                    .background(Color.blue.opacity(0.2))
-                    .foregroundColor(.blue)
-                    .cornerRadius(4)
-
-                Text(historyItem.sbdRes.shabadinfo.writer.english)
-                    .font(.caption)
-                    .padding(.horizontal, 8)
-                    .padding(.vertical, 4)
-                    .background(Color.green.opacity(0.2))
-                    .foregroundColor(.green)
-                    .cornerRadius(4)
-
-                Text("Page \(historyItem.sbdRes.shabadinfo.pageno)")
-                    .font(.caption)
-                    .padding(.horizontal, 8)
-                    .padding(.vertical, 4)
-                    .background(Color.orange.opacity(0.2))
-                    .foregroundColor(.orange)
-                    .cornerRadius(4)
-
-                Spacer()
-            }
+            .padding(.vertical, 8)
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
-        .padding(.vertical, 8)
-        .frame(maxWidth: .infinity, alignment: .leading)
     }
 }
 
-#Preview {
-    ShabadHistoryView()
-}

@@ -189,7 +189,7 @@ struct FoldersContentView: View {
 
         let maxIndex = folder.subfolders.map(\.sortIndex).max() ?? -1
         let newFolder = Folder(name: name, parentFolder: folder, sortIndex: maxIndex + 1)
-        folder.subfolders.append(newFolder)
+        // folder.subfolders.append(newFolder) // will be added to arry automatically
         try? modelContext.save()
     }
 }
@@ -198,9 +198,8 @@ struct FoldersDisplay: View {
     let foldersList: [Folder] // ✅ plain array, not Binding
     @Environment(\.modelContext) private var modelContext
 
-
     var body: some View {
-        Section("Subfolders") {
+        Section("Subfolders (\(foldersList.count))") {
             ForEach(foldersList.sorted(by: { $0.sortIndex < $1.sortIndex })) { sub in
                 NavigationLink(destination: FoldersContentView(folder: sub)) {
                     Label(sub.name, systemImage: "folder")
@@ -236,10 +235,10 @@ struct ShabadsDisplay: View {
     let folder: Folder
 
     var body: some View {
-        Section("Shabads") {
+        Section("Shabads (\(folder.savedShabads.count))") {
             ForEach(folder.savedShabads.sorted(by: { $0.addedAt < $1.addedAt })) { svdSbd in
                 NavigationLink(destination: ShabadViewDisplayWrapper(sbdRes: svdSbd.sbdRes, indexOfLine: svdSbd.indexOfSelectedLine)) {
-                    FavoriteShabadRowView(sbdRes: svdSbd.sbdRes, indexOfLine: svdSbd.indexOfSelectedLine, addedAt: svdSbd.addedAt)
+                    RowView(sbdRes: svdSbd.sbdRes, indexOfLine: svdSbd.indexOfSelectedLine, the_date: svdSbd.addedAt)
                 }
             }
             .onMove { indices, newOffset in
@@ -254,45 +253,6 @@ struct ShabadsDisplay: View {
             for (i, s) in shabadItems.enumerated() {
                 s.indexOfSelectedLine = i
             }
-        }
-    }
-}
-
-struct FavoriteShabadRowView: View {
-    let sbdRes: ShabadAPIResponse
-    let indexOfLine: Int
-    let addedAt: Date
-
-    @Environment(\.colorScheme) private var colorScheme
-
-    var body: some View {
-        if sbdRes.shabad.indices.contains(indexOfLine) {
-            ZStack(alignment: .topTrailing) {
-                VStack(alignment: .leading, spacing: 4) {
-                    Text(sbdRes.shabad[indexOfLine].line.gurmukhi.unicode)
-                        .font(.headline)
-                        .lineLimit(2)
-                        .multilineTextAlignment(.leading)
-
-                    Text(sbdRes.shabad[indexOfLine].line.translation.english.default)
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-                        .lineLimit(2)
-                        .multilineTextAlignment(.leading)
-                }
-
-                Text(addedAt, format: .dateTime.month(.abbreviated).day().year())
-                    .font(.caption2)
-                    .foregroundColor(.secondary)
-                    .padding(.trailing, 12) // controls spacing from right edge
-                    .offset(y: -12) // optional: lift it above
-            }
-            .frame(maxWidth: .infinity, alignment: .leading) // <-- key line
-            .padding(.vertical, 6)
-        } else {
-            Text("⚠️ Shabad line not found")
-                .font(.subheadline)
-                .foregroundColor(.secondary)
         }
     }
 }

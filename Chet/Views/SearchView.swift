@@ -2,7 +2,7 @@ import SwiftData
 import SwiftUI
 
 struct SearchView: View {
-    @State private var searchText = "qkml"
+    @State private var searchText = ""
     @State private var results: [LineObjFromSearch] = []
     @State private var isLoading = false
     @State private var errorMessage: String?
@@ -19,19 +19,21 @@ struct SearchView: View {
             VStack(spacing: 16) {
                 HStack {
                     TextField(
-                        "Search Gurbani…",
+                        "Koj",
                         text: $searchText,
                         onCommit: {
                             Task { await fetchResults() }
                         }
                     )
+                    .autocorrectionDisabled(true) // disables autocorrect
+                    .textInputAutocapitalization(.never)
                     .onAppear {
-                        for family in UIFont.familyNames {
-                            print("Family: \(family)")
-                            for name in UIFont.fontNames(forFamilyName: family) {
-                                print("  \(name)")
-                            }
-                        }
+                        // for family in UIFont.familyNames {
+                        //     print("Family: \(family)")
+                        //     for name in UIFont.fontNames(forFamilyName: family) {
+                        //         print("  \(name)")
+                        //     }
+                        // }
                     }
                     .font(.custom("AmrLipiHeavy", size: 16)) // "AmrLipiHeavy", "AnmolLipi", "Choti Script 7 Bold", "GHW Adhiapak Black", "GHW Adhiapak Bold", "GHW Adhiapak Book", "GHW Adhiapak Chisel Blk", "GHW Adhiapak Extra Light", "GHW Adhiapak Light", "GHW Adhiapak Medium"
                     .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -55,6 +57,10 @@ struct SearchView: View {
             .padding(.vertical)
             .background(colorScheme == .dark ? Color(.systemGray6) : Color(.systemBackground))
             .shadow(color: colorScheme == .dark ? .clear : .black.opacity(0.1), radius: 1, x: 0, y: 1)
+
+            if !results.isEmpty && !searchText.isEmpty {
+                Text("\(results.count) results").font(.subheadline).foregroundColor(.secondary)
+            }
 
             ZStack {
                 if isLoading {
@@ -138,7 +144,7 @@ struct SearchView: View {
                                         .multilineTextAlignment(.leading)
                                         .foregroundColor(.primary)
                                     Spacer()
-                                    Text(line.id)
+                                    Text("Ang \(line.pageno)")
                                         .font(.caption)
                                         .foregroundColor(.secondary)
                                 }
@@ -167,6 +173,11 @@ struct SearchView: View {
         errorMessage = nil
 
         do {
+            if searchText.isEmpty {
+                results = []
+                isLoading = false
+                return
+            }
             let decoded = try await searchGurbani(from: searchText)
             results = decoded.shabads.map { $0.shabad }
             isLoading = false

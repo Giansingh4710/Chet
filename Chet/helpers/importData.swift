@@ -99,9 +99,7 @@ func parseArrayForiGurbani(
     var count = 1
     for favorite in favorites {
         count += 1
-        if count > 50 {
-            break
-        }
+        // if count > 50 { break }
         guard let gurmukhi = favorite["gurmukhi"] as? String else {
             print("Gurmukhi not found")
             continue
@@ -120,7 +118,7 @@ func parseArrayForiGurbani(
                             print("⚠️ Could not parse date: \(createdDateString)")
                         }
                     }
-                    savedShadab.sortIndex = count * -1
+                    // savedShadab.sortIndex = count * -1
                     modelContext.insert(savedShadab)
                     folder.savedShabads.append(savedShadab)
                     await onShabadImported()
