@@ -24,38 +24,38 @@ struct Provider: @preconcurrency TimelineProvider {
     @MainActor func getTimeline(in _: Context, completion: @escaping (Timeline<SavedSbdEntry>) -> Void) {
         let svdSbds = getFavShabads()
         var entries: [SavedSbdEntry] = []
-        let currentDate = Date()
-        for hourOffset in 0 ..< svdSbds.count {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SavedSbdEntry(date: entryDate, obj: svdSbds[hourOffset])
+        let interval = UserDefaults.appGroup.data(forKey: "favSbdRefreshInterval") as? Int ?? 3
+        var lastDate: Date = Date.now
+        for offset in 0 ..< svdSbds.count {
+            let entryDate = Calendar.current.date(byAdding: .hour, value: offset * interval, to: Date())!
+            let entry = SavedSbdEntry(date: entryDate, obj: svdSbds[offset])
+            lastDate = entryDate
+            entries.append(entry)
             print("added entry")
             print(entry)
-            entries.append(entry)
         }
 
-        let timeline = Timeline(entries: entries, policy: .atEnd)
+        let timeline = Timeline(entries: entries, policy: .after(lastDate))
         completion(timeline)
     }
 
     @MainActor
     private func getFavShabads() -> [SavedShabad] {
         do {
+            let favSbdFolderName = UserDefaults.appGroup.data(forKey: "favSbdFolderName") as? String ?? default_fav_widget_folder_name
             let context = modelContainer.mainContext
-            let descriptor = FetchDescriptor<Folder>(
-                predicate: #Predicate { $0.name == "For Widgets" }
+
+            let descriptor = FetchDescriptor<SavedShabad>(
+                predicate: #Predicate { $0.folder?.name == favSbdFolderName },
+                sortBy: [SortDescriptor(\.sortIndex)]
             )
             let results = try context.fetch(descriptor)
-            // return results[0].savedShabads.map { $0.res }
-            return results[0].savedShabads
+            return results
         } catch {
             print("Widget fetch error: \(error)")
             return []
         }
     }
-
-    //    func relevances() async -> WidgetRelevances<Void> {
-    //        // Generate a list containing the contexts this widget is relevant in.
-    //    }
 }
 
 struct SavedSbdEntry: TimelineEntry {
@@ -95,6 +95,7 @@ struct FavShabadsWidget: Widget {
         }
         .configurationDisplayName("Favorite Shabads")
         .description("This will rotate Shabad From your Favorites")
+        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge, .accessoryInline, .accessoryRectangular])
     }
 }
 

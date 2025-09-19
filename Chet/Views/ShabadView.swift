@@ -264,7 +264,7 @@ struct SaveToFolderSheet: View {
         sort: \.sortIndex
     ) private var rootFolders: [Folder]
 
-    @State private var expanded: Set<Folder> = []
+    @State private var expanded: Set<UUID> = []
 
     var body: some View {
         NavigationStack {
@@ -292,28 +292,27 @@ struct FolderRow: View {
     let folder: Folder
     let sbdRes: ShabadAPIResponse
     let indexOfLine: Int?
-    @Binding var expanded: Set<Folder>
-
+    @Binding var expanded: Set<UUID>
     @Environment(\.modelContext) private var modelContext
     @State private var isExpanded = false
 
     var body: some View {
         DisclosureGroup(
             isExpanded: Binding(
-                get: { expanded.contains(folder) },
+                get: { expanded.contains(folder.id) },
                 set: { newValue in
                     if newValue {
-                        expanded.insert(folder)
+                        expanded.insert(folder.id)
                     } else {
-                        expanded.remove(folder)
+                        expanded.remove(folder.id)
                     }
                 }
             )
         ) {
             if !folder.subfolders.isEmpty {
-                ForEach(folder.subfolders) { _ in
+                ForEach(folder.subfolders) { subfolder in
                     FolderRow(
-                        folder: folder,
+                        folder: subfolder,
                         sbdRes: sbdRes,
                         indexOfLine: indexOfLine,
                         expanded: $expanded
@@ -345,7 +344,6 @@ struct FolderRow: View {
     }
 
     private func save(to folder: Folder) {
-        guard !isShabadSaved(in: folder) else { return }
         let saved = SavedShabad(
             folder: folder,
             sbdRes: sbdRes,
@@ -353,7 +351,7 @@ struct FolderRow: View {
             sortIndex: folder.savedShabads.count
         )
         folder.savedShabads.append(saved)
-        // modelContext.insert(saved) // <-- Important
+        modelContext.insert(saved) // <-- Important
         try? modelContext.save()
         WidgetCenter.shared.reloadTimelines(ofKind: "xyz.gians.Chet.FavShabadsWidget")
     }

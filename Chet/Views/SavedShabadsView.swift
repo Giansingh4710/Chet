@@ -66,7 +66,7 @@ struct SavedShabadsView: View {
                 newFolderName = ""
             }
             Button("Create") {
-                createFolder(named: newFolderName)
+                createFolder(newFolderName, folders: rootFolders, modelContext: modelContext)
                 newFolderName = ""
             }
         } message: {
@@ -135,16 +135,6 @@ struct SavedShabadsView: View {
             }
         }
     }
-
-    private func createFolder(named rawName: String) {
-        let name = rawName.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !name.isEmpty else { return }
-
-        // compute next sortIndex
-        let maxIndex = rootFolders.map(\.sortIndex).max() ?? -1
-        let newFolder = Folder(name: name, sortIndex: maxIndex + 1)
-        modelContext.insert(newFolder)
-    }
 }
 
 struct FoldersContentView: View {
@@ -175,28 +165,27 @@ struct FoldersContentView: View {
                 newFolderName = ""
             }
             Button("Create") {
-                createFolder(named: newFolderName)
+                createFolder(newFolderName, parentFolder: folder, folders: folder.subfolders, modelContext: modelContext)
                 newFolderName = ""
             }
         } message: {
             Text("Enter a name for the new folder")
         }
-    }
-
-    private func createFolder(named rawName: String) {
-        let name = rawName.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !name.isEmpty else { return }
-
-        let maxIndex = folder.subfolders.map(\.sortIndex).max() ?? -1
-        let newFolder = Folder(name: name, parentFolder: folder, sortIndex: maxIndex + 1)
-        // folder.subfolders.append(newFolder) // will be added to arry automatically
-        try? modelContext.save()
+        .onAppear {
+            print("Folder name: \(folder.name)")
+            for (i, f) in folder.subfolders.enumerated() {
+                print("        Folder #\(i): \(f.name)")
+            }
+        }
     }
 }
 
 struct FoldersDisplay: View {
     let foldersList: [Folder] // ✅ plain array, not Binding
     @Environment(\.modelContext) private var modelContext
+
+    @State private var folderNotEmpty: Folder?
+    @State private var showNotEmptyAlert = false
 
     var body: some View {
         Section("Subfolders (\(foldersList.count))") {
@@ -209,8 +198,27 @@ struct FoldersDisplay: View {
                 moveItems(indices, newOffset)
             }
             .onDelete { indices in
-                deleteFolders(at: indices)
+                handleDelete(at: indices)
             }
+        }
+        .alert("Folder Not Empty", isPresented: $showNotEmptyAlert, presenting: folderNotEmpty) { _ in
+            Button("OK", role: .cancel) {}
+        } message: { folder in
+            Text("Folder \(folder.name) is not empty and cannot be deleted.")
+        }
+    }
+
+    private func handleDelete(at offsets: IndexSet) {
+        guard let index = offsets.first else { return }
+        let folder = foldersList[index]
+
+        if folder.savedShabads.isEmpty && folder.subfolders.isEmpty {
+            // Folder is empty, safe to delete
+            modelContext.delete(folder)
+        } else {
+            // folderNotEmpty = folder
+            // showNotEmptyAlert = true
+            modelContext.delete(folder)
         }
     }
 
@@ -223,16 +231,11 @@ struct FoldersDisplay: View {
             f.sortIndex = i // ✅ direct mutation, persists in SwiftData
         }
     }
-
-    private func deleteFolders(at offsets: IndexSet) {
-        for index in offsets {
-            modelContext.delete(foldersList[index])
-        }
-    }
 }
 
 struct ShabadsDisplay: View {
     let folder: Folder
+    @Environment(\.modelContext) private var modelContext
 
     var body: some View {
         Section("Shabads (\(folder.savedShabads.count))") {
@@ -244,7 +247,18 @@ struct ShabadsDisplay: View {
             .onMove { indices, newOffset in
                 moveItems(&folder.savedShabads, indices, newOffset)
             }
+            .onDelete { indices in
+                handleDelete(at: indices)
+            }
         }
+    }
+
+    private func handleDelete(at offsets: IndexSet) {
+        for index in offsets {
+            let savedShabad = folder.savedShabads[index]
+            modelContext.delete(savedShabad)
+        }
+        try? modelContext.save()
     }
 
     private func moveItems<T>(_ items: inout [T], _ indices: IndexSet, _ newOffset: Int) {
@@ -255,4 +269,18 @@ struct ShabadsDisplay: View {
             }
         }
     }
+}
+
+private func createFolder(_ rawName: String, parentFolder: Folder? = nil, folders: [Folder], modelContext: ModelContext) {
+    let name = rawName.trimmingCharacters(in: .whitespacesAndNewlines)
+    guard !name.isEmpty else { return }
+
+    // compute next sortIndex
+    let maxIndex = folders.map(\.sortIndex).max() ?? -1
+    let newFolder = Folder(name: name, parentFolder: parentFolder, sortIndex: maxIndex + 1)
+    if let parentFolder = parentFolder {
+        parentFolder.subfolders.append(newFolder)
+    }
+    modelContext.insert(newFolder)
+    try? modelContext.save()
 }

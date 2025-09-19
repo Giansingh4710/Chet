@@ -23,21 +23,24 @@ struct Provider: TimelineProvider {
         }
     }
 
-
     func getTimeline(in _: Context, completion: @escaping (Timeline<RandSbdForWidget>) -> Void) {
         Task {
-            let entries: [RandSbdForWidget]
             if let saved = UserDefaults.appGroup.data(forKey: "randShabadList"),
-               let decoded = try? JSONDecoder().decode([RandSbdForWidget].self, from: saved)
+               let savedEntries = try? JSONDecoder().decode([RandSbdForWidget].self, from: saved),
+               let lastDate = savedEntries.last?.date
             {
-                entries = decoded
-            } else {
-                let refreshInterval = UserDefaults.appGroup.integer(forKey: "refreshInterval")
-                entries = await getRandShabads(interval: refreshInterval > 0 ? refreshInterval : 3)
+                if Date() < lastDate {
+                    // ✅ Still within current timeline → reuse saved
+                    completion(Timeline(entries: savedEntries, policy: .after(lastDate)))
+                    return
+                }
             }
 
-            let timeline = Timeline(entries: entries, policy: .atEnd)
-            completion(timeline)
+            // ❌ Expired or no saved entries → regenerate
+            let randSbdRefreshInterval = UserDefaults.appGroup.integer(forKey: "randSbdRefreshInterval")
+            let entries = await getRandShabads(interval: randSbdRefreshInterval > 0 ? randSbdRefreshInterval : 3)
+            let lastDate = entries.last?.date
+            completion(Timeline(entries: entries, policy: .after(lastDate ?? Date.now)))
         }
     }
 }
@@ -71,7 +74,7 @@ struct RandomShabadWidget: Widget {
             }
         }
         .configurationDisplayName("Random Shabad")
-        .description("This will show a Random Shabad every Pehar(3 hours)")
+        .description("This will show a Random Shabad")
         .supportedFamilies([.systemSmall, .systemMedium, .systemLarge, .accessoryInline, .accessoryRectangular])
     }
 }

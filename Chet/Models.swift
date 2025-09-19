@@ -188,7 +188,7 @@ final class ShabadHistory {
 
 @Model
 final class SavedShabad {
-    @Relationship(deleteRule: .cascade, inverse: \Folder.savedShabads) var folder: Folder?
+    @Relationship(deleteRule: .nullify, inverse: \Folder.savedShabads) var folder: Folder?
     @Relationship(deleteRule: .nullify) var sbdRes: ShabadAPIResponse
     var indexOfSelectedLine: Int
 
@@ -261,8 +261,9 @@ extension ModelContainer {
 
             if existing?.isEmpty ?? true {
                 let defaults = [
-                    Folder(name: "For Widgets", isSystemFolder: true),
-                    Folder(name: "Favorites", isSystemFolder: true),
+                    Folder(name: default_fav_widget_folder_name, isSystemFolder: true),
+                    Folder(name: "Keertan"),
+                    // Folder(name: "Favorites", isSystemFolder: true),
                 ]
                 defaults.forEach { context.insert($0) }
                 try? context.save()
@@ -282,3 +283,5 @@ struct RandSbdForWidget: Codable, TimelineEntry {
     let date: Date
     let index: Int
 }
+
+let default_fav_widget_folder_name = "Favorites"

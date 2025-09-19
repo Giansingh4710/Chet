@@ -15,6 +15,7 @@ struct ContentView: View {
     @State private var searchNavPath = NavigationPath()
     @State private var favoritesNavPath = NavigationPath()
     @State private var historyNavPath = NavigationPath()
+    @State private var settingsNavPath = NavigationPath()
 
     var body: some View {
         TabView(selection: $selectedTab) {
@@ -60,6 +61,20 @@ struct ContentView: View {
                 Text("History")
             }
             .tag(2)
+
+            NavigationStack(path: $settingsNavPath) {
+                SettingsView()
+            }
+            .onChange(of: selectedTab) { oldValue, newValue in
+                if oldValue == newValue && newValue == 3 {
+                    settingsNavPath = NavigationPath()
+                }
+            }
+            .tabItem {
+                Image(systemName: "gear")
+                Text("Settings")
+            }
+            .tag(3)
         }
         .onAppear {
             UIApplication.shared.isIdleTimerDisabled = true
