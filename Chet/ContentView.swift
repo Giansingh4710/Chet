@@ -17,6 +17,8 @@ struct ContentView: View {
     @State private var historyNavPath = NavigationPath()
     @State private var settingsNavPath = NavigationPath()
 
+    @State private var editMode: EditMode = .inactive
+
     var body: some View {
         TabView(selection: $selectedTab) {
             NavigationStack(path: $searchNavPath) {
@@ -36,6 +38,7 @@ struct ContentView: View {
             // Other tabs remain the same
             NavigationStack(path: $favoritesNavPath) {
                 SavedShabadsView()
+                    .environment(\.editMode, $editMode) // inject editMode here
             }
             .onChange(of: selectedTab) { oldValue, newValue in
                 if oldValue == newValue && newValue == 1 {

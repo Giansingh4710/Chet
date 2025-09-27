@@ -259,69 +259,17 @@ struct GurbaniLineView: View {
 struct SaveToFolderSheet: View {
     let sbdRes: ShabadAPIResponse
     let indexOfLine: Int?
+    
     @Query(
-        filter: #Predicate<Folder> { $0.parentFolder == nil }, // only top-level
+        filter: #Predicate<Folder> { $0.parentFolder == nil },
         sort: \.sortIndex
     ) private var rootFolders: [Folder]
 
-    @State private var expanded: Set<UUID> = []
+    @Environment(\.modelContext) private var modelContext
 
     var body: some View {
         NavigationStack {
-            List {
-                ForEach(rootFolders) { folder in
-                    FolderRow(
-                        folder: folder,
-                        sbdRes: sbdRes,
-                        indexOfLine: indexOfLine,
-                        expanded: $expanded
-                    )
-                }
-            }
-            .navigationTitle("Save to Folders")
-            .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("Close") {}
-                }
-            }
-        }
-    }
-}
-
-struct FolderRow: View {
-    let folder: Folder
-    let sbdRes: ShabadAPIResponse
-    let indexOfLine: Int?
-    @Binding var expanded: Set<UUID>
-    @Environment(\.modelContext) private var modelContext
-    @State private var isExpanded = false
-
-    var body: some View {
-        DisclosureGroup(
-            isExpanded: Binding(
-                get: { expanded.contains(folder.id) },
-                set: { newValue in
-                    if newValue {
-                        expanded.insert(folder.id)
-                    } else {
-                        expanded.remove(folder.id)
-                    }
-                }
-            )
-        ) {
-            if !folder.subfolders.isEmpty {
-                ForEach(folder.subfolders) { subfolder in
-                    FolderRow(
-                        folder: subfolder,
-                        sbdRes: sbdRes,
-                        indexOfLine: indexOfLine,
-                        expanded: $expanded
-                    )
-                    .padding(.leading, 16)
-                }
-            }
-        } label: {
-            HStack {
+            List(rootFolders, id: \.id, children: \.subfoldersOrNil) { folder in
                 Toggle(isOn: Binding(
                     get: { isShabadSaved(in: folder) },
                     set: { newValue in
@@ -335,6 +283,12 @@ struct FolderRow: View {
                     Text(folder.name)
                 }
                 .toggleStyle(.switch)
+            }
+            .navigationTitle("Save to Folders")
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Close") {}
+                }
             }
         }
     }
@@ -351,19 +305,16 @@ struct FolderRow: View {
             sortIndex: folder.savedShabads.count
         )
         folder.savedShabads.append(saved)
-        modelContext.insert(saved) // <-- Important
+        modelContext.insert(saved)
         try? modelContext.save()
         WidgetCenter.shared.reloadTimelines(ofKind: "xyz.gians.Chet.FavShabadsWidget")
     }
 
     private func remove(from folder: Folder) {
         if let existing = folder.savedShabads.first(where: { $0.sbdRes.shabadinfo.shabadid == sbdRes.shabadinfo.shabadid }) {
-            modelContext.delete(existing) // deletes and removes from folder.savedShabads
+            modelContext.delete(existing)
         }
         try? modelContext.save()
     }
 }
 
-// #Preview {
-// ShabadViewDisplayWrapper(sbdRes: SampleData.sbdHist)
-// }

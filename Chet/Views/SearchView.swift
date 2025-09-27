@@ -10,58 +10,13 @@ struct SearchView: View {
     @FocusState private var isSearchFieldFocused: Bool
     @Environment(\.modelContext) private var modelContext
 
-    // NEW
     @State private var selectedShabad: ShabadAPIResponse?
     @State private var isNavigating = false
 
+    @State private var showingPunjabiKeyboard = false
+
     var body: some View {
         VStack(spacing: 0) {
-            VStack(spacing: 16) {
-                HStack {
-                    TextField(
-                        "Koj",
-                        text: $searchText,
-                        onCommit: {
-                            Task { await fetchResults() }
-                        }
-                    )
-                    .autocorrectionDisabled(true) // disables autocorrect
-                    .textInputAutocapitalization(.never)
-                    .onAppear {
-                        // for family in UIFont.familyNames {
-                        //     print("Family: \(family)")
-                        //     for name in UIFont.fontNames(forFamilyName: family) {
-                        //         print("  \(name)")
-                        //     }
-                        // }
-                    }
-                    .font(.custom("AmrLipiHeavy", size: 16)) // "AmrLipiHeavy", "AnmolLipi", "Choti Script 7 Bold", "GHW Adhiapak Black", "GHW Adhiapak Bold", "GHW Adhiapak Book", "GHW Adhiapak Chisel Blk", "GHW Adhiapak Extra Light", "GHW Adhiapak Light", "GHW Adhiapak Medium"
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .focused($isSearchFieldFocused)
-
-                    Button(action: {
-                        Task { await fetchResults() }
-                    }) {
-                        Text("Search")
-                            .fontWeight(.medium)
-                            .foregroundColor(.white)
-                            .padding(.horizontal, 16)
-                            .padding(.vertical, 8)
-                            .background(Color.blue)
-                            .cornerRadius(8)
-                    }
-                    .disabled(searchText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
-                }
-                .padding(.horizontal)
-            }
-            .padding(.vertical)
-            .background(colorScheme == .dark ? Color(.systemGray6) : Color(.systemBackground))
-            .shadow(color: colorScheme == .dark ? .clear : .black.opacity(0.1), radius: 1, x: 0, y: 1)
-
-            if !results.isEmpty && !searchText.isEmpty {
-                Text("\(results.count) results").font(.subheadline).foregroundColor(.secondary)
-            }
-
             ZStack {
                 if isLoading {
                     VStack(spacing: 16) {
@@ -112,12 +67,16 @@ struct SearchView: View {
                             .multilineTextAlignment(.center)
                             .padding(.horizontal)
 
-                        HStack(spacing: 12) {
-                            Button("Random Shabad") {
+                        VStack(spacing: 12) {
+                            Button(action: {
                                 Task { await openRandomShabad() }
+                            }) {
+                                Image(systemName: "shuffle")
+                                Text("Random Shabad")
                             }
                             .buttonStyle(.borderedProminent)
-                            Button("Hukamnama") {
+
+                            Button("Darbar Sahib Hukamnama") {
                                 Task { await openHukamnama() }
                             }
                             .buttonStyle(.bordered)
@@ -163,8 +122,85 @@ struct SearchView: View {
                     .listStyle(PlainListStyle())
                 }
             }
-            .navigationTitle("Gurbani Search")
+            .navigationTitle(!results.isEmpty ? "\(results.count) results" : "Gurbani Search")
             .background(colorScheme == .dark ? Color(.systemBackground) : Color(.systemGroupedBackground))
+
+            VStack {
+                HStack(spacing: 8) {
+                    TextField(
+                        "Koj",
+                        text: $searchText,
+                        onCommit: {
+                            Task { await fetchResults() }
+                        }
+                    )
+                    .autocorrectionDisabled(true)
+                    .textInputAutocapitalization(.never)
+                    .font(.custom("AmrLipiHeavy", size: 16))
+                    .padding(10)
+                    .background(Color(.systemGray6))
+                    .cornerRadius(10)
+                    .focused($isSearchFieldFocused)
+
+                    if !searchText.isEmpty {
+                        Button(action: {
+                            searchText = ""
+                            results = []
+                            errorMessage = nil
+                        }) {
+                            Image(systemName: "xmark.circle.fill")
+                                .foregroundColor(.secondary)
+                        }
+                    }
+
+                    Button(action: {
+                        withAnimation(.spring()) {
+                            showingPunjabiKeyboard.toggle()
+                            isSearchFieldFocused = false // dismiss system keyboard
+                        }
+                    }) {
+                        Image(systemName: "keyboard")
+                            .foregroundColor(.blue)
+                    }
+
+                    Button(action: {
+                        Task { await fetchResults() }
+                    }) {
+                        HStack(spacing: 4) {
+                            Image(systemName: "magnifyingglass")
+                            Text("Search")
+                                .font(.caption)
+                        }
+                        .foregroundColor(.white)
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 8)
+                        .background(Color.blue)
+                        .cornerRadius(8)
+                    }
+                    .disabled(searchText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+                }
+                .padding(.horizontal)
+                // .padding(.bottom, 8)
+                .background(.ultraThinMaterial)
+
+                if showingPunjabiKeyboard {
+                    PunjabiKeyboardView { key in
+                        if key == "\u{232B}" {
+                            if !searchText.isEmpty {
+                                searchText.removeLast()
+                            }
+                        } else {
+                            searchText.append(key)
+                        }
+                    }
+                    .transition(.move(edge: .bottom).combined(with: .opacity))
+                    .background(Color(.systemBackground))
+                    .shadow(radius: 5)
+                }
+            }
+            .padding(.vertical)
+            .background(colorScheme == .dark ? Color(.systemGray6) : Color(.systemBackground))
+            .shadow(color: colorScheme == .dark ? .clear : .black.opacity(0.1), radius: 1, x: 0, y: 1)
         }
     }
 
@@ -299,5 +335,61 @@ struct ShabadViewFromSearchedLine: View {
         }
 
         try? modelContext.save()
+    }
+}
+
+struct PunjabiKeyboardView: View {
+    let onKeyPress: (String) -> Void
+
+    private let rows: [[String]] = [
+        ["a", "A", "e", "s", "h", "k", "K", "g", "G", "|"],
+        ["c", "C", "j", "J", "\\", "t", "T", "f", "F", "x"],
+        ["q", "Q", "d", "D", "n", "p", "P", "b", "B", "m"],
+        ["X", "r", "l", "v", "V", "S", "^", "Z", "z", "&"],
+    ]
+
+    var body: some View {
+        VStack(spacing: 12) {
+            ForEach(rows, id: \.self) { row in
+                HStack(spacing: 6) {
+                    ForEach(Array(row.enumerated()), id: \.offset) { index, key in
+                        KeyButton(label: key) {
+                            onKeyPress(key)
+                        }
+
+                        // Insert a grouping gap every 5 keys
+                        if (index + 1) % 5 == 0 && index != row.count - 1 {
+                            Spacer(minLength: 14) // creates the gap
+                        }
+                    }
+                }
+            }
+        }
+        .padding(.horizontal, 8)
+        .padding(.vertical, 10)
+        .background(Color(UIColor.systemGray6))
+    }
+}
+
+struct KeyButton: View {
+    let label: String
+    let action: () -> Void
+
+    var body: some View {
+        Button(action: action) {
+            Text(label)
+                .font(.custom("AmrLipiHeavy", size: 20))
+                .foregroundColor(.primary)
+                .frame(maxWidth: .infinity)
+                .frame(height: 44)
+                .background(
+                    RoundedRectangle(cornerRadius: 8, style: .continuous)
+                        .fill(Color(UIColor.systemGray5))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                .stroke(Color(UIColor.systemGray3), lineWidth: 0.5)
+                        )
+                )
+        }
     }
 }

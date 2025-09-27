@@ -187,7 +187,8 @@ final class ShabadHistory {
 }
 
 @Model
-final class SavedShabad {
+final class SavedShabad: Identifiable, Hashable {
+    @Attribute(.unique) var id = UUID() // You'll need an ID for SavedShabad to conform to Identifiable and Hashable easily
     @Relationship(deleteRule: .nullify, inverse: \Folder.savedShabads) var folder: Folder?
     @Relationship(deleteRule: .nullify) var sbdRes: ShabadAPIResponse
     var indexOfSelectedLine: Int
@@ -196,16 +197,25 @@ final class SavedShabad {
     var addedAt: Date
 
     init(folder: Folder, sbdRes: ShabadAPIResponse, indexOfSelectedLine: Int = 0, addedAt: Date = Date(), sortIndex: Int = 0) {
+        id = UUID()
         self.folder = folder
         self.sbdRes = sbdRes
         self.indexOfSelectedLine = indexOfSelectedLine
         self.sortIndex = sortIndex
         self.addedAt = addedAt
     }
+
+    static func == (lhs: SavedShabad, rhs: SavedShabad) -> Bool {
+        lhs.id == rhs.id
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
 }
 
 @Model
-final class Folder {
+final class Folder: Identifiable, Hashable {
     @Attribute(.unique) var id: UUID
     var name: String
     var isSystemFolder: Bool = false // for "Widgets"
@@ -213,14 +223,19 @@ final class Folder {
     @Relationship(deleteRule: .nullify)
     var parentFolder: Folder?
 
-    @Relationship(deleteRule: .cascade)
-    var subfolders: [Folder] = [] // You do not need to append. The @Relationship keeps folder.savedShabads in sync for you. Just insert the SavedShabad into the context, and SwiftData will handle the array.
+    @Relationship(deleteRule: .cascade, inverse: \Folder.parentFolder)
+    var subfolders: [Folder]
 
     @Relationship(deleteRule: .cascade)
     var savedShabads: [SavedShabad] = []
 
     // Custom ordering
     var sortIndex: Int = 0
+
+    // Computed property for OutlineGroup
+    var subfoldersOrNil: [Folder]? {
+        subfolders.isEmpty ? nil : subfolders.sorted { $0.name < $1.name }
+    }
 
     init(name: String, parentFolder: Folder? = nil, subfolders: [Folder] = [], isSystemFolder: Bool = false, sortIndex: Int = 0) {
         id = UUID()
@@ -229,6 +244,14 @@ final class Folder {
         self.subfolders = subfolders
         self.isSystemFolder = isSystemFolder
         self.sortIndex = sortIndex
+    }
+
+    static func == (lhs: Folder, rhs: Folder) -> Bool {
+        lhs.id == rhs.id
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
 }
 
