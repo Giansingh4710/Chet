@@ -63,183 +63,302 @@ struct ShabadViewDisplay: View {
     let indexOfLine: Int?
 
     @AppStorage("shabadTextScale") private var textScale: Double = 1.0
+    @AppStorage("translationShabadTextScale") private var translationTextScale: Double = 1.0
     @AppStorage("showTranslations") private var showTranslations: Bool = true
     @AppStorage("larivaar") private var larivaarOn: Bool = true
-    @State private var gestureScale: CGFloat = 1.0
+    @AppStorage("fontType") private var fontType: String = "Default"
 
-    @State private var showingSaveSheet = false
+    @State private var gestureScale: CGFloat = 1.0
+    @State private var showingSettings = false
+    @State private var showingSaved = false
 
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 16) {
-                // --- Meta Info Card ---
-                VStack(alignment: .leading, spacing: 12) {
-                    HStack {
-                        Label {
-                            Text("Ang \(sbdRes.shabadinfo.pageno)")
-                                .font(.subheadline)
-                                .fontWeight(.semibold)
-                        } icon: {
-                            Image(systemName: "book.closed")
+        ZStack {
+            ScrollViewReader { proxy in
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 14) {
+                        // --- Meta Info Card ---
+                        PreviewContextView {
+                            HStack(spacing: 32) {
+                                VStack(alignment: .leading, spacing: 6) {
+                                    HStack(spacing: 6) {
+                                        Image(systemName: "book.closed")
+                                        Text("Ang \(String(sbdRes.shabadinfo.pageno))")
+                                            .font(.caption).fontWeight(.semibold)
+                                    }
+                                    HStack(spacing: 6) {
+                                        Image(systemName: "text.quote")
+                                        Text("\(sbdRes.shabad.count) lines")
+                                            .font(.caption).fontWeight(.semibold)
+                                    }
+                                }
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                VStack(alignment: .leading, spacing: 6) {
+                                    HStack(spacing: 6) {
+                                        Image(systemName: "pencil")
+                                        Text(sbdRes.shabadinfo.writer.english)
+                                            .font(.caption).fontWeight(.semibold)
+                                    }
+                                    HStack(spacing: 6) {
+                                        Image(systemName: "music.note")
+                                        Text(sbdRes.shabadinfo.raag.english)
+                                            .font(.caption).fontWeight(.semibold)
+                                    }
+                                }
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                            }
+                            .padding()
+                            .background(
+                                RoundedRectangle(cornerRadius: 14, style: .continuous)
+                                    .fill(Color(.systemBackground))
+                                    .shadow(color: .blue.opacity(0.5), radius: 4, x: 0, y: 2)
+                            )
+                            .padding(.horizontal)
+                        } preview: {
+                            ShabadMetaInfoSheet(info: sbdRes.shabadinfo)
                         }
 
-                        Spacer()
+                        // --- Gurbani Lines ---
+                        ForEach(Array(sbdRes.shabad.enumerated()), id: \.1.line.id) { index, shabadLineWrapper in
+                            VStack(alignment: .leading, spacing: 0) {
+                                GurbaniLineView(
+                                    shabadLine: shabadLineWrapper.line,
+                                    larivaarOn: $larivaarOn,
+                                    textScale: textScale,
+                                    gestureScale: gestureScale,
+                                    isSearchedLine: indexOfLine == index
+                                )
+                                .padding(.horizontal)
+                                .id(index)
 
-                        Label {
-                            Text(sbdRes.shabadinfo.writer.english)
-                                .font(.subheadline)
-                                .fontWeight(.semibold)
-                        } icon: {
-                            Image(systemName: "pencil")
+                                if showTranslations {
+                                    Text(shabadLineWrapper.line.translation.english.default)
+                                        .font(.system(size: 20 * translationTextScale * gestureScale))
+                                        .foregroundColor(.secondary)
+                                        .lineSpacing(2)
+                                        .padding(.horizontal)
+                                        .padding(.top, 2) // small top space just for translation
+                                }
+                            }
+                            // Use smaller or no vertical padding
+                            .padding(.vertical, 2)
+                        }
+                        .onAppear {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                withAnimation {
+                                    proxy.scrollTo(indexOfLine, anchor: .center)
+                                }
+                            }
                         }
                     }
-
-                    Divider()
-
-                    HStack(spacing: 20) {
-                        Text("\(sbdRes.shabad.count) lines")
-                            .font(.caption)
-                            .foregroundColor(.secondary)
-
-                        Spacer()
-
-                        VStack(alignment: .trailing, spacing: 4) {
-                            Text("Shabad ID")
-                                .font(.caption)
-                                .foregroundColor(.secondary)
-                            Text(sbdRes.shabadinfo.shabadid)
-                                .font(.callout)
-                                .fontWeight(.medium)
-                                .foregroundColor(.primary)
-                                .monospaced() // keeps IDs aligned
-                        }
-                    }
+                    .padding(.bottom, 60) // leave space for docked bar
+                    .gesture(
+                        MagnificationGesture()
+                            .onChanged { gestureScale = $0 }
+                            .onEnded {
+                                textScale *= $0
+                                gestureScale = 1.0
+                            }
+                    )
                 }
-                .padding()
-                .background(
-                    RoundedRectangle(cornerRadius: 16, style: .continuous)
-                        .fill(Color(.systemBackground))
-                        .shadow(color: .black.opacity(0.1), radius: 6, x: 0, y: 3)
-                )
-                .padding(.horizontal)
+            }
 
-                HStack(spacing: 8) {
-                    Button(action: {
-                        showingSaveSheet = true
-                    }) {
-                        Label("Save", systemImage: "bookmark")
-                            .labelStyle(.titleAndIcon)
-                            .font(.caption)
-                    }
-                    .buttonStyle(.bordered)
-                    .tint(.accentColor)
-
-                    Toggle(isOn: $showTranslations) {
-                        Label("Translation", systemImage: "text.alignleft").font(.caption2)
-                    }
-                    .toggleStyle(.button)
-                    .tint(.accentColor)
-
-                    Toggle(isOn: $larivaarOn) {
-                        Label("Larivaar", systemImage: "textformat").font(.caption)
-                    }
-                    .toggleStyle(.button)
-                    .tint(.accentColor)
-                }
-                .padding(.horizontal)
-
-                // --- Next / Previous Navigation ---
+            VStack {
+                Spacer()
                 HStack {
+                    // Prev Button
                     if let prevID = sbdRes.shabadinfo.navigation.previous?.id {
-                        Button("◀︎ Previous") {
-                            Task {
-                                await fetchNewShabad(prevID)
-                            }
+                        Button {
+                            Task { await fetchNewShabad(prevID) }
+                        } label: {
+                            Image(systemName: "chevron.left")
+                                .font(.title2)
+                                .frame(width: 44, height: 44)
                         }
+                    } else {
+                        Spacer().frame(width: 44)
                     }
+
                     Spacer()
+
+                    // Settings Button
+                    Button {
+                        showingSettings = true
+                    } label: {
+                        Image(systemName: "gearshape")
+                            .font(.title2)
+                            .frame(width: 44, height: 44)
+                    }
+
+                    Spacer()
+
+                    // Next Button
                     if let nextID = sbdRes.shabadinfo.navigation.next?.id {
-                        Button("Next ▶︎") {
-                            Task {
-                                await fetchNewShabad(nextID)
-                            }
+                        Button {
+                            Task { await fetchNewShabad(nextID) }
+                        } label: {
+                            Image(systemName: "chevron.right")
+                                .font(.title2)
+                                .frame(width: 44, height: 44)
                         }
+                    } else {
+                        Spacer().frame(width: 44)
                     }
                 }
-                .padding()
-
-                // --- Shabad Lines ---
-                VStack(alignment: .leading, spacing: 10) {
-                    ForEach(sbdRes.shabad, id: \.line.id) { shabadLine in
-                        VStack(alignment: .leading, spacing: 4) {
-                            GurbaniLineView(shabadLine: shabadLine, larivaarOn: $larivaarOn, textScale: textScale, gestureScale: gestureScale)
-
-                            if showTranslations {
-                                Text(shabadLine.line.translation.english.default)
-                                    .font(.system(size: 15 * textScale * gestureScale))
-                                    .foregroundColor(.secondary)
-                                    .lineSpacing(2)
-                            }
-                        }
-                        .padding(.vertical, 4)
-                    }
-                }
-                .gesture(
-                    MagnificationGesture()
-                        .onChanged { value in
-                            gestureScale = value
-                        }
-                        .onEnded { value in
-                            textScale *= value
-                            gestureScale = 1.0
-                        }
-                )
+                .background(.ultraThinMaterial) // iOS-style frosted bar
+                .cornerRadius(20)
+                .padding(.horizontal)
+                .padding(.bottom, 20) // 👈 controls the "hover" distance
             }
-            .padding()
         }
-        .gesture(
-            DragGesture().onEnded { value in
-                let horizontalAmount = value.translation.width
-                if horizontalAmount < -50 { // swipe left
-                    if let nextID = sbdRes.shabadinfo.navigation.next?.id {
-                        Task { await fetchNewShabad(nextID) }
-                    }
-                } else if horizontalAmount > 50 { // swipe right
-                    if let prevID = sbdRes.shabadinfo.navigation.previous?.id {
-                        Task { await fetchNewShabad(prevID) }
-                    }
+        .navigationBarTitle("Shabad", displayMode: .inline)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    showingSaved = true
+                } label: {
+                    Image(systemName: "bookmark")
                 }
             }
-        )
-        .navigationBarTitle("Shabad", displayMode: .inline) // or .large
-        .sheet(isPresented: $showingSaveSheet) {
+        }
+        .sheet(isPresented: $showingSettings) {
+            SettingsSheet(
+                textScale: $textScale,
+                translationTextScale: $translationTextScale,
+                showTranslations: $showTranslations,
+                larivaarOn: $larivaarOn,
+                fontType: $fontType
+            )
+            .presentationDetents([.medium, .large])
+        }
+        .sheet(isPresented: $showingSaved) {
             SaveToFolderSheet(sbdRes: sbdRes, indexOfLine: indexOfLine)
                 .presentationDetents([.medium, .large])
         }
-        .onAppear {
-            UIApplication.shared.isIdleTimerDisabled = true
+        .onAppear { UIApplication.shared.isIdleTimerDisabled = true }
+        .onDisappear { UIApplication.shared.isIdleTimerDisabled = false }
+    }
+}
+
+// --- Settings Sheet ---
+struct SettingsSheet: View {
+    @Binding var textScale: Double
+    @Binding var translationTextScale: Double
+    @Binding var showTranslations: Bool
+    @Binding var larivaarOn: Bool
+    @Binding var fontType: String
+
+    var body: some View {
+        NavigationView {
+            Form {
+                Section(header: Text("Display")) {
+                    Toggle("Larivaar", isOn: $larivaarOn)
+                    HStack {
+                        Text("Font Size")
+                        Slider(value: $textScale, in: 0.5 ... 2.5, step: 0.1)
+                    }
+
+                    Toggle("Show Translations", isOn: $showTranslations)
+                    if showTranslations {
+                        HStack {
+                            Text("Translation Font Size")
+                            Slider(value: $translationTextScale, in: 0.5 ... 2.5, step: 0.1)
+                        }
+                    }
+
+                    Picker("Font", selection: $fontType) {
+                        Text("Default").tag("Default")
+                        Text("Amrlipiheavy.ttf").tag("Amrlipiheavy")
+                        Text("Anmollipi.ttf").tag("Anmollipi")
+                        Text("Choti Script 7 Bold.ttf").tag("Choti Script 7 Bold")
+                        Text("Ghw_adhiapak_black.ttf").tag("Ghw_adhiapak_black")
+                        Text("Ghw_adhiapak_bold.ttf").tag("Ghw_adhiapak_bold")
+                        Text("Ghw_adhiapak_book.ttf").tag("Ghw_adhiapak_book")
+                        Text("Ghw_adhiapak_chisel_blk.ttf").tag("Ghw_adhiapak_chisel_blk")
+                        Text("Ghw_adhiapak_extra_light.ttf").tag("Ghw_adhiapak_extra_light")
+                        Text("Ghw_adhiapak_light.ttf").tag("Ghw_adhiapak_light")
+                        Text("Ghw_adhiapak_medium.ttf").tag("Ghw_adhiapak_medium")
+                    }
+                }
+            }
+            .navigationTitle("Settings")
+            .navigationBarTitleDisplayMode(.inline)
         }
-        .onDisappear {
-            UIApplication.shared.isIdleTimerDisabled = false
+    }
+}
+
+struct ShabadMetaInfoSheet: View {
+    let info: ShabadInfo
+
+    let columns = [
+        GridItem(.flexible(), alignment: .leading),
+        GridItem(.flexible(), alignment: .leading),
+    ]
+
+    var body: some View {
+        NavigationView {
+            ScrollView {
+                LazyVGrid(columns: columns, spacing: 16) {
+                    Group {
+                        Text("Shabad ID:").fontWeight(.semibold)
+                        Text("\(info.shabadid)")
+
+                        Text("Ang:").fontWeight(.semibold)
+                        Text("\(info.pageno)")
+
+                        Text("Lines:").fontWeight(.semibold)
+                        Text("\(info.count)")
+
+                        Text("Source:").fontWeight(.semibold)
+                        Text(info.source.english)
+
+                        Text("Writer (Eng):").fontWeight(.semibold)
+                        Text(info.writer.english)
+
+                        Text("Writer (Gurmukhi):").fontWeight(.semibold)
+                        Text(info.writer.unicode)
+
+                        Text("Raag:").fontWeight(.semibold)
+                        Text(info.raag.unicode)
+
+                        Text("Raag with Ang:").fontWeight(.semibold)
+                        Text(info.raag.raagwithpage)
+
+                        if let prev = info.navigation.previous?.id {
+                            Text("Previous ID:").fontWeight(.semibold)
+                            Text("\(prev)")
+                        }
+
+                        if let next = info.navigation.next?.id {
+                            Text("Next ID:").fontWeight(.semibold)
+                            Text("\(next)")
+                        }
+                    }
+                }
+                .padding()
+            }
+            .navigationTitle("Shabad Info")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
 
 struct GurbaniLineView: View {
-    let shabadLine: ShabadLineWrapper
-    // let larivaarOn: Bool
+    let shabadLine: LineOfShabad
     @Binding var larivaarOn: Bool
     let textScale: Double
     let gestureScale: Double
+    let isSearchedLine: Bool
 
+    @AppStorage("fontType") private var fontType: String = "Default"
     @State private var lineLarivaar = false
 
     var body: some View {
         Text(getGurbaniLine(shabadLine))
-            .font(.system(size: 20 * textScale * gestureScale))
+            .font(resolveFont())
             .fontWeight(.medium)
             .multilineTextAlignment(.leading)
-            .contentShape(Rectangle()) // makes the whole area tappable
+            .contentShape(Rectangle())
             .onTapGesture {
                 lineLarivaar.toggle()
             }
@@ -249,17 +368,36 @@ struct GurbaniLineView: View {
             .onChange(of: larivaarOn) {
                 lineLarivaar = larivaarOn
             }
+            .shadow(color: isSearchedLine ? .blue.opacity(0.8) : .clear,
+                    radius: isSearchedLine ? 6 : 0) // glow highlight
     }
 
-    private func getGurbaniLine(_ shabadLine: ShabadLineWrapper) -> String {
-        lineLarivaar ? shabadLine.line.larivaar.unicode : shabadLine.line.gurmukhi.unicode
+    private func getGurbaniLine(_ shabadLine: LineOfShabad) -> String {
+        if fontType == "Default" {
+            return lineLarivaar ? shabadLine.larivaar.unicode : shabadLine.gurmukhi.unicode
+        }
+
+        let akhar = shabadLine.gurmukhi.akhar
+        return lineLarivaar ? akhar.replacingOccurrences(of: " ", with: "") : akhar
+    }
+
+    private func resolveFont() -> Font {
+        let size = 20 * textScale * gestureScale
+
+        if fontType == "Default" {
+            return .system(size: size)
+        } else {
+            // ⚠️ Important: the tag must match the *PostScript name* of the font,
+            // not necessarily the filename (use Font Book to check)
+            return .custom(fontType, size: size)
+        }
     }
 }
 
 struct SaveToFolderSheet: View {
     let sbdRes: ShabadAPIResponse
     let indexOfLine: Int?
-    
+
     @Query(
         filter: #Predicate<Folder> { $0.parentFolder == nil },
         sort: \.sortIndex
@@ -318,3 +456,43 @@ struct SaveToFolderSheet: View {
     }
 }
 
+struct PreviewContextView<Content: View, Preview: View>: UIViewRepresentable {
+    let content: Content
+    let preview: Preview
+
+    init(@ViewBuilder content: () -> Content,
+         @ViewBuilder preview: () -> Preview)
+    {
+        self.content = content()
+        self.preview = preview()
+    }
+
+    func makeUIView(context: Context) -> UIView {
+        let view = UIHostingController(rootView: content).view!
+        let interaction = UIContextMenuInteraction(delegate: context.coordinator)
+        view.addInteraction(interaction)
+        return view
+    }
+
+    func updateUIView(_: UIView, context _: Context) {}
+
+    func makeCoordinator() -> Coordinator {
+        Coordinator(preview: UIHostingController(rootView: preview))
+    }
+
+    class Coordinator: NSObject, UIContextMenuInteractionDelegate {
+        let previewController: UIViewController
+
+        init(preview: UIViewController) {
+            previewController = preview
+        }
+
+        func contextMenuInteraction(_: UIContextMenuInteraction,
+                                    configurationForMenuAtLocation _: CGPoint) -> UIContextMenuConfiguration?
+        {
+            return UIContextMenuConfiguration(identifier: nil,
+                                              previewProvider: { self.previewController },
+                                              actionProvider: nil)
+        }
+    }
+}

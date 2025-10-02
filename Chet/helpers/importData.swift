@@ -18,9 +18,11 @@ func parseArrayForGKImports(
     modelContext.insert(folder)
 
     var count = 0
+
+    var sortCounter = array.count // start from total count
     for element in array {
         count += 1
-        if count > 20 { break }
+        // if count > 20 { break }
         guard let sub = element as? [Any] else {
             print("Unexpected element:", element)
             continue
@@ -34,6 +36,8 @@ func parseArrayForGKImports(
             {
                 if let gurbaninowID = sttmids[id] {
                     if let savedShadab = try await getSavedSbdObj(sbdID: gurbaninowID, savedLine: text, folder: folder) {
+                        savedShadab.sortIndex = sortCounter
+                        sortCounter -= 1
                         modelContext.insert(savedShadab)
                         folder.savedShabads.append(savedShadab)
                         await onShabadImported()
@@ -96,6 +100,7 @@ func parseArrayForiGurbani(
         return folder
     }
 
+    var sortCounter = favorites.count // start from total count
     var count = 1
     for favorite in favorites {
         count += 1
@@ -119,6 +124,8 @@ func parseArrayForiGurbani(
                         }
                     }
                     // savedShadab.sortIndex = count * -1
+                    savedShadab.sortIndex = sortCounter
+                    sortCounter -= 1
                     modelContext.insert(savedShadab)
                     folder.savedShabads.append(savedShadab)
                     await onShabadImported()

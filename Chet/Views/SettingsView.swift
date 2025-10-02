@@ -18,7 +18,7 @@ struct SettingsView: View {
     @State private var infoType: InfoType?
 
     var body: some View {
-        NavigationView {
+        VStack(spacing: 0) {
             List {
                 // Row 1: Compact Row Toggle
                 Section {
@@ -99,7 +99,7 @@ struct SettingsView: View {
                         ForEach(widgetShabads) { svdSbd in
                             NavigationLink(destination: ShabadViewDisplayWrapper(sbdRes: svdSbd.sbdRes, indexOfLine: svdSbd.indexOfSelectedLine)) {
                                 HStack {
-                                    Text(svdSbd.sbdRes.shabad[0].line.gurmukhi.unicode)
+                                    Text(svdSbd.sbdRes.shabad[svdSbd.indexOfSelectedLine].line.gurmukhi.unicode)
                                         .lineLimit(1)
                                     Spacer()
                                 }
@@ -136,17 +136,17 @@ struct SettingsView: View {
                     }
                 }
             }
-            .navigationTitle("Settings")
-            .onAppear {
-                loadRandSbds()
-                loadWidgetShabads()
-                for folder in allFolders {
-                    print("Folder name: \(folder.name) parent: \(folder.parentFolder?.name ?? "nil")")
-                }
+        }
+        .navigationTitle("Settings")
+        .onAppear {
+            loadRandSbds()
+            loadWidgetShabads()
+            for folder in allFolders {
+                print("Folder name: \(folder.name) parent: \(folder.parentFolder?.name ?? "nil")")
             }
-            .alert(item: $infoType) { type in
-                Alert(title: Text("Info"), message: Text(type.message), dismissButton: .default(Text("OK")))
-            }
+        }
+        .alert(item: $infoType) { type in
+            Alert(title: Text("Info"), message: Text(type.message), dismissButton: .default(Text("OK")))
         }
     }
 

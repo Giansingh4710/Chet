@@ -14,8 +14,6 @@ struct ShabadHistoryView: View {
     @Environment(\.colorScheme) private var colorScheme
     @Environment(\.modelContext) private var modelContext
 
-    @State private var showingSettingsSheet = false
-
     var body: some View {
         VStack(spacing: 0) {
             if historyItems.isEmpty {
@@ -48,12 +46,6 @@ struct ShabadHistoryView: View {
         .navigationTitle("History")
         .toolbar {
             Text("\(historyItems.count)").font(.caption).foregroundColor(.secondary)
-            Button(action: { showingSettingsSheet = true }) {
-                Label("Import", systemImage: "gear")
-            }
-        }
-        .sheet(isPresented: $showingSettingsSheet) {
-            SettingsView()
         }
     }
 
@@ -80,14 +72,27 @@ struct RowView: View {
 
     @AppStorage("CompactRowViewSetting") private var compactRowViewSetting = false
 
+    let formatter: DateFormatter = {
+        let f = DateFormatter()
+        f.dateStyle = .short
+        f.timeStyle = .short
+        return f
+    }()
+
     var body: some View {
         if compactRowViewSetting {
-            Text(sbdRes.shabad[indexOfLine].line.gurmukhi.unicode)
-                .font(.title3)
-                .fontWeight(.semibold)
-                .lineLimit(1)
-                .multilineTextAlignment(.leading)
+            HStack {
+                Text(sbdRes.shabad[indexOfLine].line.gurmukhi.unicode)
+                    .font(.title3)
+                    .fontWeight(.semibold)
+                    .lineLimit(1)
+                    .multilineTextAlignment(.leading)
 
+                Spacer()
+                Text(formatter.string(from: the_date))
+                    .font(.caption2)
+                    .foregroundColor(.secondary)
+            }
         } else {
             VStack(alignment: .leading, spacing: 8) {
                 HStack {
@@ -135,7 +140,7 @@ struct RowView: View {
                         .foregroundColor(.green)
                         .cornerRadius(4)
 
-                    Text("Ang \(sbdRes.shabadinfo.pageno)")
+                    Text("Ang \(String(sbdRes.shabadinfo.pageno))")
                         .font(.caption)
                         .padding(.horizontal, 8)
                         .padding(.vertical, 4)
@@ -151,4 +156,3 @@ struct RowView: View {
         }
     }
 }
-

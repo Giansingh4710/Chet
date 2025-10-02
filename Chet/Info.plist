@@ -19,8 +19,16 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Amrlipiheavy.ttf</string>
-		<string>Anmollipi.ttf</string>
-		<string>GHW Adhiapak Black.ttf</string>
+    <string>Anmollipi.ttf</string>
+    <string>Choti Script 7 Bold.ttf</string>
+    <string>GHW Adhiapak Bold.ttf</string>
+    <string>Ghw_adhiapak_black.ttf</string>
+    <string>Ghw_adhiapak_bold.ttf</string>
+    <string>Ghw_adhiapak_book.ttf</string>
+    <string>Ghw_adhiapak_chisel_blk.ttf</string>
+    <string>Ghw_adhiapak_extra_light.ttf</string>
+    <string>Ghw_adhiapak_light.ttf</string>
+    <string>Ghw_adhiapak_medium.ttf</string>
 	</array>
 </dict>
 </plist>

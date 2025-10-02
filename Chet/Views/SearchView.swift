@@ -103,11 +103,10 @@ struct SearchView: View {
                                         .multilineTextAlignment(.leading)
                                         .foregroundColor(.primary)
                                     Spacer()
-                                    Text("Ang \(line.pageno)")
+                                    Text("Ang \(String(line.pageno))")
                                         .font(.caption)
                                         .foregroundColor(.secondary)
                                 }
-
                                 Text(line.translation.english.default)
                                     .font(.subheadline)
                                     .foregroundColor(.secondary)
@@ -122,86 +121,94 @@ struct SearchView: View {
                     .listStyle(PlainListStyle())
                 }
             }
-            .navigationTitle(!results.isEmpty ? "\(results.count) results" : "Gurbani Search")
-            .background(colorScheme == .dark ? Color(.systemBackground) : Color(.systemGroupedBackground))
 
-            VStack {
-                HStack(spacing: 8) {
-                    TextField(
-                        "Koj",
-                        text: $searchText,
-                        onCommit: {
-                            Task { await fetchResults() }
-                        }
-                    )
-                    .autocorrectionDisabled(true)
-                    .textInputAutocapitalization(.never)
-                    .font(.custom("AmrLipiHeavy", size: 16))
-                    .padding(10)
-                    .background(Color(.systemGray6))
-                    .cornerRadius(10)
-                    .focused($isSearchFieldFocused)
+            HStack(spacing: 16) {
+                // Search text field
+                TextField("cyq", text: $searchText, onCommit: {
+                    Task { await fetchResults() }
+                })
+                .autocorrectionDisabled(true)
+                .textInputAutocapitalization(.never)
+                .font(.custom("AmrLipiHeavy", size: 16))
+                .focused($isSearchFieldFocused)
 
-                    if !searchText.isEmpty {
-                        Button(action: {
-                            searchText = ""
-                            results = []
-                            errorMessage = nil
-                        }) {
-                            Image(systemName: "xmark.circle.fill")
-                                .foregroundColor(.secondary)
-                        }
+                // Clear button
+                if !searchText.isEmpty {
+                    Button(action: {
+                        searchText.removeLast()
+                    }) {
+                        Image(systemName: "delete.left.fill")
+                            .foregroundColor(.gray)
                     }
 
                     Button(action: {
-                        withAnimation(.spring()) {
-                            showingPunjabiKeyboard.toggle()
-                            isSearchFieldFocused = false // dismiss system keyboard
-                        }
+                        searchText = ""
+                        results = []
+                        errorMessage = nil
+                        isSearchFieldFocused = false
                     }) {
-                        Image(systemName: "keyboard")
-                            .foregroundColor(.blue)
+                        Image(systemName: "xmark.circle.fill")
+                            .foregroundColor(.gray)
                     }
-
-                    Button(action: {
-                        Task { await fetchResults() }
-                    }) {
-                        HStack(spacing: 4) {
-                            Image(systemName: "magnifyingglass")
-                            Text("Search")
-                                .font(.caption)
-                        }
-                        .foregroundColor(.white)
-                        .padding(.horizontal, 12)
-                        .padding(.vertical, 8)
-                        .background(Color.blue)
-                        .cornerRadius(8)
-                    }
-                    .disabled(searchText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
                 }
-                .padding(.horizontal)
-                // .padding(.bottom, 8)
-                .background(.ultraThinMaterial)
 
-                if showingPunjabiKeyboard {
-                    PunjabiKeyboardView { key in
-                        if key == "\u{232B}" {
-                            if !searchText.isEmpty {
-                                searchText.removeLast()
-                            }
-                        } else {
-                            searchText.append(key)
-                        }
+                // Punjabi keyboard toggle
+                Button(action: {
+                    withAnimation(.spring()) {
+                        showingPunjabiKeyboard.toggle()
+                        isSearchFieldFocused = false
                     }
-                    .transition(.move(edge: .bottom).combined(with: .opacity))
-                    .background(Color(.systemBackground))
-                    .shadow(radius: 5)
+                }) {
+                    Image(systemName: "keyboard")
+                        .foregroundColor(showingPunjabiKeyboard ? .blue : .gray)
+                        .animation(.spring(), value: showingPunjabiKeyboard)
                 }
+
+                // Search button
+                Button(action: {
+                    Task { await fetchResults() }
+                    showingPunjabiKeyboard = false
+                    isSearchFieldFocused = false
+                }) {
+                    Image(systemName: "magnifyingglass")
+                    Text("Search")
+                }
+                .font(.caption)
+                .fontWeight(.semibold)
+                .padding(.horizontal, 10)
+                .padding(.vertical, 6)
+                .cornerRadius(12)
+                .disabled(searchText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
             }
-            .padding(.vertical)
-            .background(colorScheme == .dark ? Color(.systemGray6) : Color(.systemBackground))
-            .shadow(color: colorScheme == .dark ? .clear : .black.opacity(0.1), radius: 1, x: 0, y: 1)
+            .padding(.horizontal, 5)
+            .padding(.vertical, 5)
+            .background(Color(.systemGray6))
+            .cornerRadius(10) // pill shape
+            .overlay(
+                RoundedRectangle(cornerRadius: 20)
+                    .stroke(Color(.systemGray4), lineWidth: 1)
+            )
+            .shadow(color: .black.opacity(0.05), radius: 1, x: 0, y: 1)
+            .padding(.horizontal)
+            .offset(y: -20)
+
+            if showingPunjabiKeyboard {
+                PunjabiKeyboardView { key in
+                    if key == "\u{232B}" {
+                        if !searchText.isEmpty { searchText.removeLast() }
+                    } else {
+                        searchText.append(key)
+                    }
+                }
+                .onChange(of: isSearchFieldFocused) { newValue in
+                    if newValue { showingPunjabiKeyboard = false }
+                }
+                .transition(.move(edge: .bottom).combined(with: .opacity))
+                .background(Color(.systemBackground)).shadow(radius: 5)
+            }
         }
+        .navigationTitle(!results.isEmpty ? "\(results.count) results" : "Gurbani Search")
+        .background(colorScheme == .dark ? Color(.systemBackground) : Color(.systemGroupedBackground))
     }
 
     private func fetchResults() async {
@@ -393,3 +400,4 @@ struct KeyButton: View {
         }
     }
 }
+

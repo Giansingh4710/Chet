@@ -311,24 +311,24 @@ struct FoldersDisplay: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.editMode) var editMode
 
-    let parentFolder: Folder? // Make parentFolder optional for root view
+    let parentFolder: Folder?
     @Binding var selectedFolders: Set<Folder>
 
-    @Query var subfolders: [Folder] // Now `subfolders` will hold either root or children
+    @Query var subfolders: [Folder]
+
+    @State private var editingFolder: Folder? // folder being renamed
+    @State private var newName: String = "" // temporary name during rename
 
     init(parentFolder: Folder?, selectedFolders: Binding<Set<Folder>>) {
         self.parentFolder = parentFolder
         _selectedFolders = selectedFolders
 
-        // Construct the Predicate using the ID of the parent folder
         let predicate: Predicate<Folder>
-        if let parentFolderID = parentFolder?.id { // Get the ID, which is a non-optional UUID
-            // Query for folders whose parentFolder's ID matches parentFolderID
+        if let parentFolderID = parentFolder?.id {
             predicate = #Predicate<Folder> { folder in
                 folder.parentFolder?.id == parentFolderID
             }
         } else {
-            // Query for top-level folders (parentFolder is nil)
             predicate = #Predicate<Folder> { folder in
                 folder.parentFolder == nil
             }
@@ -338,27 +338,54 @@ struct FoldersDisplay: View {
     }
 
     var body: some View {
-        Section("Subfolders (\(subfolders.count))") {
+        Section(parentFolder == nil ? "Folders (\(subfolders.count))" : "Subfolders (\(subfolders.count))") {
             ForEach(subfolders) { sub in
                 HStack {
                     if editMode?.wrappedValue.isEditing == true {
                         Image(systemName: selectedFolders.contains(sub) ? "checkmark.circle.fill" : "circle")
                             .foregroundColor(.accentColor)
                             .onTapGesture {
-                                if selectedFolders.contains(sub) {
-                                    selectedFolders.remove(sub)
-                                } else {
-                                    selectedFolders.insert(sub)
-                                }
+                                toggleSelection(for: sub)
                             }
                     }
                     NavigationLink(destination: FoldersContentView(folder: sub)) {
                         Label(sub.name, systemImage: "folder")
                     }
                 }
+                .swipeActions(edge: .leading) {
+                    Button("Rename") {
+                        editingFolder = sub
+                        newName = sub.name
+                    }
+                    .tint(.blue)
+                }
             }
             .onMove(perform: moveItems)
             .onDelete(perform: handleDelete)
+        }
+        // Rename alert
+        .alert("Rename Folder", isPresented: Binding(
+            get: { editingFolder != nil },
+            set: { if !$0 { editingFolder = nil } }
+        )) {
+            TextField("Folder Name", text: $newName)
+            Button("Cancel", role: .cancel) {
+                editingFolder = nil
+            }
+            Button("Save") {
+                if let folder = editingFolder {
+                    folder.name = newName
+                }
+                editingFolder = nil
+            }
+        }
+    }
+
+    private func toggleSelection(for folder: Folder) {
+        if selectedFolders.contains(folder) {
+            selectedFolders.remove(folder)
+        } else {
+            selectedFolders.insert(folder)
         }
     }
 
@@ -388,7 +415,7 @@ struct ShabadsDisplay: View {
 
     var body: some View {
         Section("Shabads (\(folder.savedShabads.count))") {
-            ForEach(folder.savedShabads.sorted(by: { $0.sortIndex < $1.sortIndex })) { svdSbd in // Sort by sortIndex
+            ForEach(folder.savedShabads.sorted(by: { $0.sortIndex > $1.sortIndex })) { svdSbd in // Sort by sortIndex. Biggest first
                 HStack {
                     if editMode?.wrappedValue.isEditing == true {
                         // Checkbox for selection in edit mode
