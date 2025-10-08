@@ -66,11 +66,13 @@ struct ShabadViewDisplay: View {
     @AppStorage("translationShabadTextScale") private var translationTextScale: Double = 1.0
     @AppStorage("showTranslations") private var showTranslations: Bool = true
     @AppStorage("larivaar") private var larivaarOn: Bool = true
-    @AppStorage("fontType") private var fontType: String = "Default"
+    @AppStorage("fontType") private var fontType: String = "Unicode"
 
     @State private var gestureScale: CGFloat = 1.0
     @State private var showingSettings = false
     @State private var showingSaved = false
+    @State private var showCopySheet = false
+    @State private var preselectedLine: String = ""
 
     var body: some View {
         ZStack {
@@ -130,6 +132,10 @@ struct ShabadViewDisplay: View {
                                 )
                                 .padding(.horizontal)
                                 .id(index)
+                                .onLongPressGesture {
+                                    preselectedLine = shabadLineWrapper.line.id // 👈 track the preselected line IDs
+                                    showCopySheet = true
+                                }
 
                                 if showTranslations {
                                     Text(shabadLineWrapper.line.translation.english.default)
@@ -157,6 +163,7 @@ struct ShabadViewDisplay: View {
                             .onChanged { gestureScale = $0 }
                             .onEnded {
                                 textScale *= $0
+                                translationTextScale *= $0
                                 gestureScale = 1.0
                             }
                     )
@@ -215,11 +222,25 @@ struct ShabadViewDisplay: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
+                    showCopySheet = true
+                } label: {
+                    Image(systemName: "clipboard")
+                }
+            }
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
                     showingSaved = true
                 } label: {
                     Image(systemName: "bookmark")
                 }
             }
+        }
+        .sheet(isPresented: $showCopySheet) {
+            CopySheetView(
+                shabad: sbdRes.shabad,
+                showTranslations: showTranslations,
+                preselectedLine: $preselectedLine // 👈 pass selected IDs
+            )
         }
         .sheet(isPresented: $showingSettings) {
             SettingsSheet(
@@ -235,7 +256,14 @@ struct ShabadViewDisplay: View {
             SaveToFolderSheet(sbdRes: sbdRes, indexOfLine: indexOfLine)
                 .presentationDetents([.medium, .large])
         }
-        .onAppear { UIApplication.shared.isIdleTimerDisabled = true }
+        .onAppear {
+            UIApplication.shared.isIdleTimerDisabled = true // Don’t let the iPhone/iPad go to sleep while this app is active
+            print("Index of line: \(indexOfLine)")
+            if let index = indexOfLine {
+                preselectedLine = sbdRes.shabad[index].line.id
+                print("Preselected line: \(preselectedLine)")
+            }
+        }
         .onDisappear { UIApplication.shared.isIdleTimerDisabled = false }
     }
 }
@@ -251,39 +279,145 @@ struct SettingsSheet: View {
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("Display")) {
+                Section(header: Text("Gurmukhi")) {
                     Toggle("Larivaar", isOn: $larivaarOn)
+                    Picker("Font", selection: $fontType) {
+                        Text("Unicode").tag("Unicode")
+                        Text("Anmol Lipi SG").tag("AnmolLipiSG")
+                        Text("Anmol Lipi Bold").tag("AnmolLipiBoldTrue")
+                        Text("Gurbani Akhar").tag("GurbaniAkharTrue")
+                        Text("Gurbani Akhar Heavy").tag("GurbaniAkharHeavyTrue")
+                        Text("Gurbani Akhar Thick").tag("GurbaniAkharThickTrue")
+                        Text("Noto Sans Gurmukhi Bold").tag("NotoSansGurmukhiBoldTrue")
+                        Text("Noto Sans Gurmukhi").tag("NotoSansGurmukhiTrue")
+                        Text("Prabhki").tag("PrabhkiTrue")
+                        Text("The Actual Characters").tag("The Actual Characters")
+                    }
                     HStack {
                         Text("Font Size")
                         Slider(value: $textScale, in: 0.5 ... 2.5, step: 0.1)
                     }
-
+                }
+                Section(header: Text("Translations")) {
                     Toggle("Show Translations", isOn: $showTranslations)
                     if showTranslations {
                         HStack {
-                            Text("Translation Font Size")
+                            Text("Font Size")
                             Slider(value: $translationTextScale, in: 0.5 ... 2.5, step: 0.1)
                         }
-                    }
-
-                    Picker("Font", selection: $fontType) {
-                        Text("Default").tag("Default")
-                        Text("Amrlipiheavy.ttf").tag("Amrlipiheavy")
-                        Text("Anmollipi.ttf").tag("Anmollipi")
-                        Text("Choti Script 7 Bold.ttf").tag("Choti Script 7 Bold")
-                        Text("Ghw_adhiapak_black.ttf").tag("Ghw_adhiapak_black")
-                        Text("Ghw_adhiapak_bold.ttf").tag("Ghw_adhiapak_bold")
-                        Text("Ghw_adhiapak_book.ttf").tag("Ghw_adhiapak_book")
-                        Text("Ghw_adhiapak_chisel_blk.ttf").tag("Ghw_adhiapak_chisel_blk")
-                        Text("Ghw_adhiapak_extra_light.ttf").tag("Ghw_adhiapak_extra_light")
-                        Text("Ghw_adhiapak_light.ttf").tag("Ghw_adhiapak_light")
-                        Text("Ghw_adhiapak_medium.ttf").tag("Ghw_adhiapak_medium")
                     }
                 }
             }
             .navigationTitle("Settings")
             .navigationBarTitleDisplayMode(.inline)
         }
+    }
+}
+
+struct CopySheetView: View {
+    let shabad: [ShabadLineWrapper]
+    let showTranslations: Bool
+    // let preselectedLine: String
+    @Binding var preselectedLine: String // 👈 binding
+
+    @Environment(\.dismiss) var dismiss
+    @State private var selectedLines: Set<String> = []
+
+    var body: some View {
+        NavigationView {
+            ScrollViewReader { proxy in
+                VStack {
+                    // Select All / Deselect All
+                    HStack {
+                        Button(action: {
+                            if selectedLines.count == shabad.count {
+                                selectedLines.removeAll()
+                            } else {
+                                selectedLines = Set(shabad.map { $0.line.id })
+                            }
+                        }) {
+                            Text(selectedLines.count == shabad.count ? "Deselect All" : "Select All")
+                                .font(.callout)
+                                .padding(8)
+                                .background(Color(.systemGray5))
+                                .cornerRadius(8)
+                        }
+                        Spacer()
+                    }
+                    .padding(.horizontal)
+                    .padding(.top, 8)
+
+                    // List of Lines
+                    List {
+                        ForEach(shabad, id: \.line.id) { wrapper in
+                            VStack(alignment: .leading, spacing: 4) {
+                                HStack {
+                                    Image(systemName: selectedLines.contains(wrapper.line.id) ? "checkmark.circle.fill" : "circle")
+                                        .foregroundColor(selectedLines.contains(wrapper.line.id) ? .blue : .secondary)
+                                    Text(wrapper.line.gurmukhi.unicode)
+                                        .font(.body)
+                                        .fontWeight(.medium)
+                                    Spacer()
+                                }
+                                if showTranslations {
+                                    Text(wrapper.line.translation.english.default)
+                                        .font(.caption)
+                                        .foregroundColor(.secondary)
+                                        .padding(.leading, 28)
+                                }
+                            }
+                            .contentShape(Rectangle())
+                            .id(wrapper.line.id) // 👈 Important for scrollTo
+                            .onTapGesture {
+                                if selectedLines.contains(wrapper.line.id) {
+                                    selectedLines.remove(wrapper.line.id)
+                                } else {
+                                    selectedLines.insert(wrapper.line.id)
+                                }
+                            }
+                        }
+                    }
+                }
+                .navigationTitle("Copy Lines")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button("Cancel") { dismiss() }
+                    }
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button("Copy") {
+                            copyToClipboard()
+                            dismiss()
+                        }
+                        .disabled(selectedLines.isEmpty)
+                    }
+                }
+                .onAppear {
+                    selectedLines.insert(preselectedLine)
+
+                    // scroll to the first preselected line
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                        withAnimation {
+                            proxy.scrollTo(preselectedLine, anchor: .center)
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private func copyToClipboard() {
+        let selected = shabad.filter { selectedLines.contains($0.line.id) }
+        let spacing = showTranslations ? "\n\n" : "\n"
+        let text = selected.map { wrapper in
+            var line = wrapper.line.gurmukhi.unicode
+            if showTranslations {
+                line += "\n\(wrapper.line.translation.english.default)"
+            }
+            return line
+        }.joined(separator: spacing)
+
+        UIPasteboard.general.string = text
     }
 }
 
@@ -350,8 +484,10 @@ struct GurbaniLineView: View {
     let gestureScale: Double
     let isSearchedLine: Bool
 
-    @AppStorage("fontType") private var fontType: String = "Default"
+    @AppStorage("fontType") private var fontType: String = "Unicode"
     @State private var lineLarivaar = false
+
+    @Environment(\.colorScheme) var colorScheme
 
     var body: some View {
         Text(getGurbaniLine(shabadLine))
@@ -368,12 +504,27 @@ struct GurbaniLineView: View {
             .onChange(of: larivaarOn) {
                 lineLarivaar = larivaarOn
             }
-            .shadow(color: isSearchedLine ? .blue.opacity(0.8) : .clear,
-                    radius: isSearchedLine ? 6 : 0) // glow highlight
+            .background(
+                // only show if line is searched
+                Group {
+                    if isSearchedLine {
+                        RoundedRectangle(cornerRadius: 6)
+                            .fill(
+                                (colorScheme == .dark ? Color.white : Color.black)
+                                    .opacity(0.15)
+                            )
+                            .overlay( // optional subtle border/glow
+                                RoundedRectangle(cornerRadius: 6)
+                                    .stroke(Color.blue.opacity(0.4), lineWidth: 0.7)
+                            )
+                    }
+                }
+            )
+        // .shadow(color: isSearchedLine ? .blue.opacity(0.9) : .clear, radius: isSearchedLine ? 6 : 0) // glow highlight
     }
 
     private func getGurbaniLine(_ shabadLine: LineOfShabad) -> String {
-        if fontType == "Default" {
+        if fontType == "Unicode" {
             return lineLarivaar ? shabadLine.larivaar.unicode : shabadLine.gurmukhi.unicode
         }
 
@@ -384,11 +535,13 @@ struct GurbaniLineView: View {
     private func resolveFont() -> Font {
         let size = 20 * textScale * gestureScale
 
-        if fontType == "Default" {
+        if fontType == "Unicode" {
             return .system(size: size)
         } else {
             // ⚠️ Important: the tag must match the *PostScript name* of the font,
             // not necessarily the filename (use Font Book to check)
+
+            print("fontType: ", fontType)
             return .custom(fontType, size: size)
         }
     }

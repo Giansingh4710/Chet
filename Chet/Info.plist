@@ -18,17 +18,26 @@
 	</array>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Amrlipiheavy.ttf</string>
-    <string>Anmollipi.ttf</string>
-    <string>Choti Script 7 Bold.ttf</string>
-    <string>GHW Adhiapak Bold.ttf</string>
-    <string>Ghw_adhiapak_black.ttf</string>
-    <string>Ghw_adhiapak_bold.ttf</string>
-    <string>Ghw_adhiapak_book.ttf</string>
-    <string>Ghw_adhiapak_chisel_blk.ttf</string>
-    <string>Ghw_adhiapak_extra_light.ttf</string>
-    <string>Ghw_adhiapak_light.ttf</string>
-    <string>Ghw_adhiapak_medium.ttf</string>
+		<!-- <string>Amrlipiheavy.ttf</string> -->
+  <!--   <string>Anmollipi.ttf</string> -->
+  <!--   <string>Choti Script 7 Bold.ttf</string> -->
+  <!--   <string>GHW Adhiapak Bold.ttf</string> -->
+  <!--   <string>Ghw_adhiapak_black.ttf</string> -->
+  <!--   <string>Ghw_adhiapak_bold.ttf</string> -->
+  <!--   <string>Ghw_adhiapak_book.ttf</string> -->
+  <!--   <string>Ghw_adhiapak_chisel_blk.ttf</string> -->
+  <!--   <string>Ghw_adhiapak_extra_light.ttf</string> -->
+  <!--   <string>Ghw_adhiapak_light.ttf</string> -->
+  <!--   <string>Ghw_adhiapak_medium.ttf</string> -->
+		<!---->
+    <string>AnmolLipiBoldTrue.ttf</string>
+    <string>AnmolLipiSG.ttf</string>
+    <string>GurbaniAkharHeavyTrue.ttf</string>
+    <string>GurbaniAkharThickTrue.ttf</string>
+    <string>GurbaniAkharTrue.ttf</string>
+    <string>NotoSansGurmukhiBoldTrue.ttf</string>
+    <string>NotoSansGurmukhiTrue.ttf</string>
+    <string>PrabhkiTrue.ttf</string>
 	</array>
 </dict>
 </plist>

@@ -141,27 +141,6 @@
 			);
 			target = A053D0622E6654FF004E371B /* HukamnamaWidgetExtension */;
 		};
-		A0636BF22E74C842005955C2 /* Exceptions for "Fonts" folder in "RandomShabadWidgetExtension" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Amrlipiheavy.ttf,
-			);
-			target = A053D03E2E662787004E371B /* RandomShabadWidgetExtension */;
-		};
-		A0636BF32E74C842005955C2 /* Exceptions for "Fonts" folder in "HukamnamaWidgetExtension" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Amrlipiheavy.ttf,
-			);
-			target = A053D0622E6654FF004E371B /* HukamnamaWidgetExtension */;
-		};
-		A0636BF42E74C842005955C2 /* Exceptions for "Fonts" folder in "FavShabadsWidgetExtension" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Amrlipiheavy.ttf,
-			);
-			target = A053D08D2E666D47004E371B /* FavShabadsWidgetExtension */;
-		};
 		A0636BF62E74C85F005955C2 /* Exceptions for "Chet" folder in "Chet" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -219,11 +198,6 @@
 		};
 		A053D18B2E7491CF004E371B /* Fonts */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				A0636BF22E74C842005955C2 /* Exceptions for "Fonts" folder in "RandomShabadWidgetExtension" target */,
-				A0636BF32E74C842005955C2 /* Exceptions for "Fonts" folder in "HukamnamaWidgetExtension" target */,
-				A0636BF42E74C842005955C2 /* Exceptions for "Fonts" folder in "FavShabadsWidgetExtension" target */,
-			);
 			path = Fonts;
 			sourceTree = "<group>";
 		};
