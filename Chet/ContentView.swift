@@ -93,7 +93,7 @@ struct ContentView: View {
 }
 
 struct ShabadViewFromWidgetURL: View {
-    let id: String
+    let id: Int
     @State private var sbd: ShabadAPIResponse?
 
     var body: some View {

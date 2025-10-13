@@ -9,50 +9,41 @@ import Foundation
 import SwiftUI
 import WidgetKit
 
-private func getFontForLine(_ line: LineOfShabad) -> Font {
-    if line.type == 2 { // Heading
-        return .system(size: 11, weight: .regular)
-    } else if line.type == 3 { // Rahao lines
-        return .system(size: 14, weight: .medium)
-    } else {
-        return .system(size: 12, weight: .regular)
-    }
-}
-
-private func showOneLine(_ sbdLines: [ShabadLineWrapper]) -> String {
+private func showOneLine(_ sbdLines: [Verse]) -> String {
     // will try to find Rahao. if not then first non header // line.type 2=heading, 3=rahaho 4=normal
     for obj in sbdLines {
-        if obj.line.type == 3 {
-            return obj.line.gurmukhi.unicode
-        }
+        return obj.verse.gurmukhi
+        // if obj.line.type == 3 { }
     }
-    for obj in sbdLines {
-        if obj.line.type == 4 {
-            return obj.line.gurmukhi.unicode
-        }
-    }
-    return sbdLines.first?.line.gurmukhi.unicode ?? "Vaheguru"
+    return "Vaheguru"
+    
+//    for obj in sbdLines {
+//        if obj.line.type == 4 {
+//            return obj.line.gurmukhi.unicode
+//        }
+//    }
+//    return sbdLines.first?.line.gurmukhi.unicode ?? "Vaheguru"
 }
 
 struct LockScreenInLineView: View {
     let entry: RandSbdForWidget
     var body: some View {
-        Text(showOneLine(entry.sbd.shabad))
+        Text(showOneLine(entry.sbd.verses))
             .lineLimit(1)
             .minimumScaleFactor(0.7) // Allow text to scale down more to fit
     }
 }
 
-private func filterOutHeadings(_ the_shabad: [ShabadLineWrapper]) -> [ShabadLineWrapper] {
-    return the_shabad.filter { $0.line.type != 2 }.map { $0 }
+private func filterOutHeadings(_ the_shabad: [Verse]) -> [Verse] {
+    return the_shabad.filter { $0.verse.unicode.contains(":") }.map { $0 }
 }
 
 struct LockScreenRectangularView: View {
     let entry: RandSbdForWidget
     var body: some View {
         VStack(alignment: .leading, spacing: 1) { // Reduced spacing
-            ForEach(filterOutHeadings(entry.sbd.shabad), id: \.line.id) { lineWrapper in
-                Text(lineWrapper.line.gurmukhi.unicode)
+            ForEach(filterOutHeadings(entry.sbd.verses),id: \.verseId) { line in
+                Text(line.verse.unicode)
                     .font(.system(size: 10)) // Smaller font size
                     .lineLimit(1)
                     .minimumScaleFactor(0.8)
@@ -60,10 +51,6 @@ struct LockScreenRectangularView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
         .padding(.horizontal, 4) // Add horizontal padding
-    }
-
-    private func getOptimizedLines() -> [ShabadLineWrapper] {
-        return entry.sbd.shabad.filter { $0.line.type != 2 }.prefix(4).map { $0 }
     }
 }
 
@@ -82,7 +69,7 @@ struct HomeScreenSmallView: View {
             }
 
             VStack(alignment: .leading) {
-                Text(filterOutHeadings(entry.sbd.shabad).map { $0.line.gurmukhi.unicode }.joined(separator: " "))
+                Text(filterOutHeadings(entry.sbd.verses).map { $0.verse.unicode }.joined(separator: " "))
                     .font(.system(size: 16, weight: .medium)) // Smaller font
             }
             // .clipped() // Clip any content that exceeds the frame
@@ -111,26 +98,12 @@ struct HomeScreenMediumView: View {
                 GridItem(.flexible()),
                 GridItem(.flexible()),
             ], alignment: .leading, spacing: 4) {
-                ForEach(getDisplayLines(), id: \.line.id) { lineWrapper in
+                ForEach(entry.sbd.verses, id: \.verseId) { line in
                     VStack(alignment: .leading, spacing: 0) {
-                        if lineWrapper.line.type == 2 {
-                            Text(lineWrapper.line.gurmukhi.unicode)
-                                .font(.system(size: 9))
-                                .foregroundColor(.secondary)
-                                .lineLimit(1)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                        } else if lineWrapper.line.type == 3 {
-                            Text(lineWrapper.line.gurmukhi.unicode)
-                                .font(.system(size: 12, weight: .semibold))
-                                .foregroundColor(.primary)
-                                .lineLimit(2)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                        } else {
-                            Text(lineWrapper.line.gurmukhi.unicode)
+                        Text(line.verse.unicode)
                                 .font(.system(size: 11))
                                 .lineLimit(2)
                                 .frame(maxWidth: .infinity, alignment: .leading)
-                        }
                     }
                 }
             }
@@ -139,12 +112,12 @@ struct HomeScreenMediumView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
     }
 
-    private func getDisplayLines() -> [ShabadLineWrapper] {
-        // For medium widget, show up to 8 lines intelligently
-        let maxLines = 8
-        let filteredLines = entry.sbd.shabad.filter { $0.line.type != 2 || entry.sbd.shabad.count <= 3 }
-        return Array(filteredLines.prefix(maxLines))
-    }
+//    private func getDisplayLines() -> [Verse] {
+//        // For medium widget, show up to 8 lines intelligently
+//        let maxLines = 8
+//        let filteredLines = entry.sbd.shabad.filter { $0.line.type != 2 || entry.sbd.shabad.count <= 3 }
+//        return Array(filteredLines.prefix(maxLines))
+//    }
 }
 
 struct HomeScreenLargeView: View {
@@ -177,20 +150,15 @@ struct HomeScreenLargeView: View {
                 }
 
                 // Gurbani lines
-                if let firstLine = entry.sbd.shabad.first?.line {
+                if let firstLine = entry.sbd.verses.first {
                     VStack(alignment: .leading, spacing: 6) {
-                        Text(firstLine.gurmukhi.unicode)
+                        Text(firstLine.verse.unicode)
                             .font(.system(size: 17, weight: .semibold))
                             .foregroundColor(.white)
                             .fixedSize(horizontal: false, vertical: true)
 
-                        Text(firstLine.translation.english.default)
+                        Text(firstLine.translation.en.bdb)
                             .italic()
-                            .font(.system(size: 13))
-                            .foregroundColor(.white.opacity(0.9))
-                            .fixedSize(horizontal: false, vertical: true)
-
-                        Text(firstLine.translation.punjabi.default.unicode)
                             .font(.system(size: 13))
                             .foregroundColor(.white.opacity(0.9))
                             .fixedSize(horizontal: false, vertical: true)

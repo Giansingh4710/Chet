@@ -1,0 +1,238 @@
+{
+  "shabadInfo": {
+    "shabadId": 3492,
+    "shabadName": 40755,
+    "pageNo": 954,
+    "source": {
+      "sourceId": "G",
+      "gurmukhi": "sRI gurU gRMQ swihb jI",
+      "unicode": "ਸ੍ਰੀ ਗੁਰੂ ਗ੍ਰੰਥ ਸਾਹਿਬ ਜੀ",
+      "english": "Sri Guru Granth Sahib Ji",
+      "pageNo": 954
+    },
+    "raag": {
+      "raagId": 22,
+      "gurmukhi": "rwgu rwmklI",
+      "unicode": "ਰਾਗੁ ਰਾਮਕਲੀ",
+      "english": "Raag Raamkalee",
+      "raagWithPage": "Raamkalee (876-974)"
+    },
+    "writer": {
+      "writerId": 2,
+      "gurmukhi": "mÚ 2",
+      "unicode": null,
+      "english": "Guru Angad Dev Ji"
+    }
+  },
+  "count": 3,
+  "navigation": {
+    "previous": 3491,
+    "next": 3493
+  },
+  "verses": [
+    {
+      "verseId": 40754,
+      "shabadId": 3492,
+      "verse": {
+        "gurmukhi": "mÚ 2 ]",
+        "unicode": "ਮਃ ੨ ॥"
+      },
+      "larivaar": {
+        "gurmukhi": "mÚ2]",
+        "unicode": "ਮਃ੨॥"
+      },
+      "translation": {
+        "en": {
+          "bdb": "Second Mehla:",
+          "ms": "2nd Guru.",
+          "ssk": "Second Mehl:"
+        },
+        "pu": {
+          "ss": {
+            "gurmukhi": null,
+            "unicode": null
+          },
+          "ft": {
+            "gurmukhi": "",
+            "unicode": ""
+          },
+          "bdb": {
+            "gurmukhi": null,
+            "unicode": null
+          },
+          "ms": {
+            "gurmukhi": "dUjI pwqSwhI[",
+            "unicode": "ਦੂਜੀ ਪਾਤਸ਼ਾਹੀ।"
+          }
+        },
+        "es": {
+          "sn": "Mejl Guru Angad, Segundo Canal Divino."
+        },
+        "hi": {
+          "ss": "",
+          "sts": "महला २॥"
+        }
+      },
+      "transliteration": {
+        "english": "mahalaa doojaa ||",
+        "hindi": "म: २ ॥",
+        "en": "mahalaa doojaa ||",
+        "hi": "म: २ ॥",
+        "ipa": "mahalaa d̪ud͡ʒɑ.",
+        "ur": "مÚ ۲ ۔۔"
+      },
+      "pageNo": 954,
+      "lineNo": 6,
+      "updated": "2022-12-24 02:22:37",
+      "visraam": {
+        "sttm2": [],
+        "sttm": [],
+        "igurbani": []
+      }
+    },
+    {
+      "verseId": 40755,
+      "shabadId": 3492,
+      "verse": {
+        "gurmukhi": "jpu qpu sBu ikCu mMinAY Avir kwrw siB bwid ]",
+        "unicode": "ਜਪੁ ਤਪੁ ਸਭੁ ਕਿਛੁ ਮੰਨਿਐ ਅਵਰਿ ਕਾਰਾ ਸਭਿ ਬਾਦਿ ॥"
+      },
+      "larivaar": {
+        "gurmukhi": "jpuqpusBuikCumMinAYAvirkwrwsiBbwid]",
+        "unicode": "ਜਪੁਤਪੁਸਭੁਕਿਛੁਮੰਨਿਐਅਵਰਿਕਾਰਾਸਭਿਬਾਦਿ॥"
+      },
+      "translation": {
+        "en": {
+          "bdb": "Meditation, austerity and everything come through belief in the Lord's Name. All other actions are useless.",
+          "ms": "Contemplation, penance and everything are obtained by believing in the Lord. All other occupations are vain.",
+          "ssk": "Meditation, austerity and everything come through belief in the Lord's Name. All other actions are useless."
+        },
+        "pu": {
+          "ss": {
+            "gurmukhi": "jy mn pRBU dy nwm ivc pqIj jwey qW jp qp Awidk hryk au~dm (iv`cy hI Aw jWdw hY), (nwm qoN ibnw) hor swry kMm ivArQ hn [ ",
+            "unicode": "ਜੇ ਮਨ ਪ੍ਰਭੂ ਦੇ ਨਾਮ ਵਿਚ ਪਤੀਜ ਜਾਏ ਤਾਂ ਜਪ ਤਪ ਆਦਿਕ ਹਰੇਕ ਉੱਦਮ (ਵਿੱਚੇ ਹੀ ਆ ਜਾਂਦਾ ਹੈ), (ਨਾਮ ਤੋਂ ਬਿਨਾ) ਹੋਰ ਸਾਰੇ ਕੰਮ ਵਿਅਰਥ ਹਨ । "
+          },
+          "ft": {
+            "gurmukhi": "nwm ky mnn krny sy jp qp Awid sB swDn sPl hoqy hYN AOr ijqnIAW kwrW hY sB bÎrQ hYN]",
+            "unicode": "ਨਾਮ ਕੇ ਮਨਨ ਕਰਨੇ ਸੇ ਜਪ ਤਪ ਆਦਿ ਸਭ ਸਾਧਨ ਸਫਲ ਹੋਤੇ ਹੈਂ ਔਰ ਜਿਤਨੀਆਂ ਕਾਰਾਂ ਹੈ ਸਭ ਬ੍ਯਰਥ ਹੈਂ॥"
+          },
+          "bdb": {
+            "gurmukhi": "jy mn pRBU dy nwm ivc pqIj jwey qW jp qp Awidk hryk au~dm (iv`cy hI Aw jWdw hY), (nwm qoN ibnw) hor swry kMm ivArQ hn [ ",
+            "unicode": "ਜੇ ਮਨ ਪ੍ਰਭੂ ਦੇ ਨਾਮ ਵਿਚ ਪਤੀਜ ਜਾਏ ਤਾਂ ਜਪ ਤਪ ਆਦਿਕ ਹਰੇਕ ਉੱਦਮ (ਵਿੱਚੇ ਹੀ ਆ ਜਾਂਦਾ ਹੈ), (ਨਾਮ ਤੋਂ ਬਿਨਾ) ਹੋਰ ਸਾਰੇ ਕੰਮ ਵਿਅਰਥ ਹਨ । "
+          },
+          "ms": {
+            "gurmukhi": "ismrn, qp`isAw Aqy hr vsqU pRwpq ho jWdIAW hn, pRBU iv`c Brosw krn duAwrw[ hor swry kwr-ivhwr ivArQ hn[",
+            "unicode": "ਸਿਮਰਨ, ਤਪੱਸਿਆ ਅਤੇ ਹਰ ਵਸਤੂ ਪ੍ਰਾਪਤ ਹੋ ਜਾਂਦੀਆਂ ਹਨ, ਪ੍ਰਭੂ ਵਿੱਚ ਭਰੋਸਾ ਕਰਨ ਦੁਆਰਾ। ਹੋਰ ਸਾਰੇ ਕਾਰ-ਵਿਹਾਰ ਵਿਅਰਥ ਹਨ।"
+          }
+        },
+        "es": {
+          "sn": "Las austeridades y la contemplación están contenidas en la Fe; sí, todos los demás actos son vanos. "
+        },
+        "hi": {
+          "ss": "यदि मन प्रभू के नाम में पतीज जाए जो जप-तप आदि हरेक उद्यम (उसी में आ जाता है)। (नाम के बिना) और सारे कर्म व्यर्थ हैं।",
+          "sts": "ईश्वर का नाम सिमरन करने एवं उसमें अटूट आस्था रखने से ही जप-तप इत्यादि कर्मो का फल मिल जाता है तथा अन्य सभी कार्य व्यर्थ हैं।"
+        }
+      },
+      "transliteration": {
+        "english": "jap tap sabh kichh ma(n)niaai avar kaaraa sabh baadh ||",
+        "hindi": "जपु तपु सभु किछु मंनिऐ अवरि कारा सभि बादि ॥",
+        "en": "jap tap sabh kichh ma(n)niaai avar kaaraa sabh baadh ||",
+        "hi": "जपु तपु सभु किछु मंनिऐ अवरि कारा सभि बादि ॥",
+        "ipa": "d͡ʒəp t̪əp səɓ kɪɕ məŋnɪæ əʋər kɑrɑ səɓ bɑd̪.",
+        "ur": "جپ تپ سبھ کچھ مںناَے اور کارا سبھ باد ۔۔"
+      },
+      "pageNo": 954,
+      "lineNo": 6,
+      "updated": "2022-12-24 02:22:37",
+      "visraam": {
+        "sttm": [
+          {
+            "p": 4,
+            "t": "v"
+          }
+        ],
+        "igurbani": [
+          {
+            "p": 4,
+            "t": "v"
+          }
+        ],
+        "sttm2": [
+          {
+            "p": 4,
+            "t": "v"
+          }
+        ]
+      }
+    },
+    {
+      "verseId": 40756,
+      "shabadId": 3492,
+      "verse": {
+        "gurmukhi": "nwnk mMinAw mMnIAY buJIAY gur prswid ]2]",
+        "unicode": "ਨਾਨਕ ਮੰਨਿਆ ਮੰਨੀਐ ਬੁਝੀਐ ਗੁਰ ਪਰਸਾਦਿ ॥੨॥"
+      },
+      "larivaar": {
+        "gurmukhi": "nwnkmMinAwmMnIAYbuJIAYgurprswid]2]",
+        "unicode": "ਨਾਨਕਮੰਨਿਆਮੰਨੀਐਬੁਝੀਐਗੁਰਪਰਸਾਦਿ॥੨॥"
+      },
+      "translation": {
+        "en": {
+          "bdb": "O Nanak, believe in the One who is worth believing in. By Guru's Grace, he is realized. ||2||",
+          "ms": "Nanak, obey thou Him, who is worthy of obedience, By the Guru's grace, the Lord is realised",
+          "ssk": "O Nanak, believe in the One who is worth believing in. By Guru's Grace, he is realized. ||2||"
+        },
+        "pu": {
+          "ss": {
+            "gurmukhi": "hy nwnk! ‘nwm’ ƒ mMnx vwlw Awdr pWdw hY, ieh g`l gurU dI ikrpw nwl smJ skIdI hY [2[",
+            "unicode": "ਹੇ ਨਾਨਕ! ‘ਨਾਮ’ ਨੂੰ ਮੰਨਣ ਵਾਲਾ ਆਦਰ ਪਾਂਦਾ ਹੈ, ਇਹ ਗੱਲ ਗੁਰੂ ਦੀ ਕਿਰਪਾ ਨਾਲ ਸਮਝ ਸਕੀਦੀ ਹੈ ।੨।"
+          },
+          "ft": {
+            "gurmukhi": "sRI gurU jI kihqy hYN: prmysÍr ky mMnny qy eys jIv ko mwnIqw hY AO mnn kw pRkwr gurU jI kI ikRpw qy jwnIqw hY]2]",
+            "unicode": "ਸ੍ਰੀ ਗੁਰੂ ਜੀ ਕਹਿਤੇ ਹੈਂ: ਪਰਮੇਸ੍ਵਰ ਕੇ ਮੰਨਨੇ ਤੇ ਏਸ ਜੀਵ ਕੋ ਮਾਨੀਤਾ ਹੈ ਔ ਮਨਨ ਕਾ ਪ੍ਰਕਾਰ ਗੁਰੂ ਜੀ ਕੀ ਕ੍ਰਿਪਾ ਤੇ ਜਾਨੀਤਾ ਹੈ॥੨॥"
+          },
+          "bdb": {
+            "gurmukhi": "hy nwnk! ‘nwm’ ƒ mMnx vwlw Awdr pWdw hY, ieh g`l gurU dI ikrpw nwl smJ skIdI hY [2[",
+            "unicode": "ਹੇ ਨਾਨਕ! ‘ਨਾਮ’ ਨੂੰ ਮੰਨਣ ਵਾਲਾ ਆਦਰ ਪਾਂਦਾ ਹੈ, ਇਹ ਗੱਲ ਗੁਰੂ ਦੀ ਕਿਰਪਾ ਨਾਲ ਸਮਝ ਸਕੀਦੀ ਹੈ ।੨।"
+          },
+          "ms": {
+            "gurmukhi": "nwnk, qUM aus dI PrmwbrdwrI kr jo PrmwbrdwrI dy Xog hY[ gurW dI dieAw duAwrw pRBU AnuBv kIqw jWdw hY[",
+            "unicode": "ਨਾਨਕ, ਤੂੰ ਉਸ ਦੀ ਫਰਮਾਬਰਦਾਰੀ ਕਰ ਜੋ ਫਰਮਾਬਰਦਾਰੀ ਦੇ ਯੋਗ ਹੈ। ਗੁਰਾਂ ਦੀ ਦਇਆ ਦੁਆਰਾ ਪ੍ਰਭੂ ਅਨੁਭਵ ਕੀਤਾ ਜਾਂਦਾ ਹੈ।"
+          }
+        },
+        "es": {
+          "sn": "Dice Nanak, solamente creyendo, uno cree, y conoce sólo por la Gracia del Guru.(2)"
+        },
+        "hi": {
+          "ss": "हे नानक ! 'नाम' को मानने वाला आदर पाता है। ये बात गुरू की कृपा से समझी जा सकती है। 2।",
+          "sts": "हे नानक ! ईश्वर में आस्था रखने वाला ही दरगाह में शोभा का पात्र बनता है, लेकिन गुरु की कृपा से ही इस तथ्य की सूझ होती है॥ २॥"
+        }
+      },
+      "transliteration": {
+        "english": "naanak ma(n)niaa ma(n)neeaai bujheeaai gur parasaadh ||2||",
+        "hindi": "नानक मंनिआ मंनीऐ बुझीऐ गुर परसादि ॥२॥",
+        "en": "naanak ma(n)niaa ma(n)neeaai bujheeaai gur parasaadh ||2||",
+        "hi": "नानक मंनिआ मंनीऐ बुझीऐ गुर परसादि ॥२॥",
+        "ipa": "nɑnək məŋnɪəɑ məŋniæ bʊɖ͡ʐiæ Gʊr pərəsɑd̪.2.",
+        "ur": "نانک منّآ منّیِاَے بُجھیِاَے گُر پرساد ۔۔۲۔۔"
+      },
+      "pageNo": 954,
+      "lineNo": 6,
+      "updated": "2022-12-24 02:22:37",
+      "visraam": {
+        "sttm": [],
+        "igurbani": [],
+        "sttm2": [
+          {
+            "p": 0,
+            "t": "v"
+          },
+          {
+            "p": 2,
+            "t": "v"
+          }
+        ]
+      }
+    }
+  ]
+}

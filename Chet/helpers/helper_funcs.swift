@@ -8,7 +8,7 @@
 import Foundation
 
 func fetchRandomShabad() async -> ShabadAPIResponse? {
-    let urlString = "https://data.gurbaninow.com/v2/shabad/random"
+    let urlString = "https://api.banidb.com/v2/random"
     guard let url = URL(string: urlString) else {
         print("Invalid URL")
         return nil
@@ -45,8 +45,8 @@ func fetchRandomShabad() async -> ShabadAPIResponse? {
     }
 }
 
-func fetchHukam() async -> ShabadAPIResponse? {
-    let urlString = "https://data.gurbaninow.com/v2/hukamnama/today"
+func fetchHukam() async -> HukamnamaAPIResponse? {
+    let urlString = "https://api.banidb.com/v2/hukamnamas/"
     guard let url = URL(string: urlString) else {
         print("Invalid URL")
         return nil
@@ -60,24 +60,7 @@ func fetchHukam() async -> ShabadAPIResponse? {
             throw URLError(.badServerResponse)
         }
         let decoded = try JSONDecoder().decode(HukamnamaAPIResponse.self, from: data)
-        let shabadResponse = ShabadAPIResponse(
-            shabadinfo: ShabadInfo(
-                shabadid: decoded.hukamnamainfo.shabadid[0],
-                pageno: decoded.hukamnamainfo.pageno,
-                source: decoded.hukamnamainfo.source,
-                writer: decoded.hukamnamainfo.writer,
-                raag: decoded.hukamnamainfo.raag,
-                navigation: .init(
-                    previous: nil,
-                    next: nil
-                ),
-                count: decoded.hukamnamainfo.count
-            ),
-            shabad: decoded.hukamnama, // same structure if compatible
-            error: false
-        )
-
-        return shabadResponse
+        return decoded
     } catch let DecodingError.keyNotFound(key, context) {
         print("❌ Missing key:", key.stringValue, "in", context.codingPath)
     } catch let DecodingError.typeMismatch(type, context) {
@@ -100,7 +83,8 @@ func searchGurbani(from searchText: String) async throws -> GurbaniSearchAPIResp
         throw URLError(.badURL) // or define your own EmptySearchError
     }
 
-    let urlString = "https://data.gurbaninow.com/v2/search/\(trimmed.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? trimmed)"
+    let query = trimmed.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? trimmed
+    let urlString = "https://api.banidb.com/v2/search/\(query)?searchtype=0"
 
     guard let url = URL(string: urlString) else {
         throw URLError(.badURL)
@@ -116,8 +100,8 @@ func searchGurbani(from searchText: String) async throws -> GurbaniSearchAPIResp
     return try JSONDecoder().decode(GurbaniSearchAPIResponse.self, from: data)
 }
 
-func fetchShabadResponse(from shabadId: String) async throws -> ShabadAPIResponse {
-    let urlString = "https://data.gurbaninow.com/v2/shabad/\(shabadId)"
+func fetchShabadResponse(from shabadId: Int) async throws -> ShabadAPIResponse {
+    let urlString = "https://api.banidb.com/v2/shabads/\(shabadId)"
     guard let url = URL(string: urlString) else {
         throw URLError(.badURL)
     }
@@ -163,7 +147,7 @@ func getFirstLetters(from text: String) -> String {
 
 func getWidgetHeadingFromSbdInfo(_ info: ShabadInfo) -> String {
     var metaData = "("
-    switch info.writer.id {
+    switch info.writer.writerId {
     case 1:
         metaData += "ਪ:੧"
     case 2:
@@ -179,7 +163,7 @@ func getWidgetHeadingFromSbdInfo(_ info: ShabadInfo) -> String {
     case 7:
         metaData += "ਪ:੧੦"
     default:
-        metaData += info.writer.unicode
+        metaData += info.writer.english
     }
     metaData += ")"
     return metaData
@@ -200,3 +184,20 @@ func getRandShabads(interval: Int) async -> [RandSbdForWidget] {
     }
     return newList
 }
+
+func loadJSON<T: Decodable>(from fileName: String, as type: T.Type = T.self) -> T? {
+    guard let url = Bundle.main.url(forResource: fileName, withExtension: "json") else {
+        print("❌ JSON file '\(fileName).json' not found in bundle.")
+        return nil
+    }
+
+    do {
+        let data = try Data(contentsOf: url)
+        let decoded = try JSONDecoder().decode(T.self, from: data)
+        return decoded
+    } catch {
+        print("❌ Error decoding '\(fileName).json': \(error)")
+        return nil
+    }
+}
+

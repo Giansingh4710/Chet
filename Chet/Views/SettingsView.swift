@@ -71,7 +71,7 @@ struct SettingsView: View {
                         ForEach(randSbdLst, id: \.index) { item in
                             NavigationLink(destination: ShabadViewDisplayWrapper(sbdRes: item.sbd, indexOfLine: 0)) {
                                 HStack {
-                                    Text(item.sbd.shabad[0].line.gurmukhi.unicode)
+                                    Text(item.sbd.verses[0].verse.unicode)
                                         .lineLimit(1)
                                     Spacer()
                                     Text(item.date, style: .time)
@@ -118,7 +118,7 @@ struct SettingsView: View {
                                 svdSbd.indexOfSelectedLine = newIndex
                             })) {
                                 HStack {
-                                    Text(svdSbd.sbdRes.shabad[svdSbd.indexOfSelectedLine].line.gurmukhi.unicode)
+                                    Text(svdSbd.sbdRes.verses[svdSbd.indexOfSelectedLine].verse.unicode)
                                         .lineLimit(1)
                                     Spacer()
                                 }

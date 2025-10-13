@@ -3,7 +3,7 @@ import SwiftUI
 
 struct SearchView: View {
     @State private var searchText = ""
-    @State private var results: [LineObjFromSearch] = []
+    @State private var results: [SearchVerse] = []
     @State private var isLoading = false
     @State private var errorMessage: String?
     @Environment(\.colorScheme) private var colorScheme
@@ -90,24 +90,24 @@ struct SearchView: View {
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 } else {
-                    List(results) { line in
+                    List(results) { searchedLine in
                         NavigationLink(destination: ShabadViewFromSearchedLine(
-                            searchedLine: line
+                            searchedLine: searchedLine
                         )) {
                             VStack(alignment: .leading, spacing: 4) {
                                 HStack {
-                                    Text(line.gurmukhi.unicode)
+                                    Text(searchedLine.verse.unicode)
                                         .font(.title3)
                                         .fontWeight(.semibold)
                                         .lineLimit(3)
                                         .multilineTextAlignment(.leading)
                                         .foregroundColor(.primary)
                                     Spacer()
-                                    Text("Ang \(String(line.pageno))")
+                                    Text("Ang \(String(searchedLine.pageNo))")
                                         .font(.caption)
                                         .foregroundColor(.secondary)
                                 }
-                                Text(line.translation.english.default)
+                                Text(searchedLine.translation.en.bdb)
                                     .font(.subheadline)
                                     .foregroundColor(.secondary)
                                     .lineLimit(2)
@@ -222,7 +222,7 @@ struct SearchView: View {
                 return
             }
             let decoded = try await searchGurbani(from: searchText)
-            results = decoded.shabads.map { $0.shabad }
+            results = decoded.verses
             isLoading = false
         } catch {
             errorMessage = "Failed to fetch results: \(error.localizedDescription)"
@@ -242,12 +242,12 @@ struct SearchView: View {
     private func openHukamnama() async {
         if let hukam = await fetchHukam() {
             isNavigating = true
-            selectedShabad = hukam
+            // selectedShabad = hukam
         }
     }
 
     private func addToHistory(sbdHistory: ShabadHistory) {
-        let shabadID = sbdHistory.sbdRes.shabadinfo.shabadid
+        let shabadID = sbdHistory.sbdRes.shabadInfo.shabadId
         let descriptor = FetchDescriptor<ShabadHistory>(
             predicate: #Predicate { $0.shabadID == shabadID }
         )
@@ -263,7 +263,7 @@ struct SearchView: View {
 }
 
 struct ShabadViewFromSearchedLine: View {
-    let searchedLine: LineObjFromSearch
+    let searchedLine: SearchVerse
 
     @State private var isLoadingShabad = true
     @State private var sbdHistory: ShabadHistory?
@@ -291,9 +291,9 @@ struct ShabadViewFromSearchedLine: View {
 
     private func fetchFullShabad() async {
         do {
-            let decoded = try await fetchShabadResponse(from: searchedLine.shabadid)
+            let decoded = try await fetchShabadResponse(from: searchedLine.shabadId)
             print("decoded", decoded)
-            guard let indexOfLine = decoded.shabad.firstIndex(where: { $0.line.id == searchedLine.id }) else {
+            guard let indexOfLine = decoded.verses.firstIndex(where: { $0.verseId == searchedLine.verseId }) else {
                 throw URLError(.cannotFindHost)
             }
 
@@ -309,12 +309,12 @@ struct ShabadViewFromSearchedLine: View {
             errorMessage = "Failed to fetch shabad: \(error.localizedDescription)"
 
             print("Error: \(error)")
-            print("LineId:", searchedLine.id, " ShabadId:", searchedLine.shabadid)
+            print("LineId:", searchedLine.verseId, " ShabadId:", searchedLine.shabadId)
         }
     }
 
     private func addToHistory(sbdHistory: ShabadHistory) {
-        let shabadID = sbdHistory.sbdRes.shabadinfo.shabadid
+        let shabadID = sbdHistory.sbdRes.shabadInfo.shabadId
         let descriptor = FetchDescriptor<ShabadHistory>(
             predicate: #Predicate { $0.shabadID == shabadID }
         )

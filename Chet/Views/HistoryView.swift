@@ -73,6 +73,7 @@ struct RowView: View {
     let the_date: Date
 
     @AppStorage("CompactRowViewSetting") private var compactRowViewSetting = false
+    @AppStorage("larivaar") private var larivaarOn: Bool = true
 
     let formatter: DateFormatter = {
         let f = DateFormatter()
@@ -84,7 +85,7 @@ struct RowView: View {
     var body: some View {
         if compactRowViewSetting {
             HStack {
-                Text(sbdRes.shabad[indexOfLine].line.gurmukhi.unicode)
+                Text(larivaarOn ? sbdRes.verses[indexOfLine].larivaar.unicode : sbdRes.verses[indexOfLine].verse.unicode)
                     .font(.title3)
                     .fontWeight(.semibold)
                     .lineLimit(1)
@@ -99,13 +100,13 @@ struct RowView: View {
             VStack(alignment: .leading, spacing: 8) {
                 HStack {
                     VStack(alignment: .leading, spacing: 4) {
-                        Text(sbdRes.shabad[indexOfLine].line.gurmukhi.unicode)
+                        Text(larivaarOn ? sbdRes.verses[indexOfLine].larivaar.unicode : sbdRes.verses[indexOfLine].verse.unicode)
                             .font(.title3)
                             .fontWeight(.semibold)
                             .lineLimit(2)
                             .multilineTextAlignment(.leading)
 
-                        Text(sbdRes.shabad[indexOfLine].line.translation.english.default)
+                        Text(sbdRes.verses[indexOfLine].translation.en.bdb)
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                             .lineLimit(2)
@@ -126,7 +127,7 @@ struct RowView: View {
                 }
 
                 HStack {
-                    Text(sbdRes.shabadinfo.source.unicode)
+                    Text(sbdRes.shabadInfo.source.english)
                         .font(.caption)
                         .padding(.horizontal, 8)
                         .padding(.vertical, 4)
@@ -134,7 +135,7 @@ struct RowView: View {
                         .foregroundColor(.blue)
                         .cornerRadius(4)
 
-                    Text(sbdRes.shabadinfo.writer.english)
+                    Text(sbdRes.shabadInfo.writer.english)
                         .font(.caption)
                         .padding(.horizontal, 8)
                         .padding(.vertical, 4)
@@ -142,7 +143,7 @@ struct RowView: View {
                         .foregroundColor(.green)
                         .cornerRadius(4)
 
-                    Text("Ang \(String(sbdRes.shabadinfo.pageno))")
+                    Text("Ang \(String(sbdRes.shabadInfo.pageNo))")
                         .font(.caption)
                         .padding(.horizontal, 8)
                         .padding(.vertical, 4)

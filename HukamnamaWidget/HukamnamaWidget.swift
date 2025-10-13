@@ -10,11 +10,14 @@ import WidgetKit
 
 struct Provider: TimelineProvider {
     func placeholder(in _: Context) -> RandSbdForWidget {
-        RandSbdForWidget(sbd: SampleData.shabadResponse, date: Date.now, index: 0)
+        // let decoded = try JSONDecoder().decode(HukamnamaAPIResponse.self, from: data)
+        let sbd: ShabadAPIResponse = loadJSON(from: "random_sbd", as: ShabadAPIResponse.self)!
+        return RandSbdForWidget(sbd: sbd, date: Date.now, index: 0)
     }
 
-    func getSnapshot(in _: Context, completion: @escaping (RandSbdForWidget) -> Void) {
-        RandSbdForWidget(sbd: SampleData.shabadResponse, date: Date.now, index: 0)
+    func getSnapshot(in _: Context, completion _: @escaping (RandSbdForWidget) -> Void) {
+        let sbd: ShabadAPIResponse = loadJSON(from: "random_sbd", as: ShabadAPIResponse.self)!
+        RandSbdForWidget(sbd: sbd, date: Date.now, index: 0)
     }
 
     func getTimeline(in _: Context, completion: @escaping (Timeline<RandSbdForWidget>) -> Void) {
@@ -22,8 +25,7 @@ struct Provider: TimelineProvider {
             var entries: [RandSbdForWidget] = []
             let currentDate = Date()
             let entryDate = Calendar.current.date(byAdding: .hour, value: 24, to: currentDate)!
-            // let hukam = response ?? SampleData.emptyHukam
-            let hukam = response ?? SampleData.shabadResponse
+            let hukam = response!
             let entry = RandSbdForWidget(sbd: hukam, date: Date.now, index: 0)
             entries.append(entry)
 
@@ -35,7 +37,8 @@ struct Provider: TimelineProvider {
 
 private func fetchHukamWrapper(completion: @escaping (ShabadAPIResponse?) -> Void) {
     Task {
-        let response = await fetchHukam()
+        // let response = await fetchHukam()
+        let response = await fetchRandomShabad()
         completion(response)
     }
 }
@@ -45,7 +48,7 @@ struct HukamnamaWidgetEntryView: View {
     var entry: RandSbdForWidget
     var body: some View {
         WidgetEntryView(entry: entry, heading: "Today's Hukamnama")
-            .widgetURL(URL(string: "chet://shabadid/\(entry.sbd.shabadinfo.shabadid)")) // custom deep link
+            .widgetURL(URL(string: "chet://shabadid/\(entry.sbd.shabadInfo.shabadId)")) // custom deep link
     }
 }
 
@@ -69,32 +72,3 @@ struct HukamnamaWidget: Widget {
     }
 }
 
-// #Preview(as: .accessoryInline) {
-//     HukamnamaWidget()
-// } timeline: {
-//     HukamEntry(date: Date.now, hukam: SampleData.hukamnamResponse)
-// }
-//
-// #Preview(as: .accessoryRectangular) {
-//     HukamnamaWidget()
-// } timeline: {
-//     HukamEntry(date: Date.now, hukam: SampleData.hukamnamResponse)
-// }
-//
-// #Preview(as: .systemSmall) {
-//     HukamnamaWidget()
-// } timeline: {
-//     HukamEntry(date: Date.now, hukam: SampleData.hukamnamResponse)
-// }
-//
-// #Preview(as: .systemMedium) {
-//     HukamnamaWidget()
-// } timeline: {
-//     HukamEntry(date: Date.now, hukam: SampleData.hukamnamResponse)
-// }
-//
-// #Preview(as: .systemLarge) {
-//     HukamnamaWidget()
-// } timeline: {
-//     HukamEntry(date: Date.now, hukam: SampleData.hukamnamResponse)
-// }

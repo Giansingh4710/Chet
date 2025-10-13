@@ -20,7 +20,8 @@ struct ChetApp: App {
                 .onOpenURL { url in
                     if url.scheme == "chet",
                        url.host == "shabadid",
-                       let id = url.pathComponents.dropFirst().first
+                       let idstr = url.pathComponents.dropFirst().first,
+                       let id = Int(idstr)
                     {
                         selectedID = WidgetUrlShabadID(id: id)
                     }
@@ -39,5 +40,5 @@ struct ChetApp: App {
 }
 
 struct WidgetUrlShabadID: Identifiable {
-    let id: String
+    let id: Int
 }
