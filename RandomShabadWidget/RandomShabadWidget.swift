@@ -54,7 +54,7 @@ struct Provider: TimelineProvider {
 struct RandomShabadWidgetEntryView: View {
     var entry: RandSbdForWidget
     var body: some View {
-        WidgetEntryView(the_shabad: entry.sbd.shabad, heading: "Random Shabad" + getWidgetHeadingFromSbdInfo(entry.sbd.shabadinfo))
+        WidgetEntryView(entry: entry, heading: "Random Shabad" + getWidgetHeadingFromSbdInfo(entry.sbd.shabadinfo))
             .widgetURL(URL(string: "chet://shabadid/\(entry.sbd.shabadinfo.shabadid)")) // custom deep link
     }
 }
@@ -79,32 +79,33 @@ struct RandomShabadWidget: Widget {
     }
 }
 
+
 #Preview(as: .systemSmall) {
     RandomShabadWidget()
 } timeline: {
     RandSbdForWidget(sbd: SampleData.shabadResponse, date: Date.now, index: 0)
 }
 
-// #Preview(as: .accessoryInline) {
-//    RandomShabadWidget()
-// } timeline: {
-//    RandSbdForWidget(date: Date.now, sbd: SampleData.shabadResponse)
-// }
-//
-// #Preview(as: .accessoryRectangular) {
-//    RandomShabadWidget()
-// } timeline: {
-//    RandSbdForWidget(date: Date.now, sbd: SampleData.shabadResponse)
-// }
-//
-// #Preview(as: .systemMedium) {
-//    RandomShabadWidget()
-// } timeline: {
-//    RandSbdForWidget(date: Date.now, sbd: SampleData.shabadResponse)
-// }
-//
-// #Preview(as: .systemLarge) {
-//    RandomShabadWidget()
-// } timeline: {
-//    RandSbdForWidget(date: Date.now, sbd: SampleData.shabadResponse)
-// }
+#Preview(as: .accessoryInline) {
+   RandomShabadWidget()
+} timeline: {
+    RandSbdForWidget(sbd: SampleData.shabadResponse, date: Date.now, index: 0)
+}
+
+#Preview(as: .accessoryRectangular) {
+   RandomShabadWidget()
+} timeline: {
+    RandSbdForWidget(sbd: SampleData.shabadResponse, date: Date.now, index: 0)
+}
+
+#Preview(as: .systemMedium) {
+   RandomShabadWidget()
+} timeline: {
+    RandSbdForWidget(sbd: SampleData.shabadResponse, date: Date.now, index: 0)
+}
+
+#Preview(as: .systemLarge) {
+   RandomShabadWidget()
+} timeline: {
+    RandSbdForWidget(sbd: SampleData.shabadResponse, date: Date.now, index: 0)
+}

@@ -129,7 +129,7 @@ struct SearchView: View {
                 })
                 .autocorrectionDisabled(true)
                 .textInputAutocapitalization(.never)
-                .font(.custom("AmrLipiHeavy", size: 16))
+                .font(.custom("AnmolLipiBoldTrue", size: 16))
                 .focused($isSearchFieldFocused)
 
                 // Clear button
@@ -241,25 +241,8 @@ struct SearchView: View {
 
     private func openHukamnama() async {
         if let hukam = await fetchHukam() {
-            // convert HukamnamaAPIResponse -> ShabadAPIResponse
-            let sbdRes = ShabadAPIResponse(
-                shabadinfo: .init(
-                    shabadid: hukam.hukamnamainfo.shabadid[0],
-                    pageno: hukam.hukamnamainfo.pageno,
-                    source: hukam.hukamnamainfo.source,
-                    writer: hukam.hukamnamainfo.writer,
-                    raag: hukam.hukamnamainfo.raag,
-                    navigation: .init(
-                        previous: nil,
-                        next: nil
-                    ),
-                    count: hukam.hukamnamainfo.count
-                ),
-                shabad: hukam.hukamnama,
-                error: false
-            )
             isNavigating = true
-            selectedShabad = sbdRes
+            selectedShabad = hukam
         }
     }
 
@@ -309,6 +292,7 @@ struct ShabadViewFromSearchedLine: View {
     private func fetchFullShabad() async {
         do {
             let decoded = try await fetchShabadResponse(from: searchedLine.shabadid)
+            print("decoded", decoded)
             guard let indexOfLine = decoded.shabad.firstIndex(where: { $0.line.id == searchedLine.id }) else {
                 throw URLError(.cannotFindHost)
             }
@@ -385,7 +369,7 @@ struct KeyButton: View {
     var body: some View {
         Button(action: action) {
             Text(label)
-                .font(.custom("AmrLipiHeavy", size: 20))
+                .font(.custom("AnmolLipiBoldTrue", size: 20))
                 .foregroundColor(.primary)
                 .frame(maxWidth: .infinity)
                 .frame(height: 44)

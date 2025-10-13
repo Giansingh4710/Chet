@@ -35,24 +35,23 @@ private func showOneLine(_ sbdLines: [ShabadLineWrapper]) -> String {
 }
 
 struct LockScreenInLineView: View {
-    let the_shabad: [ShabadLineWrapper]
+    let entry: RandSbdForWidget
     var body: some View {
-        Text(showOneLine(the_shabad))
+        Text(showOneLine(entry.sbd.shabad))
             .lineLimit(1)
             .minimumScaleFactor(0.7) // Allow text to scale down more to fit
     }
 }
 
 private func filterOutHeadings(_ the_shabad: [ShabadLineWrapper]) -> [ShabadLineWrapper] {
-    // return the_shabad.filter { $0.line.type != 2 }.prefix(4).map { $0 }
     return the_shabad.filter { $0.line.type != 2 }.map { $0 }
 }
 
 struct LockScreenRectangularView: View {
-    let the_shabad: [ShabadLineWrapper]
+    let entry: RandSbdForWidget
     var body: some View {
         VStack(alignment: .leading, spacing: 1) { // Reduced spacing
-            ForEach(filterOutHeadings(the_shabad), id: \.line.id) { lineWrapper in
+            ForEach(filterOutHeadings(entry.sbd.shabad), id: \.line.id) { lineWrapper in
                 Text(lineWrapper.line.gurmukhi.unicode)
                     .font(.system(size: 10)) // Smaller font size
                     .lineLimit(1)
@@ -64,12 +63,12 @@ struct LockScreenRectangularView: View {
     }
 
     private func getOptimizedLines() -> [ShabadLineWrapper] {
-        return the_shabad.filter { $0.line.type != 2 }.prefix(4).map { $0 }
+        return entry.sbd.shabad.filter { $0.line.type != 2 }.prefix(4).map { $0 }
     }
 }
 
 struct HomeScreenSmallView: View {
-    let the_shabad: [ShabadLineWrapper]
+    let entry: RandSbdForWidget
     let heading: String?
 
     var body: some View {
@@ -83,7 +82,7 @@ struct HomeScreenSmallView: View {
             }
 
             VStack(alignment: .leading) {
-                Text(filterOutHeadings(the_shabad).map { $0.line.gurmukhi.unicode }.joined(separator: " "))
+                Text(filterOutHeadings(entry.sbd.shabad).map { $0.line.gurmukhi.unicode }.joined(separator: " "))
                     .font(.system(size: 16, weight: .medium)) // Smaller font
             }
             // .clipped() // Clip any content that exceeds the frame
@@ -93,7 +92,7 @@ struct HomeScreenSmallView: View {
 
 // Enhanced medium view with more efficient space usage
 struct HomeScreenMediumView: View {
-    let the_shabad: [ShabadLineWrapper]
+    let entry: RandSbdForWidget
     let heading: String?
 
     var body: some View {
@@ -104,6 +103,7 @@ struct HomeScreenMediumView: View {
                     .fontWeight(.semibold)
                     .foregroundColor(.secondary)
                     .lineLimit(1)
+                Text("Vahegru")
             }
 
             // Use a grid layout for more efficient space usage
@@ -142,97 +142,97 @@ struct HomeScreenMediumView: View {
     private func getDisplayLines() -> [ShabadLineWrapper] {
         // For medium widget, show up to 8 lines intelligently
         let maxLines = 8
-        let filteredLines = the_shabad.filter { $0.line.type != 2 || the_shabad.count <= 3 }
+        let filteredLines = entry.sbd.shabad.filter { $0.line.type != 2 || entry.sbd.shabad.count <= 3 }
         return Array(filteredLines.prefix(maxLines))
     }
 }
 
 struct HomeScreenLargeView: View {
-    let the_shabad: [ShabadLineWrapper]
+    let entry: RandSbdForWidget
     let heading: String?
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 6) {
-            if let title = heading {
-                Text(title)
-                    .font(.subheadline)
-                    .fontWeight(.semibold)
-                    .foregroundColor(.secondary)
-                    .lineLimit(1)
-            }
+        ZStack {
+            // Background gradient — closer to your image
+            LinearGradient(
+                gradient: Gradient(colors: [
+                    Color(red: 1.0, green: 0.8, blue: 0.7),
+                    Color(red: 0.7, green: 1.0, blue: 0.8),
+                ]),
+                startPoint: .topTrailing,
+                endPoint: .bottomLeading
+            )
+            .ignoresSafeArea()
 
-            ScrollView {
-                LazyVStack(alignment: .leading, spacing: 3) {
-                    // Group lines by type for better organization
-                    let headings = the_shabad.filter { $0.line.type == 2 }
-                    let rahaoLines = the_shabad.filter { $0.line.type == 3 }
-                    let normalLines = the_shabad.filter { $0.line.type == 4 }
+            VStack(alignment: .leading, spacing: 10) {
+                // Heading + Date
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(heading ?? "Random Shabad (P:5)")
+                        .font(.system(size: 15, weight: .semibold))
+                        .foregroundColor(.white.opacity(0.95))
 
-                    // Display headings first
-                    if !headings.isEmpty {
-                        ForEach(headings, id: \.line.id) { lineWrapper in
-                            Text(lineWrapper.line.gurmukhi.unicode)
-                                .font(.system(size: 12, weight: .medium))
-                                .foregroundColor(.secondary)
-                                .lineLimit(1)
-                                .padding(.top, 2)
-                        }
-                    }
-
-                    // Display Rahao lines with emphasis
-                    if !rahaoLines.isEmpty {
-                        ForEach(rahaoLines, id: \.line.id) { lineWrapper in
-                            Text(lineWrapper.line.gurmukhi.unicode)
-                                .font(.system(size: 14, weight: .semibold))
-                                .foregroundColor(.primary)
-                                .lineLimit(2)
-                                .padding(.vertical, 1)
-                        }
-                    }
-
-                    // Display normal lines in a grid for better space usage
-                    LazyVGrid(columns: [
-                        GridItem(.flexible()),
-                        GridItem(.flexible()),
-                    ], alignment: .leading, spacing: 3) {
-                        ForEach(normalLines, id: \.line.id) { lineWrapper in
-                            Text(lineWrapper.line.gurmukhi.unicode)
-                                .font(.system(size: 12))
-                                .lineLimit(2)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                        }
-                    }
+                    Text(entry.date, style: .date)
+                        .font(.system(size: 13))
+                        .foregroundColor(.white.opacity(0.8))
                 }
-                .padding(.vertical, 2)
+
+                // Gurbani lines
+                if let firstLine = entry.sbd.shabad.first?.line {
+                    VStack(alignment: .leading, spacing: 6) {
+                        Text(firstLine.gurmukhi.unicode)
+                            .font(.system(size: 17, weight: .semibold))
+                            .foregroundColor(.white)
+                            .fixedSize(horizontal: false, vertical: true)
+
+                        Text(firstLine.translation.english.default)
+                            .italic()
+                            .font(.system(size: 13))
+                            .foregroundColor(.white.opacity(0.9))
+                            .fixedSize(horizontal: false, vertical: true)
+
+                        Text(firstLine.translation.punjabi.default.unicode)
+                            .font(.system(size: 13))
+                            .foregroundColor(.white.opacity(0.9))
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                    .padding(.top, 4)
+                } else {
+                    Text("No Shabad data available.")
+                        .font(.system(size: 13))
+                        .foregroundColor(.white.opacity(0.8))
+                        .padding(.top, 8)
+                }
+
+                Spacer()
+
+                // "View more" footer
+                Text("View more")
+                    .font(.system(size: 12))
+                    .foregroundColor(.white.opacity(0.85))
+                    .padding(.top, 4)
             }
+            .padding(16)
         }
-        .padding(12)
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
     }
 }
 
 struct WidgetEntryView: View {
-    let the_shabad: [ShabadLineWrapper]
+    let entry: RandSbdForWidget
     let heading: String?
     @Environment(\.widgetFamily) var widgetFamily
-
-    init(the_shabad: [ShabadLineWrapper], heading: String? = nil) {
-        self.the_shabad = the_shabad
-        self.heading = heading
-    }
 
     var body: some View {
         switch widgetFamily {
         case .accessoryInline:
-            LockScreenInLineView(the_shabad: the_shabad)
+            LockScreenInLineView(entry: entry)
         case .accessoryRectangular:
-            LockScreenRectangularView(the_shabad: the_shabad)
+            LockScreenRectangularView(entry: entry)
         case .systemSmall:
-            HomeScreenSmallView(the_shabad: the_shabad, heading: heading)
+            HomeScreenSmallView(entry: entry, heading: heading)
         case .systemMedium:
-            HomeScreenMediumView(the_shabad: the_shabad, heading: heading)
+            HomeScreenMediumView(entry: entry, heading: heading)
         case .systemLarge:
-            HomeScreenLargeView(the_shabad: the_shabad, heading: heading)
+            HomeScreenLargeView(entry: entry, heading: heading)
         default:
             Text("Vaheguru")
                 .font(.caption)

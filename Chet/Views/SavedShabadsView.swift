@@ -197,7 +197,7 @@ struct SavedShabadsView: View {
 }
 
 struct FoldersContentView: View {
-    let folder: Folder
+    @Bindable var folder: Folder
 
     @State private var showingNewFolderAlert = false
     @State private var newFolderName: String = ""
@@ -407,15 +407,31 @@ struct FoldersDisplay: View {
 }
 
 struct ShabadsDisplay: View {
-    let folder: Folder
     @Environment(\.modelContext) private var modelContext
     @Environment(\.editMode) var editMode // Access the environment's edit mode
 
+    let folder: Folder
     @Binding var selectedShabads: Set<SavedShabad> // Binding for selection
+
+    @Query var the_shabads: [SavedShabad]
+
+    init(folder: Folder, selectedShabads: Binding<Set<SavedShabad>>) {
+        self.folder = folder
+        _selectedShabads = selectedShabads
+
+        let folderID = folder.id // capture the value first
+
+        _the_shabads = Query(
+            filter: #Predicate<SavedShabad> { sbd in
+                sbd.folder?.id == folderID
+            },
+            sort: [SortDescriptor(\.sortIndex, order: .reverse)]
+        )
+    }
 
     var body: some View {
         Section("Shabads (\(folder.savedShabads.count))") {
-            ForEach(folder.savedShabads.sorted(by: { $0.sortIndex > $1.sortIndex })) { svdSbd in // Sort by sortIndex. Biggest first
+            ForEach(the_shabads) { svdSbd in
                 HStack {
                     if editMode?.wrappedValue.isEditing == true {
                         // Checkbox for selection in edit mode
@@ -429,7 +445,9 @@ struct ShabadsDisplay: View {
                                 }
                             }
                     }
-                    NavigationLink(destination: ShabadViewDisplayWrapper(sbdRes: svdSbd.sbdRes, indexOfLine: svdSbd.indexOfSelectedLine)) {
+                    NavigationLink(destination: ShabadViewDisplayWrapper(sbdRes: svdSbd.sbdRes, indexOfLine: svdSbd.indexOfSelectedLine, onIndexChange: { newIndex in
+                        svdSbd.indexOfSelectedLine = newIndex
+                    })) {
                         RowView(sbdRes: svdSbd.sbdRes, indexOfLine: svdSbd.indexOfSelectedLine, the_date: svdSbd.addedAt)
                     }
                 }
@@ -440,20 +458,28 @@ struct ShabadsDisplay: View {
         }
     }
 
+    private func getSortedShabads() -> [SavedShabad] {
+        return folder.savedShabads.sorted(by: { $0.sortIndex > $1.sortIndex }) // Sort by sortIndex
+    }
+
     private func handleDelete(at offsets: IndexSet) {
-        let sortedShabads = folder.savedShabads.sorted(by: { $0.sortIndex < $1.sortIndex }) // Sort by sortIndex
+        var current = the_shabads.sorted(by: { $0.sortIndex > $1.sortIndex })
         for index in offsets {
-            let savedShabad = sortedShabads[index]
-            modelContext.delete(savedShabad)
+            let shabadToDelete = current[index]
+            modelContext.delete(shabadToDelete)
+        }
+        current.remove(atOffsets: offsets)
+        for (i, s) in current.enumerated() {
+            s.sortIndex = current.count - i
         }
     }
 
     private func moveItems(_ indices: IndexSet, _ newOffset: Int) {
-        var reorderedShabads = folder.savedShabads.sorted(by: { $0.sortIndex < $1.sortIndex })
-        reorderedShabads.move(fromOffsets: indices, toOffset: newOffset)
+        var reordered = the_shabads
+        reordered.move(fromOffsets: indices, toOffset: newOffset)
 
-        for (i, s) in reorderedShabads.enumerated() {
-            s.sortIndex = i // Update the sortIndex property
+        for (i, s) in reordered.reversed().enumerated() {
+            s.sortIndex = i
         }
     }
 }

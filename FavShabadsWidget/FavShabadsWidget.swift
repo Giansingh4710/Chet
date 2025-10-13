@@ -12,27 +12,29 @@ import WidgetKit
 struct Provider: @preconcurrency TimelineProvider {
     let modelContainer = ModelContainer.shared
 
-    @MainActor func placeholder(in _: Context) -> SavedSbdEntry {
-        SavedSbdEntry(date: Date.now, obj: SampleData.svdSbd)
+    @MainActor func placeholder(in _: Context) -> RandSbdForWidget {
+        RandSbdForWidget(sbd: SampleData.svdSbd.sbdRes, date: Date.now, index: 0)
     }
 
-    @MainActor func getSnapshot(in _: Context, completion: @escaping (SavedSbdEntry) -> Void) {
+    @MainActor func getSnapshot(in _: Context, completion: @escaping (RandSbdForWidget) -> Void) {
         let svdSbds = getFavShabads()
-        completion(SavedSbdEntry(date: Date.now, obj: svdSbds.first ?? SampleData.svdSbd))
+        if let first = svdSbds.first {
+            completion(RandSbdForWidget(sbd: first.sbdRes, date: Date.now, index: first.indexOfSelectedLine))
+        } else {
+            completion(RandSbdForWidget(sbd: SampleData.shabadResponse, date: Date.now, index: 0))
+        }
     }
 
-    @MainActor func getTimeline(in _: Context, completion: @escaping (Timeline<SavedSbdEntry>) -> Void) {
+    @MainActor func getTimeline(in _: Context, completion: @escaping (Timeline<RandSbdForWidget>) -> Void) {
         let svdSbds = getFavShabads()
-        var entries: [SavedSbdEntry] = []
+        var entries: [RandSbdForWidget] = []
         let interval = UserDefaults.appGroup.data(forKey: "favSbdRefreshInterval") as? Int ?? 3
-        var lastDate: Date = Date.now
+        var lastDate = Date.now
         for offset in 0 ..< svdSbds.count {
             let entryDate = Calendar.current.date(byAdding: .hour, value: offset * interval, to: Date())!
-            let entry = SavedSbdEntry(date: entryDate, obj: svdSbds[offset])
+            let entry = RandSbdForWidget(sbd: svdSbds[offset].sbdRes, date: entryDate, index: svdSbds[offset].indexOfSelectedLine)
             lastDate = entryDate
             entries.append(entry)
-            print("added entry")
-            print(entry)
         }
 
         let timeline = Timeline(entries: entries, policy: .after(lastDate))
@@ -58,16 +60,11 @@ struct Provider: @preconcurrency TimelineProvider {
     }
 }
 
-struct SavedSbdEntry: TimelineEntry {
-    let date: Date
-    let obj: SavedShabad
-}
-
 struct FavShabadsWidgetEntryView: View {
-    var entry: SavedSbdEntry
+    var entry: RandSbdForWidget
     var body: some View {
-        WidgetEntryView(the_shabad: entry.obj.sbdRes.shabad, heading: "From Favorites" + getWidgetHeadingFromSbdInfo(entry.obj.sbdRes.shabadinfo))
-            .widgetURL(URL(string: "chet://shabadid/\(entry.obj.sbdRes.shabadinfo.shabadid)")) // custom deep link
+        WidgetEntryView(entry: entry, heading: "From Favorites " + getWidgetHeadingFromSbdInfo(entry.sbd.shabadinfo))
+            .widgetURL(URL(string: "chet://shabadid/\(entry.sbd.shabadinfo.shabadid)")) // custom deep link
         // Text("Favs")
     }
 

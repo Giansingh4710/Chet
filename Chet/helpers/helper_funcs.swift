@@ -45,7 +45,7 @@ func fetchRandomShabad() async -> ShabadAPIResponse? {
     }
 }
 
-func fetchHukam() async -> HukamnamaAPIResponse? {
+func fetchHukam() async -> ShabadAPIResponse? {
     let urlString = "https://data.gurbaninow.com/v2/hukamnama/today"
     guard let url = URL(string: urlString) else {
         print("Invalid URL")
@@ -60,7 +60,24 @@ func fetchHukam() async -> HukamnamaAPIResponse? {
             throw URLError(.badServerResponse)
         }
         let decoded = try JSONDecoder().decode(HukamnamaAPIResponse.self, from: data)
-        return decoded
+        let shabadResponse = ShabadAPIResponse(
+            shabadinfo: ShabadInfo(
+                shabadid: decoded.hukamnamainfo.shabadid[0],
+                pageno: decoded.hukamnamainfo.pageno,
+                source: decoded.hukamnamainfo.source,
+                writer: decoded.hukamnamainfo.writer,
+                raag: decoded.hukamnamainfo.raag,
+                navigation: .init(
+                    previous: nil,
+                    next: nil
+                ),
+                count: decoded.hukamnamainfo.count
+            ),
+            shabad: decoded.hukamnama, // same structure if compatible
+            error: false
+        )
+
+        return shabadResponse
     } catch let DecodingError.keyNotFound(key, context) {
         print("❌ Missing key:", key.stringValue, "in", context.codingPath)
     } catch let DecodingError.typeMismatch(type, context) {
@@ -145,23 +162,22 @@ func getFirstLetters(from text: String) -> String {
 }
 
 func getWidgetHeadingFromSbdInfo(_ info: ShabadInfo) -> String {
-    var metaData = ": " + info.writer.unicode + " (" + info.raag.unicode + ")"
-    metaData = " ("
+    var metaData = "("
     switch info.writer.id {
     case 1:
-        metaData += "p:1"
+        metaData += "ਪ:੧"
     case 2:
-        metaData += "p:2"
+        metaData += "ਪ:੨"
     case 3:
-        metaData += "p:3"
+        metaData += "ਪ:੩"
     case 4:
-        metaData += "p:4"
+        metaData += "ਪ:੪"
     case 5:
-        metaData += "p:5"
+        metaData += "ਪ:੫"
     case 6:
-        metaData += "p:9"
+        metaData += "ਪ:੯"
     case 7:
-        metaData += "p:10"
+        metaData += "ਪ:੧੦"
     default:
         metaData += info.writer.unicode
     }

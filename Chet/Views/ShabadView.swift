@@ -4,7 +4,10 @@ import WidgetKit
 
 struct ShabadViewDisplayWrapper: View {
     let sbdRes: ShabadAPIResponse
-    let indexOfLine: Int?
+    var indexOfLine: Int
+    var onIndexChange: ((Int) -> Void)? = nil // optional callback
+
+    @State private var localIndexOfLine = 0
     @State var sbdRes2: ShabadAPIResponse?
 
     // @Environment(\.dismiss) private var dismiss
@@ -19,16 +22,20 @@ struct ShabadViewDisplayWrapper: View {
         } else if let errorMessage = errorMessage {
             Text(errorMessage).foregroundColor(.red)
         } else if let sbdRes2 = sbdRes2 {
-            ShabadViewDisplay(sbdRes: sbdRes2, fetchNewShabad: fetchNewShabad, indexOfLine: indexOfLine)
+            ShabadViewDisplay(sbdRes: sbdRes2, fetchNewShabad: fetchNewShabad, indexOfLine: localIndexOfLine, onIndexChange: localIndexOfLine == -1 ? nil : onIndexChange)
         } else {
-            ShabadViewDisplay(sbdRes: sbdRes, fetchNewShabad: fetchNewShabad, indexOfLine: indexOfLine)
+            ShabadViewDisplay(sbdRes: sbdRes, fetchNewShabad: fetchNewShabad, indexOfLine: localIndexOfLine, onIndexChange: localIndexOfLine == -1 ? nil : onIndexChange)
+                .onAppear {
+                    localIndexOfLine = indexOfLine
+                }
         }
     }
 
     private func fetchNewShabad(_ sbdID: String) async {
         isLoadingShabad = true
+        // onIndexChange = nil
+        localIndexOfLine = -1
         let urlString = "https://data.gurbaninow.com/v2/shabad/\(sbdID)"
-        var aindexOfLine = 0
         guard let url = URL(string: urlString) else {
             await MainActor.run {
                 errorMessage = "Invalid shabad URL"
@@ -60,19 +67,27 @@ struct ShabadViewDisplayWrapper: View {
 struct ShabadViewDisplay: View {
     let sbdRes: ShabadAPIResponse
     let fetchNewShabad: (String) async -> Void
-    let indexOfLine: Int?
+    // var indexOfLine: Int
+    @State var indexOfLine: Int
+    var onIndexChange: ((Int) -> Void)? = nil // optional callback
 
     @AppStorage("shabadTextScale") private var textScale: Double = 1.0
     @AppStorage("translationShabadTextScale") private var translationTextScale: Double = 1.0
+    @AppStorage("punjabiTranslationTextScale") private var punjabiTranslationTextScale: Double = 1.0
     @AppStorage("showTranslations") private var showTranslations: Bool = true
+    @AppStorage("showPunjabiTranslations") private var showPunjabiTranslations: Bool = false
     @AppStorage("larivaar") private var larivaarOn: Bool = true
     @AppStorage("fontType") private var fontType: String = "Unicode"
+    @AppStorage("swipeToGoToNextShabadSetting") private var swipeToGoToNextShabadSetting = false
 
     @State private var gestureScale: CGFloat = 1.0
     @State private var showingSettings = false
     @State private var showingSaved = false
     @State private var showCopySheet = false
     @State private var preselectedLine: String = ""
+
+    @State private var showLinePicker = false
+    @State private var selectedLineIndex = 0
 
     var body: some View {
         ZStack {
@@ -145,6 +160,15 @@ struct ShabadViewDisplay: View {
                                         .padding(.horizontal)
                                         .padding(.top, 2) // small top space just for translation
                                 }
+
+                                if showPunjabiTranslations {
+                                    Text(shabadLineWrapper.line.translation.punjabi.default.unicode)
+                                        .font(.system(size: 20 * punjabiTranslationTextScale * gestureScale))
+                                        .foregroundColor(.secondary)
+                                        .lineSpacing(2)
+                                        .padding(.horizontal)
+                                        .padding(.top, 2) // small top space just for translation
+                                }
                             }
                             // Use smaller or no vertical padding
                             .padding(.vertical, 2)
@@ -158,15 +182,6 @@ struct ShabadViewDisplay: View {
                         }
                     }
                     .padding(.bottom, 60) // leave space for docked bar
-                    .gesture(
-                        MagnificationGesture()
-                            .onChanged { gestureScale = $0 }
-                            .onEnded {
-                                textScale *= $0
-                                translationTextScale *= $0
-                                gestureScale = 1.0
-                            }
-                    )
                 }
             }
 
@@ -188,7 +203,6 @@ struct ShabadViewDisplay: View {
 
                     Spacer()
 
-                    // Settings Button
                     Button {
                         showingSettings = true
                     } label: {
@@ -197,6 +211,14 @@ struct ShabadViewDisplay: View {
                             .frame(width: 44, height: 44)
                     }
 
+                    Spacer()
+                    Button {
+                        showingSaved = true
+                    } label: {
+                        Image(systemName: "bookmark")
+                            .font(.title2)
+                            .frame(width: 44, height: 44)
+                    }
                     Spacer()
 
                     // Next Button
@@ -217,9 +239,44 @@ struct ShabadViewDisplay: View {
                 .padding(.horizontal)
                 .padding(.bottom, 20) // 👈 controls the "hover" distance
             }
+            .id(sbdRes.shabadinfo.shabadid) // ← Key part
         }
-        .navigationBarTitle("Shabad", displayMode: .inline)
+        .gesture(
+            DragGesture()
+                .onEnded { value in
+                    if !swipeToGoToNextShabadSetting {
+                        return
+                    }
+                    let horizontalAmount = value.translation.width
+
+                    if horizontalAmount < -50, let nextID = sbdRes.shabadinfo.navigation.next?.id {
+                        Task { await fetchNewShabad(nextID) }
+                    } else if horizontalAmount > 50, let prevID = sbdRes.shabadinfo.navigation.previous?.id {
+                        Task { await fetchNewShabad(prevID) }
+                    }
+                }
+        )
+        .animation(.easeInOut, value: sbdRes.shabadinfo.shabadid)
+        .gesture(
+            MagnificationGesture()
+                .onChanged { gestureScale = $0 }
+                .onEnded {
+                    textScale *= $0
+                    translationTextScale *= $0
+                    punjabiTranslationTextScale *= $0
+                    gestureScale = 1.0
+                }
+        )
+        .navigationBarTitle("Shabad \(sbdRes.shabadinfo.shabadid)", displayMode: .inline)
         .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    selectedLineIndex = indexOfLine
+                    showLinePicker = true
+                } label: {
+                    Image(systemName: "arrow.left.arrow.right.circle")
+                }
+            }
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
                     showCopySheet = true
@@ -227,18 +284,24 @@ struct ShabadViewDisplay: View {
                     Image(systemName: "clipboard")
                 }
             }
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button {
-                    showingSaved = true
-                } label: {
-                    Image(systemName: "bookmark")
-                }
-            }
         }
+        .sheet(isPresented: $showLinePicker) {
+            LinePickerSheet(
+                shabad: sbdRes.shabad,
+                selectedIndex: $selectedLineIndex,
+                onConfirm: {
+                    indexOfLine = selectedLineIndex
+                    onIndexChange?(selectedLineIndex)
+                }
+            )
+            .presentationDetents([.medium])
+        }
+
         .sheet(isPresented: $showCopySheet) {
             CopySheetView(
                 shabad: sbdRes.shabad,
                 showTranslations: showTranslations,
+                larivaarOn: larivaarOn,
                 preselectedLine: $preselectedLine // 👈 pass selected IDs
             )
         }
@@ -246,7 +309,9 @@ struct ShabadViewDisplay: View {
             SettingsSheet(
                 textScale: $textScale,
                 translationTextScale: $translationTextScale,
+                punjabiTranslationTextScale: $punjabiTranslationTextScale,
                 showTranslations: $showTranslations,
+                showPunjabiTranslations: $showPunjabiTranslations,
                 larivaarOn: $larivaarOn,
                 fontType: $fontType
             )
@@ -258,11 +323,6 @@ struct ShabadViewDisplay: View {
         }
         .onAppear {
             UIApplication.shared.isIdleTimerDisabled = true // Don’t let the iPhone/iPad go to sleep while this app is active
-            print("Index of line: \(indexOfLine)")
-            if let index = indexOfLine {
-                preselectedLine = sbdRes.shabad[index].line.id
-                print("Preselected line: \(preselectedLine)")
-            }
         }
         .onDisappear { UIApplication.shared.isIdleTimerDisabled = false }
     }
@@ -272,7 +332,9 @@ struct ShabadViewDisplay: View {
 struct SettingsSheet: View {
     @Binding var textScale: Double
     @Binding var translationTextScale: Double
+    @Binding var punjabiTranslationTextScale: Double
     @Binding var showTranslations: Bool
+    @Binding var showPunjabiTranslations: Bool
     @Binding var larivaarOn: Bool
     @Binding var fontType: String
 
@@ -306,6 +368,13 @@ struct SettingsSheet: View {
                             Slider(value: $translationTextScale, in: 0.5 ... 2.5, step: 0.1)
                         }
                     }
+                    Toggle("Show Punjabi Translations", isOn: $showPunjabiTranslations)
+                    if showPunjabiTranslations {
+                        HStack {
+                            Text("Font Size")
+                            Slider(value: $punjabiTranslationTextScale, in: 0.5 ... 2.5, step: 0.1)
+                        }
+                    }
                 }
             }
             .navigationTitle("Settings")
@@ -317,6 +386,7 @@ struct SettingsSheet: View {
 struct CopySheetView: View {
     let shabad: [ShabadLineWrapper]
     let showTranslations: Bool
+    let larivaarOn: Bool
     // let preselectedLine: String
     @Binding var preselectedLine: String // 👈 binding
 
@@ -354,7 +424,7 @@ struct CopySheetView: View {
                                 HStack {
                                     Image(systemName: selectedLines.contains(wrapper.line.id) ? "checkmark.circle.fill" : "circle")
                                         .foregroundColor(selectedLines.contains(wrapper.line.id) ? .blue : .secondary)
-                                    Text(wrapper.line.gurmukhi.unicode)
+                                    Text(larivaarOn ? wrapper.line.larivaar.unicode : wrapper.line.gurmukhi.unicode)
                                         .font(.body)
                                         .fontWeight(.medium)
                                     Spacer()
@@ -410,7 +480,7 @@ struct CopySheetView: View {
         let selected = shabad.filter { selectedLines.contains($0.line.id) }
         let spacing = showTranslations ? "\n\n" : "\n"
         let text = selected.map { wrapper in
-            var line = wrapper.line.gurmukhi.unicode
+            var line = larivaarOn ? wrapper.line.larivaar.unicode : wrapper.line.gurmukhi.unicode
             if showTranslations {
                 line += "\n\(wrapper.line.translation.english.default)"
             }
@@ -418,6 +488,47 @@ struct CopySheetView: View {
         }.joined(separator: spacing)
 
         UIPasteboard.general.string = text
+    }
+}
+
+struct LinePickerSheet: View {
+    let shabad: [ShabadLineWrapper] // the actual list of lines
+    @Binding var selectedIndex: Int
+    var onConfirm: () -> Void
+
+    @Environment(\.dismiss) private var dismiss
+
+    var body: some View {
+        NavigationView {
+            VStack {
+                Picker("Select Line", selection: $selectedIndex) {
+                    ForEach(Array(shabad.enumerated()), id: \.1.line.id) { index, lineWrapper in
+                        Text(lineWrapper.line.gurmukhi.unicode)
+                            .font(.system(size: 18))
+                            .lineLimit(2)
+                            .tag(index)
+                    }
+                }
+                .pickerStyle(.wheel)
+                .labelsHidden()
+
+                Spacer()
+            }
+            .navigationTitle("Select Main Line")
+            .toolbar {
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Done") {
+                        onConfirm()
+                        dismiss()
+                    }
+                }
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Cancel") {
+                        dismiss()
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -538,18 +649,14 @@ struct GurbaniLineView: View {
         if fontType == "Unicode" {
             return .system(size: size)
         } else {
-            // ⚠️ Important: the tag must match the *PostScript name* of the font,
-            // not necessarily the filename (use Font Book to check)
-
-            print("fontType: ", fontType)
-            return .custom(fontType, size: size)
+            return .custom(fontType, size: size) // ⚠️ Important: the tag must match the *PostScript name* of the font, not necessarily the filename (use Font Book to check)
         }
     }
 }
 
 struct SaveToFolderSheet: View {
     let sbdRes: ShabadAPIResponse
-    let indexOfLine: Int?
+    let indexOfLine: Int
 
     @Query(
         filter: #Predicate<Folder> { $0.parentFolder == nil },
@@ -589,11 +696,12 @@ struct SaveToFolderSheet: View {
     }
 
     private func save(to folder: Folder) {
+        let maxSortIndex = folder.savedShabads.map(\.sortIndex).max() ?? 0
         let saved = SavedShabad(
             folder: folder,
             sbdRes: sbdRes,
-            indexOfSelectedLine: indexOfLine ?? 0,
-            sortIndex: folder.savedShabads.count
+            indexOfSelectedLine: indexOfLine,
+            sortIndex: maxSortIndex + 1
         )
         folder.savedShabads.append(saved)
         modelContext.insert(saved)

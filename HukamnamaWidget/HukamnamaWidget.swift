@@ -9,21 +9,22 @@ import SwiftUI
 import WidgetKit
 
 struct Provider: TimelineProvider {
-    func placeholder(in _: Context) -> HukamEntry {
-        HukamEntry(date: Date(), hukam: SampleData.hukamnamResponse)
+    func placeholder(in _: Context) -> RandSbdForWidget {
+        RandSbdForWidget(sbd: SampleData.shabadResponse, date: Date.now, index: 0)
     }
 
-    func getSnapshot(in _: Context, completion: @escaping (HukamEntry) -> Void) {
-        completion(HukamEntry(date: Date(), hukam: SampleData.hukamnamResponse))
+    func getSnapshot(in _: Context, completion: @escaping (RandSbdForWidget) -> Void) {
+        RandSbdForWidget(sbd: SampleData.shabadResponse, date: Date.now, index: 0)
     }
 
-    func getTimeline(in _: Context, completion: @escaping (Timeline<HukamEntry>) -> Void) {
+    func getTimeline(in _: Context, completion: @escaping (Timeline<RandSbdForWidget>) -> Void) {
         fetchHukamWrapper { response in
-            var entries: [HukamEntry] = []
+            var entries: [RandSbdForWidget] = []
             let currentDate = Date()
             let entryDate = Calendar.current.date(byAdding: .hour, value: 24, to: currentDate)!
-            let hukam = response ?? SampleData.emptyHukam
-            let entry = HukamEntry(date: entryDate, hukam: hukam)
+            // let hukam = response ?? SampleData.emptyHukam
+            let hukam = response ?? SampleData.shabadResponse
+            let entry = RandSbdForWidget(sbd: hukam, date: Date.now, index: 0)
             entries.append(entry)
 
             let timeline = Timeline(entries: entries, policy: .atEnd)
@@ -32,23 +33,19 @@ struct Provider: TimelineProvider {
     }
 }
 
-private func fetchHukamWrapper(completion: @escaping (HukamnamaAPIResponse?) -> Void) {
+private func fetchHukamWrapper(completion: @escaping (ShabadAPIResponse?) -> Void) {
     Task {
         let response = await fetchHukam()
         completion(response)
     }
 }
 
-struct HukamEntry: TimelineEntry {
-    let date: Date
-    let hukam: HukamnamaAPIResponse
-}
-
 struct HukamnamaWidgetEntryView: View {
-    var entry: Provider.Entry
+    // var entry: Provider.Entry
+    var entry: RandSbdForWidget
     var body: some View {
-        WidgetEntryView(the_shabad: entry.hukam.hukamnama, heading: "Today's Hukamnama")
-            .widgetURL(URL(string: "chet://shabadid/\(entry.hukam.hukamnamainfo.shabadid[0])")) // custom deep link
+        WidgetEntryView(entry: entry, heading: "Today's Hukamnama")
+            .widgetURL(URL(string: "chet://shabadid/\(entry.sbd.shabadinfo.shabadid)")) // custom deep link
     }
 }
 
@@ -72,32 +69,32 @@ struct HukamnamaWidget: Widget {
     }
 }
 
-#Preview(as: .accessoryInline) {
-    HukamnamaWidget()
-} timeline: {
-    HukamEntry(date: Date.now, hukam: SampleData.hukamnamResponse)
-}
-
-#Preview(as: .accessoryRectangular) {
-    HukamnamaWidget()
-} timeline: {
-    HukamEntry(date: Date.now, hukam: SampleData.hukamnamResponse)
-}
-
-#Preview(as: .systemSmall) {
-    HukamnamaWidget()
-} timeline: {
-    HukamEntry(date: Date.now, hukam: SampleData.hukamnamResponse)
-}
-
-#Preview(as: .systemMedium) {
-    HukamnamaWidget()
-} timeline: {
-    HukamEntry(date: Date.now, hukam: SampleData.hukamnamResponse)
-}
-
-#Preview(as: .systemLarge) {
-    HukamnamaWidget()
-} timeline: {
-    HukamEntry(date: Date.now, hukam: SampleData.hukamnamResponse)
-}
+// #Preview(as: .accessoryInline) {
+//     HukamnamaWidget()
+// } timeline: {
+//     HukamEntry(date: Date.now, hukam: SampleData.hukamnamResponse)
+// }
+//
+// #Preview(as: .accessoryRectangular) {
+//     HukamnamaWidget()
+// } timeline: {
+//     HukamEntry(date: Date.now, hukam: SampleData.hukamnamResponse)
+// }
+//
+// #Preview(as: .systemSmall) {
+//     HukamnamaWidget()
+// } timeline: {
+//     HukamEntry(date: Date.now, hukam: SampleData.hukamnamResponse)
+// }
+//
+// #Preview(as: .systemMedium) {
+//     HukamnamaWidget()
+// } timeline: {
+//     HukamEntry(date: Date.now, hukam: SampleData.hukamnamResponse)
+// }
+//
+// #Preview(as: .systemLarge) {
+//     HukamnamaWidget()
+// } timeline: {
+//     HukamEntry(date: Date.now, hukam: SampleData.hukamnamResponse)
+// }

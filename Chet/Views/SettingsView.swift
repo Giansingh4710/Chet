@@ -4,28 +4,45 @@ import WidgetKit
 
 struct SettingsView: View {
     @AppStorage("CompactRowViewSetting") private var compactRowViewSetting = false
+    @AppStorage("swipeToGoToNextShabadSetting") private var swipeToGoToNextShabadSetting = true
     @AppStorage("colorScheme") private var colorScheme: String = "system"
 
     @AppStorage("randSbdRefreshInterval", store: UserDefaults.appGroup) var randSbdRefreshInterval: Int = 3 // default: every 3 hours
     @AppStorage("favSbdRefreshInterval", store: UserDefaults.appGroup) private var favSbdRefreshInterval: Int = 3
     @AppStorage("favSbdFolderName", store: UserDefaults.appGroup) private var favSbdFolderName: String = default_fav_widget_folder_name
     @Query private var allFolders: [Folder]
+    @Query(sort: \ShabadHistory.dateViewed, order: .reverse) var histories: [ShabadHistory]
 
     @State private var randSbdLst: [RandSbdForWidget] = []
     @State private var widgetShabads: [SavedShabad] = []
     @Environment(\.modelContext) private var context
 
     @State private var infoType: InfoType?
+    @State private var showDeleteHistoryAlert = false
 
     var body: some View {
         VStack(spacing: 0) {
             List {
-                // Row 1: Compact Row Toggle
                 Section {
                     HStack {
                         Toggle("Compact Row View", isOn: $compactRowViewSetting)
                         Spacer()
                         infoButton(.compactRow)
+                    }
+                    HStack {
+                        Toggle("Swipe to go to next shabad", isOn: $swipeToGoToNextShabadSetting)
+                    }
+                    Button("Delete all history", role: .destructive) {
+                        showDeleteHistoryAlert = true
+                    }
+                    .alert("Are you sure?", isPresented: $showDeleteHistoryAlert) {
+                        Button("Delete All", role: .destructive) {
+                            for history in histories {
+                                context.delete(history)
+                            }
+                            try? context.save()
+                        }
+                        Button("Cancel", role: .cancel) {}
                     }
                 }
 
@@ -97,7 +114,9 @@ struct SettingsView: View {
                             .foregroundStyle(.secondary)
                     } else {
                         ForEach(widgetShabads) { svdSbd in
-                            NavigationLink(destination: ShabadViewDisplayWrapper(sbdRes: svdSbd.sbdRes, indexOfLine: svdSbd.indexOfSelectedLine)) {
+                            NavigationLink(destination: ShabadViewDisplayWrapper(sbdRes: svdSbd.sbdRes, indexOfLine: svdSbd.indexOfSelectedLine, onIndexChange: { newIndex in
+                                svdSbd.indexOfSelectedLine = newIndex
+                            })) {
                                 HStack {
                                     Text(svdSbd.sbdRes.shabad[svdSbd.indexOfSelectedLine].line.gurmukhi.unicode)
                                         .lineLimit(1)
