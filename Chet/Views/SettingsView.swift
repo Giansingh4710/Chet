@@ -13,7 +13,7 @@ struct SettingsView: View {
     @Query private var allFolders: [Folder]
     @Query(sort: \ShabadHistory.dateViewed, order: .reverse) var histories: [ShabadHistory]
 
-    @AppStorage("larivaar") private var larivaarOn: Bool = true
+    @AppStorage("settings.larivaarOn") private var larivaarOn: Bool = true
     @AppStorage("fontType") private var fontType: String = "Unicode"
 
     @State private var randSbdLst: [RandSbdForWidget] = []

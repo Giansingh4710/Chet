@@ -116,6 +116,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				helpers/helper_funcs.swift,
+				helpers/sample_data/random_sbd.json,
 				Models.swift,
 			);
 			target = A053D08D2E666D47004E371B /* FavShabadsWidgetExtension */;
@@ -124,6 +125,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				helpers/helper_funcs.swift,
+				helpers/sample_data/random_sbd.json,
 				Models.swift,
 			);
 			target = A053D03E2E662787004E371B /* RandomShabadWidgetExtension */;
@@ -132,6 +134,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				helpers/helper_funcs.swift,
+				helpers/sample_data/hukam.json,
 				Models.swift,
 			);
 			target = A053D0622E6654FF004E371B /* HukamnamaWidgetExtension */;

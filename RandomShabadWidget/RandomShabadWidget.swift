@@ -50,7 +50,7 @@ struct Provider: TimelineProvider {
 struct RandomShabadWidgetEntryView: View {
     var entry: RandSbdForWidget
     var body: some View {
-        WidgetEntryView(entry: entry, heading: "Random Shabad" + getWidgetHeadingFromSbdInfo(entry.sbd.shabadInfo))
+        WidgetEntryView(entry: entry, heading: "Random Shabad " + getWidgetHeadingFromSbdInfo(entry.sbd.shabadInfo))
             .widgetURL(URL(string: "chet://shabadid/\(entry.sbd.shabadInfo.shabadId)")) // custom deep link
     }
 }
@@ -62,7 +62,9 @@ struct RandomShabadWidget: Widget {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             if #available(iOS 17.0, *) {
                 RandomShabadWidgetEntryView(entry: entry)
-                    .containerBackground(.fill.tertiary, for: .widget)
+                    .containerBackground(for: .widget) {
+                        LinearGradient(colors: [.blue.opacity(0.8), .teal.opacity(0.8)], startPoint: .topLeading, endPoint: .bottomTrailing)
+                    }
             } else {
                 RandomShabadWidgetEntryView(entry: entry)
                     .padding()

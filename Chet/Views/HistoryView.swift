@@ -84,16 +84,17 @@ struct RowView: View {
     }()
 
     var gurmukhiText: String {
+        let ind = indexOfLine == -1 ? 0 : indexOfLine
         if fontType == "Unicode" {
             if larivaarOn {
-                return sbdRes.verses[indexOfLine].larivaar.unicode
+                return sbdRes.verses[ind].larivaar.unicode
             }
-            return sbdRes.verses[indexOfLine].verse.unicode
+            return sbdRes.verses[ind].verse.unicode
         } else {
             if larivaarOn {
-                return sbdRes.verses[indexOfLine].larivaar.gurmukhi
+                return sbdRes.verses[ind].larivaar.gurmukhi
             }
-            return sbdRes.verses[indexOfLine].verse.gurmukhi
+            return sbdRes.verses[ind].verse.gurmukhi
         }
     }
 

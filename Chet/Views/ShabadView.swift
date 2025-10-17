@@ -8,6 +8,15 @@ struct ShabadViewDisplayWrapper: View {
     var onIndexChange: ((Int) -> Void)? = nil // optional callback
 
     @State var sbdRes2: ShabadAPIResponse?
+    @State var onBaseSbd = true // if on the shabad that was loaded at first
+    private let baseIndexOfLine: Int
+
+    init(sbdRes: ShabadAPIResponse, indexOfLine: Int, onIndexChange: ((Int) -> Void)? = nil) {
+        self.sbdRes = sbdRes
+        self.indexOfLine = indexOfLine
+        self.onIndexChange = onIndexChange
+        baseIndexOfLine = indexOfLine
+    }
 
     // @Environment(\.dismiss) private var dismiss
     @Environment(\.colorScheme) private var colorScheme
@@ -21,9 +30,9 @@ struct ShabadViewDisplayWrapper: View {
         } else if let errorMessage = errorMessage {
             Text(errorMessage).foregroundColor(.red)
         } else if let sbdRes2 = sbdRes2 {
-            ShabadViewDisplay(sbdRes: sbdRes2, fetchNewShabad: fetchNewShabad, indexOfLine: indexOfLine, onIndexChange: indexOfLine == -1 ? nil : onIndexChange)
+            ShabadViewDisplay(sbdRes: sbdRes2, fetchNewShabad: fetchNewShabad, indexOfLine: indexOfLine, onIndexChange: onBaseSbd ? onIndexChange : nil)
         } else {
-            ShabadViewDisplay(sbdRes: sbdRes, fetchNewShabad: fetchNewShabad, indexOfLine: indexOfLine, onIndexChange: indexOfLine == -1 ? nil : onIndexChange)
+            ShabadViewDisplay(sbdRes: sbdRes, fetchNewShabad: fetchNewShabad, indexOfLine: indexOfLine, onIndexChange: onBaseSbd ? onIndexChange : nil)
         }
     }
 
@@ -34,8 +43,13 @@ struct ShabadViewDisplayWrapper: View {
             await MainActor.run {
                 isLoadingShabad = false
                 sbdRes2 = decoded
-                // onIndexChange = nil
-                indexOfLine = -1
+                if sbdRes.shabadInfo.shabadId == decoded.shabadInfo.shabadId {
+                    onBaseSbd = true
+                    indexOfLine = baseIndexOfLine
+                } else {
+                    onBaseSbd = false
+                    indexOfLine = -1
+                }
             }
         } catch {
             await MainActor.run {
@@ -336,8 +350,8 @@ struct SettingsSheet: View {
 
                 Section(header: Text("Translations")) {
                     SettingsOptionPickerSlider(title: "English", selectedItem: $selectedEnglishSource, options: englishSources, textScale: $enTransTextScale)
-                    SettingsOptionPickerSlider(title: "Hindi", selectedItem: $selectedHindiSource, options: hindiSources, textScale: $hindiTranslationTextScale)
                     SettingsOptionPickerSlider(title: "Punjabi", selectedItem: $selectedPunjabiSource, options: punjabiSources, textScale: $punjabiTranslationTextScale)
+                    SettingsOptionPickerSlider(title: "Hindi", selectedItem: $selectedHindiSource, options: hindiSources, textScale: $hindiTranslationTextScale)
                     SettingsOptionPickerSlider(title: "Spanish", selectedItem: $selectedSpanishSource, options: spanishSources, textScale: $spanishTranslationTextScale)
                 }
             }
