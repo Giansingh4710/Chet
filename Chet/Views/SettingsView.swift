@@ -13,6 +13,9 @@ struct SettingsView: View {
     @Query private var allFolders: [Folder]
     @Query(sort: \ShabadHistory.dateViewed, order: .reverse) var histories: [ShabadHistory]
 
+    @AppStorage("larivaar") private var larivaarOn: Bool = true
+    @AppStorage("fontType") private var fontType: String = "Unicode"
+
     @State private var randSbdLst: [RandSbdForWidget] = []
     @State private var widgetShabads: [SavedShabad] = []
     @Environment(\.modelContext) private var context
@@ -32,6 +35,10 @@ struct SettingsView: View {
                     HStack {
                         Toggle("Swipe to go to next shabad", isOn: $swipeToGoToNextShabadSetting)
                     }
+                    HStack {
+                        Toggle("Larivaar", isOn: $larivaarOn)
+                    }
+                    FontPicker()
                     Button("Delete all history", role: .destructive) {
                         showDeleteHistoryAlert = true
                     }

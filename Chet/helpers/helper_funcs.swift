@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import SwiftUICore // for Font
+import UIKit
 
 func fetchRandomShabad() async -> ShabadAPIResponse? {
     let urlString = "https://api.banidb.com/v2/random"
     guard let url = URL(string: urlString) else {
-        print("Invalid URL")
         return nil
     }
 
@@ -31,7 +32,6 @@ func fetchRandomShabad() async -> ShabadAPIResponse? {
             guard let finalHttpResponse = redirectResponse as? HTTPURLResponse,
                   (200 ... 299).contains(finalHttpResponse.statusCode)
             else {
-                print("Bad final response")
                 return nil
             }
             return try JSONDecoder().decode(ShabadAPIResponse.self, from: redirectData)
@@ -40,7 +40,6 @@ func fetchRandomShabad() async -> ShabadAPIResponse? {
             return try JSONDecoder().decode(ShabadAPIResponse.self, from: data)
         }
     } catch {
-        print("Error fetching random shabad: \(error.localizedDescription)")
         return nil
     }
 }
@@ -48,7 +47,6 @@ func fetchRandomShabad() async -> ShabadAPIResponse? {
 func fetchHukam() async -> HukamnamaAPIResponse? {
     let urlString = "https://api.banidb.com/v2/hukamnamas/"
     guard let url = URL(string: urlString) else {
-        print("Invalid URL")
         return nil
     }
 
@@ -185,9 +183,8 @@ func getRandShabads(interval: Int) async -> [RandSbdForWidget] {
     return newList
 }
 
-func loadJSON<T: Decodable>(from fileName: String, as type: T.Type = T.self) -> T? {
+func loadJSON<T: Decodable>(from fileName: String, as _: T.Type = T.self) -> T? {
     guard let url = Bundle.main.url(forResource: fileName, withExtension: "json") else {
-        print("❌ JSON file '\(fileName).json' not found in bundle.")
         return nil
     }
 
@@ -196,8 +193,14 @@ func loadJSON<T: Decodable>(from fileName: String, as type: T.Type = T.self) -> 
         let decoded = try JSONDecoder().decode(T.self, from: data)
         return decoded
     } catch {
-        print("❌ Error decoding '\(fileName).json': \(error)")
         return nil
     }
 }
 
+func resolveFont(size: Double, fontType: String) -> Font {
+    if fontType == "Unicode" {
+        return .system(size: size)
+    } else {
+        return .custom(fontType, size: size) // ⚠️ Important: the tag must match the *PostScript name* of the font, not necessarily the filename (use Font Book to check)
+    }
+}

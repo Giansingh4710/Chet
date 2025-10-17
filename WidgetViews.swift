@@ -157,11 +157,13 @@ struct HomeScreenLargeView: View {
                             .foregroundColor(.white)
                             .fixedSize(horizontal: false, vertical: true)
 
-                        Text(firstLine.translation.en.bdb)
+                        if let a = firstLine.translation.en.bdb{
+                        Text(a)
                             .italic()
                             .font(.system(size: 13))
                             .foregroundColor(.white.opacity(0.9))
                             .fixedSize(horizontal: false, vertical: true)
+                        }
                     }
                     .padding(.top, 4)
                 } else {

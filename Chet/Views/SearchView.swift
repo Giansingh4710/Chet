@@ -15,6 +15,11 @@ struct SearchView: View {
 
     @State private var showingPunjabiKeyboard = false
 
+    @AppStorage("fontType") private var fontType: String = "Unicode"
+    @AppStorage("larivaar") private var larivaarOn: Bool = true
+
+    // var displayedGurmukhi: String {}
+
     var body: some View {
         VStack(spacing: 0) {
             ZStack {
@@ -96,22 +101,30 @@ struct SearchView: View {
                         )) {
                             VStack(alignment: .leading, spacing: 4) {
                                 HStack {
-                                    Text(searchedLine.verse.unicode)
-                                        .font(.title3)
-                                        .fontWeight(.semibold)
-                                        .lineLimit(3)
-                                        .multilineTextAlignment(.leading)
-                                        .foregroundColor(.primary)
+                                    // Text(searchedLine.verse.unicode)
+                                    // .font(.title3)
+                                    Text(
+                                        larivaarOn ?
+                                            fontType == "Unicode" ? searchedLine.larivaar.unicode : searchedLine.larivaar.gurmukhi :
+                                            fontType == "Unicode" ? searchedLine.verse.unicode : searchedLine.verse.gurmukhi
+                                    )
+                                    .font(resolveFont(size: 24, fontType: fontType))
+                                    .fontWeight(.semibold)
+                                    .lineLimit(3)
+                                    .multilineTextAlignment(.leading)
+                                    .foregroundColor(.primary)
                                     Spacer()
                                     Text("Ang \(String(searchedLine.pageNo))")
                                         .font(.caption)
                                         .foregroundColor(.secondary)
                                 }
-                                Text(searchedLine.translation.en.bdb)
-                                    .font(.subheadline)
-                                    .foregroundColor(.secondary)
-                                    .lineLimit(2)
-                                    .multilineTextAlignment(.leading)
+                                if let a = searchedLine.translation.en.bdb {
+                                    Text(a)
+                                        .font(.subheadline)
+                                        .foregroundColor(.secondary)
+                                        .lineLimit(2)
+                                        .multilineTextAlignment(.leading)
+                                }
                             }
                             .padding(.vertical, 8)
                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -129,7 +142,7 @@ struct SearchView: View {
                 })
                 .autocorrectionDisabled(true)
                 .textInputAutocapitalization(.never)
-                .font(.custom("AnmolLipiBoldTrue", size: 16))
+                .font(resolveFont(size: 16, fontType: fontType == "Unicode" ? "AnmolLipiSG" : fontType))
                 .focused($isSearchFieldFocused)
 
                 // Clear button
@@ -221,6 +234,7 @@ struct SearchView: View {
                 isLoading = false
                 return
             }
+            print("Search text:", searchText)
             let decoded = try await searchGurbani(from: searchText)
             results = decoded.verses
             isLoading = false
@@ -331,6 +345,7 @@ struct ShabadViewFromSearchedLine: View {
 
 struct PunjabiKeyboardView: View {
     let onKeyPress: (String) -> Void
+    @AppStorage("fontType") private var fontType: String = "Unicode"
 
     private let rows: [[String]] = [
         ["a", "A", "e", "s", "h", "k", "K", "g", "G", "|"],
@@ -344,7 +359,7 @@ struct PunjabiKeyboardView: View {
             ForEach(rows, id: \.self) { row in
                 HStack(spacing: 6) {
                     ForEach(Array(row.enumerated()), id: \.offset) { index, key in
-                        KeyButton(label: key) {
+                        KeyButton(label: key, fontType: fontType) {
                             onKeyPress(key)
                         }
 
@@ -364,12 +379,14 @@ struct PunjabiKeyboardView: View {
 
 struct KeyButton: View {
     let label: String
+    let fontType: String
     let action: () -> Void
 
     var body: some View {
         Button(action: action) {
             Text(label)
-                .font(.custom("AnmolLipiBoldTrue", size: 20))
+                // .font(.custom("AnmolLipiBoldTrue", size: 20))
+                .font(resolveFont(size: 20, fontType: fontType == "Unicode" ? "AnmolLipiSG" : fontType))
                 .foregroundColor(.primary)
                 .frame(maxWidth: .infinity)
                 .frame(height: 44)
@@ -384,4 +401,3 @@ struct KeyButton: View {
         }
     }
 }
-

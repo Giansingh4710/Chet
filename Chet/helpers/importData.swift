@@ -25,7 +25,6 @@ func parseArrayForGKImports(
         count += 1
         // if count > 20 { break }
         guard let sub = element as? [Any] else {
-            print("Unexpected element:", element)
             continue
         }
 
@@ -156,7 +155,6 @@ func getSavedSbdObj(sbdID: Int, savedLine: String, folder: Folder) async throws 
 
 func loadiGurbaniids() -> [String: String] {
     guard let url = Bundle.main.url(forResource: "igurbaniuid_to_id", withExtension: "json") else {
-        print("JSON file not found")
         return [:]
     }
 
@@ -165,14 +163,12 @@ func loadiGurbaniids() -> [String: String] {
         let codes = try JSONDecoder().decode([String: String].self, from: data)
         return codes
     } catch {
-        print("Error decoding JSON: \(error)")
         return [:]
     }
 }
 
 func loadSttmids() -> [Int: String] {
     guard let url = Bundle.main.url(forResource: "sttmid_to_id", withExtension: "json") else {
-        print("JSON file not found")
         return [:]
     }
 
@@ -182,7 +178,6 @@ func loadSttmids() -> [Int: String] {
         let codes = try JSONDecoder().decode([Int: String].self, from: data)
         return codes
     } catch {
-        print("Error decoding JSON: \(error)")
         return [:]
     }
 }
@@ -231,6 +226,5 @@ func fuzzyBestMatchIndex(lines: [Verse], savedLine: String) -> Int {
         }
     }
 
-    print("Best match index: \(bestIndex) with score: \(bestScore)")
     return bestIndex
 }

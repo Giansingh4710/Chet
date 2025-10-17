@@ -74,6 +74,7 @@ struct RowView: View {
 
     @AppStorage("CompactRowViewSetting") private var compactRowViewSetting = false
     @AppStorage("larivaar") private var larivaarOn: Bool = true
+    @AppStorage("fontType") private var fontType: String = "Unicode"
 
     let formatter: DateFormatter = {
         let f = DateFormatter()
@@ -82,11 +83,25 @@ struct RowView: View {
         return f
     }()
 
+    var gurmukhiText: String {
+        if fontType == "Unicode" {
+            if larivaarOn {
+                return sbdRes.verses[indexOfLine].larivaar.unicode
+            }
+            return sbdRes.verses[indexOfLine].verse.unicode
+        } else {
+            if larivaarOn {
+                return sbdRes.verses[indexOfLine].larivaar.gurmukhi
+            }
+            return sbdRes.verses[indexOfLine].verse.gurmukhi
+        }
+    }
+
     var body: some View {
         if compactRowViewSetting {
             HStack {
-                Text(larivaarOn ? sbdRes.verses[indexOfLine].larivaar.unicode : sbdRes.verses[indexOfLine].verse.unicode)
-                    .font(.title3)
+                Text(gurmukhiText)
+                    .font(resolveFont(size: 24, fontType: fontType == "Unicode" ? "AnmolLipiSG" : fontType))
                     .fontWeight(.semibold)
                     .lineLimit(1)
                     .multilineTextAlignment(.leading)
@@ -100,17 +115,19 @@ struct RowView: View {
             VStack(alignment: .leading, spacing: 8) {
                 HStack {
                     VStack(alignment: .leading, spacing: 4) {
-                        Text(larivaarOn ? sbdRes.verses[indexOfLine].larivaar.unicode : sbdRes.verses[indexOfLine].verse.unicode)
-                            .font(.title3)
+                        Text(gurmukhiText)
+                            .font(resolveFont(size: 24, fontType: fontType == "Unicode" ? "AnmolLipiSG" : fontType))
                             .fontWeight(.semibold)
                             .lineLimit(2)
                             .multilineTextAlignment(.leading)
 
-                        Text(sbdRes.verses[indexOfLine].translation.en.bdb)
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
-                            .lineLimit(2)
-                            .multilineTextAlignment(.leading)
+                        if let a = sbdRes.verses[indexOfLine].translation.en.bdb {
+                            Text(a)
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
+                                .lineLimit(2)
+                                .multilineTextAlignment(.leading)
+                        }
                     }
 
                     Spacer()

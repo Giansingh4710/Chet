@@ -28,10 +28,10 @@ struct Source: Codable {
 
 struct Raag: Codable {
     let raagId: Int
-    let gurmukhi: String
-    let unicode: String
-    let english: String
-    let raagWithPage: String
+    let gurmukhi: String?
+    let unicode: String?
+    let english: String?
+    let raagWithPage: String?
 }
 
 struct Writer: Codable {
@@ -56,7 +56,7 @@ struct Verse: Codable {
     let pageNo: Int
     let lineNo: Int
     let updated: String
-    let visraam: Visraam
+    let visraam: Visraam?
 }
 
 struct VerseText: Codable {
@@ -70,22 +70,25 @@ struct Translation: Codable {
     let es: SpanishTranslation
     let hi: HindiTranslation
     struct EnglishTranslation: Codable {
-        let bdb: String
-        let ms: String
-        let ssk: String
+        let bdb: String?
+        let ms: String?
+        let ssk: String?
     }
+
     struct PunjabiTranslation: Codable {
-        let ss: TranslationText
-        let ft: TranslationText
-        let bdb: TranslationText
-        let ms: TranslationText
+        let ss: TranslationText?
+        let ft: TranslationText?
+        let bdb: TranslationText?
+        let ms: TranslationText?
     }
+
     struct SpanishTranslation: Codable {
-        let sn: String
+        let sn: String?
     }
+
     struct HindiTranslation: Codable {
-        let ss: String
-        let sts: String
+        let ss: String?
+        let sts: String?
     }
 }
 
@@ -107,11 +110,42 @@ struct Visraam: Codable {
     let sttm: [VisraamPoint]
     let igurbani: [VisraamPoint]
     let sttm2: [VisraamPoint]
-}
 
-struct VisraamPoint: Codable {
-    let p: Int
-    let t: String
+    struct VisraamPoint: Codable {
+        let p: Int
+        let t: String
+
+        enum CodingKeys: String, CodingKey {
+            case p, t
+        }
+
+        init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+
+            // Try to decode p as Int
+            if let intValue = try? container.decode(Int.self, forKey: .p) {
+                p = intValue
+            }
+            // Otherwise try to decode as String and convert
+            else if let stringValue = try? container.decode(String.self, forKey: .p),
+                    let intValue = Int(stringValue)
+            {
+                p = intValue
+            }
+            // If neither works, throw error
+            else {
+                throw DecodingError.typeMismatch(
+                    Int.self,
+                    DecodingError.Context(
+                        codingPath: decoder.codingPath,
+                        debugDescription: "Expected Int or String convertible to Int for key 'p'"
+                    )
+                )
+            }
+
+            t = try container.decode(String.self, forKey: .t)
+        }
+    }
 }
 
 struct HukamnamaDate: Codable {
@@ -153,7 +187,6 @@ struct ShabadAPIResponse: Codable {
     let verses: [Verse]
 }
 
-
 struct SearchVerse: Codable, Identifiable {
     let verseId: Int
     let shabadId: Int
@@ -164,11 +197,11 @@ struct SearchVerse: Codable, Identifiable {
     let pageNo: Int
     let lineNo: Int
     let updated: String
-    let visraam: Visraam
+    let visraam: Visraam?
     let writer: Writer
     let source: Source
     let raag: Raag
-    
+
     var id: Int { verseId }
 }
 
