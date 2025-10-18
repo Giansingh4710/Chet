@@ -97,11 +97,6 @@ struct ShabadViewDisplay: View {
                             HStack(spacing: 32) {
                                 VStack(alignment: .leading, spacing: 6) {
                                     HStack(spacing: 6) {
-                                        Image(systemName: "book.closed")
-                                        Text("Ang \(String(sbdRes.shabadInfo.pageNo))")
-                                            .font(.caption).fontWeight(.semibold)
-                                    }
-                                    HStack(spacing: 6) {
                                         Image(systemName: "text.quote")
                                         Text("\(sbdRes.verses.count) lines")
                                             .font(.caption).fontWeight(.semibold)
@@ -110,15 +105,9 @@ struct ShabadViewDisplay: View {
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 VStack(alignment: .leading, spacing: 6) {
                                     HStack(spacing: 6) {
-                                        Image(systemName: "pencil")
-                                        Text(sbdRes.shabadInfo.writer.english)
+                                        Image(systemName: "book.closed")
+                                        Text("Ang \(String(sbdRes.shabadInfo.pageNo))")
                                             .font(.caption).fontWeight(.semibold)
-                                    }
-                                    HStack(spacing: 6) {
-                                        Image(systemName: "music.note")
-                                        if let a = sbdRes.shabadInfo.raag.english {
-                                            Text(a).font(.caption).fontWeight(.semibold)
-                                        }
                                     }
                                 }
                                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -254,7 +243,7 @@ struct ShabadViewDisplay: View {
                     gestureScale = 1.0
                 }
         )
-        .navigationBarTitle("Shabad \(sbdRes.shabadInfo.shabadId)", displayMode: .inline)
+        .navigationBarTitle("\(sbdRes.shabadInfo.writer.english)", displayMode: .inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
@@ -292,11 +281,11 @@ struct ShabadViewDisplay: View {
         }
         .sheet(isPresented: $showingSettings) {
             SettingsSheet()
-                .presentationDetents([.medium, .large])
+                .presentationDetents([.medium])
         }
         .sheet(isPresented: $showingSaved) {
             SaveToFolderSheet(sbdRes: sbdRes, indexOfLine: indexOfLine)
-                .presentationDetents([.medium, .large])
+                .presentationDetents([.medium])
         }
         .onAppear {
             UIApplication.shared.isIdleTimerDisabled = true // Don’t let the iPhone/iPad go to sleep while this app is active
@@ -325,12 +314,41 @@ struct SettingsSheet: View {
     @AppStorage("settings.transliterationTextScale") private var transliterationTextScale: Double = 1.0
 
     // Available sources (tweak as needed)
-    private let visraamSources = ["none", "sttm", "igurbani", "sttm2"]
-    private let englishSources = ["none", "bdb", "ms", "ssk"]
-    private let punjabiSources = ["none", "ss", "ft", "bdb", "ms"]
-    private let hindiSources = ["none", "ss", "sts"]
-    private let spanishSources = ["none", "sn"]
-    private let transliterationSources = ["none", "en", "hi", "ipa", "ur"]
+    private let visraamSources = ["None", "sttm", "igurbani", "sttm2"]
+
+    private let englishSources: [(name: String, value: String)] = [
+        ("None", "none"),
+        ("Bani DB", "bdb"),
+        ("Bhai Manmohan Singh", "ms"),
+        ("Sant Singh Khalsa", "ssk"),
+    ]
+
+    private let punjabiSources: [(name: String, value: String)] = [
+        ("None", "none"),
+        ("SGGS Darpan", "ss"),
+        ("Faridkot Teeka", "ft"),
+        ("Bani DB", "bdb"),
+        ("Bhai Manmohan Singh", "ms"),
+    ]
+
+    private let hindiSources: [(name: String, value: String)] = [
+        ("None", "none"),
+        ("SGGS Darpan", "ss"),
+        ("STS", "sts"),
+    ]
+
+    private let spanishSources: [(name: String, value: String)] = [
+        ("None", "none"),
+        ("Spanish", "sn"),
+    ]
+
+    private let transliterationSources: [(name: String, value: String)] = [
+        ("None", "none"),
+        ("English", "en"),
+        ("Hindi", "hi"),
+        ("IPA", "ipa"),
+        ("Urdu", "ur"),
+    ]
 
     var body: some View {
         NavigationView {
@@ -339,7 +357,7 @@ struct SettingsSheet: View {
                     Toggle("Larivaar", isOn: $larivaarOn)
                     FontPicker()
                     Picker("Visraam", selection: $selectedVisraamSource) {
-                        ForEach(visraamSources, id: \.self) { Text($0.uppercased()) }
+                        ForEach(visraamSources, id: \.self) { Text($0) }
                     }
                     HStack {
                         Text("Gurbani Font Size")
@@ -364,20 +382,37 @@ struct SettingsSheet: View {
 struct SettingsOptionPickerSlider: View {
     let title: String
     @Binding var selectedItem: String
-    let options: [String]
+    let options: [(name: String, value: String)]
     @Binding var textScale: Double
 
     var body: some View {
-        HStack {
-            Picker(title, selection: $selectedItem) {
-                ForEach(options, id: \.self) { Text($0.uppercased()) }
+        VStack(alignment: .leading, spacing: 8) {
+            HStack {
+                Text(title)
+                    .foregroundColor(.primary)
+                Spacer()
+                Picker(title, selection: $selectedItem) {
+                    ForEach(options, id: \.value) { option in
+                        Text(option.name).tag(option.value)
+                    }
+                }
+                .pickerStyle(.menu)
+                .labelsHidden()
             }
-            .pickerStyle(.menu)
 
             if selectedItem != "none" {
-                Slider(value: $textScale, in: 0.5 ... 2.5, step: 0.1)
+                HStack(spacing: 12) {
+                    Image(systemName: "textformat.size.smaller")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                    Slider(value: $textScale, in: 0.5 ... 2.5, step: 0.1)
+                    Image(systemName: "textformat.size.larger")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
             }
         }
+        .padding(.vertical, 4)
     }
 }
 
@@ -554,44 +589,120 @@ struct LinePickerSheet: View {
 struct ShabadMetaInfoSheet: View {
     let info: ShabadInfo
 
-    let columns = [
-        GridItem(.flexible(), alignment: .leading),
-        GridItem(.flexible(), alignment: .leading),
-    ]
+    // Small compact typography
+    private let labelFont = Font.caption2.weight(.semibold)
+    private let valueFont = Font.caption2
 
     var body: some View {
         NavigationView {
             ScrollView {
-                LazyVGrid(columns: columns, spacing: 16) {
-                    Group {
-                        Text("Shabad ID:").fontWeight(.semibold)
-                        Text("\(info.shabadId)")
+                VStack(spacing: 8) {
+                    // Title
+                    Text("Shabad Info — Full Metadata")
+                        .font(.subheadline).bold()
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.bottom, 2)
 
-                        Text("Ang:").fontWeight(.semibold)
-                        Text("\(info.pageNo)")
+                    // Render rows where each row contains up to two pairs
+                    ForEach(chunkedPairs, id: \.0) { _, pairTuple in
+                        HStack(alignment: .top, spacing: 12) {
+                            // First pair (always exists)
+                            PairView(label: pairTuple.0.label, value: pairTuple.0.value,
+                                     labelFont: labelFont, valueFont: valueFont)
 
-                        Text("Source:").fontWeight(.semibold)
-                        Text(info.source.english)
-
-                        Text("Writer (Eng):").fontWeight(.semibold)
-                        Text(info.writer.english)
-
-                        // if let prev = info.navigation.previous?.id {
-                        //     Text("Previous ID:").fontWeight(.semibold)
-                        //     Text("\(prev)")
-                        // }
-                        //
-                        // if let next = info.navigation.next?.id {
-                        //     Text("Next ID:").fontWeight(.semibold)
-                        //     Text("\(next)")
-                        // }
+                            // Second pair (may be the sentinel empty pair if odd count)
+                            if let second = pairTuple.1 {
+                                PairView(label: second.label, value: second.value,
+                                         labelFont: labelFont, valueFont: valueFont)
+                            } else {
+                                Spacer(minLength: 0)
+                            }
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     }
                 }
-                .padding()
+                .padding(.horizontal, 10)
+                .padding(.vertical, 8)
             }
             .navigationTitle("Shabad Info")
             .navigationBarTitleDisplayMode(.inline)
         }
+    }
+
+    // MARK: - Pair rendering
+    private struct PairView: View {
+        let label: String
+        let value: String
+        let labelFont: Font
+        let valueFont: Font
+
+        var body: some View {
+            VStack(alignment: .leading, spacing: 2) {
+                Text(label + ":")
+                    .font(labelFont)
+                    .foregroundColor(.secondary)
+                    .lineLimit(1)
+                    .truncationMode(.tail)
+
+                Text(value)
+                    .font(valueFont)
+                    .foregroundColor(value == "None" ? .gray : .primary)
+                    .lineLimit(3)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+            // let each pair take up roughly half the width
+            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+        }
+    }
+
+    // MARK: - Flattened fields (all shown; nil/empty -> "None")
+    private var allPairs: [(label: String, value: String)] {
+        let items: [(String, String?)] = [
+            // Shabad
+            ("shabadId", "\(info.shabadId)"),
+            ("shabadName", "\(info.shabadName)"),
+            ("pageNo", "\(info.pageNo)"),
+
+            // Source
+            ("source.sourceId", info.source.sourceId),
+            ("source.gurmukhi", info.source.gurmukhi),
+            ("source.unicode", info.source.unicode),
+            ("source.english", info.source.english),
+            ("source.pageNo", "\(info.source.pageNo)"),
+
+            // Raag
+            ("raag.raagId", "\(info.raag.raagId)"),
+            ("raag.gurmukhi", info.raag.gurmukhi),
+            ("raag.unicode", info.raag.unicode),
+            ("raag.english", info.raag.english),
+            ("raag.raagWithPage", info.raag.raagWithPage),
+
+            // Writer
+            ("writer.writerId", "\(info.writer.writerId)"),
+            ("writer.gurmukhi", info.writer.gurmukhi),
+            ("writer.unicode", info.writer.unicode),
+            ("writer.english", info.writer.english)
+        ]
+
+        return items.map { label, raw in
+            let trimmed = raw?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+            return (label: label, value: trimmed.isEmpty ? "None" : trimmed)
+        }
+    }
+
+    // MARK: - Chunk into rows of two pairs each
+    // Returns array of (index, (firstPair, optionalSecondPair))
+    private var chunkedPairs: [(Int, ((label: String, value: String), (label: String, value: String)?))] {
+        var result: [(Int, ((label: String, value: String), (label: String, value: String)?))] = []
+        let pairs = allPairs
+        var i = 0
+        while i < pairs.count {
+            let first = pairs[i]
+            let second: (label: String, value: String)? = (i + 1 < pairs.count) ? pairs[i + 1] : nil
+            result.append((i / 2, (first, second)))
+            i += 2
+        }
+        return result
     }
 }
 
@@ -651,6 +762,13 @@ struct GurbaniLineView: View {
                     }
                 )
 
+            if let a = verse.transliteration.value(for: selectedTransliterationSource) {
+                Text(a)
+                    .font(.system(size: 16 * transliterationTextScale * gestureScale, design: .monospaced))
+                    .foregroundColor(colorScheme == .dark ? Color(red: 0.75, green: 0.75, blue: 0.75) : Color(red: 0.5, green: 0.5, blue: 0.5))
+                    .lineSpacing(2)
+                    .opacity(0.9)
+            }
             if let a = verse.translation.getTranslation(for: "english", source: selectedEnglishSource) {
                 Text(a)
                     .font(.system(size: 17 * enTransTextScale * gestureScale, design: .rounded))
@@ -678,23 +796,8 @@ struct GurbaniLineView: View {
                     .foregroundColor(colorScheme == .dark ? Color(red: 0.85, green: 0.95, blue: 0.75) : Color(red: 0.4, green: 0.6, blue: 0.3))
                     .lineSpacing(2)
             }
-
-            if let a = verse.transliteration.value(for: selectedTransliterationSource) {
-                Text(a)
-                    .font(.system(size: 16 * transliterationTextScale * gestureScale, design: .monospaced))
-                    .foregroundColor(colorScheme == .dark ? Color(red: 0.75, green: 0.75, blue: 0.75) : Color(red: 0.5, green: 0.5, blue: 0.5))
-                    .lineSpacing(2)
-                    .opacity(0.9)
-            }
         }
     }
-
-    // private func getGurbaniLine(_ verse: Verse) -> String {
-    //     if fontType == "Unicode" {
-    //         return lineLarivaar ? verse.larivaar.unicode : verse.verse.unicode
-    //     }
-    //     return lineLarivaar ? verse.larivaar.gurmukhi : verse.verse.gurmukhi
-    // }
 
     func getGurbaniLine(_ verse: Verse) -> Text {
         // let text = lineLarivaar ? verse.larivaar.unicode : verse.verse.unicode
