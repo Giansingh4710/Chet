@@ -73,7 +73,7 @@ struct RowView: View {
     let the_date: Date
 
     @AppStorage("CompactRowViewSetting") private var compactRowViewSetting = false
-    @AppStorage("larivaar") private var larivaarOn: Bool = true
+    @AppStorage("settings.larivaarOn") private var larivaarOn: Bool = true
     @AppStorage("fontType") private var fontType: String = "Unicode"
 
     let formatter: DateFormatter = {

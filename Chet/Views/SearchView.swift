@@ -2,21 +2,26 @@ import SwiftData
 import SwiftUI
 
 struct SearchView: View {
+    @Binding var shouldFocusSearchBar: Bool
     @State private var searchText = ""
     @State private var results: [SearchVerse] = []
     @State private var isLoading = false
     @State private var errorMessage: String?
     @Environment(\.colorScheme) private var colorScheme
-    @FocusState private var isSearchFieldFocused: Bool
     @Environment(\.modelContext) private var modelContext
+    // @FocusState private var isSearchFieldFocused: Bool
+    @State private var isSearchFieldFocused = false
 
     @State private var selectedShabad: ShabadAPIResponse?
-    @State private var isNavigating = false
+    @State private var isNavigatingToSearchedSbd = false
+    @State private var isNavigatingToHukam = false
+
 
     @State private var showingPunjabiKeyboard = false
 
     @AppStorage("fontType") private var fontType: String = "Unicode"
-    @AppStorage("larivaar") private var larivaarOn: Bool = true
+    @AppStorage("settings.larivaarOn") private var larivaarOn: Bool = true
+    @AppStorage("settings.qwertyKeyboard") private var qwertyKeyboard: Bool = true
 
     // var displayedGurmukhi: String {}
 
@@ -82,14 +87,17 @@ struct SearchView: View {
                             .buttonStyle(.borderedProminent)
 
                             Button("Darbar Sahib Hukamnama") {
-                                Task { await openHukamnama() }
+                                isNavigatingToHukam = true
                             }
                             .buttonStyle(.bordered)
                         }
-                        .navigationDestination(isPresented: $isNavigating) {
+                        .navigationDestination(isPresented: $isNavigatingToSearchedSbd) {
                             if let sbd = selectedShabad {
                                 ShabadViewDisplayWrapper(sbdRes: sbd, indexOfLine: 0)
                             }
+                        }
+                        .navigationDestination(isPresented: $isNavigatingToHukam) {
+                            HukamnamaView()
                         }
                         .padding(.top, 4)
                     }
@@ -134,64 +142,30 @@ struct SearchView: View {
                     .listStyle(PlainListStyle())
                 }
             }
+            .onTapGesture {
+                withAnimation(.spring()) {
+                    isSearchFieldFocused = false
+                    showingPunjabiKeyboard = false
+                }
+            }
 
             HStack(spacing: 16) {
-                // Search text field
-                TextField("cyq", text: $searchText, onCommit: {
-                    Task { await fetchResults() }
-                })
-                .autocorrectionDisabled(true)
-                .textInputAutocapitalization(.never)
-                .font(resolveFont(size: 16, fontType: fontType == "Unicode" ? "AnmolLipiSG" : fontType))
-                .focused($isSearchFieldFocused)
-
-                // Clear button
-                if !searchText.isEmpty {
-                    Button(action: {
-                        searchText.removeLast()
-                    }) {
-                        Image(systemName: "delete.left.fill")
-                            .foregroundColor(.gray)
-                    }
-
-                    Button(action: {
-                        searchText = ""
-                        results = []
-                        errorMessage = nil
-                        isSearchFieldFocused = false
-                    }) {
-                        Image(systemName: "xmark.circle.fill")
-                            .foregroundColor(.gray)
-                    }
-                }
+                MyTextField(text: $searchText, isFocused: $isSearchFieldFocused, fontType: fontType, placeholder: "cyq")
+                    .frame(height: 44)
+                    .padding(.horizontal)
+                    .shadow(color: .black.opacity(0.05), radius: 4, y: 1)
 
                 // Punjabi keyboard toggle
                 Button(action: {
                     withAnimation(.spring()) {
                         showingPunjabiKeyboard.toggle()
-                        isSearchFieldFocused = false
+                        isSearchFieldFocused = showingPunjabiKeyboard
                     }
                 }) {
-                    Image(systemName: "keyboard")
+                    Image(systemName: showingPunjabiKeyboard ? "keyboard.chevron.compact.down" : "keyboard")
                         .foregroundColor(showingPunjabiKeyboard ? .blue : .gray)
                         .animation(.spring(), value: showingPunjabiKeyboard)
                 }
-
-                // Search button
-                Button(action: {
-                    Task { await fetchResults() }
-                    showingPunjabiKeyboard = false
-                    isSearchFieldFocused = false
-                }) {
-                    Image(systemName: "magnifyingglass")
-                    Text("Search")
-                }
-                .font(.caption)
-                .fontWeight(.semibold)
-                .padding(.horizontal, 10)
-                .padding(.vertical, 6)
-                .cornerRadius(12)
-                .disabled(searchText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
             }
             .padding(.horizontal, 5)
             .padding(.vertical, 5)
@@ -206,21 +180,67 @@ struct SearchView: View {
             .offset(y: -20)
 
             if showingPunjabiKeyboard {
-                PunjabiKeyboardView { key in
-                    if key == "\u{232B}" {
-                        if !searchText.isEmpty { searchText.removeLast() }
-                    } else {
-                        searchText.append(key)
-                    }
+                if qwertyKeyboard {
+                    QwertyPunjabiKeyboardView(
+                        onKeyPress: { key in
+                            searchText.append(key)
+                        },
+                        onDelete: {
+                            if !searchText.isEmpty { searchText.removeLast() }
+                        },
+                        onSpace: {
+                            searchText.append(" ")
+                        },
+                        switchKeyboard: {
+                            qwertyKeyboard.toggle()
+                        },
+                        onReturn: {
+                            Task { await fetchResults() }
+                            showingPunjabiKeyboard = false
+                            isSearchFieldFocused = false
+                        }
+                    )
+                    .frame(height: 300)
+                    .transition(.move(edge: .bottom).combined(with: .opacity))
+                } else {
+                    PunjabiKeyboardView(
+                        onKeyPress: { key in
+                            searchText.append(key)
+                        },
+                        onDelete: {
+                            if !searchText.isEmpty { searchText.removeLast() }
+                        },
+                        onSpace: {
+                            searchText.append(" ")
+                        },
+                        switchKeyboard: {
+                            qwertyKeyboard.toggle()
+                        },
+                        onReturn: {
+                            Task { await fetchResults() }
+                            showingPunjabiKeyboard = false
+                            isSearchFieldFocused = false
+                        }
+                    )
                 }
-                .onChange(of: isSearchFieldFocused) { newValue in
-                    if newValue { showingPunjabiKeyboard = false }
-                }
-                .transition(.move(edge: .bottom).combined(with: .opacity))
-                .background(Color(.systemBackground)).shadow(radius: 5)
             }
         }
-        .navigationTitle(!results.isEmpty ? "\(results.count) results" : "Gurbani Search")
+        .onChange(of: shouldFocusSearchBar) { _, newValue in
+            if newValue {
+                isSearchFieldFocused = true
+            }
+        }
+        .onChange(of: isSearchFieldFocused) { newValue in
+            if newValue {
+                showingPunjabiKeyboard = true
+            }
+        }
+        .onChange(of: searchText) { newValue in
+            if newValue.count > 2 {
+                Task { await fetchResults() }
+            }
+        }
+        .navigationTitle("Gurbani Search")
         .background(colorScheme == .dark ? Color(.systemBackground) : Color(.systemGroupedBackground))
     }
 
@@ -247,16 +267,9 @@ struct SearchView: View {
     private func openRandomShabad() async {
         if let response = await fetchRandomShabad() {
             selectedShabad = response
-            isNavigating = true
+            isNavigatingToSearchedSbd = true
             let sbdHistory = ShabadHistory(sbdRes: response, indexOfSelectedLine: 0)
             addToHistory(sbdHistory: sbdHistory)
-        }
-    }
-
-    private func openHukamnama() async {
-        if let hukam = await fetchHukam() {
-            isNavigating = true
-            // selectedShabad = hukam
         }
     }
 
@@ -345,8 +358,12 @@ struct ShabadViewFromSearchedLine: View {
 
 struct PunjabiKeyboardView: View {
     let onKeyPress: (String) -> Void
-    @AppStorage("fontType") private var fontType: String = "Unicode"
+    let onDelete: () -> Void
+    let onSpace: () -> Void
+    let switchKeyboard: () -> Void
+    let onReturn: () -> Void
 
+    @AppStorage("fontType") private var fontType: String = "Unicode"
     private let rows: [[String]] = [
         ["a", "A", "e", "s", "h", "k", "K", "g", "G", "|"],
         ["c", "C", "j", "J", "\\", "t", "T", "f", "F", "x"],
@@ -356,24 +373,175 @@ struct PunjabiKeyboardView: View {
 
     var body: some View {
         VStack(spacing: 12) {
+            // Regular rows
             ForEach(rows, id: \.self) { row in
                 HStack(spacing: 6) {
                     ForEach(Array(row.enumerated()), id: \.offset) { index, key in
                         KeyButton(label: key, fontType: fontType) {
                             onKeyPress(key)
                         }
-
                         // Insert a grouping gap every 5 keys
                         if (index + 1) % 5 == 0 && index != row.count - 1 {
-                            Spacer(minLength: 14) // creates the gap
+                            Spacer(minLength: 14)
                         }
                     }
                 }
             }
+
+            LastKeyBoardRow(switchKeyboard: switchKeyboard, onSpace: onSpace, onReturn: onReturn)
         }
         .padding(.horizontal, 8)
         .padding(.vertical, 10)
         .background(Color(UIColor.systemGray6))
+    }
+}
+
+struct QwertyPunjabiKeyboardView: View {
+    let onKeyPress: (String) -> Void
+    let onDelete: () -> Void
+    let onSpace: () -> Void
+    let switchKeyboard: () -> Void
+    let onReturn: () -> Void
+
+    @AppStorage("fontType") private var fontType: String = "Unicode"
+    @State private var isShifted: Bool = false
+
+    // Lowercase layout - exact QWERTY
+    private let lowercaseRows: [[String]] = [
+        ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"],
+        ["a", "s", "d", "f", "g", "h", "j", "k", "l"],
+        ["z", "x", "c", "v", "b", "n", "m"],
+    ]
+
+    // Uppercase layout - exact QWERTY shifted
+    private let uppercaseRows: [[String]] = [
+        ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"],
+        ["A", "S", "D", "F", "G", "H", "J", "K", "L"],
+        ["Z", "X", "C", "V", "B", "N", "M"],
+    ]
+
+    var currentRows: [[String]] {
+        isShifted ? uppercaseRows : lowercaseRows
+    }
+
+    var body: some View {
+        VStack(spacing: 12) {
+            // Letter rows
+            ForEach(currentRows.indices, id: \.self) { rowIndex in
+                HStack(spacing: 6) {
+                    // Add padding for rows to create QWERTY offset
+                    if rowIndex == 1 {
+                        Spacer().frame(width: 10)
+                    } else if rowIndex == 2 {
+                        Button(action: {
+                            isShifted.toggle()
+                        }) {
+                            Image(systemName: isShifted ? "shift.fill" : "shift")
+                                .font(.system(size: 20))
+                                .foregroundColor(.primary)
+                                .frame(width: 50, height: 44)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                        .fill(isShifted ? Color(UIColor.systemGray3) : Color(UIColor.systemGray5))
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                                .stroke(Color(UIColor.systemGray3), lineWidth: 0.5)
+                                        )
+                                )
+                        }
+                        // Spacer().frame(width: 40)
+                    }
+
+                    ForEach(currentRows[rowIndex], id: \.self) { key in
+                        KeyButton(label: key, fontType: fontType) {
+                            onKeyPress(key)
+                        }
+                    }
+                    if rowIndex == 2 {
+                        // Backspace button
+                        Button(action: onDelete) {
+                            Image(systemName: "delete.left")
+                                .font(.system(size: 20))
+                                .foregroundColor(.primary)
+                                .frame(width: 50, height: 44)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                        .fill(Color(UIColor.systemGray5))
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                                .stroke(Color(UIColor.systemGray3), lineWidth: 0.5)
+                                        )
+                                )
+                        }
+                    }
+
+                    if rowIndex == 1 {
+                        Spacer().frame(width: 10)
+                    }
+                }
+            }
+
+            // Bottom row with shift, space, and backspace
+            LastKeyBoardRow(switchKeyboard: switchKeyboard, onSpace: onSpace, onReturn: onReturn)
+        }
+        .padding(.horizontal, 8)
+        .padding(.vertical, 10)
+        .background(Color(UIColor.systemGray6))
+    }
+}
+
+struct LastKeyBoardRow: View {
+    let switchKeyboard: () -> Void
+    let onSpace: () -> Void
+    let onReturn: () -> Void
+    var body: some View {
+        HStack(spacing: 6) {
+            Button(action: switchKeyboard) {
+                Image(systemName: "keyboard.onehanded.right")
+                    .font(.system(size: 20))
+                    .foregroundColor(.primary)
+                    .frame(width: 50, height: 44)
+                    .background(
+                        RoundedRectangle(cornerRadius: 8, style: .continuous)
+                            .fill(Color(UIColor.systemGray3))
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                    .stroke(Color(UIColor.systemGray3), lineWidth: 0.5)
+                            )
+                    )
+            }
+            // Space bar
+            Button(action: onSpace) {
+                Text("ਖਾਲੀ ਥਾਂ")
+                    .font(.system(size: 16))
+                    .foregroundColor(.primary)
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 44)
+                    .background(
+                        RoundedRectangle(cornerRadius: 8, style: .continuous)
+                            .fill(Color(UIColor.systemGray5))
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                    .stroke(Color(UIColor.systemGray3), lineWidth: 0.5)
+                            )
+                    )
+            }
+            Button(action: onReturn) {
+                Text("Return")
+                    .font(.system(size: 16))
+                    .foregroundColor(.primary)
+                    .padding(.horizontal, 14) // adds a bit of space around text
+                    .frame(height: 44)
+                    .background(
+                        RoundedRectangle(cornerRadius: 8, style: .continuous)
+                            .fill(Color(UIColor.systemGray5))
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                    .stroke(Color(UIColor.systemGray3), lineWidth: 0.5)
+                            )
+                    )
+            }
+        }
     }
 }
 
@@ -382,10 +550,18 @@ struct KeyButton: View {
     let fontType: String
     let action: () -> Void
 
+    // Add dotted circle to matras for display purposes
+    var displayLabel: String {
+        let matras = ["w", "y", "u", "i", "o", "W", "R", "Y", "U", "I", "O", "H", "N", "M"] // Matras that need a base character
+        if matras.contains(label) {
+            return "◌" + label
+        }
+        return label
+    }
+
     var body: some View {
         Button(action: action) {
-            Text(label)
-                // .font(.custom("AnmolLipiBoldTrue", size: 20))
+            Text(displayLabel)
                 .font(resolveFont(size: 20, fontType: fontType == "Unicode" ? "AnmolLipiSG" : fontType))
                 .foregroundColor(.primary)
                 .frame(maxWidth: .infinity)
@@ -398,6 +574,72 @@ struct KeyButton: View {
                                 .stroke(Color(UIColor.systemGray3), lineWidth: 0.5)
                         )
                 )
+        }
+    }
+}
+
+struct MyTextField: UIViewRepresentable {
+    @Binding var text: String
+    @Binding var isFocused: Bool
+    let fontType: String
+    let placeholder: String
+
+    func makeUIView(context: Context) -> UITextField {
+        let tf = UITextField()
+        tf.placeholder = placeholder
+        tf.font = resolveFont(size: 16, fontType: fontType == "Unicode" ? "AnmolLipiSG" : fontType)
+        tf.textColor = .label
+        tf.backgroundColor = .systemGray6
+        tf.layer.cornerRadius = 10
+        tf.clearButtonMode = .whileEditing
+        tf.tintColor = .systemBlue // cursor color
+        tf.inputView = UIView() // disable system keyboard
+        tf.inputAccessoryView = UIView()
+
+        // left search icon
+        let icon = UIImageView(image: UIImage(systemName: "magnifyingglass"))
+        icon.tintColor = .gray
+        tf.leftView = icon
+        tf.leftViewMode = .always
+
+        tf.delegate = context.coordinator
+
+        // tap recognizer to set SwiftUI focus
+        let tap = UITapGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.didTap))
+        tf.addGestureRecognizer(tap)
+        return tf
+    }
+
+    func updateUIView(_ tf: UITextField, context _: Context) {
+        tf.text = text
+        if isFocused {
+            tf.becomeFirstResponder()
+        } else {
+            tf.resignFirstResponder()
+        }
+    }
+
+    func makeCoordinator() -> Coordinator {
+        Coordinator(text: $text, isFocused: $isFocused)
+    }
+
+    class Coordinator: NSObject, UITextFieldDelegate {
+        @Binding var text: String
+        @Binding var isFocused: Bool
+
+        init(text: Binding<String>, isFocused: Binding<Bool>) {
+            _text = text
+            _isFocused = isFocused
+        }
+
+        func textFieldDidChangeSelection(_ tf: UITextField) {
+            text = tf.text ?? ""
+        }
+
+        @objc func didTap() {
+            withAnimation(.spring()) {
+                isFocused = true
+            }
         }
     }
 }

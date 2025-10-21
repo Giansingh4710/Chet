@@ -66,7 +66,7 @@ struct Provider: @preconcurrency TimelineProvider {
 struct FavShabadsWidgetEntryView: View {
     var entry: RandSbdForWidget
     var body: some View {
-        WidgetEntryView(entry: entry, heading: "From Favorites " + getWidgetHeadingFromSbdInfo(entry.sbd.shabadInfo))
+        WidgetEntryView(entry: entry, heading: "From Favorites")
             .widgetURL(URL(string: "chet://shabadid/\(entry.sbd.shabadInfo.shabadId)")) // custom deep link
         // Text("Favs")
     }
@@ -79,7 +79,6 @@ struct FavShabadsWidget: Widget {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             if #available(iOS 17.0, *) {
                 FavShabadsWidgetEntryView(entry: entry)
-                    .containerBackground(.fill.tertiary, for: .widget)
             } else {
                 FavShabadsWidgetEntryView(entry: entry)
                     .padding()

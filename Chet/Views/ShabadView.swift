@@ -278,6 +278,7 @@ struct ShabadViewDisplay: View {
                 verses: sbdRes.verses,
                 preselectedLine: $preselectedLineID // 👈 pass selected IDs
             )
+            .presentationDetents([.medium])
         }
         .sheet(isPresented: $showingSettings) {
             SettingsSheet()
@@ -297,24 +298,25 @@ struct ShabadViewDisplay: View {
 struct SettingsSheet: View {
     @AppStorage("settings.larivaarOn") private var larivaarOn: Bool = false
     @AppStorage("settings.textScale") private var textScale: Double = 1.0
+    @AppStorage("swipeToGoToNextShabadSetting") private var swipeToGoToNextShabadSetting = true
 
     // Selected source for each language
     @AppStorage("settings.visraamSource") private var selectedVisraamSource: String = "igurbani"
     @AppStorage("settings.englishSource") private var selectedEnglishSource: String = "bdb"
-    @AppStorage("settings.punjabiSource") private var selectedPunjabiSource: String = "ss"
-    @AppStorage("settings.hindiSource") private var selectedHindiSource: String = "ss"
-    @AppStorage("settings.spanishSource") private var selectedSpanishSource: String = "sn"
+    @AppStorage("settings.punjabiSource") private var selectedPunjabiSource: String = "none"
+    @AppStorage("settings.hindiSource") private var selectedHindiSource: String = "none"
+    @AppStorage("settings.spanishSource") private var selectedSpanishSource: String = "none"
 
     @AppStorage("settings.englishTranslationTextScale") private var enTransTextScale: Double = 1.0 // English / common
     @AppStorage("settings.punjabiTranslationTextScale") private var punjabiTranslationTextScale: Double = 1.0
     @AppStorage("settings.hindiTranslationTextScale") private var hindiTranslationTextScale: Double = 1.0
     @AppStorage("settings.spanishTranslationTextScale") private var spanishTranslationTextScale: Double = 1.0
 
-    @AppStorage("settings.transliterationSource") private var selectedTransliterationSource: String = "english"
+    @AppStorage("settings.transliterationSource") private var selectedTransliterationSource: String = "none"
     @AppStorage("settings.transliterationTextScale") private var transliterationTextScale: Double = 1.0
 
     // Available sources (tweak as needed)
-    private let visraamSources = ["None", "sttm", "igurbani", "sttm2"]
+    private let visraamSources = ["none", "sttm", "igurbani", "sttm2"]
 
     private let englishSources: [(name: String, value: String)] = [
         ("None", "none"),
@@ -355,6 +357,7 @@ struct SettingsSheet: View {
             Form {
                 Section(header: Text("Gurbani")) {
                     Toggle("Larivaar", isOn: $larivaarOn)
+                    Toggle("Swipe to go to next shabad", isOn: $swipeToGoToNextShabadSetting)
                     FontPicker()
                     Picker("Visraam", selection: $selectedVisraamSource) {
                         ForEach(visraamSources, id: \.self) { Text($0) }
@@ -437,12 +440,17 @@ struct FontPicker: View {
 
 struct CopySheetView: View {
     let verses: [Verse]
-    // let showTranslations: Bool
-    @AppStorage("settings.larivaarOn") private var larivaarOn: Bool = false
-    // let preselectedLine: String
     @Binding var preselectedLine: Int // 👈 binding
 
+    @AppStorage("settings.larivaarOn") private var larivaarOn: Bool = false
+    @AppStorage("settings.englishSource") private var selectedEnglishSource: String = "bdb"
+    @AppStorage("settings.punjabiSource") private var selectedPunjabiSource: String = "none"
+    @AppStorage("settings.hindiSource") private var selectedHindiSource: String = "none"
+    @AppStorage("settings.spanishSource") private var selectedSpanishSource: String = "none"
+    @AppStorage("settings.transliterationSource") private var selectedTransliterationSource: String = "none"
+
     @Environment(\.dismiss) var dismiss
+    @Environment(\.colorScheme) var colorScheme
     @State private var selectedLines: Set<Int> = []
 
     var body: some View {
@@ -479,16 +487,39 @@ struct CopySheetView: View {
                                     Text(larivaarOn ? verse.larivaar.unicode : verse.verse.unicode)
                                         .font(.body)
                                         .fontWeight(.medium)
+
                                     Spacer()
                                 }
-                                // if showTranslations {
-                                //     if let a = verse.translation.en.bdb {
-                                //         Text(a)
-                                //             .font(.caption)
-                                //             .foregroundColor(.secondary)
-                                //             .padding(.leading, 28)
-                                //     }
-                                // }
+
+                                if let a = verse.transliteration.value(for: selectedTransliterationSource) {
+                                    Text(a)
+                                        .foregroundColor(colorScheme == .dark ? Color(red: 0.75, green: 0.75, blue: 0.75) : Color(red: 0.5, green: 0.5, blue: 0.5))
+                                        .lineSpacing(2)
+                                        .opacity(0.9)
+                                }
+                                if let a = verse.translation.getTranslation(for: "english", source: selectedEnglishSource) {
+                                    Text(a)
+                                        .foregroundColor(colorScheme == .dark ? Color(red: 0.7, green: 0.85, blue: 1.0) : Color(red: 0.2, green: 0.4, blue: 0.7))
+                                        .lineSpacing(2)
+                                }
+
+                                if let a = verse.translation.getTranslation(for: "punjabi", source: selectedPunjabiSource) {
+                                    Text(a)
+                                        .foregroundColor(colorScheme == .dark ? Color(red: 1.0, green: 0.85, blue: 0.6) : Color(red: 0.65, green: 0.45, blue: 0.2))
+                                        .lineSpacing(2)
+                                }
+
+                                if let a = verse.translation.getTranslation(for: "hindi", source: selectedHindiSource) {
+                                    Text(a)
+                                        .foregroundColor(colorScheme == .dark ? Color(red: 0.9, green: 0.75, blue: 0.85) : Color(red: 0.6, green: 0.3, blue: 0.5))
+                                        .lineSpacing(2)
+                                }
+
+                                if let a = verse.translation.getTranslation(for: "spanish", source: selectedSpanishSource) {
+                                    Text(a)
+                                        .foregroundColor(colorScheme == .dark ? Color(red: 0.85, green: 0.95, blue: 0.75) : Color(red: 0.4, green: 0.6, blue: 0.3))
+                                        .lineSpacing(2)
+                                }
                             }
                             .contentShape(Rectangle())
                             .id(verse.verseId) // 👈 Important for scrollTo
@@ -532,16 +563,37 @@ struct CopySheetView: View {
 
     private func copyToClipboard() {
         let selected = verses.filter { selectedLines.contains($0.verseId) }
-        // let spacing = showTranslations ? "\n\n" : "\n"
+        var onlyGurmukhi = true
         let text = selected.map { verse in
             var line = larivaarOn ? verse.larivaar.unicode : verse.verse.unicode
-            // if showTranslations {
-            //     line += "\n\(verse.translation.en.bdb)"
-            // }
-            return line
-        } // .joined(separator: spacing)
+            if let a = verse.transliteration.value(for: selectedTransliterationSource) {
+                line += "\n" + a
+                onlyGurmukhi = false
+            }
+            if let a = verse.translation.getTranslation(for: "english", source: selectedEnglishSource) {
+                line += "\n" + a
+                onlyGurmukhi = false
+            }
 
-        // UIPasteboard.general.string = text
+            if let a = verse.translation.getTranslation(for: "punjabi", source: selectedPunjabiSource) {
+                line += "\n" + a
+                onlyGurmukhi = false
+            }
+
+            if let a = verse.translation.getTranslation(for: "hindi", source: selectedHindiSource) {
+                line += "\n" + a
+                onlyGurmukhi = false
+            }
+
+            if let a = verse.translation.getTranslation(for: "spanish", source: selectedSpanishSource) {
+                line += "\n" + a
+                onlyGurmukhi = false
+            }
+
+            return line
+        }.joined(separator: onlyGurmukhi ? "\n" : "\n\n")
+
+        UIPasteboard.general.string = text
     }
 }
 
@@ -630,6 +682,7 @@ struct ShabadMetaInfoSheet: View {
     }
 
     // MARK: - Pair rendering
+
     private struct PairView: View {
         let label: String
         let value: String
@@ -656,6 +709,7 @@ struct ShabadMetaInfoSheet: View {
     }
 
     // MARK: - Flattened fields (all shown; nil/empty -> "None")
+
     private var allPairs: [(label: String, value: String)] {
         let items: [(String, String?)] = [
             // Shabad
@@ -681,7 +735,7 @@ struct ShabadMetaInfoSheet: View {
             ("writer.writerId", "\(info.writer.writerId)"),
             ("writer.gurmukhi", info.writer.gurmukhi),
             ("writer.unicode", info.writer.unicode),
-            ("writer.english", info.writer.english)
+            ("writer.english", info.writer.english),
         ]
 
         return items.map { label, raw in
@@ -691,6 +745,7 @@ struct ShabadMetaInfoSheet: View {
     }
 
     // MARK: - Chunk into rows of two pairs each
+
     // Returns array of (index, (firstPair, optionalSecondPair))
     private var chunkedPairs: [(Int, ((label: String, value: String), (label: String, value: String)?))] {
         var result: [(Int, ((label: String, value: String), (label: String, value: String)?))] = []
@@ -715,14 +770,14 @@ struct GurbaniLineView: View {
     @AppStorage("settings.textScale") private var textScale: Double = 1.0
     @AppStorage("settings.visraamSource") private var selectedVisraamSource: String = "igurbani"
     @AppStorage("settings.englishSource") private var selectedEnglishSource: String = "bdb"
-    @AppStorage("settings.punjabiSource") private var selectedPunjabiSource: String = "ss"
-    @AppStorage("settings.hindiSource") private var selectedHindiSource: String = "ss"
-    @AppStorage("settings.spanishSource") private var selectedSpanishSource: String = "sn"
+    @AppStorage("settings.punjabiSource") private var selectedPunjabiSource: String = "none"
+    @AppStorage("settings.hindiSource") private var selectedHindiSource: String = "none"
+    @AppStorage("settings.spanishSource") private var selectedSpanishSource: String = "none"
     @AppStorage("settings.englishTranslationTextScale") private var enTransTextScale: Double = 1.0 // English / common
     @AppStorage("settings.punjabiTranslationTextScale") private var punjabiTranslationTextScale: Double = 1.0
     @AppStorage("settings.hindiTranslationTextScale") private var hindiTranslationTextScale: Double = 1.0
     @AppStorage("settings.spanishTranslationTextScale") private var spanishTranslationTextScale: Double = 1.0
-    @AppStorage("settings.transliterationSource") private var selectedTransliterationSource: String = "english"
+    @AppStorage("settings.transliterationSource") private var selectedTransliterationSource: String = "none"
     @AppStorage("settings.transliterationTextScale") private var transliterationTextScale: Double = 1.0
 
     @AppStorage("fontType") private var fontType: String = "Unicode"

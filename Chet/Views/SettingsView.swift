@@ -4,7 +4,6 @@ import WidgetKit
 
 struct SettingsView: View {
     @AppStorage("CompactRowViewSetting") private var compactRowViewSetting = false
-    @AppStorage("swipeToGoToNextShabadSetting") private var swipeToGoToNextShabadSetting = true
     @AppStorage("colorScheme") private var colorScheme: String = "system"
 
     @AppStorage("randSbdRefreshInterval", store: UserDefaults.appGroup) var randSbdRefreshInterval: Int = 3 // default: every 3 hours
@@ -31,9 +30,6 @@ struct SettingsView: View {
                         Toggle("Compact Row View", isOn: $compactRowViewSetting)
                         Spacer()
                         infoButton(.compactRow)
-                    }
-                    HStack {
-                        Toggle("Swipe to go to next shabad", isOn: $swipeToGoToNextShabadSetting)
                     }
                     HStack {
                         Toggle("Larivaar", isOn: $larivaarOn)

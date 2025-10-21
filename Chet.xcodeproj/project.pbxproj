@@ -135,6 +135,7 @@
 			membershipExceptions = (
 				helpers/helper_funcs.swift,
 				helpers/sample_data/hukam.json,
+				helpers/sample_data/random_sbd.json,
 				Models.swift,
 			);
 			target = A053D0622E6654FF004E371B /* HukamnamaWidgetExtension */;
@@ -760,7 +761,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.gians.Chet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -793,7 +794,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.gians.Chet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

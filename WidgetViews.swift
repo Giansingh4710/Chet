@@ -13,10 +13,11 @@ struct LockScreenInLineView: View {
     let entry: RandSbdForWidget
     let fontType: String
     let selectedVisraamSource: String
+    let colorScheme: ColorScheme
 
     var body: some View {
         if let verse = entry.sbd.verses.first {
-            getGurbaniLine(verse, fontType: fontType, selectedVisraamSource: selectedVisraamSource)
+            getGurbaniLine(verse, fontType: fontType, selectedVisraamSource: selectedVisraamSource, colorScheme: colorScheme)
                 .font(.caption2)
                 .lineLimit(1)
         } else {
@@ -29,11 +30,12 @@ struct LockScreenRectangularView: View {
     let entry: RandSbdForWidget
     let fontType: String
     let selectedVisraamSource: String
+    let colorScheme: ColorScheme
 
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
             if let verse = entry.sbd.verses.first {
-                getGurbaniLine(verse, fontType: fontType, selectedVisraamSource: selectedVisraamSource)
+                getGurbaniLine(verse, fontType: fontType, selectedVisraamSource: selectedVisraamSource, colorScheme: colorScheme)
                     .font(.headline)
                     .lineLimit(2)
                 if let a = verse.translation.en.bdb {
@@ -41,6 +43,7 @@ struct LockScreenRectangularView: View {
                         .font(.caption2)
                         .foregroundStyle(.secondary)
                         .lineLimit(1)
+                        .foregroundColor(.secondary)
                 }
             }
         }
@@ -54,172 +57,83 @@ struct HomeScreenView: View {
     let fontType: String
     let selectedVisraamSource: String
     let prefix: Int
+    let colorScheme: ColorScheme
 
     var body: some View {
         let verses = entry.sbd.verses.prefix(prefix)
-        VStack(alignment: .leading) {
-            if let heading = heading {
-                Text(heading)
-                    .font(.caption)
-                    .bold()
-                    .foregroundColor(.white.opacity(0.8))
-                    .lineLimit(1)
-            }
 
-            ForEach(verses, id: \.verseId) { verse in
-                VStack(alignment: .leading) {
-                    getGurbaniLine(verse, fontType: fontType, selectedVisraamSource: selectedVisraamSource)
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .lineLimit(2)
-
-                    if let a = verse.translation.en.bdb {
-                        Text(a)
-                            .font(.caption2)
-                            .foregroundColor(.white.opacity(0.8))
+        ZStack(alignment: .topTrailing) { // 👈 this line fixes the position
+            VStack(alignment: .leading) {
+                HStack {
+                    if let heading = heading {
+                        Text(heading)
+                            .font(.caption)
+                            .bold()
                             .lineLimit(1)
+                            .foregroundColor(.secondary)
                     }
-                }
-            }
-        }
-    }
-}
 
-struct HomeScreenSmallView: View {
-    let entry: RandSbdForWidget
-    let heading: String?
-    let fontType: String
-    let selectedVisraamSource: String
-
-    var body: some View {
-        let verses = entry.sbd.verses.prefix(3)
-        VStack(alignment: .leading) {
-            if let heading = heading {
-                Text(heading)
-                    .font(.caption)
-                    .bold()
-                    .foregroundColor(.white.opacity(0.8))
-                    .lineLimit(1)
-            }
-
-            ForEach(verses, id: \.verseId) { verse in
-                VStack(alignment: .leading) {
-                    getGurbaniLine(verse, fontType: fontType, selectedVisraamSource: selectedVisraamSource)
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .lineLimit(2)
-
-                    if let a = verse.translation.en.bdb {
-                        Text(a)
-                            .font(.caption2)
-                            .foregroundColor(.white.opacity(0.8))
-                            .lineLimit(1)
-                    }
-                }
-            }
-        }
-    }
-}
-
-struct HomeScreenMediumView: View {
-    let entry: RandSbdForWidget
-    let heading: String?
-    let fontType: String
-    let selectedVisraamSource: String
-
-    var body: some View {
-        let verses = entry.sbd.verses.prefix(4)
-        VStack(alignment: .leading) {
-            if let heading = heading {
-                Text(heading)
-                    .font(.caption)
-                    .bold()
-                    .foregroundColor(.white.opacity(0.8))
-                    .lineLimit(1)
-            }
-
-            ForEach(verses, id: \.verseId) { verse in
-                VStack(alignment: .leading) {
-                    getGurbaniLine(verse, fontType: fontType, selectedVisraamSource: selectedVisraamSource)
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .lineLimit(2)
-
-                    if let a = verse.translation.en.bdb {
-                        Text(a)
-                            .font(.caption2)
-                            .foregroundColor(.white.opacity(0.8))
-                            .lineLimit(1)
-                    }
-                }
-            }
-        }
-    }
-}
-
-struct HomeScreenLargeView: View {
-    let entry: RandSbdForWidget
-    let heading: String?
-
-    let fontType: String
-    let selectedVisraamSource: String
-
-    var body: some View {
-        let verses = entry.sbd.verses.prefix(5)
-        let shabadInfo = entry.sbd.shabadInfo
-
-        ZStack {
-            VStack(alignment: .leading, spacing: 8) {
-                if let heading = heading {
-                    Text(heading.uppercased())
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
+                    Spacer()
                 }
 
                 ForEach(verses, id: \.verseId) { verse in
-                    VStack(alignment: .leading, spacing: 3) {
-                        getGurbaniLine(verse, fontType: fontType, selectedVisraamSource: selectedVisraamSource)
+                    VStack(alignment: .leading) {
+                        getGurbaniLine(verse, fontType: fontType, selectedVisraamSource: selectedVisraamSource, colorScheme: colorScheme)
                             .font(.headline)
-                            .foregroundColor(.white)
                             .lineLimit(2)
 
                         if let a = verse.translation.en.bdb {
                             Text(a)
                                 .font(.caption2)
-                                .foregroundColor(.white.opacity(0.8))
                                 .lineLimit(1)
+                                .foregroundColor(.secondary)
                         }
                     }
                 }
             }
-            .padding()
+
+            Link(destination: URL(string: "chet://search")!) {
+                Image(systemName: "magnifyingglass")
+                    .foregroundColor(.primary)
+                    .padding(6)
+                    .background(Color.white.opacity(0.15))
+                    .clipShape(Circle())
+                    .padding(.top, -2)
+                    .padding(.trailing, -12)
+            }
         }
+        .containerBackground(.fill.tertiary, for: .widget)
     }
 }
 
 struct WidgetEntryView: View {
     let entry: RandSbdForWidget
     let heading: String?
-    @Environment(\.widgetFamily) var widgetFamily
+    var the_heading: String {
+        if let heading = heading {
+            return heading + "  " + getWidgetHeadingFromSbdInfo(entry.sbd.shabadInfo)
+        } else {
+            return getWidgetHeadingFromSbdInfo(entry.sbd.shabadInfo)
+        }
+    }
 
+    @Environment(\.widgetFamily) var widgetFamily
+    @Environment(\.colorScheme) var colorScheme
     @AppStorage("fontType") private var fontType = "Unicode"
     @AppStorage("settings.visraamSource") private var selectedVisraamSource = "igurbani"
 
     var body: some View {
         switch widgetFamily {
         case .accessoryInline:
-            LockScreenInLineView(entry: entry, fontType: fontType, selectedVisraamSource: selectedVisraamSource)
+            LockScreenInLineView(entry: entry, fontType: fontType, selectedVisraamSource: selectedVisraamSource, colorScheme: colorScheme)
         case .accessoryRectangular:
-            LockScreenRectangularView(entry: entry, fontType: fontType, selectedVisraamSource: selectedVisraamSource)
+            LockScreenRectangularView(entry: entry, fontType: fontType, selectedVisraamSource: selectedVisraamSource, colorScheme: colorScheme)
         case .systemSmall:
-            // HomeScreenSmallView(entry: entry, heading: heading, fontType: fontType, selectedVisraamSource: selectedVisraamSource)
-            HomeScreenView(entry: entry, heading: heading, fontType: fontType, selectedVisraamSource: selectedVisraamSource, prefix: 3)
+            HomeScreenView(entry: entry, heading: the_heading, fontType: fontType, selectedVisraamSource: selectedVisraamSource, prefix: 3, colorScheme: colorScheme)
         case .systemMedium:
-            // HomeScreenMediumView(entry: entry, heading: heading, fontType: fontType, selectedVisraamSource: selectedVisraamSource)
-            HomeScreenView(entry: entry, heading: heading, fontType: fontType, selectedVisraamSource: selectedVisraamSource, prefix: 3)
+            HomeScreenView(entry: entry, heading: the_heading, fontType: fontType, selectedVisraamSource: selectedVisraamSource, prefix: 3, colorScheme: colorScheme)
         case .systemLarge:
-            // HomeScreenLargeView(entry: entry, heading: heading, fontType: fontType, selectedVisraamSource: selectedVisraamSource)
-            HomeScreenView(entry: entry, heading: heading, fontType: fontType, selectedVisraamSource: selectedVisraamSource, prefix: 5)
+            HomeScreenView(entry: entry, heading: the_heading, fontType: fontType, selectedVisraamSource: selectedVisraamSource, prefix: 5, colorScheme: colorScheme)
         default:
             Text("Vaheguru")
                 .font(.caption)
@@ -228,32 +142,9 @@ struct WidgetEntryView: View {
     }
 }
 
-extension Array {
-    func limited(for family: WidgetFamily) -> [Element] {
-        switch family {
-        case .systemSmall:
-            return Array(prefix(1))
-        case .systemMedium:
-            return Array(prefix(2))
-        case .systemLarge:
-            return Array(prefix(4))
-        case .accessoryRectangular:
-            return Array(prefix(1))
-        case .accessoryInline:
-            return Array(prefix(1))
-        default:
-            return Array(prefix(1))
-        }
-    }
-}
-
-func getGurbaniLine(_ verse: Verse, fontType: String, selectedVisraamSource: String) -> Text {
-    // let text = lineLarivaar ? verse.larivaar.unicode : verse.verse.unicode
+func getGurbaniLine(_ verse: Verse, fontType: String, selectedVisraamSource: String, colorScheme: ColorScheme) -> Text {
     let text = fontType == "Unicode" ? verse.verse.unicode : verse.verse.gurmukhi
     let words = text.components(separatedBy: " ")
-
-    // @Environment(\.colorScheme) var colorScheme
-    var colorScheme: ColorScheme = .light
 
     // Get visraam points based on selected source
     var visraamPoints: [Int: String] = [:] // [position: type]
@@ -291,7 +182,7 @@ func getGurbaniLine(_ verse: Verse, fontType: String, selectedVisraamSource: Str
             }
             wordText = Text(word).foregroundColor(color)
         } else {
-            wordText = Text(word)
+            wordText = Text(word).foregroundColor(.primary)
         }
 
         result = result + wordText

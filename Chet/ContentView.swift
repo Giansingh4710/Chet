@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @Binding var selectedID: WidgetUrlShabadID?
-
+    @Binding var shouldFocusSearch: Bool // Add this parameter
     @Environment(\.colorScheme) private var colorScheme
     @State private var selectedTab = 0
     @State private var searchNavPath = NavigationPath()
@@ -22,7 +22,7 @@ struct ContentView: View {
     var body: some View {
         TabView(selection: $selectedTab) {
             NavigationStack(path: $searchNavPath) {
-                SearchView()
+                SearchView(shouldFocusSearchBar: $shouldFocusSearch)
             }
             .onChange(of: selectedTab) { oldValue, newValue in
                 if oldValue == newValue && newValue == 0 {
@@ -78,6 +78,17 @@ struct ContentView: View {
                 Text("Settings")
             }
             .tag(3)
+        }
+        .onChange(of: shouldFocusSearch) { _, newValue in
+            if newValue {
+                selectedTab = 0 // Switch to Search tab first
+                selectedID = nil // remove selectedID
+
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    searchNavPath = NavigationPath()
+                    shouldFocusSearch = false // Reset flag
+                }
+            }
         }
         .onAppear {
             UIApplication.shared.isIdleTimerDisabled = true

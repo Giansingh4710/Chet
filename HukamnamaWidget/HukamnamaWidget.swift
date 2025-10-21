@@ -10,13 +10,14 @@ import WidgetKit
 
 struct Provider: TimelineProvider {
     func placeholder(in _: Context) -> RandSbdForWidget {
-        // let decoded = try JSONDecoder().decode(HukamnamaAPIResponse.self, from: data)
-        let sbd: ShabadAPIResponse = loadJSON(from: "random_sbd", as: ShabadAPIResponse.self)!
+        let hukam: HukamnamaAPIResponse = loadJSON(from: "hukam", as: HukamnamaAPIResponse.self)!
+        let sbd = getSbdObjFromHukamObj(hukamObj: hukam)
         return RandSbdForWidget(sbd: sbd, date: Date.now, index: 0)
     }
 
     func getSnapshot(in _: Context, completion _: @escaping (RandSbdForWidget) -> Void) {
-        let sbd: ShabadAPIResponse = loadJSON(from: "random_sbd", as: ShabadAPIResponse.self)!
+        let hukam: HukamnamaAPIResponse = loadJSON(from: "hukam", as: HukamnamaAPIResponse.self)!
+        let sbd = getSbdObjFromHukamObj(hukamObj: hukam)
         RandSbdForWidget(sbd: sbd, date: Date.now, index: 0)
     }
 
@@ -26,20 +27,23 @@ struct Provider: TimelineProvider {
             let currentDate = Date()
             let entryDate = Calendar.current.date(byAdding: .hour, value: 24, to: currentDate)!
             let hukam = response!
-            let entry = RandSbdForWidget(sbd: hukam, date: Date.now, index: 0)
+            let sbd = getSbdObjFromHukamObj(hukamObj: hukam)
+            let entry = RandSbdForWidget(sbd: sbd, date: Date.now, index: 0)
             entries.append(entry)
-
             let timeline = Timeline(entries: entries, policy: .atEnd)
             completion(timeline)
         }
     }
 }
 
-private func fetchHukamWrapper(completion: @escaping (ShabadAPIResponse?) -> Void) {
+private func fetchHukamWrapper(completion: @escaping (HukamnamaAPIResponse?) -> Void) {
     Task {
-        // let response = await fetchHukam()
-        let response = await fetchRandomShabad()
-        completion(response)
+        do {
+            let response = try await fetchHukam()
+            completion(response)
+        } catch {
+            completion(nil)
+        }
     }
 }
 
@@ -59,7 +63,6 @@ struct HukamnamaWidget: Widget {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             if #available(iOS 17.0, *) {
                 HukamnamaWidgetEntryView(entry: entry)
-                    .containerBackground(.fill.tertiary, for: .widget)
             } else {
                 HukamnamaWidgetEntryView(entry: entry)
                     .padding()
@@ -71,4 +74,3 @@ struct HukamnamaWidget: Widget {
         .supportedFamilies([.systemSmall, .systemMedium, .systemLarge, .accessoryInline, .accessoryRectangular])
     }
 }
-
