@@ -73,6 +73,8 @@ struct RowView: View {
     let the_date: Date
 
     @AppStorage("CompactRowViewSetting") private var compactRowViewSetting = false
+    @AppStorage("settings.larivaarOn") private var larivaarOn: Bool = true
+    @AppStorage("fontType") private var fontType: String = "Unicode"
 
     let formatter: DateFormatter = {
         let f = DateFormatter()
@@ -81,11 +83,26 @@ struct RowView: View {
         return f
     }()
 
+    var gurmukhiText: String {
+        let ind = indexOfLine == -1 ? 0 : indexOfLine
+        if fontType == "Unicode" {
+            if larivaarOn {
+                return sbdRes.verses[ind].larivaar.unicode
+            }
+            return sbdRes.verses[ind].verse.unicode
+        } else {
+            if larivaarOn {
+                return sbdRes.verses[ind].larivaar.gurmukhi
+            }
+            return sbdRes.verses[ind].verse.gurmukhi
+        }
+    }
+
     var body: some View {
         if compactRowViewSetting {
             HStack {
-                Text(sbdRes.shabad[indexOfLine].line.gurmukhi.unicode)
-                    .font(.title3)
+                Text(gurmukhiText)
+                    .font(resolveFont(size: 24, fontType: fontType == "Unicode" ? "AnmolLipiSG" : fontType))
                     .fontWeight(.semibold)
                     .lineLimit(1)
                     .multilineTextAlignment(.leading)
@@ -99,17 +116,19 @@ struct RowView: View {
             VStack(alignment: .leading, spacing: 8) {
                 HStack {
                     VStack(alignment: .leading, spacing: 4) {
-                        Text(sbdRes.shabad[indexOfLine].line.gurmukhi.unicode)
-                            .font(.title3)
+                        Text(gurmukhiText)
+                            .font(resolveFont(size: 24, fontType: fontType == "Unicode" ? "AnmolLipiSG" : fontType))
                             .fontWeight(.semibold)
                             .lineLimit(2)
                             .multilineTextAlignment(.leading)
 
-                        Text(sbdRes.shabad[indexOfLine].line.translation.english.default)
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
-                            .lineLimit(2)
-                            .multilineTextAlignment(.leading)
+                        if let a = sbdRes.verses[indexOfLine].translation.en.bdb {
+                            Text(a)
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
+                                .lineLimit(2)
+                                .multilineTextAlignment(.leading)
+                        }
                     }
 
                     Spacer()
@@ -126,7 +145,7 @@ struct RowView: View {
                 }
 
                 HStack {
-                    Text(sbdRes.shabadinfo.source.unicode)
+                    Text(sbdRes.shabadInfo.source.english)
                         .font(.caption)
                         .padding(.horizontal, 8)
                         .padding(.vertical, 4)
@@ -134,7 +153,7 @@ struct RowView: View {
                         .foregroundColor(.blue)
                         .cornerRadius(4)
 
-                    Text(sbdRes.shabadinfo.writer.english)
+                    Text(sbdRes.shabadInfo.writer.english)
                         .font(.caption)
                         .padding(.horizontal, 8)
                         .padding(.vertical, 4)
@@ -142,7 +161,7 @@ struct RowView: View {
                         .foregroundColor(.green)
                         .cornerRadius(4)
 
-                    Text("Ang \(String(sbdRes.shabadinfo.pageno))")
+                    Text("Ang \(String(sbdRes.shabadInfo.pageNo))")
                         .font(.caption)
                         .padding(.horizontal, 8)
                         .padding(.vertical, 4)

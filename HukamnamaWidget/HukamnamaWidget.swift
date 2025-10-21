@@ -10,11 +10,15 @@ import WidgetKit
 
 struct Provider: TimelineProvider {
     func placeholder(in _: Context) -> RandSbdForWidget {
-        RandSbdForWidget(sbd: SampleData.shabadResponse, date: Date.now, index: 0)
+        let hukam: HukamnamaAPIResponse = loadJSON(from: "hukam", as: HukamnamaAPIResponse.self)!
+        let sbd = getSbdObjFromHukamObj(hukamObj: hukam)
+        return RandSbdForWidget(sbd: sbd, date: Date.now, index: 0)
     }
 
-    func getSnapshot(in _: Context, completion: @escaping (RandSbdForWidget) -> Void) {
-        RandSbdForWidget(sbd: SampleData.shabadResponse, date: Date.now, index: 0)
+    func getSnapshot(in _: Context, completion _: @escaping (RandSbdForWidget) -> Void) {
+        let hukam: HukamnamaAPIResponse = loadJSON(from: "hukam", as: HukamnamaAPIResponse.self)!
+        let sbd = getSbdObjFromHukamObj(hukamObj: hukam)
+        RandSbdForWidget(sbd: sbd, date: Date.now, index: 0)
     }
 
     func getTimeline(in _: Context, completion: @escaping (Timeline<RandSbdForWidget>) -> Void) {
@@ -22,21 +26,24 @@ struct Provider: TimelineProvider {
             var entries: [RandSbdForWidget] = []
             let currentDate = Date()
             let entryDate = Calendar.current.date(byAdding: .hour, value: 24, to: currentDate)!
-            // let hukam = response ?? SampleData.emptyHukam
-            let hukam = response ?? SampleData.shabadResponse
-            let entry = RandSbdForWidget(sbd: hukam, date: Date.now, index: 0)
+            let hukam = response!
+            let sbd = getSbdObjFromHukamObj(hukamObj: hukam)
+            let entry = RandSbdForWidget(sbd: sbd, date: Date.now, index: 0)
             entries.append(entry)
-
             let timeline = Timeline(entries: entries, policy: .atEnd)
             completion(timeline)
         }
     }
 }
 
-private func fetchHukamWrapper(completion: @escaping (ShabadAPIResponse?) -> Void) {
+private func fetchHukamWrapper(completion: @escaping (HukamnamaAPIResponse?) -> Void) {
     Task {
-        let response = await fetchHukam()
-        completion(response)
+        do {
+            let response = try await fetchHukam()
+            completion(response)
+        } catch {
+            completion(nil)
+        }
     }
 }
 
@@ -45,7 +52,7 @@ struct HukamnamaWidgetEntryView: View {
     var entry: RandSbdForWidget
     var body: some View {
         WidgetEntryView(entry: entry, heading: "Today's Hukamnama")
-            .widgetURL(URL(string: "chet://shabadid/\(entry.sbd.shabadinfo.shabadid)")) // custom deep link
+            .widgetURL(URL(string: "chet://shabadid/\(entry.sbd.shabadInfo.shabadId)")) // custom deep link
     }
 }
 
@@ -56,7 +63,6 @@ struct HukamnamaWidget: Widget {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             if #available(iOS 17.0, *) {
                 HukamnamaWidgetEntryView(entry: entry)
-                    .containerBackground(.fill.tertiary, for: .widget)
             } else {
                 HukamnamaWidgetEntryView(entry: entry)
                     .padding()
@@ -68,33 +74,3 @@ struct HukamnamaWidget: Widget {
         .supportedFamilies([.systemSmall, .systemMedium, .systemLarge, .accessoryInline, .accessoryRectangular])
     }
 }
-
-// #Preview(as: .accessoryInline) {
-//     HukamnamaWidget()
-// } timeline: {
-//     HukamEntry(date: Date.now, hukam: SampleData.hukamnamResponse)
-// }
-//
-// #Preview(as: .accessoryRectangular) {
-//     HukamnamaWidget()
-// } timeline: {
-//     HukamEntry(date: Date.now, hukam: SampleData.hukamnamResponse)
-// }
-//
-// #Preview(as: .systemSmall) {
-//     HukamnamaWidget()
-// } timeline: {
-//     HukamEntry(date: Date.now, hukam: SampleData.hukamnamResponse)
-// }
-//
-// #Preview(as: .systemMedium) {
-//     HukamnamaWidget()
-// } timeline: {
-//     HukamEntry(date: Date.now, hukam: SampleData.hukamnamResponse)
-// }
-//
-// #Preview(as: .systemLarge) {
-//     HukamnamaWidget()
-// } timeline: {
-//     HukamEntry(date: Date.now, hukam: SampleData.hukamnamResponse)
-// }

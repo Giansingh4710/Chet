@@ -4,7 +4,6 @@ import WidgetKit
 
 struct SettingsView: View {
     @AppStorage("CompactRowViewSetting") private var compactRowViewSetting = false
-    @AppStorage("swipeToGoToNextShabadSetting") private var swipeToGoToNextShabadSetting = true
     @AppStorage("colorScheme") private var colorScheme: String = "system"
 
     @AppStorage("randSbdRefreshInterval", store: UserDefaults.appGroup) var randSbdRefreshInterval: Int = 3 // default: every 3 hours
@@ -12,6 +11,9 @@ struct SettingsView: View {
     @AppStorage("favSbdFolderName", store: UserDefaults.appGroup) private var favSbdFolderName: String = default_fav_widget_folder_name
     @Query private var allFolders: [Folder]
     @Query(sort: \ShabadHistory.dateViewed, order: .reverse) var histories: [ShabadHistory]
+
+    @AppStorage("settings.larivaarOn") private var larivaarOn: Bool = true
+    @AppStorage("fontType") private var fontType: String = "Unicode"
 
     @State private var randSbdLst: [RandSbdForWidget] = []
     @State private var widgetShabads: [SavedShabad] = []
@@ -30,8 +32,9 @@ struct SettingsView: View {
                         infoButton(.compactRow)
                     }
                     HStack {
-                        Toggle("Swipe to go to next shabad", isOn: $swipeToGoToNextShabadSetting)
+                        Toggle("Larivaar", isOn: $larivaarOn)
                     }
+                    FontPicker()
                     Button("Delete all history", role: .destructive) {
                         showDeleteHistoryAlert = true
                     }
@@ -71,7 +74,7 @@ struct SettingsView: View {
                         ForEach(randSbdLst, id: \.index) { item in
                             NavigationLink(destination: ShabadViewDisplayWrapper(sbdRes: item.sbd, indexOfLine: 0)) {
                                 HStack {
-                                    Text(item.sbd.shabad[0].line.gurmukhi.unicode)
+                                    Text(item.sbd.verses[0].verse.unicode)
                                         .lineLimit(1)
                                     Spacer()
                                     Text(item.date, style: .time)
@@ -118,7 +121,7 @@ struct SettingsView: View {
                                 svdSbd.indexOfSelectedLine = newIndex
                             })) {
                                 HStack {
-                                    Text(svdSbd.sbdRes.shabad[svdSbd.indexOfSelectedLine].line.gurmukhi.unicode)
+                                    Text(svdSbd.sbdRes.verses[svdSbd.indexOfSelectedLine].verse.unicode)
                                         .lineLimit(1)
                                     Spacer()
                                 }

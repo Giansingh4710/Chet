@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import SwiftUICore // for Font
+import UIKit
 
 func fetchRandomShabad() async -> ShabadAPIResponse? {
-    let urlString = "https://data.gurbaninow.com/v2/shabad/random"
+    let urlString = "https://api.banidb.com/v2/random"
     guard let url = URL(string: urlString) else {
-        print("Invalid URL")
         return nil
     }
 
@@ -31,7 +32,6 @@ func fetchRandomShabad() async -> ShabadAPIResponse? {
             guard let finalHttpResponse = redirectResponse as? HTTPURLResponse,
                   (200 ... 299).contains(finalHttpResponse.statusCode)
             else {
-                print("Bad final response")
                 return nil
             }
             return try JSONDecoder().decode(ShabadAPIResponse.self, from: redirectData)
@@ -40,58 +40,53 @@ func fetchRandomShabad() async -> ShabadAPIResponse? {
             return try JSONDecoder().decode(ShabadAPIResponse.self, from: data)
         }
     } catch {
-        print("Error fetching random shabad: \(error.localizedDescription)")
         return nil
     }
 }
 
-func fetchHukam() async -> ShabadAPIResponse? {
-    let urlString = "https://data.gurbaninow.com/v2/hukamnama/today"
+func fetchHukam(for date: Date = Date()) async throws -> HukamnamaAPIResponse {
+    let calendar = Calendar.current
+    let components = calendar.dateComponents([.year, .month, .day], from: date)
+    guard let year = components.year,
+          let month = components.month,
+          let day = components.day
+    else {
+        throw URLError(.badURL)
+    }
+
+    let urlString = "https://api.banidb.com/v2/hukamnamas/\(year)/\(month)/\(day)"
     guard let url = URL(string: urlString) else {
-        print("Invalid URL")
-        return nil
+        throw URLError(.badURL)
+    }
+    let (data, response) = try await URLSession.shared.data(from: url)
+    guard let httpResponse = response as? HTTPURLResponse,
+          (200 ... 299).contains(httpResponse.statusCode)
+    else {
+        throw URLError(.badServerResponse)
+    }
+    return try JSONDecoder().decode(HukamnamaAPIResponse.self, from: data)
+}
+
+func getSbdObjFromHukamObj(hukamObj: HukamnamaAPIResponse) -> ShabadAPIResponse {
+    guard !hukamObj.shabads.isEmpty else {
+        return hukamObj.shabads[0]
     }
 
-    do {
-        let (data, response) = try await URLSession.shared.data(from: url)
-        guard let httpResponse = response as? HTTPURLResponse,
-              (200 ... 299).contains(httpResponse.statusCode)
-        else {
-            throw URLError(.badServerResponse)
+    var combined = hukamObj.shabads[0]
+    if hukamObj.shabads.count > 1 {
+        var allVerses: [Verse] = []
+        for shabad in hukamObj.shabads {
+            allVerses.append(contentsOf: shabad.verses)
         }
-        let decoded = try JSONDecoder().decode(HukamnamaAPIResponse.self, from: data)
-        let shabadResponse = ShabadAPIResponse(
-            shabadinfo: ShabadInfo(
-                shabadid: decoded.hukamnamainfo.shabadid[0],
-                pageno: decoded.hukamnamainfo.pageno,
-                source: decoded.hukamnamainfo.source,
-                writer: decoded.hukamnamainfo.writer,
-                raag: decoded.hukamnamainfo.raag,
-                navigation: .init(
-                    previous: nil,
-                    next: nil
-                ),
-                count: decoded.hukamnamainfo.count
-            ),
-            shabad: decoded.hukamnama, // same structure if compatible
-            error: false
+        combined = ShabadAPIResponse(
+            shabadInfo: combined.shabadInfo,
+            count: allVerses.count,
+            navigation: combined.navigation,
+            verses: allVerses
         )
-
-        return shabadResponse
-    } catch let DecodingError.keyNotFound(key, context) {
-        print("❌ Missing key:", key.stringValue, "in", context.codingPath)
-    } catch let DecodingError.typeMismatch(type, context) {
-        print("❌ Type mismatch for type:", type, "in", context.codingPath)
-        print("Context debugDescription:", context.debugDescription)
-    } catch let DecodingError.valueNotFound(value, context) {
-        print("❌ Missing value:", value, "in", context.codingPath)
-    } catch let DecodingError.dataCorrupted(context) {
-        print("❌ Data corrupted:", context.debugDescription)
-    } catch {
-        print("❌ Other error:", error)
-        print("Error fetching random shabad: \(error.localizedDescription)")
     }
-    return nil
+
+    return combined
 }
 
 func searchGurbani(from searchText: String) async throws -> GurbaniSearchAPIResponse {
@@ -100,7 +95,8 @@ func searchGurbani(from searchText: String) async throws -> GurbaniSearchAPIResp
         throw URLError(.badURL) // or define your own EmptySearchError
     }
 
-    let urlString = "https://data.gurbaninow.com/v2/search/\(trimmed.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? trimmed)"
+    let query = trimmed.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? trimmed
+    let urlString = "https://api.banidb.com/v2/search/\(query)?searchtype=0"
 
     guard let url = URL(string: urlString) else {
         throw URLError(.badURL)
@@ -116,8 +112,8 @@ func searchGurbani(from searchText: String) async throws -> GurbaniSearchAPIResp
     return try JSONDecoder().decode(GurbaniSearchAPIResponse.self, from: data)
 }
 
-func fetchShabadResponse(from shabadId: String) async throws -> ShabadAPIResponse {
-    let urlString = "https://data.gurbaninow.com/v2/shabad/\(shabadId)"
+func fetchShabadResponse(from shabadId: Int) async throws -> ShabadAPIResponse {
+    let urlString = "https://api.banidb.com/v2/shabads/\(shabadId)"
     guard let url = URL(string: urlString) else {
         throw URLError(.badURL)
     }
@@ -162,26 +158,25 @@ func getFirstLetters(from text: String) -> String {
 }
 
 func getWidgetHeadingFromSbdInfo(_ info: ShabadInfo) -> String {
-    var metaData = "("
-    switch info.writer.id {
+    var metaData = ""
+    switch info.writer.writerId {
     case 1:
-        metaData += "ਪ:੧"
+        metaData = "(ਪ:੧)"
     case 2:
-        metaData += "ਪ:੨"
+        metaData = "(ਪ:੨)"
     case 3:
-        metaData += "ਪ:੩"
+        metaData = "(ਪ:੩)"
     case 4:
-        metaData += "ਪ:੪"
+        metaData = "(ਪ:੪)"
     case 5:
-        metaData += "ਪ:੫"
+        metaData = "(ਪ:੫)"
     case 6:
-        metaData += "ਪ:੯"
+        metaData = "(ਪ:੯)"
     case 7:
-        metaData += "ਪ:੧੦"
+        metaData = "(ਪ:੧੦)"
     default:
-        metaData += info.writer.unicode
+        metaData = "(" + info.writer.english + ")"
     }
-    metaData += ")"
     return metaData
 }
 
@@ -199,4 +194,35 @@ func getRandShabads(interval: Int) async -> [RandSbdForWidget] {
         }
     }
     return newList
+}
+
+func loadJSON<T: Decodable>(from fileName: String, as _: T.Type = T.self) -> T? {
+    guard let url = Bundle.main.url(forResource: fileName, withExtension: "json") else {
+        return nil
+    }
+
+    do {
+        let data = try Data(contentsOf: url)
+        let decoded = try JSONDecoder().decode(T.self, from: data)
+        return decoded
+    } catch {
+        return nil
+    }
+}
+
+func resolveFont(size: Double, fontType: String) -> Font {
+    if fontType == "Unicode" {
+        return .system(size: size)
+    } else {
+        return .custom(fontType, size: size) // ⚠️ Important: the tag must match the *PostScript name* of the font, not necessarily the filename (use Font Book to check)
+    }
+}
+
+func resolveFont(size: CGFloat, fontType: String) -> UIFont {
+    // Swift will automatically pick the right one based on context — Font when used in SwiftUI, UIFont when used in UIKit.
+    if fontType == "Unicode" {
+        return .systemFont(ofSize: size)
+    } else {
+        return UIFont(name: fontType, size: size) ?? .systemFont(ofSize: size)
+    }
 }

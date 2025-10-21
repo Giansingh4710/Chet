@@ -4,11 +4,19 @@ import WidgetKit
 
 struct ShabadViewDisplayWrapper: View {
     let sbdRes: ShabadAPIResponse
-    var indexOfLine: Int
+    @State var indexOfLine: Int
     var onIndexChange: ((Int) -> Void)? = nil // optional callback
 
-    @State private var localIndexOfLine = 0
     @State var sbdRes2: ShabadAPIResponse?
+    @State var onBaseSbd = true // if on the shabad that was loaded at first
+    private let baseIndexOfLine: Int
+
+    init(sbdRes: ShabadAPIResponse, indexOfLine: Int, onIndexChange: ((Int) -> Void)? = nil) {
+        self.sbdRes = sbdRes
+        self.indexOfLine = indexOfLine
+        self.onIndexChange = onIndexChange
+        baseIndexOfLine = indexOfLine
+    }
 
     // @Environment(\.dismiss) private var dismiss
     @Environment(\.colorScheme) private var colorScheme
@@ -22,38 +30,26 @@ struct ShabadViewDisplayWrapper: View {
         } else if let errorMessage = errorMessage {
             Text(errorMessage).foregroundColor(.red)
         } else if let sbdRes2 = sbdRes2 {
-            ShabadViewDisplay(sbdRes: sbdRes2, fetchNewShabad: fetchNewShabad, indexOfLine: localIndexOfLine, onIndexChange: localIndexOfLine == -1 ? nil : onIndexChange)
+            ShabadViewDisplay(sbdRes: sbdRes2, fetchNewShabad: fetchNewShabad, indexOfLine: indexOfLine, onIndexChange: onBaseSbd ? onIndexChange : nil)
         } else {
-            ShabadViewDisplay(sbdRes: sbdRes, fetchNewShabad: fetchNewShabad, indexOfLine: localIndexOfLine, onIndexChange: localIndexOfLine == -1 ? nil : onIndexChange)
-                .onAppear {
-                    localIndexOfLine = indexOfLine
-                }
+            ShabadViewDisplay(sbdRes: sbdRes, fetchNewShabad: fetchNewShabad, indexOfLine: indexOfLine, onIndexChange: onBaseSbd ? onIndexChange : nil)
         }
     }
 
-    private func fetchNewShabad(_ sbdID: String) async {
-        isLoadingShabad = true
-        // onIndexChange = nil
-        localIndexOfLine = -1
-        let urlString = "https://data.gurbaninow.com/v2/shabad/\(sbdID)"
-        guard let url = URL(string: urlString) else {
-            await MainActor.run {
-                errorMessage = "Invalid shabad URL"
-                isLoadingShabad = false
-            }
-            return
-        }
+    private func fetchNewShabad(_ sbdID: Int) async {
         do {
-            let (data, response) = try await URLSession.shared.data(from: url)
-            guard let httpResponse = response as? HTTPURLResponse,
-                  (200 ... 299).contains(httpResponse.statusCode)
-            else {
-                throw URLError(.badServerResponse)
-            }
-            let decoded = try JSONDecoder().decode(ShabadAPIResponse.self, from: data)
+            isLoadingShabad = true
+            let decoded = try await fetchShabadResponse(from: sbdID)
             await MainActor.run {
                 isLoadingShabad = false
                 sbdRes2 = decoded
+                if sbdRes.shabadInfo.shabadId == decoded.shabadInfo.shabadId {
+                    onBaseSbd = true
+                    indexOfLine = baseIndexOfLine
+                } else {
+                    onBaseSbd = false
+                    indexOfLine = -1
+                }
             }
         } catch {
             await MainActor.run {
@@ -66,28 +62,30 @@ struct ShabadViewDisplayWrapper: View {
 
 struct ShabadViewDisplay: View {
     let sbdRes: ShabadAPIResponse
-    let fetchNewShabad: (String) async -> Void
+    let fetchNewShabad: (Int) async -> Void
     // var indexOfLine: Int
     @State var indexOfLine: Int
     var onIndexChange: ((Int) -> Void)? = nil // optional callback
 
-    @AppStorage("shabadTextScale") private var textScale: Double = 1.0
-    @AppStorage("translationShabadTextScale") private var translationTextScale: Double = 1.0
-    @AppStorage("punjabiTranslationTextScale") private var punjabiTranslationTextScale: Double = 1.0
-    @AppStorage("showTranslations") private var showTranslations: Bool = true
-    @AppStorage("showPunjabiTranslations") private var showPunjabiTranslations: Bool = false
-    @AppStorage("larivaar") private var larivaarOn: Bool = true
-    @AppStorage("fontType") private var fontType: String = "Unicode"
-    @AppStorage("swipeToGoToNextShabadSetting") private var swipeToGoToNextShabadSetting = false
+    @AppStorage("settings.textScale") private var textScale: Double = 1.0
+    @AppStorage("settings.englishTranslationTextScale") private var enTransTextScale: Double = 1.0 // English / common
+    @AppStorage("settings.punjabiTranslationTextScale") private var punjabiTranslationTextScale: Double = 1.0
+    @AppStorage("settings.hindiTranslationTextScale") private var hindiTranslationTextScale: Double = 1.0
+    @AppStorage("settings.spanishTranslationTextScale") private var spanishTranslationTextScale: Double = 1.0
+    @AppStorage("settings.transliterationTextScale") private var transliterationTextScale: Double = 1.0
+
+    @AppStorage("swipeToGoToNextShabadSetting") private var swipeToGoToNextShabadSetting = true
 
     @State private var gestureScale: CGFloat = 1.0
     @State private var showingSettings = false
     @State private var showingSaved = false
     @State private var showCopySheet = false
-    @State private var preselectedLine: String = ""
+    @State private var preselectedLineID: Int = 0 // id of line
 
     @State private var showLinePicker = false
     @State private var selectedLineIndex = 0
+
+    @State private var hasAppeared = false
 
     var body: some View {
         ZStack {
@@ -99,26 +97,16 @@ struct ShabadViewDisplay: View {
                             HStack(spacing: 32) {
                                 VStack(alignment: .leading, spacing: 6) {
                                     HStack(spacing: 6) {
-                                        Image(systemName: "book.closed")
-                                        Text("Ang \(String(sbdRes.shabadinfo.pageno))")
-                                            .font(.caption).fontWeight(.semibold)
-                                    }
-                                    HStack(spacing: 6) {
                                         Image(systemName: "text.quote")
-                                        Text("\(sbdRes.shabad.count) lines")
+                                        Text("\(sbdRes.verses.count) lines")
                                             .font(.caption).fontWeight(.semibold)
                                     }
                                 }
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 VStack(alignment: .leading, spacing: 6) {
                                     HStack(spacing: 6) {
-                                        Image(systemName: "pencil")
-                                        Text(sbdRes.shabadinfo.writer.english)
-                                            .font(.caption).fontWeight(.semibold)
-                                    }
-                                    HStack(spacing: 6) {
-                                        Image(systemName: "music.note")
-                                        Text(sbdRes.shabadinfo.raag.english)
+                                        Image(systemName: "book.closed")
+                                        Text("Ang \(String(sbdRes.shabadInfo.pageNo))")
                                             .font(.caption).fontWeight(.semibold)
                                     }
                                 }
@@ -132,48 +120,33 @@ struct ShabadViewDisplay: View {
                             )
                             .padding(.horizontal)
                         } preview: {
-                            ShabadMetaInfoSheet(info: sbdRes.shabadinfo)
+                            ShabadMetaInfoSheet(info: sbdRes.shabadInfo)
                         }
 
                         // --- Gurbani Lines ---
-                        ForEach(Array(sbdRes.shabad.enumerated()), id: \.1.line.id) { index, shabadLineWrapper in
+                        // ForEach(Array(sbdRes.verses.enumerated()), id: \.1.verseId) { index, verse in
+
+                        ForEach(Array(sbdRes.verses.enumerated()), id: \.offset) { index, verse in
                             VStack(alignment: .leading, spacing: 0) {
                                 GurbaniLineView(
-                                    shabadLine: shabadLineWrapper.line,
-                                    larivaarOn: $larivaarOn,
-                                    textScale: textScale,
+                                    verse: verse,
                                     gestureScale: gestureScale,
                                     isSearchedLine: indexOfLine == index
                                 )
                                 .padding(.horizontal)
                                 .id(index)
                                 .onLongPressGesture {
-                                    preselectedLine = shabadLineWrapper.line.id // 👈 track the preselected line IDs
+                                    preselectedLineID = verse.verseId // 👈 track the preselected line IDs
                                     showCopySheet = true
-                                }
-
-                                if showTranslations {
-                                    Text(shabadLineWrapper.line.translation.english.default)
-                                        .font(.system(size: 20 * translationTextScale * gestureScale))
-                                        .foregroundColor(.secondary)
-                                        .lineSpacing(2)
-                                        .padding(.horizontal)
-                                        .padding(.top, 2) // small top space just for translation
-                                }
-
-                                if showPunjabiTranslations {
-                                    Text(shabadLineWrapper.line.translation.punjabi.default.unicode)
-                                        .font(.system(size: 20 * punjabiTranslationTextScale * gestureScale))
-                                        .foregroundColor(.secondary)
-                                        .lineSpacing(2)
-                                        .padding(.horizontal)
-                                        .padding(.top, 2) // small top space just for translation
                                 }
                             }
                             // Use smaller or no vertical padding
                             .padding(.vertical, 2)
                         }
                         .onAppear {
+                            guard !hasAppeared else { return }
+                            hasAppeared = true
+
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                                 withAnimation {
                                     proxy.scrollTo(indexOfLine, anchor: .center)
@@ -189,7 +162,7 @@ struct ShabadViewDisplay: View {
                 Spacer()
                 HStack {
                     // Prev Button
-                    if let prevID = sbdRes.shabadinfo.navigation.previous?.id {
+                    if let prevID = sbdRes.navigation.previous {
                         Button {
                             Task { await fetchNewShabad(prevID) }
                         } label: {
@@ -222,7 +195,7 @@ struct ShabadViewDisplay: View {
                     Spacer()
 
                     // Next Button
-                    if let nextID = sbdRes.shabadinfo.navigation.next?.id {
+                    if let nextID = sbdRes.navigation.next {
                         Button {
                             Task { await fetchNewShabad(nextID) }
                         } label: {
@@ -239,7 +212,7 @@ struct ShabadViewDisplay: View {
                 .padding(.horizontal)
                 .padding(.bottom, 20) // 👈 controls the "hover" distance
             }
-            .id(sbdRes.shabadinfo.shabadid) // ← Key part
+            .id(sbdRes.shabadInfo.shabadId) // ← Key part
         }
         .gesture(
             DragGesture()
@@ -249,25 +222,28 @@ struct ShabadViewDisplay: View {
                     }
                     let horizontalAmount = value.translation.width
 
-                    if horizontalAmount < -50, let nextID = sbdRes.shabadinfo.navigation.next?.id {
+                    if horizontalAmount < -50, let nextID = sbdRes.navigation.next {
                         Task { await fetchNewShabad(nextID) }
-                    } else if horizontalAmount > 50, let prevID = sbdRes.shabadinfo.navigation.previous?.id {
+                    } else if horizontalAmount > 50, let prevID = sbdRes.navigation.previous {
                         Task { await fetchNewShabad(prevID) }
                     }
                 }
         )
-        .animation(.easeInOut, value: sbdRes.shabadinfo.shabadid)
+        .animation(.easeInOut, value: sbdRes.shabadInfo.shabadId)
         .gesture(
             MagnificationGesture()
                 .onChanged { gestureScale = $0 }
                 .onEnded {
                     textScale *= $0
-                    translationTextScale *= $0
+                    enTransTextScale *= $0
                     punjabiTranslationTextScale *= $0
+                    hindiTranslationTextScale *= $0
+                    spanishTranslationTextScale *= $0
+                    transliterationTextScale *= $0
                     gestureScale = 1.0
                 }
         )
-        .navigationBarTitle("Shabad \(sbdRes.shabadinfo.shabadid)", displayMode: .inline)
+        .navigationBarTitle("\(sbdRes.shabadInfo.writer.english)", displayMode: .inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
@@ -287,7 +263,7 @@ struct ShabadViewDisplay: View {
         }
         .sheet(isPresented: $showLinePicker) {
             LinePickerSheet(
-                shabad: sbdRes.shabad,
+                verses: sbdRes.verses,
                 selectedIndex: $selectedLineIndex,
                 onConfirm: {
                     indexOfLine = selectedLineIndex
@@ -299,27 +275,18 @@ struct ShabadViewDisplay: View {
 
         .sheet(isPresented: $showCopySheet) {
             CopySheetView(
-                shabad: sbdRes.shabad,
-                showTranslations: showTranslations,
-                larivaarOn: larivaarOn,
-                preselectedLine: $preselectedLine // 👈 pass selected IDs
+                verses: sbdRes.verses,
+                preselectedLine: $preselectedLineID // 👈 pass selected IDs
             )
+            .presentationDetents([.medium])
         }
         .sheet(isPresented: $showingSettings) {
-            SettingsSheet(
-                textScale: $textScale,
-                translationTextScale: $translationTextScale,
-                punjabiTranslationTextScale: $punjabiTranslationTextScale,
-                showTranslations: $showTranslations,
-                showPunjabiTranslations: $showPunjabiTranslations,
-                larivaarOn: $larivaarOn,
-                fontType: $fontType
-            )
-            .presentationDetents([.medium, .large])
+            SettingsSheet()
+                .presentationDetents([.medium])
         }
         .sheet(isPresented: $showingSaved) {
             SaveToFolderSheet(sbdRes: sbdRes, indexOfLine: indexOfLine)
-                .presentationDetents([.medium, .large])
+                .presentationDetents([.medium])
         }
         .onAppear {
             UIApplication.shared.isIdleTimerDisabled = true // Don’t let the iPhone/iPad go to sleep while this app is active
@@ -328,53 +295,85 @@ struct ShabadViewDisplay: View {
     }
 }
 
-// --- Settings Sheet ---
 struct SettingsSheet: View {
-    @Binding var textScale: Double
-    @Binding var translationTextScale: Double
-    @Binding var punjabiTranslationTextScale: Double
-    @Binding var showTranslations: Bool
-    @Binding var showPunjabiTranslations: Bool
-    @Binding var larivaarOn: Bool
-    @Binding var fontType: String
+    @AppStorage("settings.larivaarOn") private var larivaarOn: Bool = false
+    @AppStorage("settings.textScale") private var textScale: Double = 1.0
+    @AppStorage("swipeToGoToNextShabadSetting") private var swipeToGoToNextShabadSetting = true
+
+    // Selected source for each language
+    @AppStorage("settings.visraamSource") private var selectedVisraamSource: String = "igurbani"
+    @AppStorage("settings.englishSource") private var selectedEnglishSource: String = "bdb"
+    @AppStorage("settings.punjabiSource") private var selectedPunjabiSource: String = "none"
+    @AppStorage("settings.hindiSource") private var selectedHindiSource: String = "none"
+    @AppStorage("settings.spanishSource") private var selectedSpanishSource: String = "none"
+
+    @AppStorage("settings.englishTranslationTextScale") private var enTransTextScale: Double = 1.0 // English / common
+    @AppStorage("settings.punjabiTranslationTextScale") private var punjabiTranslationTextScale: Double = 1.0
+    @AppStorage("settings.hindiTranslationTextScale") private var hindiTranslationTextScale: Double = 1.0
+    @AppStorage("settings.spanishTranslationTextScale") private var spanishTranslationTextScale: Double = 1.0
+
+    @AppStorage("settings.transliterationSource") private var selectedTransliterationSource: String = "none"
+    @AppStorage("settings.transliterationTextScale") private var transliterationTextScale: Double = 1.0
+
+    // Available sources (tweak as needed)
+    private let visraamSources = ["none", "sttm", "igurbani", "sttm2"]
+
+    private let englishSources: [(name: String, value: String)] = [
+        ("None", "none"),
+        ("Bani DB", "bdb"),
+        ("Bhai Manmohan Singh", "ms"),
+        ("Sant Singh Khalsa", "ssk"),
+    ]
+
+    private let punjabiSources: [(name: String, value: String)] = [
+        ("None", "none"),
+        ("SGGS Darpan", "ss"),
+        ("Faridkot Teeka", "ft"),
+        ("Bani DB", "bdb"),
+        ("Bhai Manmohan Singh", "ms"),
+    ]
+
+    private let hindiSources: [(name: String, value: String)] = [
+        ("None", "none"),
+        ("SGGS Darpan", "ss"),
+        ("STS", "sts"),
+    ]
+
+    private let spanishSources: [(name: String, value: String)] = [
+        ("None", "none"),
+        ("Spanish", "sn"),
+    ]
+
+    private let transliterationSources: [(name: String, value: String)] = [
+        ("None", "none"),
+        ("English", "en"),
+        ("Hindi", "hi"),
+        ("IPA", "ipa"),
+        ("Urdu", "ur"),
+    ]
 
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("Gurmukhi")) {
+                Section(header: Text("Gurbani")) {
                     Toggle("Larivaar", isOn: $larivaarOn)
-                    Picker("Font", selection: $fontType) {
-                        Text("Unicode").tag("Unicode")
-                        Text("Anmol Lipi SG").tag("AnmolLipiSG")
-                        Text("Anmol Lipi Bold").tag("AnmolLipiBoldTrue")
-                        Text("Gurbani Akhar").tag("GurbaniAkharTrue")
-                        Text("Gurbani Akhar Heavy").tag("GurbaniAkharHeavyTrue")
-                        Text("Gurbani Akhar Thick").tag("GurbaniAkharThickTrue")
-                        Text("Noto Sans Gurmukhi Bold").tag("NotoSansGurmukhiBoldTrue")
-                        Text("Noto Sans Gurmukhi").tag("NotoSansGurmukhiTrue")
-                        Text("Prabhki").tag("PrabhkiTrue")
-                        Text("The Actual Characters").tag("The Actual Characters")
+                    Toggle("Swipe to go to next shabad", isOn: $swipeToGoToNextShabadSetting)
+                    FontPicker()
+                    Picker("Visraam", selection: $selectedVisraamSource) {
+                        ForEach(visraamSources, id: \.self) { Text($0) }
                     }
                     HStack {
-                        Text("Font Size")
+                        Text("Gurbani Font Size")
                         Slider(value: $textScale, in: 0.5 ... 2.5, step: 0.1)
                     }
+                    SettingsOptionPickerSlider(title: "Transliteration", selectedItem: $selectedTransliterationSource, options: transliterationSources, textScale: $transliterationTextScale)
                 }
+
                 Section(header: Text("Translations")) {
-                    Toggle("Show Translations", isOn: $showTranslations)
-                    if showTranslations {
-                        HStack {
-                            Text("Font Size")
-                            Slider(value: $translationTextScale, in: 0.5 ... 2.5, step: 0.1)
-                        }
-                    }
-                    Toggle("Show Punjabi Translations", isOn: $showPunjabiTranslations)
-                    if showPunjabiTranslations {
-                        HStack {
-                            Text("Font Size")
-                            Slider(value: $punjabiTranslationTextScale, in: 0.5 ... 2.5, step: 0.1)
-                        }
-                    }
+                    SettingsOptionPickerSlider(title: "English", selectedItem: $selectedEnglishSource, options: englishSources, textScale: $enTransTextScale)
+                    SettingsOptionPickerSlider(title: "Punjabi", selectedItem: $selectedPunjabiSource, options: punjabiSources, textScale: $punjabiTranslationTextScale)
+                    SettingsOptionPickerSlider(title: "Hindi", selectedItem: $selectedHindiSource, options: hindiSources, textScale: $hindiTranslationTextScale)
+                    SettingsOptionPickerSlider(title: "Spanish", selectedItem: $selectedSpanishSource, options: spanishSources, textScale: $spanishTranslationTextScale)
                 }
             }
             .navigationTitle("Settings")
@@ -383,15 +382,76 @@ struct SettingsSheet: View {
     }
 }
 
+struct SettingsOptionPickerSlider: View {
+    let title: String
+    @Binding var selectedItem: String
+    let options: [(name: String, value: String)]
+    @Binding var textScale: Double
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            HStack {
+                Text(title)
+                    .foregroundColor(.primary)
+                Spacer()
+                Picker(title, selection: $selectedItem) {
+                    ForEach(options, id: \.value) { option in
+                        Text(option.name).tag(option.value)
+                    }
+                }
+                .pickerStyle(.menu)
+                .labelsHidden()
+            }
+
+            if selectedItem != "none" {
+                HStack(spacing: 12) {
+                    Image(systemName: "textformat.size.smaller")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                    Slider(value: $textScale, in: 0.5 ... 2.5, step: 0.1)
+                    Image(systemName: "textformat.size.larger")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
+            }
+        }
+        .padding(.vertical, 4)
+    }
+}
+
+struct FontPicker: View {
+    @AppStorage("fontType") private var fontType: String = "Unicode"
+
+    var body: some View {
+        Picker("Font", selection: $fontType) {
+            Text("Unicode").tag("Unicode")
+            Text("Anmol Lipi SG").tag("AnmolLipiSG")
+            Text("Anmol Lipi Bold").tag("AnmolLipiBoldTrue")
+            Text("Gurbani Akhar").tag("GurbaniAkharTrue")
+            Text("Gurbani Akhar Heavy").tag("GurbaniAkharHeavyTrue")
+            Text("Gurbani Akhar Thick").tag("GurbaniAkharThickTrue")
+            Text("Noto Sans Gurmukhi Bold").tag("NotoSansGurmukhiBoldTrue")
+            Text("Noto Sans Gurmukhi").tag("NotoSansGurmukhiTrue")
+            Text("Prabhki").tag("PrabhkiTrue")
+            Text("The Actual Characters").tag("The Actual Characters")
+        }
+    }
+}
+
 struct CopySheetView: View {
-    let shabad: [ShabadLineWrapper]
-    let showTranslations: Bool
-    let larivaarOn: Bool
-    // let preselectedLine: String
-    @Binding var preselectedLine: String // 👈 binding
+    let verses: [Verse]
+    @Binding var preselectedLine: Int // 👈 binding
+
+    @AppStorage("settings.larivaarOn") private var larivaarOn: Bool = false
+    @AppStorage("settings.englishSource") private var selectedEnglishSource: String = "bdb"
+    @AppStorage("settings.punjabiSource") private var selectedPunjabiSource: String = "none"
+    @AppStorage("settings.hindiSource") private var selectedHindiSource: String = "none"
+    @AppStorage("settings.spanishSource") private var selectedSpanishSource: String = "none"
+    @AppStorage("settings.transliterationSource") private var selectedTransliterationSource: String = "none"
 
     @Environment(\.dismiss) var dismiss
-    @State private var selectedLines: Set<String> = []
+    @Environment(\.colorScheme) var colorScheme
+    @State private var selectedLines: Set<Int> = []
 
     var body: some View {
         NavigationView {
@@ -400,13 +460,13 @@ struct CopySheetView: View {
                     // Select All / Deselect All
                     HStack {
                         Button(action: {
-                            if selectedLines.count == shabad.count {
+                            if selectedLines.count == verses.count {
                                 selectedLines.removeAll()
                             } else {
-                                selectedLines = Set(shabad.map { $0.line.id })
+                                selectedLines = Set(verses.map { $0.verseId })
                             }
                         }) {
-                            Text(selectedLines.count == shabad.count ? "Deselect All" : "Select All")
+                            Text(selectedLines.count == verses.count ? "Deselect All" : "Select All")
                                 .font(.callout)
                                 .padding(8)
                                 .background(Color(.systemGray5))
@@ -419,30 +479,55 @@ struct CopySheetView: View {
 
                     // List of Lines
                     List {
-                        ForEach(shabad, id: \.line.id) { wrapper in
+                        ForEach(verses, id: \.verseId) { verse in
                             VStack(alignment: .leading, spacing: 4) {
                                 HStack {
-                                    Image(systemName: selectedLines.contains(wrapper.line.id) ? "checkmark.circle.fill" : "circle")
-                                        .foregroundColor(selectedLines.contains(wrapper.line.id) ? .blue : .secondary)
-                                    Text(larivaarOn ? wrapper.line.larivaar.unicode : wrapper.line.gurmukhi.unicode)
+                                    Image(systemName: selectedLines.contains(verse.verseId) ? "checkmark.circle.fill" : "circle")
+                                        .foregroundColor(selectedLines.contains(verse.verseId) ? .blue : .secondary)
+                                    Text(larivaarOn ? verse.larivaar.unicode : verse.verse.unicode)
                                         .font(.body)
                                         .fontWeight(.medium)
+
                                     Spacer()
                                 }
-                                if showTranslations {
-                                    Text(wrapper.line.translation.english.default)
-                                        .font(.caption)
-                                        .foregroundColor(.secondary)
-                                        .padding(.leading, 28)
+
+                                if let a = verse.transliteration.value(for: selectedTransliterationSource) {
+                                    Text(a)
+                                        .foregroundColor(colorScheme == .dark ? Color(red: 0.75, green: 0.75, blue: 0.75) : Color(red: 0.5, green: 0.5, blue: 0.5))
+                                        .lineSpacing(2)
+                                        .opacity(0.9)
+                                }
+                                if let a = verse.translation.getTranslation(for: "english", source: selectedEnglishSource) {
+                                    Text(a)
+                                        .foregroundColor(colorScheme == .dark ? Color(red: 0.7, green: 0.85, blue: 1.0) : Color(red: 0.2, green: 0.4, blue: 0.7))
+                                        .lineSpacing(2)
+                                }
+
+                                if let a = verse.translation.getTranslation(for: "punjabi", source: selectedPunjabiSource) {
+                                    Text(a)
+                                        .foregroundColor(colorScheme == .dark ? Color(red: 1.0, green: 0.85, blue: 0.6) : Color(red: 0.65, green: 0.45, blue: 0.2))
+                                        .lineSpacing(2)
+                                }
+
+                                if let a = verse.translation.getTranslation(for: "hindi", source: selectedHindiSource) {
+                                    Text(a)
+                                        .foregroundColor(colorScheme == .dark ? Color(red: 0.9, green: 0.75, blue: 0.85) : Color(red: 0.6, green: 0.3, blue: 0.5))
+                                        .lineSpacing(2)
+                                }
+
+                                if let a = verse.translation.getTranslation(for: "spanish", source: selectedSpanishSource) {
+                                    Text(a)
+                                        .foregroundColor(colorScheme == .dark ? Color(red: 0.85, green: 0.95, blue: 0.75) : Color(red: 0.4, green: 0.6, blue: 0.3))
+                                        .lineSpacing(2)
                                 }
                             }
                             .contentShape(Rectangle())
-                            .id(wrapper.line.id) // 👈 Important for scrollTo
+                            .id(verse.verseId) // 👈 Important for scrollTo
                             .onTapGesture {
-                                if selectedLines.contains(wrapper.line.id) {
-                                    selectedLines.remove(wrapper.line.id)
+                                if selectedLines.contains(verse.verseId) {
+                                    selectedLines.remove(verse.verseId)
                                 } else {
-                                    selectedLines.insert(wrapper.line.id)
+                                    selectedLines.insert(verse.verseId)
                                 }
                             }
                         }
@@ -477,22 +562,43 @@ struct CopySheetView: View {
     }
 
     private func copyToClipboard() {
-        let selected = shabad.filter { selectedLines.contains($0.line.id) }
-        let spacing = showTranslations ? "\n\n" : "\n"
-        let text = selected.map { wrapper in
-            var line = larivaarOn ? wrapper.line.larivaar.unicode : wrapper.line.gurmukhi.unicode
-            if showTranslations {
-                line += "\n\(wrapper.line.translation.english.default)"
+        let selected = verses.filter { selectedLines.contains($0.verseId) }
+        var onlyGurmukhi = true
+        let text = selected.map { verse in
+            var line = larivaarOn ? verse.larivaar.unicode : verse.verse.unicode
+            if let a = verse.transliteration.value(for: selectedTransliterationSource) {
+                line += "\n" + a
+                onlyGurmukhi = false
             }
+            if let a = verse.translation.getTranslation(for: "english", source: selectedEnglishSource) {
+                line += "\n" + a
+                onlyGurmukhi = false
+            }
+
+            if let a = verse.translation.getTranslation(for: "punjabi", source: selectedPunjabiSource) {
+                line += "\n" + a
+                onlyGurmukhi = false
+            }
+
+            if let a = verse.translation.getTranslation(for: "hindi", source: selectedHindiSource) {
+                line += "\n" + a
+                onlyGurmukhi = false
+            }
+
+            if let a = verse.translation.getTranslation(for: "spanish", source: selectedSpanishSource) {
+                line += "\n" + a
+                onlyGurmukhi = false
+            }
+
             return line
-        }.joined(separator: spacing)
+        }.joined(separator: onlyGurmukhi ? "\n" : "\n\n")
 
         UIPasteboard.general.string = text
     }
 }
 
 struct LinePickerSheet: View {
-    let shabad: [ShabadLineWrapper] // the actual list of lines
+    let verses: [Verse] // the actual list of lines
     @Binding var selectedIndex: Int
     var onConfirm: () -> Void
 
@@ -502,8 +608,8 @@ struct LinePickerSheet: View {
         NavigationView {
             VStack {
                 Picker("Select Line", selection: $selectedIndex) {
-                    ForEach(Array(shabad.enumerated()), id: \.1.line.id) { index, lineWrapper in
-                        Text(lineWrapper.line.gurmukhi.unicode)
+                    ForEach(Array(verses.enumerated()), id: \.1.verseId) { index, verse in
+                        Text(verse.verse.unicode)
                             .font(.system(size: 18))
                             .lineLimit(2)
                             .tag(index)
@@ -535,65 +641,144 @@ struct LinePickerSheet: View {
 struct ShabadMetaInfoSheet: View {
     let info: ShabadInfo
 
-    let columns = [
-        GridItem(.flexible(), alignment: .leading),
-        GridItem(.flexible(), alignment: .leading),
-    ]
+    // Small compact typography
+    private let labelFont = Font.caption2.weight(.semibold)
+    private let valueFont = Font.caption2
 
     var body: some View {
         NavigationView {
             ScrollView {
-                LazyVGrid(columns: columns, spacing: 16) {
-                    Group {
-                        Text("Shabad ID:").fontWeight(.semibold)
-                        Text("\(info.shabadid)")
+                VStack(spacing: 8) {
+                    // Title
+                    Text("Shabad Info — Full Metadata")
+                        .font(.subheadline).bold()
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.bottom, 2)
 
-                        Text("Ang:").fontWeight(.semibold)
-                        Text("\(info.pageno)")
+                    // Render rows where each row contains up to two pairs
+                    ForEach(chunkedPairs, id: \.0) { _, pairTuple in
+                        HStack(alignment: .top, spacing: 12) {
+                            // First pair (always exists)
+                            PairView(label: pairTuple.0.label, value: pairTuple.0.value,
+                                     labelFont: labelFont, valueFont: valueFont)
 
-                        Text("Lines:").fontWeight(.semibold)
-                        Text("\(info.count)")
-
-                        Text("Source:").fontWeight(.semibold)
-                        Text(info.source.english)
-
-                        Text("Writer (Eng):").fontWeight(.semibold)
-                        Text(info.writer.english)
-
-                        Text("Writer (Gurmukhi):").fontWeight(.semibold)
-                        Text(info.writer.unicode)
-
-                        Text("Raag:").fontWeight(.semibold)
-                        Text(info.raag.unicode)
-
-                        Text("Raag with Ang:").fontWeight(.semibold)
-                        Text(info.raag.raagwithpage)
-
-                        if let prev = info.navigation.previous?.id {
-                            Text("Previous ID:").fontWeight(.semibold)
-                            Text("\(prev)")
+                            // Second pair (may be the sentinel empty pair if odd count)
+                            if let second = pairTuple.1 {
+                                PairView(label: second.label, value: second.value,
+                                         labelFont: labelFont, valueFont: valueFont)
+                            } else {
+                                Spacer(minLength: 0)
+                            }
                         }
-
-                        if let next = info.navigation.next?.id {
-                            Text("Next ID:").fontWeight(.semibold)
-                            Text("\(next)")
-                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     }
                 }
-                .padding()
+                .padding(.horizontal, 10)
+                .padding(.vertical, 8)
             }
             .navigationTitle("Shabad Info")
             .navigationBarTitleDisplayMode(.inline)
         }
     }
+
+    // MARK: - Pair rendering
+
+    private struct PairView: View {
+        let label: String
+        let value: String
+        let labelFont: Font
+        let valueFont: Font
+
+        var body: some View {
+            VStack(alignment: .leading, spacing: 2) {
+                Text(label + ":")
+                    .font(labelFont)
+                    .foregroundColor(.secondary)
+                    .lineLimit(1)
+                    .truncationMode(.tail)
+
+                Text(value)
+                    .font(valueFont)
+                    .foregroundColor(value == "None" ? .gray : .primary)
+                    .lineLimit(3)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+            // let each pair take up roughly half the width
+            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+        }
+    }
+
+    // MARK: - Flattened fields (all shown; nil/empty -> "None")
+
+    private var allPairs: [(label: String, value: String)] {
+        let items: [(String, String?)] = [
+            // Shabad
+            ("shabadId", "\(info.shabadId)"),
+            ("shabadName", "\(info.shabadName)"),
+            ("pageNo", "\(info.pageNo)"),
+
+            // Source
+            ("source.sourceId", info.source.sourceId),
+            ("source.gurmukhi", info.source.gurmukhi),
+            ("source.unicode", info.source.unicode),
+            ("source.english", info.source.english),
+            ("source.pageNo", "\(info.source.pageNo)"),
+
+            // Raag
+            ("raag.raagId", "\(info.raag.raagId)"),
+            ("raag.gurmukhi", info.raag.gurmukhi),
+            ("raag.unicode", info.raag.unicode),
+            ("raag.english", info.raag.english),
+            ("raag.raagWithPage", info.raag.raagWithPage),
+
+            // Writer
+            ("writer.writerId", "\(info.writer.writerId)"),
+            ("writer.gurmukhi", info.writer.gurmukhi),
+            ("writer.unicode", info.writer.unicode),
+            ("writer.english", info.writer.english),
+        ]
+
+        return items.map { label, raw in
+            let trimmed = raw?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+            return (label: label, value: trimmed.isEmpty ? "None" : trimmed)
+        }
+    }
+
+    // MARK: - Chunk into rows of two pairs each
+
+    // Returns array of (index, (firstPair, optionalSecondPair))
+    private var chunkedPairs: [(Int, ((label: String, value: String), (label: String, value: String)?))] {
+        var result: [(Int, ((label: String, value: String), (label: String, value: String)?))] = []
+        let pairs = allPairs
+        var i = 0
+        while i < pairs.count {
+            let first = pairs[i]
+            let second: (label: String, value: String)? = (i + 1 < pairs.count) ? pairs[i + 1] : nil
+            result.append((i / 2, (first, second)))
+            i += 2
+        }
+        return result
+    }
 }
 
 struct GurbaniLineView: View {
-    let shabadLine: LineOfShabad
-    @Binding var larivaarOn: Bool
-    let textScale: Double
+    let verse: Verse
     let gestureScale: Double
     let isSearchedLine: Bool
+
+    @AppStorage("settings.larivaarOn") private var larivaarOn: Bool = false
+    @AppStorage("settings.textScale") private var textScale: Double = 1.0
+    @AppStorage("settings.visraamSource") private var selectedVisraamSource: String = "igurbani"
+    @AppStorage("settings.englishSource") private var selectedEnglishSource: String = "bdb"
+    @AppStorage("settings.punjabiSource") private var selectedPunjabiSource: String = "none"
+    @AppStorage("settings.hindiSource") private var selectedHindiSource: String = "none"
+    @AppStorage("settings.spanishSource") private var selectedSpanishSource: String = "none"
+    @AppStorage("settings.englishTranslationTextScale") private var enTransTextScale: Double = 1.0 // English / common
+    @AppStorage("settings.punjabiTranslationTextScale") private var punjabiTranslationTextScale: Double = 1.0
+    @AppStorage("settings.hindiTranslationTextScale") private var hindiTranslationTextScale: Double = 1.0
+    @AppStorage("settings.spanishTranslationTextScale") private var spanishTranslationTextScale: Double = 1.0
+    @AppStorage("settings.transliterationSource") private var selectedTransliterationSource: String = "none"
+    @AppStorage("settings.transliterationTextScale") private var transliterationTextScale: Double = 1.0
 
     @AppStorage("fontType") private var fontType: String = "Unicode"
     @State private var lineLarivaar = false
@@ -601,56 +786,129 @@ struct GurbaniLineView: View {
     @Environment(\.colorScheme) var colorScheme
 
     var body: some View {
-        Text(getGurbaniLine(shabadLine))
-            .font(resolveFont())
-            .fontWeight(.medium)
-            .multilineTextAlignment(.leading)
-            .contentShape(Rectangle())
-            .onTapGesture {
-                lineLarivaar.toggle()
-            }
-            .onAppear {
-                lineLarivaar = larivaarOn
-            }
-            .onChange(of: larivaarOn) {
-                lineLarivaar = larivaarOn
-            }
-            .background(
-                // only show if line is searched
-                Group {
-                    if isSearchedLine {
-                        RoundedRectangle(cornerRadius: 6)
-                            .fill(
-                                (colorScheme == .dark ? Color.white : Color.black)
-                                    .opacity(0.15)
-                            )
-                            .overlay( // optional subtle border/glow
-                                RoundedRectangle(cornerRadius: 6)
-                                    .stroke(Color.blue.opacity(0.4), lineWidth: 0.7)
-                            )
-                    }
+        VStack(alignment: .leading, spacing: 4) {
+            getGurbaniLine(verse)
+                .font(resolveFont(size: 20 * textScale * gestureScale, fontType: fontType))
+                .fontWeight(.medium)
+                .multilineTextAlignment(.leading)
+                .contentShape(Rectangle())
+                .onTapGesture {
+                    lineLarivaar.toggle()
                 }
-            )
-        // .shadow(color: isSearchedLine ? .blue.opacity(0.9) : .clear, radius: isSearchedLine ? 6 : 0) // glow highlight
+                .onAppear {
+                    lineLarivaar = larivaarOn
+                }
+                .onChange(of: larivaarOn) {
+                    lineLarivaar = larivaarOn
+                }
+                .background(
+                    Group {
+                        if isSearchedLine {
+                            RoundedRectangle(cornerRadius: 6)
+                                .fill(
+                                    (colorScheme == .dark ? Color.white : Color.black)
+                                        .opacity(0.15)
+                                )
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 6)
+                                        .stroke(Color.blue.opacity(0.4), lineWidth: 0.7)
+                                )
+                        }
+                    }
+                )
+
+            if let a = verse.transliteration.value(for: selectedTransliterationSource) {
+                Text(a)
+                    .font(.system(size: 16 * transliterationTextScale * gestureScale, design: .monospaced))
+                    .foregroundColor(colorScheme == .dark ? Color(red: 0.75, green: 0.75, blue: 0.75) : Color(red: 0.5, green: 0.5, blue: 0.5))
+                    .lineSpacing(2)
+                    .opacity(0.9)
+            }
+            if let a = verse.translation.getTranslation(for: "english", source: selectedEnglishSource) {
+                Text(a)
+                    .font(.system(size: 17 * enTransTextScale * gestureScale, design: .rounded))
+                    .foregroundColor(colorScheme == .dark ? Color(red: 0.7, green: 0.85, blue: 1.0) : Color(red: 0.2, green: 0.4, blue: 0.7))
+                    .lineSpacing(2)
+            }
+
+            if let a = verse.translation.getTranslation(for: "punjabi", source: selectedPunjabiSource) {
+                Text(a)
+                    .font(.system(size: 16 * punjabiTranslationTextScale * gestureScale))
+                    .foregroundColor(colorScheme == .dark ? Color(red: 1.0, green: 0.85, blue: 0.6) : Color(red: 0.65, green: 0.45, blue: 0.2))
+                    .lineSpacing(2)
+            }
+
+            if let a = verse.translation.getTranslation(for: "hindi", source: selectedHindiSource) {
+                Text(a)
+                    .font(.system(size: 16 * hindiTranslationTextScale * gestureScale))
+                    .foregroundColor(colorScheme == .dark ? Color(red: 0.9, green: 0.75, blue: 0.85) : Color(red: 0.6, green: 0.3, blue: 0.5))
+                    .lineSpacing(2)
+            }
+
+            if let a = verse.translation.getTranslation(for: "spanish", source: selectedSpanishSource) {
+                Text(a)
+                    .font(.system(size: 16 * spanishTranslationTextScale * gestureScale))
+                    .foregroundColor(colorScheme == .dark ? Color(red: 0.85, green: 0.95, blue: 0.75) : Color(red: 0.4, green: 0.6, blue: 0.3))
+                    .lineSpacing(2)
+            }
+        }
     }
 
-    private func getGurbaniLine(_ shabadLine: LineOfShabad) -> String {
-        if fontType == "Unicode" {
-            return lineLarivaar ? shabadLine.larivaar.unicode : shabadLine.gurmukhi.unicode
+    func getGurbaniLine(_ verse: Verse) -> Text {
+        // let text = lineLarivaar ? verse.larivaar.unicode : verse.verse.unicode
+        let text = fontType == "Unicode" ? verse.verse.unicode : verse.verse.gurmukhi
+        let words = text.components(separatedBy: " ")
+
+        // Get visraam points based on selected source
+        var visraamPoints: [Int: String] = [:] // [position: type]
+        if let visraam = verse.visraam {
+            let selectedVisraamData: [Visraam.VisraamPoint]
+            switch selectedVisraamSource {
+            case "sttm":
+                selectedVisraamData = visraam.sttm
+            case "sttm2":
+                selectedVisraamData = visraam.sttm2
+            case "igurbani":
+                selectedVisraamData = visraam.igurbani
+            default:
+                selectedVisraamData = []
+            }
+
+            for point in selectedVisraamData {
+                visraamPoints[point.p] = point.t
+            }
         }
 
-        let akhar = shabadLine.gurmukhi.akhar
-        return lineLarivaar ? akhar.replacingOccurrences(of: " ", with: "") : akhar
-    }
+        var result = Text("")
+        for (index, word) in words.enumerated() {
+            let wordText: Text
 
-    private func resolveFont() -> Font {
-        let size = 20 * textScale * gestureScale
+            if let visraamType = visraamPoints[index] {
+                let color: Color
+                switch visraamType {
+                case "v": // small pause
+                    color = colorScheme == .dark ? Color(red: 1.0, green: 0.6, blue: 0.4) : Color(red: 0.8, green: 0.3, blue: 0.1)
+                case "y": // big pause
+                    color = colorScheme == .dark ? Color(red: 0.4, green: 0.8, blue: 0.4) : Color(red: 0.2, green: 0.6, blue: 0.2)
+                default:
+                    color = .primary
+                }
+                wordText = Text(word).foregroundColor(color)
+            } else {
+                wordText = Text(word)
+            }
 
-        if fontType == "Unicode" {
-            return .system(size: size)
-        } else {
-            return .custom(fontType, size: size) // ⚠️ Important: the tag must match the *PostScript name* of the font, not necessarily the filename (use Font Book to check)
+            result = result + wordText
+
+            // Add space between words (except for last word)
+            if index < words.count - 1 {
+                if !lineLarivaar {
+                    result = result + Text(" ")
+                }
+            }
         }
+
+        return result
     }
 }
 
@@ -692,7 +950,7 @@ struct SaveToFolderSheet: View {
     }
 
     private func isShabadSaved(in folder: Folder) -> Bool {
-        folder.savedShabads.contains { $0.sbdRes.shabadinfo.shabadid == sbdRes.shabadinfo.shabadid }
+        folder.savedShabads.contains { $0.sbdRes.shabadInfo.shabadId == sbdRes.shabadInfo.shabadId }
     }
 
     private func save(to folder: Folder) {
@@ -710,7 +968,7 @@ struct SaveToFolderSheet: View {
     }
 
     private func remove(from folder: Folder) {
-        if let existing = folder.savedShabads.first(where: { $0.sbdRes.shabadinfo.shabadid == sbdRes.shabadinfo.shabadid }) {
+        if let existing = folder.savedShabads.first(where: { $0.sbdRes.shabadInfo.shabadId == sbdRes.shabadInfo.shabadId }) {
             modelContext.delete(existing)
         }
         try? modelContext.save()
@@ -754,6 +1012,57 @@ struct PreviewContextView<Content: View, Preview: View>: UIViewRepresentable {
             return UIContextMenuConfiguration(identifier: nil,
                                               previewProvider: { self.previewController },
                                               actionProvider: nil)
+        }
+    }
+}
+
+extension Translation {
+    func getTranslation(for language: String, source: String) -> String? {
+        switch language.lowercased() {
+        case "english":
+            switch source {
+            case "bdb": return en.bdb
+            case "ms": return en.ms
+            case "ssk": return en.ssk
+            default: return nil
+            }
+
+        case "punjabi":
+            switch source {
+            case "ss": return pu.ss?.unicode
+            case "ft": return pu.ft?.unicode
+            case "bdb": return pu.bdb?.unicode
+            case "ms": return pu.ms?.unicode
+            default: return nil
+            }
+
+        case "hindi":
+            switch source {
+            case "ss": return hi.ss
+            case "sts": return hi.sts
+            default: return nil
+            }
+
+        case "spanish":
+            switch source {
+            case "sn": return es.sn
+            default: return nil
+            }
+
+        default:
+            return nil
+        }
+    }
+}
+
+extension Transliteration {
+    func value(for source: String) -> String? {
+        switch source {
+        case "en": return english
+        case "hi": return hindi
+        case "ipa": return ipa
+        case "ur": return ur
+        default: return nil
         }
     }
 }

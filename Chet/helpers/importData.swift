@@ -14,6 +14,7 @@ func parseArrayForGKImports(
     onShabadImported: @escaping () async -> Void
 ) async -> Folder {
     let sttmids = loadSttmids()
+    // let sttmids = loadJSON(from: "sttmid_to_id")
     let folder = Folder(name: folderName)
     modelContext.insert(folder)
 
@@ -24,7 +25,6 @@ func parseArrayForGKImports(
         count += 1
         // if count > 20 { break }
         guard let sub = element as? [Any] else {
-            print("Unexpected element:", element)
             continue
         }
 
@@ -34,7 +34,8 @@ func parseArrayForGKImports(
                let text = sub[0] as? String,
                let id = (sub[1] as? Int) ?? Int((sub[1] as? String) ?? "")
             {
-                if let gurbaninowID = sttmids[id] {
+                if let gurbaninowIDString = sttmids[id],
+                    let gurbaninowID = Int(gurbaninowIDString) {
                     if let savedShadab = try await getSavedSbdObj(sbdID: gurbaninowID, savedLine: text, folder: folder) {
                         savedShadab.sortIndex = sortCounter
                         sortCounter -= 1
@@ -49,7 +50,9 @@ func parseArrayForGKImports(
                     let text = sub[0] as? String,
                     let id = (sub[1] as? Int) ?? Int((sub[1] as? String) ?? "")
             {
-                if let gurbaninowID = sttmids[id] {
+                if let gurbaninowIDString = sttmids[id],
+                    let gurbaninowID = Int(gurbaninowIDString) {
+
                     if let savedShadab = try await getSavedSbdObj(sbdID: gurbaninowID, savedLine: text, folder: folder) {
                         modelContext.insert(savedShadab)
                         folder.savedShabads.append(savedShadab)
@@ -114,7 +117,9 @@ func parseArrayForiGurbani(
                 print("UID not found for \(gurmukhi)")
                 continue
             }
-            if let gurbaninowID = igurbani_ids[uid] {
+                
+            if let gurbaninowIDString = igurbani_ids[uid],
+               let gurbaninowID = Int(gurbaninowIDString) {
                 if let savedShadab = try await getSavedSbdObj(sbdID: gurbaninowID, savedLine: gurmukhi, folder: folder) {
                     if let createdDateString = favorite["createdDate"] as? String {
                         if let parsedDate = isoFormatter.date(from: createdDateString) {
@@ -138,10 +143,10 @@ func parseArrayForiGurbani(
     return folder
 }
 
-func getSavedSbdObj(sbdID: String, savedLine: String, folder: Folder) async throws -> SavedShabad? {
+func getSavedSbdObj(sbdID: Int, savedLine: String, folder: Folder) async throws -> SavedShabad? {
     do {
         let sbdRes = try await fetchShabadResponse(from: sbdID)
-        let indexOfLine = fuzzyBestMatchIndex(lines: sbdRes.shabad, savedLine: savedLine)
+        let indexOfLine = fuzzyBestMatchIndex(lines: sbdRes.verses, savedLine: savedLine)
         return SavedShabad(folder: folder, sbdRes: sbdRes, indexOfSelectedLine: indexOfLine)
     } catch {
         throw URLError(.badServerResponse)
@@ -150,7 +155,6 @@ func getSavedSbdObj(sbdID: String, savedLine: String, folder: Folder) async thro
 
 func loadiGurbaniids() -> [String: String] {
     guard let url = Bundle.main.url(forResource: "igurbaniuid_to_id", withExtension: "json") else {
-        print("JSON file not found")
         return [:]
     }
 
@@ -159,14 +163,12 @@ func loadiGurbaniids() -> [String: String] {
         let codes = try JSONDecoder().decode([String: String].self, from: data)
         return codes
     } catch {
-        print("Error decoding JSON: \(error)")
         return [:]
     }
 }
 
 func loadSttmids() -> [Int: String] {
     guard let url = Bundle.main.url(forResource: "sttmid_to_id", withExtension: "json") else {
-        print("JSON file not found")
         return [:]
     }
 
@@ -176,12 +178,11 @@ func loadSttmids() -> [Int: String] {
         let codes = try JSONDecoder().decode([Int: String].self, from: data)
         return codes
     } catch {
-        print("Error decoding JSON: \(error)")
         return [:]
     }
 }
 
-func fuzzyBestMatchIndex(lines: [ShabadLineWrapper], savedLine: String) -> Int {
+func fuzzyBestMatchIndex(lines: [Verse], savedLine: String) -> Int {
     func levenshtein(_ a: String, _ b: String) -> Int {
         let aChars = Array(a)
         let bChars = Array(b)
@@ -218,13 +219,12 @@ func fuzzyBestMatchIndex(lines: [ShabadLineWrapper], savedLine: String) -> Int {
     var bestScore = Int.max
 
     for (index, line) in lines.enumerated() {
-        let distance = levenshtein(line.line.gurmukhi.akhar, savedLine)
+        let distance = levenshtein(line.verse.gurmukhi, savedLine)
         if distance < bestScore {
             bestScore = distance
             bestIndex = index
         }
     }
 
-    print("Best match index: \(bestIndex) with score: \(bestScore)")
     return bestIndex
 }

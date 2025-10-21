@@ -9,177 +9,211 @@ import Foundation
 import SwiftData
 import WidgetKit // for TimelineEntry
 
-struct TextPair: Codable {
-    let akhar: String
+struct ShabadInfo: Codable {
+    let shabadId: Int
+    let shabadName: Int
+    let pageNo: Int
+    let source: Source
+    let raag: Raag
+    let writer: Writer
+}
+
+struct Source: Codable {
+    let sourceId: String
+    let gurmukhi: String
+    let unicode: String
+    let english: String
+    let pageNo: Int
+}
+
+struct Raag: Codable {
+    let raagId: Int
+    let gurmukhi: String?
+    let unicode: String?
+    let english: String?
+    let raagWithPage: String?
+}
+
+struct Writer: Codable {
+    let writerId: Int
+    let gurmukhi: String
+    let unicode: String?
+    let english: String
+}
+
+struct Navigation: Codable {
+    let previous: Int?
+    let next: Int?
+}
+
+struct Verse: Codable {
+    let verseId: Int
+    let shabadId: Int
+    let verse: VerseText
+    let larivaar: VerseText
+    let translation: Translation
+    let transliteration: Transliteration
+    let pageNo: Int
+    let lineNo: Int
+    let updated: String
+    let visraam: Visraam?
+}
+
+struct VerseText: Codable {
+    let gurmukhi: String
     let unicode: String
 }
 
 struct Translation: Codable {
-    let english: English
-    let punjabi: Punjabi
-    let spanish: String
-    struct English: Codable {
-        let `default`: String
+    let en: EnglishTranslation
+    let pu: PunjabiTranslation
+    let es: SpanishTranslation
+    let hi: HindiTranslation
+    struct EnglishTranslation: Codable {
+        let bdb: String?
+        let ms: String?
+        let ssk: String?
     }
 
-    struct Punjabi: Codable {
-        let `default`: TextPair
+    struct PunjabiTranslation: Codable {
+        let ss: TranslationText?
+        let ft: TranslationText?
+        let bdb: TranslationText?
+        let ms: TranslationText?
     }
+
+    struct SpanishTranslation: Codable {
+        let sn: String?
+    }
+
+    struct HindiTranslation: Codable {
+        let ss: String?
+        let sts: String?
+    }
+}
+
+struct TranslationText: Codable {
+    let gurmukhi: String?
+    let unicode: String?
 }
 
 struct Transliteration: Codable {
-    let english: TransliterationText
-    let devanagari: TransliterationText
-
-    struct TransliterationText: Codable {
-        let text: String
-        let larivaar: String
-    }
-}
-
-struct Source: Codable {
-    let id: Int
-    let akhar: String
-    let unicode: String
     let english: String
-    let length: Int
-    let pageName: PageName
+    let hindi: String
+    let en: String
+    let hi: String
+    let ipa: String
+    let ur: String
 }
 
-struct PageName: Codable {
-    let akhar: String
-    let unicode: String
-    let english: String
-}
+struct Visraam: Codable {
+    let sttm: [VisraamPoint]
+    let igurbani: [VisraamPoint]
+    let sttm2: [VisraamPoint]
 
-struct Writer: Codable {
-    let id: Int
-    let akhar: String
-    let unicode: String
-    let english: String
-}
+    struct VisraamPoint: Codable {
+        let p: Int
+        let t: String
 
-struct Raag: Codable {
-    let id: Int
-    let akhar: String
-    let unicode: String
-    let english: String
-    let startang: Int
-    let endang: Int
-    let raagwithpage: String
-}
+        enum CodingKeys: String, CodingKey {
+            case p, t
+        }
 
-struct ShabadInfo: Codable {
-    let shabadid: String
-    let pageno: Int
-    let source: Source
-    let writer: Writer
-    let raag: Raag
-    let navigation: Navigation
-    let count: Int
+        init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
 
-    struct Navigation: Codable {
-        let previous: NavigationItem?
-        let next: NavigationItem?
+            // Try to decode p as Int
+            if let intValue = try? container.decode(Int.self, forKey: .p) {
+                p = intValue
+            }
+            // Otherwise try to decode as String and convert
+            else if let stringValue = try? container.decode(String.self, forKey: .p),
+                    let intValue = Int(stringValue)
+            {
+                p = intValue
+            }
+            // If neither works, throw error
+            else {
+                throw DecodingError.typeMismatch(
+                    Int.self,
+                    DecodingError.Context(
+                        codingPath: decoder.codingPath,
+                        debugDescription: "Expected Int or String convertible to Int for key 'p'"
+                    )
+                )
+            }
 
-        struct NavigationItem: Codable {
-            let id: String
+            t = try container.decode(String.self, forKey: .t)
         }
     }
 }
 
-struct LineOfShabad: Codable {
-    let id: String
-    let type: Int
-    let gurmukhi: TextPair
-    let larivaar: TextPair
-    let translation: Translation
-    let transliteration: Transliteration
-    let firstletters: TextPair
-    let linenum: Int?
-}
-
-struct ShabadLineWrapper: Codable {
-    let line: LineOfShabad
-}
-
-struct ShabadAPIResponse: Codable {
-    let shabadinfo: ShabadInfo
-    let shabad: [ShabadLineWrapper]
-    let error: Bool
-}
-
-struct HukamnamaAPIResponse: Codable {
-    let date: DateInfo
-    let hukamnamainfo: HukamnamaInfo
-    let hukamnama: [ShabadLineWrapper]
-    let error: Bool
-
-    struct DateInfo: Codable {
-        let gregorian: GregorianDate
-        struct GregorianDate: Codable {
-            let month: String
-            let monthno: Int
-            let date: Int
-            let year: Int
-            let day: String
-        }
+struct HukamnamaDate: Codable {
+    let gregorian: GregorianDate
+    struct GregorianDate: Codable {
+        let month: Int
+        let date: Int
+        let year: Int
     }
-
-    struct HukamnamaInfo: Codable {
-        let shabadid: [String]
-        let pageno: Int
-        let source: Source
-        let writer: Writer
-        let raag: Raag
-        let count: Int
-    }
-}
-
-struct LineObjFromSearch: Codable, Identifiable {
-    let id: String
-    let shabadid: String
-    let type: Int
-    let gurmukhi: TextPair
-    let larivaar: TextPair
-    let translation: Translation
-    let transliteration: Transliteration
-    let firstletters: TextPair
-    let source: Source
-    let writer: Writer
-    let raag: Raag
-    let pageno: Int
-    let lineno: Int?
 }
 
 struct GurbaniSearchAPIResponse: Codable {
-    let inputvalues: InputValues
+    let resultsInfo: ResultsInfo
+    let verses: [SearchVerse]
+    struct ResultsInfo: Codable {
+        let totalResults: Int
+        let pageResults: Int
+        let pages: PageInfo
+    }
+
+    struct PageInfo: Codable {
+        let page: Int
+        let resultsPerPage: Int
+        let totalPages: Int
+    }
+}
+
+struct HukamnamaAPIResponse: Codable {
+    let isLatest: Bool?
+    let date: HukamnamaDate
+    let shabadIds: [Int]
+    let shabads: [ShabadAPIResponse]
+}
+
+struct ShabadAPIResponse: Codable {
+    let shabadInfo: ShabadInfo
     let count: Int
-    let shabads: [LineObjWrapper]
-    let error: Bool
+    let navigation: Navigation
+    let verses: [Verse]
+}
 
-    struct InputValues: Codable {
-        let searchvalue: String
-        let searchtype: Int
-        let source: Int
-        let results: Int
-        let skip: Int
-    }
+struct SearchVerse: Codable, Identifiable {
+    let verseId: Int
+    let shabadId: Int
+    let verse: VerseText
+    let larivaar: VerseText
+    let translation: Translation
+    let transliteration: Transliteration
+    let pageNo: Int
+    let lineNo: Int
+    let updated: String
+    let visraam: Visraam?
+    let writer: Writer
+    let source: Source
+    let raag: Raag
 
-    struct LineObjWrapper: Codable {
-        let shabad: LineObjFromSearch
-    }
+    var id: Int { verseId }
 }
 
 @Model
 final class ShabadHistory {
-    @Attribute(.unique) var shabadID: String
+    @Attribute(.unique) var shabadID: Int
     @Relationship(deleteRule: .cascade) var sbdRes: ShabadAPIResponse
     var indexOfSelectedLine: Int
     var dateViewed: Date
 
     init(sbdRes: ShabadAPIResponse, indexOfSelectedLine: Int) {
-        shabadID = sbdRes.shabadinfo.shabadid
+        shabadID = sbdRes.shabadInfo.shabadId
         self.indexOfSelectedLine = indexOfSelectedLine
         self.sbdRes = sbdRes
         dateViewed = Date()
@@ -252,19 +286,6 @@ final class Folder: Identifiable, Hashable {
 
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
-    }
-}
-
-extension LineOfShabad {
-    init(from searchLine: LineObjFromSearch) {
-        id = searchLine.id
-        type = searchLine.type
-        gurmukhi = searchLine.gurmukhi
-        larivaar = searchLine.larivaar
-        translation = searchLine.translation
-        transliteration = searchLine.transliteration
-        linenum = searchLine.lineno // maps to lineno
-        firstletters = searchLine.firstletters
     }
 }
 

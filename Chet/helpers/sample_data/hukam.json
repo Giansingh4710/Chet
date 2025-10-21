@@ -1,0 +1,862 @@
+{
+  "isLatest": true,
+  "date": {
+    "gregorian": {
+      "month": 10,
+      "date": 13,
+      "year": 2025
+    }
+  },
+  "shabadIds": [
+    2565
+  ],
+  "shabads": [
+    {
+      "shabadInfo": {
+        "shabadId": 2565,
+        "shabadName": 29087,
+        "pageNo": 673,
+        "source": {
+          "sourceId": "G",
+          "gurmukhi": "sRI gurU gRMQ swihb jI",
+          "unicode": "ਸ੍ਰੀ ਗੁਰੂ ਗ੍ਰੰਥ ਸਾਹਿਬ ਜੀ",
+          "english": "Sri Guru Granth Sahib Ji",
+          "pageNo": 673
+        },
+        "raag": {
+          "raagId": 14,
+          "gurmukhi": "rwgu DnwsrI",
+          "unicode": "ਰਾਗੁ ਧਨਾਸਰੀ",
+          "english": "Raag Dhanaasree",
+          "raagWithPage": "Dhanaasree (660-695)"
+        },
+        "writer": {
+          "writerId": 5,
+          "gurmukhi": "mÚ 5",
+          "unicode": null,
+          "english": "Guru Arjan Dev Ji"
+        }
+      },
+      "count": 11,
+      "navigation": {
+        "previous": 2564,
+        "next": 2566
+      },
+      "verses": [
+        {
+          "verseId": 29083,
+          "shabadId": 2565,
+          "verse": {
+            "gurmukhi": "DnwsrI mhlw 5 ]",
+            "unicode": "ਧਨਾਸਰੀ ਮਹਲਾ ੫ ॥"
+          },
+          "larivaar": {
+            "gurmukhi": "DnwsrImhlw5]",
+            "unicode": "ਧਨਾਸਰੀਮਹਲਾ੫॥"
+          },
+          "translation": {
+            "en": {
+              "bdb": "Dhanaasaree, Fifth Mehla:",
+              "ms": "Dhanasri 5th Guru.",
+              "ssk": "Dhanaasaree, Fifth Mehl:"
+            },
+            "pu": {
+              "ss": {
+                "gurmukhi": null,
+                "unicode": null
+              },
+              "ft": {
+                "gurmukhi": "",
+                "unicode": ""
+              },
+              "bdb": {
+                "gurmukhi": null,
+                "unicode": null
+              },
+              "ms": {
+                "gurmukhi": "DnwsrI pMjvIN pwiqSwhI[",
+                "unicode": "ਧਨਾਸਰੀ ਪੰਜਵੀਂ ਪਾਤਿਸ਼ਾਹੀ।"
+              }
+            },
+            "es": {
+              "sn": "Dhanasri, Mejl Guru Aryan, Quinto Canal Divino."
+            },
+            "hi": {
+              "ss": "",
+              "sts": "धनासरी मः ५ ॥"
+            }
+          },
+          "transliteration": {
+            "english": "dhanaasaree mahalaa panjavaa ||",
+            "hindi": "धनासरी महला ५ ॥",
+            "en": "dhanaasaree mahalaa panjavaa ||",
+            "hi": "धनासरी महला ५ ॥",
+            "ipa": "t̪ənɑsəri məhəlɑ pəŋd͡ʒʋɑ.",
+            "ur": "دھناسریِ مهلا ۵ ۔۔"
+          },
+          "pageNo": 673,
+          "lineNo": 6,
+          "updated": "2022-12-24 02:22:37",
+          "visraam": {
+            "sttm": [
+              {
+                "p": 0,
+                "t": "y"
+              }
+            ],
+            "igurbani": [
+              {
+                "p": 0,
+                "t": "y"
+              }
+            ],
+            "sttm2": []
+          }
+        },
+        {
+          "verseId": 29084,
+          "shabadId": 2565,
+          "verse": {
+            "gurmukhi": "pwnI pKw pIsau sMq AwgY gux goivMd jsu gweI ]",
+            "unicode": "ਪਾਨੀ ਪਖਾ ਪੀਸਉ ਸੰਤ ਆਗੈ ਗੁਣ ਗੋਵਿੰਦ ਜਸੁ ਗਾਈ ॥"
+          },
+          "larivaar": {
+            "gurmukhi": "pwnIpKwpIsausMqAwgYguxgoivMdjsugweI]",
+            "unicode": "ਪਾਨੀਪਖਾਪੀਸਉਸੰਤਆਗੈਗੁਣਗੋਵਿੰਦਜਸੁਗਾਈ॥"
+          },
+          "translation": {
+            "en": {
+              "bdb": "I carry the water, wave the fan, and grind the corn for the Saints; I sing the Glorious Praises of the Lord of the Universe.",
+              "ms": "I carry water for, wave the fan over and grind the corn of the saints and sing the glory and praise of the World-Lord.",
+              "ssk": "I carry the water, wave the fan, and grind the corn for the Saints; I sing the Glorious Praises of the Lord of the Universe."
+            },
+            "pu": {
+              "ss": {
+                "gurmukhi": "(hy pRBU! myhr kr) mYN (qyry) sMqW dI syvw ivc (rih ky, auhnW vwsqy) pwxI (FoNdw rhW, auhnW ƒ) p`Kw (J`ldw rhW, auhnW vwsqy Awtw) pINhdw rhW, qy, hy goibMd! qyrI is&iq-swlwh qyry gux gWdw rhW [ ",
+                "unicode": "(ਹੇ ਪ੍ਰਭੂ! ਮੇਹਰ ਕਰ) ਮੈਂ (ਤੇਰੇ) ਸੰਤਾਂ ਦੀ ਸੇਵਾ ਵਿਚ (ਰਹਿ ਕੇ, ਉਹਨਾਂ ਵਾਸਤੇ) ਪਾਣੀ (ਢੋਂਦਾ ਰਹਾਂ, ਉਹਨਾਂ ਨੂੰ) ਪੱਖਾ (ਝੱਲਦਾ ਰਹਾਂ, ਉਹਨਾਂ ਵਾਸਤੇ ਆਟਾ) ਪੀਂਹਦਾ ਰਹਾਂ, ਤੇ, ਹੇ ਗੋਬਿੰਦ! ਤੇਰੀ ਸਿਫ਼ਤਿ-ਸਾਲਾਹ ਤੇਰੇ ਗੁਣ ਗਾਂਦਾ ਰਹਾਂ । "
+              },
+              "ft": {
+                "gurmukhi": "qyry sMqoN ko Awgy pwxI FovauN AO pKw PyrauN punw pIsnw kroN ik hy goibMd! qyry guxoN kw js gwien kroN]",
+                "unicode": "ਤੇਰੇ ਸੰਤੋਂ ਕੋ ਆਗੇ ਪਾਣੀ ਢੋਵਉਂ ਔ ਪਖਾ ਫੇਰਉਂ ਪੁਨਾ ਪੀਸਨਾ ਕਰੋਂ ਕਿ ਹੇ ਗੋਬਿੰਦ! ਤੇਰੇ ਗੁਣੋਂ ਕਾ ਜਸ ਗਾਇਨ ਕਰੋਂ॥"
+              },
+              "bdb": {
+                "gurmukhi": "(hy pRBU! myhr kr) mYN (qyry) sMqW dI syvw ivc (rih ky, auhnW vwsqy) pwxI (FoNdw rhW, auhnW ƒ) p`Kw (J`ldw rhW, auhnW vwsqy Awtw) pINhdw rhW, qy, hy goibMd! qyrI is&iq-swlwh qyry gux gWdw rhW [ ",
+                "unicode": "(ਹੇ ਪ੍ਰਭੂ! ਮੇਹਰ ਕਰ) ਮੈਂ (ਤੇਰੇ) ਸੰਤਾਂ ਦੀ ਸੇਵਾ ਵਿਚ (ਰਹਿ ਕੇ, ਉਹਨਾਂ ਵਾਸਤੇ) ਪਾਣੀ (ਢੋਂਦਾ ਰਹਾਂ, ਉਹਨਾਂ ਨੂੰ) ਪੱਖਾ (ਝੱਲਦਾ ਰਹਾਂ, ਉਹਨਾਂ ਵਾਸਤੇ ਆਟਾ) ਪੀਂਹਦਾ ਰਹਾਂ, ਤੇ, ਹੇ ਗੋਬਿੰਦ! ਤੇਰੀ ਸਿਫ਼ਤਿ-ਸਾਲਾਹ ਤੇਰੇ ਗੁਣ ਗਾਂਦਾ ਰਹਾਂ । "
+              },
+              "ms": {
+                "gurmukhi": "mYN swDUAW leI jl FoNdw, aunHW ƒ p`KI J`ldw Aqy aunHW dy dwxy pINhdw hW Aqy isRStI dy suAwmI dI kIrqI qy mihmW gwien krdw hW[",
+                "unicode": "ਮੈਂ ਸਾਧੂਆਂ ਲਈ ਜਲ ਢੋਂਦਾ, ਉਨ੍ਹਾਂ ਨੂੰ ਪੱਖੀ ਝੱਲਦਾ ਅਤੇ ਉਨ੍ਹਾਂ ਦੇ ਦਾਣੇ ਪੀਂਹਦਾ ਹਾਂ ਅਤੇ ਸ੍ਰਿਸ਼ਟੀ ਦੇ ਸੁਆਮੀ ਦੀ ਕੀਰਤੀ ਤੇ ਮਹਿਮਾਂ ਗਾਇਨ ਕਰਦਾ ਹਾਂ।"
+              }
+            },
+            "es": {
+              "sn": "Recojo agua para el Santo, le muevo el abanico, le muelo su maíz y canto las Alabanzas del Señor. "
+            },
+            "hi": {
+              "ss": "(हे प्रभू ! मेहर कर) मैं (तेरे) संतों की सेवा में (रह के।उनके लिए) पानी (ढोता रहूँ।उनको) पंखा (झलता रहूँ।उनके वास्ते आटा) पीसता रहूँ।और।हे गोबिंद ! तेरी सिफत सालाह ! तेरे गुण गाता रहूँ।",
+              "sts": "मैं संतों की सेवा में पानी ढोता, पंखा करता और गेहूँ पीसता हूँ और गोविन्द का ही यशोगान करता हूँ।"
+            }
+          },
+          "transliteration": {
+            "english": "paanee pakhaa peesau sa(n)t aagai gun govi(n)dh jas gaiee ||",
+            "hindi": "पानी पखा पीसउ संत आगै गुण गोविंद जसु गाई ॥",
+            "en": "paanee pakhaa peesau sa(n)t aagai gun govi(n)dh jas gaiee ||",
+            "hi": "पानी पखा पीसउ संत आगै गुण गोविंद जसु गाई ॥",
+            "ipa": "pɑni pəkʰɑ piso səŋt̪ əɑGæ Gʊɳ Gɔʋɪŋd̪ d͡ʒəs Gɑei.",
+            "ur": "پانیِ پکھا پیِسا سںت آگَے گُݨ گووںد جس گاای ۔۔"
+          },
+          "pageNo": 673,
+          "lineNo": 7,
+          "updated": "2022-12-24 02:22:37",
+          "visraam": {
+            "sttm": [
+              {
+                "p": 4,
+                "t": "v"
+              }
+            ],
+            "igurbani": [
+              {
+                "p": 4,
+                "t": "v"
+              }
+            ],
+            "sttm2": [
+              {
+                "p": 4,
+                "t": "v"
+              }
+            ]
+          }
+        },
+        {
+          "verseId": 29085,
+          "shabadId": 2565,
+          "verse": {
+            "gurmukhi": "swis swis mnu nwmu sm@wrY iehu ibsRwm iniD pweI ]1]",
+            "unicode": "ਸਾਸਿ ਸਾਸਿ ਮਨੁ ਨਾਮੁ ਸਮੑਾਰੈ ਇਹੁ ਬਿਸ੍ਰਾਮ ਨਿਧਿ ਪਾਈ ॥੧॥"
+          },
+          "larivaar": {
+            "gurmukhi": "swisswismnunwmusm@wrYiehuibsRwminiDpweI]1]",
+            "unicode": "ਸਾਸਿਸਾਸਿਮਨੁਨਾਮੁਸਮੑਾਰੈਇਹੁਬਿਸ੍ਰਾਮਨਿਧਿਪਾਈ॥੧॥"
+          },
+          "translation": {
+            "en": {
+              "bdb": "With each and every breath, my mind remembers the Naam, the Name of the Lord; in this way, it finds the treasure of peace. ||1||",
+              "ms": "With every breath my soul remembers the name, and in it finds the treasure of peace.",
+              "ssk": "With each and every breath, my mind remembers the Naam, the Name of the Lord; in this way, it finds the treasure of peace. ||1||"
+            },
+            "pu": {
+              "ss": {
+                "gurmukhi": "myrw mn hryk swh dy nwl (qyrw) nwm cyqy krdw rhy, mYN qyrw ieh nwm pRwpq kr lvW jo suK SWqI dw ^zwnw hY [1[",
+                "unicode": "ਮੇਰਾ ਮਨ ਹਰੇਕ ਸਾਹ ਦੇ ਨਾਲ (ਤੇਰਾ) ਨਾਮ ਚੇਤੇ ਕਰਦਾ ਰਹੇ, ਮੈਂ ਤੇਰਾ ਇਹ ਨਾਮ ਪ੍ਰਾਪਤ ਕਰ ਲਵਾਂ ਜੋ ਸੁਖ ਸ਼ਾਂਤੀ ਦਾ ਖ਼ਜ਼ਾਨਾ ਹੈ ।੧।"
+              },
+              "ft": {
+                "gurmukhi": "ies pRkwr sÍws sÍws kr myrw mn qyry nwm ko (smHwrY) ismrn krY, ies nwm rUpI inDI myN ibsrwm ko pwvW]1]",
+                "unicode": "ਇਸ ਪ੍ਰਕਾਰ ਸ੍ਵਾਸ ਸ੍ਵਾਸ ਕਰ ਮੇਰਾ ਮਨ ਤੇਰੇ ਨਾਮ ਕੋ (ਸਮ੍ਹਾਰੈ) ਸਿਮਰਨ ਕਰੈ, ਇਸ ਨਾਮ ਰੂਪੀ ਨਿਧੀ ਮੇਂ ਬਿਸਰਾਮ ਕੋ ਪਾਵਾਂ॥੧॥"
+              },
+              "bdb": {
+                "gurmukhi": "myrw mn hryk swh dy nwl (qyrw) nwm cyqy krdw rhy, mYN qyrw ieh nwm pRwpq kr lvW jo suK SWqI dw ^zwnw hY [1[",
+                "unicode": "ਮੇਰਾ ਮਨ ਹਰੇਕ ਸਾਹ ਦੇ ਨਾਲ (ਤੇਰਾ) ਨਾਮ ਚੇਤੇ ਕਰਦਾ ਰਹੇ, ਮੈਂ ਤੇਰਾ ਇਹ ਨਾਮ ਪ੍ਰਾਪਤ ਕਰ ਲਵਾਂ ਜੋ ਸੁਖ ਸ਼ਾਂਤੀ ਦਾ ਖ਼ਜ਼ਾਨਾ ਹੈ ।੧।"
+              },
+              "ms": {
+                "gurmukhi": "hr suAws nwl myrI ijMdVI nwm dw ismrn krdI hY Aqy ies iv`c Awrwm dy Kjwny ƒ pwauNdI hY[",
+                "unicode": "ਹਰ ਸੁਆਸ ਨਾਲ ਮੇਰੀ ਜਿੰਦੜੀ ਨਾਮ ਦਾ ਸਿਮਰਨ ਕਰਦੀ ਹੈ ਅਤੇ ਇਸ ਵਿੱਚ ਆਰਾਮ ਦੇ ਖਜਾਨੇ ਨੂੰ ਪਾਉਂਦੀ ਹੈ।"
+              }
+            },
+            "es": {
+              "sn": "En el interior de mi mente siempre elevo el Nombre del Señor y soy bendecido con el Tesoro de Paz. (1)"
+            },
+            "hi": {
+              "ss": "मेरा मन हरेक सांस के साथ (तेरा) नाम चेता करता रहे।मैं तेरा यह नाम प्राप्त कर लूँ जो सुख शांति का खजाना है। 1।",
+              "sts": "मेरा मन श्वास-श्वास से नाम जपता रहता है और मैंने यह नाम रूपी सुखों की निधि प्राप्त कर ली है॥ १॥"
+            }
+          },
+          "transliteration": {
+            "english": "saas saas man naam sam(h)aarai ih bisraam nidh paiee ||1||",
+            "hindi": "सासि सासि मनु नामु सम्मारै इहु बिस्राम निधि पाई ॥१॥",
+            "en": "saas saas man naam sam(h)aarai ih bisraam nidh paiee ||1||",
+            "hi": "सासि सासि मनु नामु सम्मारै इहु बिस्राम निधि पाई ॥१॥",
+            "ipa": "sɑs sɑs mən nɑm səm@ɑræ eɪh bɪsɹɑm nɪt̪ə̀ pɑei.1.",
+            "ur": "ساس ساس من نام سمھارَے اهُ بسرام ندھ پاای ۔۔۱۔۔"
+          },
+          "pageNo": 673,
+          "lineNo": 7,
+          "updated": "2022-12-24 02:22:37",
+          "visraam": {
+            "sttm": [
+              {
+                "p": 4,
+                "t": "v"
+              }
+            ],
+            "igurbani": [
+              {
+                "p": 4,
+                "t": "v"
+              }
+            ],
+            "sttm2": [
+              {
+                "p": 4,
+                "t": "v"
+              }
+            ]
+          }
+        },
+        {
+          "verseId": 29086,
+          "shabadId": 2565,
+          "verse": {
+            "gurmukhi": "qum@ krhu dieAw myry sweI ]",
+            "unicode": "ਤੁਮੑ ਕਰਹੁ ਦਇਆ ਮੇਰੇ ਸਾਈ ॥"
+          },
+          "larivaar": {
+            "gurmukhi": "qum@krhudieAwmyrysweI]",
+            "unicode": "ਤੁਮੑਕਰਹੁਦਇਆਮੇਰੇਸਾਈ॥"
+          },
+          "translation": {
+            "en": {
+              "bdb": "Have pity on me, O my Lord and Master.",
+              "ms": "O my Master, take Thou pity one me.",
+              "ssk": "Have pity on me, O my Lord and Master."
+            },
+            "pu": {
+              "ss": {
+                "gurmukhi": "hy myry Ksm-pRBU! (myry au~qy) dieAw kr ",
+                "unicode": "ਹੇ ਮੇਰੇ ਖਸਮ-ਪ੍ਰਭੂ! (ਮੇਰੇ ਉੱਤੇ) ਦਇਆ ਕਰ "
+              },
+              "ft": {
+                "gurmukhi": "hy myry (sweI) vwihgurU! qum muJ pr AYsI dXw kro punw AYsI buDI dIjIey]",
+                "unicode": "ਹੇ ਮੇਰੇ (ਸਾਈ) ਵਾਹਿਗੁਰੂ! ਤੁਮ ਮੁਝ ਪਰ ਐਸੀ ਦਯਾ ਕਰੋ ਪੁਨਾ ਐਸੀ ਬੁਧੀ ਦੀਜੀਏ॥"
+              },
+              "bdb": {
+                "gurmukhi": "hy myry Ksm-pRBU! (myry au~qy) dieAw kr ",
+                "unicode": "ਹੇ ਮੇਰੇ ਖਸਮ-ਪ੍ਰਭੂ! (ਮੇਰੇ ਉੱਤੇ) ਦਇਆ ਕਰ "
+              },
+              "ms": {
+                "gurmukhi": "hy myry mwlk! qUM myry auqy qrs kr[",
+                "unicode": "ਹੇ ਮੇਰੇ ਮਾਲਕ! ਤੂੰ ਮੇਰੇ ਉਤੇ ਤਰਸ ਕਰ।"
+              }
+            },
+            "es": {
+              "sn": "Oh Dios, ten Misericordia de mí y bendíceme con la Sabiduría "
+            },
+            "hi": {
+              "ss": "हे मेरे पति-प्रभू ! (मेरे पर) दया कर।",
+              "sts": "हे मेरे मालिक ! मुझ पर दया करो।"
+            }
+          },
+          "transliteration": {
+            "english": "tum(h) karahu dhiaa mere saiee ||",
+            "hindi": "तुम्म करहु दइआ मेरे साई ॥",
+            "en": "tum(h) karahu dhiaa mere saiee ||",
+            "hi": "तुम्म करहु दइआ मेरे साई ॥",
+            "ipa": "t̪ʊm@ kərəh d̪ɪɑ mere sɑei.",
+            "ur": "تُمھ کرهُ دایا مےرے ساای ۔۔"
+          },
+          "pageNo": 673,
+          "lineNo": 8,
+          "updated": "2022-12-24 02:22:37",
+          "visraam": {
+            "sttm": [
+              {
+                "p": 2,
+                "t": "v"
+              }
+            ],
+            "igurbani": [
+              {
+                "p": 2,
+                "t": "v"
+              }
+            ],
+            "sttm2": [
+              {
+                "p": 2,
+                "t": "v"
+              }
+            ]
+          }
+        },
+        {
+          "verseId": 29087,
+          "shabadId": 2565,
+          "verse": {
+            "gurmukhi": "AYsI miq dIjY myry Twkur sdw sdw quDu iDAweI ]1] rhwau ]",
+            "unicode": "ਐਸੀ ਮਤਿ ਦੀਜੈ ਮੇਰੇ ਠਾਕੁਰ ਸਦਾ ਸਦਾ ਤੁਧੁ ਧਿਆਈ ॥੧॥ ਰਹਾਉ ॥"
+          },
+          "larivaar": {
+            "gurmukhi": "AYsImiqdIjYmyryTwkursdwsdwquDuiDAweI]1]rhwau]",
+            "unicode": "ਐਸੀਮਤਿਦੀਜੈਮੇਰੇਠਾਕੁਰਸਦਾਸਦਾਤੁਧੁਧਿਆਈ॥੧॥ਰਹਾਉ॥"
+          },
+          "translation": {
+            "en": {
+              "bdb": "Bless me with such understanding, O my Lord and Master, that I may forever and ever meditate on You. ||1||Pause||",
+              "ms": "Bless me with such an understanding, O my Lord, that ever and ever I may meditate on Thee. Pause.",
+              "ssk": "Bless me with such understanding, O my Lord and Master, that I may forever and ever meditate on You. ||1||Pause||"
+            },
+            "pu": {
+              "ss": {
+                "gurmukhi": "hy myry Twkur! mYƒ ieho ijhI Akl b^S ik mYN sdw hI qyrw nwm ismrdw rhW [1[rhwau[",
+                "unicode": "ਹੇ ਮੇਰੇ ਠਾਕੁਰ! ਮੈਨੂੰ ਇਹੋ ਜਿਹੀ ਅਕਲ ਬਖ਼ਸ਼ ਕਿ ਮੈਂ ਸਦਾ ਹੀ ਤੇਰਾ ਨਾਮ ਸਿਮਰਦਾ ਰਹਾਂ ।੧।ਰਹਾਉ।"
+              },
+              "ft": {
+                "gurmukhi": "hy myry Twkr! ijsqy qInoN kwl myN vw mn qn sy quJ ko hI iDAwvxw kroN]1] rhwau ]",
+                "unicode": "ਹੇ ਮੇਰੇ ਠਾਕਰ! ਜਿਸਤੇ ਤੀਨੋਂ ਕਾਲ ਮੇਂ ਵਾ ਮਨ ਤਨ ਸੇ ਤੁਝ ਕੋ ਹੀ ਧਿਆਵਣਾ ਕਰੋਂ॥੧॥ ਰਹਾਉ ॥"
+              },
+              "bdb": {
+                "gurmukhi": "hy myry Twkur! mYƒ ieho ijhI Akl b^S ik mYN sdw hI qyrw nwm ismrdw rhW [1[rhwau[",
+                "unicode": "ਹੇ ਮੇਰੇ ਠਾਕੁਰ! ਮੈਨੂੰ ਇਹੋ ਜਿਹੀ ਅਕਲ ਬਖ਼ਸ਼ ਕਿ ਮੈਂ ਸਦਾ ਹੀ ਤੇਰਾ ਨਾਮ ਸਿਮਰਦਾ ਰਹਾਂ ।੧।ਰਹਾਉ।"
+              },
+              "ms": {
+                "gurmukhi": "mYƒ AYho jyhI smJ pRdwn kr, hy myry suAwmI! jo ik hmySw, hmySW hI mYN qYNfw ismrn krW[ Tihrwau[",
+                "unicode": "ਮੈਨੂੰ ਐਹੋ ਜੇਹੀ ਸਮਝ ਪ੍ਰਦਾਨ ਕਰ, ਹੇ ਮੇਰੇ ਸੁਆਮੀ! ਜੋ ਕਿ ਹਮੇਸ਼ਾ, ਹਮੇਸ਼ਾਂ ਹੀ ਮੈਂ ਤੈਂਡਾ ਸਿਮਰਨ ਕਰਾਂ। ਠਹਿਰਾਉ।"
+              }
+            },
+            "es": {
+              "sn": "suficiente para que tenga la Conciencia de habitar en Ti. (1-Pausa)"
+            },
+            "hi": {
+              "ss": "हे मेरे ठाकुर ! मुझे ऐसी बुद्धि दे कि मैं सदा तेरा नाम सिमरता रहूँ। 1।रहाउ।",
+              "sts": "हे मेरे ठाकुर ! मुझे ऐसी सुमति दीजिए कि मैं सर्वदा ही तेरा ध्यान करता रहूँ॥ १॥ रहाउ॥"
+            }
+          },
+          "transliteration": {
+            "english": "aaisee mat dheejai mere Thaakur sadhaa sadhaa tudh dhiaaiee ||1|| rahaau ||",
+            "hindi": "ऐसी मति दीजै मेरे ठाकुर सदा सदा तुधु धिआई ॥१॥ रहाउ ॥",
+            "en": "aaisee mat dheejai mere Thaakur sadhaa sadhaa tudh dhiaaiee ||1|| rahaau ||",
+            "hi": "ऐसी मति दीजै मेरे ठाकुर सदा सदा तुधु धिआई ॥१॥ रहाउ ॥",
+            "ipa": "æsi mət̪ d̪id͡ʒæ mere ʈʰɑkʊr səd̪ɑ səd̪ɑ t̪ʊt̪ t̪ɪəɑei.1. rəhɑo.",
+            "ur": "اَےسیِ مت دیِجَے مےرے ٹھاکر سدا سدا تُدھ دھآای ۔۔۱۔۔ رهاا ۔۔"
+          },
+          "pageNo": 673,
+          "lineNo": 8,
+          "updated": "2022-12-24 02:22:37",
+          "visraam": {
+            "sttm": [
+              {
+                "p": 4,
+                "t": "v"
+              }
+            ],
+            "igurbani": [
+              {
+                "p": 4,
+                "t": "v"
+              }
+            ],
+            "sttm2": [
+              {
+                "p": 4,
+                "t": "v"
+              }
+            ]
+          }
+        },
+        {
+          "verseId": 29088,
+          "shabadId": 2565,
+          "verse": {
+            "gurmukhi": "qum@rI ik®pw qy mohu mwnu CUtY ibnis jwie BrmweI ]",
+            "unicode": "ਤੁਮੑਰੀ ਕ੍ਰਿਪਾ ਤੇ ਮੋਹੁ ਮਾਨੁ ਛੂਟੈ ਬਿਨਸਿ ਜਾਇ ਭਰਮਾਈ ॥"
+          },
+          "larivaar": {
+            "gurmukhi": "qum@rIik®pwqymohumwnuCUtYibnisjwieBrmweI]",
+            "unicode": "ਤੁਮੑਰੀਕ੍ਰਿਪਾਤੇਮੋਹੁਮਾਨੁਛੂਟੈਬਿਨਸਿਜਾਇਭਰਮਾਈ॥"
+          },
+          "translation": {
+            "en": {
+              "bdb": "By Your Grace, emotional attachment and egotism are eradicated, and doubt is dispelled.",
+              "ms": "By Thine grace, worldly attachment and ego are eradicated and doubt is dispelled.",
+              "ssk": "By Your Grace, emotional attachment and egotism are eradicated, and doubt is dispelled."
+            },
+            "pu": {
+              "ss": {
+                "gurmukhi": "hy pRBU! qyrI ikrpw nwl (myrw AMdroN) mwieAw dw moh mu`k jwey, AhMkwr dUr ho jwey, myrI  Btkxw dw nws ho jwey,",
+                "unicode": "ਹੇ ਪ੍ਰਭੂ! ਤੇਰੀ ਕਿਰਪਾ ਨਾਲ (ਮੇਰਾ ਅੰਦਰੋਂ) ਮਾਇਆ ਦਾ ਮੋਹ ਮੁੱਕ ਜਾਏ, ਅਹੰਕਾਰ ਦੂਰ ਹੋ ਜਾਏ, ਮੇਰੀ  ਭਟਕਣਾ ਦਾ ਨਾਸ ਹੋ ਜਾਏ,"
+              },
+              "ft": {
+                "gurmukhi": "qumwrI ikrpw qy jb mwx moih CUt jwvY hY qb mn kI BRmxw ibns jwqI hY, Bwv sy srb myN quJ ko jwxIqw hY]",
+                "unicode": "ਤੁਮਾਰੀ ਕਿਰਪਾ ਤੇ ਜਬ ਮਾਣ ਮੋਹਿ ਛੂਟ ਜਾਵੈ ਹੈ ਤਬ ਮਨ ਕੀ ਭ੍ਰਮਣਾ ਬਿਨਸ ਜਾਤੀ ਹੈ, ਭਾਵ ਸੇ ਸਰਬ ਮੇਂ ਤੁਝ ਕੋ ਜਾਣੀਤਾ ਹੈ॥"
+              },
+              "bdb": {
+                "gurmukhi": "hy pRBU! qyrI ikrpw nwl (myrw AMdroN) mwieAw dw moh mu`k jwey, AhMkwr dUr ho jwey, myrI  Btkxw dw nws ho jwey,",
+                "unicode": "ਹੇ ਪ੍ਰਭੂ! ਤੇਰੀ ਕਿਰਪਾ ਨਾਲ (ਮੇਰਾ ਅੰਦਰੋਂ) ਮਾਇਆ ਦਾ ਮੋਹ ਮੁੱਕ ਜਾਏ, ਅਹੰਕਾਰ ਦੂਰ ਹੋ ਜਾਏ, ਮੇਰੀ  ਭਟਕਣਾ ਦਾ ਨਾਸ ਹੋ ਜਾਏ,"
+              },
+              "ms": {
+                "gurmukhi": "qyrI dieAw duAwrw sMswrI mmqw qy hMkwr im`t jWdy hn Aqy BRm mu`k jWdw hY[",
+                "unicode": "ਤੇਰੀ ਦਇਆ ਦੁਆਰਾ ਸੰਸਾਰੀ ਮਮਤਾ ਤੇ ਹੰਕਾਰ ਮਿੱਟ ਜਾਂਦੇ ਹਨ ਅਤੇ ਭ੍ਰਮ ਮੁੱਕ ਜਾਂਦਾ ਹੈ।"
+              }
+            },
+            "es": {
+              "sn": "A través de Tu Misericordia soy liberado de mi ego negativo,"
+            },
+            "hi": {
+              "ss": "हे प्रभू ! तेरी कृपा से (मेरे अंदर से) माया का मोह समाप्त हो जाए।अहंकार दूर हो जाए।मेरी भटकना नाश हो जाय।",
+              "sts": "तेरी कृपा से मेरा मोह एवं अभिमान छूट जाए और मेरा भ्रम भी मिट जाए।"
+            }
+          },
+          "transliteration": {
+            "english": "tum(h)ree kirapaa te moh maan chhooTai binas jai bharamaiee ||",
+            "hindi": "तुम्मरी कृपा ते मोहु मानु छूटै बिनसि जाइ भरमाई ॥",
+            "en": "tum(h)ree kirapaa te moh maan chhooTai binas jai bharamaiee ||",
+            "hi": "तुम्मरी कृपा ते मोहु मानु छूटै बिनसि जाइ भरमाई ॥",
+            "ipa": "t̪ʊm@əri kɪʳəpɑ t̪e mɔh mɑn ɕuʈæ bɪnəs d͡ʒɑeɪ ɓərəmɑei.",
+            "ur": "تُمھریِ ک®پا تے موهُ مان چھُوٹَے بنس جاا بھرماای ۔۔"
+          },
+          "pageNo": 673,
+          "lineNo": 9,
+          "updated": "2022-12-24 02:22:37",
+          "visraam": {
+            "sttm": [
+              {
+                "p": "5",
+                "t": "v"
+              }
+            ],
+            "igurbani": [],
+            "sttm2": [
+              {
+                "p": 5,
+                "t": "v"
+              }
+            ]
+          }
+        },
+        {
+          "verseId": 29089,
+          "shabadId": 2565,
+          "verse": {
+            "gurmukhi": "And rUpu rivE sB mDy jq kq pyKau jweI ]2]",
+            "unicode": "ਅਨਦ ਰੂਪੁ ਰਵਿਓ ਸਭ ਮਧੇ ਜਤ ਕਤ ਪੇਖਉ ਜਾਈ ॥੨॥"
+          },
+          "larivaar": {
+            "gurmukhi": "AndrUpurivEsBmDyjqkqpyKaujweI]2]",
+            "unicode": "ਅਨਦਰੂਪੁਰਵਿਓਸਭਮਧੇਜਤਕਤਪੇਖਉਜਾਈ॥੨॥"
+          },
+          "translation": {
+            "en": {
+              "bdb": "The Lord, the embodiment of bliss, is pervading and permeating in all; wherever I go, there I see Him. ||2||",
+              "ms": "Lord, the embodiment of beatitude, is contained amongst all. Wheresoever I go, I see Him there.",
+              "ssk": "The Lord, the embodiment of bliss, is pervading and permeating in all; wherever I go, there I see Him. ||2||"
+            },
+            "pu": {
+              "ss": {
+                "gurmukhi": "mYN ij`Qy ik`Qy jw ky vyKW, sBnW ivc mYƒ qUM AwnMd-srUp hI v`sdw id`syN [2[",
+                "unicode": "ਮੈਂ ਜਿੱਥੇ ਕਿੱਥੇ ਜਾ ਕੇ ਵੇਖਾਂ, ਸਭਨਾਂ ਵਿਚ ਮੈਨੂੰ ਤੂੰ ਆਨੰਦ-ਸਰੂਪ ਹੀ ਵੱਸਦਾ ਦਿੱਸੇਂ ।੨।"
+              },
+              "ft": {
+                "gurmukhi": "qum jo AnMd rUp srb ky vIc ivAwpk ho rhy ho jb jhW khIN jwiekr vw jhW khW, Bwv srb (jweI) jgw myN dyKqw hUM so qUhI idRSit Awvqw hYN]2]",
+                "unicode": "ਤੁਮ ਜੋ ਅਨੰਦ ਰੂਪ ਸਰਬ ਕੇ ਵੀਚ ਵਿਆਪਕ ਹੋ ਰਹੇ ਹੋ ਜਬ ਜਹਾਂ ਕਹੀਂ ਜਾਇਕਰ ਵਾ ਜਹਾਂ ਕਹਾਂ, ਭਾਵ ਸਰਬ (ਜਾਈ) ਜਗਾ ਮੇਂ ਦੇਖਤਾ ਹੂੰ ਸੋ ਤੂਹੀ ਦ੍ਰਿਸ਼ਟਿ ਆਵਤਾ ਹੈਂ॥੨॥"
+              },
+              "bdb": {
+                "gurmukhi": "mYN ij`Qy ik`Qy jw ky vyKW, sBnW ivc mYƒ qUM AwnMd-srUp hI v`sdw id`syN [2[",
+                "unicode": "ਮੈਂ ਜਿੱਥੇ ਕਿੱਥੇ ਜਾ ਕੇ ਵੇਖਾਂ, ਸਭਨਾਂ ਵਿਚ ਮੈਨੂੰ ਤੂੰ ਆਨੰਦ-ਸਰੂਪ ਹੀ ਵੱਸਦਾ ਦਿੱਸੇਂ ।੨।"
+              },
+              "ms": {
+                "gurmukhi": "pRsMnqw dw srUp, pRBU swirAW AMdr ivAwpk hY[ ijQy ikqy BI mYN jWdw hW, auQy hI mYN aus ƒ vyKdw hW[",
+                "unicode": "ਪ੍ਰਸੰਨਤਾ ਦਾ ਸਰੂਪ, ਪ੍ਰਭੂ ਸਾਰਿਆਂ ਅੰਦਰ ਵਿਆਪਕ ਹੈ। ਜਿਥੇ ਕਿਤੇ ਭੀ ਮੈਂ ਜਾਂਦਾ ਹਾਂ, ਉਥੇ ਹੀ ਮੈਂ ਉਸ ਨੂੰ ਵੇਖਦਾ ਹਾਂ।"
+              }
+            },
+            "es": {
+              "sn": "de mis dudas y de mis apegos, entonces puedo ver a mi Dios, la Encarnación del Éxtasis, prevaleciendo en todo y por todas partes. (2)"
+            },
+            "hi": {
+              "ss": "मैं जहाँ-कहीं भी देखूँ।सबमें मुझे तू ही आनंद स्वरूप बसता दिखे। 2।",
+              "sts": "आनंद का स्वरूप वह प्रभु सबमें समाया हुआ है, मैं जिधर भी जाता हूँ, उसे ही देखता हूँ॥ २॥"
+            }
+          },
+          "transliteration": {
+            "english": "anadh roop ravio sabh madhe jat kat pekhau jaiee ||2||",
+            "hindi": "अनद रूपु रविओ सभ मधे जत कत पेखउ जाई ॥२॥",
+            "en": "anadh roop ravio sabh madhe jat kat pekhau jaiee ||2||",
+            "hi": "अनद रूपु रविओ सभ मधे जत कत पेखउ जाई ॥२॥",
+            "ipa": "ənəd̪ rup rəʋɪo səɓ mət̪e d͡ʒət̪ kət̪ pekʰo d͡ʒɑei.2.",
+            "ur": "اند رُوپ رواو سبھ مدھے جت کت پےکھا جاای ۔۔۲۔۔"
+          },
+          "pageNo": 673,
+          "lineNo": 9,
+          "updated": "2022-12-24 02:22:37",
+          "visraam": {
+            "sttm": [
+              {
+                "p": 4,
+                "t": "v"
+              }
+            ],
+            "igurbani": [
+              {
+                "p": 4,
+                "t": "v"
+              }
+            ],
+            "sttm2": [
+              {
+                "p": 4,
+                "t": "v"
+              }
+            ]
+          }
+        },
+        {
+          "verseId": 29090,
+          "shabadId": 2565,
+          "verse": {
+            "gurmukhi": "qum@ dieAwl ikrpwl ik®pw iniD piqq pwvn gosweI ]",
+            "unicode": "ਤੁਮੑ ਦਇਆਲ ਕਿਰਪਾਲ ਕ੍ਰਿਪਾ ਨਿਧਿ ਪਤਿਤ ਪਾਵਨ ਗੋਸਾਈ ॥"
+          },
+          "larivaar": {
+            "gurmukhi": "qum@dieAwlikrpwlik®pwiniDpiqqpwvngosweI]",
+            "unicode": "ਤੁਮੑਦਇਆਲਕਿਰਪਾਲਕ੍ਰਿਪਾਨਿਧਿਪਤਿਤਪਾਵਨਗੋਸਾਈ॥"
+          },
+          "translation": {
+            "en": {
+              "bdb": "You are kind and compassionate, the treasure of mercy, the Purifier of sinners, Lord of the world.",
+              "ms": "My Lord, Thou art kind, compassionate, the treasure of mercy the Purifier of sinners, and Master of the world.",
+              "ssk": "You are kind and compassionate, the treasure of mercy, the Purifier of sinners, Lord of the world."
+            },
+            "pu": {
+              "ss": {
+                "gurmukhi": "hy DrqI dy Ksm! qUM dieAwl hYN, ikrpwl hYN, qUM dieAw dw ^zwnw hYN, qUM ivkwrIAW ƒ piv`q® krn vwlw hYN",
+                "unicode": "ਹੇ ਧਰਤੀ ਦੇ ਖਸਮ! ਤੂੰ ਦਇਆਲ ਹੈਂ, ਕਿਰਪਾਲ ਹੈਂ, ਤੂੰ ਦਇਆ ਦਾ ਖ਼ਜ਼ਾਨਾ ਹੈਂ, ਤੂੰ ਵਿਕਾਰੀਆਂ ਨੂੰ ਪਵਿੱਤ੍ਰ ਕਰਨ ਵਾਲਾ ਹੈਂ"
+              },
+              "ft": {
+                "gurmukhi": "hy prm idAwl AO ikRpwl ikRpw ky inDI! qUM pwpIEN ko pivqR krnyhwrw gusweIN ArQwq srb kw pqI hYN]",
+                "unicode": "ਹੇ ਪਰਮ ਦਿਆਲ ਔ ਕ੍ਰਿਪਾਲ ਕ੍ਰਿਪਾ ਕੇ ਨਿਧੀ! ਤੂੰ ਪਾਪੀਓਂ ਕੋ ਪਵਿਤ੍ਰ ਕਰਨੇਹਾਰਾ ਗੁਸਾਈਂ ਅਰਥਾਤ ਸਰਬ ਕਾ ਪਤੀ ਹੈਂ॥"
+              },
+              "bdb": {
+                "gurmukhi": "hy DrqI dy Ksm! qUM dieAwl hYN, ikrpwl hYN, qUM dieAw dw ^zwnw hYN, qUM ivkwrIAW ƒ piv`q® krn vwlw hYN",
+                "unicode": "ਹੇ ਧਰਤੀ ਦੇ ਖਸਮ! ਤੂੰ ਦਇਆਲ ਹੈਂ, ਕਿਰਪਾਲ ਹੈਂ, ਤੂੰ ਦਇਆ ਦਾ ਖ਼ਜ਼ਾਨਾ ਹੈਂ, ਤੂੰ ਵਿਕਾਰੀਆਂ ਨੂੰ ਪਵਿੱਤ੍ਰ ਕਰਨ ਵਾਲਾ ਹੈਂ"
+              },
+              "ms": {
+                "gurmukhi": "myry mwlk, qUM imhrbwn, dieAwvwn, rihmq dw Kjwnw, pwpIAW ƒ piv`qr krn vwlw qy isRStI dw suAwmI hY[",
+                "unicode": "ਮੇਰੇ ਮਾਲਕ, ਤੂੰ ਮਿਹਰਬਾਨ, ਦਇਆਵਾਨ, ਰਹਿਮਤ ਦਾ ਖਜਾਨਾ, ਪਾਪੀਆਂ ਨੂੰ ਪਵਿੱਤਰ ਕਰਨ ਵਾਲਾ ਤੇ ਸ੍ਰਿਸ਼ਟੀ ਦਾ ਸੁਆਮੀ ਹੈ।"
+              }
+            },
+            "es": {
+              "sn": "Oh Señor, eres siempre Bondadoso y Compasivo conmigo, oh Señor, Purificador de los malvados,"
+            },
+            "hi": {
+              "ss": "हे धरती के पति ! तू दयालु है।कृपालु है।तू दया का खजाना है।तू विकारियों को पवित्र करने वाला है।",
+              "sts": "हे पतितपावन सृष्टि के स्वामी ! तुम बड़े दयालु, कृपालु एवं कृपानिधि हो।"
+            }
+          },
+          "transliteration": {
+            "english": "tum(h) dhiaal kirapaal kirapaa nidh patit paavan gosaiee ||",
+            "hindi": "तुम्म दइआल किरपाल कृपा निधि पतित पावन गोसाई ॥",
+            "en": "tum(h) dhiaal kirapaal kirapaa nidh patit paavan gosaiee ||",
+            "hi": "तुम्म दइआल किरपाल कृपा निधि पतित पावन गोसाई ॥",
+            "ipa": "t̪ʊm@ d̪ɪɑl kɪrəpɑl kɪʳəpɑ nɪt̪ə̀ pət̪ɪt̪ pɑʋən Gɔsɑei.",
+            "ur": "تُمھ دایال کرپال ک®پا ندھ پتِت پاون گوساای ۔۔"
+          },
+          "pageNo": 673,
+          "lineNo": 10,
+          "updated": "2022-12-24 02:22:37",
+          "visraam": {
+            "sttm": [
+              {
+                "p": "4",
+                "t": "v"
+              }
+            ],
+            "igurbani": [],
+            "sttm2": [
+              {
+                "p": 4,
+                "t": "v"
+              }
+            ]
+          }
+        },
+        {
+          "verseId": 29091,
+          "shabadId": 2565,
+          "verse": {
+            "gurmukhi": "koit sUK Awnµd rwj pwey muK qy inmK bulweI ]3]",
+            "unicode": "ਕੋਟਿ ਸੂਖ ਆਨੰਦ ਰਾਜ ਪਾਏ ਮੁਖ ਤੇ ਨਿਮਖ ਬੁਲਾਈ ॥੩॥"
+          },
+          "larivaar": {
+            "gurmukhi": "koitsUKAwnµdrwjpweymuKqyinmKbulweI]3]",
+            "unicode": "ਕੋਟਿਸੂਖਆਨੰਦਰਾਜਪਾਏਮੁਖਤੇਨਿਮਖਬੁਲਾਈ॥੩॥"
+          },
+          "translation": {
+            "en": {
+              "bdb": "I obtain millions of joys, comforts and kingdoms, if You inspire me to chant Your Name with my mouth, even for an instant. ||3||",
+              "ms": "I shall obtain millions of comforts joys and kingdoms, If Thou makest me repeat, with my mouth, Thy Name even for a trice.",
+              "ssk": "I obtain millions of joys, comforts and kingdoms, if You inspire me to chant Your Name with my mouth, even for an instant. ||3||"
+            },
+            "pu": {
+              "ss": {
+                "gurmukhi": "jdoN mYN A`K Jmkx ijqny smy leI BI mUMhoN qyrw nwm aucwrdw hW, mYƒ ieauN jwpdw hY ik mYN rwj-Bwg dy koRVW suK AwnMd mwx ley hn [3[",
+                "unicode": "ਜਦੋਂ ਮੈਂ ਅੱਖ ਝਮਕਣ ਜਿਤਨੇ ਸਮੇ ਲਈ ਭੀ ਮੂੰਹੋਂ ਤੇਰਾ ਨਾਮ ਉਚਾਰਦਾ ਹਾਂ, ਮੈਨੂੰ ਇਉਂ ਜਾਪਦਾ ਹੈ ਕਿ ਮੈਂ ਰਾਜ-ਭਾਗ ਦੇ ਕੋ੍ਰੜਾਂ ਸੁਖ ਆਨੰਦ ਮਾਣ ਲਏ ਹਨ ।੩।"
+              },
+              "ft": {
+                "gurmukhi": "jykr qyrw nwm eyk inmK mwqR BI muK qy bulwvoN ArQwq aucwrn kroN; vw jykr iKn mwqR qum muJ dws ko bulwvo ArQwq Xwd kro, qb kRoVW suK AOr rwj ky AnMd pweIqy hYN, Bwv sy prmAnMd pRwpiq hoqw hY]3]",
+                "unicode": "ਜੇਕਰ ਤੇਰਾ ਨਾਮ ਏਕ ਨਿਮਖ ਮਾਤ੍ਰ ਭੀ ਮੁਖ ਤੇ ਬੁਲਾਵੋਂ ਅਰਥਾਤ ਉਚਾਰਨ ਕਰੋਂ; ਵਾ ਜੇਕਰ ਖਿਨ ਮਾਤ੍ਰ ਤੁਮ ਮੁਝ ਦਾਸ ਕੋ ਬੁਲਾਵੋ ਅਰਥਾਤ ਯਾਦ ਕਰੋ, ਤਬ ਕ੍ਰੋੜਾਂ ਸੁਖ ਔਰ ਰਾਜ ਕੇ ਅਨੰਦ ਪਾਈਤੇ ਹੈਂ, ਭਾਵ ਸੇ ਪਰਮਅਨੰਦ ਪ੍ਰਾਪਤਿ ਹੋਤਾ ਹੈ॥੩॥"
+              },
+              "bdb": {
+                "gurmukhi": "jdoN mYN A`K Jmkx ijqny smy leI BI mUMhoN qyrw nwm aucwrdw hW, mYƒ ieauN jwpdw hY ik mYN rwj-Bwg dy koRVW suK AwnMd mwx ley hn [3[",
+                "unicode": "ਜਦੋਂ ਮੈਂ ਅੱਖ ਝਮਕਣ ਜਿਤਨੇ ਸਮੇ ਲਈ ਭੀ ਮੂੰਹੋਂ ਤੇਰਾ ਨਾਮ ਉਚਾਰਦਾ ਹਾਂ, ਮੈਨੂੰ ਇਉਂ ਜਾਪਦਾ ਹੈ ਕਿ ਮੈਂ ਰਾਜ-ਭਾਗ ਦੇ ਕੋ੍ਰੜਾਂ ਸੁਖ ਆਨੰਦ ਮਾਣ ਲਏ ਹਨ ।੩।"
+              },
+              "ms": {
+                "gurmukhi": "mYN kRoVW hI su`K AnMd Aqy rwj Bwg pRwpq kr lvWgw, jykr qUM iek iCn Br leI BI myry koloN, myry mUMhoN Awpxy nwm dw aucwrn krvw lvƒ[",
+                "unicode": "ਮੈਂ ਕ੍ਰੋੜਾਂ ਹੀ ਸੁੱਖ ਅਨੰਦ ਅਤੇ ਰਾਜ ਭਾਗ ਪ੍ਰਾਪਤ ਕਰ ਲਵਾਂਗਾ, ਜੇਕਰ ਤੂੰ ਇਕ ਛਿਨ ਭਰ ਲਈ ਭੀ ਮੇਰੇ ਕੋਲੋਂ, ਮੇਰੇ ਮੂੰਹੋਂ ਆਪਣੇ ਨਾਮ ਦਾ ਉਚਾਰਨ ਕਰਵਾ ਲਵਨੂੰ।"
+              }
+            },
+            "es": {
+              "sn": "Maestro de la Tierra. Si me hicieras cantar Tu Nombre aunque sea por un momento, yo obtendría todo el Éxtasis, la Dicha y el poder del Dominio. (3)"
+            },
+            "hi": {
+              "ss": "जब मैं आँख झपकने जितने समय के लिए भी मुँह से तेरा नाम उचारता हूँ।मुझे ऐसा प्रतीत होता है कि मैंने राज-भाग के करोड़ों सुख-आनंद भोग लिए हैं। 3।",
+              "sts": "मैंने अपने मुँह से एक क्षण भर तेरे नाम का उच्चारण करके राज-भाग के करोड़ों सुख एवं आनंद पा लिए हैं।॥३॥"
+            }
+          },
+          "transliteration": {
+            "english": "koT sookh aana(n)dh raaj paae mukh te nimakh bulaiee ||3||",
+            "hindi": "कोटि सूख आनंद राज पाए मुख ते निमख बुलाई ॥३॥",
+            "en": "koT sookh aana(n)dh raaj paae mukh te nimakh bulaiee ||3||",
+            "hi": "कोटि सूख आनंद राज पाए मुख ते निमख बुलाई ॥३॥",
+            "ipa": "kɔʈ sukʰ əɑnəⁿd̪ rɑd͡ʒ pɑee mʊkʰ t̪e nɪməkʰ bʊlɑei.3.",
+            "ur": "کوٹ سُوکھ آنµد راج پااے مُکھ تے نمکھ بُلاای ۔۔۳۔۔"
+          },
+          "pageNo": 673,
+          "lineNo": 10,
+          "updated": "2022-12-24 02:22:37",
+          "visraam": {
+            "sttm": [
+              {
+                "p": "4",
+                "t": "v"
+              }
+            ],
+            "igurbani": [],
+            "sttm2": [
+              {
+                "p": 4,
+                "t": "v"
+              }
+            ]
+          }
+        },
+        {
+          "verseId": 29092,
+          "shabadId": 2565,
+          "verse": {
+            "gurmukhi": "jwp qwp Bgiq sw pUrI jo pRB kY min BweI ]",
+            "unicode": "ਜਾਪ ਤਾਪ ਭਗਤਿ ਸਾ ਪੂਰੀ ਜੋ ਪ੍ਰਭ ਕੈ ਮਨਿ ਭਾਈ ॥"
+          },
+          "larivaar": {
+            "gurmukhi": "jwpqwpBgiqswpUrIjopRBkYminBweI]",
+            "unicode": "ਜਾਪਤਾਪਭਗਤਿਸਾਪੂਰੀਜੋਪ੍ਰਭਕੈਮਨਿਭਾਈ॥"
+          },
+          "translation": {
+            "en": {
+              "bdb": "That alone is perfect (chanting, meditation, penance, and devotional worship service) which is pleasing to God's Mind.",
+              "ms": "That alone is the perfect worship, penance and devotional service, which is pleasing to the Lord's mind.",
+              "ssk": "That alone is perfect chanting, meditation, penance and devotional worship service, which is pleasing to God's Mind."
+            },
+            "pu": {
+              "ss": {
+                "gurmukhi": "hy nwnk! auhI jwp qwp auhI BgqI isry cVHI jwxo, jyhVI prmwqmw dy mn ivc psMd AwauNdI hY",
+                "unicode": "ਹੇ ਨਾਨਕ! ਉਹੀ ਜਾਪ ਤਾਪ ਉਹੀ ਭਗਤੀ ਸਿਰੇ ਚੜ੍ਹੀ ਜਾਣੋ, ਜੇਹੜੀ ਪਰਮਾਤਮਾ ਦੇ ਮਨ ਵਿਚ ਪਸੰਦ ਆਉਂਦੀ ਹੈ"
+              },
+              "ft": {
+                "gurmukhi": "jwp qwp AOr BgqI soeI pUrn hY, hy pRB! jo Awp ky mn myN BweI hY]",
+                "unicode": "ਜਾਪ ਤਾਪ ਔਰ ਭਗਤੀ ਸੋਈ ਪੂਰਨ ਹੈ, ਹੇ ਪ੍ਰਭ! ਜੋ ਆਪ ਕੇ ਮਨ ਮੇਂ ਭਾਈ ਹੈ॥"
+              },
+              "bdb": {
+                "gurmukhi": "hy nwnk! auhI jwp qwp auhI BgqI isry cVHI jwxo, jyhVI prmwqmw dy mn ivc psMd AwauNdI hY",
+                "unicode": "ਹੇ ਨਾਨਕ! ਉਹੀ ਜਾਪ ਤਾਪ ਉਹੀ ਭਗਤੀ ਸਿਰੇ ਚੜ੍ਹੀ ਜਾਣੋ, ਜੇਹੜੀ ਪਰਮਾਤਮਾ ਦੇ ਮਨ ਵਿਚ ਪਸੰਦ ਆਉਂਦੀ ਹੈ"
+              },
+              "ms": {
+                "gurmukhi": "kyvl EhI aupwSnw, qp`isAw Aqy pRym meI syvw pUrn hY, ijhVI suAwmI dy ic`q ƒ cMgI l`gdI hY[",
+                "unicode": "ਕੇਵਲ ਓਹੀ ਉਪਾਸ਼ਨਾ, ਤਪੱਸਿਆ ਅਤੇ ਪ੍ਰੇਮ ਮਈ ਸੇਵਾ ਪੂਰਨ ਹੈ, ਜਿਹੜੀ ਸੁਆਮੀ ਦੇ ਚਿੱਤ ਨੂੰ ਚੰਗੀ ਲੱਗਦੀ ਹੈ।"
+              }
+            },
+            "es": {
+              "sn": "Sólo lo que el Señor aprueba es la Perfecta Meditación, Austeridad y Alabanza,"
+            },
+            "hi": {
+              "ss": "हे नानक ! वही जाप-ताप वही भक्ति सिरे चढ़ी समझें।जो परमात्मा को पसंद आती है।",
+              "sts": "केवल वही पूजा, तपस्या एवं भक्ति पूर्ण होती है, जो प्रभु के मन में भा गई है।"
+            }
+          },
+          "transliteration": {
+            "english": "jaap taap bhagat saa pooree jo prabh kai man bhaiee ||",
+            "hindi": "जाप ताप भगति सा पूरी जो प्रभ कै मनि भाई ॥",
+            "en": "jaap taap bhagat saa pooree jo prabh kai man bhaiee ||",
+            "hi": "जाप ताप भगति सा पूरी जो प्रभ कै मनि भाई ॥",
+            "ipa": "d͡ʒɑp t̪ɑp ɓəGət̪ sɑ puri d͡ʒɔ pɹəɓ kæ mən ɓɑei.",
+            "ur": "جاپ تاپ بھگت سا پُوریِ جو پربھ کَے من بھاای ۔۔"
+          },
+          "pageNo": 673,
+          "lineNo": 11,
+          "updated": "2022-12-24 02:22:37",
+          "visraam": {
+            "sttm": [
+              {
+                "p": 4,
+                "t": "v"
+              }
+            ],
+            "igurbani": [
+              {
+                "p": 4,
+                "t": "v"
+              }
+            ],
+            "sttm2": [
+              {
+                "p": 4,
+                "t": "v"
+              }
+            ]
+          }
+        },
+        {
+          "verseId": 29093,
+          "shabadId": 2565,
+          "verse": {
+            "gurmukhi": "nwmu jpq iqRsnw sB buJI hY nwnk iqRpiq AGweI ]4]10]",
+            "unicode": "ਨਾਮੁ ਜਪਤ ਤ੍ਰਿਸਨਾ ਸਭ ਬੁਝੀ ਹੈ ਨਾਨਕ ਤ੍ਰਿਪਤਿ ਅਘਾਈ ॥੪॥੧੦॥"
+          },
+          "larivaar": {
+            "gurmukhi": "nwmujpqiqRsnwsBbuJIhYnwnkiqRpiqAGweI]4]10]",
+            "unicode": "ਨਾਮੁਜਪਤਤ੍ਰਿਸਨਾਸਭਬੁਝੀਹੈਨਾਨਕਤ੍ਰਿਪਤਿਅਘਾਈ॥੪॥੧੦॥"
+          },
+          "translation": {
+            "en": {
+              "bdb": "Chanting the Naam, all thirst and desire is satisfied; Nanak is satisfied and fulfilled. ||4||10||",
+              "ms": "Remembering the Lord's Name, all the desires are quenched and Nanak is sated and satiated.",
+              "ssk": "Chanting the Naam, all thirst and desire is satisfied; Nanak is satisfied and fulfilled. ||4||10||"
+            },
+            "pu": {
+              "ss": {
+                "gurmukhi": "prmwqmw dw nwm jipAW swrI iq®Snw mu`k jWdI hY, (mwiek pdwrQW vloN) pUry qOr qy r`j jweIdw hY [4[10[",
+                "unicode": "ਪਰਮਾਤਮਾ ਦਾ ਨਾਮ ਜਪਿਆਂ ਸਾਰੀ ਤ੍ਰਿਸ਼ਨਾ ਮੁੱਕ ਜਾਂਦੀ ਹੈ, (ਮਾਇਕ ਪਦਾਰਥਾਂ ਵਲੋਂ) ਪੂਰੇ ਤੌਰ ਤੇ ਰੱਜ ਜਾਈਦਾ ਹੈ ।੪।੧੦।"
+              },
+              "ft": {
+                "gurmukhi": "qyrw nwm jpny sy iqRsnw AgnI sMpUrn buJ geI hY ArQwq dUr BeI hY[ sRI gurU jI khqy hYN: hmwrI buDI srb pRkwr AqI iqRpq BeI hY]4]10]ÇmwieAw kI pRblqw idKwvqy hYN:",
+                "unicode": "ਤੇਰਾ ਨਾਮ ਜਪਨੇ ਸੇ ਤ੍ਰਿਸਨਾ ਅਗਨੀ ਸੰਪੂਰਨ ਬੁਝ ਗਈ ਹੈ ਅਰਥਾਤ ਦੂਰ ਭਈ ਹੈ। ਸ੍ਰੀ ਗੁਰੂ ਜੀ ਕਹਤੇ ਹੈਂ: ਹਮਾਰੀ ਬੁਧੀ ਸਰਬ ਪ੍ਰਕਾਰ ਅਤੀ ਤ੍ਰਿਪਤ ਭਈ ਹੈ॥੪॥੧੦॥☬ਮਾਇਆ ਕੀ ਪ੍ਰਬਲਤਾ ਦਿਖਾਵਤੇ ਹੈਂ:"
+              },
+              "bdb": {
+                "gurmukhi": "prmwqmw dw nwm jipAW swrI iq®Snw mu`k jWdI hY, (mwiek pdwrQW vloN) pUry qOr qy r`j jweIdw hY [4[10[",
+                "unicode": "ਪਰਮਾਤਮਾ ਦਾ ਨਾਮ ਜਪਿਆਂ ਸਾਰੀ ਤ੍ਰਿਸ਼ਨਾ ਮੁੱਕ ਜਾਂਦੀ ਹੈ, (ਮਾਇਕ ਪਦਾਰਥਾਂ ਵਲੋਂ) ਪੂਰੇ ਤੌਰ ਤੇ ਰੱਜ ਜਾਈਦਾ ਹੈ ।੪।੧੦।"
+              },
+              "ms": {
+                "gurmukhi": "sweIN dy nwm dw ismrn krn duAwrw swrIAW KwihSW nivrq ho geIAW hn qy nwnk r`j-pu`j igAw hY[",
+                "unicode": "ਸਾਈਂ ਦੇ ਨਾਮ ਦਾ ਸਿਮਰਨ ਕਰਨ ਦੁਆਰਾ ਸਾਰੀਆਂ ਖਾਹਿਸ਼ਾਂ ਨਵਿਰਤ ਹੋ ਗਈਆਂ ਹਨ ਤੇ ਨਾਨਕ ਰੱਜ-ਪੁੱਜ ਗਿਆ ਹੈ।"
+              }
+            },
+            "es": {
+              "sn": "pues a través de la Meditación Verdadera en el Nombre del Señor, nuestros deseos son calmados y nuestro ser queda, en verdad, satisfecho. (4-10)"
+            },
+            "hi": {
+              "ss": "परमात्मा का नाम जपने से सारी तृष्णा समाप्त हो जाती है।(मायावी पदार्थों की ओर से) पूरे तौर पर तृप्त हो जाते हैं। 4। 10।",
+              "sts": "हे नानक ! नाम का जाप करने से मेरी सारी तृष्णा बुझ गई है, अब मैं तृप्त एवं संतृष्ट हो गया हूँ॥ ४॥ १०॥"
+            }
+          },
+          "transliteration": {
+            "english": "naam japat tirasanaa sabh bujhee hai naanak tirapat aghaiee ||4||10||",
+            "hindi": "नामु जपत तृसना सभ बुझी है नानक तृपति अघाई ॥४॥१०॥",
+            "en": "naam japat tirasanaa sabh bujhee hai naanak tirapat aghaiee ||4||10||",
+            "hi": "नामु जपत तृसना सभ बुझी है नानक तृपति अघाई ॥४॥१०॥",
+            "ipa": "nɑm d͡ʒəpət̪ t̪ɪɹəsənɑ səɓ bʊɖ͡ʐi hæ nɑnək t̪ɪɹəpət̪ əGʰɑei.4.1ə0.",
+            "ur": "نام جپت ترسنا سبھ بُجھیِ هَے نانک ترپت اگھاای ۔۔۴۔۔۱۰۔۔"
+          },
+          "pageNo": 673,
+          "lineNo": 11,
+          "updated": "2022-12-24 02:22:37",
+          "visraam": {
+            "sttm": [
+              {
+                "p": 5,
+                "t": "v"
+              },
+              {
+                "p": 6,
+                "t": "y"
+              }
+            ],
+            "igurbani": [
+              {
+                "p": 5,
+                "t": "v"
+              },
+              {
+                "p": 6,
+                "t": "y"
+              }
+            ],
+            "sttm2": [
+              {
+                "p": 5,
+                "t": "v"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

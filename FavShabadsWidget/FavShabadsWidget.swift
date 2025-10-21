@@ -13,7 +13,8 @@ struct Provider: @preconcurrency TimelineProvider {
     let modelContainer = ModelContainer.shared
 
     @MainActor func placeholder(in _: Context) -> RandSbdForWidget {
-        RandSbdForWidget(sbd: SampleData.svdSbd.sbdRes, date: Date.now, index: 0)
+        let sbd: ShabadAPIResponse = loadJSON(from: "random_sbd", as: ShabadAPIResponse.self)!
+        return RandSbdForWidget(sbd: sbd, date: Date.now, index: 0)
     }
 
     @MainActor func getSnapshot(in _: Context, completion: @escaping (RandSbdForWidget) -> Void) {
@@ -21,7 +22,8 @@ struct Provider: @preconcurrency TimelineProvider {
         if let first = svdSbds.first {
             completion(RandSbdForWidget(sbd: first.sbdRes, date: Date.now, index: first.indexOfSelectedLine))
         } else {
-            completion(RandSbdForWidget(sbd: SampleData.shabadResponse, date: Date.now, index: 0))
+            let sbd: ShabadAPIResponse = loadJSON(from: "random_sbd", as: ShabadAPIResponse.self)!
+            completion(RandSbdForWidget(sbd: sbd, date: Date.now, index: 0))
         }
     }
 
@@ -29,6 +31,7 @@ struct Provider: @preconcurrency TimelineProvider {
         let svdSbds = getFavShabads()
         var entries: [RandSbdForWidget] = []
         let interval = UserDefaults.appGroup.data(forKey: "favSbdRefreshInterval") as? Int ?? 3
+        print("typeof interval: ", interval, type(of: interval))
         var lastDate = Date.now
         for offset in 0 ..< svdSbds.count {
             let entryDate = Calendar.current.date(byAdding: .hour, value: offset * interval, to: Date())!
@@ -63,17 +66,10 @@ struct Provider: @preconcurrency TimelineProvider {
 struct FavShabadsWidgetEntryView: View {
     var entry: RandSbdForWidget
     var body: some View {
-        WidgetEntryView(entry: entry, heading: "From Favorites " + getWidgetHeadingFromSbdInfo(entry.sbd.shabadinfo))
-            .widgetURL(URL(string: "chet://shabadid/\(entry.sbd.shabadinfo.shabadid)")) // custom deep link
+        WidgetEntryView(entry: entry, heading: "From Favorites")
+            .widgetURL(URL(string: "chet://shabadid/\(entry.sbd.shabadInfo.shabadId)")) // custom deep link
         // Text("Favs")
     }
-
-//    private getShabdObjFromFavLine(_ sbdObj:ShabadAPIResponse) -> {
-//        let ind = entry.obj.indexOfSelectedLine
-//        let lines = entry.obj.shabad.shabad
-//        let lns = Array(lines[ind..<lines.endIndex])
-//        entry.obj.shabad
-//    }
 }
 
 struct FavShabadsWidget: Widget {
@@ -83,7 +79,6 @@ struct FavShabadsWidget: Widget {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             if #available(iOS 17.0, *) {
                 FavShabadsWidgetEntryView(entry: entry)
-                    .containerBackground(.fill.tertiary, for: .widget)
             } else {
                 FavShabadsWidgetEntryView(entry: entry)
                     .padding()

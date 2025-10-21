@@ -9,234 +9,195 @@ import Foundation
 import SwiftUI
 import WidgetKit
 
-private func getFontForLine(_ line: LineOfShabad) -> Font {
-    if line.type == 2 { // Heading
-        return .system(size: 11, weight: .regular)
-    } else if line.type == 3 { // Rahao lines
-        return .system(size: 14, weight: .medium)
-    } else {
-        return .system(size: 12, weight: .regular)
-    }
-}
-
-private func showOneLine(_ sbdLines: [ShabadLineWrapper]) -> String {
-    // will try to find Rahao. if not then first non header // line.type 2=heading, 3=rahaho 4=normal
-    for obj in sbdLines {
-        if obj.line.type == 3 {
-            return obj.line.gurmukhi.unicode
-        }
-    }
-    for obj in sbdLines {
-        if obj.line.type == 4 {
-            return obj.line.gurmukhi.unicode
-        }
-    }
-    return sbdLines.first?.line.gurmukhi.unicode ?? "Vaheguru"
-}
-
 struct LockScreenInLineView: View {
     let entry: RandSbdForWidget
-    var body: some View {
-        Text(showOneLine(entry.sbd.shabad))
-            .lineLimit(1)
-            .minimumScaleFactor(0.7) // Allow text to scale down more to fit
-    }
-}
+    let fontType: String
+    let selectedVisraamSource: String
+    let colorScheme: ColorScheme
 
-private func filterOutHeadings(_ the_shabad: [ShabadLineWrapper]) -> [ShabadLineWrapper] {
-    return the_shabad.filter { $0.line.type != 2 }.map { $0 }
+    var body: some View {
+        if let verse = entry.sbd.verses.first {
+            getGurbaniLine(verse, fontType: fontType, selectedVisraamSource: selectedVisraamSource, colorScheme: colorScheme)
+                .font(.caption2)
+                .lineLimit(1)
+        } else {
+            Text("Vaheguru").font(.caption2)
+        }
+    }
 }
 
 struct LockScreenRectangularView: View {
     let entry: RandSbdForWidget
-    var body: some View {
-        VStack(alignment: .leading, spacing: 1) { // Reduced spacing
-            ForEach(filterOutHeadings(entry.sbd.shabad), id: \.line.id) { lineWrapper in
-                Text(lineWrapper.line.gurmukhi.unicode)
-                    .font(.system(size: 10)) // Smaller font size
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.8)
-            }
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-        .padding(.horizontal, 4) // Add horizontal padding
-    }
-
-    private func getOptimizedLines() -> [ShabadLineWrapper] {
-        return entry.sbd.shabad.filter { $0.line.type != 2 }.prefix(4).map { $0 }
-    }
-}
-
-struct HomeScreenSmallView: View {
-    let entry: RandSbdForWidget
-    let heading: String?
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 2) { // Reduced spacing for more content
-            if let title = heading {
-                Text(title)
-                    .font(.system(size: 9, weight: .medium)) // Smaller font
-                    .foregroundColor(.secondary)
-                    .lineLimit(1)
-                // .padding(.bottom, 1) // Small padding below title
-            }
-
-            VStack(alignment: .leading) {
-                Text(filterOutHeadings(entry.sbd.shabad).map { $0.line.gurmukhi.unicode }.joined(separator: " "))
-                    .font(.system(size: 16, weight: .medium)) // Smaller font
-            }
-            // .clipped() // Clip any content that exceeds the frame
-        }
-    }
-}
-
-// Enhanced medium view with more efficient space usage
-struct HomeScreenMediumView: View {
-    let entry: RandSbdForWidget
-    let heading: String?
+    let fontType: String
+    let selectedVisraamSource: String
+    let colorScheme: ColorScheme
 
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
-            if let title = heading {
-                Text(title)
-                    .font(.caption)
-                    .fontWeight(.semibold)
-                    .foregroundColor(.secondary)
-                    .lineLimit(1)
-                Text("Vahegru")
+            if let verse = entry.sbd.verses.first {
+                getGurbaniLine(verse, fontType: fontType, selectedVisraamSource: selectedVisraamSource, colorScheme: colorScheme)
+                    .font(.headline)
+                    .lineLimit(2)
+                if let a = verse.translation.en.bdb {
+                    Text(a)
+                        .font(.caption2)
+                        .foregroundStyle(.secondary)
+                        .lineLimit(1)
+                        .foregroundColor(.secondary)
+                }
             }
+        }
+        .padding(.vertical, 4)
+    }
+}
 
-            // Use a grid layout for more efficient space usage
-            LazyVGrid(columns: [
-                GridItem(.flexible()),
-                GridItem(.flexible()),
-            ], alignment: .leading, spacing: 4) {
-                ForEach(getDisplayLines(), id: \.line.id) { lineWrapper in
-                    VStack(alignment: .leading, spacing: 0) {
-                        if lineWrapper.line.type == 2 {
-                            Text(lineWrapper.line.gurmukhi.unicode)
-                                .font(.system(size: 9))
-                                .foregroundColor(.secondary)
+struct HomeScreenView: View {
+    let entry: RandSbdForWidget
+    let heading: String?
+    let fontType: String
+    let selectedVisraamSource: String
+    let prefix: Int
+    let colorScheme: ColorScheme
+
+    var body: some View {
+        let verses = entry.sbd.verses.prefix(prefix)
+
+        ZStack(alignment: .topTrailing) { // 👈 this line fixes the position
+            VStack(alignment: .leading) {
+                HStack {
+                    if let heading = heading {
+                        Text(heading)
+                            .font(.caption)
+                            .bold()
+                            .lineLimit(1)
+                            .foregroundColor(.secondary)
+                    }
+
+                    Spacer()
+                }
+
+                ForEach(verses, id: \.verseId) { verse in
+                    VStack(alignment: .leading) {
+                        getGurbaniLine(verse, fontType: fontType, selectedVisraamSource: selectedVisraamSource, colorScheme: colorScheme)
+                            .font(.headline)
+                            .lineLimit(2)
+
+                        if let a = verse.translation.en.bdb {
+                            Text(a)
+                                .font(.caption2)
                                 .lineLimit(1)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                        } else if lineWrapper.line.type == 3 {
-                            Text(lineWrapper.line.gurmukhi.unicode)
-                                .font(.system(size: 12, weight: .semibold))
-                                .foregroundColor(.primary)
-                                .lineLimit(2)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                        } else {
-                            Text(lineWrapper.line.gurmukhi.unicode)
-                                .font(.system(size: 11))
-                                .lineLimit(2)
-                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .foregroundColor(.secondary)
                         }
                     }
                 }
             }
-        }
-        .padding(10)
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-    }
 
-    private func getDisplayLines() -> [ShabadLineWrapper] {
-        // For medium widget, show up to 8 lines intelligently
-        let maxLines = 8
-        let filteredLines = entry.sbd.shabad.filter { $0.line.type != 2 || entry.sbd.shabad.count <= 3 }
-        return Array(filteredLines.prefix(maxLines))
-    }
-}
-
-struct HomeScreenLargeView: View {
-    let entry: RandSbdForWidget
-    let heading: String?
-
-    var body: some View {
-        ZStack {
-            // Background gradient — closer to your image
-            LinearGradient(
-                gradient: Gradient(colors: [
-                    Color(red: 1.0, green: 0.8, blue: 0.7),
-                    Color(red: 0.7, green: 1.0, blue: 0.8),
-                ]),
-                startPoint: .topTrailing,
-                endPoint: .bottomLeading
-            )
-            .ignoresSafeArea()
-
-            VStack(alignment: .leading, spacing: 10) {
-                // Heading + Date
-                VStack(alignment: .leading, spacing: 2) {
-                    Text(heading ?? "Random Shabad (P:5)")
-                        .font(.system(size: 15, weight: .semibold))
-                        .foregroundColor(.white.opacity(0.95))
-
-                    Text(entry.date, style: .date)
-                        .font(.system(size: 13))
-                        .foregroundColor(.white.opacity(0.8))
-                }
-
-                // Gurbani lines
-                if let firstLine = entry.sbd.shabad.first?.line {
-                    VStack(alignment: .leading, spacing: 6) {
-                        Text(firstLine.gurmukhi.unicode)
-                            .font(.system(size: 17, weight: .semibold))
-                            .foregroundColor(.white)
-                            .fixedSize(horizontal: false, vertical: true)
-
-                        Text(firstLine.translation.english.default)
-                            .italic()
-                            .font(.system(size: 13))
-                            .foregroundColor(.white.opacity(0.9))
-                            .fixedSize(horizontal: false, vertical: true)
-
-                        Text(firstLine.translation.punjabi.default.unicode)
-                            .font(.system(size: 13))
-                            .foregroundColor(.white.opacity(0.9))
-                            .fixedSize(horizontal: false, vertical: true)
-                    }
-                    .padding(.top, 4)
-                } else {
-                    Text("No Shabad data available.")
-                        .font(.system(size: 13))
-                        .foregroundColor(.white.opacity(0.8))
-                        .padding(.top, 8)
-                }
-
-                Spacer()
-
-                // "View more" footer
-                Text("View more")
-                    .font(.system(size: 12))
-                    .foregroundColor(.white.opacity(0.85))
-                    .padding(.top, 4)
+            Link(destination: URL(string: "chet://search")!) {
+                Image(systemName: "magnifyingglass")
+                    .foregroundColor(.primary)
+                    .padding(6)
+                    .background(Color.white.opacity(0.15))
+                    .clipShape(Circle())
+                    .padding(.top, -2)
+                    .padding(.trailing, -12)
             }
-            .padding(16)
         }
+        .containerBackground(.fill.tertiary, for: .widget)
     }
 }
 
 struct WidgetEntryView: View {
     let entry: RandSbdForWidget
     let heading: String?
+    var the_heading: String {
+        if let heading = heading {
+            return heading + "  " + getWidgetHeadingFromSbdInfo(entry.sbd.shabadInfo)
+        } else {
+            return getWidgetHeadingFromSbdInfo(entry.sbd.shabadInfo)
+        }
+    }
+
     @Environment(\.widgetFamily) var widgetFamily
+    @Environment(\.colorScheme) var colorScheme
+    @AppStorage("fontType") private var fontType = "Unicode"
+    @AppStorage("settings.visraamSource") private var selectedVisraamSource = "igurbani"
 
     var body: some View {
         switch widgetFamily {
         case .accessoryInline:
-            LockScreenInLineView(entry: entry)
+            LockScreenInLineView(entry: entry, fontType: fontType, selectedVisraamSource: selectedVisraamSource, colorScheme: colorScheme)
         case .accessoryRectangular:
-            LockScreenRectangularView(entry: entry)
+            LockScreenRectangularView(entry: entry, fontType: fontType, selectedVisraamSource: selectedVisraamSource, colorScheme: colorScheme)
         case .systemSmall:
-            HomeScreenSmallView(entry: entry, heading: heading)
+            HomeScreenView(entry: entry, heading: the_heading, fontType: fontType, selectedVisraamSource: selectedVisraamSource, prefix: 3, colorScheme: colorScheme)
         case .systemMedium:
-            HomeScreenMediumView(entry: entry, heading: heading)
+            HomeScreenView(entry: entry, heading: the_heading, fontType: fontType, selectedVisraamSource: selectedVisraamSource, prefix: 3, colorScheme: colorScheme)
         case .systemLarge:
-            HomeScreenLargeView(entry: entry, heading: heading)
+            HomeScreenView(entry: entry, heading: the_heading, fontType: fontType, selectedVisraamSource: selectedVisraamSource, prefix: 5, colorScheme: colorScheme)
         default:
             Text("Vaheguru")
                 .font(.caption)
                 .foregroundColor(.secondary)
         }
+    }
+}
+
+func getGurbaniLine(_ verse: Verse, fontType: String, selectedVisraamSource: String, colorScheme: ColorScheme) -> Text {
+    let text = fontType == "Unicode" ? verse.verse.unicode : verse.verse.gurmukhi
+    let words = text.components(separatedBy: " ")
+
+    // Get visraam points based on selected source
+    var visraamPoints: [Int: String] = [:] // [position: type]
+    if let visraam = verse.visraam {
+        let selectedVisraamData: [Visraam.VisraamPoint]
+        switch selectedVisraamSource {
+        case "sttm":
+            selectedVisraamData = visraam.sttm
+        case "sttm2":
+            selectedVisraamData = visraam.sttm2
+        case "igurbani":
+            selectedVisraamData = visraam.igurbani
+        default:
+            selectedVisraamData = []
+        }
+
+        for point in selectedVisraamData {
+            visraamPoints[point.p] = point.t
+        }
+    }
+
+    var result = Text("")
+    for (index, word) in words.enumerated() {
+        let wordText: Text
+
+        if let visraamType = visraamPoints[index] {
+            let color: Color
+            switch visraamType {
+            case "v": // small pause
+                color = colorScheme == .dark ? Color(red: 1.0, green: 0.6, blue: 0.4) : Color(red: 0.8, green: 0.3, blue: 0.1)
+            case "y": // big pause
+                color = colorScheme == .dark ? Color(red: 0.4, green: 0.8, blue: 0.4) : Color(red: 0.2, green: 0.6, blue: 0.2)
+            default:
+                color = .primary
+            }
+            wordText = Text(word).foregroundColor(color)
+        } else {
+            wordText = Text(word).foregroundColor(.primary)
+        }
+
+        result = result + wordText
+
+        if index < words.count - 1 {
+            // if !lineLarivaar { }
+            result = result + Text(" ")
+        }
+    }
+
+    return result
+}
+
+struct GradientView: View {
+    var body: some View {
+        LinearGradient(colors: [.blue.opacity(0.8), .teal.opacity(0.8)], startPoint: .topLeading, endPoint: .bottomTrailing)
     }
 }
