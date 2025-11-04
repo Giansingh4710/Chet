@@ -117,6 +117,17 @@ struct SearchView: View {
                         .buttonStyle(PlainButtonStyle())
                     }
                     .listStyle(PlainListStyle())
+                    .simultaneousGesture(
+                        DragGesture(minimumDistance: 10)
+                            .onChanged { _ in
+                                if showingPunjabiKeyboard || isSearchFieldFocused {
+                                    withAnimation(.spring()) {
+                                        showingPunjabiKeyboard = false
+                                        isSearchFieldFocused = false
+                                    }
+                                }
+                            }
+                    )
                 }
             }
 
