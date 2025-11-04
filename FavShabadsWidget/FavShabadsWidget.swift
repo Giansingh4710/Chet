@@ -31,11 +31,11 @@ struct Provider: @preconcurrency TimelineProvider {
         let svdSbds = getFavShabads()
         var entries: [RandSbdForWidget] = []
         let interval = UserDefaults.appGroup.data(forKey: "favSbdRefreshInterval") as? Int ?? 3
-        print("typeof interval: ", interval, type(of: interval))
         var lastDate = Date.now
         for offset in 0 ..< svdSbds.count {
+            let sbd = svdSbds[offset]
             let entryDate = Calendar.current.date(byAdding: .hour, value: offset * interval, to: Date())!
-            let entry = RandSbdForWidget(sbd: svdSbds[offset].sbdRes, date: entryDate, index: svdSbds[offset].indexOfSelectedLine)
+            let entry = RandSbdForWidget(sbd: sbd.sbdRes, date: entryDate, index: sbd.indexOfSelectedLine)
             lastDate = entryDate
             entries.append(entry)
         }
@@ -47,11 +47,10 @@ struct Provider: @preconcurrency TimelineProvider {
     @MainActor
     private func getFavShabads() -> [SavedShabad] {
         do {
-            let favSbdFolderName = UserDefaults.appGroup.data(forKey: "favSbdFolderName") as? String ?? default_fav_widget_folder_name
             let context = modelContainer.mainContext
 
             let descriptor = FetchDescriptor<SavedShabad>(
-                predicate: #Predicate { $0.folder?.name == favSbdFolderName },
+                predicate: #Predicate { $0.folder?.name == "Favorites" && $0.folder?.parentFolder == nil && $0.folder?.isSystemFolder == true },
                 sortBy: [SortDescriptor(\.sortIndex)]
             )
             let results = try context.fetch(descriptor)
@@ -67,7 +66,7 @@ struct FavShabadsWidgetEntryView: View {
     var entry: RandSbdForWidget
     var body: some View {
         WidgetEntryView(entry: entry, heading: "From Favorites")
-            .widgetURL(URL(string: "chet://shabadid/\(entry.sbd.shabadInfo.shabadId)")) // custom deep link
+            .widgetURL(URL(string: "chet://favshabadid/\(entry.sbd.shabadInfo.shabadId)")) // custom deep link
         // Text("Favs")
     }
 }

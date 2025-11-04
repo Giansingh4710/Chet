@@ -305,7 +305,7 @@ extension ModelContainer {
 
             if existing?.isEmpty ?? true {
                 let defaults = [
-                    Folder(name: default_fav_widget_folder_name, isSystemFolder: true),
+                    Folder(name:  "Favorites", isSystemFolder: true),
                     Folder(name: "Keertan"),
                     // Folder(name: "Favorites", isSystemFolder: true),
                 ]
@@ -327,5 +327,3 @@ struct RandSbdForWidget: Codable, TimelineEntry {
     let date: Date
     let index: Int
 }
-
-let default_fav_widget_folder_name = "Favorites"

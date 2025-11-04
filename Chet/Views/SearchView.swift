@@ -16,7 +16,6 @@ struct SearchView: View {
     @State private var isNavigatingToSearchedSbd = false
     @State private var isNavigatingToHukam = false
 
-
     @State private var showingPunjabiKeyboard = false
 
     @AppStorage("fontType") private var fontType: String = "Unicode"
@@ -107,53 +106,33 @@ struct SearchView: View {
                         NavigationLink(destination: ShabadViewFromSearchedLine(
                             searchedLine: searchedLine
                         )) {
-                            VStack(alignment: .leading, spacing: 4) {
-                                HStack {
-                                    // Text(searchedLine.verse.unicode)
-                                    // .font(.title3)
-                                    Text(
-                                        larivaarOn ?
-                                            fontType == "Unicode" ? searchedLine.larivaar.unicode : searchedLine.larivaar.gurmukhi :
-                                            fontType == "Unicode" ? searchedLine.verse.unicode : searchedLine.verse.gurmukhi
-                                    )
-                                    .font(resolveFont(size: 24, fontType: fontType))
-                                    .fontWeight(.semibold)
-                                    .lineLimit(3)
-                                    .multilineTextAlignment(.leading)
-                                    .foregroundColor(.primary)
-                                    Spacer()
-                                    Text("Ang \(String(searchedLine.pageNo))")
-                                        .font(.caption)
-                                        .foregroundColor(.secondary)
-                                }
-                                if let a = searchedLine.translation.en.bdb {
-                                    Text(a)
-                                        .font(.subheadline)
-                                        .foregroundColor(.secondary)
-                                        .lineLimit(2)
-                                        .multilineTextAlignment(.leading)
-                                }
-                            }
-                            .padding(.vertical, 8)
-                            .frame(maxWidth: .infinity, alignment: .leading)
+                            RowView(
+                                verse: convertToVerse(from: searchedLine),
+                                source: searchedLine.source,
+                                writer: searchedLine.writer,
+                                pageNo: searchedLine.pageNo,
+                                the_date: nil
+                            )
                         }
                         .buttonStyle(PlainButtonStyle())
                     }
                     .listStyle(PlainListStyle())
                 }
             }
-            .onTapGesture {
-                withAnimation(.spring()) {
-                    isSearchFieldFocused = false
-                    showingPunjabiKeyboard = false
-                }
-            }
 
             HStack(spacing: 16) {
-                MyTextField(text: $searchText, isFocused: $isSearchFieldFocused, fontType: fontType, placeholder: "cyq")
+                MyTextField(text: $searchText, isFocused: $isSearchFieldFocused, showingPunjabiKeyboard: $showingPunjabiKeyboard, fontType: fontType, placeholder: "cyq")
                     .frame(height: 44)
-                    .padding(.horizontal)
                     .shadow(color: .black.opacity(0.05), radius: 4, y: 1)
+
+                if !searchText.isEmpty {
+                    Button(action: {
+                        searchText = ""
+                    }) {
+                        Image(systemName: "xmark.circle.fill")
+                            .foregroundColor(.secondary)
+                    }
+                }
 
                 // Punjabi keyboard toggle
                 Button(action: {
@@ -167,19 +146,17 @@ struct SearchView: View {
                         .animation(.spring(), value: showingPunjabiKeyboard)
                 }
             }
-            .padding(.horizontal, 5)
-            .padding(.vertical, 5)
+            .padding(.horizontal, 2)
+            .padding(.vertical, 1)
             .background(Color(.systemGray6))
             .cornerRadius(10) // pill shape
-            .overlay(
-                RoundedRectangle(cornerRadius: 20)
-                    .stroke(Color(.systemGray4), lineWidth: 1)
-            )
             .shadow(color: .black.opacity(0.05), radius: 1, x: 0, y: 1)
-            .padding(.horizontal)
-            .offset(y: -20)
 
-            if showingPunjabiKeyboard {
+            if !showingPunjabiKeyboard {
+                Spacer()
+                Spacer()
+                Spacer()
+            } else {
                 if qwertyKeyboard {
                     QwertyPunjabiKeyboardView(
                         onKeyPress: { key in
@@ -195,9 +172,11 @@ struct SearchView: View {
                             qwertyKeyboard.toggle()
                         },
                         onReturn: {
+                            withAnimation(.spring()) {
+                                showingPunjabiKeyboard = false
+                                isSearchFieldFocused = false
+                            }
                             Task { await fetchResults() }
-                            showingPunjabiKeyboard = false
-                            isSearchFieldFocused = false
                         }
                     )
                     .frame(height: 300)
@@ -217,9 +196,11 @@ struct SearchView: View {
                             qwertyKeyboard.toggle()
                         },
                         onReturn: {
+                            withAnimation(.spring()) {
+                                showingPunjabiKeyboard = false
+                                isSearchFieldFocused = false
+                            }
                             Task { await fetchResults() }
-                            showingPunjabiKeyboard = false
-                            isSearchFieldFocused = false
                         }
                     )
                 }
@@ -240,7 +221,17 @@ struct SearchView: View {
                 Task { await fetchResults() }
             }
         }
-        .navigationTitle("Gurbani Search")
+        .navigationTitle(searchText.isEmpty ? "Gurbani Search" : "\(results.count) Results")
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                NavigationLink(destination: ShabadHistoryView()) {
+                    Image(systemName: "clock")
+                        .imageScale(.medium)
+                        .foregroundColor(.primary)
+                        .padding(.horizontal, 8)
+                }
+            }
+        }
         .background(colorScheme == .dark ? Color(.systemBackground) : Color(.systemGroupedBackground))
     }
 
@@ -581,6 +572,7 @@ struct KeyButton: View {
 struct MyTextField: UIViewRepresentable {
     @Binding var text: String
     @Binding var isFocused: Bool
+    @Binding var showingPunjabiKeyboard: Bool
     let fontType: String
     let placeholder: String
 
@@ -590,23 +582,32 @@ struct MyTextField: UIViewRepresentable {
         tf.font = resolveFont(size: 16, fontType: fontType == "Unicode" ? "AnmolLipiSG" : fontType)
         tf.textColor = .label
         tf.backgroundColor = .systemGray6
-        tf.layer.cornerRadius = 10
+        tf.layer.cornerRadius = 12
         tf.clearButtonMode = .whileEditing
-        tf.tintColor = .systemBlue // cursor color
-        tf.inputView = UIView() // disable system keyboard
+        tf.tintColor = .systemBlue
+        tf.inputView = UIView()
         tf.inputAccessoryView = UIView()
 
-        // left search icon
+        // Left search icon with proper padding
+        let iconView = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 44))
         let icon = UIImageView(image: UIImage(systemName: "magnifyingglass"))
-        icon.tintColor = .gray
-        tf.leftView = icon
+        icon.tintColor = .systemGray
+        icon.contentMode = .center
+        icon.frame = CGRect(x: 8, y: 12, width: 20, height: 20)
+        iconView.addSubview(icon)
+        tf.leftView = iconView
         tf.leftViewMode = .always
+
+        // Right padding for clear button
+        tf.rightView = UIView(frame: CGRect(x: 0, y: 0, width: 8, height: 44))
+        tf.rightViewMode = .always
 
         tf.delegate = context.coordinator
 
-        // tap recognizer to set SwiftUI focus
+        // Tap recognizer to set SwiftUI focus with animation
         let tap = UITapGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.didTap))
         tf.addGestureRecognizer(tap)
+
         return tf
     }
 
@@ -620,16 +621,18 @@ struct MyTextField: UIViewRepresentable {
     }
 
     func makeCoordinator() -> Coordinator {
-        Coordinator(text: $text, isFocused: $isFocused)
+        Coordinator(text: $text, isFocused: $isFocused, showingPunjabiKeyboard: $showingPunjabiKeyboard)
     }
 
     class Coordinator: NSObject, UITextFieldDelegate {
         @Binding var text: String
         @Binding var isFocused: Bool
+        @Binding var showingPunjabiKeyboard: Bool
 
-        init(text: Binding<String>, isFocused: Binding<Bool>) {
+        init(text: Binding<String>, isFocused: Binding<Bool>, showingPunjabiKeyboard: Binding<Bool>) {
             _text = text
             _isFocused = isFocused
+            _showingPunjabiKeyboard = showingPunjabiKeyboard
         }
 
         func textFieldDidChangeSelection(_ tf: UITextField) {
@@ -638,8 +641,24 @@ struct MyTextField: UIViewRepresentable {
 
         @objc func didTap() {
             withAnimation(.spring()) {
-                isFocused = true
+                isFocused.toggle()
+                showingPunjabiKeyboard = isFocused
             }
         }
     }
+}
+
+func convertToVerse(from searchVerse: SearchVerse) -> Verse {
+    return Verse(
+        verseId: searchVerse.verseId,
+        shabadId: searchVerse.shabadId,
+        verse: searchVerse.verse,
+        larivaar: searchVerse.larivaar,
+        translation: searchVerse.translation,
+        transliteration: searchVerse.transliteration,
+        pageNo: searchVerse.pageNo,
+        lineNo: searchVerse.lineNo,
+        updated: searchVerse.updated,
+        visraam: searchVerse.visraam
+    )
 }

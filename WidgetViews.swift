@@ -56,11 +56,12 @@ struct HomeScreenView: View {
     let heading: String?
     let fontType: String
     let selectedVisraamSource: String
-    let prefix: Int
+    let lines: Int
     let colorScheme: ColorScheme
 
+
     var body: some View {
-        let verses = entry.sbd.verses.prefix(prefix)
+        let verses = getVerses()
 
         ZStack(alignment: .topTrailing) { // 👈 this line fixes the position
             VStack(alignment: .leading) {
@@ -104,6 +105,29 @@ struct HomeScreenView: View {
         }
         .containerBackground(.fill.tertiary, for: .widget)
     }
+
+    func getVerses() -> [Verse] {
+        let allVerses = entry.sbd.verses
+        let total = allVerses.count
+        let index = entry.index
+        let count = lines
+
+        // If total verses are fewer than the desired lines, just return all
+        guard total > count else {
+            return allVerses
+        }
+
+        var start = index // Calculate start index
+        // If not enough verses remain from index to the end, shift start backward
+        if start + count > total {
+            start = max(total - count, 0)
+        }
+
+        // Compute the end index safely
+        let end = min(start + count, total)
+        print("start: \(start), end: \(end)")
+        return Array(allVerses[start ..< end])
+    }
 }
 
 struct WidgetEntryView: View {
@@ -129,11 +153,11 @@ struct WidgetEntryView: View {
         case .accessoryRectangular:
             LockScreenRectangularView(entry: entry, fontType: fontType, selectedVisraamSource: selectedVisraamSource, colorScheme: colorScheme)
         case .systemSmall:
-            HomeScreenView(entry: entry, heading: the_heading, fontType: fontType, selectedVisraamSource: selectedVisraamSource, prefix: 3, colorScheme: colorScheme)
+            HomeScreenView(entry: entry, heading: the_heading, fontType: fontType, selectedVisraamSource: selectedVisraamSource, lines: 3, colorScheme: colorScheme)
         case .systemMedium:
-            HomeScreenView(entry: entry, heading: the_heading, fontType: fontType, selectedVisraamSource: selectedVisraamSource, prefix: 3, colorScheme: colorScheme)
+            HomeScreenView(entry: entry, heading: the_heading, fontType: fontType, selectedVisraamSource: selectedVisraamSource, lines: 3, colorScheme: colorScheme)
         case .systemLarge:
-            HomeScreenView(entry: entry, heading: the_heading, fontType: fontType, selectedVisraamSource: selectedVisraamSource, prefix: 5, colorScheme: colorScheme)
+            HomeScreenView(entry: entry, heading: the_heading, fontType: fontType, selectedVisraamSource: selectedVisraamSource, lines: 5, colorScheme: colorScheme)
         default:
             Text("Vaheguru")
                 .font(.caption)

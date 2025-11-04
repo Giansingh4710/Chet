@@ -194,7 +194,8 @@ struct HukamnamaDatePickerSheet: View {
 
     @Environment(\.dismiss) private var dismiss
 
-    let dateRange = Calendar.current.date(from: DateComponents(year: 2002, month: 1, day: 1))! ... Date()
+    // let dateRange = Calendar.current.date(from: DateComponents(year: 2002, month: 1, day: 1))! ... Date()
+    let dateRange = Calendar.current.date(from: DateComponents(year: 2002, month: 1, day: 1))! ... Calendar.current.date(byAdding: .day, value: 1, to: Date())!
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {

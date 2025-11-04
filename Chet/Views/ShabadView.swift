@@ -352,20 +352,31 @@ struct SettingsSheet: View {
         ("Urdu", "ur"),
     ]
 
+    @AppStorage("fontType") private var fontType: String = "Unicode"
+    private let fonts: [(name: String, value: String)] = [
+        ("Unicode", "Unicode"),
+        ("Anmol Lipi SG", "AnmolLipiSG"),
+        ("Anmol Lipi Bold", "AnmolLipiBoldTrue"),
+        ("Gurbani Akhar", "GurbaniAkharTrue"),
+        ("Gurbani Akhar Heavy", "GurbaniAkharHeavyTrue"),
+        ("Gurbani Akhar Thick", "GurbaniAkharThickTrue"),
+        ("Noto Sans Gurmukhi Bold", "NotoSansGurmukhiBoldTrue"),
+        ("Noto Sans Gurmukhi", "NotoSansGurmukhiTrue"),
+        ("Prabhki", "Prabhki"),
+        ("The Actual Characters", "The Actual Characters"),
+    ]
+
+
     var body: some View {
         NavigationView {
             Form {
                 Section(header: Text("Gurbani")) {
                     Toggle("Larivaar", isOn: $larivaarOn)
                     Toggle("Swipe to go to next shabad", isOn: $swipeToGoToNextShabadSetting)
-                    FontPicker()
                     Picker("Visraam", selection: $selectedVisraamSource) {
                         ForEach(visraamSources, id: \.self) { Text($0) }
                     }
-                    HStack {
-                        Text("Gurbani Font Size")
-                        Slider(value: $textScale, in: 0.5 ... 2.5, step: 0.1)
-                    }
+                    SettingsOptionPickerSlider(title: "Gurbani Font", selectedItem: $fontType, options: fonts, textScale: $textScale)
                     SettingsOptionPickerSlider(title: "Transliteration", selectedItem: $selectedTransliterationSource, options: transliterationSources, textScale: $transliterationTextScale)
                 }
 
@@ -416,25 +427,6 @@ struct SettingsOptionPickerSlider: View {
             }
         }
         .padding(.vertical, 4)
-    }
-}
-
-struct FontPicker: View {
-    @AppStorage("fontType") private var fontType: String = "Unicode"
-
-    var body: some View {
-        Picker("Font", selection: $fontType) {
-            Text("Unicode").tag("Unicode")
-            Text("Anmol Lipi SG").tag("AnmolLipiSG")
-            Text("Anmol Lipi Bold").tag("AnmolLipiBoldTrue")
-            Text("Gurbani Akhar").tag("GurbaniAkharTrue")
-            Text("Gurbani Akhar Heavy").tag("GurbaniAkharHeavyTrue")
-            Text("Gurbani Akhar Thick").tag("GurbaniAkharThickTrue")
-            Text("Noto Sans Gurmukhi Bold").tag("NotoSansGurmukhiBoldTrue")
-            Text("Noto Sans Gurmukhi").tag("NotoSansGurmukhiTrue")
-            Text("Prabhki").tag("PrabhkiTrue")
-            Text("The Actual Characters").tag("The Actual Characters")
-        }
     }
 }
 

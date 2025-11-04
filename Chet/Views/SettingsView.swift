@@ -8,7 +8,6 @@ struct SettingsView: View {
 
     @AppStorage("randSbdRefreshInterval", store: UserDefaults.appGroup) var randSbdRefreshInterval: Int = 3 // default: every 3 hours
     @AppStorage("favSbdRefreshInterval", store: UserDefaults.appGroup) private var favSbdRefreshInterval: Int = 3
-    @AppStorage("favSbdFolderName", store: UserDefaults.appGroup) private var favSbdFolderName: String = default_fav_widget_folder_name
     @Query private var allFolders: [Folder]
     @Query(sort: \ShabadHistory.dateViewed, order: .reverse) var histories: [ShabadHistory]
 
@@ -112,23 +111,6 @@ struct SettingsView: View {
                 }
 
                 Section("Favorite Shabad Widget") {
-                    if widgetShabads.isEmpty {
-                        Text("No Shabads in '\(favSbdFolderName)' folder")
-                            .foregroundStyle(.secondary)
-                    } else {
-                        ForEach(widgetShabads) { svdSbd in
-                            NavigationLink(destination: ShabadViewDisplayWrapper(sbdRes: svdSbd.sbdRes, indexOfLine: svdSbd.indexOfSelectedLine, onIndexChange: { newIndex in
-                                svdSbd.indexOfSelectedLine = newIndex
-                            })) {
-                                HStack {
-                                    Text(svdSbd.sbdRes.verses[svdSbd.indexOfSelectedLine].verse.unicode)
-                                        .lineLimit(1)
-                                    Spacer()
-                                }
-                            }
-                        }
-                    }
-
                     HStack {
                         Picker("Get New Shabad every", selection: $favSbdRefreshInterval) {
                             Text("1 hour").tag(1)
@@ -142,20 +124,6 @@ struct SettingsView: View {
                     .onChange(of: favSbdRefreshInterval) { _ in
                         WidgetCenter.shared.reloadTimelines(ofKind: "xyz.gians.Chet.FavShabadsWidget") // Ask widget to refresh
                     }
-
-                    HStack {
-                        Picker("Folder for 'Favorite Shabads' Widget", selection: $favSbdFolderName) {
-                            ForEach(allFolders, id: \.self) { folder in
-                                Text(folder.name) // show folder name
-                                    .tag(folder.name) // bind value to AppStorage
-                            }
-                        }
-                        infoButton(.favSbdFolderName)
-                    }
-                    .onChange(of: favSbdFolderName) { newFolderName in
-                        loadWidgetShabads(newFolderName)
-                        WidgetCenter.shared.reloadTimelines(ofKind: "xyz.gians.Chet.FavShabadsWidget") // Ask widget to refresh
-                    }
                 }
             }
         }
@@ -163,9 +131,6 @@ struct SettingsView: View {
         .onAppear {
             loadRandSbds()
             loadWidgetShabads()
-            for folder in allFolders {
-                print("Folder name: \(folder.name) parent: \(folder.parentFolder?.name ?? "nil")")
-            }
         }
         .alert(item: $infoType) { type in
             Alert(title: Text("Info"), message: Text(type.message), dismissButton: .default(Text("OK")))
@@ -196,9 +161,8 @@ struct SettingsView: View {
         }
     }
 
-    private func loadWidgetShabads(_ folderName: String = "") {
-        let fldName = folderName.isEmpty ? favSbdFolderName : folderName
-        if let folder = allFolders.first(where: { $0.name == fldName }) {
+    private func loadWidgetShabads() {
+        if let folder = allFolders.first(where: { $0.name == "Favorites" }) {
             let folderID = folder.id // <-- capture as plain UUID
             let descriptor = FetchDescriptor<SavedShabad>(
                 predicate: #Predicate { $0.folder?.id == folderID },
@@ -211,12 +175,31 @@ struct SettingsView: View {
     }
 }
 
+struct FontPicker: View {
+    @AppStorage("fontType") private var fontType: String = "Unicode"
+
+    var body: some View {
+        Picker("Font", selection: $fontType) {
+            Text("Unicode").tag("Unicode")
+            Text("Anmol Lipi SG").tag("AnmolLipiSG")
+            Text("Anmol Lipi Bold").tag("AnmolLipiBoldTrue")
+            Text("Gurbani Akhar").tag("GurbaniAkharTrue")
+            Text("Gurbani Akhar Heavy").tag("GurbaniAkharHeavyTrue")
+            Text("Gurbani Akhar Thick").tag("GurbaniAkharThickTrue")
+            Text("Noto Sans Gurmukhi Bold").tag("NotoSansGurmukhiBoldTrue")
+            Text("Noto Sans Gurmukhi").tag("NotoSansGurmukhiTrue")
+            Text("Prabhki").tag("Prabhki")
+            Text("The Actual Characters").tag("The Actual Characters")
+        }
+    }
+}
+
+
 enum InfoType: Identifiable {
     case compactRow
     case appearance
     case randSbdRefreshInterval
     case favSbdRefreshInterval
-    case favSbdFolderName
 
     var id: Int {
         hashValue
@@ -232,8 +215,6 @@ enum InfoType: Identifiable {
             return "This determines how often new random Shabads are generated for the widget."
         case .favSbdRefreshInterval:
             return "This determines how often the shabads in your chosen folder switch in your widget."
-        case .favSbdFolderName:
-            return "The folder you choose will be used to display the shabads in the 'Favorite Shabads' widget."
         }
     }
 }

@@ -1,5 +1,6 @@
 import SwiftData
 import SwiftUI
+import WidgetKit
 
 struct SavedShabadsView: View {
     @Query(
@@ -11,6 +12,9 @@ struct SavedShabadsView: View {
     // @State private var editMode: EditMode = .inactive
 
     // UI state for new-folder sheet
+    @State private var showingErrorAlert = false
+    @State private var errorMessage: String = ""
+
     @State private var showingNewFolderAlert = false
     @State private var newFolderName: String = ""
 
@@ -110,11 +114,25 @@ struct SavedShabadsView: View {
                 newFolderName = ""
             }
             Button("Create") {
+                if newFolderName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                    errorMessage = "Folder name cannot be empty."
+                    showingErrorAlert = true
+                    return
+                }
+                if rootFolders.contains(where: { $0.name == "Favorites" }) && newFolderName == "Favorites" {
+                    errorMessage = "Cannot create a folder named 'Favorites'."
+                    showingErrorAlert = true
+                    return
+                }
+
                 createFolder(newFolderName, modelContext: modelContext)
                 newFolderName = ""
             }
+        }
+        .alert("Error", isPresented: $showingErrorAlert) {
+            Button("OK", role: .cancel) {}
         } message: {
-            Text("Enter a name for the new folder")
+            Text(errorMessage)
         }
         .alert("Import Shabads", isPresented: $showingImportInfoAlert) {
             Button("Continue") {
@@ -198,6 +216,9 @@ struct SavedShabadsView: View {
 
 struct FoldersContentView: View {
     @Bindable var folder: Folder
+
+    @State private var errorMessage = ""
+    @State private var showingErrorAlert = false
 
     @State private var showingNewFolderAlert = false
     @State private var newFolderName: String = ""
@@ -319,6 +340,8 @@ struct FoldersDisplay: View {
     @State private var editingFolder: Folder? // folder being renamed
     @State private var newName: String = "" // temporary name during rename
 
+    @State private var showingErrorAlert = false
+    @State private var errorMessage: String = ""
     init(parentFolder: Folder?, selectedFolders: Binding<Set<Folder>>) {
         self.parentFolder = parentFolder
         _selectedFolders = selectedFolders
@@ -363,7 +386,11 @@ struct FoldersDisplay: View {
             .onMove(perform: moveItems)
             .onDelete(perform: handleDelete)
         }
-        // Rename alert
+        .alert("Error", isPresented: $showingErrorAlert) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text(errorMessage)
+        }
         .alert("Rename Folder", isPresented: Binding(
             get: { editingFolder != nil },
             set: { if !$0 { editingFolder = nil } }
@@ -392,6 +419,11 @@ struct FoldersDisplay: View {
     private func handleDelete(at offsets: IndexSet) {
         for index in offsets {
             let folder = subfolders[index]
+            if folder.isSystemFolder {
+                errorMessage = "This Folder cannot be deleted."
+                showingErrorAlert = true
+                return
+            }
             modelContext.delete(folder)
         }
     }
@@ -447,8 +479,16 @@ struct ShabadsDisplay: View {
                     }
                     NavigationLink(destination: ShabadViewDisplayWrapper(sbdRes: svdSbd.sbdRes, indexOfLine: svdSbd.indexOfSelectedLine, onIndexChange: { newIndex in
                         svdSbd.indexOfSelectedLine = newIndex
+                        // WidgetCenter.shared.reloadTimelines(ofKind: "xyz.gians.Chet.FavShabadsWidget")
+                        WidgetCenter.shared.reloadAllTimelines()
                     })) {
-                        RowView(sbdRes: svdSbd.sbdRes, indexOfLine: svdSbd.indexOfSelectedLine, the_date: svdSbd.addedAt)
+                        RowView(
+                            verse: svdSbd.sbdRes.verses[svdSbd.indexOfSelectedLine],
+                            source: svdSbd.sbdRes.shabadInfo.source,
+                            writer: svdSbd.sbdRes.shabadInfo.writer,
+                            pageNo: svdSbd.sbdRes.shabadInfo.pageNo,
+                            the_date: svdSbd.addedAt
+                        )
                     }
                 }
                 .contentShape(Rectangle()) // Make HStack tappable for selection

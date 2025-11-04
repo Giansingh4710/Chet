@@ -36,7 +36,13 @@ struct ShabadHistoryView: View {
                         NavigationLink(destination: ShabadViewDisplayWrapper(sbdRes: historyItem.sbdRes, indexOfLine: historyItem.indexOfSelectedLine, onIndexChange: { newIndex in
                             historyItem.indexOfSelectedLine = newIndex
                         })) {
-                            RowView(sbdRes: historyItem.sbdRes, indexOfLine: historyItem.indexOfSelectedLine, the_date: historyItem.dateViewed)
+                            RowView(
+                                verse: historyItem.sbdRes.verses[historyItem.indexOfSelectedLine],
+                                source: historyItem.sbdRes.shabadInfo.source,
+                                writer: historyItem.sbdRes.shabadInfo.writer,
+                                pageNo: historyItem.sbdRes.shabadInfo.pageNo,
+                                the_date: historyItem.dateViewed
+                            )
                         }
                         .buttonStyle(PlainButtonStyle())
                     }
@@ -68,9 +74,11 @@ struct ShabadHistoryView: View {
 }
 
 struct RowView: View {
-    let sbdRes: ShabadAPIResponse
-    let indexOfLine: Int
-    let the_date: Date
+    let verse: Verse
+    let source: Source
+    let writer: Writer
+    let pageNo: Int
+    let the_date: Date?
 
     @AppStorage("CompactRowViewSetting") private var compactRowViewSetting = false
     @AppStorage("settings.larivaarOn") private var larivaarOn: Bool = true
@@ -84,34 +92,31 @@ struct RowView: View {
     }()
 
     var gurmukhiText: String {
-        let ind = indexOfLine == -1 ? 0 : indexOfLine
         if fontType == "Unicode" {
             if larivaarOn {
-                return sbdRes.verses[ind].larivaar.unicode
+                return verse.larivaar.unicode
             }
-            return sbdRes.verses[ind].verse.unicode
+            return verse.verse.unicode
         } else {
             if larivaarOn {
-                return sbdRes.verses[ind].larivaar.gurmukhi
+                return verse.larivaar.gurmukhi
             }
-            return sbdRes.verses[ind].verse.gurmukhi
+            return verse.verse.gurmukhi
         }
     }
 
     var body: some View {
         if compactRowViewSetting {
-            HStack {
-                Text(gurmukhiText)
-                    .font(resolveFont(size: 24, fontType: fontType == "Unicode" ? "AnmolLipiSG" : fontType))
-                    .fontWeight(.semibold)
-                    .lineLimit(1)
-                    .multilineTextAlignment(.leading)
-
-                Spacer()
-                Text(formatter.string(from: the_date))
-                    .font(.caption2)
-                    .foregroundColor(.secondary)
+            HStack(spacing: 8) {
+                VStack(alignment: .leading, spacing: 6) {
+                    Text(gurmukhiText)
+                        .font(resolveFont(size: 20, fontType: fontType == "Unicode" ? "AnmolLipiSG" : fontType))
+                        .fontWeight(.semibold)
+                        .lineLimit(2)
+                        .multilineTextAlignment(.leading)
+                }
             }
+            .padding(.vertical, 4)
         } else {
             VStack(alignment: .leading, spacing: 8) {
                 HStack {
@@ -121,8 +126,7 @@ struct RowView: View {
                             .fontWeight(.semibold)
                             .lineLimit(2)
                             .multilineTextAlignment(.leading)
-
-                        if let a = sbdRes.verses[indexOfLine].translation.en.bdb {
+                        if let a = verse.translation.en.bdb {
                             Text(a)
                                 .font(.subheadline)
                                 .foregroundColor(.secondary)
@@ -130,50 +134,59 @@ struct RowView: View {
                                 .multilineTextAlignment(.leading)
                         }
                     }
-
                     Spacer()
-
-                    VStack(alignment: .trailing, spacing: 4) {
-                        Text(the_date, style: .date)
-                            .font(.caption)
-                            .foregroundColor(.secondary)
-
-                        Text(the_date, style: .time)
-                            .font(.caption2)
-                            .foregroundColor(.secondary)
+                    if let the_date = the_date {
+                        VStack(alignment: .trailing, spacing: 4) {
+                            Text(the_date, style: .date)
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                            Text(the_date, style: .time)
+                                .font(.caption2)
+                                .foregroundColor(.secondary)
+                        }
                     }
                 }
-
                 HStack {
-                    Text(sbdRes.shabadInfo.source.english)
+                    Text(getCustomSrcName(source))
                         .font(.caption)
                         .padding(.horizontal, 8)
                         .padding(.vertical, 4)
                         .background(Color.blue.opacity(0.2))
                         .foregroundColor(.blue)
                         .cornerRadius(4)
-
-                    Text(sbdRes.shabadInfo.writer.english)
+                    Text(writer.english)
                         .font(.caption)
                         .padding(.horizontal, 8)
                         .padding(.vertical, 4)
                         .background(Color.green.opacity(0.2))
                         .foregroundColor(.green)
                         .cornerRadius(4)
-
-                    Text("Ang \(String(sbdRes.shabadInfo.pageNo))")
+                    Text("Ang \(String(pageNo))")
                         .font(.caption)
                         .padding(.horizontal, 8)
                         .padding(.vertical, 4)
                         .background(Color.orange.opacity(0.2))
                         .foregroundColor(.orange)
                         .cornerRadius(4)
-
                     Spacer()
                 }
             }
             .padding(.vertical, 8)
             .frame(maxWidth: .infinity, alignment: .leading)
         }
+    }
+}
+
+func getCustomSrcName(_ source: Source) -> String {
+    source.sourceId
+    switch source.sourceId {
+    case "G": return "SGGS" // Sri Guru Granth Sahib Ji
+    case "D": return source.english // Dasam Bani
+    case "B": return source.english // Bhai Gurdas Ji Vaaran
+    case "A": return source.english // Amrit Keertan
+    case "S": return source.english // Bhai Gurdas Singh Ji Vaaran
+    case "N": return source.english // Bhai Nand Lal Ji Vaaran
+    case "R": return source.english // Rehatnamas & Panthic Sources - include
+    default: return source.sourceId
     }
 }

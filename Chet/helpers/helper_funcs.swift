@@ -185,7 +185,7 @@ func getRandShabads(interval: Int) async -> [RandSbdForWidget] {
     for offset in 0 ..< (24 / interval) {
         let entryDate = Calendar.current.date(byAdding: .hour, value: offset * interval, to: Date())!
         if let response = await fetchRandomShabad() { // your API call
-            newList.append(RandSbdForWidget(sbd: response, date: entryDate, index: offset))
+            newList.append(RandSbdForWidget(sbd: response, date: entryDate, index: 0))
         }
     }
     if let encoded = try? JSONEncoder().encode(newList) { // Save to shared defaults for widget + app
