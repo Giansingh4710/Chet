@@ -1,0 +1,2936 @@
+{
+  "baniInfo": {
+    "baniID": 8,
+    "gurmukhi": "Akwl ausqq cOpeI",
+    "unicode": "ਅਕਾਲ ਉਸਤਤ ਚੌਪਈ",
+    "english": "akaal usatat chauapiee",
+    "hindi": "अकाल उसतत चौपई",
+    "en": "akaal usatat chauapiee",
+    "hi": "अकाल उसतत चौपई",
+    "ipa": "əkɑl oʊsət̪ət̪ t͡ʃɒəpei",
+    "ur": "اکال اُستت چَوپای",
+    "source": {
+      "sourceId": "D",
+      "gurmukhi": "dsm bwxI",
+      "unicode": "ਦਸਮ ਬਾਣੀ",
+      "english": "Dasam Bani",
+      "pageNo": 11
+    },
+    "raag": {
+      "raagId": 49,
+      "gurmukhi": null,
+      "unicode": null,
+      "english": null,
+      "raagWithPage": null
+    },
+    "writer": {
+      "writerId": 47,
+      "gurmukhi": "gurU goibMd isMG jI",
+      "unicode": null,
+      "english": "Guru Gobind Singh Ji"
+    }
+  },
+  "verses": [
+    {
+      "header": 1,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 1,
+      "verse": {
+        "verseId": 1531,
+        "verse": {
+          "gurmukhi": "<> siqgur pRswid ]",
+          "unicode": "ੴ ਸਤਿਗੁਰ ਪ੍ਰਸਾਦਿ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "<>siqgurpRswid]",
+          "unicode": "ੴਸਤਿਗੁਰਪ੍ਰਸਾਦਿ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "The Lord is One and he can be attained through the grace of the True Guru."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "<> siqgur pRswid:",
+              "unicode": "ੴ ਸਤਿਗੁਰ ਪ੍ਰਸਾਦਿ:"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "<> siqgur pRswid:",
+              "unicode": "ੴ ਸਤਿਗੁਰ ਪ੍ਰਸਾਦਿ:"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "ikOankaar satigur prasaadh ||",
+          "hindi": "ੴ सतिगुर प्रसादि ॥",
+          "en": "ikOankaar satigur prasaadh ||",
+          "hi": "ੴ सतिगुर प्रसादि ॥",
+          "ipa": "ɪk oəŋkɑɾ sət̪ɪGʊr pɹəsɑd̪.",
+          "ur": "اک اونکار ستگر پرساد ۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75019,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 0,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 0,
+              "t": "v"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 2,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 2,
+      "verse": {
+        "verseId": 1532,
+        "verse": {
+          "gurmukhi": "Akwl ausqq ]",
+          "unicode": "ਅਕਾਲ ਉਸਤਤ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "Akwlausqq]",
+          "unicode": "ਅਕਾਲਉਸਤਤ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "EULOGY OF THE NON-TEMPORAL LORD"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "akaal usatat ||",
+          "hindi": "अकाल उसतत ॥",
+          "en": "akaal usatat ||",
+          "hi": "अकाल उसतत ॥",
+          "ipa": "əkɑl oʊsət̪ət̪.",
+          "ur": "اکال اُستت ۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75020,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 2,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 3,
+      "verse": {
+        "verseId": 1533,
+        "verse": {
+          "gurmukhi": "sRI BgauqI jI shwie ]",
+          "unicode": "ਸ੍ਰੀ ਭਗਉਤੀ ਜੀ ਸਹਾਇ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "sRIBgauqIjIshwie]",
+          "unicode": "ਸ੍ਰੀਭਗਉਤੀਜੀਸਹਾਇ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "The Lord is One and he can be attained through the grace of the True Guru."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "sree bhagautee jee sahai ||",
+          "hindi": "स्री भगउती जी सहाइ ॥",
+          "en": "sree bhagautee jee sahai ||",
+          "hi": "स्री भगउती जी सहाइ ॥",
+          "ipa": "sɹi ɓəGoʊt̪i d͡ʒi səhɑeɪ.",
+          "ur": "سریِ بھگاتیِ جیِ سهاا ۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75021,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 2,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 3,
+      "verse": {
+        "verseId": 1534,
+        "verse": {
+          "gurmukhi": "auqwr Kwsy dsKq kw ] pwiqswhI 10 ]",
+          "unicode": "ਉਤਾਰ ਖਾਸੇ ਦਸਖਤ ਕਾ ॥ ਪਾਤਿਸਾਹੀ ੧੦ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "auqwrKwsydsKqkw]pwiqswhI10]",
+          "unicode": "ਉਤਾਰਖਾਸੇਦਸਖਤਕਾ॥ਪਾਤਿਸਾਹੀ੧੦॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Copy of the manuscript with exclusive signatures of The Tenth Sovereign."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "autaar khaase dhasakhat kaa || paatisaahee 10 ||",
+          "hindi": "उतार खासे दसखत का ॥ पातिसाही १० ॥",
+          "en": "autaar khaase dhasakhat kaa || paatisaahee 10 ||",
+          "hi": "उतार खासे दसखत का ॥ पातिसाही १० ॥",
+          "ipa": "oʊt̪ɑr kʰɑse d̪əsəkʰət̪ kɑ. pɑt̪ɪsɑhi 1ə0.",
+          "ur": "اُتار کھاسے دسکھت کا ۔۔ پاتساهیِ ۱۰ ۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75022,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 4,
+      "verse": {
+        "verseId": 1535,
+        "verse": {
+          "gurmukhi": "Akwl purK kI rCw hmnY ]",
+          "unicode": "ਅਕਾਲ ਪੁਰਖ ਕੀ ਰਛਾ ਹਮਨੈ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "AkwlpurKkIrCwhmnY]",
+          "unicode": "ਅਕਾਲਪੁਰਖਕੀਰਛਾਹਮਨੈ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "The non-temporal Purusha (All-Pervading Lord) is my Protector."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "akaal purakh kee rachhaa hamanai ||",
+          "hindi": "अकाल पुरख की रछा हमनै ॥",
+          "en": "akaal purakh kee rachhaa hamanai ||",
+          "hi": "अकाल पुरख की रछा हमनै ॥",
+          "ipa": "əkɑl pʊrəkʰ ki rəɕɑ həmənæ.",
+          "ur": "اکال پُرکھ کیِ رچھا همنَے ۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75023,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 4,
+      "verse": {
+        "verseId": 1536,
+        "verse": {
+          "gurmukhi": "srb loh dI riCAw hmnY ]",
+          "unicode": "ਸਰਬ ਲੋਹ ਦੀ ਰਛਿਆ ਹਮਨੈ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "srblohdIriCAwhmnY]",
+          "unicode": "ਸਰਬਲੋਹਦੀਰਛਿਆਹਮਨੈ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "The All-Iron Lord is my Protector."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "sarab loh dhee rachhiaa hamanai ||",
+          "hindi": "सरब लोह दी रछिआ हमनै ॥",
+          "en": "sarab loh dhee rachhiaa hamanai ||",
+          "hi": "सरब लोह दी रछिआ हमनै ॥",
+          "ipa": "sərəb lɔh d̪i rəɕɪəɑ həmənæ.",
+          "ur": "سرب لوه دیِ رچھآ همنَے ۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75024,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 4,
+      "verse": {
+        "verseId": 1537,
+        "verse": {
+          "gurmukhi": "srb kwl jI dI riCAw hmnY ]",
+          "unicode": "ਸਰਬ ਕਾਲ ਜੀ ਦੀ ਰਛਿਆ ਹਮਨੈ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "srbkwljIdIriCAwhmnY]",
+          "unicode": "ਸਰਬਕਾਲਜੀਦੀਰਛਿਆਹਮਨੈ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "The All-Destroying Lord is my Protector."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "sarab kaal jee dhee rachhiaa hamanai ||",
+          "hindi": "सरब काल जी दी रछिआ हमनै ॥",
+          "en": "sarab kaal jee dhee rachhiaa hamanai ||",
+          "hi": "सरब काल जी दी रछिआ हमनै ॥",
+          "ipa": "sərəb kɑl d͡ʒi d̪i rəɕɪəɑ həmənæ.",
+          "ur": "سرب کال جیِ دیِ رچھآ همنَے ۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75025,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 4,
+      "verse": {
+        "verseId": 1538,
+        "verse": {
+          "gurmukhi": "srb loh jI dI sdw riCAw hmnY ]",
+          "unicode": "ਸਰਬ ਲੋਹ ਜੀ ਦੀ ਸਦਾ ਰਛਿਆ ਹਮਨੈ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "srblohjIdIsdwriCAwhmnY]",
+          "unicode": "ਸਰਬਲੋਹਜੀਦੀਸਦਾਰਛਿਆਹਮਨੈ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "The All-Iron Lord is ever my Protector."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "sarab loh jee dhee sadhaa rachhiaa hamanai ||",
+          "hindi": "सरब लोह जी दी सदा रछिआ हमनै ॥",
+          "en": "sarab loh jee dhee sadhaa rachhiaa hamanai ||",
+          "hi": "सरब लोह जी दी सदा रछिआ हमनै ॥",
+          "ipa": "sərəb lɔh d͡ʒi d̪i səd̪ɑ rəɕɪəɑ həmənæ.",
+          "ur": "سرب لوه جیِ دیِ سدا رچھآ همنَے ۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75026,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 2,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 5,
+      "verse": {
+        "verseId": 1539,
+        "verse": {
+          "gurmukhi": "AwgY ilKwrI ky dsqKq ] qÍ pRswid caupeI ]",
+          "unicode": "ਆਗੈ ਲਿਖਾਰੀ ਕੇ ਦਸਤਖਤ ॥ ਤ੍ਵ ਪ੍ਰਸਾਦਿ ਚਉਪਈ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "AwgYilKwrIkydsqKq]qÍpRswidcaupeI]",
+          "unicode": "ਆਗੈਲਿਖਾਰੀਕੇਦਸਤਖਤ॥ਤ੍ਵਪ੍ਰਸਾਦਿਚਉਪਈ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Then the signatures of the Author (Guru Gobind Singh). BY THY GRACE QUATRAIN (CHAUPAI)"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "aagai likhaaree ke dhasatakhat || tavai prasaadh chaupiee ||",
+          "hindi": "आगै लिखारी के दसतखत ॥ त्व प्रसादि चउपई ॥",
+          "en": "aagai likhaaree ke dhasatakhat || tavai prasaadh chaupiee ||",
+          "hi": "आगै लिखारी के दसतखत ॥ त्व प्रसादि चउपई ॥",
+          "ipa": "əɑGæ lɪkʰɑri ke d̪əsət̪əkʰət̪. t̪ʋ pɹəsɑd̪ t͡ʃoʊpei.",
+          "ur": "آگَے لکھاریِ کے دستکھت ۔۔ تو پرساد چاپای ۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75027,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 6,
+      "verse": {
+        "verseId": 1541,
+        "verse": {
+          "gurmukhi": "pRxvo Awid eykMkwrw ]",
+          "unicode": "ਪ੍ਰਣਵੋ ਆਦਿ ਏਕੰਕਾਰਾ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "pRxvoAwideykMkwrw]",
+          "unicode": "ਪ੍ਰਣਵੋਆਦਿਏਕੰਕਾਰਾ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "I Salute the One Primal Lord."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "(mYN) sB qoN pihlw EAMkwr srUp nUM pRnwm krdw hw",
+              "unicode": "(ਮੈਂ) ਸਭ ਤੋਂ ਪਹਿਲਾ ਓਅੰਕਾਰ ਸਰੂਪ ਨੂੰ ਪ੍ਰਨਾਮ ਕਰਦਾ ਹਾ"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "(mYN) sB qoN pihlw EAMkwr srUp nUM pRnwm krdw hw",
+              "unicode": "(ਮੈਂ) ਸਭ ਤੋਂ ਪਹਿਲਾ ਓਅੰਕਾਰ ਸਰੂਪ ਨੂੰ ਪ੍ਰਨਾਮ ਕਰਦਾ ਹਾ"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "pranavo aadh eka(n)kaaraa ||",
+          "hindi": "प्रणवो आदि एकंकारा ॥",
+          "en": "pranavo aadh eka(n)kaaraa ||",
+          "hi": "प्रणवो आदि एकंकारा ॥",
+          "ipa": "pɹəɳəʋɔ əɑd̪ eekəŋkɑrɑ.",
+          "ur": "پرݨوو آد اےکںکارا ۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75029,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 6,
+      "verse": {
+        "verseId": 1542,
+        "verse": {
+          "gurmukhi": "jl Ql mhIAl kIE pswrw ]",
+          "unicode": "ਜਲ ਥਲ ਮਹੀਅਲ ਕੀਓ ਪਸਾਰਾ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "jlQlmhIAlkIEpswrw]",
+          "unicode": "ਜਲਥਲਮਹੀਅਲਕੀਓਪਸਾਰਾ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Who pervades the watery, earthly and heavenly expanse."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "(ijs ny) jl, Ql Aqy AwkwS dw pswr kIqw hY।",
+              "unicode": "(ਜਿਸ ਨੇ) ਜਲ, ਥਲ ਅਤੇ ਆਕਾਸ਼ ਦਾ ਪਸਾਰ ਕੀਤਾ ਹੈ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "(ijs ny) jl, Ql Aqy AwkwS dw pswr kIqw hY।",
+              "unicode": "(ਜਿਸ ਨੇ) ਜਲ, ਥਲ ਅਤੇ ਆਕਾਸ਼ ਦਾ ਪਸਾਰ ਕੀਤਾ ਹੈ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "jal thal maheeal keeo pasaaraa ||",
+          "hindi": "जल थल महीअल कीओ पसारा ॥",
+          "en": "jal thal maheeal keeo pasaaraa ||",
+          "hi": "जल थल महीअल कीओ पसारा ॥",
+          "ipa": "d͡ʒəl t̪ʰəl məhiəl kio pəsɑrɑ.",
+          "ur": "جل تھل مهیِال کیِاو پسارا ۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75030,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 6,
+      "verse": {
+        "verseId": 1543,
+        "verse": {
+          "gurmukhi": "Awid purK Aibgq AibnwsI ]",
+          "unicode": "ਆਦਿ ਪੁਰਖ ਅਬਿਗਤ ਅਬਿਨਾਸੀ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "AwidpurKAibgqAibnwsI]",
+          "unicode": "ਆਦਿਪੁਰਖਅਬਿਗਤਅਬਿਨਾਸੀ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "That Primal Purusha is Unmanifested and Immortal."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "auh Awid purK, dyh-rihq Aqy AivnwSI hY",
+              "unicode": "ਉਹ ਆਦਿ ਪੁਰਖ, ਦੇਹ-ਰਹਿਤ ਅਤੇ ਅਵਿਨਾਸ਼ੀ ਹੈ"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "auh Awid purK, dyh-rihq Aqy AivnwSI hY",
+              "unicode": "ਉਹ ਆਦਿ ਪੁਰਖ, ਦੇਹ-ਰਹਿਤ ਅਤੇ ਅਵਿਨਾਸ਼ੀ ਹੈ"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "aadh purakh abigat abinaasee ||",
+          "hindi": "आदि पुरख अबिगत अबिनासी ॥",
+          "en": "aadh purakh abigat abinaasee ||",
+          "hi": "आदि पुरख अबिगत अबिनासी ॥",
+          "ipa": "əɑd̪ pʊrəkʰ əbɪGət̪ əbɪnɑsi.",
+          "ur": "آد پُرکھ ابگت ابٍناسیِ ۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75031,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 6,
+      "verse": {
+        "verseId": 1544,
+        "verse": {
+          "gurmukhi": "lok c`qüR ds joiq pRkwsI ]1]",
+          "unicode": "ਲੋਕ ਚੱਤੁ੍ਰ ਦਸ ਜੋਤਿ ਪ੍ਰਕਾਸੀ ॥੧॥"
+        },
+        "larivaar": {
+          "gurmukhi": "lokc`qüRdsjoiqpRkwsI]1]",
+          "unicode": "ਲੋਕਚੱਤੁ੍ਰਦਸਜੋਤਿਪ੍ਰਕਾਸੀ॥੧॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "His Light illumines the fourteen worlds. I."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "Aqy cOdw lokw nUM (aus ny AwpxI) joiq nwl pRkwSmwn kr riKAw hY ]1]",
+              "unicode": "ਅਤੇ ਚੌਦਾ ਲੋਕਾ ਨੂੰ (ਉਸ ਨੇ ਆਪਣੀ) ਜੋਤਿ ਨਾਲ ਪ੍ਰਕਾਸ਼ਮਾਨ ਕਰ ਰਖਿਆ ਹੈ ॥੧॥"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "Aqy cOdw lokw nUM (aus ny AwpxI) joiq nwl pRkwSmwn kr riKAw hY ]1]",
+              "unicode": "ਅਤੇ ਚੌਦਾ ਲੋਕਾ ਨੂੰ (ਉਸ ਨੇ ਆਪਣੀ) ਜੋਤਿ ਨਾਲ ਪ੍ਰਕਾਸ਼ਮਾਨ ਕਰ ਰਖਿਆ ਹੈ ॥੧॥"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "lok cha'tur dhas jot prakaasee ||1||",
+          "hindi": "लोक चत्तु्र दस जोति प्रकासी ॥१॥",
+          "en": "lok cha'tur dhas jot prakaasee ||1||",
+          "hi": "लोक चत्तु्र दस जोति प्रकासी ॥१॥",
+          "ipa": "lɔk t͡ʃt̪ʊɹ d̪əs d͡ʒɔt̪ pɹəkɑsi.1.",
+          "ur": "لوک چّتüر دس جوت پرکاسیِ ۔۔۱۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75032,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 7,
+      "verse": {
+        "verseId": 1545,
+        "verse": {
+          "gurmukhi": "hsq kIt ky bIc smwnw ]",
+          "unicode": "ਹਸਤ ਕੀਟ ਕੇ ਬੀਚ ਸਮਾਨਾ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "hsqkItkybIcsmwnw]",
+          "unicode": "ਹਸਤਕੀਟਕੇਬੀਚਸਮਾਨਾ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "He hath merged Himself within the elephant and the worm."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "jo hwQI qoN lY ky kIVy qk (sB ivc) smwieAw hoieAw hY",
+              "unicode": "ਜੋ ਹਾਥੀ ਤੋਂ ਲੈ ਕੇ ਕੀੜੇ ਤਕ (ਸਭ ਵਿਚ) ਸਮਾਇਆ ਹੋਇਆ ਹੈ"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "jo hwQI qoN lY ky kIVy qk (sB ivc) smwieAw hoieAw hY",
+              "unicode": "ਜੋ ਹਾਥੀ ਤੋਂ ਲੈ ਕੇ ਕੀੜੇ ਤਕ (ਸਭ ਵਿਚ) ਸਮਾਇਆ ਹੋਇਆ ਹੈ"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "hasat keeT ke beech samaanaa ||",
+          "hindi": "हसत कीट के बीच समाना ॥",
+          "en": "hasat keeT ke beech samaanaa ||",
+          "hi": "हसत कीट के बीच समाना ॥",
+          "ipa": "həsət̪ kiʈ ke bit͡ʃ səmɑnɑ.",
+          "ur": "هست کیِٹ کے بیِچ سمانا ۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75033,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 7,
+      "verse": {
+        "verseId": 1546,
+        "verse": {
+          "gurmukhi": "rwv rMk ijh iek sr jwnw ]",
+          "unicode": "ਰਾਵ ਰੰਕ ਜਿਹ ਇਕ ਸਰ ਜਾਨਾ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "rwvrMkijhieksrjwnw]",
+          "unicode": "ਰਾਵਰੰਕਜਿਹਇਕਸਰਜਾਨਾ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "The king and the baggar equal before Him."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "Aqy rwjy qy iBKwrI nUM iek-smwn smJdw hY,",
+              "unicode": "ਅਤੇ ਰਾਜੇ ਤੇ ਭਿਖਾਰੀ ਨੂੰ ਇਕ-ਸਮਾਨ ਸਮਝਦਾ ਹੈ,"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "Aqy rwjy qy iBKwrI nUM iek-smwn smJdw hY,",
+              "unicode": "ਅਤੇ ਰਾਜੇ ਤੇ ਭਿਖਾਰੀ ਨੂੰ ਇਕ-ਸਮਾਨ ਸਮਝਦਾ ਹੈ,"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "raav ra(n)k jeh ik sar jaanaa ||",
+          "hindi": "राव रंक जिह इक सर जाना ॥",
+          "en": "raav ra(n)k jeh ik sar jaanaa ||",
+          "hi": "राव रंक जिह इक सर जाना ॥",
+          "ipa": "rɑʋ rəŋk d͡ʒɪh eɪk sər d͡ʒɑnɑ.",
+          "ur": "راو رںک جه اک سر جانا ۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75034,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 7,
+      "verse": {
+        "verseId": 1547,
+        "verse": {
+          "gurmukhi": "AdÍY AlK purK AibgwmI ]",
+          "unicode": "ਅਦ੍ਵੈ ਅਲਖ ਪੁਰਖ ਅਬਿਗਾਮੀ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "AdÍYAlKpurKAibgwmI]",
+          "unicode": "ਅਦ੍ਵੈਅਲਖਪੁਰਖਅਬਿਗਾਮੀ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "That Non-dual and Imperceptible Purusha is Inseparable."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "auh dÍYq-rihq, AidRS purS vwsqivkqw dw igAwnvwn",
+              "unicode": "ਉਹ ਦ੍ਵੈਤ-ਰਹਿਤ, ਅਦ੍ਰਿਸ਼ ਪੁਰਸ਼ ਵਾਸਤਵਿਕਤਾ ਦਾ ਗਿਆਨਵਾਨ"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "auh dÍYq-rihq, AidRS purS vwsqivkqw dw igAwnvwn",
+              "unicode": "ਉਹ ਦ੍ਵੈਤ-ਰਹਿਤ, ਅਦ੍ਰਿਸ਼ ਪੁਰਸ਼ ਵਾਸਤਵਿਕਤਾ ਦਾ ਗਿਆਨਵਾਨ"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "adhavai alakh purakh abigaamee ||",
+          "hindi": "अद्वै अलख पुरख अबिगामी ॥",
+          "en": "adhavai alakh purakh abigaamee ||",
+          "hi": "अद्वै अलख पुरख अबिगामी ॥",
+          "ipa": "əd̪ʋæ ələkʰ pʊrəkʰ əbɪGɑmi.",
+          "ur": "ادوَے الکھ پُرکھ ابگامیِ ۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75035,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 7,
+      "verse": {
+        "verseId": 1548,
+        "verse": {
+          "gurmukhi": "sB Gt Gt ky AMqrjwmI ]2]",
+          "unicode": "ਸਭ ਘਟ ਘਟ ਕੇ ਅੰਤਰਜਾਮੀ ॥੨॥"
+        },
+        "larivaar": {
+          "gurmukhi": "sBGtGtkyAMqrjwmI]2]",
+          "unicode": "ਸਭਘਟਘਟਕੇਅੰਤਰਜਾਮੀ॥੨॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "He reaches the inner core of every heart.2."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "Aqy hr iek dy idl dIAW jwxn vwlw hY ]2]",
+              "unicode": "ਅਤੇ ਹਰ ਇਕ ਦੇ ਦਿਲ ਦੀਆਂ ਜਾਣਨ ਵਾਲਾ ਹੈ ॥੨॥"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "Aqy hr iek dy idl dIAW jwxn vwlw hY ]2]",
+              "unicode": "ਅਤੇ ਹਰ ਇਕ ਦੇ ਦਿਲ ਦੀਆਂ ਜਾਣਨ ਵਾਲਾ ਹੈ ॥੨॥"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "sabh ghaT ghaT ke a(n)tarajaamee ||2||",
+          "hindi": "सभ घट घट के अंतरजामी ॥२॥",
+          "en": "sabh ghaT ghaT ke a(n)tarajaamee ||2||",
+          "hi": "सभ घट घट के अंतरजामी ॥२॥",
+          "ipa": "səɓ Gʰəʈ Gʰəʈ ke əŋt̪ərəd͡ʒɑmi.2.",
+          "ur": "سبھ گھٹ گھٹ کے اںترجامیِ ۔۔۲۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75036,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 8,
+      "verse": {
+        "verseId": 1549,
+        "verse": {
+          "gurmukhi": "AlK rUp ACY AnByKw ]",
+          "unicode": "ਅਲਖ ਰੂਪ ਅਛੈ ਅਨਭੇਖਾ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "AlKrUpACYAnByKw]",
+          "unicode": "ਅਲਖਰੂਪਅਛੈਅਨਭੇਖਾ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "He is an Inconceivable Entity, Exernal and Garbless."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "auh idsx qoN pry, nw nSt hox vwlw Aqy ByKw qoN rihq hY,",
+              "unicode": "ਉਹ ਦਿਸਣ ਤੋਂ ਪਰੇ, ਨਾ ਨਸ਼ਟ ਹੋਣ ਵਾਲਾ ਅਤੇ ਭੇਖਾ ਤੋਂ ਰਹਿਤ ਹੈ,"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "auh idsx qoN pry, nw nSt hox vwlw Aqy ByKw qoN rihq hY,",
+              "unicode": "ਉਹ ਦਿਸਣ ਤੋਂ ਪਰੇ, ਨਾ ਨਸ਼ਟ ਹੋਣ ਵਾਲਾ ਅਤੇ ਭੇਖਾ ਤੋਂ ਰਹਿਤ ਹੈ,"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "alakh roop achhai anabhekhaa ||",
+          "hindi": "अलख रूप अछै अनभेखा ॥",
+          "en": "alakh roop achhai anabhekhaa ||",
+          "hi": "अलख रूप अछै अनभेखा ॥",
+          "ipa": "ələkʰ rup əɕæ ənəɓekʰɑ.",
+          "ur": "الکھ رُوپ اچھَے انبھےکھا ۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75037,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 8,
+      "verse": {
+        "verseId": 1550,
+        "verse": {
+          "gurmukhi": "rwg rMg ijh rUp n ryKw ]",
+          "unicode": "ਰਾਗ ਰੰਗ ਜਿਹ ਰੂਪ ਨ ਰੇਖਾ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "rwgrMgijhrUpnryKw]",
+          "unicode": "ਰਾਗਰੰਗਜਿਹਰੂਪਨਰੇਖਾ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "He is without attachment, colour, form and mark."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "aus dw iksy pRiq moh (nhIN hY, aus dw) rMg rUp jw ryKw nhIN hY,",
+              "unicode": "ਉਸ ਦਾ ਕਿਸੇ ਪ੍ਰਤਿ ਮੋਹ (ਨਹੀਂ ਹੈ, ਉਸ ਦਾ) ਰੰਗ ਰੂਪ ਜਾ ਰੇਖਾ ਨਹੀਂ ਹੈ,"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "aus dw iksy pRiq moh (nhIN hY, aus dw) rMg rUp jw ryKw nhIN hY,",
+              "unicode": "ਉਸ ਦਾ ਕਿਸੇ ਪ੍ਰਤਿ ਮੋਹ (ਨਹੀਂ ਹੈ, ਉਸ ਦਾ) ਰੰਗ ਰੂਪ ਜਾ ਰੇਖਾ ਨਹੀਂ ਹੈ,"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "raag ra(n)g jeh roop na rekhaa ||",
+          "hindi": "राग रंग जिह रूप न रेखा ॥",
+          "en": "raag ra(n)g jeh roop na rekhaa ||",
+          "hi": "राग रंग जिह रूप न रेखा ॥",
+          "ipa": "rɑG rəŋG d͡ʒɪh rup nə rekʰɑ.",
+          "ur": "راگ رںگ جه رُوپ ن رےکھا ۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75038,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 8,
+      "verse": {
+        "verseId": 1551,
+        "verse": {
+          "gurmukhi": "brn ichn sBhUM qy inAwrw ]",
+          "unicode": "ਬਰਨ ਚਿਹਨ ਸਭਹੂੰ ਤੇ ਨਿਆਰਾ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "brnichnsBhUMqyinAwrw]",
+          "unicode": "ਬਰਨਚਿਹਨਸਭਹੂੰਤੇਨਿਆਰਾ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "He distinct from all others of various colours and signs."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "auh vrn, icMnH (Awid) sB qoN inAwrw hY;",
+              "unicode": "ਉਹ ਵਰਨ, ਚਿੰਨ੍ਹ (ਆਦਿ) ਸਭ ਤੋਂ ਨਿਆਰਾ ਹੈ;"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "auh vrn, icMnH (Awid) sB qoN inAwrw hY;",
+              "unicode": "ਉਹ ਵਰਨ, ਚਿੰਨ੍ਹ (ਆਦਿ) ਸਭ ਤੋਂ ਨਿਆਰਾ ਹੈ;"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "baran chihan sabhahoo(n) te niaaraa ||",
+          "hindi": "बरन चिहन सभहूँ ते निआरा ॥",
+          "en": "baran chihan sabhahoo(n) te niaaraa ||",
+          "hi": "बरन चिहन सभहूँ ते निआरा ॥",
+          "ipa": "bərən t͡ʃɪhən səɓəhuŋ t̪e nɪəɑrɑ.",
+          "ur": "برن چهن سبھهُوں تے نآرا ۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75039,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 8,
+      "verse": {
+        "verseId": 1552,
+        "verse": {
+          "gurmukhi": "Awd purK AdÍY Aibkwrw ]3]",
+          "unicode": "ਆਦ ਪੁਰਖ ਅਦ੍ਵੈ ਅਬਿਕਾਰਾ ॥੩॥"
+        },
+        "larivaar": {
+          "gurmukhi": "AwdpurKAdÍYAibkwrw]3]",
+          "unicode": "ਆਦਪੁਰਖਅਦ੍ਵੈਅਬਿਕਾਰਾ॥੩॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "He is the Primal Purusha, Unique and Changeless.3."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "auh Awid purK, AdÍYq-srUp Aqy ivkwrw qoN rihq hY ]3]",
+              "unicode": "ਉਹ ਆਦਿ ਪੁਰਖ, ਅਦ੍ਵੈਤ-ਸਰੂਪ ਅਤੇ ਵਿਕਾਰਾ ਤੋਂ ਰਹਿਤ ਹੈ ॥੩॥"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "auh Awid purK, AdÍYq-srUp Aqy ivkwrw qoN rihq hY ]3]",
+              "unicode": "ਉਹ ਆਦਿ ਪੁਰਖ, ਅਦ੍ਵੈਤ-ਸਰੂਪ ਅਤੇ ਵਿਕਾਰਾ ਤੋਂ ਰਹਿਤ ਹੈ ॥੩॥"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "aadh purakh adhavai abikaaraa ||3||",
+          "hindi": "आद पुरख अद्वै अबिकारा ॥३॥",
+          "en": "aadh purakh adhavai abikaaraa ||3||",
+          "hi": "आद पुरख अद्वै अबिकारा ॥३॥",
+          "ipa": "əɑd̪ pʊrəkʰ əd̪ʋæ əbɪkɑrɑ.3.",
+          "ur": "آد پُرکھ ادوَے ابکارا ۔۔۳۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75040,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 9,
+      "verse": {
+        "verseId": 1553,
+        "verse": {
+          "gurmukhi": "brn ichn ijh jwq n pwqw ]",
+          "unicode": "ਬਰਨ ਚਿਹਨ ਜਿਹ ਜਾਤ ਨ ਪਾਤਾ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "brnichnijhjwqnpwqw]",
+          "unicode": "ਬਰਨਚਿਹਨਜਿਹਜਾਤਨਪਾਤਾ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "He is without colour, mark, caste and lineage."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "ijs dy vrn, icMnH, jwiq Aqy brwdrI nhIN hY,",
+              "unicode": "ਜਿਸ ਦੇ ਵਰਨ, ਚਿੰਨ੍ਹ, ਜਾਤਿ ਅਤੇ ਬਰਾਦਰੀ ਨਹੀਂ ਹੈ,"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "ijs dy vrn, icMnH, jwiq Aqy brwdrI nhIN hY,",
+              "unicode": "ਜਿਸ ਦੇ ਵਰਨ, ਚਿੰਨ੍ਹ, ਜਾਤਿ ਅਤੇ ਬਰਾਦਰੀ ਨਹੀਂ ਹੈ,"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "baran chihan jeh jaat na paataa ||",
+          "hindi": "बरन चिहन जिह जात न पाता ॥",
+          "en": "baran chihan jeh jaat na paataa ||",
+          "hi": "बरन चिहन जिह जात न पाता ॥",
+          "ipa": "bərən t͡ʃɪhən d͡ʒɪh d͡ʒɑt̪ nə pɑt̪ɑ.",
+          "ur": "برن چهن جه جات ن پاتا ۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75041,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 9,
+      "verse": {
+        "verseId": 1554,
+        "verse": {
+          "gurmukhi": "s`qR im`qR ijh qwq n mwqw ]",
+          "unicode": "ਸੱਤ੍ਰ ਮਿੱਤ੍ਰ ਜਿਹ ਤਾਤ ਨ ਮਾਤਾ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "s`qRim`qRijhqwqnmwqw]",
+          "unicode": "ਸੱਤ੍ਰਮਿੱਤ੍ਰਜਿਹਤਾਤਨਮਾਤਾ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "He is the without enemy, friend, father and mother."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "ijs dy vYrI, imqr, mwqw Aqy ipqw nhIN hn,",
+              "unicode": "ਜਿਸ ਦੇ ਵੈਰੀ, ਮਿਤਰ, ਮਾਤਾ ਅਤੇ ਪਿਤਾ ਨਹੀਂ ਹਨ,"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "ijs dy vYrI, imqr, mwqw Aqy ipqw nhIN hn,",
+              "unicode": "ਜਿਸ ਦੇ ਵੈਰੀ, ਮਿਤਰ, ਮਾਤਾ ਅਤੇ ਪਿਤਾ ਨਹੀਂ ਹਨ,"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "sa'tr mi'tr jeh taat na maataa ||",
+          "hindi": "सत्त्र मित्त्र जिह तात न माता ॥",
+          "en": "sa'tr mi'tr jeh taat na maataa ||",
+          "hi": "सत्त्र मित्त्र जिह तात न माता ॥",
+          "ipa": "st̪ɹ mɪt̪ɹ d͡ʒɪh t̪ɑt̪ nə mɑt̪ɑ.",
+          "ur": "سّتر مّتر جه تات ن ماتا ۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75042,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 9,
+      "verse": {
+        "verseId": 1555,
+        "verse": {
+          "gurmukhi": "sB qy dUir sBn qy nyrw ]",
+          "unicode": "ਸਭ ਤੇ ਦੂਰਿ ਸਭਨ ਤੇ ਨੇਰਾ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "sBqydUirsBnqynyrw]",
+          "unicode": "ਸਭਤੇਦੂਰਿਸਭਨਤੇਨੇਰਾ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "He is far away from all and closest to all."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "jo sB qoN dUr Aqy sB dy nyVy hY,",
+              "unicode": "ਜੋ ਸਭ ਤੋਂ ਦੂਰ ਅਤੇ ਸਭ ਦੇ ਨੇੜੇ ਹੈ,"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "jo sB qoN dUr Aqy sB dy nyVy hY,",
+              "unicode": "ਜੋ ਸਭ ਤੋਂ ਦੂਰ ਅਤੇ ਸਭ ਦੇ ਨੇੜੇ ਹੈ,"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "sabh te dhoor sabhan te neraa ||",
+          "hindi": "सभ ते दूरि सभन ते नेरा ॥",
+          "en": "sabh te dhoor sabhan te neraa ||",
+          "hi": "सभ ते दूरि सभन ते नेरा ॥",
+          "ipa": "səɓ t̪e d̪ur səɓən t̪e nerɑ.",
+          "ur": "سبھ تے دُور سبھن تے نےرا ۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75043,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 9,
+      "verse": {
+        "verseId": 1556,
+        "verse": {
+          "gurmukhi": "jl Ql mhIAl jwih bsyrw ]4]",
+          "unicode": "ਜਲ ਥਲ ਮਹੀਅਲ ਜਾਹਿ ਬਸੇਰਾ ॥੪॥"
+        },
+        "larivaar": {
+          "gurmukhi": "jlQlmhIAljwihbsyrw]4]",
+          "unicode": "ਜਲਥਲਮਹੀਅਲਜਾਹਿਬਸੇਰਾ॥੪॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "His dwelling is within water, on earth and in heavens.4."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "ijs dw jl, Ql Aqy AwkwS ivc invws hY ]4]",
+              "unicode": "ਜਿਸ ਦਾ ਜਲ, ਥਲ ਅਤੇ ਆਕਾਸ਼ ਵਿਚ ਨਿਵਾਸ ਹੈ ॥੪॥"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "ijs dw jl, Ql Aqy AwkwS ivc invws hY ]4]",
+              "unicode": "ਜਿਸ ਦਾ ਜਲ, ਥਲ ਅਤੇ ਆਕਾਸ਼ ਵਿਚ ਨਿਵਾਸ ਹੈ ॥੪॥"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "jal thal maheeal jaeh baseraa ||4||",
+          "hindi": "जल थल महीअल जाहि बसेरा ॥४॥",
+          "en": "jal thal maheeal jaeh baseraa ||4||",
+          "hi": "जल थल महीअल जाहि बसेरा ॥४॥",
+          "ipa": "d͡ʒəl t̪ʰəl məhiəl d͡ʒɑh bəserɑ.4.",
+          "ur": "جل تھل مهیِال جاه بسےرا ۔۔۴۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75044,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 10,
+      "verse": {
+        "verseId": 1557,
+        "verse": {
+          "gurmukhi": "Anhd rUp Anwhd bwnI ]",
+          "unicode": "ਅਨਹਦ ਰੂਪ ਅਨਾਹਦ ਬਾਨੀ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "AnhdrUpAnwhdbwnI]",
+          "unicode": "ਅਨਹਦਰੂਪਅਨਾਹਦਬਾਨੀ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "He is Limitless Entity and hath infinite celestial strain."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "aus dw srUp sImw-rihq (Apr Apwr) Aqy aus dI bwxI ibnw iksy AwGwq qoN pYdw hox vwlI hY।",
+              "unicode": "ਉਸ ਦਾ ਸਰੂਪ ਸੀਮਾ-ਰਹਿਤ (ਅਪਰ ਅਪਾਰ) ਅਤੇ ਉਸ ਦੀ ਬਾਣੀ ਬਿਨਾ ਕਿਸੇ ਆਘਾਤ ਤੋਂ ਪੈਦਾ ਹੋਣ ਵਾਲੀ ਹੈ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "aus dw srUp sImw-rihq (Apr Apwr) Aqy aus dI bwxI ibnw iksy AwGwq qoN pYdw hox vwlI hY।",
+              "unicode": "ਉਸ ਦਾ ਸਰੂਪ ਸੀਮਾ-ਰਹਿਤ (ਅਪਰ ਅਪਾਰ) ਅਤੇ ਉਸ ਦੀ ਬਾਣੀ ਬਿਨਾ ਕਿਸੇ ਆਘਾਤ ਤੋਂ ਪੈਦਾ ਹੋਣ ਵਾਲੀ ਹੈ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "anahadh roop anaahadh baanee ||",
+          "hindi": "अनहद रूप अनाहद बानी ॥",
+          "en": "anahadh roop anaahadh baanee ||",
+          "hi": "अनहद रूप अनाहद बानी ॥",
+          "ipa": "ənəhəd̪ rup ənɑhəd̪ bɑni.",
+          "ur": "انهد رُوپ اناهد بانیِ ۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75045,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 10,
+      "verse": {
+        "verseId": 1558,
+        "verse": {
+          "gurmukhi": "crn srn ijh bsq BvwnI ]",
+          "unicode": "ਚਰਨ ਸਰਨ ਜਿਹ ਬਸਤ ਭਵਾਨੀ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "crnsrnijhbsqBvwnI]",
+          "unicode": "ਚਰਨਸਰਨਜਿਹਬਸਤਭਵਾਨੀ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "The goddess Durga takes refuge at His Feet and abides there."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "aus dy crnw dI Et ivc mwieAw ('BvwnI') vsdI hY।",
+              "unicode": "ਉਸ ਦੇ ਚਰਨਾ ਦੀ ਓਟ ਵਿਚ ਮਾਇਆ ('ਭਵਾਨੀ') ਵਸਦੀ ਹੈ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "aus dy crnw dI Et ivc mwieAw ('BvwnI') vsdI hY।",
+              "unicode": "ਉਸ ਦੇ ਚਰਨਾ ਦੀ ਓਟ ਵਿਚ ਮਾਇਆ ('ਭਵਾਨੀ') ਵਸਦੀ ਹੈ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "charan saran jeh basat bhavaanee ||",
+          "hindi": "चरन सरन जिह बसत भवानी ॥",
+          "en": "charan saran jeh basat bhavaanee ||",
+          "hi": "चरन सरन जिह बसत भवानी ॥",
+          "ipa": "t͡ʃərən sərən d͡ʒɪh bəsət̪ ɓəʋɑni.",
+          "ur": "چرن سرن جه بست بھوانیِ ۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75046,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 10,
+      "verse": {
+        "verseId": 1559,
+        "verse": {
+          "gurmukhi": "bRhmw ibsn AMqu nhI pwieE ]",
+          "unicode": "ਬ੍ਰਹਮਾ ਬਿਸਨ ਅੰਤੁ ਨਹੀ ਪਾਇਓ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "bRhmwibsnAMqunhIpwieE]",
+          "unicode": "ਬ੍ਰਹਮਾਬਿਸਨਅੰਤੁਨਹੀਪਾਇਓ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Brahma and Vishnu Could not know His end."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "bRhmw Aqy ivSxU ny aus dw AMq nhIN pwieAw",
+              "unicode": "ਬ੍ਰਹਮਾ ਅਤੇ ਵਿਸ਼ਣੂ ਨੇ ਉਸ ਦਾ ਅੰਤ ਨਹੀਂ ਪਾਇਆ"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "bRhmw Aqy ivSxU ny aus dw AMq nhIN pwieAw",
+              "unicode": "ਬ੍ਰਹਮਾ ਅਤੇ ਵਿਸ਼ਣੂ ਨੇ ਉਸ ਦਾ ਅੰਤ ਨਹੀਂ ਪਾਇਆ"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "brahamaa bisan a(n)t nahee paio ||",
+          "hindi": "ब्रहमा बिसन अंतु नही पाइओ ॥",
+          "en": "brahamaa bisan a(n)t nahee paio ||",
+          "hi": "ब्रहमा बिसन अंतु नही पाइओ ॥",
+          "ipa": "bɹəhəmɑ bɪsən əŋt̪ nəhi pɑeɪo.",
+          "ur": "برهما بسن اںت نهیِ پاااو ۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75047,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 10,
+      "verse": {
+        "verseId": 1560,
+        "verse": {
+          "gurmukhi": "nyq nyq muKcwr bqwieE ]5]",
+          "unicode": "ਨੇਤ ਨੇਤ ਮੁਖਚਾਰ ਬਤਾਇਓ ॥੫॥"
+        },
+        "larivaar": {
+          "gurmukhi": "nyqnyqmuKcwrbqwieE]5]",
+          "unicode": "ਨੇਤਨੇਤਮੁਖਚਾਰਬਤਾਇਓ॥੫॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "The four-headed god Brahma described Him ad ‘Neti Neti’ (Not this, Not this).5."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "sgoN (bRhmw ny Awpxy) cOhw mu`Kw qoN aus nUM byAMq byAMq (nyiq nyiq) ikhw hY ]5]",
+              "unicode": "ਸਗੋਂ (ਬ੍ਰਹਮਾ ਨੇ ਆਪਣੇ) ਚੌਹਾ ਮੁੱਖਾ ਤੋਂ ਉਸ ਨੂੰ ਬੇਅੰਤ ਬੇਅੰਤ (ਨੇਤਿ ਨੇਤਿ) ਕਿਹਾ ਹੈ ॥੫॥"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "sgoN (bRhmw ny Awpxy) cOhw mu`Kw qoN aus nUM byAMq byAMq (nyiq nyiq) ikhw hY ]5]",
+              "unicode": "ਸਗੋਂ (ਬ੍ਰਹਮਾ ਨੇ ਆਪਣੇ) ਚੌਹਾ ਮੁੱਖਾ ਤੋਂ ਉਸ ਨੂੰ ਬੇਅੰਤ ਬੇਅੰਤ (ਨੇਤਿ ਨੇਤਿ) ਕਿਹਾ ਹੈ ॥੫॥"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "net net mukhachaar bataio ||5||",
+          "hindi": "नेत नेत मुखचार बताइओ ॥५॥",
+          "en": "net net mukhachaar bataio ||5||",
+          "hi": "नेत नेत मुखचार बताइओ ॥५॥",
+          "ipa": "net̪ net̪ mʊkʰət͡ʃɑr bət̪ɑeɪo.5.",
+          "ur": "نےت نےت مُکھچار بتاااو ۔۔۵۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75048,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 11,
+      "verse": {
+        "verseId": 1561,
+        "verse": {
+          "gurmukhi": "koit ieMdR aupieMdR bnwey ]",
+          "unicode": "ਕੋਟਿ ਇੰਦ੍ਰ ਉਪਇੰਦ੍ਰ ਬਨਾਏ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "koitieMdRaupieMdRbnwey]",
+          "unicode": "ਕੋਟਿਇੰਦ੍ਰਉਪਇੰਦ੍ਰਬਨਾਏ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "He hath created millions of Indras and Upindras (smaller Indras)."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "aus ny kroVw ieMdr Aqy aupieMdr (vwmn Avqwr) pYdw kIqy hn,",
+              "unicode": "ਉਸ ਨੇ ਕਰੋੜਾ ਇੰਦਰ ਅਤੇ ਉਪਇੰਦਰ (ਵਾਮਨ ਅਵਤਾਰ) ਪੈਦਾ ਕੀਤੇ ਹਨ,"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "aus ny kroVw ieMdr Aqy aupieMdr (vwmn Avqwr) pYdw kIqy hn,",
+              "unicode": "ਉਸ ਨੇ ਕਰੋੜਾ ਇੰਦਰ ਅਤੇ ਉਪਇੰਦਰ (ਵਾਮਨ ਅਵਤਾਰ) ਪੈਦਾ ਕੀਤੇ ਹਨ,"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "koT i(n)dhr upi(n)dhr banaae ||",
+          "hindi": "कोटि इंद्र उपइंद्र बनाए ॥",
+          "en": "koT i(n)dhr upi(n)dhr banaae ||",
+          "hi": "कोटि इंद्र उपइंद्र बनाए ॥",
+          "ipa": "kɔʈ eɪŋd̪ɹ oʊpeɪŋd̪ɹ bənɑee.",
+          "ur": "کوٹ اںدر اُپاںدر بنااے ۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75049,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 11,
+      "verse": {
+        "verseId": 1562,
+        "verse": {
+          "gurmukhi": "bRhmw rudR aupwie Kpwey ]",
+          "unicode": "ਬ੍ਰਹਮਾ ਰੁਦ੍ਰ ਉਪਾਇ ਖਪਾਏ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "bRhmwrudRaupwieKpwey]",
+          "unicode": "ਬ੍ਰਹਮਾਰੁਦ੍ਰਉਪਾਇਖਪਾਏ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "He hath created and destroyed Brahmas and Rudras (Shivas)."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "aus ny bRhmw, rudR (iSv) nUM isrijAw Aqy sMGwirAw hY;",
+              "unicode": "ਉਸ ਨੇ ਬ੍ਰਹਮਾ, ਰੁਦ੍ਰ (ਸ਼ਿਵ) ਨੂੰ ਸਿਰਜਿਆ ਅਤੇ ਸੰਘਾਰਿਆ ਹੈ;"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "aus ny bRhmw, rudR (iSv) nUM isrijAw Aqy sMGwirAw hY;",
+              "unicode": "ਉਸ ਨੇ ਬ੍ਰਹਮਾ, ਰੁਦ੍ਰ (ਸ਼ਿਵ) ਨੂੰ ਸਿਰਜਿਆ ਅਤੇ ਸੰਘਾਰਿਆ ਹੈ;"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "brahamaa rudhr upai khapaae ||",
+          "hindi": "ब्रहमा रुद्र उपाइ खपाए ॥",
+          "en": "brahamaa rudhr upai khapaae ||",
+          "hi": "ब्रहमा रुद्र उपाइ खपाए ॥",
+          "ipa": "bɹəhəmɑ rʊd̪ɹ oʊpɑeɪ kʰəpɑee.",
+          "ur": "برهما رُدر اُپاا کھپااے ۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75050,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 11,
+      "verse": {
+        "verseId": 1563,
+        "verse": {
+          "gurmukhi": "lok c`qR ds Kyl rcwieE ]",
+          "unicode": "ਲੋਕ ਚੱਤ੍ਰ ਦਸ ਖੇਲ ਰਚਾਇਓ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "lokc`qRdsKylrcwieE]",
+          "unicode": "ਲੋਕਚੱਤ੍ਰਦਸਖੇਲਰਚਾਇਓ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "He hath created the play of fourteen worlds."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "aus ny cOdw lokw dI Kyf rcI hoeI hY",
+              "unicode": "ਉਸ ਨੇ ਚੌਦਾ ਲੋਕਾ ਦੀ ਖੇਡ ਰਚੀ ਹੋਈ ਹੈ"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "aus ny cOdw lokw dI Kyf rcI hoeI hY",
+              "unicode": "ਉਸ ਨੇ ਚੌਦਾ ਲੋਕਾ ਦੀ ਖੇਡ ਰਚੀ ਹੋਈ ਹੈ"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "lok cha'tr dhas khel rachaio ||",
+          "hindi": "लोक चत्त्र दस खेल रचाइओ ॥",
+          "en": "lok cha'tr dhas khel rachaio ||",
+          "hi": "लोक चत्त्र दस खेल रचाइओ ॥",
+          "ipa": "lɔk t͡ʃt̪ɹ d̪əs kʰel rət͡ʃɑeɪo.",
+          "ur": "لوک چّتر دس کھےل رچاااو ۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75051,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 11,
+      "verse": {
+        "verseId": 1564,
+        "verse": {
+          "gurmukhi": "bhur Awp hI bIc imlwieE ]6]",
+          "unicode": "ਬਹੁਰ ਆਪ ਹੀ ਬੀਚ ਮਿਲਾਇਓ ॥੬॥"
+        },
+        "larivaar": {
+          "gurmukhi": "bhurAwphIbIcimlwieE]6]",
+          "unicode": "ਬਹੁਰਆਪਹੀਬੀਚਮਿਲਾਇਓ॥੬॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "And then Himself merges it within His Self.6."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "Aqy iPr Awpxy ivc hI aus nUM smyt lYNdw hY ]6]",
+              "unicode": "ਅਤੇ ਫਿਰ ਆਪਣੇ ਵਿਚ ਹੀ ਉਸ ਨੂੰ ਸਮੇਟ ਲੈਂਦਾ ਹੈ ॥੬॥"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "Aqy iPr Awpxy ivc hI aus nUM smyt lYNdw hY ]6]",
+              "unicode": "ਅਤੇ ਫਿਰ ਆਪਣੇ ਵਿਚ ਹੀ ਉਸ ਨੂੰ ਸਮੇਟ ਲੈਂਦਾ ਹੈ ॥੬॥"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "bahur aap hee beech milaio ||6||",
+          "hindi": "बहुर आप ही बीच मिलाइओ ॥६॥",
+          "en": "bahur aap hee beech milaio ||6||",
+          "hi": "बहुर आप ही बीच मिलाइओ ॥६॥",
+          "ipa": "bəhʊr əɑp hi bit͡ʃ mɪlɑeɪo.6.",
+          "ur": "بهُر آپ هیِ بیِچ ملاااو ۔۔۶۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75052,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 12,
+      "verse": {
+        "verseId": 1565,
+        "verse": {
+          "gurmukhi": "dwnv dyv PinMd Apwrw ]",
+          "unicode": "ਦਾਨਵ ਦੇਵ ਫਨਿੰਦ ਅਪਾਰਾ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "dwnvdyvPinMdApwrw]",
+          "unicode": "ਦਾਨਵਦੇਵਫਨਿੰਦਅਪਾਰਾ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Infinite demons, gods and Sheshanagas."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "aus ny byAMq dYNq, dyvqy, SySnwg,",
+              "unicode": "ਉਸ ਨੇ ਬੇਅੰਤ ਦੈਂਤ, ਦੇਵਤੇ, ਸ਼ੇਸ਼ਨਾਗ,"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "aus ny byAMq dYNq, dyvqy, SySnwg,",
+              "unicode": "ਉਸ ਨੇ ਬੇਅੰਤ ਦੈਂਤ, ਦੇਵਤੇ, ਸ਼ੇਸ਼ਨਾਗ,"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "dhaanav dhev fani(n)dh apaaraa ||",
+          "hindi": "दानव देव फनिंद अपारा ॥",
+          "en": "dhaanav dhev fani(n)dh apaaraa ||",
+          "hi": "दानव देव फनिंद अपारा ॥",
+          "ipa": "d̪ɑnəʋ d̪eʋ fənɪŋd̪ əpɑrɑ.",
+          "ur": "دانو دےو پھنںد اپارا ۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75053,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 12,
+      "verse": {
+        "verseId": 1566,
+        "verse": {
+          "gurmukhi": "gMDRb j`C rcY suB cwrw ]",
+          "unicode": "ਗੰਧ੍ਰਬ ਜੱਛ ਰਚੈ ਸੁਭ ਚਾਰਾ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "gMDRbj`CrcYsuBcwrw]",
+          "unicode": "ਗੰਧ੍ਰਬਜੱਛਰਚੈਸੁਭਚਾਰਾ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "He hath created Gandharvas, Yakshas and being of high character."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "gMDrb Aqy SuB Awcwr vwly XkSw dI rcnw kIqI;",
+              "unicode": "ਗੰਧਰਬ ਅਤੇ ਸ਼ੁਭ ਆਚਾਰ ਵਾਲੇ ਯਕਸ਼ਾ ਦੀ ਰਚਨਾ ਕੀਤੀ;"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "gMDrb Aqy SuB Awcwr vwly XkSw dI rcnw kIqI;",
+              "unicode": "ਗੰਧਰਬ ਅਤੇ ਸ਼ੁਭ ਆਚਾਰ ਵਾਲੇ ਯਕਸ਼ਾ ਦੀ ਰਚਨਾ ਕੀਤੀ;"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "ga(n)dhrab ja'chh rachai subh chaaraa ||",
+          "hindi": "गंध्रब जच्छ रचै सुभ चारा ॥",
+          "en": "ga(n)dhrab ja'chh rachai subh chaaraa ||",
+          "hi": "गंध्रब जच्छ रचै सुभ चारा ॥",
+          "ipa": "Gəŋt̪ə̀ɹəb d͡ʒɕ rət͡ʃæ sʊɓ t͡ʃɑrɑ.",
+          "ur": "گںدھرب جّچھ رچَے سُبھ چارا ۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75054,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 12,
+      "verse": {
+        "verseId": 1567,
+        "verse": {
+          "gurmukhi": "BUq Biv`K Bvwn khwnI ]",
+          "unicode": "ਭੂਤ ਭਵਿੱਖ ਭਵਾਨ ਕਹਾਨੀ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "BUqBiv`KBvwnkhwnI]",
+          "unicode": "ਭੂਤਭਵਿੱਖਭਵਾਨਕਹਾਨੀ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "The story of past, future and present."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "BUq, BivS Aqy vrqmwn (dIAW Gtnwvw) dI kQw khwxI vI auh Awp hI hY;",
+              "unicode": "ਭੂਤ, ਭਵਿਸ਼ ਅਤੇ ਵਰਤਮਾਨ (ਦੀਆਂ ਘਟਨਾਵਾ) ਦੀ ਕਥਾ ਕਹਾਣੀ ਵੀ ਉਹ ਆਪ ਹੀ ਹੈ;"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "BUq, BivS Aqy vrqmwn (dIAW Gtnwvw) dI kQw khwxI vI auh Awp hI hY;",
+              "unicode": "ਭੂਤ, ਭਵਿਸ਼ ਅਤੇ ਵਰਤਮਾਨ (ਦੀਆਂ ਘਟਨਾਵਾ) ਦੀ ਕਥਾ ਕਹਾਣੀ ਵੀ ਉਹ ਆਪ ਹੀ ਹੈ;"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "bhoot bhavi'kh bhavaan kahaanee ||",
+          "hindi": "भूत भविक्ख भवान कहानी ॥",
+          "en": "bhoot bhavi'kh bhavaan kahaanee ||",
+          "hi": "भूत भविक्ख भवान कहानी ॥",
+          "ipa": "ɓut̪ ɓəʋɪkʰ ɓəʋɑn kəhɑni.",
+          "ur": "بھُوت بھوّکھ بھوان کهانیِ ۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75055,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 12,
+      "verse": {
+        "verseId": 1568,
+        "verse": {
+          "gurmukhi": "Gt Gt ky pt pt kI jwnI ]7]",
+          "unicode": "ਘਟ ਘਟ ਕੇ ਪਟ ਪਟ ਕੀ ਜਾਨੀ ॥੭॥"
+        },
+        "larivaar": {
+          "gurmukhi": "GtGtkyptptkIjwnI]7]",
+          "unicode": "ਘਟਘਟਕੇਪਟਪਟਕੀਜਾਨੀ॥੭॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Regarding the inward recesses of every heart are known to Him.7."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "auh hr iek SrIr dI gupq qoN gupq g`l nUM jwxdw hY ]7]",
+              "unicode": "ਉਹ ਹਰ ਇਕ ਸ਼ਰੀਰ ਦੀ ਗੁਪਤ ਤੋਂ ਗੁਪਤ ਗੱਲ ਨੂੰ ਜਾਣਦਾ ਹੈ ॥੭॥"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "auh hr iek SrIr dI gupq qoN gupq g`l nUM jwxdw hY ]7]",
+              "unicode": "ਉਹ ਹਰ ਇਕ ਸ਼ਰੀਰ ਦੀ ਗੁਪਤ ਤੋਂ ਗੁਪਤ ਗੱਲ ਨੂੰ ਜਾਣਦਾ ਹੈ ॥੭॥"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "ghaT ghaT ke paT paT kee jaanee ||7||",
+          "hindi": "घट घट के पट पट की जानी ॥७॥",
+          "en": "ghaT ghaT ke paT paT kee jaanee ||7||",
+          "hi": "घट घट के पट पट की जानी ॥७॥",
+          "ipa": "Gʰəʈ Gʰəʈ ke pəʈ pəʈ ki d͡ʒɑni.7.",
+          "ur": "گھٹ گھٹ کے پٹ پٹ کیِ جانیِ ۔۔۷۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75056,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 13,
+      "verse": {
+        "verseId": 1569,
+        "verse": {
+          "gurmukhi": "qwq mwq ijh jwq n pwqw ]",
+          "unicode": "ਤਾਤ ਮਾਤ ਜਿਹ ਜਾਤ ਨ ਪਾਤਾ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "qwqmwqijhjwqnpwqw]",
+          "unicode": "ਤਾਤਮਾਤਜਿਹਜਾਤਨਪਾਤਾ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "He Who hath no father, mother caste and lineage."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "aus dw nw koeI ipqw hY, nw mwqw, nw aus dI koeI jwiq hY Aqy nw hI brwdrI;",
+              "unicode": "ਉਸ ਦਾ ਨਾ ਕੋਈ ਪਿਤਾ ਹੈ, ਨਾ ਮਾਤਾ, ਨਾ ਉਸ ਦੀ ਕੋਈ ਜਾਤਿ ਹੈ ਅਤੇ ਨਾ ਹੀ ਬਰਾਦਰੀ;"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "aus dw nw koeI ipqw hY, nw mwqw, nw aus dI koeI jwiq hY Aqy nw hI brwdrI;",
+              "unicode": "ਉਸ ਦਾ ਨਾ ਕੋਈ ਪਿਤਾ ਹੈ, ਨਾ ਮਾਤਾ, ਨਾ ਉਸ ਦੀ ਕੋਈ ਜਾਤਿ ਹੈ ਅਤੇ ਨਾ ਹੀ ਬਰਾਦਰੀ;"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "taat maat jeh jaat na paataa ||",
+          "hindi": "तात मात जिह जात न पाता ॥",
+          "en": "taat maat jeh jaat na paataa ||",
+          "hi": "तात मात जिह जात न पाता ॥",
+          "ipa": "t̪ɑt̪ mɑt̪ d͡ʒɪh d͡ʒɑt̪ nə pɑt̪ɑ.",
+          "ur": "تات مات جه جات ن پاتا ۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75057,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 13,
+      "verse": {
+        "verseId": 1570,
+        "verse": {
+          "gurmukhi": "eyk rMg kwhU nhI rwqw ]",
+          "unicode": "ਏਕ ਰੰਗ ਕਾਹੂ ਨਹੀ ਰਾਤਾ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "eykrMgkwhUnhIrwqw]",
+          "unicode": "ਏਕਰੰਗਕਾਹੂਨਹੀਰਾਤਾ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "He is not imbues with undivided love for anyone of them."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "auh iksy iek nwl (ivSyS rUp ivc) sMbMiDq nhIN hY।",
+              "unicode": "ਉਹ ਕਿਸੇ ਇਕ ਨਾਲ (ਵਿਸ਼ੇਸ਼ ਰੂਪ ਵਿਚ) ਸੰਬੰਧਿਤ ਨਹੀਂ ਹੈ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "auh iksy iek nwl (ivSyS rUp ivc) sMbMiDq nhIN hY।",
+              "unicode": "ਉਹ ਕਿਸੇ ਇਕ ਨਾਲ (ਵਿਸ਼ੇਸ਼ ਰੂਪ ਵਿਚ) ਸੰਬੰਧਿਤ ਨਹੀਂ ਹੈ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "ek ra(n)g kaahoo nahee raataa ||",
+          "hindi": "एक रंग काहू नही राता ॥",
+          "en": "ek ra(n)g kaahoo nahee raataa ||",
+          "hi": "एक रंग काहू नही राता ॥",
+          "ipa": "eek rəŋG kɑhu nəhi rɑt̪ɑ.",
+          "ur": "اےک رںگ کاهُو نهیِ راتا ۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75058,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 13,
+      "verse": {
+        "verseId": 1571,
+        "verse": {
+          "gurmukhi": "srb joq ky bIc smwnw ]",
+          "unicode": "ਸਰਬ ਜੋਤ ਕੇ ਬੀਚ ਸਮਾਨਾ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "srbjoqkybIcsmwnw]",
+          "unicode": "ਸਰਬਜੋਤਕੇਬੀਚਸਮਾਨਾ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "He is merged in all lights (souls)."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "auh sB dIAW joqw ivc smwieAw hoieAw hY;",
+              "unicode": "ਉਹ ਸਭ ਦੀਆਂ ਜੋਤਾ ਵਿਚ ਸਮਾਇਆ ਹੋਇਆ ਹੈ;"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "auh sB dIAW joqw ivc smwieAw hoieAw hY;",
+              "unicode": "ਉਹ ਸਭ ਦੀਆਂ ਜੋਤਾ ਵਿਚ ਸਮਾਇਆ ਹੋਇਆ ਹੈ;"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "sarab jot ke beech samaanaa ||",
+          "hindi": "सरब जोत के बीच समाना ॥",
+          "en": "sarab jot ke beech samaanaa ||",
+          "hi": "सरब जोत के बीच समाना ॥",
+          "ipa": "sərəb d͡ʒɔt̪ ke bit͡ʃ səmɑnɑ.",
+          "ur": "سرب جوت کے بیِچ سمانا ۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75059,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 13,
+      "verse": {
+        "verseId": 1572,
+        "verse": {
+          "gurmukhi": "sBhUM srb TOr pihcwnw ]8]",
+          "unicode": "ਸਭਹੂੰ ਸਰਬ ਠੌਰ ਪਹਿਚਾਨਾ ॥੮॥"
+        },
+        "larivaar": {
+          "gurmukhi": "sBhUMsrbTOrpihcwnw]8]",
+          "unicode": "ਸਭਹੂੰਸਰਬਠੌਰਪਹਿਚਾਨਾ॥੮॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "I have recognized Him within all and visualized Him at all places. 8."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "(mYN) aus nUM sB ivc Aqy swrIAW Qwvw ivc (vsdw hoieAw) pCwixAw hY ]8]",
+              "unicode": "(ਮੈਂ) ਉਸ ਨੂੰ ਸਭ ਵਿਚ ਅਤੇ ਸਾਰੀਆਂ ਥਾਵਾ ਵਿਚ (ਵਸਦਾ ਹੋਇਆ) ਪਛਾਣਿਆ ਹੈ ॥੮॥"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "(mYN) aus nUM sB ivc Aqy swrIAW Qwvw ivc (vsdw hoieAw) pCwixAw hY ]8]",
+              "unicode": "(ਮੈਂ) ਉਸ ਨੂੰ ਸਭ ਵਿਚ ਅਤੇ ਸਾਰੀਆਂ ਥਾਵਾ ਵਿਚ (ਵਸਦਾ ਹੋਇਆ) ਪਛਾਣਿਆ ਹੈ ॥੮॥"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "sabhahoo(n) sarab Thauar pahichaanaa ||8||",
+          "hindi": "सभहूँ सरब ठौर पहिचाना ॥८॥",
+          "en": "sabhahoo(n) sarab Thauar pahichaanaa ||8||",
+          "hi": "सभहूँ सरब ठौर पहिचाना ॥८॥",
+          "ipa": "səɓəhuŋ sərəb ʈʰɒər pəhɪt͡ʃɑnɑ.8.",
+          "ur": "سبھهُوں سرب ٹھَور پهِچانا ۔۔۸۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75060,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 14,
+      "verse": {
+        "verseId": 1573,
+        "verse": {
+          "gurmukhi": "kwl rhq An kwl srUpw ]",
+          "unicode": "ਕਾਲ ਰਹਤ ਅਨ ਕਾਲ ਸਰੂਪਾ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "kwlrhqAnkwlsrUpw]",
+          "unicode": "ਕਾਲਰਹਤਅਨਕਾਲਸਰੂਪਾ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "He is deathless and a non-temporal Entity."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "auh kwl (imRqU) qoN pry Aqy aus dw srUp kwl (dIAW sImwvw) qoN mukq hY;",
+              "unicode": "ਉਹ ਕਾਲ (ਮ੍ਰਿਤੂ) ਤੋਂ ਪਰੇ ਅਤੇ ਉਸ ਦਾ ਸਰੂਪ ਕਾਲ (ਦੀਆਂ ਸੀਮਾਵਾ) ਤੋਂ ਮੁਕਤ ਹੈ;"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "auh kwl (imRqU) qoN pry Aqy aus dw srUp kwl (dIAW sImwvw) qoN mukq hY;",
+              "unicode": "ਉਹ ਕਾਲ (ਮ੍ਰਿਤੂ) ਤੋਂ ਪਰੇ ਅਤੇ ਉਸ ਦਾ ਸਰੂਪ ਕਾਲ (ਦੀਆਂ ਸੀਮਾਵਾ) ਤੋਂ ਮੁਕਤ ਹੈ;"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "kaal rahat an kaal saroopaa ||",
+          "hindi": "काल रहत अन काल सरूपा ॥",
+          "en": "kaal rahat an kaal saroopaa ||",
+          "hi": "काल रहत अन काल सरूपा ॥",
+          "ipa": "kɑl rəhət̪ ən kɑl sərupɑ.",
+          "ur": "کال رهت ان کال سرُوپا ۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75061,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 14,
+      "verse": {
+        "verseId": 1574,
+        "verse": {
+          "gurmukhi": "AlK purK Abgq AvDUqw ]",
+          "unicode": "ਅਲਖ ਪੁਰਖ ਅਬਗਤ ਅਵਧੂਤਾ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "AlKpurKAbgqAvDUqw]",
+          "unicode": "ਅਲਖਪੁਰਖਅਬਗਤਅਵਧੂਤਾ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "He is Imperceptible Purusha, Unmanifested and Unscathed."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "auh nw jwixAw jw skx vwlw, AivAkq, mwieAwvI pRBwv qoN mukq purS hY।",
+              "unicode": "ਉਹ ਨਾ ਜਾਣਿਆ ਜਾ ਸਕਣ ਵਾਲਾ, ਅਵਿਅਕਤ, ਮਾਇਆਵੀ ਪ੍ਰਭਾਵ ਤੋਂ ਮੁਕਤ ਪੁਰਸ਼ ਹੈ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "auh nw jwixAw jw skx vwlw, AivAkq, mwieAwvI pRBwv qoN mukq purS hY।",
+              "unicode": "ਉਹ ਨਾ ਜਾਣਿਆ ਜਾ ਸਕਣ ਵਾਲਾ, ਅਵਿਅਕਤ, ਮਾਇਆਵੀ ਪ੍ਰਭਾਵ ਤੋਂ ਮੁਕਤ ਪੁਰਸ਼ ਹੈ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "alakh purakh abagat avadhootaa ||",
+          "hindi": "अलख पुरख अबगत अवधूता ॥",
+          "en": "alakh purakh abagat avadhootaa ||",
+          "hi": "अलख पुरख अबगत अवधूता ॥",
+          "ipa": "ələkʰ pʊrəkʰ əbəGət̪ əʋət̪ut̪ɑ.",
+          "ur": "الکھ پُرکھ ابگت اودھُوتا ۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75062,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 14,
+      "verse": {
+        "verseId": 1575,
+        "verse": {
+          "gurmukhi": "jwq pwq ijh ichn n brnw ]",
+          "unicode": "ਜਾਤ ਪਾਤ ਜਿਹ ਚਿਹਨ ਨ ਬਰਨਾ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "jwqpwqijhichnnbrnw]",
+          "unicode": "ਜਾਤਪਾਤਜਿਹਚਿਹਨਨਬਰਨਾ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "He Who is without caste, lineage, mark and colour."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "aus dI jwiq, brwdrI, icMnH Aqy vrn nhIN hY।",
+              "unicode": "ਉਸ ਦੀ ਜਾਤਿ, ਬਰਾਦਰੀ, ਚਿੰਨ੍ਹ ਅਤੇ ਵਰਨ ਨਹੀਂ ਹੈ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "aus dI jwiq, brwdrI, icMnH Aqy vrn nhIN hY।",
+              "unicode": "ਉਸ ਦੀ ਜਾਤਿ, ਬਰਾਦਰੀ, ਚਿੰਨ੍ਹ ਅਤੇ ਵਰਨ ਨਹੀਂ ਹੈ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "jaat paat jeh chihan na baranaa ||",
+          "hindi": "जात पात जिह चिहन न बरना ॥",
+          "en": "jaat paat jeh chihan na baranaa ||",
+          "hi": "जात पात जिह चिहन न बरना ॥",
+          "ipa": "d͡ʒɑt̪ pɑt̪ d͡ʒɪh t͡ʃɪhən nə bərənɑ.",
+          "ur": "جات پات جه چهن ن برنا ۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75063,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 14,
+      "verse": {
+        "verseId": 1576,
+        "verse": {
+          "gurmukhi": "Abgq dyv ACY An Brmw ]9]",
+          "unicode": "ਅਬਗਤ ਦੇਵ ਅਛੈ ਅਨ ਭਰਮਾ ॥੯॥"
+        },
+        "larivaar": {
+          "gurmukhi": "AbgqdyvACYAnBrmw]9]",
+          "unicode": "ਅਬਗਤਦੇਵਅਛੈਅਨਭਰਮਾ॥੯॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "The Unmanifest Lord is Indestructible and ever Stable.9."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "auh AivAkq, AivnwSI Aqy Brmw qoN rihq prm-s`qw hY ]9]",
+              "unicode": "ਉਹ ਅਵਿਅਕਤ, ਅਵਿਨਾਸ਼ੀ ਅਤੇ ਭਰਮਾ ਤੋਂ ਰਹਿਤ ਪਰਮ-ਸੱਤਾ ਹੈ ॥੯॥"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "auh AivAkq, AivnwSI Aqy Brmw qoN rihq prm-s`qw hY ]9]",
+              "unicode": "ਉਹ ਅਵਿਅਕਤ, ਅਵਿਨਾਸ਼ੀ ਅਤੇ ਭਰਮਾ ਤੋਂ ਰਹਿਤ ਪਰਮ-ਸੱਤਾ ਹੈ ॥੯॥"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "abagat dhev achhai an bharamaa ||9||",
+          "hindi": "अबगत देव अछै अन भरमा ॥९॥",
+          "en": "abagat dhev achhai an bharamaa ||9||",
+          "hi": "अबगत देव अछै अन भरमा ॥९॥",
+          "ipa": "əbəGət̪ d̪eʋ əɕæ ən ɓərəmɑ.9.",
+          "ur": "ابگت دےو اچھَے ان بھرما ۔۔۹۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75064,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 15,
+      "verse": {
+        "verseId": 1577,
+        "verse": {
+          "gurmukhi": "sB ko kwl sBn ko krqw ]",
+          "unicode": "ਸਭ ਕੋ ਕਾਲ ਸਭਨ ਕੋ ਕਰਤਾ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "sBkokwlsBnkokrqw]",
+          "unicode": "ਸਭਕੋਕਾਲਸਭਨਕੋਕਰਤਾ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "He is the Destroyer of all and Creator of all."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "auh sB dw nwS krn vwlw Aqy sB dw isrjk hY;",
+              "unicode": "ਉਹ ਸਭ ਦਾ ਨਾਸ਼ ਕਰਨ ਵਾਲਾ ਅਤੇ ਸਭ ਦਾ ਸਿਰਜਕ ਹੈ;"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "auh sB dw nwS krn vwlw Aqy sB dw isrjk hY;",
+              "unicode": "ਉਹ ਸਭ ਦਾ ਨਾਸ਼ ਕਰਨ ਵਾਲਾ ਅਤੇ ਸਭ ਦਾ ਸਿਰਜਕ ਹੈ;"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "sabh ko kaal sabhan ko karataa ||",
+          "hindi": "सभ को काल सभन को करता ॥",
+          "en": "sabh ko kaal sabhan ko karataa ||",
+          "hi": "सभ को काल सभन को करता ॥",
+          "ipa": "səɓ kɔ kɑl səɓən kɔ kərət̪ɑ.",
+          "ur": "سبھ کو کال سبھن کو کرتا ۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75065,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 15,
+      "verse": {
+        "verseId": 1578,
+        "verse": {
+          "gurmukhi": "rog sog doKn ko hrqw ]",
+          "unicode": "ਰੋਗ ਸੋਗ ਦੋਖਨ ਕੋ ਹਰਤਾ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "rogsogdoKnkohrqw]",
+          "unicode": "ਰੋਗਸੋਗਦੋਖਨਕੋਹਰਤਾ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "He is the Remover of maladies, sufferings and blemishes."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "auh rog, sog Aqy doKw (pwpw) nUM nwS krn vwlw hY।",
+              "unicode": "ਉਹ ਰੋਗ, ਸੋਗ ਅਤੇ ਦੋਖਾ (ਪਾਪਾ) ਨੂੰ ਨਾਸ਼ ਕਰਨ ਵਾਲਾ ਹੈ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "auh rog, sog Aqy doKw (pwpw) nUM nwS krn vwlw hY।",
+              "unicode": "ਉਹ ਰੋਗ, ਸੋਗ ਅਤੇ ਦੋਖਾ (ਪਾਪਾ) ਨੂੰ ਨਾਸ਼ ਕਰਨ ਵਾਲਾ ਹੈ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "rog sog dhokhan ko harataa ||",
+          "hindi": "रोग सोग दोखन को हरता ॥",
+          "en": "rog sog dhokhan ko harataa ||",
+          "hi": "रोग सोग दोखन को हरता ॥",
+          "ipa": "rɔG sɔG d̪ɔkʰən kɔ hərət̪ɑ.",
+          "ur": "روگ سوگ دوکھن کو هرتا ۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75066,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 15,
+      "verse": {
+        "verseId": 1579,
+        "verse": {
+          "gurmukhi": "eyk ic`q ijh iek iCn iDAwieE ]",
+          "unicode": "ਏਕ ਚਿੱਤ ਜਿਹ ਇਕ ਛਿਨ ਧਿਆਇਓ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "eykic`qijhiekiCniDAwieE]",
+          "unicode": "ਏਕਚਿੱਤਜਿਹਇਕਛਿਨਧਿਆਇਓ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "He Who meditates upon Him with single mind even for an instant"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "aus dw ijs ny iekwgR ic`q iek iCx leI vI iDAwn kIqw hY,",
+              "unicode": "ਉਸ ਦਾ ਜਿਸ ਨੇ ਇਕਾਗ੍ਰ ਚਿੱਤ ਇਕ ਛਿਣ ਲਈ ਵੀ ਧਿਆਨ ਕੀਤਾ ਹੈ,"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "aus dw ijs ny iekwgR ic`q iek iCx leI vI iDAwn kIqw hY,",
+              "unicode": "ਉਸ ਦਾ ਜਿਸ ਨੇ ਇਕਾਗ੍ਰ ਚਿੱਤ ਇਕ ਛਿਣ ਲਈ ਵੀ ਧਿਆਨ ਕੀਤਾ ਹੈ,"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "ek chi't jeh ik chhin dhiaaio ||",
+          "hindi": "एक चित्त जिह इक छिन धिआइओ ॥",
+          "en": "ek chi't jeh ik chhin dhiaaio ||",
+          "hi": "एक चित्त जिह इक छिन धिआइओ ॥",
+          "ipa": "eek t͡ʃɪt̪ d͡ʒɪh eɪk ɕɪn t̪ɪəɑeɪo.",
+          "ur": "اےک چّت جه اک چھن دھآااو ۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75067,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 15,
+      "verse": {
+        "verseId": 1580,
+        "verse": {
+          "gurmukhi": "kwl Pws ky bIc n AwieE ]10]",
+          "unicode": "ਕਾਲ ਫਾਸ ਕੇ ਬੀਚ ਨ ਆਇਓ ॥੧੦॥"
+        },
+        "larivaar": {
+          "gurmukhi": "kwlPwskybIcnAwieE]10]",
+          "unicode": "ਕਾਲਫਾਸਕੇਬੀਚਨਆਇਓ॥੧੦॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "He doth not come within the trap of death. 10."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "auh iPr kwl (imRqU) dy PMDy ivc nhIN Psdw ]10]",
+              "unicode": "ਉਹ ਫਿਰ ਕਾਲ (ਮ੍ਰਿਤੂ) ਦੇ ਫੰਧੇ ਵਿਚ ਨਹੀਂ ਫਸਦਾ ॥੧੦॥"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "auh iPr kwl (imRqU) dy PMDy ivc nhIN Psdw ]10]",
+              "unicode": "ਉਹ ਫਿਰ ਕਾਲ (ਮ੍ਰਿਤੂ) ਦੇ ਫੰਧੇ ਵਿਚ ਨਹੀਂ ਫਸਦਾ ॥੧੦॥"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "kaal faas ke beech na aaio ||10||",
+          "hindi": "काल फास के बीच न आइओ ॥१०॥",
+          "en": "kaal faas ke beech na aaio ||10||",
+          "hi": "काल फास के बीच न आइओ ॥१०॥",
+          "ipa": "kɑl fɑs ke bit͡ʃ nə əɑeɪo.1ə0.",
+          "ur": "کال پھاس کے بیِچ ن آااو ۔۔۱۰۔۔"
+        },
+        "pageNo": 11,
+        "lineNo": 75068,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    }
+  ]
+}

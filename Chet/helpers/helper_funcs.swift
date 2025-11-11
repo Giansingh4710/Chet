@@ -89,14 +89,60 @@ func getSbdObjFromHukamObj(hukamObj: HukamnamaAPIResponse) -> ShabadAPIResponse 
     return combined
 }
 
-func searchGurbani(from searchText: String) async throws -> GurbaniSearchAPIResponse {
+func searchGurbani(from searchText: String, queryString: String = "searchtype=0") async throws -> GurbaniSearchAPIResponse {
     let trimmed = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
     guard !trimmed.isEmpty else {
-        throw URLError(.badURL) // or define your own EmptySearchError
+        print("❌ Empty search text")
+        throw URLError(.badURL)
     }
 
     let query = trimmed.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? trimmed
-    let urlString = "https://api.banidb.com/v2/search/\(query)?searchtype=0"
+    let urlString = "https://api.banidb.com/v2/search/\(query)?\(queryString)&results=200"
+
+    print("🌐 API URL: \(urlString)")
+
+    guard let url = URL(string: urlString) else {
+        print("❌ Invalid URL: \(urlString)")
+        throw URLError(.badURL)
+    }
+
+    let (data, response) = try await URLSession.shared.data(from: url)
+
+    guard let httpResponse = response as? HTTPURLResponse else {
+        print("❌ No HTTP response")
+        throw URLError(.badServerResponse)
+    }
+
+    print("📡 HTTP Status: \(httpResponse.statusCode)")
+
+    guard (200 ... 299).contains(httpResponse.statusCode) else {
+        print("❌ Bad status code: \(httpResponse.statusCode)")
+        if let responseString = String(data: data, encoding: .utf8) {
+            print("❌ Response body: \(responseString)")
+        }
+        throw URLError(.badServerResponse)
+    }
+
+    do {
+        let decoded = try JSONDecoder().decode(GurbaniSearchAPIResponse.self, from: data)
+        return decoded
+    } catch {
+        print("❌ JSON Decode Error: \(error)")
+        if let responseString = String(data: data, encoding: .utf8) {
+            print("❌ Raw response: \(responseString.prefix(500))")
+        }
+        throw error
+    }
+}
+
+func searchGurbaniExact(from searchText: String) async throws -> GurbaniSearchAPIResponse {
+    let trimmed = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
+    guard !trimmed.isEmpty else {
+        throw URLError(.badURL)
+    }
+
+    let query = trimmed.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? trimmed
+    let urlString = "https://api.banidb.com/v2/search/\(query)?searchtype=4"
 
     guard let url = URL(string: urlString) else {
         throw URLError(.badURL)
@@ -126,6 +172,28 @@ func fetchShabadResponse(from shabadId: Int) async throws -> ShabadAPIResponse {
     }
 
     return try JSONDecoder().decode(ShabadAPIResponse.self, from: data)
+}
+
+func fetchWordDefinition(word: String) async throws -> [WordDefinition] {
+    let encodedWord = word.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? word
+    let urlString = "https://api.banidb.com/v2/kosh/word/\(encodedWord)"
+
+    guard let url = URL(string: urlString) else {
+        throw URLError(.badURL)
+    }
+
+    let (data, response) = try await URLSession.shared.data(from: url)
+
+    guard let httpResponse = response as? HTTPURLResponse else {
+        throw URLError(.badServerResponse)
+    }
+
+    guard (200 ... 299).contains(httpResponse.statusCode) else {
+        throw URLError(.badServerResponse)
+    }
+
+    let decoded = try JSONDecoder().decode([WordDefinition].self, from: data)
+    return decoded
 }
 
 func getFirstLetters(from text: String) -> String {
@@ -159,23 +227,27 @@ func getFirstLetters(from text: String) -> String {
 
 func getWidgetHeadingFromSbdInfo(_ info: ShabadInfo) -> String {
     var metaData = ""
-    switch info.writer.writerId {
-    case 1:
-        metaData = "(ਪ:੧)"
-    case 2:
-        metaData = "(ਪ:੨)"
-    case 3:
-        metaData = "(ਪ:੩)"
-    case 4:
-        metaData = "(ਪ:੪)"
-    case 5:
-        metaData = "(ਪ:੫)"
-    case 6:
-        metaData = "(ਪ:੯)"
-    case 7:
-        metaData = "(ਪ:੧੦)"
-    default:
-        metaData = "(" + info.writer.english + ")"
+    if let writerId = info.writer.writerId {
+        switch writerId {
+        case 1:
+            metaData = "(ਪ:੧)"
+        case 2:
+            metaData = "(ਪ:੨)"
+        case 3:
+            metaData = "(ਪ:੩)"
+        case 4:
+            metaData = "(ਪ:੪)"
+        case 5:
+            metaData = "(ਪ:੫)"
+        case 6:
+            metaData = "(ਪ:੯)"
+        case 7:
+            metaData = "(ਪ:੧੦)"
+        default:
+            metaData = "(" + (info.writer.english ?? "Unknown") + ")"
+        }
+    } else {
+        metaData = "(" + (info.writer.english ?? "Unknown") + ")"
     }
     return metaData
 }
@@ -224,5 +296,22 @@ func resolveFont(size: CGFloat, fontType: String) -> UIFont {
         return .systemFont(ofSize: size)
     } else {
         return UIFont(name: fontType, size: size) ?? .systemFont(ofSize: size)
+    }
+}
+
+func getCustomSrcName(_ source: Source) -> String {
+    guard let sourceId = source.sourceId else {
+        return source.english ?? "Unknown"
+    }
+
+    switch sourceId {
+    case "G": return "SGGS" // Sri Guru Granth Sahib Ji
+    case "D": return source.english ?? "Dasam Bani"
+    case "B": return source.english ?? "Bhai Gurdas Ji Vaaran"
+    case "A": return source.english ?? "Amrit Keertan"
+    case "S": return source.english ?? "Bhai Gurdas Singh Ji Vaaran"
+    case "N": return source.english ?? "Bhai Nand Lal Ji Vaaran"
+    case "R": return source.english ?? "Rehatnamas & Panthic Sources"
+    default: return sourceId
     }
 }

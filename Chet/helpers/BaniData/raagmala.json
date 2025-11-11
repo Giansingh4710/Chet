@@ -1,0 +1,4645 @@
+{
+  "baniInfo": {
+    "baniID": 38,
+    "gurmukhi": "rwg mwlw",
+    "unicode": "\u0a30\u0a3e\u0a17 \u0a2e\u0a3e\u0a32\u0a3e",
+    "english": "raag maalaa",
+    "hindi": "\u0930\u093e\u0917 \u092e\u093e\u0932\u093e",
+    "en": "raag maalaa",
+    "hi": "\u0930\u093e\u0917 \u092e\u093e\u0932\u093e",
+    "ipa": "r\u0251G m\u0251l\u0251",
+    "ur": "\u0631\u0627\u06af \u0645\u0627\u0644\u0627",
+    "source": {
+      "sourceId": "G",
+      "gurmukhi": "sRI gurU gRMQ swihb jI",
+      "unicode": "\u0a38\u0a4d\u0a30\u0a40 \u0a17\u0a41\u0a30\u0a42 \u0a17\u0a4d\u0a30\u0a70\u0a25 \u0a38\u0a3e\u0a39\u0a3f\u0a2c \u0a1c\u0a40",
+      "english": "Sri Guru Granth Sahib Ji",
+      "pageNo": 1429
+    },
+    "raag": {
+      "raagId": 45,
+      "gurmukhi": "muMdwvxI mhlw 5",
+      "unicode": "\u0a2e\u0a41\u0a70\u0a26\u0a3e\u0a35\u0a23\u0a40 \u0a2e\u0a39\u0a32\u0a3e \u0a6b",
+      "english": "Mundhaavanee Fifth Mehl",
+      "raagWithPage": "Mundhaavanee Fifth Mehl (1429-1429)"
+    },
+    "writer": {
+      "writerId": null,
+      "gurmukhi": null,
+      "unicode": null,
+      "english": null
+    }
+  },
+  "verses": [
+    {
+      "header": 1,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 1,
+      "verse": {
+        "verseId": 9216,
+        "verse": {
+          "gurmukhi": "<> siqgur pRswid]",
+          "unicode": "\u0a74 \u0a38\u0a24\u0a3f\u0a17\u0a41\u0a30 \u0a2a\u0a4d\u0a30\u0a38\u0a3e\u0a26\u0a3f\u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "<>siqgurpRswid]",
+          "unicode": "\u0a74\u0a38\u0a24\u0a3f\u0a17\u0a41\u0a30\u0a2a\u0a4d\u0a30\u0a38\u0a3e\u0a26\u0a3f\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "One Universal Creator God. By The Grace Of The True Guru:",
+            "ms": "",
+            "ssk": "One Universal Creator God. By The Grace Of The True Guru:"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "Un Dios Creador Universal, por la Gracia del Verdadero Guru."
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "ikOankaar satigur prasaadh||",
+          "hindi": "\u0a74 \u0938\u0924\u093f\u0917\u0941\u0930 \u092a\u094d\u0930\u0938\u093e\u0926\u093f\u0965",
+          "en": "ikOankaar satigur prasaadh||",
+          "hi": "\u0a74 \u0938\u0924\u093f\u0917\u0941\u0930 \u092a\u094d\u0930\u0938\u093e\u0926\u093f\u0965",
+          "ipa": "\u026ak o\u0259\u014bk\u0251\u027e s\u0259t\u032a\u026aG\u028ar p\u0279\u0259s\u0251d\u032a\u026a.",
+          "ur": "\u0627\u06a9 \u0627\u0648\u0646\u06a9\u0627\u0631 \u0633\u062a\u06af\u0631 \u067e\u0631\u0633\u0627\u062f\u06d4\u06d4"
+        },
+        "pageNo": 1429,
+        "lineNo": 18,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 2,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 2,
+      "verse": {
+        "verseId": 9217,
+        "verse": {
+          "gurmukhi": "rwg mwlw ]",
+          "unicode": "\u0a30\u0a3e\u0a17 \u0a2e\u0a3e\u0a32\u0a3e \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "rwgmwlw]",
+          "unicode": "\u0a30\u0a3e\u0a17\u0a2e\u0a3e\u0a32\u0a3e\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Raag Maalaa:",
+            "ms": "",
+            "ssk": "Raag Maalaa:"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "Rag Mala"
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "raag maalaa ||",
+          "hindi": "\u0930\u093e\u0917 \u092e\u093e\u0932\u093e \u0965",
+          "en": "raag maalaa ||",
+          "hi": "\u0930\u093e\u0917 \u092e\u093e\u0932\u093e \u0965",
+          "ipa": "r\u0251G m\u0251l\u0251.",
+          "ur": "\u0631\u0627\u06af \u0645\u0627\u0644\u0627 \u06d4\u06d4"
+        },
+        "pageNo": 1429,
+        "lineNo": 19,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 3,
+      "verse": {
+        "verseId": 9218,
+        "verse": {
+          "gurmukhi": "rwg eyk sMig pMc brMgn ]",
+          "unicode": "\u0a30\u0a3e\u0a17 \u0a0f\u0a15 \u0a38\u0a70\u0a17\u0a3f \u0a2a\u0a70\u0a1a \u0a2c\u0a30\u0a70\u0a17\u0a28 \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "rwgeyksMigpMcbrMgn]",
+          "unicode": "\u0a30\u0a3e\u0a17\u0a0f\u0a15\u0a38\u0a70\u0a17\u0a3f\u0a2a\u0a70\u0a1a\u0a2c\u0a30\u0a70\u0a17\u0a28\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Each Raga has five wives,",
+            "ms": "",
+            "ssk": "Each Raga has five wives,"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "Cada Raga tiene cinco esposas y ocho hijos, "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "raag ek sa(n)g pa(n)ch bara(n)gan ||",
+          "hindi": "\u0930\u093e\u0917 \u090f\u0915 \u0938\u0902\u0917\u093f \u092a\u0902\u091a \u092c\u0930\u0902\u0917\u0928 \u0965",
+          "en": "raag ek sa(n)g pa(n)ch bara(n)gan ||",
+          "hi": "\u0930\u093e\u0917 \u090f\u0915 \u0938\u0902\u0917\u093f \u092a\u0902\u091a \u092c\u0930\u0902\u0917\u0928 \u0965",
+          "ipa": "r\u0251G eek s\u0259\u014bG p\u0259\u014bt\u0361\u0283 b\u0259r\u0259\u014bG\u0259n.",
+          "ur": "\u0631\u0627\u06af \u0627\u06d2\u06a9 \u0633\u06ba\u06af \u067e\u06ba\u0686 \u0628\u0631\u06ba\u06af\u0646 \u06d4\u06d4"
+        },
+        "pageNo": 1429,
+        "lineNo": 19,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 2,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 2,
+              "t": "v"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 3,
+      "verse": {
+        "verseId": 9219,
+        "verse": {
+          "gurmukhi": "sMig Alwpih AwTau n\u00b5dn ]",
+          "unicode": "\u0a38\u0a70\u0a17\u0a3f \u0a05\u0a32\u0a3e\u0a2a\u0a39\u0a3f \u0a06\u0a20\u0a09 \u0a28\u0a70\u0a26\u0a28 \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "sMigAlwpihAwTaun\u00b5dn]",
+          "unicode": "\u0a38\u0a70\u0a17\u0a3f\u0a05\u0a32\u0a3e\u0a2a\u0a39\u0a3f\u0a06\u0a20\u0a09\u0a28\u0a70\u0a26\u0a28\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "and eight sons, who emit distinctive notes.",
+            "ms": "",
+            "ssk": "and eight sons, who emit distinctive notes."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "quienes emiten notas distintas."
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "sa(n)g alaapeh aaThau na(n)dhan ||",
+          "hindi": "\u0938\u0902\u0917\u093f \u0905\u0932\u093e\u092a\u0939\u093f \u0906\u0920\u0909 \u0928\u0902\u0926\u0928 \u0965",
+          "en": "sa(n)g alaapeh aaThau na(n)dhan ||",
+          "hi": "\u0938\u0902\u0917\u093f \u0905\u0932\u093e\u092a\u0939\u093f \u0906\u0920\u0909 \u0928\u0902\u0926\u0928 \u0965",
+          "ipa": "s\u0259\u014bG \u0259l\u0251p\u0259h \u0259\u0251\u0288\u02b0o n\u0259\u207fd\u032a\u0259n.",
+          "ur": "\u0633\u06ba\u06af \u0627\u0644\u0627\u067e\u0647 \u0622\u0679\u06be\u0627 \u0646\u00b5\u062f\u0646 \u06d4\u06d4"
+        },
+        "pageNo": 1429,
+        "lineNo": 19,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 3,
+      "verse": {
+        "verseId": 9220,
+        "verse": {
+          "gurmukhi": "pRQm rwg BYrau vY krhI ]",
+          "unicode": "\u0a2a\u0a4d\u0a30\u0a25\u0a2e \u0a30\u0a3e\u0a17 \u0a2d\u0a48\u0a30\u0a09 \u0a35\u0a48 \u0a15\u0a30\u0a39\u0a40 \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "pRQmrwgBYrauvYkrhI]",
+          "unicode": "\u0a2a\u0a4d\u0a30\u0a25\u0a2e\u0a30\u0a3e\u0a17\u0a2d\u0a48\u0a30\u0a09\u0a35\u0a48\u0a15\u0a30\u0a39\u0a40\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "In the first place is Raag Bhairao.",
+            "ms": "",
+            "ssk": "In the first place is Raag Bhairao."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "En primer lugar est\u00e1 Rag Bhairo. "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "pratham raag bhairau vai karahee ||",
+          "hindi": "\u092a\u094d\u0930\u0925\u092e \u0930\u093e\u0917 \u092d\u0948\u0930\u0909 \u0935\u0948 \u0915\u0930\u0939\u0940 \u0965",
+          "en": "pratham raag bhairau vai karahee ||",
+          "hi": "\u092a\u094d\u0930\u0925\u092e \u0930\u093e\u0917 \u092d\u0948\u0930\u0909 \u0935\u0948 \u0915\u0930\u0939\u0940 \u0965",
+          "ipa": "p\u0279\u0259t\u032a\u02b0\u0259m r\u0251G \u0253\u00e6ro \u028b\u00e6 k\u0259r\u0259hi.",
+          "ur": "\u067e\u0631\u062a\u06be\u0645 \u0631\u0627\u06af \u0628\u06be\u064e\u06d2\u0631\u0627 \u0648\u064e\u06d2 \u06a9\u0631\u0647\u06cc\u0650 \u06d4\u06d4"
+        },
+        "pageNo": 1429,
+        "lineNo": 19,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 2,
+              "t": "y"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 2,
+              "t": "y"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 3,
+      "verse": {
+        "verseId": 9221,
+        "verse": {
+          "gurmukhi": "pMc rwgnI sMig aucrhI ]",
+          "unicode": "\u0a2a\u0a70\u0a1a \u0a30\u0a3e\u0a17\u0a28\u0a40 \u0a38\u0a70\u0a17\u0a3f \u0a09\u0a1a\u0a30\u0a39\u0a40 \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "pMcrwgnIsMigaucrhI]",
+          "unicode": "\u0a2a\u0a70\u0a1a\u0a30\u0a3e\u0a17\u0a28\u0a40\u0a38\u0a70\u0a17\u0a3f\u0a09\u0a1a\u0a30\u0a39\u0a40\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "It is accompanied by the voices of its five Raaginis:",
+            "ms": "",
+            "ssk": "It is accompanied by the voices of its five Raaginis:"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "La cu\u00e1l est\u00e1 acompa\u00f1ada por las voces de sus cinco Raguinis."
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "pa(n)ch raaganee sa(n)g ucharahee ||",
+          "hindi": "\u092a\u0902\u091a \u0930\u093e\u0917\u0928\u0940 \u0938\u0902\u0917\u093f \u0909\u091a\u0930\u0939\u0940 \u0965",
+          "en": "pa(n)ch raaganee sa(n)g ucharahee ||",
+          "hi": "\u092a\u0902\u091a \u0930\u093e\u0917\u0928\u0940 \u0938\u0902\u0917\u093f \u0909\u091a\u0930\u0939\u0940 \u0965",
+          "ipa": "p\u0259\u014bt\u0361\u0283 r\u0251G\u0259ni s\u0259\u014bG o\u028at\u0361\u0283\u0259r\u0259hi.",
+          "ur": "\u067e\u06ba\u0686 \u0631\u0627\u06af\u0646\u06cc\u0650 \u0633\u06ba\u06af \u0627\u064f\u0686\u0631\u0647\u06cc\u0650 \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 1,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 2,
+              "t": "y"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 2,
+              "t": "y"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 3,
+      "verse": {
+        "verseId": 9222,
+        "verse": {
+          "gurmukhi": "pRQm BYrvI iblwvlI ]",
+          "unicode": "\u0a2a\u0a4d\u0a30\u0a25\u0a2e \u0a2d\u0a48\u0a30\u0a35\u0a40 \u0a2c\u0a3f\u0a32\u0a3e\u0a35\u0a32\u0a40 \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "pRQmBYrvIiblwvlI]",
+          "unicode": "\u0a2a\u0a4d\u0a30\u0a25\u0a2e\u0a2d\u0a48\u0a30\u0a35\u0a40\u0a2c\u0a3f\u0a32\u0a3e\u0a35\u0a32\u0a40\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "First come Bhairavee, and Bilaavalee;",
+            "ms": "",
+            "ssk": "First come Bhairavee, and Bilaavalee;"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "Primero viene Bhairavi y Bilavali, "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "pratham bhairavee bilaavalee ||",
+          "hindi": "\u092a\u094d\u0930\u0925\u092e \u092d\u0948\u0930\u0935\u0940 \u092c\u093f\u0932\u093e\u0935\u0932\u0940 \u0965",
+          "en": "pratham bhairavee bilaavalee ||",
+          "hi": "\u092a\u094d\u0930\u0925\u092e \u092d\u0948\u0930\u0935\u0940 \u092c\u093f\u0932\u093e\u0935\u0932\u0940 \u0965",
+          "ipa": "p\u0279\u0259t\u032a\u02b0\u0259m \u0253\u00e6r\u0259\u028bi b\u026al\u0251\u028b\u0259li.",
+          "ur": "\u067e\u0631\u062a\u06be\u0645 \u0628\u06be\u064e\u06d2\u0631\u0648\u06cc\u0650 \u0628\u0644\u0627\u0648\u0644\u06cc\u0650 \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 1,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 1,
+              "t": "y"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 1,
+              "t": "y"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 3,
+      "verse": {
+        "verseId": 9223,
+        "verse": {
+          "gurmukhi": "puMinAwkI gwvih bMglI ]",
+          "unicode": "\u0a2a\u0a41\u0a70\u0a28\u0a3f\u0a06\u0a15\u0a40 \u0a17\u0a3e\u0a35\u0a39\u0a3f \u0a2c\u0a70\u0a17\u0a32\u0a40 \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "puMinAwkIgwvihbMglI]",
+          "unicode": "\u0a2a\u0a41\u0a70\u0a28\u0a3f\u0a06\u0a15\u0a40\u0a17\u0a3e\u0a35\u0a39\u0a3f\u0a2c\u0a70\u0a17\u0a32\u0a40\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "then the songs of Punni-aakee and Bangalee;",
+            "ms": "",
+            "ssk": "then the songs of Punni-aakee and Bangalee;"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "despu\u00e9s los cantos de Puni-aki y Bangali "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "pu(n)niaakee gaaveh ba(n)galee ||",
+          "hindi": "\u092a\u0941\u0901\u0928\u093f\u0906\u0915\u0940 \u0917\u093e\u0935\u0939\u093f \u092c\u0902\u0917\u0932\u0940 \u0965",
+          "en": "pu(n)niaakee gaaveh ba(n)galee ||",
+          "hi": "\u092a\u0941\u0901\u0928\u093f\u0906\u0915\u0940 \u0917\u093e\u0935\u0939\u093f \u092c\u0902\u0917\u0932\u0940 \u0965",
+          "ipa": "p\u028a\u014bn\u026a\u0259\u0251ki G\u0251\u028b\u0259h b\u0259\u014bG\u0259li.",
+          "ur": "\u067e\u064f\u0646\u0651\u0622\u06a9\u06cc\u0650 \u06af\u0627\u0648\u0647 \u0628\u06ba\u06af\u0644\u06cc\u0650 \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 1,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 1,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 1,
+              "t": "v"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 3,
+      "verse": {
+        "verseId": 9224,
+        "verse": {
+          "gurmukhi": "puin AslyKI kI BeI bwrI ]",
+          "unicode": "\u0a2a\u0a41\u0a28\u0a3f \u0a05\u0a38\u0a32\u0a47\u0a16\u0a40 \u0a15\u0a40 \u0a2d\u0a08 \u0a2c\u0a3e\u0a30\u0a40 \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "puinAslyKIkIBeIbwrI]",
+          "unicode": "\u0a2a\u0a41\u0a28\u0a3f\u0a05\u0a38\u0a32\u0a47\u0a16\u0a40\u0a15\u0a40\u0a2d\u0a08\u0a2c\u0a3e\u0a30\u0a40\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "and then Asalaykhee.",
+            "ms": "",
+            "ssk": "and then Asalaykhee."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "y despu\u00e9s Asalayki, "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "pun asalekhee kee bhiee baaree ||",
+          "hindi": "\u092a\u0941\u0928\u093f \u0905\u0938\u0932\u0947\u0916\u0940 \u0915\u0940 \u092d\u0908 \u092c\u093e\u0930\u0940 \u0965",
+          "en": "pun asalekhee kee bhiee baaree ||",
+          "hi": "\u092a\u0941\u0928\u093f \u0905\u0938\u0932\u0947\u0916\u0940 \u0915\u0940 \u092d\u0908 \u092c\u093e\u0930\u0940 \u0965",
+          "ipa": "p\u028an \u0259s\u0259lek\u02b0i ki \u0253ei b\u0251ri.",
+          "ur": "\u067e\u064f\u0646 \u0627\u0633\u0644\u06d2\u06a9\u06be\u06cc\u0650 \u06a9\u06cc\u0650 \u0628\u06be\u0627\u06cc \u0628\u0627\u0631\u06cc\u0650 \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 1,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 2,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 2,
+              "t": "v"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 3,
+      "verse": {
+        "verseId": 9225,
+        "verse": {
+          "gurmukhi": "ey BYrau kI pwcau nwrI ]",
+          "unicode": "\u0a0f \u0a2d\u0a48\u0a30\u0a09 \u0a15\u0a40 \u0a2a\u0a3e\u0a1a\u0a09 \u0a28\u0a3e\u0a30\u0a40 \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "eyBYraukIpwcaunwrI]",
+          "unicode": "\u0a0f\u0a2d\u0a48\u0a30\u0a09\u0a15\u0a40\u0a2a\u0a3e\u0a1a\u0a09\u0a28\u0a3e\u0a30\u0a40\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "These are the five consorts of Bhairao.",
+            "ms": "",
+            "ssk": "These are the five consorts of Bhairao."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "estos son los cinco consortes de Bhairo."
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "e bhairau kee paachau naaree ||",
+          "hindi": "\u090f \u092d\u0948\u0930\u0909 \u0915\u0940 \u092a\u093e\u091a\u0909 \u0928\u093e\u0930\u0940 \u0965",
+          "en": "e bhairau kee paachau naaree ||",
+          "hi": "\u090f \u092d\u0948\u0930\u0909 \u0915\u0940 \u092a\u093e\u091a\u0909 \u0928\u093e\u0930\u0940 \u0965",
+          "ipa": "ee \u0253\u00e6ro ki p\u0251t\u0361\u0283o n\u0251ri.",
+          "ur": "\u0627\u06d2 \u0628\u06be\u064e\u06d2\u0631\u0627 \u06a9\u06cc\u0650 \u067e\u0627\u0686\u0627 \u0646\u0627\u0631\u06cc\u0650 \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 2,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 2,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 2,
+              "t": "v"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 3,
+      "verse": {
+        "verseId": 9226,
+        "verse": {
+          "gurmukhi": "pMcm hrK idswK sunwvih ]",
+          "unicode": "\u0a2a\u0a70\u0a1a\u0a2e \u0a39\u0a30\u0a16 \u0a26\u0a3f\u0a38\u0a3e\u0a16 \u0a38\u0a41\u0a28\u0a3e\u0a35\u0a39\u0a3f \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "pMcmhrKidswKsunwvih]",
+          "unicode": "\u0a2a\u0a70\u0a1a\u0a2e\u0a39\u0a30\u0a16\u0a26\u0a3f\u0a38\u0a3e\u0a16\u0a38\u0a41\u0a28\u0a3e\u0a35\u0a39\u0a3f\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "The sounds of Pancham, Harakh and Disaakh;",
+            "ms": "",
+            "ssk": "The sounds of Pancham, Harakh and Disaakh;"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "Los sonidos de Pancham, Jarakj y Disakj; "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "pa(n)cham harakh dhisaakh sunaaveh ||",
+          "hindi": "\u092a\u0902\u091a\u092e \u0939\u0930\u0916 \u0926\u093f\u0938\u093e\u0916 \u0938\u0941\u0928\u093e\u0935\u0939\u093f \u0965",
+          "en": "pa(n)cham harakh dhisaakh sunaaveh ||",
+          "hi": "\u092a\u0902\u091a\u092e \u0939\u0930\u0916 \u0926\u093f\u0938\u093e\u0916 \u0938\u0941\u0928\u093e\u0935\u0939\u093f \u0965",
+          "ipa": "p\u0259\u014bt\u0361\u0283\u0259m h\u0259r\u0259k\u02b0 d\u032a\u026as\u0251k\u02b0 s\u028an\u0251\u028b\u0259h.",
+          "ur": "\u067e\u06ba\u0686\u0645 \u0647\u0631\u06a9\u06be \u062f\u0633\u0627\u06a9\u06be \u0633\u064f\u0646\u0627\u0648\u0647 \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 2,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 1,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 1,
+              "t": "v"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 3,
+      "verse": {
+        "verseId": 9227,
+        "verse": {
+          "gurmukhi": "bMgwlm mDu mwDv gwvih ]1]",
+          "unicode": "\u0a2c\u0a70\u0a17\u0a3e\u0a32\u0a2e \u0a2e\u0a27\u0a41 \u0a2e\u0a3e\u0a27\u0a35 \u0a17\u0a3e\u0a35\u0a39\u0a3f \u0965\u0a67\u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "bMgwlmmDumwDvgwvih]1]",
+          "unicode": "\u0a2c\u0a70\u0a17\u0a3e\u0a32\u0a2e\u0a2e\u0a27\u0a41\u0a2e\u0a3e\u0a27\u0a35\u0a17\u0a3e\u0a35\u0a39\u0a3f\u0965\u0a67\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "the songs of Bangaalam, Madh and Maadhav. ||1||",
+            "ms": "",
+            "ssk": "the songs of Bangaalam, Madh and Maadhav. ||1||"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "los cantos de Bangalam, Madj y Madjab. (1)"
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "ba(n)gaalam madh maadhav gaaveh ||1||",
+          "hindi": "\u092c\u0902\u0917\u093e\u0932\u092e \u092e\u0927\u0941 \u092e\u093e\u0927\u0935 \u0917\u093e\u0935\u0939\u093f \u0965\u0967\u0965",
+          "en": "ba(n)gaalam madh maadhav gaaveh ||1||",
+          "hi": "\u092c\u0902\u0917\u093e\u0932\u092e \u092e\u0927\u0941 \u092e\u093e\u0927\u0935 \u0917\u093e\u0935\u0939\u093f \u0965\u0967\u0965",
+          "ipa": "b\u0259\u014bG\u0251l\u0259m m\u0259t\u032a m\u0251t\u032a\u0259\u028b G\u0251\u028b\u0259h.1.",
+          "ur": "\u0628\u06ba\u06af\u0627\u0644\u0645 \u0645\u062f\u06be \u0645\u0627\u062f\u06be\u0648 \u06af\u0627\u0648\u0647 \u06d4\u06d4\u06f1\u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 2,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 0,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 0,
+              "t": "v"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 4,
+      "verse": {
+        "verseId": 9228,
+        "verse": {
+          "gurmukhi": "llq iblwvl gwvhI ApunI ApunI BWiq ]",
+          "unicode": "\u0a32\u0a32\u0a24 \u0a2c\u0a3f\u0a32\u0a3e\u0a35\u0a32 \u0a17\u0a3e\u0a35\u0a39\u0a40 \u0a05\u0a2a\u0a41\u0a28\u0a40 \u0a05\u0a2a\u0a41\u0a28\u0a40 \u0a2d\u0a3e\u0a02\u0a24\u0a3f \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "llqiblwvlgwvhIApunIApunIBWiq]",
+          "unicode": "\u0a32\u0a32\u0a24\u0a2c\u0a3f\u0a32\u0a3e\u0a35\u0a32\u0a17\u0a3e\u0a35\u0a39\u0a40\u0a05\u0a2a\u0a41\u0a28\u0a40\u0a05\u0a2a\u0a41\u0a28\u0a40\u0a2d\u0a3e\u0a02\u0a24\u0a3f\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Lalat and Bilaaval - each gives out its own melody.",
+            "ms": "",
+            "ssk": "Lalat and Bilaaval - each gives out its own melody."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "Lalat y Bilaval, cada una da su propia melod\u00eda, "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "lalat bilaaval gaavahee apunee apunee bhaa(n)t ||",
+          "hindi": "\u0932\u0932\u0924 \u092c\u093f\u0932\u093e\u0935\u0932 \u0917\u093e\u0935\u0939\u0940 \u0905\u092a\u0941\u0928\u0940 \u0905\u092a\u0941\u0928\u0940 \u092d\u093e\u0901\u0924\u093f \u0965",
+          "en": "lalat bilaaval gaavahee apunee apunee bhaa(n)t ||",
+          "hi": "\u0932\u0932\u0924 \u092c\u093f\u0932\u093e\u0935\u0932 \u0917\u093e\u0935\u0939\u0940 \u0905\u092a\u0941\u0928\u0940 \u0905\u092a\u0941\u0928\u0940 \u092d\u093e\u0901\u0924\u093f \u0965",
+          "ipa": "l\u0259l\u0259t\u032a b\u026al\u0251\u028b\u0259l G\u0251\u028b\u0259hi \u0259p\u028ani \u0259p\u028ani \u0253\u0251\u207f\u0259t\u032a.",
+          "ur": "\u0644\u0644\u062a \u0628\u0644\u0627\u0648\u0644 \u06af\u0627\u0648\u0647\u06cc\u0650 \u0627\u067e\u0646\u06cc\u0650 \u0627\u067e\u0646\u06cc\u0650 \u0628\u06be\u0627\u06ba\u062a \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 3,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 2,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 2,
+              "t": "v"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 4,
+      "verse": {
+        "verseId": 9229,
+        "verse": {
+          "gurmukhi": "Ast puqR BYrv ky gwvih gwien pwqR ]1]",
+          "unicode": "\u0a05\u0a38\u0a1f \u0a2a\u0a41\u0a24\u0a4d\u0a30 \u0a2d\u0a48\u0a30\u0a35 \u0a15\u0a47 \u0a17\u0a3e\u0a35\u0a39\u0a3f \u0a17\u0a3e\u0a07\u0a28 \u0a2a\u0a3e\u0a24\u0a4d\u0a30 \u0965\u0a67\u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "AstpuqRBYrvkygwvihgwienpwqR]1]",
+          "unicode": "\u0a05\u0a38\u0a1f\u0a2a\u0a41\u0a24\u0a4d\u0a30\u0a2d\u0a48\u0a30\u0a35\u0a15\u0a47\u0a17\u0a3e\u0a35\u0a39\u0a3f\u0a17\u0a3e\u0a07\u0a28\u0a2a\u0a3e\u0a24\u0a4d\u0a30\u0965\u0a67\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "when these eight sons of Bhairao are sung by accomplished musicians. ||1||",
+            "ms": "",
+            "ssk": "when these eight sons of Bhairao are sung by accomplished musicians. ||1||"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "cuando estos ocho hijos de Bhairo, son cantados por m\u00fasicos preparados."
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "asaT putr bhairav ke gaaveh gain paatr ||1||",
+          "hindi": "\u0905\u0938\u091f \u092a\u0941\u0924\u094d\u0930 \u092d\u0948\u0930\u0935 \u0915\u0947 \u0917\u093e\u0935\u0939\u093f \u0917\u093e\u0907\u0928 \u092a\u093e\u0924\u094d\u0930 \u0965\u0967\u0965",
+          "en": "asaT putr bhairav ke gaaveh gain paatr ||1||",
+          "hi": "\u0905\u0938\u091f \u092a\u0941\u0924\u094d\u0930 \u092d\u0948\u0930\u0935 \u0915\u0947 \u0917\u093e\u0935\u0939\u093f \u0917\u093e\u0907\u0928 \u092a\u093e\u0924\u094d\u0930 \u0965\u0967\u0965",
+          "ipa": "\u0259s\u0259\u0288 p\u028at\u032a\u0279 \u0253\u00e6r\u0259\u028b ke G\u0251\u028b\u0259h G\u0251e\u026an p\u0251t\u032a\u0279.1.",
+          "ur": "\u0627\u0633\u0679 \u067e\u064f\u062a\u0631 \u0628\u06be\u064e\u06d2\u0631\u0648 \u06a9\u06d2 \u06af\u0627\u0648\u0647 \u06af\u0627\u0627\u0646 \u067e\u0627\u062a\u0631 \u06d4\u06d4\u06f1\u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 3,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 3,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 3,
+              "t": "v"
+            }
+          ],
+          "sttm2": [
+            {
+              "p": 3,
+              "t": "v"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 5,
+      "verse": {
+        "verseId": 9230,
+        "verse": {
+          "gurmukhi": "duqIAw mwlkausk Awlwpih ]",
+          "unicode": "\u0a26\u0a41\u0a24\u0a40\u0a06 \u0a2e\u0a3e\u0a32\u0a15\u0a09\u0a38\u0a15 \u0a06\u0a32\u0a3e\u0a2a\u0a39\u0a3f \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "duqIAwmwlkauskAwlwpih]",
+          "unicode": "\u0a26\u0a41\u0a24\u0a40\u0a06\u0a2e\u0a3e\u0a32\u0a15\u0a09\u0a38\u0a15\u0a06\u0a32\u0a3e\u0a2a\u0a39\u0a3f\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "In the second family is Maalakausak,",
+            "ms": "",
+            "ssk": "In the second family is Maalakausak,"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "En la segunda familia est\u00e1 Malakusak, "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "dhuteeaa maalakausak aalaapeh ||",
+          "hindi": "\u0926\u0941\u0924\u0940\u0906 \u092e\u093e\u0932\u0915\u0909\u0938\u0915 \u0906\u0932\u093e\u092a\u0939\u093f \u0965",
+          "en": "dhuteeaa maalakausak aalaapeh ||",
+          "hi": "\u0926\u0941\u0924\u0940\u0906 \u092e\u093e\u0932\u0915\u0909\u0938\u0915 \u0906\u0932\u093e\u092a\u0939\u093f \u0965",
+          "ipa": "d\u032a\u028at\u032ai\u0259\u0251 m\u0251l\u0259ko\u028as\u0259k \u0259\u0251l\u0251p\u0259h.",
+          "ur": "\u062f\u064f\u062a\u06cc\u0650\u0622 \u0645\u0627\u0644\u06a9\u0627\u0633\u06a9 \u0622\u0644\u0627\u067e\u0647 \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 4,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 0,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 0,
+              "t": "v"
+            }
+          ],
+          "sttm2": [
+            {
+              "p": 0,
+              "t": "v"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 5,
+      "verse": {
+        "verseId": 9231,
+        "verse": {
+          "gurmukhi": "sMig rwgnI pwcau Qwpih ]",
+          "unicode": "\u0a38\u0a70\u0a17\u0a3f \u0a30\u0a3e\u0a17\u0a28\u0a40 \u0a2a\u0a3e\u0a1a\u0a09 \u0a25\u0a3e\u0a2a\u0a39\u0a3f \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "sMigrwgnIpwcauQwpih]",
+          "unicode": "\u0a38\u0a70\u0a17\u0a3f\u0a30\u0a3e\u0a17\u0a28\u0a40\u0a2a\u0a3e\u0a1a\u0a09\u0a25\u0a3e\u0a2a\u0a39\u0a3f\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "who brings his five Raaginis:",
+            "ms": "",
+            "ssk": "who brings his five Raaginis:"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "quien trae a sus cinco Raguinas, "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "sa(n)g raaganee paachau thaapeh ||",
+          "hindi": "\u0938\u0902\u0917\u093f \u0930\u093e\u0917\u0928\u0940 \u092a\u093e\u091a\u0909 \u0925\u093e\u092a\u0939\u093f \u0965",
+          "en": "sa(n)g raaganee paachau thaapeh ||",
+          "hi": "\u0938\u0902\u0917\u093f \u0930\u093e\u0917\u0928\u0940 \u092a\u093e\u091a\u0909 \u0925\u093e\u092a\u0939\u093f \u0965",
+          "ipa": "s\u0259\u014bG r\u0251G\u0259ni p\u0251t\u0361\u0283o t\u032a\u02b0\u0251p\u0259h.",
+          "ur": "\u0633\u06ba\u06af \u0631\u0627\u06af\u0646\u06cc\u0650 \u067e\u0627\u0686\u0627 \u062a\u06be\u0627\u067e\u0647 \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 4,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": [
+            {
+              "p": 1,
+              "t": "v"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 5,
+      "verse": {
+        "verseId": 9232,
+        "verse": {
+          "gurmukhi": "goNfkrI Aru dyvgMDwrI ]",
+          "unicode": "\u0a17\u0a4b\u0a02\u0a21\u0a15\u0a30\u0a40 \u0a05\u0a30\u0a41 \u0a26\u0a47\u0a35\u0a17\u0a70\u0a27\u0a3e\u0a30\u0a40 \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "goNfkrIArudyvgMDwrI]",
+          "unicode": "\u0a17\u0a4b\u0a02\u0a21\u0a15\u0a30\u0a40\u0a05\u0a30\u0a41\u0a26\u0a47\u0a35\u0a17\u0a70\u0a27\u0a3e\u0a30\u0a40\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Gondakaree and Dayv Gandhaaree,",
+            "ms": "",
+            "ssk": "Gondakaree and Dayv Gandhaaree,"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "Gongakari y Dev Gandhari, las voces de Gandhari"
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "go(n)ddakaree ar dhevaga(n)dhaaree ||",
+          "hindi": "\u0917\u094b\u0902\u0921\u0915\u0930\u0940 \u0905\u0930\u0941 \u0926\u0947\u0935\u0917\u0902\u0927\u093e\u0930\u0940 \u0965",
+          "en": "go(n)ddakaree ar dhevaga(n)dhaaree ||",
+          "hi": "\u0917\u094b\u0902\u0921\u0915\u0930\u0940 \u0905\u0930\u0941 \u0926\u0947\u0935\u0917\u0902\u0927\u093e\u0930\u0940 \u0965",
+          "ipa": "G\u0254\u207f\u0256\u0259k\u0259ri \u0259r d\u032ae\u028b\u0259G\u0259\u014bt\u032a\u0251ri.",
+          "ur": "\u06af\u0648\u06ba\u0688\u06a9\u0631\u06cc\u0650 \u0627\u0631 \u062f\u06d2\u0648\u06af\u06ba\u062f\u06be\u0627\u0631\u06cc\u0650 \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 4,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 5,
+      "verse": {
+        "verseId": 9233,
+        "verse": {
+          "gurmukhi": "gMDwrI sIhuqI aucwrI ]",
+          "unicode": "\u0a17\u0a70\u0a27\u0a3e\u0a30\u0a40 \u0a38\u0a40\u0a39\u0a41\u0a24\u0a40 \u0a09\u0a1a\u0a3e\u0a30\u0a40 \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "gMDwrIsIhuqIaucwrI]",
+          "unicode": "\u0a17\u0a70\u0a27\u0a3e\u0a30\u0a40\u0a38\u0a40\u0a39\u0a41\u0a24\u0a40\u0a09\u0a1a\u0a3e\u0a30\u0a40\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "the voices of Gandhaaree and Seehutee,",
+            "ms": "",
+            "ssk": "the voices of Gandhaaree and Seehutee,"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": " y Sijuti"
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "ga(n)dhaaree seehutee uchaaree ||",
+          "hindi": "\u0917\u0902\u0927\u093e\u0930\u0940 \u0938\u0940\u0939\u0941\u0924\u0940 \u0909\u091a\u093e\u0930\u0940 \u0965",
+          "en": "ga(n)dhaaree seehutee uchaaree ||",
+          "hi": "\u0917\u0902\u0927\u093e\u0930\u0940 \u0938\u0940\u0939\u0941\u0924\u0940 \u0909\u091a\u093e\u0930\u0940 \u0965",
+          "ipa": "G\u0259\u014bt\u032a\u0251ri sih\u028at\u032ai o\u028at\u0361\u0283\u0251ri.",
+          "ur": "\u06af\u06ba\u062f\u06be\u0627\u0631\u06cc\u0650 \u0633\u06cc\u0650\u0647\u064f\u062a\u06cc\u0650 \u0627\u064f\u0686\u0627\u0631\u06cc\u0650 \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 5,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 0,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 0,
+              "t": "v"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 5,
+      "verse": {
+        "verseId": 9234,
+        "verse": {
+          "gurmukhi": "DnwsrI ey pwcau gweI ]",
+          "unicode": "\u0a27\u0a28\u0a3e\u0a38\u0a30\u0a40 \u0a0f \u0a2a\u0a3e\u0a1a\u0a09 \u0a17\u0a3e\u0a08 \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "DnwsrIeypwcaugweI]",
+          "unicode": "\u0a27\u0a28\u0a3e\u0a38\u0a30\u0a40\u0a0f\u0a2a\u0a3e\u0a1a\u0a09\u0a17\u0a3e\u0a08\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "and the fifth song of Dhanaasaree.",
+            "ms": "",
+            "ssk": "and the fifth song of Dhanaasaree."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": " y la quinta voz de Dhanasari, "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "dhanaasaree e paachau gaiee ||",
+          "hindi": "\u0927\u0928\u093e\u0938\u0930\u0940 \u090f \u092a\u093e\u091a\u0909 \u0917\u093e\u0908 \u0965",
+          "en": "dhanaasaree e paachau gaiee ||",
+          "hi": "\u0927\u0928\u093e\u0938\u0930\u0940 \u090f \u092a\u093e\u091a\u0909 \u0917\u093e\u0908 \u0965",
+          "ipa": "t\u032a\u0259n\u0251s\u0259ri ee p\u0251t\u0361\u0283o G\u0251ei.",
+          "ur": "\u062f\u06be\u0646\u0627\u0633\u0631\u06cc\u0650 \u0627\u06d2 \u067e\u0627\u0686\u0627 \u06af\u0627\u0627\u06cc \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 5,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 0,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 0,
+              "t": "v"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 5,
+      "verse": {
+        "verseId": 9235,
+        "verse": {
+          "gurmukhi": "mwl rwg kausk sMig lweI ]",
+          "unicode": "\u0a2e\u0a3e\u0a32 \u0a30\u0a3e\u0a17 \u0a15\u0a09\u0a38\u0a15 \u0a38\u0a70\u0a17\u0a3f \u0a32\u0a3e\u0a08 \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "mwlrwgkausksMiglweI]",
+          "unicode": "\u0a2e\u0a3e\u0a32\u0a30\u0a3e\u0a17\u0a15\u0a09\u0a38\u0a15\u0a38\u0a70\u0a17\u0a3f\u0a32\u0a3e\u0a08\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "This chain of Maalakausak brings along :",
+            "ms": "",
+            "ssk": "This chain of Maalakausak brings along :"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "la cadena de Malakusak"
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "maal raag kausak sa(n)g laiee ||",
+          "hindi": "\u092e\u093e\u0932 \u0930\u093e\u0917 \u0915\u0909\u0938\u0915 \u0938\u0902\u0917\u093f \u0932\u093e\u0908 \u0965",
+          "en": "maal raag kausak sa(n)g laiee ||",
+          "hi": "\u092e\u093e\u0932 \u0930\u093e\u0917 \u0915\u0909\u0938\u0915 \u0938\u0902\u0917\u093f \u0932\u093e\u0908 \u0965",
+          "ipa": "m\u0251l r\u0251G ko\u028as\u0259k s\u0259\u014bG l\u0251ei.",
+          "ur": "\u0645\u0627\u0644 \u0631\u0627\u06af \u06a9\u0627\u0633\u06a9 \u0633\u06ba\u06af \u0644\u0627\u0627\u06cc \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 5,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 5,
+      "verse": {
+        "verseId": 9236,
+        "verse": {
+          "gurmukhi": "mwrU msqAMg myvwrw ]",
+          "unicode": "\u0a2e\u0a3e\u0a30\u0a42 \u0a2e\u0a38\u0a24\u0a05\u0a70\u0a17 \u0a2e\u0a47\u0a35\u0a3e\u0a30\u0a3e \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "mwrUmsqAMgmyvwrw]",
+          "unicode": "\u0a2e\u0a3e\u0a30\u0a42\u0a2e\u0a38\u0a24\u0a05\u0a70\u0a17\u0a2e\u0a47\u0a35\u0a3e\u0a30\u0a3e\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Maaroo, Masta-ang and Mayvaaraa,"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            }
+          },
+          "es": {
+            "sn": " trae consigo a Maru, Masta-ang y Mevara, "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "maaroo masata(n)g mevaaraa ||",
+          "hindi": "\u092e\u093e\u0930\u0942 \u092e\u0938\u0924\u0905\u0902\u0917 \u092e\u0947\u0935\u093e\u0930\u093e \u0965",
+          "en": "maaroo masata(n)g mevaaraa ||",
+          "hi": "\u092e\u093e\u0930\u0942 \u092e\u0938\u0924\u0905\u0902\u0917 \u092e\u0947\u0935\u093e\u0930\u093e \u0965",
+          "ipa": "m\u0251ru m\u0259s\u0259t\u032a\u0259\u014bG me\u028b\u0251r\u0251.",
+          "ur": "\u0645\u0627\u0631\u064f\u0648 \u0645\u0633\u062a\u0627\u06ba\u06af \u0645\u06d2\u0648\u0627\u0631\u0627 \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 6,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 1,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 1,
+              "t": "v"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 5,
+      "verse": {
+        "verseId": 9237,
+        "verse": {
+          "gurmukhi": "pRblcMf kausk auBwrw ]",
+          "unicode": "\u0a2a\u0a4d\u0a30\u0a2c\u0a32\u0a1a\u0a70\u0a21 \u0a15\u0a09\u0a38\u0a15 \u0a09\u0a2d\u0a3e\u0a30\u0a3e \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "pRblcMfkauskauBwrw]",
+          "unicode": "\u0a2a\u0a4d\u0a30\u0a2c\u0a32\u0a1a\u0a70\u0a21\u0a15\u0a09\u0a38\u0a15\u0a09\u0a2d\u0a3e\u0a30\u0a3e\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Prabal, Chandakausak,",
+            "ms": "",
+            "ssk": "Prabal, Chandakausak,"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "Praval y Chandakaosak,"
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "prabalacha(n)dd kausak ubhaaraa ||",
+          "hindi": "\u092a\u094d\u0930\u092c\u0932\u091a\u0902\u0921 \u0915\u0909\u0938\u0915 \u0909\u092d\u093e\u0930\u093e \u0965",
+          "en": "prabalacha(n)dd kausak ubhaaraa ||",
+          "hi": "\u092a\u094d\u0930\u092c\u0932\u091a\u0902\u0921 \u0915\u0909\u0938\u0915 \u0909\u092d\u093e\u0930\u093e \u0965",
+          "ipa": "p\u0279\u0259b\u0259l\u0259t\u0361\u0283\u0259\u014b\u0256 ko\u028as\u0259k o\u028a\u0253\u0251r\u0251.",
+          "ur": "\u067e\u0631\u0628\u0644\u0686\u06ba\u0688 \u06a9\u0627\u0633\u06a9 \u0627\u064f\u0628\u06be\u0627\u0631\u0627 \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 6,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 0,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 0,
+              "t": "v"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 5,
+      "verse": {
+        "verseId": 9238,
+        "verse": {
+          "gurmukhi": "KauKt Aau Baurwnd gwey ]",
+          "unicode": "\u0a16\u0a09\u0a16\u0a1f \u0a05\u0a09 \u0a2d\u0a09\u0a30\u0a3e\u0a28\u0a26 \u0a17\u0a3e\u0a0f \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "KauKtAauBaurwndgwey]",
+          "unicode": "\u0a16\u0a09\u0a16\u0a1f\u0a05\u0a09\u0a2d\u0a09\u0a30\u0a3e\u0a28\u0a26\u0a17\u0a3e\u0a0f\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Khau, Khat and Bauraanad singing.",
+            "ms": "",
+            "ssk": "Khau, Khat and Bauraanad singing."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": " Kjao, Kjat y Baoranad, cantando. "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "khaukhaT aau bhauraanadh gaae ||",
+          "hindi": "\u0916\u0909\u0916\u091f \u0905\u0909 \u092d\u0909\u0930\u093e\u0928\u0926 \u0917\u093e\u090f \u0965",
+          "en": "khaukhaT aau bhauraanadh gaae ||",
+          "hi": "\u0916\u0909\u0916\u091f \u0905\u0909 \u092d\u0909\u0930\u093e\u0928\u0926 \u0917\u093e\u090f \u0965",
+          "ipa": "k\u02b0o\u028ak\u02b0\u0259\u0288 \u0259o \u0253o\u028ar\u0251n\u0259d\u032a G\u0251ee.",
+          "ur": "\u06a9\u06be\u0627\u06a9\u06be\u0679 \u0627\u0627 \u0628\u06be\u0627\u0631\u0627\u0646\u062f \u06af\u0627\u0627\u06d2 \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 6,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 0,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 0,
+              "t": "v"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 5,
+      "verse": {
+        "verseId": 9239,
+        "verse": {
+          "gurmukhi": "Ast mwlkausk sMig lwey ]1]",
+          "unicode": "\u0a05\u0a38\u0a1f \u0a2e\u0a3e\u0a32\u0a15\u0a09\u0a38\u0a15 \u0a38\u0a70\u0a17\u0a3f \u0a32\u0a3e\u0a0f \u0965\u0a67\u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "AstmwlkausksMiglwey]1]",
+          "unicode": "\u0a05\u0a38\u0a1f\u0a2e\u0a3e\u0a32\u0a15\u0a09\u0a38\u0a15\u0a38\u0a70\u0a17\u0a3f\u0a32\u0a3e\u0a0f\u0965\u0a67\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "These are the eight sons of Maalakausak. ||1||",
+            "ms": "",
+            "ssk": "These are the eight sons of Maalakausak. ||1||"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "Estos son los ocho hijos de Malakusak. (1)"
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "asaT maalakausak sa(n)g laae ||1||",
+          "hindi": "\u0905\u0938\u091f \u092e\u093e\u0932\u0915\u0909\u0938\u0915 \u0938\u0902\u0917\u093f \u0932\u093e\u090f \u0965\u0967\u0965",
+          "en": "asaT maalakausak sa(n)g laae ||1||",
+          "hi": "\u0905\u0938\u091f \u092e\u093e\u0932\u0915\u0909\u0938\u0915 \u0938\u0902\u0917\u093f \u0932\u093e\u090f \u0965\u0967\u0965",
+          "ipa": "\u0259s\u0259\u0288 m\u0251l\u0259ko\u028as\u0259k s\u0259\u014bG l\u0251ee.1.",
+          "ur": "\u0627\u0633\u0679 \u0645\u0627\u0644\u06a9\u0627\u0633\u06a9 \u0633\u06ba\u06af \u0644\u0627\u0627\u06d2 \u06d4\u06d4\u06f1\u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 6,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 0,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 0,
+              "t": "v"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 6,
+      "verse": {
+        "verseId": 9240,
+        "verse": {
+          "gurmukhi": "puin AwieAau ihMfolu pMc nwir sMig Ast suq ]",
+          "unicode": "\u0a2a\u0a41\u0a28\u0a3f \u0a06\u0a07\u0a05\u0a09 \u0a39\u0a3f\u0a70\u0a21\u0a4b\u0a32\u0a41 \u0a2a\u0a70\u0a1a \u0a28\u0a3e\u0a30\u0a3f \u0a38\u0a70\u0a17\u0a3f \u0a05\u0a38\u0a1f \u0a38\u0a41\u0a24 \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "puinAwieAauihMfolupMcnwirsMigAstsuq]",
+          "unicode": "\u0a2a\u0a41\u0a28\u0a3f\u0a06\u0a07\u0a05\u0a09\u0a39\u0a3f\u0a70\u0a21\u0a4b\u0a32\u0a41\u0a2a\u0a70\u0a1a\u0a28\u0a3e\u0a30\u0a3f\u0a38\u0a70\u0a17\u0a3f\u0a05\u0a38\u0a1f\u0a38\u0a41\u0a24\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Then comes Hindol with his five wives and eight sons;",
+            "ms": "",
+            "ssk": "Then comes Hindol with his five wives and eight sons;"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "Luego viene Jindol, con sus cinco esposas y ocho hijos, "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "pun aaiaau hi(n)ddol pa(n)ch naar sa(n)g asaT sut ||",
+          "hindi": "\u092a\u0941\u0928\u093f \u0906\u0907\u0905\u0909 \u0939\u093f\u0902\u0921\u094b\u0932\u0941 \u092a\u0902\u091a \u0928\u093e\u0930\u093f \u0938\u0902\u0917\u093f \u0905\u0938\u091f \u0938\u0941\u0924 \u0965",
+          "en": "pun aaiaau hi(n)ddol pa(n)ch naar sa(n)g asaT sut ||",
+          "hi": "\u092a\u0941\u0928\u093f \u0906\u0907\u0905\u0909 \u0939\u093f\u0902\u0921\u094b\u0932\u0941 \u092a\u0902\u091a \u0928\u093e\u0930\u093f \u0938\u0902\u0917\u093f \u0905\u0938\u091f \u0938\u0941\u0924 \u0965",
+          "ipa": "p\u028an \u0259\u0251\u026ao h\u026a\u014b\u0256\u0254l p\u0259\u014bt\u0361\u0283 n\u0251r s\u0259\u014bG \u0259s\u0259\u0288 s\u028at\u032a.",
+          "ur": "\u067e\u064f\u0646 \u0622\u0627\u0627\u0627 \u0647\u06ba\u0688\u0648\u0644 \u067e\u06ba\u0686 \u0646\u0627\u0631 \u0633\u06ba\u06af \u0627\u0633\u0679 \u0633\u064f\u062a \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 7,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 2,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 2,
+              "t": "v"
+            }
+          ],
+          "sttm2": [
+            {
+              "p": 2,
+              "t": "v"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 6,
+      "verse": {
+        "verseId": 9241,
+        "verse": {
+          "gurmukhi": "auTih qwn klol gwien qwr imlwvhI ]1]",
+          "unicode": "\u0a09\u0a20\u0a39\u0a3f \u0a24\u0a3e\u0a28 \u0a15\u0a32\u0a4b\u0a32 \u0a17\u0a3e\u0a07\u0a28 \u0a24\u0a3e\u0a30 \u0a2e\u0a3f\u0a32\u0a3e\u0a35\u0a39\u0a40 \u0965\u0a67\u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "auTihqwnklolgwienqwrimlwvhI]1]",
+          "unicode": "\u0a09\u0a20\u0a39\u0a3f\u0a24\u0a3e\u0a28\u0a15\u0a32\u0a4b\u0a32\u0a17\u0a3e\u0a07\u0a28\u0a24\u0a3e\u0a30\u0a2e\u0a3f\u0a32\u0a3e\u0a35\u0a39\u0a40\u0965\u0a67\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "it rises in waves when the sweet-voiced chorus sings. ||1||",
+            "ms": "",
+            "ssk": "it rises in waves when the sweet-voiced chorus sings. ||1||"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "se eleva en voces cuando las dulces voces del coro cantan. (1)"
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "auTheh taan kalol gain taar milaavahee ||1||",
+          "hindi": "\u0909\u0920\u0939\u093f \u0924\u093e\u0928 \u0915\u0932\u094b\u0932 \u0917\u093e\u0907\u0928 \u0924\u093e\u0930 \u092e\u093f\u0932\u093e\u0935\u0939\u0940 \u0965\u0967\u0965",
+          "en": "auTheh taan kalol gain taar milaavahee ||1||",
+          "hi": "\u0909\u0920\u0939\u093f \u0924\u093e\u0928 \u0915\u0932\u094b\u0932 \u0917\u093e\u0907\u0928 \u0924\u093e\u0930 \u092e\u093f\u0932\u093e\u0935\u0939\u0940 \u0965\u0967\u0965",
+          "ipa": "o\u028a\u0288\u02b0\u0259h t\u032a\u0251n k\u0259l\u0254l G\u0251e\u026an t\u032a\u0251r m\u026al\u0251\u028b\u0259hi.1.",
+          "ur": "\u0627\u064f\u0679\u06be\u0647 \u062a\u0627\u0646 \u06a9\u0644\u0648\u0644 \u06af\u0627\u0627\u0646 \u062a\u0627\u0631 \u0645\u0644\u0627\u0648\u0647\u06cc\u0650 \u06d4\u06d4\u06f1\u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 7,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 2,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 2,
+              "t": "v"
+            }
+          ],
+          "sttm2": [
+            {
+              "p": 2,
+              "t": "v"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 7,
+      "verse": {
+        "verseId": 9242,
+        "verse": {
+          "gurmukhi": "qyl\u00b5gI dyvkrI AweI ]",
+          "unicode": "\u0a24\u0a47\u0a32\u0a70\u0a17\u0a40 \u0a26\u0a47\u0a35\u0a15\u0a30\u0a40 \u0a06\u0a08 \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "qyl\u00b5gIdyvkrIAweI]",
+          "unicode": "\u0a24\u0a47\u0a32\u0a70\u0a17\u0a40\u0a26\u0a47\u0a35\u0a15\u0a30\u0a40\u0a06\u0a08\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "There come Taylangee and Darvakaree;",
+            "ms": "",
+            "ssk": "There come Taylangee and Darvakaree;"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "Ah\u00ed viene Teylangui y Darvakari, "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "tela(n)gee dhevakaree aaiee ||",
+          "hindi": "\u0924\u0947\u0932\u0902\u0917\u0940 \u0926\u0947\u0935\u0915\u0930\u0940 \u0906\u0908 \u0965",
+          "en": "tela(n)gee dhevakaree aaiee ||",
+          "hi": "\u0924\u0947\u0932\u0902\u0917\u0940 \u0926\u0947\u0935\u0915\u0930\u0940 \u0906\u0908 \u0965",
+          "ipa": "t\u032ael\u0259\u207fGi d\u032ae\u028b\u0259k\u0259ri \u0259\u0251ei.",
+          "ur": "\u062a\u06d2\u0644\u00b5\u06af\u06cc\u0650 \u062f\u06d2\u0648\u06a9\u0631\u06cc\u0650 \u0622\u0627\u06cc \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 8,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 7,
+      "verse": {
+        "verseId": 9243,
+        "verse": {
+          "gurmukhi": "bsMqI sMdUr suhweI ]",
+          "unicode": "\u0a2c\u0a38\u0a70\u0a24\u0a40 \u0a38\u0a70\u0a26\u0a42\u0a30 \u0a38\u0a41\u0a39\u0a3e\u0a08 \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "bsMqIsMdUrsuhweI]",
+          "unicode": "\u0a2c\u0a38\u0a70\u0a24\u0a40\u0a38\u0a70\u0a26\u0a42\u0a30\u0a38\u0a41\u0a39\u0a3e\u0a08\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Basantee and Sandoor follow;",
+            "ms": "",
+            "ssk": "Basantee and Sandoor follow;"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "Basanti y Sandur siguen, "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "basa(n)tee sa(n)dhoor suhaiee ||",
+          "hindi": "\u092c\u0938\u0902\u0924\u0940 \u0938\u0902\u0926\u0942\u0930 \u0938\u0941\u0939\u093e\u0908 \u0965",
+          "en": "basa(n)tee sa(n)dhoor suhaiee ||",
+          "hi": "\u092c\u0938\u0902\u0924\u0940 \u0938\u0902\u0926\u0942\u0930 \u0938\u0941\u0939\u093e\u0908 \u0965",
+          "ipa": "b\u0259s\u0259\u014bt\u032ai s\u0259\u014bd\u032aur s\u028ah\u0251ei.",
+          "ur": "\u0628\u0633\u06ba\u062a\u06cc\u0650 \u0633\u06ba\u062f\u064f\u0648\u0631 \u0633\u064f\u0647\u0627\u0627\u06cc \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 8,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 0,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 0,
+              "t": "v"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 7,
+      "verse": {
+        "verseId": 9244,
+        "verse": {
+          "gurmukhi": "srs AhIrI lY Bwrjw ]",
+          "unicode": "\u0a38\u0a30\u0a38 \u0a05\u0a39\u0a40\u0a30\u0a40 \u0a32\u0a48 \u0a2d\u0a3e\u0a30\u0a1c\u0a3e \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "srsAhIrIlYBwrjw]",
+          "unicode": "\u0a38\u0a30\u0a38\u0a05\u0a39\u0a40\u0a30\u0a40\u0a32\u0a48\u0a2d\u0a3e\u0a30\u0a1c\u0a3e\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "then Aheeree, the finest of women.",
+            "ms": "",
+            "ssk": "then Aheeree, the finest of women."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "despu\u00e9s Ajiri, las m\u00e1s finas damas. "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "saras aheeree lai bhaarajaa ||",
+          "hindi": "\u0938\u0930\u0938 \u0905\u0939\u0940\u0930\u0940 \u0932\u0948 \u092d\u093e\u0930\u091c\u093e \u0965",
+          "en": "saras aheeree lai bhaarajaa ||",
+          "hi": "\u0938\u0930\u0938 \u0905\u0939\u0940\u0930\u0940 \u0932\u0948 \u092d\u093e\u0930\u091c\u093e \u0965",
+          "ipa": "s\u0259r\u0259s \u0259hiri l\u00e6 \u0253\u0251r\u0259d\u0361\u0292\u0251.",
+          "ur": "\u0633\u0631\u0633 \u0627\u0647\u06cc\u0650\u0631\u06cc\u0650 \u0644\u064e\u06d2 \u0628\u06be\u0627\u0631\u062c\u0627 \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 8,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 1,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 1,
+              "t": "v"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 7,
+      "verse": {
+        "verseId": 9245,
+        "verse": {
+          "gurmukhi": "sMig lweI pWcau Awrjw ]",
+          "unicode": "\u0a38\u0a70\u0a17\u0a3f \u0a32\u0a3e\u0a08 \u0a2a\u0a3e\u0a02\u0a1a\u0a09 \u0a06\u0a30\u0a1c\u0a3e \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "sMiglweIpWcauAwrjw]",
+          "unicode": "\u0a38\u0a70\u0a17\u0a3f\u0a32\u0a3e\u0a08\u0a2a\u0a3e\u0a02\u0a1a\u0a09\u0a06\u0a30\u0a1c\u0a3e\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "These five wives come together.",
+            "ms": "",
+            "ssk": "These five wives come together."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "Estas cinco esposas vienen juntas, "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "sa(n)g laiee paa(n)chau aarajaa ||",
+          "hindi": "\u0938\u0902\u0917\u093f \u0932\u093e\u0908 \u092a\u093e\u0901\u091a\u0909 \u0906\u0930\u091c\u093e \u0965",
+          "en": "sa(n)g laiee paa(n)chau aarajaa ||",
+          "hi": "\u0938\u0902\u0917\u093f \u0932\u093e\u0908 \u092a\u093e\u0901\u091a\u0909 \u0906\u0930\u091c\u093e \u0965",
+          "ipa": "s\u0259\u014bG l\u0251ei p\u0251\u207f\u0259t\u0361\u0283o \u0259\u0251r\u0259d\u0361\u0292\u0251.",
+          "ur": "\u0633\u06ba\u06af \u0644\u0627\u0627\u06cc \u067e\u0627\u06ba\u0686\u0627 \u0622\u0631\u062c\u0627 \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 9,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 1,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 1,
+              "t": "v"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 7,
+      "verse": {
+        "verseId": 9246,
+        "verse": {
+          "gurmukhi": "surmwn\u00b5d Bwskr Awey ]",
+          "unicode": "\u0a38\u0a41\u0a30\u0a2e\u0a3e\u0a28\u0a70\u0a26 \u0a2d\u0a3e\u0a38\u0a15\u0a30 \u0a06\u0a0f \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "surmwn\u00b5dBwskrAwey]",
+          "unicode": "\u0a38\u0a41\u0a30\u0a2e\u0a3e\u0a28\u0a70\u0a26\u0a2d\u0a3e\u0a38\u0a15\u0a30\u0a06\u0a0f\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "The sons: Surmaanand and Bhaaskar come,",
+            "ms": "",
+            "ssk": "The sons: Surmaanand and Bhaaskar come,"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "los hijos, Surmanand y Bhaskar, "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "suramaana(n)dh bhaasakar aae ||",
+          "hindi": "\u0938\u0941\u0930\u092e\u093e\u0928\u0902\u0926 \u092d\u093e\u0938\u0915\u0930 \u0906\u090f \u0965",
+          "en": "suramaana(n)dh bhaasakar aae ||",
+          "hi": "\u0938\u0941\u0930\u092e\u093e\u0928\u0902\u0926 \u092d\u093e\u0938\u0915\u0930 \u0906\u090f \u0965",
+          "ipa": "s\u028ar\u0259m\u0251n\u0259\u207fd\u032a \u0253\u0251s\u0259k\u0259r \u0259\u0251ee.",
+          "ur": "\u0633\u064f\u0631\u0645\u0627\u0646\u00b5\u062f \u0628\u06be\u0627\u0633\u06a9\u0631 \u0622\u0627\u06d2 \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 9,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 7,
+      "verse": {
+        "verseId": 9247,
+        "verse": {
+          "gurmukhi": "cMdRibMb mMgln suhwey ]",
+          "unicode": "\u0a1a\u0a70\u0a26\u0a4d\u0a30\u0a2c\u0a3f\u0a70\u0a2c \u0a2e\u0a70\u0a17\u0a32\u0a28 \u0a38\u0a41\u0a39\u0a3e\u0a0f \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "cMdRibMbmMglnsuhwey]",
+          "unicode": "\u0a1a\u0a70\u0a26\u0a4d\u0a30\u0a2c\u0a3f\u0a70\u0a2c\u0a2e\u0a70\u0a17\u0a32\u0a28\u0a38\u0a41\u0a39\u0a3e\u0a0f\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Chandrabinb and Mangalan follow.",
+            "ms": "",
+            "ssk": "Chandrabinb and Mangalan follow."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "Chandrabinb y Mangalan le siguen."
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "cha(n)dhrabi(n)b ma(n)galan suhaae ||",
+          "hindi": "\u091a\u0902\u0926\u094d\u0930\u092c\u093f\u0902\u092c \u092e\u0902\u0917\u0932\u0928 \u0938\u0941\u0939\u093e\u090f \u0965",
+          "en": "cha(n)dhrabi(n)b ma(n)galan suhaae ||",
+          "hi": "\u091a\u0902\u0926\u094d\u0930\u092c\u093f\u0902\u092c \u092e\u0902\u0917\u0932\u0928 \u0938\u0941\u0939\u093e\u090f \u0965",
+          "ipa": "t\u0361\u0283\u0259\u014bd\u032a\u0279\u0259b\u026a\u014bb m\u0259\u014bG\u0259l\u0259n s\u028ah\u0251ee.",
+          "ur": "\u0686\u06ba\u062f\u0631\u0628\u06ba\u0628 \u0645\u06ba\u06af\u0644\u0646 \u0633\u064f\u0647\u0627\u0627\u06d2 \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 9,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 0,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 0,
+              "t": "v"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 7,
+      "verse": {
+        "verseId": 9248,
+        "verse": {
+          "gurmukhi": "srsbwn Aau Awih ibnodw ]",
+          "unicode": "\u0a38\u0a30\u0a38\u0a2c\u0a3e\u0a28 \u0a05\u0a09 \u0a06\u0a39\u0a3f \u0a2c\u0a3f\u0a28\u0a4b\u0a26\u0a3e \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "srsbwnAauAwihibnodw]",
+          "unicode": "\u0a38\u0a30\u0a38\u0a2c\u0a3e\u0a28\u0a05\u0a09\u0a06\u0a39\u0a3f\u0a2c\u0a3f\u0a28\u0a4b\u0a26\u0a3e\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Sarasbaan and Binodaa then come,",
+            "ms": "",
+            "ssk": "Sarasbaan and Binodaa then come,"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": " Despu\u00e9s vienen Sarasban y Binoda "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "sarasabaan aau aaeh binodhaa ||",
+          "hindi": "\u0938\u0930\u0938\u092c\u093e\u0928 \u0905\u0909 \u0906\u0939\u093f \u092c\u093f\u0928\u094b\u0926\u093e \u0965",
+          "en": "sarasabaan aau aaeh binodhaa ||",
+          "hi": "\u0938\u0930\u0938\u092c\u093e\u0928 \u0905\u0909 \u0906\u0939\u093f \u092c\u093f\u0928\u094b\u0926\u093e \u0965",
+          "ipa": "s\u0259r\u0259s\u0259b\u0251n \u0259o \u0259\u0251h b\u026an\u0254d\u032a\u0251.",
+          "ur": "\u0633\u0631\u0633\u0628\u0627\u0646 \u0627\u0627 \u0622\u0647 \u0628\u0646\u0648\u062f\u0627 \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 9,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 0,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 0,
+              "t": "v"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 7,
+      "verse": {
+        "verseId": 9249,
+        "verse": {
+          "gurmukhi": "gwvih srs bsMq kmodw ]",
+          "unicode": "\u0a17\u0a3e\u0a35\u0a39\u0a3f \u0a38\u0a30\u0a38 \u0a2c\u0a38\u0a70\u0a24 \u0a15\u0a2e\u0a4b\u0a26\u0a3e \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "gwvihsrsbsMqkmodw]",
+          "unicode": "\u0a17\u0a3e\u0a35\u0a39\u0a3f\u0a38\u0a30\u0a38\u0a2c\u0a38\u0a70\u0a24\u0a15\u0a2e\u0a4b\u0a26\u0a3e\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "and the thrilling songs of Basant and Kamodaa.",
+            "ms": "",
+            "ssk": "and the thrilling songs of Basant and Kamodaa."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "y los emocionantes cantos de Basant y Kamoda. "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "gaaveh saras basa(n)t kamodhaa ||",
+          "hindi": "\u0917\u093e\u0935\u0939\u093f \u0938\u0930\u0938 \u092c\u0938\u0902\u0924 \u0915\u092e\u094b\u0926\u093e \u0965",
+          "en": "gaaveh saras basa(n)t kamodhaa ||",
+          "hi": "\u0917\u093e\u0935\u0939\u093f \u0938\u0930\u0938 \u092c\u0938\u0902\u0924 \u0915\u092e\u094b\u0926\u093e \u0965",
+          "ipa": "G\u0251\u028b\u0259h s\u0259r\u0259s b\u0259s\u0259\u014bt\u032a k\u0259m\u0254d\u032a\u0251.",
+          "ur": "\u06af\u0627\u0648\u0647 \u0633\u0631\u0633 \u0628\u0633\u06ba\u062a \u06a9\u0645\u0648\u062f\u0627 \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 10,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 0,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 0,
+              "t": "v"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 7,
+      "verse": {
+        "verseId": 9250,
+        "verse": {
+          "gurmukhi": "Ast puqR mY khy svwrI ]",
+          "unicode": "\u0a05\u0a38\u0a1f \u0a2a\u0a41\u0a24\u0a4d\u0a30 \u0a2e\u0a48 \u0a15\u0a39\u0a47 \u0a38\u0a35\u0a3e\u0a30\u0a40 \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "AstpuqRmYkhysvwrI]",
+          "unicode": "\u0a05\u0a38\u0a1f\u0a2a\u0a41\u0a24\u0a4d\u0a30\u0a2e\u0a48\u0a15\u0a39\u0a47\u0a38\u0a35\u0a3e\u0a30\u0a40\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "These are the eight sons I have listed.",
+            "ms": "",
+            "ssk": "These are the eight sons I have listed."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "Estos son los ocho cantos que he enlistado "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "asaT putr mai kahe savaaree ||",
+          "hindi": "\u0905\u0938\u091f \u092a\u0941\u0924\u094d\u0930 \u092e\u0948 \u0915\u0939\u0947 \u0938\u0935\u093e\u0930\u0940 \u0965",
+          "en": "asaT putr mai kahe savaaree ||",
+          "hi": "\u0905\u0938\u091f \u092a\u0941\u0924\u094d\u0930 \u092e\u0948 \u0915\u0939\u0947 \u0938\u0935\u093e\u0930\u0940 \u0965",
+          "ipa": "\u0259s\u0259\u0288 p\u028at\u032a\u0279 m\u00e6 k\u0259he s\u0259\u028b\u0251ri.",
+          "ur": "\u0627\u0633\u0679 \u067e\u064f\u062a\u0631 \u0645\u064e\u06d2 \u06a9\u0647\u06d2 \u0633\u0648\u0627\u0631\u06cc\u0650 \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 10,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 1,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 1,
+              "t": "v"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 7,
+      "verse": {
+        "verseId": 9251,
+        "verse": {
+          "gurmukhi": "puin AweI dIpk kI bwrI ]1]",
+          "unicode": "\u0a2a\u0a41\u0a28\u0a3f \u0a06\u0a08 \u0a26\u0a40\u0a2a\u0a15 \u0a15\u0a40 \u0a2c\u0a3e\u0a30\u0a40 \u0965\u0a67\u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "puinAweIdIpkkIbwrI]1]",
+          "unicode": "\u0a2a\u0a41\u0a28\u0a3f\u0a06\u0a08\u0a26\u0a40\u0a2a\u0a15\u0a15\u0a40\u0a2c\u0a3e\u0a30\u0a40\u0965\u0a67\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Then comes the turn of Deepak. ||1||",
+            "ms": "",
+            "ssk": "Then comes the turn of Deepak. ||1||"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "y despu\u00e9s le llega el turno a Dipak. (1)"
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "pun aaiee dheepak kee baaree ||1||",
+          "hindi": "\u092a\u0941\u0928\u093f \u0906\u0908 \u0926\u0940\u092a\u0915 \u0915\u0940 \u092c\u093e\u0930\u0940 \u0965\u0967\u0965",
+          "en": "pun aaiee dheepak kee baaree ||1||",
+          "hi": "\u092a\u0941\u0928\u093f \u0906\u0908 \u0926\u0940\u092a\u0915 \u0915\u0940 \u092c\u093e\u0930\u0940 \u0965\u0967\u0965",
+          "ipa": "p\u028an \u0259\u0251ei d\u032aip\u0259k ki b\u0251ri.1.",
+          "ur": "\u067e\u064f\u0646 \u0622\u0627\u06cc \u062f\u06cc\u0650\u067e\u06a9 \u06a9\u06cc\u0650 \u0628\u0627\u0631\u06cc\u0650 \u06d4\u06d4\u06f1\u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 10,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 1,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 1,
+              "t": "v"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 8,
+      "verse": {
+        "verseId": 9252,
+        "verse": {
+          "gurmukhi": "kCylI ptmMjrI tofI khI Alwip ]",
+          "unicode": "\u0a15\u0a1b\u0a47\u0a32\u0a40 \u0a2a\u0a1f\u0a2e\u0a70\u0a1c\u0a30\u0a40 \u0a1f\u0a4b\u0a21\u0a40 \u0a15\u0a39\u0a40 \u0a05\u0a32\u0a3e\u0a2a\u0a3f \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "kCylIptmMjrItofIkhIAlwip]",
+          "unicode": "\u0a15\u0a1b\u0a47\u0a32\u0a40\u0a2a\u0a1f\u0a2e\u0a70\u0a1c\u0a30\u0a40\u0a1f\u0a4b\u0a21\u0a40\u0a15\u0a39\u0a40\u0a05\u0a32\u0a3e\u0a2a\u0a3f\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Kachhaylee, Patamanjaree and Todee are sung;",
+            "ms": "",
+            "ssk": "Kachhaylee, Patamanjaree and Todee are sung;"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "Kacely, Patamanyari y Todi son entonados; "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "kachhelee paTama(n)jaree Toddee kahee alaap ||",
+          "hindi": "\u0915\u091b\u0947\u0932\u0940 \u092a\u091f\u092e\u0902\u091c\u0930\u0940 \u091f\u094b\u0921\u0940 \u0915\u0939\u0940 \u0905\u0932\u093e\u092a\u093f \u0965",
+          "en": "kachhelee paTama(n)jaree Toddee kahee alaap ||",
+          "hi": "\u0915\u091b\u0947\u0932\u0940 \u092a\u091f\u092e\u0902\u091c\u0930\u0940 \u091f\u094b\u0921\u0940 \u0915\u0939\u0940 \u0905\u0932\u093e\u092a\u093f \u0965",
+          "ipa": "k\u0259\u0255eli p\u0259\u0288\u0259m\u0259\u014bd\u0361\u0292\u0259ri \u0288\u0254\u0256i k\u0259hi \u0259l\u0251p.",
+          "ur": "\u06a9\u0686\u06be\u06d2\u0644\u06cc\u0650 \u067e\u0679\u0645\u06ba\u062c\u0631\u06cc\u0650 \u0679\u0648\u0688\u06cc\u0650 \u06a9\u0647\u06cc\u0650 \u0627\u0644\u0627\u067e \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 11,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 1,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 1,
+              "t": "v"
+            }
+          ],
+          "sttm2": [
+            {
+              "p": 1,
+              "t": "v"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 8,
+      "verse": {
+        "verseId": 9253,
+        "verse": {
+          "gurmukhi": "kwmodI Aau gUjrI sMig dIpk ky Qwip ]1]",
+          "unicode": "\u0a15\u0a3e\u0a2e\u0a4b\u0a26\u0a40 \u0a05\u0a09 \u0a17\u0a42\u0a1c\u0a30\u0a40 \u0a38\u0a70\u0a17\u0a3f \u0a26\u0a40\u0a2a\u0a15 \u0a15\u0a47 \u0a25\u0a3e\u0a2a\u0a3f \u0965\u0a67\u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "kwmodIAaugUjrIsMigdIpkkyQwip]1]",
+          "unicode": "\u0a15\u0a3e\u0a2e\u0a4b\u0a26\u0a40\u0a05\u0a09\u0a17\u0a42\u0a1c\u0a30\u0a40\u0a38\u0a70\u0a17\u0a3f\u0a26\u0a40\u0a2a\u0a15\u0a15\u0a47\u0a25\u0a3e\u0a2a\u0a3f\u0965\u0a67\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Kaamodee and Goojaree accompany Deepak. ||1||",
+            "ms": "",
+            "ssk": "Kaamodee and Goojaree accompany Deepak. ||1||"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "Kamodi y Guyari, acompa\u00f1an a Dipak. (1)"
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "kaamodhee aau goojaree sa(n)g dheepak ke thaap ||1||",
+          "hindi": "\u0915\u093e\u092e\u094b\u0926\u0940 \u0905\u0909 \u0917\u0942\u091c\u0930\u0940 \u0938\u0902\u0917\u093f \u0926\u0940\u092a\u0915 \u0915\u0947 \u0925\u093e\u092a\u093f \u0965\u0967\u0965",
+          "en": "kaamodhee aau goojaree sa(n)g dheepak ke thaap ||1||",
+          "hi": "\u0915\u093e\u092e\u094b\u0926\u0940 \u0905\u0909 \u0917\u0942\u091c\u0930\u0940 \u0938\u0902\u0917\u093f \u0926\u0940\u092a\u0915 \u0915\u0947 \u0925\u093e\u092a\u093f \u0965\u0967\u0965",
+          "ipa": "k\u0251m\u0254d\u032ai \u0259o Gud\u0361\u0292\u0259ri s\u0259\u014bG d\u032aip\u0259k ke t\u032a\u02b0\u0251p.1.",
+          "ur": "\u06a9\u0627\u0645\u0648\u062f\u06cc\u0650 \u0627\u0627 \u06af\u064f\u0648\u062c\u0631\u06cc\u0650 \u0633\u06ba\u06af \u062f\u06cc\u0650\u067e\u06a9 \u06a9\u06d2 \u062a\u06be\u0627\u067e \u06d4\u06d4\u06f1\u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 11,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 2,
+              "t": "v"
+            },
+            {
+              "p": 5,
+              "t": "y"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 2,
+              "t": "v"
+            },
+            {
+              "p": 5,
+              "t": "y"
+            }
+          ],
+          "sttm2": [
+            {
+              "p": 2,
+              "t": "v"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 9,
+      "verse": {
+        "verseId": 9254,
+        "verse": {
+          "gurmukhi": "kwl\u00b5kw kuMql Aau rwmw ]",
+          "unicode": "\u0a15\u0a3e\u0a32\u0a70\u0a15\u0a3e \u0a15\u0a41\u0a70\u0a24\u0a32 \u0a05\u0a09 \u0a30\u0a3e\u0a2e\u0a3e \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "kwl\u00b5kwkuMqlAaurwmw]",
+          "unicode": "\u0a15\u0a3e\u0a32\u0a70\u0a15\u0a3e\u0a15\u0a41\u0a70\u0a24\u0a32\u0a05\u0a09\u0a30\u0a3e\u0a2e\u0a3e\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Kaalankaa, Kuntal and Raamaa,",
+            "ms": "",
+            "ssk": "Kaalankaa, Kuntal and Raamaa,"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "Kalanka, Kuntal y Raama; "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "kaala(n)kaa ku(n)tal aau raamaa ||",
+          "hindi": "\u0915\u093e\u0932\u0902\u0915\u093e \u0915\u0941\u0901\u0924\u0932 \u0905\u0909 \u0930\u093e\u092e\u093e \u0965",
+          "en": "kaala(n)kaa ku(n)tal aau raamaa ||",
+          "hi": "\u0915\u093e\u0932\u0902\u0915\u093e \u0915\u0941\u0901\u0924\u0932 \u0905\u0909 \u0930\u093e\u092e\u093e \u0965",
+          "ipa": "k\u0251l\u0259\u207fk\u0251 k\u028a\u014bt\u032a\u0259l \u0259o r\u0251m\u0251.",
+          "ur": "\u06a9\u0627\u0644\u00b5\u06a9\u0627 \u06a9\u064f\u06ba\u062a\u0644 \u0627\u0627 \u0631\u0627\u0645\u0627 \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 11,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 9,
+      "verse": {
+        "verseId": 9255,
+        "verse": {
+          "gurmukhi": "kmlkusm cMpk ky nwmw ]",
+          "unicode": "\u0a15\u0a2e\u0a32\u0a15\u0a41\u0a38\u0a2e \u0a1a\u0a70\u0a2a\u0a15 \u0a15\u0a47 \u0a28\u0a3e\u0a2e\u0a3e \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "kmlkusmcMpkkynwmw]",
+          "unicode": "\u0a15\u0a2e\u0a32\u0a15\u0a41\u0a38\u0a2e\u0a1a\u0a70\u0a2a\u0a15\u0a15\u0a47\u0a28\u0a3e\u0a2e\u0a3e\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Kamalakusam and Champak are their names;",
+            "ms": "",
+            "ssk": "Kamalakusam and Champak are their names;"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "los nombres de Kamalakusam y Champak; "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "kamalakusam cha(n)pak ke naamaa ||",
+          "hindi": "\u0915\u092e\u0932\u0915\u0941\u0938\u092e \u091a\u0902\u092a\u0915 \u0915\u0947 \u0928\u093e\u092e\u093e \u0965",
+          "en": "kamalakusam cha(n)pak ke naamaa ||",
+          "hi": "\u0915\u092e\u0932\u0915\u0941\u0938\u092e \u091a\u0902\u092a\u0915 \u0915\u0947 \u0928\u093e\u092e\u093e \u0965",
+          "ipa": "k\u0259m\u0259l\u0259k\u028as\u0259m t\u0361\u0283\u0259\u014bp\u0259k ke n\u0251m\u0251.",
+          "ur": "\u06a9\u0645\u0644\u06a9\u0633\u0645 \u0686\u0645\u067e\u06a9 \u06a9\u06d2 \u0646\u0627\u0645\u0627 \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 12,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 0,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 0,
+              "t": "v"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 9,
+      "verse": {
+        "verseId": 9256,
+        "verse": {
+          "gurmukhi": "gaurw Aau kwnrw kl\u00b4wnw ]",
+          "unicode": "\u0a17\u0a09\u0a30\u0a3e \u0a05\u0a09 \u0a15\u0a3e\u0a28\u0a30\u0a3e \u0a15\u0a32\u0a75\u0a3e\u0a28\u0a3e \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "gaurwAaukwnrwkl\u00b4wnw]",
+          "unicode": "\u0a17\u0a09\u0a30\u0a3e\u0a05\u0a09\u0a15\u0a3e\u0a28\u0a30\u0a3e\u0a15\u0a32\u0a75\u0a3e\u0a28\u0a3e\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Gauraa, Kaanaraa and Kaylaanaa;",
+            "ms": "",
+            "ssk": "Gauraa, Kaanaraa and Kaylaanaa;"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "Gaura Kanara y Kaylana, "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "gauraa aau kaanaraa kalayeaanaa ||",
+          "hindi": "\u0917\u0909\u0930\u093e \u0905\u0909 \u0915\u093e\u0928\u0930\u093e \u0915\u0932\u094d\u092f\u093e\u0928\u093e \u0965",
+          "en": "gauraa aau kaanaraa kalayeaanaa ||",
+          "hi": "\u0917\u0909\u0930\u093e \u0905\u0909 \u0915\u093e\u0928\u0930\u093e \u0915\u0932\u094d\u092f\u093e\u0928\u093e \u0965",
+          "ipa": "Go\u028ar\u0251 \u0259o k\u0251n\u0259r\u0251 k\u0259l\u0259j\u0251n\u0251.",
+          "ur": "\u06af\u0627\u0631\u0627 \u0627\u0627 \u06a9\u0627\u0646\u0631\u0627 \u06a9\u0644\u06d2\u0627\u0646\u0627 \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 12,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 9,
+      "verse": {
+        "verseId": 9257,
+        "verse": {
+          "gurmukhi": "Ast puqR dIpk ky jwnw ]1]",
+          "unicode": "\u0a05\u0a38\u0a1f \u0a2a\u0a41\u0a24\u0a4d\u0a30 \u0a26\u0a40\u0a2a\u0a15 \u0a15\u0a47 \u0a1c\u0a3e\u0a28\u0a3e \u0965\u0a67\u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "AstpuqRdIpkkyjwnw]1]",
+          "unicode": "\u0a05\u0a38\u0a1f\u0a2a\u0a41\u0a24\u0a4d\u0a30\u0a26\u0a40\u0a2a\u0a15\u0a15\u0a47\u0a1c\u0a3e\u0a28\u0a3e\u0965\u0a67\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "these are the eight sons of Deepak. ||1||",
+            "ms": "",
+            "ssk": "these are the eight sons of Deepak. ||1||"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "estos son los ocho hijos de Dipak. (1)"
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "asaT putr dheepak ke jaanaa ||1||",
+          "hindi": "\u0905\u0938\u091f \u092a\u0941\u0924\u094d\u0930 \u0926\u0940\u092a\u0915 \u0915\u0947 \u091c\u093e\u0928\u093e \u0965\u0967\u0965",
+          "en": "asaT putr dheepak ke jaanaa ||1||",
+          "hi": "\u0905\u0938\u091f \u092a\u0941\u0924\u094d\u0930 \u0926\u0940\u092a\u0915 \u0915\u0947 \u091c\u093e\u0928\u093e \u0965\u0967\u0965",
+          "ipa": "\u0259s\u0259\u0288 p\u028at\u032a\u0279 d\u032aip\u0259k ke d\u0361\u0292\u0251n\u0251.1.",
+          "ur": "\u0627\u0633\u0679 \u067e\u064f\u062a\u0631 \u062f\u06cc\u0650\u067e\u06a9 \u06a9\u06d2 \u062c\u0627\u0646\u0627 \u06d4\u06d4\u06f1\u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 12,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 1,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 1,
+              "t": "v"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 10,
+      "verse": {
+        "verseId": 9258,
+        "verse": {
+          "gurmukhi": "sB imil isrIrwg vY gwvih ]",
+          "unicode": "\u0a38\u0a2d \u0a2e\u0a3f\u0a32\u0a3f \u0a38\u0a3f\u0a30\u0a40\u0a30\u0a3e\u0a17 \u0a35\u0a48 \u0a17\u0a3e\u0a35\u0a39\u0a3f \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "sBimilisrIrwgvYgwvih]",
+          "unicode": "\u0a38\u0a2d\u0a2e\u0a3f\u0a32\u0a3f\u0a38\u0a3f\u0a30\u0a40\u0a30\u0a3e\u0a17\u0a35\u0a48\u0a17\u0a3e\u0a35\u0a39\u0a3f\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "All join together and sing Siree Raag,",
+            "ms": "",
+            "ssk": "All join together and sing Siree Raag,"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "Todos se juntan y cantan Siri Rag, "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "sabh mil sireeraag vai gaaveh ||",
+          "hindi": "\u0938\u092d \u092e\u093f\u0932\u093f \u0938\u093f\u0930\u0940\u0930\u093e\u0917 \u0935\u0948 \u0917\u093e\u0935\u0939\u093f \u0965",
+          "en": "sabh mil sireeraag vai gaaveh ||",
+          "hi": "\u0938\u092d \u092e\u093f\u0932\u093f \u0938\u093f\u0930\u0940\u0930\u093e\u0917 \u0935\u0948 \u0917\u093e\u0935\u0939\u093f \u0965",
+          "ipa": "s\u0259\u0253 m\u026al s\u026arir\u0251G \u028b\u00e6 G\u0251\u028b\u0259h.",
+          "ur": "\u0633\u0628\u06be \u0645\u0644 \u0633\u0631\u06cc\u0650\u0631\u0627\u06af \u0648\u064e\u06d2 \u06af\u0627\u0648\u0647 \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 13,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 1,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 1,
+              "t": "v"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 10,
+      "verse": {
+        "verseId": 9259,
+        "verse": {
+          "gurmukhi": "pWcau sMig brMgn lwvih ]",
+          "unicode": "\u0a2a\u0a3e\u0a02\u0a1a\u0a09 \u0a38\u0a70\u0a17\u0a3f \u0a2c\u0a30\u0a70\u0a17\u0a28 \u0a32\u0a3e\u0a35\u0a39\u0a3f \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "pWcausMigbrMgnlwvih]",
+          "unicode": "\u0a2a\u0a3e\u0a02\u0a1a\u0a09\u0a38\u0a70\u0a17\u0a3f\u0a2c\u0a30\u0a70\u0a17\u0a28\u0a32\u0a3e\u0a35\u0a39\u0a3f\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "which is accompanied by its five wives.:",
+            "ms": "",
+            "ssk": "which is accompanied by its five wives.:"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "quien est\u00e1 acompa\u00f1ado por sus cinco esposas, "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "paa(n)chau sa(n)g bara(n)gan laaveh ||",
+          "hindi": "\u092a\u093e\u0901\u091a\u0909 \u0938\u0902\u0917\u093f \u092c\u0930\u0902\u0917\u0928 \u0932\u093e\u0935\u0939\u093f \u0965",
+          "en": "paa(n)chau sa(n)g bara(n)gan laaveh ||",
+          "hi": "\u092a\u093e\u0901\u091a\u0909 \u0938\u0902\u0917\u093f \u092c\u0930\u0902\u0917\u0928 \u0932\u093e\u0935\u0939\u093f \u0965",
+          "ipa": "p\u0251\u207f\u0259t\u0361\u0283o s\u0259\u014bG b\u0259r\u0259\u014bG\u0259n l\u0251\u028b\u0259h.",
+          "ur": "\u067e\u0627\u06ba\u0686\u0627 \u0633\u06ba\u06af \u0628\u0631\u06ba\u06af\u0646 \u0644\u0627\u0648\u0647 \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 13,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 0,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 0,
+              "t": "v"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 10,
+      "verse": {
+        "verseId": 9260,
+        "verse": {
+          "gurmukhi": "bYrwrI krnwtI DrI ]",
+          "unicode": "\u0a2c\u0a48\u0a30\u0a3e\u0a30\u0a40 \u0a15\u0a30\u0a28\u0a3e\u0a1f\u0a40 \u0a27\u0a30\u0a40 \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "bYrwrIkrnwtIDrI]",
+          "unicode": "\u0a2c\u0a48\u0a30\u0a3e\u0a30\u0a40\u0a15\u0a30\u0a28\u0a3e\u0a1f\u0a40\u0a27\u0a30\u0a40\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Bairaaree and Karnaatee,",
+            "ms": "",
+            "ssk": "Bairaaree and Karnaatee,"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "Berari, Karnati, "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "bairaaree karanaaTee dharee ||",
+          "hindi": "\u092c\u0948\u0930\u093e\u0930\u0940 \u0915\u0930\u0928\u093e\u091f\u0940 \u0927\u0930\u0940 \u0965",
+          "en": "bairaaree karanaaTee dharee ||",
+          "hi": "\u092c\u0948\u0930\u093e\u0930\u0940 \u0915\u0930\u0928\u093e\u091f\u0940 \u0927\u0930\u0940 \u0965",
+          "ipa": "b\u00e6r\u0251ri k\u0259r\u0259n\u0251\u0288i t\u032a\u0259ri.",
+          "ur": "\u0628\u064e\u06d2\u0631\u0627\u0631\u06cc\u0650 \u06a9\u0631\u0646\u0627\u0679\u06cc\u0650 \u062f\u06be\u0631\u06cc\u0650 \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 13,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 0,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 0,
+              "t": "v"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 10,
+      "verse": {
+        "verseId": 9261,
+        "verse": {
+          "gurmukhi": "gvrI gwvih AwswvrI ]",
+          "unicode": "\u0a17\u0a35\u0a30\u0a40 \u0a17\u0a3e\u0a35\u0a39\u0a3f \u0a06\u0a38\u0a3e\u0a35\u0a30\u0a40 \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "gvrIgwvihAwswvrI]",
+          "unicode": "\u0a17\u0a35\u0a30\u0a40\u0a17\u0a3e\u0a35\u0a39\u0a3f\u0a06\u0a38\u0a3e\u0a35\u0a30\u0a40\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "the songs of Gawree and Aasaavaree;",
+            "ms": "",
+            "ssk": "the songs of Gawree and Aasaavaree;"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "los cantos de Gawri y Asavari "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "gavaree gaaveh aasaavaree ||",
+          "hindi": "\u0917\u0935\u0930\u0940 \u0917\u093e\u0935\u0939\u093f \u0906\u0938\u093e\u0935\u0930\u0940 \u0965",
+          "en": "gavaree gaaveh aasaavaree ||",
+          "hi": "\u0917\u0935\u0930\u0940 \u0917\u093e\u0935\u0939\u093f \u0906\u0938\u093e\u0935\u0930\u0940 \u0965",
+          "ipa": "G\u0259\u028b\u0259ri G\u0251\u028b\u0259h \u0259\u0251s\u0251\u028b\u0259ri.",
+          "ur": "\u06af\u0648\u0631\u06cc\u0650 \u06af\u0627\u0648\u0647 \u0622\u0633\u0627\u0648\u0631\u06cc\u0650 \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 14,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 1,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 1,
+              "t": "v"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 10,
+      "verse": {
+        "verseId": 9262,
+        "verse": {
+          "gurmukhi": "iqh pwCY isMDvI AlwpI ]",
+          "unicode": "\u0a24\u0a3f\u0a39 \u0a2a\u0a3e\u0a1b\u0a48 \u0a38\u0a3f\u0a70\u0a27\u0a35\u0a40 \u0a05\u0a32\u0a3e\u0a2a\u0a40 \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "iqhpwCYisMDvIAlwpI]",
+          "unicode": "\u0a24\u0a3f\u0a39\u0a2a\u0a3e\u0a1b\u0a48\u0a38\u0a3f\u0a70\u0a27\u0a35\u0a40\u0a05\u0a32\u0a3e\u0a2a\u0a40\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "then follows Sindhavee.",
+            "ms": "",
+            "ssk": "then follows Sindhavee."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "y despu\u00e9s sigue Sindhavi, "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "teh paachhai si(n)dhavee alaapee ||",
+          "hindi": "\u0924\u093f\u0939 \u092a\u093e\u091b\u0948 \u0938\u093f\u0902\u0927\u0935\u0940 \u0905\u0932\u093e\u092a\u0940 \u0965",
+          "en": "teh paachhai si(n)dhavee alaapee ||",
+          "hi": "\u0924\u093f\u0939 \u092a\u093e\u091b\u0948 \u0938\u093f\u0902\u0927\u0935\u0940 \u0905\u0932\u093e\u092a\u0940 \u0965",
+          "ipa": "t\u032a\u026ah p\u0251\u0255\u00e6 s\u026a\u014bt\u032a\u0259\u028bi \u0259l\u0251pi.",
+          "ur": "\u062a\u0650\u0647 \u067e\u0627\u0686\u06be\u064e\u06d2 \u0633\u06ba\u062f\u06be\u0648\u06cc\u0650 \u0627\u0644\u0627\u067e\u06cc\u0650 \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 14,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 1,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 1,
+              "t": "v"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 10,
+      "verse": {
+        "verseId": 9263,
+        "verse": {
+          "gurmukhi": "isrIrwg isau pWcau QwpI ]1]",
+          "unicode": "\u0a38\u0a3f\u0a30\u0a40\u0a30\u0a3e\u0a17 \u0a38\u0a3f\u0a09 \u0a2a\u0a3e\u0a02\u0a1a\u0a09 \u0a25\u0a3e\u0a2a\u0a40 \u0965\u0a67\u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "isrIrwgisaupWcauQwpI]1]",
+          "unicode": "\u0a38\u0a3f\u0a30\u0a40\u0a30\u0a3e\u0a17\u0a38\u0a3f\u0a09\u0a2a\u0a3e\u0a02\u0a1a\u0a09\u0a25\u0a3e\u0a2a\u0a40\u0965\u0a67\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "These are the five wives of Siree Raag. ||1||",
+            "ms": "",
+            "ssk": "These are the five wives of Siree Raag. ||1||"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "\u00e9stas son las cinco esposas de Siri Rag. (1)"
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "sireeraag siau paa(n)chau thaapee ||1||",
+          "hindi": "\u0938\u093f\u0930\u0940\u0930\u093e\u0917 \u0938\u093f\u0909 \u092a\u093e\u0901\u091a\u0909 \u0925\u093e\u092a\u0940 \u0965\u0967\u0965",
+          "en": "sireeraag siau paa(n)chau thaapee ||1||",
+          "hi": "\u0938\u093f\u0930\u0940\u0930\u093e\u0917 \u0938\u093f\u0909 \u092a\u093e\u0901\u091a\u0909 \u0925\u093e\u092a\u0940 \u0965\u0967\u0965",
+          "ipa": "s\u026arir\u0251G s\u026ao p\u0251\u207f\u0259t\u0361\u0283o t\u032a\u02b0\u0251pi.1.",
+          "ur": "\u0633\u0650\u0631\u06cc\u0650\u0631\u0627\u06af \u0633\u0627 \u067e\u0627\u06ba\u0686\u0627 \u062a\u06be\u0627\u067e\u06cc\u0650 \u06d4\u06d4\u06f1\u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 14,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 1,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 1,
+              "t": "v"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 11,
+      "verse": {
+        "verseId": 9264,
+        "verse": {
+          "gurmukhi": "swlU swrg swgrw Aaur goNf gMBIr ]",
+          "unicode": "\u0a38\u0a3e\u0a32\u0a42 \u0a38\u0a3e\u0a30\u0a17 \u0a38\u0a3e\u0a17\u0a30\u0a3e \u0a05\u0a09\u0a30 \u0a17\u0a4b\u0a02\u0a21 \u0a17\u0a70\u0a2d\u0a40\u0a30 \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "swlUswrgswgrwAaurgoNfgMBIr]",
+          "unicode": "\u0a38\u0a3e\u0a32\u0a42\u0a38\u0a3e\u0a30\u0a17\u0a38\u0a3e\u0a17\u0a30\u0a3e\u0a05\u0a09\u0a30\u0a17\u0a4b\u0a02\u0a21\u0a17\u0a70\u0a2d\u0a40\u0a30\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Saaloo, Saarang, Saagaraa, Gond and Gambheer",
+            "ms": "",
+            "ssk": "Saaloo, Saarang, Saagaraa, Gond and Gambheer"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "Salu, Sarang, Sagara, Gond y Gambhir. "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "saaloo saarag saagaraa aaur go(n)dd ga(n)bheer ||",
+          "hindi": "\u0938\u093e\u0932\u0942 \u0938\u093e\u0930\u0917 \u0938\u093e\u0917\u0930\u093e \u0905\u0909\u0930 \u0917\u094b\u0902\u0921 \u0917\u0902\u092d\u0940\u0930 \u0965",
+          "en": "saaloo saarag saagaraa aaur go(n)dd ga(n)bheer ||",
+          "hi": "\u0938\u093e\u0932\u0942 \u0938\u093e\u0930\u0917 \u0938\u093e\u0917\u0930\u093e \u0905\u0909\u0930 \u0917\u094b\u0902\u0921 \u0917\u0902\u092d\u0940\u0930 \u0965",
+          "ipa": "s\u0251lu s\u0251r\u0259G s\u0251G\u0259r\u0251 \u0259o\u028ar G\u0254\u207f\u0256 G\u0259\u014b\u0253ir.",
+          "ur": "\u0633\u0627\u0644\u064f\u0648 \u0633\u0627\u0631\u06af \u0633\u0627\u06af\u0631\u0627 \u0627\u0627\u0631 \u06af\u0648\u06ba\u0688 \u06af\u06ba\u0628\u06be\u06cc\u0650\u0631 \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 14,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 2,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 2,
+              "t": "v"
+            }
+          ],
+          "sttm2": [
+            {
+              "p": 2,
+              "t": "v"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 11,
+      "verse": {
+        "verseId": 9265,
+        "verse": {
+          "gurmukhi": "Ast puqR sRIrwg ky guMf kuMB hmIr ]1]",
+          "unicode": "\u0a05\u0a38\u0a1f \u0a2a\u0a41\u0a24\u0a4d\u0a30 \u0a38\u0a4d\u0a30\u0a40\u0a30\u0a3e\u0a17 \u0a15\u0a47 \u0a17\u0a41\u0a70\u0a21 \u0a15\u0a41\u0a70\u0a2d \u0a39\u0a2e\u0a40\u0a30 \u0965\u0a67\u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "AstpuqRsRIrwgkyguMfkuMBhmIr]1]",
+          "unicode": "\u0a05\u0a38\u0a1f\u0a2a\u0a41\u0a24\u0a4d\u0a30\u0a38\u0a4d\u0a30\u0a40\u0a30\u0a3e\u0a17\u0a15\u0a47\u0a17\u0a41\u0a70\u0a21\u0a15\u0a41\u0a70\u0a2d\u0a39\u0a2e\u0a40\u0a30\u0965\u0a67\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "- the eight sons of Siree Raag include Gund, Kumb and Hameer. ||1||",
+            "ms": "",
+            "ssk": "- the eight sons of Siree Raag include Gund, Kumb and Hameer. ||1||"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "Los ocho hijos de Siri Rag incluyen a Gung, Kumb y Jamir. (1)"
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "asaT putr sreeraag ke gu(n)dd ku(n)bh hameer ||1||",
+          "hindi": "\u0905\u0938\u091f \u092a\u0941\u0924\u094d\u0930 \u0938\u094d\u0930\u0940\u0930\u093e\u0917 \u0915\u0947 \u0917\u0941\u0901\u0921 \u0915\u0941\u0901\u092d \u0939\u092e\u0940\u0930 \u0965\u0967\u0965",
+          "en": "asaT putr sreeraag ke gu(n)dd ku(n)bh hameer ||1||",
+          "hi": "\u0905\u0938\u091f \u092a\u0941\u0924\u094d\u0930 \u0938\u094d\u0930\u0940\u0930\u093e\u0917 \u0915\u0947 \u0917\u0941\u0901\u0921 \u0915\u0941\u0901\u092d \u0939\u092e\u0940\u0930 \u0965\u0967\u0965",
+          "ipa": "\u0259s\u0259\u0288 p\u028at\u032a\u0279 s\u0279ir\u0251G ke G\u028a\u014b\u0256 k\u028a\u014b\u0253 h\u0259mir.1.",
+          "ur": "\u0627\u0633\u0679 \u067e\u064f\u062a\u0631 \u0633\u0631\u06cc\u0650\u0631\u0627\u06af \u06a9\u06d2 \u06af\u064f\u06ba\u0688 \u06a9\u064f\u06ba\u0628\u06be \u0647\u0645\u06cc\u0650\u0631 \u06d4\u06d4\u06f1\u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 15,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 3,
+              "t": "v"
+            },
+            {
+              "p": 1,
+              "t": "y"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 3,
+              "t": "v"
+            },
+            {
+              "p": 1,
+              "t": "y"
+            }
+          ],
+          "sttm2": [
+            {
+              "p": 3,
+              "t": "v"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 12,
+      "verse": {
+        "verseId": 9266,
+        "verse": {
+          "gurmukhi": "Kstm myG rwg vY gwvih ]",
+          "unicode": "\u0a16\u0a38\u0a1f\u0a2e \u0a2e\u0a47\u0a18 \u0a30\u0a3e\u0a17 \u0a35\u0a48 \u0a17\u0a3e\u0a35\u0a39\u0a3f \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "KstmmyGrwgvYgwvih]",
+          "unicode": "\u0a16\u0a38\u0a1f\u0a2e\u0a2e\u0a47\u0a18\u0a30\u0a3e\u0a17\u0a35\u0a48\u0a17\u0a3e\u0a35\u0a39\u0a3f\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "In the sixth place, Maygh Raag is sung,",
+            "ms": "",
+            "ssk": "In the sixth place, Maygh Raag is sung,"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "En sexto lugar, Mellh Rag, "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "khasaTam megh raag vai gaaveh ||",
+          "hindi": "\u0916\u0938\u091f\u092e \u092e\u0947\u0918 \u0930\u093e\u0917 \u0935\u0948 \u0917\u093e\u0935\u0939\u093f \u0965",
+          "en": "khasaTam megh raag vai gaaveh ||",
+          "hi": "\u0916\u0938\u091f\u092e \u092e\u0947\u0918 \u0930\u093e\u0917 \u0935\u0948 \u0917\u093e\u0935\u0939\u093f \u0965",
+          "ipa": "k\u02b0\u0259s\u0259\u0288\u0259m meG\u02b0\u0259\u0300 r\u0251G \u028b\u00e6 G\u0251\u028b\u0259h.",
+          "ur": "\u06a9\u06be\u0633\u0679\u0645 \u0645\u06d2\u06af\u06be \u0631\u0627\u06af \u0648\u064e\u06d2 \u06af\u0627\u0648\u0647 \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 15,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 0,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 0,
+              "t": "v"
+            }
+          ],
+          "sttm2": [
+            {
+              "p": 0,
+              "t": "v"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 12,
+      "verse": {
+        "verseId": 9267,
+        "verse": {
+          "gurmukhi": "pWcau sMig brMgn lwvih ]",
+          "unicode": "\u0a2a\u0a3e\u0a02\u0a1a\u0a09 \u0a38\u0a70\u0a17\u0a3f \u0a2c\u0a30\u0a70\u0a17\u0a28 \u0a32\u0a3e\u0a35\u0a39\u0a3f \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "pWcausMigbrMgnlwvih]",
+          "unicode": "\u0a2a\u0a3e\u0a02\u0a1a\u0a09\u0a38\u0a70\u0a17\u0a3f\u0a2c\u0a30\u0a70\u0a17\u0a28\u0a32\u0a3e\u0a35\u0a39\u0a3f\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "with its five wives in accompaniment:",
+            "ms": "",
+            "ssk": "with its five wives in accompaniment:"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "es cantada, con sus cinco esposas en acompa\u00f1amiento, "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "paa(n)chau sa(n)g bara(n)gan laaveh ||",
+          "hindi": "\u092a\u093e\u0901\u091a\u0909 \u0938\u0902\u0917\u093f \u092c\u0930\u0902\u0917\u0928 \u0932\u093e\u0935\u0939\u093f \u0965",
+          "en": "paa(n)chau sa(n)g bara(n)gan laaveh ||",
+          "hi": "\u092a\u093e\u0901\u091a\u0909 \u0938\u0902\u0917\u093f \u092c\u0930\u0902\u0917\u0928 \u0932\u093e\u0935\u0939\u093f \u0965",
+          "ipa": "p\u0251\u207f\u0259t\u0361\u0283o s\u0259\u014bG b\u0259r\u0259\u014bG\u0259n l\u0251\u028b\u0259h.",
+          "ur": "\u067e\u0627\u06ba\u0686\u0627 \u0633\u06ba\u06af \u0628\u0631\u06ba\u06af\u0646 \u0644\u0627\u0648\u0647 \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 16,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 0,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 0,
+              "t": "v"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 12,
+      "verse": {
+        "verseId": 9268,
+        "verse": {
+          "gurmukhi": "soriT goNf mlwrI DunI ]",
+          "unicode": "\u0a38\u0a4b\u0a30\u0a20\u0a3f \u0a17\u0a4b\u0a02\u0a21 \u0a2e\u0a32\u0a3e\u0a30\u0a40 \u0a27\u0a41\u0a28\u0a40 \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "soriTgoNfmlwrIDunI]",
+          "unicode": "\u0a38\u0a4b\u0a30\u0a20\u0a3f\u0a17\u0a4b\u0a02\u0a21\u0a2e\u0a32\u0a3e\u0a30\u0a40\u0a27\u0a41\u0a28\u0a40\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Sorat'h, Gond, and the melody of Malaaree;",
+            "ms": "",
+            "ssk": "Sorat'h, Gond, and the melody of Malaaree;"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "Sorad, Gond y la melod\u00eda de Malari "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "soraTh go(n)dd malaaree dhunee ||",
+          "hindi": "\u0938\u094b\u0930\u0920\u093f \u0917\u094b\u0902\u0921 \u092e\u0932\u093e\u0930\u0940 \u0927\u0941\u0928\u0940 \u0965",
+          "en": "soraTh go(n)dd malaaree dhunee ||",
+          "hi": "\u0938\u094b\u0930\u0920\u093f \u0917\u094b\u0902\u0921 \u092e\u0932\u093e\u0930\u0940 \u0927\u0941\u0928\u0940 \u0965",
+          "ipa": "s\u0254r\u0259\u0288\u02b0 G\u0254\u207f\u0256 m\u0259l\u0251ri t\u032a\u028ani.",
+          "ur": "\u0633\u0648\u0631\u0679\u06be \u06af\u0648\u06ba\u0688 \u0645\u0644\u0627\u0631\u06cc\u0650 \u062f\u06be\u064f\u0646\u06cc\u0650 \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 16,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 12,
+      "verse": {
+        "verseId": 9269,
+        "verse": {
+          "gurmukhi": "puin gwvih Awsw gun gunI ]",
+          "unicode": "\u0a2a\u0a41\u0a28\u0a3f \u0a17\u0a3e\u0a35\u0a39\u0a3f \u0a06\u0a38\u0a3e \u0a17\u0a41\u0a28 \u0a17\u0a41\u0a28\u0a40 \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "puingwvihAwswgungunI]",
+          "unicode": "\u0a2a\u0a41\u0a28\u0a3f\u0a17\u0a3e\u0a35\u0a39\u0a3f\u0a06\u0a38\u0a3e\u0a17\u0a41\u0a28\u0a17\u0a41\u0a28\u0a40\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "then the harmonies of Aasaa are sung.",
+            "ms": "",
+            "ssk": "then the harmonies of Aasaa are sung."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "y despu\u00e9s las armon\u00edas de Assa son entonadas "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "pun gaaveh aasaa gun gunee ||",
+          "hindi": "\u092a\u0941\u0928\u093f \u0917\u093e\u0935\u0939\u093f \u0906\u0938\u093e \u0917\u0941\u0928 \u0917\u0941\u0928\u0940 \u0965",
+          "en": "pun gaaveh aasaa gun gunee ||",
+          "hi": "\u092a\u0941\u0928\u093f \u0917\u093e\u0935\u0939\u093f \u0906\u0938\u093e \u0917\u0941\u0928 \u0917\u0941\u0928\u0940 \u0965",
+          "ipa": "p\u028an G\u0251\u028b\u0259h \u0259\u0251s\u0251 G\u028an G\u028ani.",
+          "ur": "\u067e\u064f\u0646 \u06af\u0627\u0648\u0647 \u0622\u0633\u0627 \u06af\u064f\u0646 \u06af\u064f\u0646\u06cc\u0650 \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 16,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 2,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 2,
+              "t": "v"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 12,
+      "verse": {
+        "verseId": 9270,
+        "verse": {
+          "gurmukhi": "aUcY suir sUhau puin kInI ]",
+          "unicode": "\u0a0a\u0a1a\u0a48 \u0a38\u0a41\u0a30\u0a3f \u0a38\u0a42\u0a39\u0a09 \u0a2a\u0a41\u0a28\u0a3f \u0a15\u0a40\u0a28\u0a40 \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "aUcYsuirsUhaupuinkInI]",
+          "unicode": "\u0a0a\u0a1a\u0a48\u0a38\u0a41\u0a30\u0a3f\u0a38\u0a42\u0a39\u0a09\u0a2a\u0a41\u0a28\u0a3f\u0a15\u0a40\u0a28\u0a40\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "And finally comes the high tone Soohau.",
+            "ms": "",
+            "ssk": "And finally comes the high tone Soohau."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "y finalmente viene el tono alto de Sujo, "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "uoochai sur soohau pun keenee ||",
+          "hindi": "\u090a\u091a\u0948 \u0938\u0941\u0930\u093f \u0938\u0942\u0939\u0909 \u092a\u0941\u0928\u093f \u0915\u0940\u0928\u0940 \u0965",
+          "en": "uoochai sur soohau pun keenee ||",
+          "hi": "\u090a\u091a\u0948 \u0938\u0941\u0930\u093f \u0938\u0942\u0939\u0909 \u092a\u0941\u0928\u093f \u0915\u0940\u0928\u0940 \u0965",
+          "ipa": "out\u0361\u0283\u00e6 s\u028ar suho p\u028an kini.",
+          "ur": "\u0627\u064f\u0648\u0686\u064e\u06d2 \u0633\u064f\u0631 \u0633\u064f\u0648\u0647\u0627 \u067e\u064f\u0646 \u06a9\u06cc\u064d\u0646\u06cc\u0650 \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 17,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 1,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 1,
+              "t": "v"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 12,
+      "verse": {
+        "verseId": 9271,
+        "verse": {
+          "gurmukhi": "myG rwg isau pWcau cInI ]1]",
+          "unicode": "\u0a2e\u0a47\u0a18 \u0a30\u0a3e\u0a17 \u0a38\u0a3f\u0a09 \u0a2a\u0a3e\u0a02\u0a1a\u0a09 \u0a1a\u0a40\u0a28\u0a40 \u0965\u0a67\u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "myGrwgisaupWcaucInI]1]",
+          "unicode": "\u0a2e\u0a47\u0a18\u0a30\u0a3e\u0a17\u0a38\u0a3f\u0a09\u0a2a\u0a3e\u0a02\u0a1a\u0a09\u0a1a\u0a40\u0a28\u0a40\u0965\u0a67\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "These are the five with Maygh Raag. ||1||",
+            "ms": "",
+            "ssk": "These are the five with Maygh Raag. ||1||"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "que son los cinco que est\u00e1n con Mellh Rag, (1)"
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "megh raag siau paa(n)chau cheenee ||1||",
+          "hindi": "\u092e\u0947\u0918 \u0930\u093e\u0917 \u0938\u093f\u0909 \u092a\u093e\u0901\u091a\u0909 \u091a\u0940\u0928\u0940 \u0965\u0967\u0965",
+          "en": "megh raag siau paa(n)chau cheenee ||1||",
+          "hi": "\u092e\u0947\u0918 \u0930\u093e\u0917 \u0938\u093f\u0909 \u092a\u093e\u0901\u091a\u0909 \u091a\u0940\u0928\u0940 \u0965\u0967\u0965",
+          "ipa": "meG\u02b0\u0259\u0300 r\u0251G s\u026ao p\u0251\u207f\u0259t\u0361\u0283o t\u0361\u0283ini.1.",
+          "ur": "\u0645\u06d2\u06af\u06be \u0631\u0627\u06af \u0633\u0627 \u067e\u0627\u06ba\u0686\u0627 \u0686\u06cc\u064d\u0646\u06cc\u0650 \u06d4\u06d4\u06f1\u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 17,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 2,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 2,
+              "t": "v"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 13,
+      "verse": {
+        "verseId": 9272,
+        "verse": {
+          "gurmukhi": "bYrwDr gjDr kydwrw ]",
+          "unicode": "\u0a2c\u0a48\u0a30\u0a3e\u0a27\u0a30 \u0a17\u0a1c\u0a27\u0a30 \u0a15\u0a47\u0a26\u0a3e\u0a30\u0a3e \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "bYrwDrgjDrkydwrw]",
+          "unicode": "\u0a2c\u0a48\u0a30\u0a3e\u0a27\u0a30\u0a17\u0a1c\u0a27\u0a30\u0a15\u0a47\u0a26\u0a3e\u0a30\u0a3e\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Bairaadhar, Gajadhar, Kaydaaraa,",
+            "ms": "",
+            "ssk": "Bairaadhar, Gajadhar, Kaydaaraa,"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "Beradhar, Gayadhar, Kedara, "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "bairaadhar gajadhar kedhaaraa ||",
+          "hindi": "\u092c\u0948\u0930\u093e\u0927\u0930 \u0917\u091c\u0927\u0930 \u0915\u0947\u0926\u093e\u0930\u093e \u0965",
+          "en": "bairaadhar gajadhar kedhaaraa ||",
+          "hi": "\u092c\u0948\u0930\u093e\u0927\u0930 \u0917\u091c\u0927\u0930 \u0915\u0947\u0926\u093e\u0930\u093e \u0965",
+          "ipa": "b\u00e6r\u0251t\u032a\u0259r G\u0259d\u0361\u0292\u0259t\u032a\u0259r ked\u032a\u0251r\u0251.",
+          "ur": "\u0628\u064e\u06d2\u0631\u0627\u062f\u06be\u0631 \u06af\u062c\u062f\u06be\u0631 \u06a9\u06d2\u062f\u0627\u0631\u0627 \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 17,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 1,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 1,
+              "t": "v"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 13,
+      "verse": {
+        "verseId": 9273,
+        "verse": {
+          "gurmukhi": "jblIDr nt Aau jlDwrw ]",
+          "unicode": "\u0a1c\u0a2c\u0a32\u0a40\u0a27\u0a30 \u0a28\u0a1f \u0a05\u0a09 \u0a1c\u0a32\u0a27\u0a3e\u0a30\u0a3e \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "jblIDrntAaujlDwrw]",
+          "unicode": "\u0a1c\u0a2c\u0a32\u0a40\u0a27\u0a30\u0a28\u0a1f\u0a05\u0a09\u0a1c\u0a32\u0a27\u0a3e\u0a30\u0a3e\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Jabaleedhar, Nat and Jaladhaaraa.",
+            "ms": "",
+            "ssk": "Jabaleedhar, Nat and Jaladhaaraa."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "Yabalidhar, Nat y Yaladhara, "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "jabaleedhar naT aau jaladhaaraa ||",
+          "hindi": "\u091c\u092c\u0932\u0940\u0927\u0930 \u0928\u091f \u0905\u0909 \u091c\u0932\u0927\u093e\u0930\u093e \u0965",
+          "en": "jabaleedhar naT aau jaladhaaraa ||",
+          "hi": "\u091c\u092c\u0932\u0940\u0927\u0930 \u0928\u091f \u0905\u0909 \u091c\u0932\u0927\u093e\u0930\u093e \u0965",
+          "ipa": "d\u0361\u0292\u0259b\u0259lit\u032a\u0259r n\u0259\u0288 \u0259o d\u0361\u0292\u0259l\u0259t\u032a\u0251r\u0251.",
+          "ur": "\u062c\u0628\u0644\u06cc\u0650\u062f\u06be\u0631 \u0646\u0679 \u0627\u0627 \u062c\u0644\u062f\u06be\u0627\u0631\u0627 \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 18,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 1,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 1,
+              "t": "v"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 13,
+      "verse": {
+        "verseId": 9274,
+        "verse": {
+          "gurmukhi": "puin gwvih sMkr Aau isAwmw ]",
+          "unicode": "\u0a2a\u0a41\u0a28\u0a3f \u0a17\u0a3e\u0a35\u0a39\u0a3f \u0a38\u0a70\u0a15\u0a30 \u0a05\u0a09 \u0a38\u0a3f\u0a06\u0a2e\u0a3e \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "puingwvihsMkrAauisAwmw]",
+          "unicode": "\u0a2a\u0a41\u0a28\u0a3f\u0a17\u0a3e\u0a35\u0a39\u0a3f\u0a38\u0a70\u0a15\u0a30\u0a05\u0a09\u0a38\u0a3f\u0a06\u0a2e\u0a3e\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Then come the songs of Shankar and Shi-aamaa.",
+            "ms": "",
+            "ssk": "Then come the songs of Shankar and Shi-aamaa."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": " despu\u00e9s los cantos de Shankar y Shi-ama."
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "pun gaaveh sa(n)kar aau siaamaa ||",
+          "hindi": "\u092a\u0941\u0928\u093f \u0917\u093e\u0935\u0939\u093f \u0938\u0902\u0915\u0930 \u0905\u0909 \u0938\u093f\u0906\u092e\u093e \u0965",
+          "en": "pun gaaveh sa(n)kar aau siaamaa ||",
+          "hi": "\u092a\u0941\u0928\u093f \u0917\u093e\u0935\u0939\u093f \u0938\u0902\u0915\u0930 \u0905\u0909 \u0938\u093f\u0906\u092e\u093e \u0965",
+          "ipa": "p\u028an G\u0251\u028b\u0259h s\u0259\u014bk\u0259r \u0259o s\u026a\u0259\u0251m\u0251.",
+          "ur": "\u067e\u064f\u0646 \u06af\u0627\u0648\u0647 \u0633\u06ba\u06a9\u0631 \u0627\u0627 \u0633\u0622\u0645\u0627 \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 18,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 1,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 1,
+              "t": "v"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 13,
+      "verse": {
+        "verseId": 9275,
+        "verse": {
+          "gurmukhi": "myG rwg puqRn ky nwmw ]1]",
+          "unicode": "\u0a2e\u0a47\u0a18 \u0a30\u0a3e\u0a17 \u0a2a\u0a41\u0a24\u0a4d\u0a30\u0a28 \u0a15\u0a47 \u0a28\u0a3e\u0a2e\u0a3e \u0965\u0a67\u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "myGrwgpuqRnkynwmw]1]",
+          "unicode": "\u0a2e\u0a47\u0a18\u0a30\u0a3e\u0a17\u0a2a\u0a41\u0a24\u0a4d\u0a30\u0a28\u0a15\u0a47\u0a28\u0a3e\u0a2e\u0a3e\u0965\u0a67\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "These are the names of the sons of Maygh Raag. ||1||",
+            "ms": "",
+            "ssk": "These are the names of the sons of Maygh Raag. ||1||"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "Estos son los nombres de los hijos de Mellh Rag. (1)"
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "megh raag putran ke naamaa ||1||",
+          "hindi": "\u092e\u0947\u0918 \u0930\u093e\u0917 \u092a\u0941\u0924\u094d\u0930\u0928 \u0915\u0947 \u0928\u093e\u092e\u093e \u0965\u0967\u0965",
+          "en": "megh raag putran ke naamaa ||1||",
+          "hi": "\u092e\u0947\u0918 \u0930\u093e\u0917 \u092a\u0941\u0924\u094d\u0930\u0928 \u0915\u0947 \u0928\u093e\u092e\u093e \u0965\u0967\u0965",
+          "ipa": "meG\u02b0\u0259\u0300 r\u0251G p\u028at\u032a\u0279\u0259n ke n\u0251m\u0251.1.",
+          "ur": "\u0645\u06d2\u06af\u06be \u0631\u0627\u06af \u067e\u064f\u062a\u0631\u0646 \u06a9\u06d2 \u0646\u0627\u0645\u0627 \u06d4\u06d4\u06f1\u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 18,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 1,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 1,
+              "t": "v"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 14,
+      "verse": {
+        "verseId": 9276,
+        "verse": {
+          "gurmukhi": "Kst rwg auin gwey sMig rwgnI qIs ]",
+          "unicode": "\u0a16\u0a38\u0a1f \u0a30\u0a3e\u0a17 \u0a09\u0a28\u0a3f \u0a17\u0a3e\u0a0f \u0a38\u0a70\u0a17\u0a3f \u0a30\u0a3e\u0a17\u0a28\u0a40 \u0a24\u0a40\u0a38 \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "KstrwgauingweysMigrwgnIqIs]",
+          "unicode": "\u0a16\u0a38\u0a1f\u0a30\u0a3e\u0a17\u0a09\u0a28\u0a3f\u0a17\u0a3e\u0a0f\u0a38\u0a70\u0a17\u0a3f\u0a30\u0a3e\u0a17\u0a28\u0a40\u0a24\u0a40\u0a38\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "So all together, they sing the six Raagas and the thirty Raaginis,",
+            "ms": "",
+            "ssk": "So all together, they sing the six Raagas and the thirty Raaginis,"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "Juntos todos entonan las seis Ragas y las treinta Raguinas,"
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "khasaT raag un gaae sa(n)g raaganee tees ||",
+          "hindi": "\u0916\u0938\u091f \u0930\u093e\u0917 \u0909\u0928\u093f \u0917\u093e\u090f \u0938\u0902\u0917\u093f \u0930\u093e\u0917\u0928\u0940 \u0924\u0940\u0938 \u0965",
+          "en": "khasaT raag un gaae sa(n)g raaganee tees ||",
+          "hi": "\u0916\u0938\u091f \u0930\u093e\u0917 \u0909\u0928\u093f \u0917\u093e\u090f \u0938\u0902\u0917\u093f \u0930\u093e\u0917\u0928\u0940 \u0924\u0940\u0938 \u0965",
+          "ipa": "k\u02b0\u0259s\u0259\u0288 r\u0251G o\u028an G\u0251ee s\u0259\u014bG r\u0251G\u0259ni t\u032ais.",
+          "ur": "\u06a9\u06be\u0633\u0679 \u0631\u0627\u06af \u0627\u064f\u0646 \u06af\u0627\u0627\u06d2 \u0633\u06ba\u06af \u0631\u0627\u06af\u0646\u06cc\u0650 \u062a\u06cc\u0650\u0633 \u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 19,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 3,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 3,
+              "t": "v"
+            }
+          ],
+          "sttm2": [
+            {
+              "p": 3,
+              "t": "v"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 14,
+      "verse": {
+        "verseId": 9277,
+        "verse": {
+          "gurmukhi": "sBY puqR rwgMn ky ATwrh ds bIs ]1]1]",
+          "unicode": "\u0a38\u0a2d\u0a48 \u0a2a\u0a41\u0a24\u0a4d\u0a30 \u0a30\u0a3e\u0a17\u0a70\u0a28 \u0a15\u0a47 \u0a05\u0a20\u0a3e\u0a30\u0a39 \u0a26\u0a38 \u0a2c\u0a40\u0a38 \u0965\u0a67\u0965\u0a67\u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "sBYpuqRrwgMnkyATwrhdsbIs]1]1]",
+          "unicode": "\u0a38\u0a2d\u0a48\u0a2a\u0a41\u0a24\u0a4d\u0a30\u0a30\u0a3e\u0a17\u0a70\u0a28\u0a15\u0a47\u0a05\u0a20\u0a3e\u0a30\u0a39\u0a26\u0a38\u0a2c\u0a40\u0a38\u0965\u0a67\u0965\u0a67\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "and all the forty-eight sons of the Raagas. ||1||1||",
+            "ms": "",
+            "ssk": "and all the forty-eight sons of the Raagas. ||1||1||"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "",
+              "unicode": ""
+            }
+          },
+          "es": {
+            "sn": "con los cuarenta y cuatro hijos de las Ragas. (1-1)"
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "sabhai putr raaga(n)n ke aThaareh dhas bees ||1||1||",
+          "hindi": "\u0938\u092d\u0948 \u092a\u0941\u0924\u094d\u0930 \u0930\u093e\u0917\u0902\u0928 \u0915\u0947 \u0905\u0920\u093e\u0930\u0939 \u0926\u0938 \u092c\u0940\u0938 \u0965\u0967\u0965\u0967\u0965",
+          "en": "sabhai putr raaga(n)n ke aThaareh dhas bees ||1||1||",
+          "hi": "\u0938\u092d\u0948 \u092a\u0941\u0924\u094d\u0930 \u0930\u093e\u0917\u0902\u0928 \u0915\u0947 \u0905\u0920\u093e\u0930\u0939 \u0926\u0938 \u092c\u0940\u0938 \u0965\u0967\u0965\u0967\u0965",
+          "ipa": "s\u0259\u0253\u00e6 p\u028at\u032a\u0279 r\u0251G\u0259\u014bn ke \u0259\u0288\u02b0\u0251r\u0259h d\u032a\u0259s bis.1.1.",
+          "ur": "\u0633\u0628\u06be\u064e\u06d2 \u067e\u064f\u062a\u0631 \u0631\u0627\u06af\u0646\u0651 \u06a9\u06d2 \u0627\u0679\u06be\u0627\u0631\u0647 \u062f\u0633 \u0628\u06cc\u0650\u0633 \u06d4\u06d4\u06f1\u06d4\u06d4\u06f1\u06d4\u06d4"
+        },
+        "pageNo": 1430,
+        "lineNo": 19,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 3,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 3,
+              "t": "v"
+            }
+          ],
+          "sttm2": [
+            {
+              "p": 3,
+              "t": "v"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

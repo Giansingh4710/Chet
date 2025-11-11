@@ -48,7 +48,8 @@ struct ShabadViewDisplayWrapper: View {
                     indexOfLine = baseIndexOfLine
                 } else {
                     onBaseSbd = false
-                    indexOfLine = -1
+                    // indexOfLine = -1
+                    indexOfLine = 0
                 }
             }
         } catch {
@@ -63,7 +64,6 @@ struct ShabadViewDisplayWrapper: View {
 struct ShabadViewDisplay: View {
     let sbdRes: ShabadAPIResponse
     let fetchNewShabad: (Int) async -> Void
-    // var indexOfLine: Int
     @State var indexOfLine: Int
     var onIndexChange: ((Int) -> Void)? = nil // optional callback
 
@@ -79,8 +79,9 @@ struct ShabadViewDisplay: View {
     @State private var gestureScale: CGFloat = 1.0
     @State private var showingSettings = false
     @State private var showingSaved = false
-    @State private var showCopySheet = false
-    @State private var preselectedLineID: Int = 0 // id of line
+    @State private var showWordDefinitions = false
+    @State private var preSelectedLineIdForCopy: IdentifiableInt?
+    @State private var selectedVerse: Verse?
 
     @State private var showLinePicker = false
     @State private var selectedLineIndex = 0
@@ -106,8 +107,10 @@ struct ShabadViewDisplay: View {
                                 VStack(alignment: .leading, spacing: 6) {
                                     HStack(spacing: 6) {
                                         Image(systemName: "book.closed")
-                                        Text("Ang \(String(sbdRes.shabadInfo.pageNo))")
-                                            .font(.caption).fontWeight(.semibold)
+                                        if let pageNo = sbdRes.shabadInfo.pageNo {
+                                            Text("Ang \(String(pageNo))")
+                                                .font(.caption).fontWeight(.semibold)
+                                        }
                                     }
                                 }
                                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -136,8 +139,11 @@ struct ShabadViewDisplay: View {
                                 .padding(.horizontal)
                                 .id(index)
                                 .onLongPressGesture {
-                                    preselectedLineID = verse.verseId // 👈 track the preselected line IDs
-                                    showCopySheet = true
+                                    selectedVerse = verse
+                                    // Small delay to ensure state is set before sheet shows
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+                                        showWordDefinitions = true
+                                    }
                                 }
                             }
                             // Use smaller or no vertical padding
@@ -243,7 +249,7 @@ struct ShabadViewDisplay: View {
                     gestureScale = 1.0
                 }
         )
-        .navigationBarTitle("\(sbdRes.shabadInfo.writer.english)", displayMode: .inline)
+        .navigationBarTitle("\(sbdRes.shabadInfo.writer.english ?? "Unknown")", displayMode: .inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
@@ -255,7 +261,7 @@ struct ShabadViewDisplay: View {
             }
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
-                    showCopySheet = true
+                    preSelectedLineIdForCopy = IdentifiableInt(id: 0)
                 } label: {
                     Image(systemName: "clipboard")
                 }
@@ -273,10 +279,17 @@ struct ShabadViewDisplay: View {
             .presentationDetents([.medium])
         }
 
-        .sheet(isPresented: $showCopySheet) {
+        .sheet(item: $preSelectedLineIdForCopy) { item in
             CopySheetView(
                 verses: sbdRes.verses,
-                preselectedLine: $preselectedLineID // 👈 pass selected IDs
+                preselectedLine: item.id
+            )
+            .presentationDetents([.medium])
+        }
+        .sheet(item: $selectedVerse) { thisVerse in
+            WordDefinitionsSheet(
+                verse: thisVerse,
+                preSelectedLineIdForCopy: $preSelectedLineIdForCopy
             )
             .presentationDetents([.medium])
         }
@@ -296,9 +309,7 @@ struct ShabadViewDisplay: View {
 }
 
 struct SettingsSheet: View {
-    @AppStorage("settings.larivaarOn") private var larivaarOn: Bool = false
     @AppStorage("settings.textScale") private var textScale: Double = 1.0
-    @AppStorage("swipeToGoToNextShabadSetting") private var swipeToGoToNextShabadSetting = true
 
     // Selected source for each language
     @AppStorage("settings.visraamSource") private var selectedVisraamSource: String = "igurbani"
@@ -366,30 +377,92 @@ struct SettingsSheet: View {
         ("The Actual Characters", "The Actual Characters"),
     ]
 
-
     var body: some View {
         NavigationView {
-            Form {
-                Section(header: Text("Gurbani")) {
-                    Toggle("Larivaar", isOn: $larivaarOn)
-                    Toggle("Swipe to go to next shabad", isOn: $swipeToGoToNextShabadSetting)
-                    Picker("Visraam", selection: $selectedVisraamSource) {
-                        ForEach(visraamSources, id: \.self) { Text($0) }
-                    }
-                    SettingsOptionPickerSlider(title: "Gurbani Font", selectedItem: $fontType, options: fonts, textScale: $textScale)
-                    SettingsOptionPickerSlider(title: "Transliteration", selectedItem: $selectedTransliterationSource, options: transliterationSources, textScale: $transliterationTextScale)
-                }
+            ScrollView {
+                VStack(alignment: .leading, spacing: 12) {
+                    // Gurbani Section
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("GURBANI")
+                            .font(.caption2)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.secondary)
+                            .padding(.horizontal)
 
-                Section(header: Text("Translations")) {
-                    SettingsOptionPickerSlider(title: "English", selectedItem: $selectedEnglishSource, options: englishSources, textScale: $enTransTextScale)
-                    SettingsOptionPickerSlider(title: "Punjabi", selectedItem: $selectedPunjabiSource, options: punjabiSources, textScale: $punjabiTranslationTextScale)
-                    SettingsOptionPickerSlider(title: "Hindi", selectedItem: $selectedHindiSource, options: hindiSources, textScale: $hindiTranslationTextScale)
-                    SettingsOptionPickerSlider(title: "Spanish", selectedItem: $selectedSpanishSource, options: spanishSources, textScale: $spanishTranslationTextScale)
+                        VStack(spacing: 0) {
+                            // Visraam
+                            HStack {
+                                Text("Visraam")
+                                    .font(.subheadline)
+                                Spacer()
+                                Picker("Visraam", selection: $selectedVisraamSource) {
+                                    ForEach(visraamSources, id: \.self) { Text($0) }
+                                }
+                                .pickerStyle(.menu)
+                                .labelsHidden()
+                            }
+                            .padding(.horizontal)
+                            .padding(.vertical, 10)
+                            .background(Color(.systemBackground))
+
+                            Divider().padding(.leading)
+
+                            SettingsOptionPickerSlider(title: "Gurbani Font", selectedItem: $fontType, options: fonts, textScale: $textScale)
+
+                            Divider().padding(.leading)
+
+                            SettingsOptionPickerSlider(title: "Transliteration", selectedItem: $selectedTransliterationSource, options: transliterationSources, textScale: $transliterationTextScale)
+                        }
+                        .background(Color(.systemBackground))
+                        .cornerRadius(10)
+                        .padding(.horizontal)
+                    }
+
+                    // Translations Section
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("TRANSLATIONS")
+                            .font(.caption2)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.secondary)
+                            .padding(.horizontal)
+
+                        VStack(spacing: 0) {
+                            SettingsOptionPickerSlider(title: "English", selectedItem: $selectedEnglishSource, options: englishSources, textScale: $enTransTextScale)
+
+                            Divider().padding(.leading)
+
+                            SettingsOptionPickerSlider(title: "Punjabi", selectedItem: $selectedPunjabiSource, options: punjabiSources, textScale: $punjabiTranslationTextScale)
+
+                            Divider().padding(.leading)
+
+                            SettingsOptionPickerSlider(title: "Hindi", selectedItem: $selectedHindiSource, options: hindiSources, textScale: $hindiTranslationTextScale)
+
+                            Divider().padding(.leading)
+
+                            SettingsOptionPickerSlider(title: "Spanish", selectedItem: $selectedSpanishSource, options: spanishSources, textScale: $spanishTranslationTextScale)
+                        }
+                        .background(Color(.systemBackground))
+                        .cornerRadius(10)
+                        .padding(.horizontal)
+                    }
                 }
+                .padding(.vertical, 12)
             }
+            .background(Color(.systemGroupedBackground))
             .navigationTitle("Settings")
             .navigationBarTitleDisplayMode(.inline)
         }
+        .onChange(of: selectedVisraamSource) { reloadAllWidgets() }
+        .onChange(of: fontType) { reloadAllWidgets() }
+        .onChange(of: selectedEnglishSource) { reloadAllWidgets() }
+        .onChange(of: selectedPunjabiSource) { reloadAllWidgets() }
+        .onChange(of: selectedHindiSource) { reloadAllWidgets() }
+        .onChange(of: selectedSpanishSource) { reloadAllWidgets() }
+        .onChange(of: selectedTransliterationSource) { reloadAllWidgets() }
+    }
+
+    private func reloadAllWidgets() {
+        WidgetCenter.shared.reloadAllTimelines()
     }
 }
 
@@ -400,9 +473,10 @@ struct SettingsOptionPickerSlider: View {
     @Binding var textScale: Double
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: 6) {
             HStack {
                 Text(title)
+                    .font(.subheadline)
                     .foregroundColor(.primary)
                 Spacer()
                 Picker(title, selection: $selectedItem) {
@@ -415,24 +489,29 @@ struct SettingsOptionPickerSlider: View {
             }
 
             if selectedItem != "none" {
-                HStack(spacing: 12) {
+                HStack(spacing: 6) {
                     Image(systemName: "textformat.size.smaller")
-                        .font(.caption)
+                        .font(.caption2)
                         .foregroundColor(.secondary)
+                        .frame(width: 14)
                     Slider(value: $textScale, in: 0.5 ... 2.5, step: 0.1)
+                        .tint(.accentColor)
                     Image(systemName: "textformat.size.larger")
-                        .font(.caption)
+                        .font(.caption2)
                         .foregroundColor(.secondary)
+                        .frame(width: 14)
                 }
             }
         }
-        .padding(.vertical, 4)
+        .padding(.horizontal)
+        .padding(.vertical, 10)
+        .background(Color(.systemBackground))
     }
 }
 
 struct CopySheetView: View {
     let verses: [Verse]
-    @Binding var preselectedLine: Int // 👈 binding
+    let preselectedLine: Int // 👈 binding
 
     @AppStorage("settings.larivaarOn") private var larivaarOn: Bool = false
     @AppStorage("settings.englishSource") private var selectedEnglishSource: String = "bdb"
@@ -551,6 +630,9 @@ struct CopySheetView: View {
                 }
             }
         }
+        .onAppear {
+            print("preselectedLine", preselectedLine)
+        }
     }
 
     private func copyToClipboard() {
@@ -586,6 +668,195 @@ struct CopySheetView: View {
         }.joined(separator: onlyGurmukhi ? "\n" : "\n\n")
 
         UIPasteboard.general.string = text
+    }
+}
+
+struct WordDefinitionsSheet: View {
+    let verse: Verse
+    @Binding var preSelectedLineIdForCopy: IdentifiableInt?
+
+    @AppStorage("fontType") private var fontType: String = "Unicode"
+    @Environment(\.dismiss) private var dismiss
+    @Environment(\.colorScheme) private var colorScheme
+
+    @State private var wordDefinitions: [String: [WordDefinition]] = [:]
+    @State private var isLoading = true
+    @State private var errorMessage: String?
+
+    var body: some View {
+        NavigationView {
+            ZStack {
+                Color(.systemGroupedBackground)
+                    .ignoresSafeArea()
+
+                VStack(spacing: 0) {
+                    lineHeader
+
+                    Divider()
+
+                    Group {
+                        if isLoading {
+                            loadingView
+                        } else if let errorMessage = errorMessage {
+                            errorView(message: errorMessage)
+                        } else {
+                            definitionsScroll
+                        }
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                }
+            }
+            .navigationTitle("Word Definitions")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Close") { dismiss() }
+                }
+
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        dismiss()
+                        preSelectedLineIdForCopy = IdentifiableInt(id: verse.verseId)
+                    } label: {
+                        Label("Copy", systemImage: "doc.on.clipboard")
+                    }
+                }
+            }
+            .onAppear {
+                fetchDefinitions()
+            }
+        }
+    }
+
+    // MARK: - Subviews
+
+    private var lineHeader: some View {
+        VStack(alignment: .leading, spacing: 6) {
+            Text("Line")
+                .font(.caption)
+                .fontWeight(.semibold)
+                .foregroundColor(.secondary)
+
+            Text(verse.verse.gurmukhi)
+                .font(resolveFont(size: 20, fontType: fontType))
+                .fontWeight(.medium)
+                .padding(.top, 2)
+        }
+        .padding()
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Color(.secondarySystemBackground))
+        .cornerRadius(12)
+        .padding(.horizontal)
+        .padding(.vertical, 8)
+    }
+
+    private var loadingView: some View {
+        VStack(spacing: 12) {
+            ProgressView()
+                .scaleEffect(1.3)
+            Text("Loading definitions…")
+                .font(.subheadline)
+                .foregroundColor(.secondary)
+        }
+        .frame(maxHeight: .infinity)
+    }
+
+    private func errorView(message: String) -> some View {
+        VStack(spacing: 14) {
+            Image(systemName: "exclamationmark.triangle.fill")
+                .font(.largeTitle)
+                .foregroundColor(.orange)
+            Text(message)
+                .font(.body)
+                .foregroundColor(.secondary)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal)
+        }
+        .frame(maxHeight: .infinity)
+    }
+
+    private var definitionsScroll: some View {
+        // let text = verse.verse.unicode.components(separatedBy: " ").filter { !$0.isEmpty }
+        ScrollView {
+            LazyVStack(alignment: .leading, spacing: 20) {
+                ForEach(Array(verse.verse.unicode.components(separatedBy: " ").filter { !$0.isEmpty }.enumerated()), id: \.offset) { _, word in
+                    if let definitions = wordDefinitions[word], !definitions.isEmpty {
+                        wordSection(word, definitions: definitions)
+                    }
+                }
+            }
+            .padding(.horizontal)
+            .padding(.vertical, 12)
+        }
+    }
+
+    private func wordSection(_ word: String, definitions: [WordDefinition]) -> some View {
+        VStack(alignment: .leading, spacing: 5) {
+            Text(word)
+                .font(.title3)
+                .fontWeight(.semibold)
+            // .padding(.bottom, 4)
+            // .padding(.horizontal, 4)
+
+            VStack(spacing: 10) {
+                ForEach(definitions) { definition in
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text(definition.definition)
+                            .font(resolveFont(size: 15, fontType: fontType))
+                            .foregroundColor(.secondary)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                    .padding()
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .background(Color(.systemBackground))
+                    .cornerRadius(12)
+                    .shadow(color: .black.opacity(0.05), radius: 3, y: 1)
+                }
+            }
+        }
+    }
+
+    private func fetchDefinitions() {
+        isLoading = true
+        errorMessage = nil
+
+        let text = verse.verse.unicode
+        let words = text.components(separatedBy: " ").filter { !$0.isEmpty }
+
+        guard !words.isEmpty else {
+            isLoading = false
+            errorMessage = "No words found in this line."
+            return
+        }
+
+        Task {
+            var definitions: [String: [WordDefinition]] = [:]
+            var hasNetworkError = false
+
+            for word in words {
+                do {
+                    let result = try await fetchWordDefinition(word: word)
+                    if !result.isEmpty {
+                        definitions[word] = result
+                    }
+                } catch {
+                    if error is URLError {
+                        hasNetworkError = true
+                    }
+                }
+            }
+
+            await MainActor.run {
+                if hasNetworkError && definitions.isEmpty {
+                    errorMessage = "Unable to load definitions. Please check your internet connection."
+                } else if definitions.isEmpty {
+                    errorMessage = "No definitions found for this line."
+                } else {
+                    wordDefinitions = definitions
+                }
+                isLoading = false
+            }
+        }
     }
 }
 
@@ -714,17 +985,17 @@ struct ShabadMetaInfoSheet: View {
             ("source.gurmukhi", info.source.gurmukhi),
             ("source.unicode", info.source.unicode),
             ("source.english", info.source.english),
-            ("source.pageNo", "\(info.source.pageNo)"),
+            ("source.pageNo", info.source.pageNo.map { "\($0)" }),
 
             // Raag
-            ("raag.raagId", "\(info.raag.raagId)"),
+            ("raag.raagId", info.raag.raagId.map { "\($0)" }),
             ("raag.gurmukhi", info.raag.gurmukhi),
             ("raag.unicode", info.raag.unicode),
             ("raag.english", info.raag.english),
             ("raag.raagWithPage", info.raag.raagWithPage),
 
             // Writer
-            ("writer.writerId", "\(info.writer.writerId)"),
+            ("writer.writerId", info.writer.writerId.map { "\($0)" }),
             ("writer.gurmukhi", info.writer.gurmukhi),
             ("writer.unicode", info.writer.unicode),
             ("writer.english", info.writer.english),
@@ -758,7 +1029,8 @@ struct GurbaniLineView: View {
     let gestureScale: Double
     let isSearchedLine: Bool
 
-    @AppStorage("settings.larivaarOn") private var larivaarOn: Bool = false
+    @AppStorage("settings.larivaarOn") private var larivaarOn: Bool = true
+    @AppStorage("settings.larivaarAssist") private var larivaarAssist: Bool = false
     @AppStorage("settings.textScale") private var textScale: Double = 1.0
     @AppStorage("settings.visraamSource") private var selectedVisraamSource: String = "igurbani"
     @AppStorage("settings.englishSource") private var selectedEnglishSource: String = "bdb"
@@ -779,7 +1051,7 @@ struct GurbaniLineView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
-            getGurbaniLine(verse)
+            renderGurbaniLine(verse)
                 .font(resolveFont(size: 20 * textScale * gestureScale, fontType: fontType))
                 .fontWeight(.medium)
                 .multilineTextAlignment(.leading)
@@ -846,8 +1118,8 @@ struct GurbaniLineView: View {
         }
     }
 
-    func getGurbaniLine(_ verse: Verse) -> Text {
-        // let text = lineLarivaar ? verse.larivaar.unicode : verse.verse.unicode
+    func renderGurbaniLine(_ verse: Verse) -> Text {
+        let isLarivaarMode = lineLarivaar
         let text = fontType == "Unicode" ? verse.verse.unicode : verse.verse.gurmukhi
         let words = text.components(separatedBy: " ")
 
@@ -857,11 +1129,11 @@ struct GurbaniLineView: View {
             let selectedVisraamData: [Visraam.VisraamPoint]
             switch selectedVisraamSource {
             case "sttm":
-                selectedVisraamData = visraam.sttm
+                selectedVisraamData = visraam.sttm ?? []
             case "sttm2":
-                selectedVisraamData = visraam.sttm2
+                selectedVisraamData = visraam.sttm2 ?? []
             case "igurbani":
-                selectedVisraamData = visraam.igurbani
+                selectedVisraamData = visraam.igurbani ?? []
             default:
                 selectedVisraamData = []
             }
@@ -874,29 +1146,36 @@ struct GurbaniLineView: View {
         var result = Text("")
         for (index, word) in words.enumerated() {
             let wordText: Text
+            let color: Color
 
             if let visraamType = visraamPoints[index] {
-                let color: Color
                 switch visraamType {
                 case "v": // small pause
-                    color = colorScheme == .dark ? Color(red: 1.0, green: 0.6, blue: 0.4) : Color(red: 0.8, green: 0.3, blue: 0.1)
+                    color = colorScheme == .dark ? Color(red: 1.0, green: 0.5, blue: 0.3) : Color(red: 0.9, green: 0.2, blue: 0.0)
                 case "y": // big pause
-                    color = colorScheme == .dark ? Color(red: 0.4, green: 0.8, blue: 0.4) : Color(red: 0.2, green: 0.6, blue: 0.2)
+                    color = colorScheme == .dark ? Color(red: 0.3, green: 1.0, blue: 0.3) : Color(red: 0.0, green: 0.7, blue: 0.0)
                 default:
                     color = .primary
                 }
-                wordText = Text(word).foregroundColor(color)
+            } else if larivaarAssist {
+                let isEvenWord = index % 2 == 0
+                color = isEvenWord
+                    ? (colorScheme == .dark
+                        ? Color(red: 0.75, green: 0.85, blue: 1.0) // soft sky blue
+                        : Color(red: 0.05, green: 0.25, blue: 0.55)) // muted navy
+                    : (colorScheme == .dark
+                        ? Color(red: 1.0, green: 0.8, blue: 0.65) // warm apricot
+                        : Color(red: 0.55, green: 0.35, blue: 0.05)) // amber brown
             } else {
-                wordText = Text(word)
+                color = .primary // Normal mode - just primary color
             }
 
+            wordText = Text(word).foregroundColor(color)
             result = result + wordText
 
-            // Add space between words (except for last word)
-            if index < words.count - 1 {
-                if !lineLarivaar {
-                    result = result + Text(" ")
-                }
+            // Add space between words only if not in larivaar or larivaar assist mode
+            if index < words.count - 1 && !isLarivaarMode {
+                result = result + Text(" ")
             }
         }
 
@@ -914,6 +1193,7 @@ struct SaveToFolderSheet: View {
     ) private var rootFolders: [Folder]
 
     @Environment(\.modelContext) private var modelContext
+    @AppStorage("backupChangeCounter") private var backupChangeCounter = 0
 
     var body: some View {
         NavigationStack {
@@ -956,7 +1236,27 @@ struct SaveToFolderSheet: View {
         folder.savedShabads.append(saved)
         modelContext.insert(saved)
         try? modelContext.save()
-        WidgetCenter.shared.reloadTimelines(ofKind: "xyz.gians.Chet.FavShabadsWidget")
+
+        // Only reload FavShabadsWidget if saving to the Favorites folder
+        if folder.name == "Favorites" && folder.isSystemFolder {
+            WidgetCenter.shared.reloadTimelines(ofKind: "xyz.gians.Chet.FavShabadsWidget")
+        }
+
+        // Increment backup counter and trigger backup if threshold reached
+        backupChangeCounter += 1
+        if backupChangeCounter >= 5 {
+            Task {
+                do {
+                    let data = try await BackupManager.shared.exportToJSON(modelContext: modelContext)
+                    _ = try await BackupManager.shared.saveToiCloud(data: data)
+                    UserDefaults.standard.set(Date().timeIntervalSince1970, forKey: "lastBackupTime")
+                    print("✅ Auto-backup completed after 5 changes")
+                } catch {
+                    print("❌ Auto-backup failed: \(error.localizedDescription)")
+                }
+            }
+            backupChangeCounter = 0
+        }
     }
 
     private func remove(from folder: Folder) {
@@ -964,6 +1264,11 @@ struct SaveToFolderSheet: View {
             modelContext.delete(existing)
         }
         try? modelContext.save()
+
+        // Reload FavShabadsWidget if removing from the Favorites folder
+        if folder.name == "Favorites" && folder.isSystemFolder {
+            WidgetCenter.shared.reloadTimelines(ofKind: "xyz.gians.Chet.FavShabadsWidget")
+        }
     }
 }
 
@@ -1004,57 +1309,6 @@ struct PreviewContextView<Content: View, Preview: View>: UIViewRepresentable {
             return UIContextMenuConfiguration(identifier: nil,
                                               previewProvider: { self.previewController },
                                               actionProvider: nil)
-        }
-    }
-}
-
-extension Translation {
-    func getTranslation(for language: String, source: String) -> String? {
-        switch language.lowercased() {
-        case "english":
-            switch source {
-            case "bdb": return en.bdb
-            case "ms": return en.ms
-            case "ssk": return en.ssk
-            default: return nil
-            }
-
-        case "punjabi":
-            switch source {
-            case "ss": return pu.ss?.unicode
-            case "ft": return pu.ft?.unicode
-            case "bdb": return pu.bdb?.unicode
-            case "ms": return pu.ms?.unicode
-            default: return nil
-            }
-
-        case "hindi":
-            switch source {
-            case "ss": return hi.ss
-            case "sts": return hi.sts
-            default: return nil
-            }
-
-        case "spanish":
-            switch source {
-            case "sn": return es.sn
-            default: return nil
-            }
-
-        default:
-            return nil
-        }
-    }
-}
-
-extension Transliteration {
-    func value(for source: String) -> String? {
-        switch source {
-        case "en": return english
-        case "hi": return hindi
-        case "ipa": return ipa
-        case "ur": return ur
-        default: return nil
         }
     }
 }

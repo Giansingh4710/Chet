@@ -15,14 +15,15 @@ struct SearchView: View {
     @State private var selectedShabad: ShabadAPIResponse?
     @State private var isNavigatingToSearchedSbd = false
     @State private var isNavigatingToHukam = false
+    @State private var isNavigatingToHistory = false
 
     @State private var showingPunjabiKeyboard = false
+    @State private var searchType: SearchType = .auto
+    @State private var detectedSearchType: SearchType = .firstLetterAnywhere // Tracks what auto-detection chose
 
     @AppStorage("fontType") private var fontType: String = "Unicode"
     @AppStorage("settings.larivaarOn") private var larivaarOn: Bool = true
     @AppStorage("settings.qwertyKeyboard") private var qwertyKeyboard: Bool = true
-
-    // var displayedGurmukhi: String {}
 
     var body: some View {
         VStack(spacing: 0) {
@@ -36,13 +37,24 @@ struct SearchView: View {
                             .foregroundColor(.secondary)
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .transition(.opacity.combined(with: .scale(scale: 0.95)))
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        if showingPunjabiKeyboard || isSearchFieldFocused {
+                            withAnimation(.spring(response: 0.35, dampingFraction: 0.8)) {
+                                showingPunjabiKeyboard = false
+                                isSearchFieldFocused = false
+                            }
+                        }
+                    }
                 } else if let errorMessage = errorMessage {
-                    VStack(spacing: 16) {
+                    VStack(spacing: 12) {
                         Image(systemName: "exclamationmark.triangle")
-                            .font(.system(size: 48))
-                            .foregroundColor(.orange)
+                            .font(.system(size: 44))
+                            .foregroundColor(.secondary)
                         Text("Search Error")
                             .font(.headline)
+                            .foregroundColor(.primary)
                         Text(errorMessage)
                             .font(.subheadline)
                             .foregroundColor(.secondary)
@@ -50,43 +62,65 @@ struct SearchView: View {
                             .padding(.horizontal)
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
-                } else if results.isEmpty && !searchText.isEmpty {
-                    VStack(spacing: 16) {
+                    .transition(.opacity.combined(with: .scale(scale: 0.95)))
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        if showingPunjabiKeyboard || isSearchFieldFocused {
+                            withAnimation(.spring(response: 0.35, dampingFraction: 0.8)) {
+                                showingPunjabiKeyboard = false
+                                isSearchFieldFocused = false
+                            }
+                        }
+                    }
+                } else if results.isEmpty && (!searchText.isEmpty || isSearchFieldFocused) {
+                    VStack(spacing: 12) {
                         Image(systemName: "magnifyingglass")
-                            .font(.system(size: 48))
-                            .foregroundColor(.gray)
+                            .font(.system(size: 44))
+                            .foregroundColor(.secondary)
                         Text("No Results Found")
                             .font(.headline)
+                            .foregroundColor(.primary)
                         Text("Try searching with different keywords")
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .transition(.opacity.combined(with: .scale(scale: 0.95)))
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        if showingPunjabiKeyboard || isSearchFieldFocused {
+                            withAnimation(.spring(response: 0.35, dampingFraction: 0.8)) {
+                                showingPunjabiKeyboard = false
+                                isSearchFieldFocused = false
+                            }
+                        }
+                    }
                 } else if searchText.isEmpty {
                     VStack(spacing: 16) {
                         Image(systemName: "text.magnifyingglass")
-                            .font(.system(size: 48))
-                            .foregroundColor(.blue)
+                            .font(.system(size: 44))
+                            .foregroundColor(.secondary)
                         Text("Search Gurbani")
                             .font(.title2)
-                            .fontWeight(.semibold)
+                            .foregroundColor(.primary)
                         Text("Enter keywords to search for shabads")
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                             .multilineTextAlignment(.center)
                             .padding(.horizontal)
 
-                        VStack(spacing: 12) {
+                        VStack(spacing: 10) {
                             Button(action: {
                                 Task { await openRandomShabad() }
                             }) {
-                                Image(systemName: "shuffle")
-                                Text("Random Shabad")
+                                Label("Random Shabad", systemImage: "shuffle")
                             }
-                            .buttonStyle(.borderedProminent)
+                            .buttonStyle(.bordered)
 
-                            Button("Darbar Sahib Hukamnama") {
+                            Button {
                                 isNavigatingToHukam = true
+                            } label: {
+                                Label("Darbar Sahib Hukamnama", systemImage: "calendar")
                             }
                             .buttonStyle(.bordered)
                         }
@@ -98,20 +132,34 @@ struct SearchView: View {
                         .navigationDestination(isPresented: $isNavigatingToHukam) {
                             HukamnamaView()
                         }
+                        .navigationDestination(isPresented: $isNavigatingToHistory) {
+                            ShabadHistoryView()
+                        }
                         .padding(.top, 4)
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .transition(.opacity.combined(with: .scale(scale: 0.95)))
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        if showingPunjabiKeyboard || isSearchFieldFocused {
+                            withAnimation(.spring(response: 0.35, dampingFraction: 0.8)) {
+                                showingPunjabiKeyboard = false
+                                isSearchFieldFocused = false
+                            }
+                        }
+                    }
                 } else {
                     List(results) { searchedLine in
                         NavigationLink(destination: ShabadViewFromSearchedLine(
                             searchedLine: searchedLine
                         )) {
-                            RowView(
+                            SearchResultRowView(
                                 verse: convertToVerse(from: searchedLine),
                                 source: searchedLine.source,
                                 writer: searchedLine.writer,
                                 pageNo: searchedLine.pageNo,
-                                the_date: nil
+                                searchQuery: searchText,
+                                searchType: detectedSearchType // Use detected type for proper highlighting
                             )
                         }
                         .buttonStyle(PlainButtonStyle())
@@ -121,54 +169,114 @@ struct SearchView: View {
                         DragGesture(minimumDistance: 10)
                             .onChanged { _ in
                                 if showingPunjabiKeyboard || isSearchFieldFocused {
-                                    withAnimation(.spring()) {
+                                    withAnimation(.spring(response: 0.35, dampingFraction: 0.8)) {
                                         showingPunjabiKeyboard = false
                                         isSearchFieldFocused = false
                                     }
                                 }
                             }
                     )
+                    .transition(.opacity)
                 }
             }
+            .animation(.easeInOut(duration: 0.3), value: isLoading)
+            .animation(.easeInOut(duration: 0.3), value: errorMessage)
+            .animation(.easeInOut(duration: 0.3), value: results.isEmpty)
+            .animation(.easeInOut(duration: 0.3), value: searchText.isEmpty)
 
-            HStack(spacing: 16) {
-                MyTextField(text: $searchText, isFocused: $isSearchFieldFocused, showingPunjabiKeyboard: $showingPunjabiKeyboard, fontType: fontType, placeholder: "cyq")
-                    .frame(height: 44)
-                    .shadow(color: .black.opacity(0.05), radius: 4, y: 1)
-
-                if !searchText.isEmpty {
-                    Button(action: {
-                        searchText = ""
-                    }) {
-                        Image(systemName: "xmark.circle.fill")
+            VStack(spacing: 8) {
+                Menu {
+                    ForEach(SearchType.allCases) { type in
+                        Button {
+                            withAnimation(.spring(response: 0.3)) {
+                                searchType = type
+                            }
+                        } label: {
+                            HStack {
+                                Text(type.name)
+                                if searchType == type {
+                                    Image(systemName: "checkmark")
+                                }
+                            }
+                        }
+                    }
+                } label: {
+                    HStack(spacing: 5) {
+                        Image(systemName: "magnifyingglass")
+                            .font(.caption2)
+                            .foregroundColor(.secondary)
+                        if searchType == .auto {
+                            Text("Auto → \(detectedSearchType.name)")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        } else {
+                            Text(searchType.name)
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                        Image(systemName: "chevron.down")
+                            .font(.caption2)
                             .foregroundColor(.secondary)
                     }
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 5)
+                    .background(Color(.systemGray5))
+                    .cornerRadius(8)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 }
 
-                // Punjabi keyboard toggle
-                Button(action: {
-                    withAnimation(.spring()) {
-                        showingPunjabiKeyboard.toggle()
-                        isSearchFieldFocused = showingPunjabiKeyboard
+                HStack(spacing: 10) {
+                    MyTextField(text: $searchText, isFocused: $isSearchFieldFocused, showingPunjabiKeyboard: $showingPunjabiKeyboard, searchType: searchType, fontType: fontType, placeholder: searchType == .ang ? "123" : "cyq")
+                        .frame(height: 34)
+                        .shadow(color: .black.opacity(0.05), radius: 4, y: 1)
+
+                    if !searchText.isEmpty {
+                        Button(action: {
+                            withAnimation(.easeInOut(duration: 0.2)) {
+                                searchText = ""
+                            }
+                        }) {
+                            Image(systemName: "xmark.circle.fill")
+                                .font(.system(size: 18))
+                                .foregroundColor(.secondary)
+                                .frame(width: 44, height: 44)
+                        }
                     }
-                }) {
-                    Image(systemName: showingPunjabiKeyboard ? "keyboard.chevron.compact.down" : "keyboard")
-                        .foregroundColor(showingPunjabiKeyboard ? .blue : .gray)
-                        .animation(.spring(), value: showingPunjabiKeyboard)
                 }
+                .padding(.horizontal, 8)
+                .padding(.vertical, 6)
+                .background(Color(.systemGray6))
+                .cornerRadius(12)
+                .shadow(color: .black.opacity(0.08), radius: 2, x: 0, y: 1)
             }
-            .padding(.horizontal, 2)
-            .padding(.vertical, 1)
-            .background(Color(.systemGray6))
-            .cornerRadius(10) // pill shape
-            .shadow(color: .black.opacity(0.05), radius: 1, x: 0, y: 1)
+            .animation(.spring(response: 0.35, dampingFraction: 0.7), value: searchType)
+            .animation(.spring(response: 0.35, dampingFraction: 0.8), value: showingPunjabiKeyboard)
 
             if !showingPunjabiKeyboard {
                 Spacer()
+                    .transition(.opacity)
                 Spacer()
-                Spacer()
+                    .transition(.opacity)
             } else {
-                if qwertyKeyboard {
+                if searchType == .ang {
+                    AngKeyboardView(
+                        onKeyPress: { key in
+                            searchText.append(key)
+                        },
+                        onDelete: {
+                            if !searchText.isEmpty { searchText.removeLast() }
+                        },
+                        onReturn: {
+                            withAnimation(.spring(response: 0.35, dampingFraction: 0.8)) {
+                                showingPunjabiKeyboard = false
+                                isSearchFieldFocused = false
+                            }
+                            Task { await fetchResults() }
+                        }
+                    )
+                    .frame(height: 260)
+                    .transition(.move(edge: .bottom).combined(with: .opacity))
+                } else if qwertyKeyboard {
                     QwertyPunjabiKeyboardView(
                         onKeyPress: { key in
                             searchText.append(key)
@@ -183,14 +291,14 @@ struct SearchView: View {
                             qwertyKeyboard.toggle()
                         },
                         onReturn: {
-                            withAnimation(.spring()) {
+                            withAnimation(.spring(response: 0.35, dampingFraction: 0.8)) {
                                 showingPunjabiKeyboard = false
                                 isSearchFieldFocused = false
                             }
                             Task { await fetchResults() }
                         }
                     )
-                    .frame(height: 300)
+                    .frame(height: 340)
                     .transition(.move(edge: .bottom).combined(with: .opacity))
                 } else {
                     PunjabiKeyboardView(
@@ -207,39 +315,83 @@ struct SearchView: View {
                             qwertyKeyboard.toggle()
                         },
                         onReturn: {
-                            withAnimation(.spring()) {
+                            withAnimation(.spring(response: 0.35, dampingFraction: 0.8)) {
                                 showingPunjabiKeyboard = false
                                 isSearchFieldFocused = false
                             }
                             Task { await fetchResults() }
                         }
                     )
+                    .transition(.move(edge: .bottom).combined(with: .opacity))
                 }
             }
         }
         .onChange(of: shouldFocusSearchBar) { _, newValue in
             if newValue {
-                isSearchFieldFocused = true
+                // Dismiss keyboard first if showing
+                withAnimation(.spring(response: 0.35, dampingFraction: 0.8)) {
+                    showingPunjabiKeyboard = false
+                }
+
+                // Then focus after a brief delay
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    isSearchFieldFocused = true
+                }
+
+                // Reset the binding after focusing
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                    shouldFocusSearchBar = false
+                }
             }
         }
         .onChange(of: isSearchFieldFocused) { newValue in
             if newValue {
-                showingPunjabiKeyboard = true
+                // Show custom keyboard for Punjabi and Ang searches
+                // Only native iOS keyboard for English searches
+                if !searchType.needsEnglishKeyboard {
+                    withAnimation(.spring(response: 0.35, dampingFraction: 0.8)) {
+                        showingPunjabiKeyboard = true
+                    }
+                }
             }
         }
         .onChange(of: searchText) { newValue in
-            if newValue.count > 2 {
+            // For auto mode, search after 2 characters or if it's detected as Ang
+            if searchType == .auto {
+                if newValue.count > 2 || (newValue.allSatisfy { $0.isNumber } && newValue.count > 0) {
+                    Task { await fetchResults() }
+                }
+            } else if searchType == .ang && newValue.count > 0 {
                 Task { await fetchResults() }
+            } else if newValue.count > 2 {
+                Task { await fetchResults() }
+            }
+        }
+        .onChange(of: searchType) { _ in
+            // Clear search when changing to/from Ang search
+            searchText = ""
+            results = []
+            showingPunjabiKeyboard = false
+        }
+        .onDisappear {
+            // Dismiss keyboard when navigating away
+            withAnimation(.spring(response: 0.35, dampingFraction: 0.8)) {
+                showingPunjabiKeyboard = false
+                isSearchFieldFocused = false
             }
         }
         .navigationTitle(searchText.isEmpty ? "Gurbani Search" : "\(results.count) Results")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                NavigationLink(destination: ShabadHistoryView()) {
-                    Image(systemName: "clock")
-                        .imageScale(.medium)
-                        .foregroundColor(.primary)
-                        .padding(.horizontal, 8)
+                Button {
+                    isNavigatingToHistory = true
+                } label: {
+                    HStack(spacing: 4) {
+                        Image(systemName: "clock.arrow.circlepath")
+                            .font(.subheadline)
+                        Text("History")
+                            .font(.subheadline)
+                    }
                 }
             }
         }
@@ -256,11 +408,40 @@ struct SearchView: View {
                 isLoading = false
                 return
             }
-            print("Search text:", searchText)
-            let decoded = try await searchGurbani(from: searchText)
+
+            let trimmed = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
+
+            // Determine the actual search type to use
+            let actualSearchType: SearchType
+            if searchType == .auto {
+                actualSearchType = detectSearchType(from: trimmed)
+                detectedSearchType = actualSearchType
+                print("🤖 Auto-detected search type: \(actualSearchType.name)")
+            } else {
+                actualSearchType = searchType
+                detectedSearchType = searchType
+            }
+
+            print("📍 Search type: \(actualSearchType.name) (rawValue: \(actualSearchType.rawValue))")
+            print("📍 Search text: '\(trimmed)'")
+
+            let queryString = "searchtype=\(actualSearchType.rawValue)"
+            let decoded = try await searchGurbani(from: trimmed, queryString: queryString)
+
+            print("✅ Results count: \(decoded.verses.count)")
             results = decoded.verses
             isLoading = false
+        } catch let error as URLError {
+            print("❌ URLError: \(error)")
+            print("❌ Error code: \(error.code)")
+            errorMessage = "Network error: \(error.localizedDescription)"
+            isLoading = false
+        } catch let error as DecodingError {
+            print("❌ DecodingError: \(error)")
+            errorMessage = "Failed to parse API response"
+            isLoading = false
         } catch {
+            print("❌ Unknown error: \(error)")
             errorMessage = "Failed to fetch results: \(error.localizedDescription)"
             isLoading = false
         }
@@ -358,6 +539,83 @@ struct ShabadViewFromSearchedLine: View {
     }
 }
 
+struct AngKeyboardView: View {
+    let onKeyPress: (String) -> Void
+    let onDelete: () -> Void
+    let onReturn: () -> Void
+
+    private let rows: [[String]] = [
+        ["1", "2", "3"],
+        ["4", "5", "6"],
+        ["7", "8", "9"],
+        ["delete", "0", "return"],
+    ]
+
+    var body: some View {
+        GeometryReader { geometry in
+            let totalWidth = geometry.size.width
+            let spacing: CGFloat = 8
+            let buttonWidth = (totalWidth - spacing * 4) / 3 // 3 columns, 4 gaps
+
+            VStack(spacing: spacing) {
+                ForEach(rows, id: \.self) { row in
+                    HStack(spacing: spacing) {
+                        ForEach(row, id: \.self) { key in
+                            Button(action: {
+                                withAnimation(.spring(response: 0.3, dampingFraction: 0.6)) {
+                                    handleKeyPress(key)
+                                }
+                            }) {
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: 12, style: .continuous)
+                                        .fill(Color(UIColor.systemGray5))
+                                        .frame(width: buttonWidth, height: 52)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 12)
+                                                .stroke(Color(UIColor.systemGray3), lineWidth: 0.5)
+                                        )
+                                        .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
+
+                                    // Key label or icon
+                                    if key == "delete" {
+                                        Image(systemName: "delete.left")
+                                            .font(.system(size: 20, weight: .medium))
+                                            .foregroundColor(.primary)
+                                    } else if key == "return" {
+                                        Image(systemName: "return")
+                                            .font(.system(size: 20, weight: .medium))
+                                            .foregroundColor(.primary)
+                                    } else {
+                                        Text(key)
+                                            .font(.system(size: 26, weight: .medium, design: .rounded))
+                                            .foregroundColor(.primary)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .padding(.horizontal, spacing)
+            .padding(.vertical, 10)
+            .background(Color(UIColor.systemGray6))
+            .cornerRadius(16)
+        }
+        .frame(height: 260)
+    }
+
+    private func handleKeyPress(_ key: String) {
+        switch key {
+        case "delete":
+            onDelete()
+        case "return":
+            onReturn()
+        default:
+            onKeyPress(key)
+        }
+    }
+}
+
 struct PunjabiKeyboardView: View {
     let onKeyPress: (String) -> Void
     let onDelete: () -> Void
@@ -366,31 +624,76 @@ struct PunjabiKeyboardView: View {
     let onReturn: () -> Void
 
     @AppStorage("fontType") private var fontType: String = "Unicode"
+
+    private let numberRow: [String] = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
+
+    // private let rows: [[String]] = [ ["a", "A", "e", "s", "h", "k", "K", "g", "G", "|"], ["c", "C", "j", "J", "\\", "t", "T", "f", "F", "x"], ["q", "Q", "d", "D", "n", "p", "P", "b", "B", "m"], ["X", "r", "l", "v", "V", "S", "^", "Z", "z", "&"] ]
+
     private let rows: [[String]] = [
-        ["a", "A", "e", "s", "h", "k", "K", "g", "G", "|"],
-        ["c", "C", "j", "J", "\\", "t", "T", "f", "F", "x"],
-        ["q", "Q", "d", "D", "n", "p", "P", "b", "B", "m"],
-        ["X", "r", "l", "v", "V", "S", "^", "Z", "z", "&"],
+        ["a", "A", "e", "s", "h", "q", "Q", "d", "D", "n"],
+        ["k", "K", "g", "G", "|", "p", "P", "b", "B", "m"],
+        ["c", "C", "j", "J", "\\", "X", "r", "l", "v", "V"],
+        ["t", "T", "f", "F", "x", "S", "^", "Z", "z", "&"],
     ]
 
     var body: some View {
         VStack(spacing: 12) {
+            // Number row
+            HStack(spacing: 6) {
+                ForEach(numberRow, id: \.self) { key in
+                    Button(action: {
+                        onKeyPress(key)
+                    }) {
+                        Text(key)
+                            .font(.system(size: 18, weight: .medium, design: .rounded))
+                            .foregroundColor(.primary)
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 40)
+                            .background(
+                                RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                    .fill(Color(UIColor.systemGray5))
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                            .stroke(Color(UIColor.systemGray3), lineWidth: 0.5)
+                                    )
+                            )
+                    }
+                }
+                Button(action: onDelete) {
+                    Image(systemName: "delete.left")
+                        .font(.system(size: 20))
+                        .foregroundColor(.primary)
+                        .frame(height: 40)
+                        .background(
+                            RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                .fill(Color(UIColor.systemGray5))
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                        .stroke(Color(UIColor.systemGray3), lineWidth: 0.5)
+                                )
+                        )
+                }
+            }
+
             // Regular rows
-            ForEach(rows, id: \.self) { row in
+            ForEach(rows.indices, id: \.self) { rowIndex in
                 HStack(spacing: 6) {
-                    ForEach(Array(row.enumerated()), id: \.offset) { index, key in
+                    ForEach(Array(rows[rowIndex].enumerated()), id: \.offset) { index, key in
                         KeyButton(label: key, fontType: fontType) {
                             onKeyPress(key)
                         }
-                        // Insert a grouping gap every 5 keys
-                        if (index + 1) % 5 == 0 && index != row.count - 1 {
+                        if (index + 1) % 5 == 0 && index != rows[rowIndex].count - 1 {
                             Spacer(minLength: 14)
                         }
                     }
                 }
             }
 
-            LastKeyBoardRow(switchKeyboard: switchKeyboard, onSpace: onSpace, onReturn: onReturn)
+            LastKeyBoardRow(
+                switchKeyboard: switchKeyboard,
+                onSpace: onSpace,
+                onReturn: onReturn
+            )
         }
         .padding(.horizontal, 8)
         .padding(.vertical, 10)
@@ -407,6 +710,9 @@ struct QwertyPunjabiKeyboardView: View {
 
     @AppStorage("fontType") private var fontType: String = "Unicode"
     @State private var isShifted: Bool = false
+
+    // Number row
+    private let numberRow: [String] = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 
     // Lowercase layout - exact QWERTY
     private let lowercaseRows: [[String]] = [
@@ -428,6 +734,29 @@ struct QwertyPunjabiKeyboardView: View {
 
     var body: some View {
         VStack(spacing: 12) {
+            // Number row
+            HStack(spacing: 6) {
+                ForEach(numberRow, id: \.self) { key in
+                    Button(action: {
+                        onKeyPress(key)
+                    }) {
+                        Text(key)
+                            .font(.system(size: 18, weight: .medium, design: .rounded))
+                            .foregroundColor(.primary)
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 40)
+                            .background(
+                                RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                    .fill(Color(UIColor.systemGray5))
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                            .stroke(Color(UIColor.systemGray3), lineWidth: 0.5)
+                                    )
+                            )
+                    }
+                }
+            }
+
             // Letter rows
             ForEach(currentRows.indices, id: \.self) { rowIndex in
                 HStack(spacing: 6) {
@@ -584,20 +913,39 @@ struct MyTextField: UIViewRepresentable {
     @Binding var text: String
     @Binding var isFocused: Bool
     @Binding var showingPunjabiKeyboard: Bool
+    let searchType: SearchType
     let fontType: String
     let placeholder: String
 
     func makeUIView(context: Context) -> UITextField {
         let tf = UITextField()
         tf.placeholder = placeholder
-        tf.font = resolveFont(size: 16, fontType: fontType == "Unicode" ? "AnmolLipiSG" : fontType)
+
+        // Use system font for English/Numeric searches, Gurmukhi font otherwise
+        if searchType.needsEnglishKeyboard || searchType.needsNumericKeyboard {
+            tf.font = .systemFont(ofSize: 16)
+        } else {
+            tf.font = resolveFont(size: 16, fontType: fontType == "Unicode" ? "AnmolLipiSG" : fontType)
+        }
+
         tf.textColor = .label
         tf.backgroundColor = .systemGray6
         tf.layer.cornerRadius = 12
         tf.clearButtonMode = .whileEditing
         tf.tintColor = .systemBlue
-        tf.inputView = UIView()
-        tf.inputAccessoryView = UIView()
+
+        // Configure keyboard based on search type
+        if searchType.needsEnglishKeyboard {
+            tf.keyboardType = .default
+            tf.autocorrectionType = .no
+            tf.autocapitalizationType = .none
+            tf.inputView = nil
+            tf.inputAccessoryView = nil
+        } else {
+            // Punjabi keyboard - hide native keyboard
+            tf.inputView = UIView()
+            tf.inputAccessoryView = UIView()
+        }
 
         // Left search icon with proper padding
         let iconView = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 44))
@@ -622,8 +970,33 @@ struct MyTextField: UIViewRepresentable {
         return tf
     }
 
-    func updateUIView(_ tf: UITextField, context _: Context) {
+    func updateUIView(_ tf: UITextField, context: Context) {
         tf.text = text
+        tf.placeholder = placeholder
+
+        // Update font based on search type
+        if searchType.needsEnglishKeyboard || searchType.needsNumericKeyboard {
+            tf.font = .systemFont(ofSize: 16)
+        } else {
+            tf.font = resolveFont(size: 16, fontType: fontType == "Unicode" ? "AnmolLipiSG" : fontType)
+        }
+
+        // Update keyboard configuration based on search type
+        if searchType.needsEnglishKeyboard {
+            tf.keyboardType = .default
+            tf.autocorrectionType = .no
+            tf.autocapitalizationType = .none
+            tf.inputView = nil
+            tf.inputAccessoryView = nil
+        } else {
+            // Punjabi keyboard - hide native keyboard
+            tf.inputView = UIView()
+            tf.inputAccessoryView = UIView()
+        }
+
+        // Update coordinator's searchType
+        context.coordinator.searchType = searchType
+
         if isFocused {
             tf.becomeFirstResponder()
         } else {
@@ -632,18 +1005,20 @@ struct MyTextField: UIViewRepresentable {
     }
 
     func makeCoordinator() -> Coordinator {
-        Coordinator(text: $text, isFocused: $isFocused, showingPunjabiKeyboard: $showingPunjabiKeyboard)
+        Coordinator(text: $text, isFocused: $isFocused, showingPunjabiKeyboard: $showingPunjabiKeyboard, searchType: searchType)
     }
 
     class Coordinator: NSObject, UITextFieldDelegate {
         @Binding var text: String
         @Binding var isFocused: Bool
         @Binding var showingPunjabiKeyboard: Bool
+        var searchType: SearchType
 
-        init(text: Binding<String>, isFocused: Binding<Bool>, showingPunjabiKeyboard: Binding<Bool>) {
+        init(text: Binding<String>, isFocused: Binding<Bool>, showingPunjabiKeyboard: Binding<Bool>, searchType: SearchType) {
             _text = text
             _isFocused = isFocused
             _showingPunjabiKeyboard = showingPunjabiKeyboard
+            self.searchType = searchType
         }
 
         func textFieldDidChangeSelection(_ tf: UITextField) {
@@ -651,9 +1026,26 @@ struct MyTextField: UIViewRepresentable {
         }
 
         @objc func didTap() {
-            withAnimation(.spring()) {
-                isFocused.toggle()
-                showingPunjabiKeyboard = isFocused
+            withAnimation(.spring(response: 0.35, dampingFraction: 0.8)) {
+                // If already focused, dismiss keyboard
+                if isFocused {
+                    isFocused = false
+                    showingPunjabiKeyboard = false
+                } else {
+                    // Otherwise, show keyboard
+                    isFocused = true
+                    // Show custom keyboard for Punjabi and Ang searches
+                    if !searchType.needsEnglishKeyboard {
+                        showingPunjabiKeyboard = true
+                    }
+                }
+            }
+        }
+
+        @objc func dismissKeyboard() {
+            withAnimation(.spring(response: 0.35, dampingFraction: 0.8)) {
+                isFocused = false
+                showingPunjabiKeyboard = false
             }
         }
     }
@@ -672,4 +1064,339 @@ func convertToVerse(from searchVerse: SearchVerse) -> Verse {
         updated: searchVerse.updated,
         visraam: searchVerse.visraam
     )
+}
+
+// MARK: - Highlighted Text Helper
+
+func createHighlightedAttributedString(text: String, searchQuery: String, searchType: SearchType) -> AttributedString {
+    var attributedString = AttributedString(text)
+
+    // For Ang search, no highlighting needed
+    if searchType == .ang || searchQuery.isEmpty {
+        return attributedString
+    }
+
+    let lowercaseText = text.lowercased()
+    let lowercaseQuery = searchQuery.lowercased()
+
+    // Handle different search types
+    switch searchType {
+    case .firstLetterStart, .firstLetterAnywhere, .mainLetter:
+        // Highlight matching first letters
+        return highlightFirstLettersAttributed(text: text, query: lowercaseQuery)
+
+    case .fullWord, .fullWordTranslation, .romanizedGurmukhi, .romanizedFirstLetter:
+        // Highlight full word matches
+        return highlightFullWordAttributed(text: text, query: lowercaseQuery)
+
+    default:
+        return attributedString
+    }
+}
+
+func highlightFirstLettersAttributed(text: String, query: String) -> AttributedString {
+    var attributedString = AttributedString(text)
+    let queryChars = Array(query)
+
+    if queryChars.isEmpty { return attributedString }
+
+    // Build array of words with their positions
+    var words: [(text: String, start: String.Index, end: String.Index)] = []
+    var currentIndex = text.startIndex
+
+    while currentIndex < text.endIndex {
+        // Skip whitespace
+        while currentIndex < text.endIndex && text[currentIndex].isWhitespace {
+            currentIndex = text.index(after: currentIndex)
+        }
+
+        if currentIndex >= text.endIndex { break }
+
+        // Find the end of the current word
+        let wordStart = currentIndex
+        var wordEnd = currentIndex
+        while wordEnd < text.endIndex && !text[wordEnd].isWhitespace {
+            wordEnd = text.index(after: wordEnd)
+        }
+
+        let wordString = String(text[wordStart ..< wordEnd])
+        words.append((text: wordString, start: wordStart, end: wordEnd))
+        currentIndex = wordEnd
+    }
+
+    // Find consecutive words that match the query
+    for startIdx in 0 ..< words.count {
+        var matches = true
+        var endIdx = startIdx
+
+        // Check if we have enough words left
+        if startIdx + queryChars.count > words.count {
+            break
+        }
+
+        // Check if consecutive words match the query
+        for queryIdx in 0 ..< queryChars.count {
+            let wordIdx = startIdx + queryIdx
+            let word = words[wordIdx]
+            let firstChar = getFirstNonMatraChar(from: word.text)
+
+            if firstChar.lowercased() != String(queryChars[queryIdx]).lowercased() {
+                matches = false
+                break
+            }
+            endIdx = wordIdx
+        }
+
+        // If we found a match, highlight it
+        if matches {
+            let highlightStart = words[startIdx].start
+            let highlightEnd = words[endIdx].end
+            let highlightRange = highlightStart ..< highlightEnd
+
+            if let attributedRange = Range<AttributedString.Index>(highlightRange, in: attributedString) {
+                attributedString[attributedRange].backgroundColor = Color.orange.opacity(0.25)
+                attributedString[attributedRange].foregroundColor = .primary
+            }
+            break // Only highlight the first match
+        }
+    }
+
+    return attributedString
+}
+
+func highlightFullWordAttributed(text: String, query: String) -> AttributedString {
+    var attributedString = AttributedString(text)
+    let lowercaseText = text.lowercased()
+
+    // Find all ranges of the query in text
+    var searchStartIndex = lowercaseText.startIndex
+
+    while searchStartIndex < lowercaseText.endIndex,
+          let range = lowercaseText.range(of: query, range: searchStartIndex ..< lowercaseText.endIndex)
+    {
+        if let attributedRange = Range<AttributedString.Index>(range, in: attributedString) {
+            attributedString[attributedRange].backgroundColor = Color.orange.opacity(0.25)
+            attributedString[attributedRange].foregroundColor = .primary
+        }
+
+        searchStartIndex = range.upperBound
+    }
+
+    return attributedString
+}
+
+func getFirstNonMatraChar(from word: String) -> String {
+    let matras: Set<Character> = ["i", "o", "u", "w", "y", "H", "I", "M", "N", "O", "R", "U", "W", "Y", "`", "~", "@", "†", "ü", "®", "µ", "æ", "ƒ", "œ", "Í", "Ï", "Ò", "Ú", "§", "¤", "ç", "Î", "ï", "î"]
+
+    for char in word {
+        if !matras.contains(char) {
+            return String(char)
+        }
+    }
+    return String(word.first ?? " ")
+}
+
+enum SearchType: Int, CaseIterable, Identifiable {
+    case firstLetterStart = 0
+    case firstLetterAnywhere = 1
+    case fullWord = 2
+    case fullWordTranslation = 3
+    case romanizedGurmukhi = 4
+    case ang = 5
+    case mainLetter = 6
+    case romanizedFirstLetter = 7
+    case auto = 99 // Special value that won't conflict with API
+
+    var id: Int { rawValue }
+
+    var name: String {
+        switch self {
+        case .auto: return "Auto"
+        case .firstLetterStart: return "First Letter (Start)"
+        case .firstLetterAnywhere: return "First Letter (Anywhere)"
+        case .fullWord: return "Full Word"
+        case .fullWordTranslation: return "Translation"
+        case .romanizedGurmukhi: return "Romanized"
+        case .ang: return "Ang Number"
+        case .mainLetter: return "Main Letter"
+        case .romanizedFirstLetter: return "Romanized (Anywhere)"
+        }
+    }
+
+    var description: String {
+        switch self {
+        case .auto: return "Automatically detect search type based on input"
+        case .firstLetterStart: return "First letter of each word from start"
+        case .firstLetterAnywhere: return "First letter of each word anywhere"
+        case .fullWord: return "Full word (Gurmukhi)"
+        case .fullWordTranslation: return "Full word in translation (English)"
+        case .romanizedGurmukhi: return "Romanized Gurmukhi"
+        case .ang: return "Search by page number"
+        case .mainLetter: return "Main letter (Gurmukhi)"
+        case .romanizedFirstLetter: return "Romanized first letter anywhere"
+        }
+    }
+
+    var needsEnglishKeyboard: Bool {
+        return self == .fullWordTranslation || self == .romanizedGurmukhi || self == .romanizedFirstLetter
+    }
+
+    var needsNumericKeyboard: Bool {
+        return self == .ang
+    }
+}
+
+// Smart search type detection based on input
+func detectSearchType(from input: String) -> SearchType {
+    let trimmed = input.trimmingCharacters(in: .whitespacesAndNewlines)
+
+    // Empty input - default to first letter anywhere
+    if trimmed.isEmpty {
+        return .firstLetterAnywhere
+    }
+
+    // Check if only digits - Ang search
+    if trimmed.allSatisfy({ $0.isNumber }) {
+        return .ang
+    }
+
+    // Define matras (vowel signs that attach to consonants)
+    let matras: Set<Character> = [
+        "i", "o", "u", "w", "y", "H", "I", "M", "N", "O", "R", "U", "W", "Y",
+        "`", "~", "@", "†", "ü", "®", "µ", "æ", "ƒ", "œ", "Í", "Ï", "Ò", "Ú",
+        "§", "¤", "ç", "Î", "ï", "î",
+    ]
+
+    // Check if contains matras - indicates full word with vowel marks
+    let containsMatras = trimmed.contains(where: { matras.contains($0) })
+
+    if containsMatras {
+        // Full word search when matras are present
+        return .fullWord
+    }
+
+    // Default to first letter anywhere for consonant sequences
+    return .firstLetterAnywhere
+}
+
+struct SearchResultRowView: View {
+    let verse: Verse
+    let source: Source
+    let writer: Writer
+    let pageNo: Int?
+    let searchQuery: String
+    let searchType: SearchType
+
+    @AppStorage("CompactRowViewSetting") private var compactRowViewSetting = false
+    @AppStorage("settings.larivaarOn") private var larivaarOn: Bool = true
+    @AppStorage("fontType") private var fontType: String = "Unicode"
+
+    var gurmukhiText: String {
+        if fontType == "Unicode" {
+            if larivaarOn {
+                return verse.larivaar.unicode
+            }
+            return verse.verse.unicode
+        } else {
+            if larivaarOn {
+                return verse.larivaar.gurmukhi
+            }
+            return verse.verse.gurmukhi
+        }
+    }
+
+    var gurmukhiAttributedString: AttributedString {
+        var attributed = createHighlightedAttributedString(text: gurmukhiText, searchQuery: searchQuery, searchType: searchType)
+        let fontSize: Double = compactRowViewSetting ? 20.0 : 24.0
+        attributed.font = resolveFont(size: fontSize, fontType: fontType == "Unicode" ? "AnmolLipiSG" : fontType)
+        return attributed
+    }
+
+    var translationAttributedString: AttributedString {
+        let translation = verse.translation.en.bdb ?? ""
+
+        if searchType == .fullWordTranslation {
+            var attributed = createHighlightedAttributedString(text: translation, searchQuery: searchQuery, searchType: searchType)
+            attributed.font = .subheadline
+            return attributed
+        } else {
+            var attributed = AttributedString(translation)
+            attributed.font = .subheadline
+            return attributed
+        }
+    }
+
+    var body: some View {
+        if compactRowViewSetting {
+            VStack(alignment: .leading, spacing: 6) {
+                Text(gurmukhiAttributedString)
+                    .fontWeight(.medium)
+                    .lineLimit(2)
+                    .multilineTextAlignment(.leading)
+            }
+            .padding(.vertical, 8)
+            .padding(.horizontal, 4)
+        } else {
+            VStack(alignment: .leading, spacing: 10) {
+                // Main text content
+                VStack(alignment: .leading, spacing: 6) {
+                    Text(gurmukhiAttributedString)
+                        .fontWeight(.medium)
+                        .lineLimit(3)
+                        .multilineTextAlignment(.leading)
+
+                    if verse.translation.en.bdb != nil {
+                        Text(translationAttributedString)
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                            .lineLimit(2)
+                            .multilineTextAlignment(.leading)
+                    }
+                }
+
+                // Metadata badges
+                HStack(spacing: 6) {
+                    Text(getCustomSrcName(source))
+                        .font(.caption2)
+                        .fontWeight(.medium)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 5)
+                        .background(
+                            RoundedRectangle(cornerRadius: 6)
+                                .fill(Color.blue.opacity(0.15))
+                        )
+                        .foregroundColor(.blue)
+
+                    Text(writer.english ?? "Unknown")
+                        .font(.caption2)
+                        .fontWeight(.medium)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 5)
+                        .background(
+                            RoundedRectangle(cornerRadius: 6)
+                                .fill(Color.green.opacity(0.15))
+                        )
+                        .foregroundColor(.green)
+
+                    if let pageNo = pageNo {
+                        Text("Ang \(String(pageNo))")
+                            .font(.caption2)
+                            .fontWeight(.medium)
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 5)
+                            .background(
+                                RoundedRectangle(cornerRadius: 6)
+                                    .fill(Color.orange.opacity(0.15))
+                            )
+                            .foregroundColor(.orange)
+                    }
+
+                    Spacer()
+                }
+            }
+            .padding(.vertical, 12)
+            .padding(.horizontal, 4)
+            .frame(maxWidth: .infinity, alignment: .leading)
+        }
+    }
 }

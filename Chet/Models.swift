@@ -12,22 +12,22 @@ import WidgetKit // for TimelineEntry
 struct ShabadInfo: Codable {
     let shabadId: Int
     let shabadName: Int
-    let pageNo: Int
+    let pageNo: Int?
     let source: Source
     let raag: Raag
     let writer: Writer
 }
 
 struct Source: Codable {
-    let sourceId: String
-    let gurmukhi: String
-    let unicode: String
-    let english: String
-    let pageNo: Int
+    let sourceId: String?
+    let gurmukhi: String?
+    let unicode: String?
+    let english: String?
+    let pageNo: Int?
 }
 
 struct Raag: Codable {
-    let raagId: Int
+    let raagId: Int?
     let gurmukhi: String?
     let unicode: String?
     let english: String?
@@ -35,10 +35,10 @@ struct Raag: Codable {
 }
 
 struct Writer: Codable {
-    let writerId: Int
-    let gurmukhi: String
+    let writerId: Int?
+    let gurmukhi: String?
     let unicode: String?
-    let english: String
+    let english: String?
 }
 
 struct Navigation: Codable {
@@ -46,15 +46,16 @@ struct Navigation: Codable {
     let next: Int?
 }
 
-struct Verse: Codable {
+struct Verse: Codable, Identifiable {
+    var id: Int { verseId } // required by Identifiable
     let verseId: Int
-    let shabadId: Int
+    let shabadId: Int?
     let verse: VerseText
     let larivaar: VerseText
     let translation: Translation
     let transliteration: Transliteration
-    let pageNo: Int
-    let lineNo: Int
+    let pageNo: Int?
+    let lineNo: Int?
     let updated: String
     let visraam: Visraam?
 }
@@ -107,9 +108,22 @@ struct Transliteration: Codable {
 }
 
 struct Visraam: Codable {
-    let sttm: [VisraamPoint]
-    let igurbani: [VisraamPoint]
-    let sttm2: [VisraamPoint]
+    let sttm: [VisraamPoint]?
+    let igurbani: [VisraamPoint]?
+    let sttm2: [VisraamPoint]?
+
+    enum CodingKeys: String, CodingKey {
+        case sttm, igurbani, sttm2
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        // Try to decode each field as array, fallback to nil if it's a dict or missing
+        sttm = try? container.decode([VisraamPoint].self, forKey: .sttm)
+        igurbani = try? container.decode([VisraamPoint].self, forKey: .igurbani)
+        sttm2 = try? container.decode([VisraamPoint].self, forKey: .sttm2)
+    }
 
     struct VisraamPoint: Codable {
         let p: Int
@@ -194,8 +208,8 @@ struct SearchVerse: Codable, Identifiable {
     let larivaar: VerseText
     let translation: Translation
     let transliteration: Transliteration
-    let pageNo: Int
-    let lineNo: Int
+    let pageNo: Int?
+    let lineNo: Int?
     let updated: String
     let visraam: Visraam?
     let writer: Writer
@@ -296,25 +310,29 @@ extension ModelContainer {
             schema: schema,
             groupContainer: .identifier("group.xyz.gians.Chet") // 👈 must match App Group ID
         )
-        let container = try! ModelContainer(for: schema, configurations: [config])
 
-        // Prepopulate defaults
-        Task {
-            let context = ModelContext(container)
-            let existing = try? context.fetch(FetchDescriptor<Folder>())
+        do {
+            let container = try ModelContainer(for: schema, configurations: [config])
 
-            if existing?.isEmpty ?? true {
-                let defaults = [
-                    Folder(name:  "Favorites", isSystemFolder: true),
-                    Folder(name: "Keertan"),
-                    // Folder(name: "Favorites", isSystemFolder: true),
-                ]
-                defaults.forEach { context.insert($0) }
-                try? context.save()
+            // Prepopulate defaults
+            Task {
+                let context = ModelContext(container)
+                let existing = try? context.fetch(FetchDescriptor<Folder>())
+
+                if existing?.isEmpty ?? true {
+                    let defaults = [
+                        Folder(name: "Favorites", isSystemFolder: true),
+                        Folder(name: "Keertan"),
+                    ]
+                    defaults.forEach { context.insert($0) }
+                    try? context.save()
+                }
             }
-        }
 
-        return container
+            return container
+        } catch {
+            fatalError("Failed to create ModelContainer: \(error.localizedDescription)\n\nThis usually means:\n1. App Group entitlements are not set up correctly in Xcode\n2. The device needs a clean build (Product > Clean Build Folder)\n3. The app needs to be deleted and reinstalled\n\nError details: \(error)")
+        }
     }()
 }
 
@@ -326,4 +344,109 @@ struct RandSbdForWidget: Codable, TimelineEntry {
     let sbd: ShabadAPIResponse
     let date: Date
     let index: Int
+}
+
+struct WordDefinition: Codable, Identifiable {
+    let id: Int
+    let word: String
+    let wordUni: String
+    let definition: String
+    let definitionUni: String
+}
+
+// MARK: - Bani Models
+struct BaniResponse: Codable {
+    let baniInfo: BaniInfo
+    let verses: [BaniVerse]
+}
+
+struct BaniInfo: Codable {
+    let baniID: Int
+    let gurmukhi: String
+    let unicode: String
+    let english: String
+    let hindi: String
+    let en: String?
+    let hi: String?
+    let ipa: String?
+    let ur: String?
+    let source: Source?
+    let raag: Raag?
+    let writer: Writer?
+}
+
+struct BaniVerse: Codable, Identifiable {
+    var id: Int { verse.verseId }
+    let header: Int
+    let mangalPosition: String? // "above" | "current" | null
+    let existsSGPC: Int
+    let existsMedium: Int
+    let existsTaksal: Int
+    let existsBuddhaDal: Int
+    let paragraph: Int
+    let verse: Verse
+}
+
+struct VerseData: Codable {
+    let verseId: Int
+    let verse: VerseText
+    let larivaar: VerseText
+    let translation: Translation
+    let transliteration: Transliteration
+    let pageNo: Int?
+    let lineNo: Int?
+    let updated: String
+    let visraam: Visraam?
+}
+
+
+extension Translation {
+    func getTranslation(for language: String, source: String) -> String? {
+        switch language.lowercased() {
+        case "english":
+            switch source {
+            case "bdb": return en.bdb
+            case "ms": return en.ms
+            case "ssk": return en.ssk
+            default: return nil
+            }
+
+        case "punjabi":
+            switch source {
+            case "ss": return pu.ss?.unicode
+            case "ft": return pu.ft?.unicode
+            case "bdb": return pu.bdb?.unicode
+            case "ms": return pu.ms?.unicode
+            default: return nil
+            }
+
+        case "hindi":
+            switch source {
+            case "ss": return hi.ss
+            case "sts": return hi.sts
+            default: return nil
+            }
+
+        case "spanish":
+            switch source {
+            case "sn": return es.sn
+            default: return nil
+            }
+
+        default:
+            return nil
+        }
+    }
+}
+
+extension Transliteration {
+    func value(for source: String) -> String? {
+        switch source {
+        case "en": return english
+        case "hi": return hindi
+        case "ipa": return ipa
+        case "ur": return ur
+        default: return nil
+        }
+    }
 }

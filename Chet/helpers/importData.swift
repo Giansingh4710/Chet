@@ -1,10 +1,12 @@
 import Foundation
 import SwiftData
+import SwiftUI
 import UniformTypeIdentifiers
 
 extension UTType {
     static let igb = UTType(filenameExtension: "igb")!
     static let gkhoj = UTType(filenameExtension: "gkhoj")!
+    static let chetBackup = UTType(filenameExtension: "chet")!
 }
 
 func parseArrayForGKImports(
@@ -14,7 +16,6 @@ func parseArrayForGKImports(
     onShabadImported: @escaping () async -> Void
 ) async -> Folder {
     let sttmids = loadSttmids()
-    // let sttmids = loadJSON(from: "sttmid_to_id")
     let folder = Folder(name: folderName)
     modelContext.insert(folder)
 
@@ -35,7 +36,8 @@ func parseArrayForGKImports(
                let id = (sub[1] as? Int) ?? Int((sub[1] as? String) ?? "")
             {
                 if let gurbaninowIDString = sttmids[id],
-                    let gurbaninowID = Int(gurbaninowIDString) {
+                   let gurbaninowID = Int(gurbaninowIDString)
+                {
                     if let savedShadab = try await getSavedSbdObj(sbdID: gurbaninowID, savedLine: text, folder: folder) {
                         savedShadab.sortIndex = sortCounter
                         sortCounter -= 1
@@ -51,8 +53,8 @@ func parseArrayForGKImports(
                     let id = (sub[1] as? Int) ?? Int((sub[1] as? String) ?? "")
             {
                 if let gurbaninowIDString = sttmids[id],
-                    let gurbaninowID = Int(gurbaninowIDString) {
-
+                   let gurbaninowID = Int(gurbaninowIDString)
+                {
                     if let savedShadab = try await getSavedSbdObj(sbdID: gurbaninowID, savedLine: text, folder: folder) {
                         modelContext.insert(savedShadab)
                         folder.savedShabads.append(savedShadab)
@@ -90,8 +92,6 @@ func parseArrayForiGurbani(
     onShabadImported: @escaping () async -> Void
 ) async -> Folder {
     let folder = Folder(name: folderName)
-    let igurbani_ids = loadiGurbaniids()
-
     let isoFormatter = ISO8601DateFormatter()
     isoFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
 
@@ -105,39 +105,33 @@ func parseArrayForiGurbani(
 
     var sortCounter = favorites.count // start from total count
     var count = 1
+    let igurbaniids = loadiGurbaniids()
     for favorite in favorites {
         count += 1
         // if count > 50 { break }
+        guard let shabadUid = favorite["shabadUid"] as? String else {
+            print("shabadUid not found")
+            continue
+        }
         guard let gurmukhi = favorite["gurmukhi"] as? String else {
-            print("Gurmukhi not found")
+            print("gurmukhi not found")
             continue
         }
         do {
-            guard let uid = favorite["shabadUid"] as? String else {
-                print("UID not found for \(gurmukhi)")
+            guard let banidb_shabadid = igurbaniids[shabadUid] else {
+                print("banidb shabadid not found")
                 continue
             }
-                
-            if let gurbaninowIDString = igurbani_ids[uid],
-               let gurbaninowID = Int(gurbaninowIDString) {
-                if let savedShadab = try await getSavedSbdObj(sbdID: gurbaninowID, savedLine: gurmukhi, folder: folder) {
-                    if let createdDateString = favorite["createdDate"] as? String {
-                        if let parsedDate = isoFormatter.date(from: createdDateString) {
-                            savedShadab.addedAt = parsedDate
-                        } else {
-                            print("⚠️ Could not parse date: \(createdDateString)")
-                        }
-                    }
-                    // savedShadab.sortIndex = count * -1
-                    savedShadab.sortIndex = sortCounter
-                    sortCounter -= 1
-                    modelContext.insert(savedShadab)
-                    folder.savedShabads.append(savedShadab)
-                    await onShabadImported()
-                }
+
+            if let savedShadab = try await getSavedSbdObj(sbdID: banidb_shabadid, savedLine: gurmukhi, folder: folder) {
+                savedShadab.sortIndex = sortCounter
+                sortCounter -= 1
+                modelContext.insert(savedShadab)
+                folder.savedShabads.append(savedShadab)
+                await onShabadImported()
             }
         } catch {
-            print("Error: \(error)")
+            print("❌ Error processing '\(gurmukhi)': \(error)")
         }
     }
     return folder
@@ -153,14 +147,14 @@ func getSavedSbdObj(sbdID: Int, savedLine: String, folder: Folder) async throws 
     }
 }
 
-func loadiGurbaniids() -> [String: String] {
+func loadiGurbaniids() -> [String: Int] {
     guard let url = Bundle.main.url(forResource: "igurbaniuid_to_id", withExtension: "json") else {
         return [:]
     }
 
     do {
         let data = try Data(contentsOf: url)
-        let codes = try JSONDecoder().decode([String: String].self, from: data)
+        let codes = try JSONDecoder().decode([String: Int].self, from: data)
         return codes
     } catch {
         return [:]

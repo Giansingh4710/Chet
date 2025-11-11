@@ -1,0 +1,975 @@
+{
+  "baniInfo": {
+    "baniID": 15,
+    "gurmukhi": "sucjI",
+    "unicode": "ਸੁਚਜੀ",
+    "english": "suchajee",
+    "hindi": "सुचजी",
+    "en": "suchajee",
+    "hi": "सुचजी",
+    "ipa": "sʊt͡ʃəd͡ʒi",
+    "ur": "سُچجیِ",
+    "source": {
+      "sourceId": "G",
+      "gurmukhi": "sRI gurU gRMQ swihb jI",
+      "unicode": "ਸ੍ਰੀ ਗੁਰੂ ਗ੍ਰੰਥ ਸਾਹਿਬ ਜੀ",
+      "english": "Sri Guru Granth Sahib Ji",
+      "pageNo": 762
+    },
+    "raag": {
+      "raagId": 19,
+      "gurmukhi": "rwgu sUhI",
+      "unicode": "ਰਾਗੁ ਸੂਹੀ",
+      "english": "Raag Soohee",
+      "raagWithPage": "Soohee (728-794)"
+    },
+    "writer": {
+      "writerId": null,
+      "gurmukhi": null,
+      "unicode": null,
+      "english": null
+    }
+  },
+  "verses": [
+    {
+      "header": 2,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 1,
+      "verse": {
+        "verseId": 2423,
+        "verse": {
+          "gurmukhi": "sUhI mhlw 1 sucjI ]",
+          "unicode": "ਸੂਹੀ ਮਹਲਾ ੧ ਸੁਚਜੀ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "sUhImhlw1sucjI]",
+          "unicode": "ਸੂਹੀਮਹਲਾ੧ਸੁਚਜੀ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Soohee, First Mehla, Suchajee ~ The Noble And Graceful Bride:",
+            "ms": "Suhi, 1st Guru, Suchaji.",
+            "ssk": "Soohee, First Mehl, Suchajee ~ The Noble And Graceful Bride:"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "(sucjI) sRyst Awcwr vwlI ArQwq auqmu ADkwrI bynqI sihq prmysr ky snmuK Apnw hwl khqI hY:",
+              "unicode": "(ਸੁਚਜੀ) ਸ੍ਰੇਸਟ ਆਚਾਰ ਵਾਲੀ ਅਰਥਾਤ ਉਤਮੁ ਅਧਕਾਰੀ ਬੇਨਤੀ ਸਹਿਤ ਪਰਮੇਸਰ ਕੇ ਸਨਮੁਖ ਅਪਨਾ ਹਾਲ ਕਹਤੀ ਹੈ:"
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "sUhI pihlI pwiqSwhI suc`jI[",
+              "unicode": "ਸੂਹੀ ਪਹਿਲੀ ਪਾਤਿਸ਼ਾਹੀ ਸੁਚੱਜੀ।"
+            }
+          },
+          "es": {
+            "sn": "Suji, Mejl Guru Nanak, Primer Canal Divino, Suchayi. La Novia Noble y Graciosa."
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "soohee mahalaa pehilaa suchajee ||",
+          "hindi": "सूही महला १ सुचजी ॥",
+          "en": "soohee mahalaa pehilaa suchajee ||",
+          "hi": "सूही महला १ सुचजी ॥",
+          "ipa": "suhi məhəlɑ pəhɪlɑ sʊt͡ʃəd͡ʒi.",
+          "ur": "سُوهیِ مهلا ۱ سُچجیِ ۔۔"
+        },
+        "pageNo": 762,
+        "lineNo": 14,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 2,
+              "t": "v"
+            },
+            {
+              "p": 0,
+              "t": "y"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 2,
+              "t": "v"
+            },
+            {
+              "p": 0,
+              "t": "y"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 2,
+      "verse": {
+        "verseId": 2424,
+        "verse": {
+          "gurmukhi": "jw qU qw mY sBu ko qU swihbu myrI rwis jIau ]",
+          "unicode": "ਜਾ ਤੂ ਤਾ ਮੈ ਸਭੁ ਕੋ ਤੂ ਸਾਹਿਬੁ ਮੇਰੀ ਰਾਸਿ ਜੀਉ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "jwqUqwmYsBukoqUswihbumyrIrwisjIau]",
+          "unicode": "ਜਾਤੂਤਾਮੈਸਭੁਕੋਤੂਸਾਹਿਬੁਮੇਰੀਰਾਸਿਜੀਉ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "When I have You, then I have everything. O my Lord and Master, You are my wealth and capital.",
+            "ms": "When I have Thee, then have I every-thing Thou O Lord, art capital.",
+            "ssk": "When I have You, then I have everything. O my Lord and Master, You are my wealth and capital."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "hy pRBU! jdoN qUµ (myry vl huMdw hYN) qdoN hryk jIv mYƒ (Awdr dyNdw hY) [ qUµ hI myrw mwlk hYN, qUµ hI myrw srmwieAw hYN [",
+              "unicode": "ਹੇ ਪ੍ਰਭੂ! ਜਦੋਂ ਤੂੰ (ਮੇਰੇ ਵਲ ਹੁੰਦਾ ਹੈਂ) ਤਦੋਂ ਹਰੇਕ ਜੀਵ ਮੈਨੂੰ (ਆਦਰ ਦੇਂਦਾ ਹੈ) । ਤੂੰ ਹੀ ਮੇਰਾ ਮਾਲਕ ਹੈਂ, ਤੂੰ ਹੀ ਮੇਰਾ ਸਰਮਾਇਆ ਹੈਂ ।"
+            },
+            "ft": {
+              "gurmukhi": "hy prmysr! jW qUM myrw rKk hY qW myrw sBu koeI ihqU hI hY Ar qUM hI myrw sihb hYN Aru myrI pUMjI BI qUMhI hYN]",
+              "unicode": "ਹੇ ਪਰਮੇਸਰ! ਜਾਂ ਤੂੰ ਮੇਰਾ ਰਖਕ ਹੈ ਤਾਂ ਮੇਰਾ ਸਭੁ ਕੋਈ ਹਿਤੂ ਹੀ ਹੈ ਅਰ ਤੂੰ ਹੀ ਮੇਰਾ ਸਹਿਬ ਹੈਂ ਅਰੁ ਮੇਰੀ ਪੂੰਜੀ ਭੀ ਤੂੰਹੀ ਹੈਂ॥"
+            },
+            "bdb": {
+              "gurmukhi": "hy pRBU! jdoN qUµ (myry vl huMdw hYN) qdoN hryk jIv mYƒ (Awdr dyNdw hY) [ qUµ hI myrw mwlk hYN, qUµ hI myrw srmwieAw hYN [",
+              "unicode": "ਹੇ ਪ੍ਰਭੂ! ਜਦੋਂ ਤੂੰ (ਮੇਰੇ ਵਲ ਹੁੰਦਾ ਹੈਂ) ਤਦੋਂ ਹਰੇਕ ਜੀਵ ਮੈਨੂੰ (ਆਦਰ ਦੇਂਦਾ ਹੈ) । ਤੂੰ ਹੀ ਮੇਰਾ ਮਾਲਕ ਹੈਂ, ਤੂੰ ਹੀ ਮੇਰਾ ਸਰਮਾਇਆ ਹੈਂ ।"
+            },
+            "ms": {
+              "gurmukhi": "jd qUM myrw hY, qd hr SY myrI hY, qUM hI, hy suAwmI! myrI pUMjI hY[",
+              "unicode": "ਜਦ ਤੂੰ ਮੇਰਾ ਹੈ, ਤਦ ਹਰ ਸ਼ੈ ਮੇਰੀ ਹੈ, ਤੂੰ ਹੀ, ਹੇ ਸੁਆਮੀ! ਮੇਰੀ ਪੂੰਜੀ ਹੈ।"
+            }
+          },
+          "es": {
+            "sn": "Cuando Estás conmigo, yo logro todo; Tú, oh Señor, eres mi Maestro, mi único Capital."
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "jaa too taa mai sabh ko too saahib meree raas jeeau ||",
+          "hindi": "जा तू ता मै सभु को तू साहिबु मेरी रासि जीउ ॥",
+          "en": "jaa too taa mai sabh ko too saahib meree raas jeeau ||",
+          "hi": "जा तू ता मै सभु को तू साहिबु मेरी रासि जीउ ॥",
+          "ipa": "d͡ʒɑ t̪u t̪ɑ mæ səɓ kɔ t̪u sɑhɪb meri rɑs d͡ʒio.",
+          "ur": "جا تُو تا مَے سبھ کو تُو ساهب مےریِ راس جیِا ۔۔"
+        },
+        "pageNo": 762,
+        "lineNo": 14,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 5,
+              "t": "v"
+            },
+            {
+              "p": 1,
+              "t": "y"
+            },
+            {
+              "p": 7,
+              "t": "y"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 5,
+              "t": "v"
+            },
+            {
+              "p": 1,
+              "t": "y"
+            },
+            {
+              "p": 7,
+              "t": "y"
+            }
+          ],
+          "sttm2": [
+            {
+              "p": 5,
+              "t": "v"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 2,
+      "verse": {
+        "verseId": 2425,
+        "verse": {
+          "gurmukhi": "quDu AMqir hau suiK vsw qUM AMqir swbwis jIau ]",
+          "unicode": "ਤੁਧੁ ਅੰਤਰਿ ਹਉ ਸੁਖਿ ਵਸਾ ਤੂੰ ਅੰਤਰਿ ਸਾਬਾਸਿ ਜੀਉ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "quDuAMqirhausuiKvswqUMAMqirswbwisjIau]",
+          "unicode": "ਤੁਧੁਅੰਤਰਿਹਉਸੁਖਿਵਸਾਤੂੰਅੰਤਰਿਸਾਬਾਸਿਜੀਉ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Within You, I abide in peace; within You, I am congratulated.",
+            "ms": "In Thee I abide in peace. Abiding in Thee I am congratulated.",
+            "ssk": "Within You, I abide in peace; within You, I am congratulated."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "jdoN mYN qYƒ Awpxy ihrdy ivc vsw lYNdI hW qdoN mYN suKI vsdI hW jdoN qUµ myry ihrdy ivc prgt ho jWdw hYN qdoN mYƒ (hr QW) soBw imldI hY [",
+              "unicode": "ਜਦੋਂ ਮੈਂ ਤੈਨੂੰ ਆਪਣੇ ਹਿਰਦੇ ਵਿਚ ਵਸਾ ਲੈਂਦੀ ਹਾਂ ਤਦੋਂ ਮੈਂ ਸੁਖੀ ਵਸਦੀ ਹਾਂ ਜਦੋਂ ਤੂੰ ਮੇਰੇ ਹਿਰਦੇ ਵਿਚ ਪਰਗਟ ਹੋ ਜਾਂਦਾ ਹੈਂ ਤਦੋਂ ਮੈਨੂੰ (ਹਰ ਥਾਂ) ਸੋਭਾ ਮਿਲਦੀ ਹੈ ।"
+            },
+            "ft": {
+              "gurmukhi": "qyry AMqr pRwpiq hoxy sy mYN suK myN vsUMgI Ar hy prmysÍr! qUM AMqr hovy qW swbwsI hovy hY]",
+              "unicode": "ਤੇਰੇ ਅੰਤਰ ਪ੍ਰਾਪਤਿ ਹੋਣੇ ਸੇ ਮੈਂ ਸੁਖ ਮੇਂ ਵਸੂੰਗੀ ਅਰ ਹੇ ਪਰਮੇਸ੍ਵਰ! ਤੂੰ ਅੰਤਰ ਹੋਵੇ ਤਾਂ ਸਾਬਾਸੀ ਹੋਵੇ ਹੈ॥"
+            },
+            "bdb": {
+              "gurmukhi": "jdoN mYN qYƒ Awpxy ihrdy ivc vsw lYNdI hW qdoN mYN suKI vsdI hW jdoN qUµ myry ihrdy ivc prgt ho jWdw hYN qdoN mYƒ (hr QW) soBw imldI hY [",
+              "unicode": "ਜਦੋਂ ਮੈਂ ਤੈਨੂੰ ਆਪਣੇ ਹਿਰਦੇ ਵਿਚ ਵਸਾ ਲੈਂਦੀ ਹਾਂ ਤਦੋਂ ਮੈਂ ਸੁਖੀ ਵਸਦੀ ਹਾਂ ਜਦੋਂ ਤੂੰ ਮੇਰੇ ਹਿਰਦੇ ਵਿਚ ਪਰਗਟ ਹੋ ਜਾਂਦਾ ਹੈਂ ਤਦੋਂ ਮੈਨੂੰ (ਹਰ ਥਾਂ) ਸੋਭਾ ਮਿਲਦੀ ਹੈ ।"
+            },
+            "ms": {
+              "gurmukhi": "qyry AMdr hox nwl mYN Awrwm iv`c vsdI hW[ qyry AMdr v`sx nwl mYƒ vDweI imldI hY[",
+              "unicode": "ਤੇਰੇ ਅੰਦਰ ਹੋਣ ਨਾਲ ਮੈਂ ਆਰਾਮ ਵਿੱਚ ਵਸਦੀ ਹਾਂ। ਤੇਰੇ ਅੰਦਰ ਵੱਸਣ ਨਾਲ ਮੈਨੂੰ ਵਧਾਈ ਮਿਲਦੀ ਹੈ।"
+            }
+          },
+          "es": {
+            "sn": "Cuando habitas en mi ser, estoy en Paz; bendecido soy cuando vives en mí."
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "tudh a(n)tar hau sukh vasaa too(n) a(n)tar saabaas jeeau ||",
+          "hindi": "तुधु अंतरि हउ सुखि वसा तूँ अंतरि साबासि जीउ ॥",
+          "en": "tudh a(n)tar hau sukh vasaa too(n) a(n)tar saabaas jeeau ||",
+          "hi": "तुधु अंतरि हउ सुखि वसा तूँ अंतरि साबासि जीउ ॥",
+          "ipa": "t̪ʊt̪ əŋt̪ər ho sʊkʰ ʋəsɑ t̪uŋ əŋt̪ər sɑbɑs d͡ʒio.",
+          "ur": "تُدھ اںتر ها سُکھ وسا تُوں اںتر ساباس جیِا ۔۔"
+        },
+        "pageNo": 762,
+        "lineNo": 15,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 4,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 4,
+              "t": "v"
+            }
+          ],
+          "sttm2": [
+            {
+              "p": 4,
+              "t": "v"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 2,
+      "verse": {
+        "verseId": 2426,
+        "verse": {
+          "gurmukhi": "BwxY qKiq vfweIAw BwxY BIK audwis jIau ]",
+          "unicode": "ਭਾਣੈ ਤਖਤਿ ਵਡਾਈਆ ਭਾਣੈ ਭੀਖ ਉਦਾਸਿ ਜੀਉ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "BwxYqKiqvfweIAwBwxYBIKaudwisjIau]",
+          "unicode": "ਭਾਣੈਤਖਤਿਵਡਾਈਆਭਾਣੈਭੀਖਉਦਾਸਿਜੀਉ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "By the Pleasure of Your Will, You bestow thrones and greatness. And by the Pleasure of Your Will, You make us beggars and wanderers.",
+            "ms": "By Thy will, Thou bestowest throne and greatness and by Thy will beggary and despondency.",
+            "ssk": "By the Pleasure of Your Will, You bestow thrones and greatness. And by the Pleasure of Your Will, You make us beggars and wanderers."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "pRBU dI rzw ivc hI koeI q^q auqy bYTw hY qy vifAweIAW iml rhIAW hn, aus dI rzw ivc hI koeI ivrkq ho ky (dr dr qy) iB`iCAw mMgdw iPrdw hY [",
+              "unicode": "ਪ੍ਰਭੂ ਦੀ ਰਜ਼ਾ ਵਿਚ ਹੀ ਕੋਈ ਤਖ਼ਤ ਉਤੇ ਬੈਠਾ ਹੈ ਤੇ ਵਡਿਆਈਆਂ ਮਿਲ ਰਹੀਆਂ ਹਨ, ਉਸ ਦੀ ਰਜ਼ਾ ਵਿਚ ਹੀ ਕੋਈ ਵਿਰਕਤ ਹੋ ਕੇ (ਦਰ ਦਰ ਤੇ) ਭਿੱਛਿਆ ਮੰਗਦਾ ਫਿਰਦਾ ਹੈ ।"
+            },
+            "ft": {
+              "gurmukhi": "qyry Bwxy kr ky hI vifAweIEN ky sihq rwj kw qKqu imlqw hY AO qyry Bwxy kr jIv audwsIn hUey BIK mWgqy hYN]",
+              "unicode": "ਤੇਰੇ ਭਾਣੇ ਕਰ ਕੇ ਹੀ ਵਡਿਆਈਓਂ ਕੇ ਸਹਿਤ ਰਾਜ ਕਾ ਤਖਤੁ ਮਿਲਤਾ ਹੈ ਔ ਤੇਰੇ ਭਾਣੇ ਕਰ ਜੀਵ ਉਦਾਸੀਨ ਹੂਏ ਭੀਖ ਮਾਂਗਤੇ ਹੈਂ॥"
+            },
+            "bdb": {
+              "gurmukhi": "pRBU dI rzw ivc hI koeI q^q auqy bYTw hY qy vifAweIAW iml rhIAW hn, aus dI rzw ivc hI koeI ivrkq ho ky (dr dr qy) iB`iCAw mMgdw iPrdw hY [",
+              "unicode": "ਪ੍ਰਭੂ ਦੀ ਰਜ਼ਾ ਵਿਚ ਹੀ ਕੋਈ ਤਖ਼ਤ ਉਤੇ ਬੈਠਾ ਹੈ ਤੇ ਵਡਿਆਈਆਂ ਮਿਲ ਰਹੀਆਂ ਹਨ, ਉਸ ਦੀ ਰਜ਼ਾ ਵਿਚ ਹੀ ਕੋਈ ਵਿਰਕਤ ਹੋ ਕੇ (ਦਰ ਦਰ ਤੇ) ਭਿੱਛਿਆ ਮੰਗਦਾ ਫਿਰਦਾ ਹੈ ।"
+            },
+            "ms": {
+              "gurmukhi": "AwpxI rzw duAwrw qUM rwj isMGwsn Aqy pRBqw bKSdw hYN Aqy AwpxI rzw duAwrw mMgx-ipMnx Aqy inrwsqw[",
+              "unicode": "ਆਪਣੀ ਰਜ਼ਾ ਦੁਆਰਾ ਤੂੰ ਰਾਜ ਸਿੰਘਾਸਨ ਅਤੇ ਪ੍ਰਭਤਾ ਬਖਸ਼ਦਾ ਹੈਂ ਅਤੇ ਆਪਣੀ ਰਜ਼ਾ ਦੁਆਰਾ ਮੰਗਣ-ਪਿੰਨਣ ਅਤੇ ਨਿਰਾਸਤਾ।"
+            }
+          },
+          "es": {
+            "sn": "Si tal es Tu Voluntad, me conviertes en un rey o en un pordiosero sin nada en el mundo."
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "bhaanai takhat vaddaieeaa bhaanai bheekh udhaas jeeau ||",
+          "hindi": "भाणै तखति वडाईआ भाणै भीख उदासि जीउ ॥",
+          "en": "bhaanai takhat vaddaieeaa bhaanai bheekh udhaas jeeau ||",
+          "hi": "भाणै तखति वडाईआ भाणै भीख उदासि जीउ ॥",
+          "ipa": "ɓɑɳæ t̪əkʰət̪ ʋəɖɑeiɑ ɓɑɳæ ɓikʰ oʊd̪ɑs d͡ʒio.",
+          "ur": "بھاݨَے تکھت وڈاایآ بھاݨَے بھیِکھ اُداس جیِا ۔۔"
+        },
+        "pageNo": 762,
+        "lineNo": 15,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 2,
+              "t": "v"
+            },
+            {
+              "p": 0,
+              "t": "y"
+            },
+            {
+              "p": 3,
+              "t": "y"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 2,
+              "t": "v"
+            },
+            {
+              "p": 0,
+              "t": "y"
+            },
+            {
+              "p": 3,
+              "t": "y"
+            }
+          ],
+          "sttm2": [
+            {
+              "p": 2,
+              "t": "v"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 2,
+      "verse": {
+        "verseId": 2427,
+        "verse": {
+          "gurmukhi": "BwxY Ql isir sru vhY kmlu PulY Awkwis jIau ]",
+          "unicode": "ਭਾਣੈ ਥਲ ਸਿਰਿ ਸਰੁ ਵਹੈ ਕਮਲੁ ਫੁਲੈ ਆਕਾਸਿ ਜੀਉ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "BwxYQlisirsruvhYkmluPulYAwkwisjIau]",
+          "unicode": "ਭਾਣੈਥਲਸਿਰਿਸਰੁਵਹੈਕਮਲੁਫੁਲੈਆਕਾਸਿਜੀਉ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "By the Pleasure of Your Will, the ocean flows in the desert, and the lotus blossoms in the sky.",
+            "ms": "By Thy will, the ocean flows ever the desert and the lotus bloom in the sky.",
+            "ssk": "By the Pleasure of Your Will, the ocean flows in the desert, and the lotus blossoms in the sky."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "pRBU dI rzw ivc hI ikqy su`kI DrqI auqy srovr cl pYNdw hY qy kOl Pu`l AwkwS ivc iKV AwauNdw hY (Bwv, iksy AhMkwrI pRym-hIx ihrdy ivc pRym dw pRvwh c`l pYNdw hY) [",
+              "unicode": "ਪ੍ਰਭੂ ਦੀ ਰਜ਼ਾ ਵਿਚ ਹੀ ਕਿਤੇ ਸੁੱਕੀ ਧਰਤੀ ਉਤੇ ਸਰੋਵਰ ਚਲ ਪੈਂਦਾ ਹੈ ਤੇ ਕੌਲ ਫੁੱਲ ਆਕਾਸ਼ ਵਿਚ ਖਿੜ ਆਉਂਦਾ ਹੈ (ਭਾਵ, ਕਿਸੇ ਅਹੰਕਾਰੀ ਪ੍ਰੇਮ-ਹੀਣ ਹਿਰਦੇ ਵਿਚ ਪ੍ਰੇਮ ਦਾ ਪ੍ਰਵਾਹ ਚੱਲ ਪੈਂਦਾ ਹੈ) ।"
+            },
+            "ft": {
+              "gurmukhi": "qyry Bwxy kr hI hMkwrIEN myN pRymw BgqI kw pRvwh cl pVqw hY, iqn ky irdy Akws myN dYvI gux rUp kvl pRPulq ho rihqy hYN]",
+              "unicode": "ਤੇਰੇ ਭਾਣੇ ਕਰ ਹੀ ਹੰਕਾਰੀਓਂ ਮੇਂ ਪ੍ਰੇਮਾ ਭਗਤੀ ਕਾ ਪ੍ਰਵਾਹ ਚਲ ਪੜਤਾ ਹੈ, ਤਿਨ ਕੇ ਰਿਦੇ ਅਕਾਸ ਮੇਂ ਦੈਵੀ ਗੁਣ ਰੂਪ ਕਵਲ ਪ੍ਰਫੁਲਤ ਹੋ ਰਹਿਤੇ ਹੈਂ॥"
+            },
+            "bdb": {
+              "gurmukhi": "pRBU dI rzw ivc hI ikqy su`kI DrqI auqy srovr cl pYNdw hY qy kOl Pu`l AwkwS ivc iKV AwauNdw hY (Bwv, iksy AhMkwrI pRym-hIx ihrdy ivc pRym dw pRvwh c`l pYNdw hY) [",
+              "unicode": "ਪ੍ਰਭੂ ਦੀ ਰਜ਼ਾ ਵਿਚ ਹੀ ਕਿਤੇ ਸੁੱਕੀ ਧਰਤੀ ਉਤੇ ਸਰੋਵਰ ਚਲ ਪੈਂਦਾ ਹੈ ਤੇ ਕੌਲ ਫੁੱਲ ਆਕਾਸ਼ ਵਿਚ ਖਿੜ ਆਉਂਦਾ ਹੈ (ਭਾਵ, ਕਿਸੇ ਅਹੰਕਾਰੀ ਪ੍ਰੇਮ-ਹੀਣ ਹਿਰਦੇ ਵਿਚ ਪ੍ਰੇਮ ਦਾ ਪ੍ਰਵਾਹ ਚੱਲ ਪੈਂਦਾ ਹੈ) ।"
+            },
+            "ms": {
+              "gurmukhi": "qyrI rzw duAwrw smuMdr mwrUQl aupr v`gdw hY Aqy Awsmwn iv`c kMvl Pu`l iKVdw hY[",
+              "unicode": "ਤੇਰੀ ਰਜ਼ਾ ਦੁਆਰਾ ਸਮੁੰਦਰ ਮਾਰੂਥਲ ਉਪਰ ਵੱਗਦਾ ਹੈ ਅਤੇ ਆਸਮਾਨ ਵਿੱਚ ਕੰਵਲ ਫੁੱਲ ਖਿੜਦਾ ਹੈ।"
+            }
+          },
+          "es": {
+            "sn": "Si tal es Tu Voluntad los mares aparecerán en el corazón del desierto y el loto florecerá en el cielo de la mente."
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "bhaanai thal sir sar vahai kamal fulai aakaas jeeau ||",
+          "hindi": "भाणै थल सिरि सरु वहै कमलु फुलै आकासि जीउ ॥",
+          "en": "bhaanai thal sir sar vahai kamal fulai aakaas jeeau ||",
+          "hi": "भाणै थल सिरि सरु वहै कमलु फुलै आकासि जीउ ॥",
+          "ipa": "ɓɑɳæ t̪ʰəl sɪr sər ʋəhæ kəməl fʊlæ əɑkɑs d͡ʒio.",
+          "ur": "بھاݨَے تھل سر سر وهَے کمل پھُلَے آکاس جیِا ۔۔"
+        },
+        "pageNo": 762,
+        "lineNo": 16,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 4,
+              "t": "v"
+            },
+            {
+              "p": 0,
+              "t": "y"
+            },
+            {
+              "p": 2,
+              "t": "y"
+            },
+            {
+              "p": 6,
+              "t": "y"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 4,
+              "t": "v"
+            },
+            {
+              "p": 0,
+              "t": "y"
+            },
+            {
+              "p": 2,
+              "t": "y"
+            },
+            {
+              "p": 6,
+              "t": "y"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 2,
+      "verse": {
+        "verseId": 2428,
+        "verse": {
+          "gurmukhi": "BwxY Bvjlu lµGIAY BwxY mMiJ BrIAwis jIau ]",
+          "unicode": "ਭਾਣੈ ਭਵਜਲੁ ਲੰਘੀਐ ਭਾਣੈ ਮੰਝਿ ਭਰੀਆਸਿ ਜੀਉ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "BwxYBvjlulµGIAYBwxYmMiJBrIAwisjIau]",
+          "unicode": "ਭਾਣੈਭਵਜਲੁਲੰਘੀਐਭਾਣੈਮੰਝਿਭਰੀਆਸਿਜੀਉ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "By the Pleasure of Your Will, one crosses over the terrifying world-ocean; by the Pleasure of Your Will, he sinks down into it.",
+            "ms": "In Thy will, the man crosses the dreadful world-ocean and in Thy will, he is filled with sins and is drowned in it.",
+            "ssk": "By the Pleasure of Your Will, one crosses over the terrifying world-ocean; by the Pleasure of Your Will, he sinks down into it."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "pRBU dI rzw ivc hI sMswr-smuMdr qoN pwr lMG jweIdw hY; aus dI rzw Anuswr hI ivkwrW nwl BrIj ky iv`cy hI fu`b jweIdw hY [",
+              "unicode": "ਪ੍ਰਭੂ ਦੀ ਰਜ਼ਾ ਵਿਚ ਹੀ ਸੰਸਾਰ-ਸਮੁੰਦਰ ਤੋਂ ਪਾਰ ਲੰਘ ਜਾਈਦਾ ਹੈ; ਉਸ ਦੀ ਰਜ਼ਾ ਅਨੁਸਾਰ ਹੀ ਵਿਕਾਰਾਂ ਨਾਲ ਭਰੀਜ ਕੇ ਵਿੱਚੇ ਹੀ ਡੁੱਬ ਜਾਈਦਾ ਹੈ ।"
+            },
+            "ft": {
+              "gurmukhi": "qyry Bwxy kr sMswr smuMdR sy lMGIqw hY AO Bwxy kr hI (mMiJ) bIc sMswr smuMdR ky (BrIAwis) Br kr pwpoN sy irdw fUb jwqw hY]",
+              "unicode": "ਤੇਰੇ ਭਾਣੇ ਕਰ ਸੰਸਾਰ ਸਮੁੰਦ੍ਰ ਸੇ ਲੰਘੀਤਾ ਹੈ ਔ ਭਾਣੇ ਕਰ ਹੀ (ਮੰਝਿ) ਬੀਚ ਸੰਸਾਰ ਸਮੁੰਦ੍ਰ ਕੇ (ਭਰੀਆਸਿ) ਭਰ ਕਰ ਪਾਪੋਂ ਸੇ ਰਿਦਾ ਡੂਬ ਜਾਤਾ ਹੈ॥"
+            },
+            "bdb": {
+              "gurmukhi": "pRBU dI rzw ivc hI sMswr-smuMdr qoN pwr lMG jweIdw hY; aus dI rzw Anuswr hI ivkwrW nwl BrIj ky iv`cy hI fu`b jweIdw hY [",
+              "unicode": "ਪ੍ਰਭੂ ਦੀ ਰਜ਼ਾ ਵਿਚ ਹੀ ਸੰਸਾਰ-ਸਮੁੰਦਰ ਤੋਂ ਪਾਰ ਲੰਘ ਜਾਈਦਾ ਹੈ; ਉਸ ਦੀ ਰਜ਼ਾ ਅਨੁਸਾਰ ਹੀ ਵਿਕਾਰਾਂ ਨਾਲ ਭਰੀਜ ਕੇ ਵਿੱਚੇ ਹੀ ਡੁੱਬ ਜਾਈਦਾ ਹੈ ।"
+            },
+            "ms": {
+              "gurmukhi": "qyrI rzw AMdr bMdw iBAwnk sMswr smuMdr qoN pwr ho jWdw hY Aqy qyrI rzw AMdr pwpW nwl BirAw hoieAw auh ies iv`c fu`b jWdw hY[",
+              "unicode": "ਤੇਰੀ ਰਜ਼ਾ ਅੰਦਰ ਬੰਦਾ ਭਿਆਨਕ ਸੰਸਾਰ ਸਮੁੰਦਰ ਤੋਂ ਪਾਰ ਹੋ ਜਾਂਦਾ ਹੈ ਅਤੇ ਤੇਰੀ ਰਜ਼ਾ ਅੰਦਰ ਪਾਪਾਂ ਨਾਲ ਭਰਿਆ ਹੋਇਆ ਉਹ ਇਸ ਵਿੱਚ ਡੁੱਬ ਜਾਂਦਾ ਹੈ।"
+            }
+          },
+          "es": {
+            "sn": "Por Tu Voluntad cruzamos el mar de la existencia, por Tu Voluntad nuestra carga se hunde en medio de la corriente."
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "bhaanai bhavajal la(n)gheeaai bhaanai ma(n)jh bhareeaas jeeau ||",
+          "hindi": "भाणै भवजलु लंघीऐ भाणै मंझि भरीआसि जीउ ॥",
+          "en": "bhaanai bhavajal la(n)gheeaai bhaanai ma(n)jh bhareeaas jeeau ||",
+          "hi": "भाणै भवजलु लंघीऐ भाणै मंझि भरीआसि जीउ ॥",
+          "ipa": "ɓɑɳæ ɓəʋəd͡ʒəl ləⁿGʰiæ ɓɑɳæ məŋɖ͡ʐ ɓəriəɑs d͡ʒio.",
+          "ur": "بھاݨَے بھوجل لµگھیِاَے بھاݨَے مںجھ بھریِآس جیِا ۔۔"
+        },
+        "pageNo": 762,
+        "lineNo": 16,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": [
+            {
+              "p": 2,
+              "t": "v"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 2,
+      "verse": {
+        "verseId": 2429,
+        "verse": {
+          "gurmukhi": "BwxY so shu rMgulw isPiq rqw guxqwis jIau ]",
+          "unicode": "ਭਾਣੈ ਸੋ ਸਹੁ ਰੰਗੁਲਾ ਸਿਫਤਿ ਰਤਾ ਗੁਣਤਾਸਿ ਜੀਉ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "BwxYsoshurMgulwisPiqrqwguxqwisjIau]",
+          "unicode": "ਭਾਣੈਸੋਸਹੁਰੰਗੁਲਾਸਿਫਤਿਰਤਾਗੁਣਤਾਸਿਜੀਉ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "By the Pleasure of His Will, that Lord becomes my Husband, and I am imbued with the Praises of the Lord, the treasure of virtue.",
+            "ms": "In His will, He becomes the blissful spouse of mine and I am imbued with the praise of the Treasure of virtues.",
+            "ssk": "By the Pleasure of His Will, that Lord becomes my Husband, and I am imbued with the Praises of the Lord, the treasure of virtue."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "aus dI rzw ivc hI iksy jIv-iesq®I ƒ auh pRBU-pqI ipAwrw l`gdw hY, rzw Anuswr hI koeI jIv aus guxW dy ^zwny pRBU dIAW is&qW ivc msq rihMdw hY [",
+              "unicode": "ਉਸ ਦੀ ਰਜ਼ਾ ਵਿਚ ਹੀ ਕਿਸੇ ਜੀਵ-ਇਸਤ੍ਰੀ ਨੂੰ ਉਹ ਪ੍ਰਭੂ-ਪਤੀ ਪਿਆਰਾ ਲੱਗਦਾ ਹੈ, ਰਜ਼ਾ ਅਨੁਸਾਰ ਹੀ ਕੋਈ ਜੀਵ ਉਸ ਗੁਣਾਂ ਦੇ ਖ਼ਜ਼ਾਨੇ ਪ੍ਰਭੂ ਦੀਆਂ ਸਿਫ਼ਤਾਂ ਵਿਚ ਮਸਤ ਰਹਿੰਦਾ ਹੈ ।"
+            },
+            "ft": {
+              "gurmukhi": "hy swmI gunoN ky (qwis) pwqR! Bwxy kr ky hI iqs ko AwnMd myN lwvqw hY, jo qyrI isPq myN rqw hY]",
+              "unicode": "ਹੇ ਸਾਮੀ ਗੁਨੋਂ ਕੇ (ਤਾਸਿ) ਪਾਤ੍ਰ! ਭਾਣੇ ਕਰ ਕੇ ਹੀ ਤਿਸ ਕੋ ਆਨੰਦ ਮੇਂ ਲਾਵਤਾ ਹੈ, ਜੋ ਤੇਰੀ ਸਿਫਤ ਮੇਂ ਰਤਾ ਹੈ॥"
+            },
+            "bdb": {
+              "gurmukhi": "aus dI rzw ivc hI iksy jIv-iesq®I ƒ auh pRBU-pqI ipAwrw l`gdw hY, rzw Anuswr hI koeI jIv aus guxW dy ^zwny pRBU dIAW is&qW ivc msq rihMdw hY [",
+              "unicode": "ਉਸ ਦੀ ਰਜ਼ਾ ਵਿਚ ਹੀ ਕਿਸੇ ਜੀਵ-ਇਸਤ੍ਰੀ ਨੂੰ ਉਹ ਪ੍ਰਭੂ-ਪਤੀ ਪਿਆਰਾ ਲੱਗਦਾ ਹੈ, ਰਜ਼ਾ ਅਨੁਸਾਰ ਹੀ ਕੋਈ ਜੀਵ ਉਸ ਗੁਣਾਂ ਦੇ ਖ਼ਜ਼ਾਨੇ ਪ੍ਰਭੂ ਦੀਆਂ ਸਿਫ਼ਤਾਂ ਵਿਚ ਮਸਤ ਰਹਿੰਦਾ ਹੈ ।"
+            },
+            "ms": {
+              "gurmukhi": "AwpxI rzw AMdr auh myrw KuSbwS kMq ho jWdw hY Aqy mYN nykIAW dy Kjwny dI mihmw nwl rMgI jWdI hW[",
+              "unicode": "ਆਪਣੀ ਰਜ਼ਾ ਅੰਦਰ ਉਹ ਮੇਰਾ ਖੁਸ਼ਬਾਸ਼ ਕੰਤ ਹੋ ਜਾਂਦਾ ਹੈ ਅਤੇ ਮੈਂ ਨੇਕੀਆਂ ਦੇ ਖਜਾਨੇ ਦੀ ਮਹਿਮਾ ਨਾਲ ਰੰਗੀ ਜਾਂਦੀ ਹਾਂ।"
+            }
+          },
+          "es": {
+            "sn": "Por Tu Voluntad Te encuentro como a un Ser Colorido y entonces soy imbuido en Tu Alabanza, oh Tesoro de Virtud."
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "bhaanai so sahu ra(n)gulaa sifat rataa gunataas jeeau ||",
+          "hindi": "भाणै सो सहु रंगुला सिफति रता गुणतासि जीउ ॥",
+          "en": "bhaanai so sahu ra(n)gulaa sifat rataa gunataas jeeau ||",
+          "hi": "भाणै सो सहु रंगुला सिफति रता गुणतासि जीउ ॥",
+          "ipa": "ɓɑɳæ sɔ səh rəŋGʊlɑ sɪfət̪ rət̪ɑ Gʊɳət̪ɑs d͡ʒio.",
+          "ur": "بھاݨَے سو سهُ رںگلا سپھت رتا گُݨتاس جیِا ۔۔"
+        },
+        "pageNo": 762,
+        "lineNo": 17,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 3,
+              "t": "v"
+            },
+            {
+              "p": 0,
+              "t": "y"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 3,
+              "t": "v"
+            },
+            {
+              "p": 0,
+              "t": "y"
+            }
+          ],
+          "sttm2": [
+            {
+              "p": 3,
+              "t": "v"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 2,
+      "verse": {
+        "verseId": 2430,
+        "verse": {
+          "gurmukhi": "BwxY shu BIhwvlw hau Awvix jwix mueIAwis jIau ]",
+          "unicode": "ਭਾਣੈ ਸਹੁ ਭੀਹਾਵਲਾ ਹਉ ਆਵਣਿ ਜਾਣਿ ਮੁਈਆਸਿ ਜੀਉ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "BwxYshuBIhwvlwhauAwvixjwixmueIAwisjIau]",
+          "unicode": "ਭਾਣੈਸਹੁਭੀਹਾਵਲਾਹਉਆਵਣਿਜਾਣਿਮੁਈਆਸਿਜੀਉ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "By the Pleasure of Your Will, O my Husband Lord, I am afraid of You, and I come and go, and die.",
+            "ms": "In Thy will, O my Groom. Thou seemest dreadful and I am undone in coming and going.",
+            "ssk": "By the Pleasure of Your Will, O my Husband Lord, I am afraid of You, and I come and go, and die."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "ieh BI aus dI rzw ivc hI hY ik kdy auh Ksm mYƒ jIv-iesq®I ƒ frwauxw l`gdw hY, qy mYN jnm mrn dy gyV ivc pY ky Awqmk mOqy mrdI hW [",
+              "unicode": "ਇਹ ਭੀ ਉਸ ਦੀ ਰਜ਼ਾ ਵਿਚ ਹੀ ਹੈ ਕਿ ਕਦੇ ਉਹ ਖਸਮ ਮੈਨੂੰ ਜੀਵ-ਇਸਤ੍ਰੀ ਨੂੰ ਡਰਾਉਣਾ ਲੱਗਦਾ ਹੈ, ਤੇ ਮੈਂ ਜਨਮ ਮਰਨ ਦੇ ਗੇੜ ਵਿਚ ਪੈ ਕੇ ਆਤਮਕ ਮੌਤੇ ਮਰਦੀ ਹਾਂ ।"
+            },
+            "ft": {
+              "gurmukhi": "hy sÍwmI! Bwxy kr ky hI qUM BY dy dyxy vwlw hoqw hYN[ mYN qo Awvx jwx myN hI mr rhI hUM, Bwv jMmx mrn myN Awkr AqÎMq duKI hoeI hUM]",
+              "unicode": "ਹੇ ਸ੍ਵਾਮੀ! ਭਾਣੇ ਕਰ ਕੇ ਹੀ ਤੂੰ ਭੈ ਦੇ ਦੇਣੇ ਵਾਲਾ ਹੋਤਾ ਹੈਂ। ਮੈਂ ਤੋ ਆਵਣ ਜਾਣ ਮੇਂ ਹੀ ਮਰ ਰਹੀ ਹੂੰ, ਭਾਵ ਜੰਮਣ ਮਰਨ ਮੇਂ ਆਕਰ ਅਤ੍ਯੰਤ ਦੁਖੀ ਹੋਈ ਹੂੰ॥"
+            },
+            "bdb": {
+              "gurmukhi": "ieh BI aus dI rzw ivc hI hY ik kdy auh Ksm mYƒ jIv-iesq®I ƒ frwauxw l`gdw hY, qy mYN jnm mrn dy gyV ivc pY ky Awqmk mOqy mrdI hW [",
+              "unicode": "ਇਹ ਭੀ ਉਸ ਦੀ ਰਜ਼ਾ ਵਿਚ ਹੀ ਹੈ ਕਿ ਕਦੇ ਉਹ ਖਸਮ ਮੈਨੂੰ ਜੀਵ-ਇਸਤ੍ਰੀ ਨੂੰ ਡਰਾਉਣਾ ਲੱਗਦਾ ਹੈ, ਤੇ ਮੈਂ ਜਨਮ ਮਰਨ ਦੇ ਗੇੜ ਵਿਚ ਪੈ ਕੇ ਆਤਮਕ ਮੌਤੇ ਮਰਦੀ ਹਾਂ ।"
+            },
+            "ms": {
+              "gurmukhi": "AwpxI rzw AMdr, hy myry pqI! qUM iBAwnk Bwsdw hYN qy mYN Awaux qy jwx iv`c mr mu`k geI hW[",
+              "unicode": "ਆਪਣੀ ਰਜ਼ਾ ਅੰਦਰ, ਹੇ ਮੇਰੇ ਪਤੀ! ਤੂੰ ਭਿਆਨਕ ਭਾਸਦਾ ਹੈਂ ਤੇ ਮੈਂ ਆਉਣ ਤੇ ਜਾਣ ਵਿੱਚ ਮਰ ਮੁੱਕ ਗਈ ਹਾਂ।"
+            }
+          },
+          "es": {
+            "sn": "Por Tu Voluntad sufro el horror de perderme en el ciclo de las idas y venidas."
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "bhaanai sahu bheehaavalaa hau aavan jaan muieeaas jeeau ||",
+          "hindi": "भाणै सहु भीहावला हउ आवणि जाणि मुईआसि जीउ ॥",
+          "en": "bhaanai sahu bheehaavalaa hau aavan jaan muieeaas jeeau ||",
+          "hi": "भाणै सहु भीहावला हउ आवणि जाणि मुईआसि जीउ ॥",
+          "ipa": "ɓɑɳæ səh ɓihɑʋəlɑ ho əɑʋəɳ d͡ʒɑɳ mʊeiɑs d͡ʒio.",
+          "ur": "بھاݨَے سهُ بھیِهاولا ها آوݨ جاݨ مُایآس جیِا ۔۔"
+        },
+        "pageNo": 762,
+        "lineNo": 17,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 2,
+              "t": "v"
+            },
+            {
+              "p": 0,
+              "t": "y"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 2,
+              "t": "v"
+            },
+            {
+              "p": 0,
+              "t": "y"
+            }
+          ],
+          "sttm2": [
+            {
+              "p": 2,
+              "t": "v"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 2,
+      "verse": {
+        "verseId": 2431,
+        "verse": {
+          "gurmukhi": "qU shu Agmu Aqolvw hau kih kih Fih peIAwis jIau ]",
+          "unicode": "ਤੂ ਸਹੁ ਅਗਮੁ ਅਤੋਲਵਾ ਹਉ ਕਹਿ ਕਹਿ ਢਹਿ ਪਈਆਸਿ ਜੀਉ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "qUshuAgmuAqolvwhaukihkihFihpeIAwisjIau]",
+          "unicode": "ਤੂਸਹੁਅਗਮੁਅਤੋਲਵਾਹਉਕਹਿਕਹਿਢਹਿਪਈਆਸਿਜੀਉ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "You, O my Husband Lord, are inaccessible and immeasurable; talking and speaking of You, I have fallen at Your Feet.",
+            "ms": "Thou O Groom, art Unapproachable and Unweighable. Uttering, uttering of Thee I have fallen at Thine feet.",
+            "ssk": "You, O my Husband Lord, are inaccessible and immeasurable; talking and speaking of You, I have fallen at Your Feet."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "hy pRBU-pqI! qUµ AphuMc hYN, qUµ byAMq guxW dw mwlk hYN [ mYN ArdwsW kr kr ky qyry hI dr qy Fih peI hW (mYN qyrw hI Awsrw-prnw ilAw hY) [",
+              "unicode": "ਹੇ ਪ੍ਰਭੂ-ਪਤੀ! ਤੂੰ ਅਪਹੁੰਚ ਹੈਂ, ਤੂੰ ਬੇਅੰਤ ਗੁਣਾਂ ਦਾ ਮਾਲਕ ਹੈਂ । ਮੈਂ ਅਰਦਾਸਾਂ ਕਰ ਕਰ ਕੇ ਤੇਰੇ ਹੀ ਦਰ ਤੇ ਢਹਿ ਪਈ ਹਾਂ (ਮੈਂ ਤੇਰਾ ਹੀ ਆਸਰਾ-ਪਰਨਾ ਲਿਆ ਹੈ) ।"
+            },
+            "ft": {
+              "gurmukhi": "hy sÍwmI! qUM Agm AOr qol sy rhq hYN, mYN qyry guxoN ko kih kih kr qyrI Srx myN igr pVI hUM]",
+              "unicode": "ਹੇ ਸ੍ਵਾਮੀ! ਤੂੰ ਅਗਮ ਔਰ ਤੋਲ ਸੇ ਰਹਤ ਹੈਂ, ਮੈਂ ਤੇਰੇ ਗੁਣੋਂ ਕੋ ਕਹਿ ਕਹਿ ਕਰ ਤੇਰੀ ਸ਼ਰਣ ਮੇਂ ਗਿਰ ਪੜੀ ਹੂੰ॥"
+            },
+            "bdb": {
+              "gurmukhi": "hy pRBU-pqI! qUµ AphuMc hYN, qUµ byAMq guxW dw mwlk hYN [ mYN ArdwsW kr kr ky qyry hI dr qy Fih peI hW (mYN qyrw hI Awsrw-prnw ilAw hY) [",
+              "unicode": "ਹੇ ਪ੍ਰਭੂ-ਪਤੀ! ਤੂੰ ਅਪਹੁੰਚ ਹੈਂ, ਤੂੰ ਬੇਅੰਤ ਗੁਣਾਂ ਦਾ ਮਾਲਕ ਹੈਂ । ਮੈਂ ਅਰਦਾਸਾਂ ਕਰ ਕਰ ਕੇ ਤੇਰੇ ਹੀ ਦਰ ਤੇ ਢਹਿ ਪਈ ਹਾਂ (ਮੈਂ ਤੇਰਾ ਹੀ ਆਸਰਾ-ਪਰਨਾ ਲਿਆ ਹੈ) ।"
+            },
+            "ms": {
+              "gurmukhi": "qUM hy Brqy! AphuMc Aqy Awmwp hYN[ qYƒ vrxn krdI krdI mYN qyry pYrW qy if`g peI hW[",
+              "unicode": "ਤੂੰ ਹੇ ਭਰਤੇ! ਅਪਹੁੰਚ ਅਤੇ ਆਮਾਪ ਹੈਂ। ਤੈਨੂੰ ਵਰਣਨ ਕਰਦੀ ਕਰਦੀ ਮੈਂ ਤੇਰੇ ਪੈਰਾਂ ਤੇ ਡਿੱਗ ਪਈ ਹਾਂ।"
+            }
+          },
+          "es": {
+            "sn": "Oh Señor, Tú eres Insondable, Incalculable; hablando de Ti yo postro mi ser a Tus Pies. "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "too sahu agam atolavaa hau keh keh ddeh pieeaas jeeau ||",
+          "hindi": "तू सहु अगमु अतोलवा हउ कहि कहि ढहि पईआसि जीउ ॥",
+          "en": "too sahu agam atolavaa hau keh keh ddeh pieeaas jeeau ||",
+          "hi": "तू सहु अगमु अतोलवा हउ कहि कहि ढहि पईआसि जीउ ॥",
+          "ipa": "t̪u səh əGəm ət̪ɔləʋɑ ho kəh kəh ʈəh peiɑs d͡ʒio.",
+          "ur": "تُو سهُ اگم اتولوا ها کهِ کهِ ڈھهِ پایآس جیِا ۔۔"
+        },
+        "pageNo": 762,
+        "lineNo": 18,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 3,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 3,
+              "t": "v"
+            }
+          ],
+          "sttm2": [
+            {
+              "p": 3,
+              "t": "v"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 2,
+      "verse": {
+        "verseId": 2432,
+        "verse": {
+          "gurmukhi": "ikAw mwgau ikAw kih suxI mY drsn BUK ipAwis jIau ]",
+          "unicode": "ਕਿਆ ਮਾਗਉ ਕਿਆ ਕਹਿ ਸੁਣੀ ਮੈ ਦਰਸਨ ਭੂਖ ਪਿਆਸਿ ਜੀਉ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "ikAwmwgauikAwkihsuxImYdrsnBUKipAwisjIau]",
+          "unicode": "ਕਿਆਮਾਗਉਕਿਆਕਹਿਸੁਣੀਮੈਦਰਸਨਭੂਖਪਿਆਸਿਜੀਉ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "What should I beg for? What should I say and hear? I am hungry and thirsty for the Blessed Vision of Your Darshan.",
+            "ms": "What should I ask and what should I say and hear? I hunger and thirst for Thine vision.",
+            "ssk": "What should I beg for? What should I say and hear? I am hungry and thirsty for the Blessed Vision of Your Darshan."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "mYN qyry dr qoN hor kIh mMgW? qYƒ hor kIh AwKW jo qUµ suxyN? mYƒ qyry dIdwr dI Bu`K hY, mYN qyry drsn dI ipAwsI hW [",
+              "unicode": "ਮੈਂ ਤੇਰੇ ਦਰ ਤੋਂ ਹੋਰ ਕੀਹ ਮੰਗਾਂ? ਤੈਨੂੰ ਹੋਰ ਕੀਹ ਆਖਾਂ ਜੋ ਤੂੰ ਸੁਣੇਂ? ਮੈਨੂੰ ਤੇਰੇ ਦੀਦਾਰ ਦੀ ਭੁੱਖ ਹੈ, ਮੈਂ ਤੇਰੇ ਦਰਸਨ ਦੀ ਪਿਆਸੀ ਹਾਂ ।"
+            },
+            "ft": {
+              "gurmukhi": "qyry js sy ibnW ikAw mYN mWgUM AOr ikAw khUM AOr ikAw suxUM, myry ko qyry drSn kI BuK AOr ipAws hY]",
+              "unicode": "ਤੇਰੇ ਜਸ ਸੇ ਬਿਨਾਂ ਕਿਆ ਮੈਂ ਮਾਂਗੂੰ ਔਰ ਕਿਆ ਕਹੂੰ ਔਰ ਕਿਆ ਸੁਣੂੰ, ਮੇਰੇ ਕੋ ਤੇਰੇ ਦਰਸ਼ਨ ਕੀ ਭੁਖ ਔਰ ਪਿਆਸ ਹੈ॥"
+            },
+            "bdb": {
+              "gurmukhi": "mYN qyry dr qoN hor kIh mMgW? qYƒ hor kIh AwKW jo qUµ suxyN? mYƒ qyry dIdwr dI Bu`K hY, mYN qyry drsn dI ipAwsI hW [",
+              "unicode": "ਮੈਂ ਤੇਰੇ ਦਰ ਤੋਂ ਹੋਰ ਕੀਹ ਮੰਗਾਂ? ਤੈਨੂੰ ਹੋਰ ਕੀਹ ਆਖਾਂ ਜੋ ਤੂੰ ਸੁਣੇਂ? ਮੈਨੂੰ ਤੇਰੇ ਦੀਦਾਰ ਦੀ ਭੁੱਖ ਹੈ, ਮੈਂ ਤੇਰੇ ਦਰਸਨ ਦੀ ਪਿਆਸੀ ਹਾਂ ।"
+            },
+            "ms": {
+              "gurmukhi": "mYN kI mMgW Aqy kI AwKW qy suxw? mYƒ qyry dIdwr dI Bu`K Aqy qRyh hY[",
+              "unicode": "ਮੈਂ ਕੀ ਮੰਗਾਂ ਅਤੇ ਕੀ ਆਖਾਂ ਤੇ ਸੁਣਾ? ਮੈਨੂੰ ਤੇਰੇ ਦੀਦਾਰ ਦੀ ਭੁੱਖ ਅਤੇ ਤ੍ਰੇਹ ਹੈ।"
+            }
+          },
+          "es": {
+            "sn": "¿Qué podría yo pedir? díganme, ¿qué podría yo recitar?, excepto que estoy sediento y hambriento por Ti. "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "kiaa maagau kiaa keh sunee mai dharasan bhookh piaas jeeau ||",
+          "hindi": "किआ मागउ किआ कहि सुणी मै दरसन भूख पिआसि जीउ ॥",
+          "en": "kiaa maagau kiaa keh sunee mai dharasan bhookh piaas jeeau ||",
+          "hi": "किआ मागउ किआ कहि सुणी मै दरसन भूख पिआसि जीउ ॥",
+          "ipa": "kɪəɑ mɑGo kɪəɑ kəh sʊɳi mæ d̪ərəsən ɓukʰ pɪəɑs d͡ʒio.",
+          "ur": "کِآ ماگا کآ کهِ سُݨیِ مَے درسن بھُوکھ پآس جیِا ۔۔"
+        },
+        "pageNo": 762,
+        "lineNo": 19,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 4,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 4,
+              "t": "v"
+            }
+          ],
+          "sttm2": [
+            {
+              "p": 4,
+              "t": "v"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 2,
+      "verse": {
+        "verseId": 2433,
+        "verse": {
+          "gurmukhi": "gur sbdI shu pwieAw scu nwnk kI Ardwis jIau ]2]",
+          "unicode": "ਗੁਰ ਸਬਦੀ ਸਹੁ ਪਾਇਆ ਸਚੁ ਨਾਨਕ ਕੀ ਅਰਦਾਸਿ ਜੀਉ ॥੨॥"
+        },
+        "larivaar": {
+          "gurmukhi": "gursbdIshupwieAwscunwnkkIArdwisjIau]2]",
+          "unicode": "ਗੁਰਸਬਦੀਸਹੁਪਾਇਆਸਚੁਨਾਨਕਕੀਅਰਦਾਸਿਜੀਉ॥੨॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Through the Word of the Guru's Teachings, I have found my Husband Lord. This is Nanak's true prayer. ||2||",
+            "ms": "Guru's Instruction, I have obtained my Lord, and Nanak's true prayer has been granted.",
+            "ssk": "Through the Word of the Guru's Teachings, I have found my Husband Lord. This is Nanak's true prayer. ||2||"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "qUµ sdw-iQr rihx vwlw Ksm gurU dy Sbd dI rwhIN imldw hYN [ myrI nwnk dI qyry A`gy ArzoeI hY ik mYƒ BI gurU dI srn pw ky iml [2[",
+              "unicode": "ਤੂੰ ਸਦਾ-ਥਿਰ ਰਹਿਣ ਵਾਲਾ ਖਸਮ ਗੁਰੂ ਦੇ ਸ਼ਬਦ ਦੀ ਰਾਹੀਂ ਮਿਲਦਾ ਹੈਂ । ਮੇਰੀ ਨਾਨਕ ਦੀ ਤੇਰੇ ਅੱਗੇ ਅਰਜ਼ੋਈ ਹੈ ਕਿ ਮੈਨੂੰ ਭੀ ਗੁਰੂ ਦੀ ਸਰਨ ਪਾ ਕੇ ਮਿਲ ।੨।"
+            },
+            "ft": {
+              "gurmukhi": "jb AYsI bynqI krI gurU jI khqy hYN: myrI bynqI scI qYnyN sunI qb guroN ky aupdys kr ky hy swcy shu! qyry ko pwXw hY]2]",
+              "unicode": "ਜਬ ਐਸੀ ਬੇਨਤੀ ਕਰੀ ਗੁਰੂ ਜੀ ਕਹਤੇ ਹੈਂ: ਮੇਰੀ ਬੇਨਤੀ ਸਚੀ ਤੈਨੇਂ ਸੁਨੀ ਤਬ ਗੁਰੋਂ ਕੇ ਉਪਦੇਸ ਕਰ ਕੇ ਹੇ ਸਾਚੇ ਸਹੁ! ਤੇਰੇ ਕੋ ਪਾਯਾ ਹੈ॥੨॥"
+            },
+            "bdb": {
+              "gurmukhi": "qUµ sdw-iQr rihx vwlw Ksm gurU dy Sbd dI rwhIN imldw hYN [ myrI nwnk dI qyry A`gy ArzoeI hY ik mYƒ BI gurU dI srn pw ky iml [2[",
+              "unicode": "ਤੂੰ ਸਦਾ-ਥਿਰ ਰਹਿਣ ਵਾਲਾ ਖਸਮ ਗੁਰੂ ਦੇ ਸ਼ਬਦ ਦੀ ਰਾਹੀਂ ਮਿਲਦਾ ਹੈਂ । ਮੇਰੀ ਨਾਨਕ ਦੀ ਤੇਰੇ ਅੱਗੇ ਅਰਜ਼ੋਈ ਹੈ ਕਿ ਮੈਨੂੰ ਭੀ ਗੁਰੂ ਦੀ ਸਰਨ ਪਾ ਕੇ ਮਿਲ ।੨।"
+            },
+            "ms": {
+              "gurmukhi": "gurW dy aupdyS duAwrw, mYN Awpxy isr dy sweIN ƒ pw ilAw hY Aqy nwnk dI s`cI pRwrQnw prvwn ho geI hY[",
+              "unicode": "ਗੁਰਾਂ ਦੇ ਉਪਦੇਸ਼ ਦੁਆਰਾ, ਮੈਂ ਆਪਣੇ ਸਿਰ ਦੇ ਸਾਈਂ ਨੂੰ ਪਾ ਲਿਆ ਹੈ ਅਤੇ ਨਾਨਕ ਦੀ ਸੱਚੀ ਪ੍ਰਾਰਥਨਾ ਪਰਵਾਨ ਹੋ ਗਈ ਹੈ।"
+            }
+          },
+          "es": {
+            "sn": "A través de la Palabra de las Enseñanzas, he encontrado a mi Esposo, el Señor, esta es la Verdadera oración de Nanak.(2)"
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "gur sabadhee sahu paiaa sach naanak kee aradhaas jeeau ||2||",
+          "hindi": "गुर सबदी सहु पाइआ सचु नानक की अरदासि जीउ ॥२॥",
+          "en": "gur sabadhee sahu paiaa sach naanak kee aradhaas jeeau ||2||",
+          "hi": "गुर सबदी सहु पाइआ सचु नानक की अरदासि जीउ ॥२॥",
+          "ipa": "Gʊr səbəd̪i səh pɑɪɑ sət͡ʃ nɑnək ki ərəd̪ɑs d͡ʒio.2.",
+          "ur": "گُر سبدیِ سهُ پااآ سچ نانک کیِ ارداس جیِا ۔۔۲۔۔"
+        },
+        "pageNo": 762,
+        "lineNo": 19,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 3,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 3,
+              "t": "v"
+            }
+          ],
+          "sttm2": [
+            {
+              "p": 3,
+              "t": "v"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

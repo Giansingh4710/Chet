@@ -30,11 +30,12 @@ struct Provider: @preconcurrency TimelineProvider {
     @MainActor func getTimeline(in _: Context, completion: @escaping (Timeline<RandSbdForWidget>) -> Void) {
         let svdSbds = getFavShabads()
         var entries: [RandSbdForWidget] = []
-        let interval = UserDefaults.appGroup.data(forKey: "favSbdRefreshInterval") as? Int ?? 3
+        let interval = UserDefaults.appGroup.integer(forKey: "favSbdRefreshInterval")
+        let actualInterval = interval > 0 ? interval : 3 // Default to 3 hours if not set
         var lastDate = Date.now
         for offset in 0 ..< svdSbds.count {
             let sbd = svdSbds[offset]
-            let entryDate = Calendar.current.date(byAdding: .hour, value: offset * interval, to: Date())!
+            let entryDate = Calendar.current.date(byAdding: .hour, value: offset * actualInterval, to: Date())!
             let entry = RandSbdForWidget(sbd: sbd.sbdRes, date: entryDate, index: sbd.indexOfSelectedLine)
             lastDate = entryDate
             entries.append(entry)

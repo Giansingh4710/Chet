@@ -1,0 +1,5258 @@
+{
+  "baniInfo": {
+    "baniID": 5,
+    "gurmukhi": "Sbd hzwry pwiqSwhI 10",
+    "unicode": "ਸ਼ਬਦ ਹਜ਼ਾਰੇ ਪਾਤਿਸ਼ਾਹੀ ੧੦",
+    "english": "shabadh hazaare paatishaahee 10",
+    "hindi": "शबद हज़ारे पातिशाही १०",
+    "en": "shabadh hazaare paatishaahee 10",
+    "hi": "शबद हज़ारे पातिशाही १०",
+    "ipa": "ʃəbəd̪ həzɑre pɑt̪ɪʃɑhi 1ə0",
+    "ur": "شبد هزارے پاتشاهیِ ۱۰",
+    "source": {
+      "sourceId": null,
+      "gurmukhi": null,
+      "unicode": null,
+      "english": null,
+      "pageNo": null
+    },
+    "raag": {
+      "raagId": null,
+      "gurmukhi": null,
+      "unicode": null,
+      "english": null,
+      "raagWithPage": null
+    },
+    "writer": {
+      "writerId": null,
+      "gurmukhi": null,
+      "unicode": null,
+      "english": null
+    }
+  },
+  "verses": [
+    {
+      "header": 2,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 4,
+      "verse": {
+        "verseId": 1324,
+        "verse": {
+          "gurmukhi": "Sbd hzwry pwiqSwhI 10",
+          "unicode": "ਸ਼ਬਦ ਹਜ਼ਾਰੇ ਪਾਤਿਸ਼ਾਹੀ ੧੦"
+        },
+        "larivaar": {
+          "gurmukhi": "SbdhzwrypwiqSwhI10",
+          "unicode": "ਸ਼ਬਦਹਜ਼ਾਰੇਪਾਤਿਸ਼ਾਹੀ੧੦"
+        },
+        "translation": {
+          "en": {
+            "bdb": ""
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            }
+          },
+          "es": {
+            "sn": null
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "shabadh hazaare paatishaahee 10",
+          "hindi": "शबद हज़ारे पातिशाही १०",
+          "en": "shabadh hazaare paatishaahee 10",
+          "hi": "शबद हज़ारे पातिशाही १०",
+          "ipa": "ʃəbəd̪ həzɑre pɑt̪ɪʃɑhi 1ə0",
+          "ur": "شبد هزارے پاتشاهیِ ۱۰"
+        },
+        "pageNo": null,
+        "lineNo": null,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {}
+      }
+    },
+    {
+      "header": 1,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 1,
+      "verse": {
+        "verseId": 1313,
+        "verse": {
+          "gurmukhi": "<> siqgurpRswid ]",
+          "unicode": "ੴ ਸਤਿਗੁਰਪ੍ਰਸਾਦਿ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "<>siqgurpRswid]",
+          "unicode": "ੴਸਤਿਗੁਰਪ੍ਰਸਾਦਿ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "The Lord is One the Victory is of the Lord."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "<> siqgurpRswid:",
+              "unicode": "ੴ ਸਤਿਗੁਰਪ੍ਰਸਾਦਿ:"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "<> siqgurpRswid:",
+              "unicode": "ੴ ਸਤਿਗੁਰਪ੍ਰਸਾਦਿ:"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "ikOankaar satiguraprasaadh ||",
+          "hindi": "ੴ सतिगुरप्रसादि ॥",
+          "en": "ikOankaar satiguraprasaadh ||",
+          "hi": "ੴ सतिगुरप्रसादि ॥",
+          "ipa": "ɪk oəŋkɑɾ sət̪ɪGʊrəpɹəsɑd̪.",
+          "ur": "اک اونکار ستگرپرساد ۔۔"
+        },
+        "pageNo": 709,
+        "lineNo": 105804,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 1,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 1,
+      "verse": {
+        "verseId": 1314,
+        "verse": {
+          "gurmukhi": "sRI vwihgurU jI kI Pqh ]",
+          "unicode": "ਸ੍ਰੀ ਵਾਹਿਗੁਰੂ ਜੀ ਕੀ ਫਤਹ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "sRIvwihgurUjIkIPqh]",
+          "unicode": "ਸ੍ਰੀਵਾਹਿਗੁਰੂਜੀਕੀਫਤਹ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Victory is the Lord's."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            }
+          },
+          "es": {
+            "sn": null
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "sree vaahiguroo jee kee fateh ||",
+          "hindi": "स्री वाहिगुरू जी की फतह ॥",
+          "en": "sree vaahiguroo jee kee fateh ||",
+          "hi": "स्री वाहिगुरू जी की फतह ॥",
+          "ipa": "sɹi ʋɑhɪGʊru d͡ʒi ki fət̪əh.",
+          "ur": "سریِ واهگرُو جیِ کیِ پھته ۔۔"
+        },
+        "pageNo": null,
+        "lineNo": null,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {}
+      }
+    },
+    {
+      "header": 2,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 2,
+      "verse": {
+        "verseId": 1315,
+        "verse": {
+          "gurmukhi": "rwmklI pwqswhI 10 ]",
+          "unicode": "ਰਾਮਕਲੀ ਪਾਤਸਾਹੀ ੧੦ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "rwmklIpwqswhI10]",
+          "unicode": "ਰਾਮਕਲੀਪਾਤਸਾਹੀ੧੦॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "RAMKALI OF THE TENTH KING"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "rwg rwmklI pwiqSwhI 10:",
+              "unicode": "ਰਾਗ ਰਾਮਕਲੀ ਪਾਤਿਸ਼ਾਹੀ ੧੦:"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "rwg rwmklI pwiqSwhI 10:",
+              "unicode": "ਰਾਗ ਰਾਮਕਲੀ ਪਾਤਿਸ਼ਾਹੀ ੧੦:"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "raamakalee paatasaahee 10 ||",
+          "hindi": "रामकली पातसाही १० ॥",
+          "en": "raamakalee paatasaahee 10 ||",
+          "hi": "रामकली पातसाही १० ॥",
+          "ipa": "rɑməkəli pɑt̪əsɑhi 1ə0.",
+          "ur": "رامکلیِ پاتساهیِ ۱۰ ۔۔"
+        },
+        "pageNo": 709,
+        "lineNo": 105806,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 3,
+      "verse": {
+        "verseId": 1316,
+        "verse": {
+          "gurmukhi": "ry mn AYso kr sMinAwsw ]",
+          "unicode": "ਰੇ ਮਨ ਐਸੋ ਕਰ ਸੰਨਿਆਸਾ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "rymnAYsokrsMinAwsw]",
+          "unicode": "ਰੇਮਨਐਸੋਕਰਸੰਨਿਆਸਾ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "O mind! the asceticism be practised in this way :"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "hy mn! (qUM) ies pRkwr dw sMinAws Dwrn kr।",
+              "unicode": "ਹੇ ਮਨ! (ਤੂੰ) ਇਸ ਪ੍ਰਕਾਰ ਦਾ ਸੰਨਿਆਸ ਧਾਰਨ ਕਰ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "hy mn! (qUM) ies pRkwr dw sMinAws Dwrn kr।",
+              "unicode": "ਹੇ ਮਨ! (ਤੂੰ) ਇਸ ਪ੍ਰਕਾਰ ਦਾ ਸੰਨਿਆਸ ਧਾਰਨ ਕਰ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "re man aaiso kar sa(n)niaasaa ||",
+          "hindi": "रे मन ऐसो कर संनिआसा ॥",
+          "en": "re man aaiso kar sa(n)niaasaa ||",
+          "hi": "रे मन ऐसो कर संनिआसा ॥",
+          "ipa": "re mən æsɔ kər səŋnɪəɑsɑ.",
+          "ur": "رے من اَےسو کر سنّآسا ۔۔"
+        },
+        "pageNo": 709,
+        "lineNo": 105807,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 3,
+      "verse": {
+        "verseId": 1317,
+        "verse": {
+          "gurmukhi": "bn sy sdn sbY kr smJhu mn hI mwih audwsw ]1] rhwau ]",
+          "unicode": "ਬਨ ਸੇ ਸਦਨ ਸਬੈ ਕਰ ਸਮਝਹੁ ਮਨ ਹੀ ਮਾਹਿ ਉਦਾਸਾ ॥੧॥ ਰਹਾਉ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "bnsysdnsbYkrsmJhumnhImwihaudwsw]1]rhwau]",
+          "unicode": "ਬਨਸੇਸਦਨਸਬੈਕਰਸਮਝਹੁਮਨਹੀਮਾਹਿਉਦਾਸਾ॥੧॥ਰਹਾਉ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Consider your house as the forest and remain unattached within yourself…..Pause."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "swry Grw nUM bn dy smwn smJo Aqy mn ivc (sdw) audws rho ]1] rhwau।",
+              "unicode": "ਸਾਰੇ ਘਰਾ ਨੂੰ ਬਨ ਦੇ ਸਮਾਨ ਸਮਝੋ ਅਤੇ ਮਨ ਵਿਚ (ਸਦਾ) ਉਦਾਸ ਰਹੋ ॥੧॥ ਰਹਾਉ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "swry Grw nUM bn dy smwn smJo Aqy mn ivc (sdw) audws rho ]1] rhwau।",
+              "unicode": "ਸਾਰੇ ਘਰਾ ਨੂੰ ਬਨ ਦੇ ਸਮਾਨ ਸਮਝੋ ਅਤੇ ਮਨ ਵਿਚ (ਸਦਾ) ਉਦਾਸ ਰਹੋ ॥੧॥ ਰਹਾਉ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "ban se sadhan sabai kar samajhahu man hee maeh udhaasaa ||1|| rahaau ||",
+          "hindi": "बन से सदन सबै कर समझहु मन ही माहि उदासा ॥१॥ रहाउ ॥",
+          "en": "ban se sadhan sabai kar samajhahu man hee maeh udhaasaa ||1|| rahaau ||",
+          "hi": "बन से सदन सबै कर समझहु मन ही माहि उदासा ॥१॥ रहाउ ॥",
+          "ipa": "bən se səd̪ən səbæ kər səməɖ͡ʐəh mən hi mɑh oʊd̪ɑsɑ.1. rəhɑo.",
+          "ur": "بن سے سدن سبَے کر سمجھهُ من هیِ ماه اُداسا ۔۔۱۔۔ رهاا ۔۔"
+        },
+        "pageNo": 709,
+        "lineNo": 105808,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 3,
+      "verse": {
+        "verseId": 1318,
+        "verse": {
+          "gurmukhi": "jq kI jtw jog ko mMjnu nym ky nKn bFwE ]",
+          "unicode": "ਜਤ ਕੀ ਜਟਾ ਜੋਗ ਕੋ ਮੰਜਨੁ ਨੇਮ ਕੇ ਨਖਨ ਬਢਾਓ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "jqkIjtwjogkomMjnunymkynKnbFwE]",
+          "unicode": "ਜਤਕੀਜਟਾਜੋਗਕੋਮੰਜਨੁਨੇਮਕੇਨਖਨਬਢਾਓ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Consider continence as the matted hair, Yoga as the ablution and daily observances as your nails,"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "jq dIAW jtwvw, Xog dw ieSnwn Aqy nym dy nONh vDw lvo।",
+              "unicode": "ਜਤ ਦੀਆਂ ਜਟਾਵਾ, ਯੋਗ ਦਾ ਇਸ਼ਨਾਨ ਅਤੇ ਨੇਮ ਦੇ ਨੌਂਹ ਵਧਾ ਲਵੋ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "jq dIAW jtwvw, Xog dw ieSnwn Aqy nym dy nONh vDw lvo।",
+              "unicode": "ਜਤ ਦੀਆਂ ਜਟਾਵਾ, ਯੋਗ ਦਾ ਇਸ਼ਨਾਨ ਅਤੇ ਨੇਮ ਦੇ ਨੌਂਹ ਵਧਾ ਲਵੋ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "jat kee jaTaa jog ko ma(n)jan nem ke nakhan baddaao ||",
+          "hindi": "जत की जटा जोग को मंजनु नेम के नखन बढाओ ॥",
+          "en": "jat kee jaTaa jog ko ma(n)jan nem ke nakhan baddaao ||",
+          "hi": "जत की जटा जोग को मंजनु नेम के नखन बढाओ ॥",
+          "ipa": "d͡ʒət̪ ki d͡ʒəʈɑ d͡ʒɔG kɔ məŋd͡ʒən nem ke nəkʰən bəʈɑo.",
+          "ur": "جت کیِ جٹا جوگ کو مںجن نےم کے نکھن بڈھااو ۔۔"
+        },
+        "pageNo": 709,
+        "lineNo": 105809,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 3,
+      "verse": {
+        "verseId": 1319,
+        "verse": {
+          "gurmukhi": "igAwn gurU Awqm aupdyshu nwm ibBUq lgwE ]1]",
+          "unicode": "ਗਿਆਨ ਗੁਰੂ ਆਤਮ ਉਪਦੇਸਹੁ ਨਾਮ ਬਿਭੂਤ ਲਗਾਓ ॥੧॥"
+        },
+        "larivaar": {
+          "gurmukhi": "igAwngurUAwqmaupdyshunwmibBUqlgwE]1]",
+          "unicode": "ਗਿਆਨਗੁਰੂਆਤਮਉਪਦੇਸਹੁਨਾਮਬਿਭੂਤਲਗਾਓ॥੧॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Consider the knowledge as the preceptor giving lessons to you and apply the Name of the Lord as ashes.1."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "igAwn nUM gurU Dwrn kr ky Awpxy Awp nUM aupdyS idE Aqy nwm (dy ismrn) dI ibBUq (suAwh) lgwE ]1]",
+              "unicode": "ਗਿਆਨ ਨੂੰ ਗੁਰੂ ਧਾਰਨ ਕਰ ਕੇ ਆਪਣੇ ਆਪ ਨੂੰ ਉਪਦੇਸ਼ ਦਿਓ ਅਤੇ ਨਾਮ (ਦੇ ਸਿਮਰਨ) ਦੀ ਬਿਭੂਤ (ਸੁਆਹ) ਲਗਾਓ ॥੧॥"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "igAwn nUM gurU Dwrn kr ky Awpxy Awp nUM aupdyS idE Aqy nwm (dy ismrn) dI ibBUq (suAwh) lgwE ]1]",
+              "unicode": "ਗਿਆਨ ਨੂੰ ਗੁਰੂ ਧਾਰਨ ਕਰ ਕੇ ਆਪਣੇ ਆਪ ਨੂੰ ਉਪਦੇਸ਼ ਦਿਓ ਅਤੇ ਨਾਮ (ਦੇ ਸਿਮਰਨ) ਦੀ ਬਿਭੂਤ (ਸੁਆਹ) ਲਗਾਓ ॥੧॥"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "giaan guroo aatam upadhesahu naam bibhoot lagaao ||1||",
+          "hindi": "गिआन गुरू आतम उपदेसहु नाम बिभूत लगाओ ॥१॥",
+          "en": "giaan guroo aatam upadhesahu naam bibhoot lagaao ||1||",
+          "hi": "गिआन गुरू आतम उपदेसहु नाम बिभूत लगाओ ॥१॥",
+          "ipa": "Gɪəɑn Gʊru əɑt̪əm oʊpəd̪esəh nɑm bɪɓut̪ ləGɑo.1.",
+          "ur": "گِآن گُرُو آتم اُپدےسهُ نام ببھُوت لگااو ۔۔۱۔۔"
+        },
+        "pageNo": 709,
+        "lineNo": 105810,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 3,
+      "verse": {
+        "verseId": 1320,
+        "verse": {
+          "gurmukhi": "Alp Ahwr sulp sI inMdRw dXw iCmw qn pRIiq ]",
+          "unicode": "ਅਲਪ ਅਹਾਰ ਸੁਲਪ ਸੀ ਨਿੰਦ੍ਰਾ ਦਯਾ ਛਿਮਾ ਤਨ ਪ੍ਰੀਤਿ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "AlpAhwrsulpsIinMdRwdXwiCmwqnpRIiq]",
+          "unicode": "ਅਲਪਅਹਾਰਸੁਲਪਸੀਨਿੰਦ੍ਰਾਦਯਾਛਿਮਾਤਨਪ੍ਰੀਤਿ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Eat less and sleep less, cherish mercy and forgiveness"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "QoVw Awhwr, bhuq QoVI ijhI nINdr Aqy dieAw qy iKmw nwl pRIq kro।",
+              "unicode": "ਥੋੜਾ ਆਹਾਰ, ਬਹੁਤ ਥੋੜੀ ਜਿਹੀ ਨੀਂਦਰ ਅਤੇ ਦਇਆ ਤੇ ਖਿਮਾ ਨਾਲ ਪ੍ਰੀਤ ਕਰੋ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "QoVw Awhwr, bhuq QoVI ijhI nINdr Aqy dieAw qy iKmw nwl pRIq kro।",
+              "unicode": "ਥੋੜਾ ਆਹਾਰ, ਬਹੁਤ ਥੋੜੀ ਜਿਹੀ ਨੀਂਦਰ ਅਤੇ ਦਇਆ ਤੇ ਖਿਮਾ ਨਾਲ ਪ੍ਰੀਤ ਕਰੋ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "alap ahaar sulap see ni(n)dhraa dhayaa chhimaa tan preet ||",
+          "hindi": "अलप अहार सुलप सी निंद्रा दया छिमा तन प्रीति ॥",
+          "en": "alap ahaar sulap see ni(n)dhraa dhayaa chhimaa tan preet ||",
+          "hi": "अलप अहार सुलप सी निंद्रा दया छिमा तन प्रीति ॥",
+          "ipa": "ələp əhɑr sʊləp si nɪŋd̪ɹɑ d̪əjɑ ɕɪmɑ t̪ən pɹit̪.",
+          "ur": "الپ اهار سُلپ سیِ نںدرا دےا چھما تن پریِت ۔۔"
+        },
+        "pageNo": 709,
+        "lineNo": 105811,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 3,
+      "verse": {
+        "verseId": 1321,
+        "verse": {
+          "gurmukhi": "sIl sMqoK sdw inrbwihbo hÍYbo iqRgux AqIq ]2]",
+          "unicode": "ਸੀਲ ਸੰਤੋਖ ਸਦਾ ਨਿਰਬਾਹਿਬੋ ਹ੍ਵੈਬੋ ਤ੍ਰਿਗੁਣ ਅਤੀਤ ॥੨॥"
+        },
+        "larivaar": {
+          "gurmukhi": "sIlsMqoKsdwinrbwihbohÍYboiqRguxAqIq]2]",
+          "unicode": "ਸੀਲਸੰਤੋਖਸਦਾਨਿਰਬਾਹਿਬੋਹ੍ਵੈਬੋਤ੍ਰਿਗੁਣਅਤੀਤ॥੨॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Practise gentleness and contentment and remain free from three modes.2."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "SIl Aqy sMqoK nUM sdw inBw Aqy iqMn guxw qoN inrilpq rih ]2]",
+              "unicode": "ਸ਼ੀਲ ਅਤੇ ਸੰਤੋਖ ਨੂੰ ਸਦਾ ਨਿਭਾ ਅਤੇ ਤਿੰਨ ਗੁਣਾ ਤੋਂ ਨਿਰਲਿਪਤ ਰਹਿ ॥੨॥"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "SIl Aqy sMqoK nUM sdw inBw Aqy iqMn guxw qoN inrilpq rih ]2]",
+              "unicode": "ਸ਼ੀਲ ਅਤੇ ਸੰਤੋਖ ਨੂੰ ਸਦਾ ਨਿਭਾ ਅਤੇ ਤਿੰਨ ਗੁਣਾ ਤੋਂ ਨਿਰਲਿਪਤ ਰਹਿ ॥੨॥"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "seel sa(n)tokh sadhaa nirabaahibo havaibo tiragun ateet ||2||",
+          "hindi": "सील संतोख सदा निरबाहिबो ह्वैबो तृगुण अतीत ॥२॥",
+          "en": "seel sa(n)tokh sadhaa nirabaahibo havaibo tiragun ateet ||2||",
+          "hi": "सील संतोख सदा निरबाहिबो ह्वैबो तृगुण अतीत ॥२॥",
+          "ipa": "sil səŋt̪ɔkʰ səd̪ɑ nɪrəbɑhɪbɔ hʋæbɔ t̪ɪɹəGʊɳ ət̪it̪.2.",
+          "ur": "سیِل سںتوکھ سدا نرباهبو هوَےبو ترگݨ اتیِت ۔۔۲۔۔"
+        },
+        "pageNo": 709,
+        "lineNo": 105812,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 3,
+      "verse": {
+        "verseId": 1322,
+        "verse": {
+          "gurmukhi": "kwm kRoD hMkwr loB hT moh n mn isau lÎwvY ]",
+          "unicode": "ਕਾਮ ਕ੍ਰੋਧ ਹੰਕਾਰ ਲੋਭ ਹਠ ਮੋਹ ਨ ਮਨ ਸਿਉ ਲ੍ਯਾਵੈ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "kwmkRoDhMkwrloBhTmohnmnisaulÎwvY]",
+          "unicode": "ਕਾਮਕ੍ਰੋਧਹੰਕਾਰਲੋਭਹਠਮੋਹਨਮਨਸਿਉਲ੍ਯਾਵੈ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Keep your mind unattached from lust, anger, greed, insistence and infatuation,"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "kwm, kRoD, hMkwr, loB, hT, moh, nUM mn ivc kdy nw ilAw।",
+              "unicode": "ਕਾਮ, ਕ੍ਰੋਧ, ਹੰਕਾਰ, ਲੋਭ, ਹਠ, ਮੋਹ, ਨੂੰ ਮਨ ਵਿਚ ਕਦੇ ਨਾ ਲਿਆ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "kwm, kRoD, hMkwr, loB, hT, moh, nUM mn ivc kdy nw ilAw।",
+              "unicode": "ਕਾਮ, ਕ੍ਰੋਧ, ਹੰਕਾਰ, ਲੋਭ, ਹਠ, ਮੋਹ, ਨੂੰ ਮਨ ਵਿਚ ਕਦੇ ਨਾ ਲਿਆ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "kaam krodh ha(n)kaar lobh haTh moh na man siau layaavai ||",
+          "hindi": "काम क्रोध हंकार लोभ हठ मोह न मन सिउ ल्यावै ॥",
+          "en": "kaam krodh ha(n)kaar lobh haTh moh na man siau layaavai ||",
+          "hi": "काम क्रोध हंकार लोभ हठ मोह न मन सिउ ल्यावै ॥",
+          "ipa": "kɑm kɹɔt̪ə̀ həŋkɑr lɔɓ həʈʰ mɔh nə mən sɪo ləjɑʋæ.",
+          "ur": "کام کرودھ هںکار لوبھ هٹھ موه ن من سا لےاوَے ۔۔"
+        },
+        "pageNo": 709,
+        "lineNo": 105813,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 3,
+      "verse": {
+        "verseId": 1323,
+        "verse": {
+          "gurmukhi": "qb hI Awqm qq ko drsy prm purK kh pwvY ]3]1]",
+          "unicode": "ਤਬ ਹੀ ਆਤਮ ਤਤ ਕੋ ਦਰਸੇ ਪਰਮ ਪੁਰਖ ਕਹ ਪਾਵੈ ॥੩॥੧॥"
+        },
+        "larivaar": {
+          "gurmukhi": "qbhIAwqmqqkodrsyprmpurKkhpwvY]3]1]",
+          "unicode": "ਤਬਹੀਆਤਮਤਤਕੋਦਰਸੇਪਰਮਪੁਰਖਕਹਪਾਵੈ॥੩॥੧॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Then you will visualize the supreme essence and realise the supreme Purusha.3.1."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "qd hI Awqm q`q nUM vyK skyWgw Aqy prm purK (prmwqmw) nUM pRwpq kryWgw ]3]1]",
+              "unicode": "ਤਦ ਹੀ ਆਤਮ ਤੱਤ ਨੂੰ ਵੇਖ ਸਕੇਾਂਗਾ ਅਤੇ ਪਰਮ ਪੁਰਖ (ਪਰਮਾਤਮਾ) ਨੂੰ ਪ੍ਰਾਪਤ ਕਰੇਾਂਗਾ ॥੩॥੧॥"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "qd hI Awqm q`q nUM vyK skyWgw Aqy prm purK (prmwqmw) nUM pRwpq kryWgw ]3]1]",
+              "unicode": "ਤਦ ਹੀ ਆਤਮ ਤੱਤ ਨੂੰ ਵੇਖ ਸਕੇਾਂਗਾ ਅਤੇ ਪਰਮ ਪੁਰਖ (ਪਰਮਾਤਮਾ) ਨੂੰ ਪ੍ਰਾਪਤ ਕਰੇਾਂਗਾ ॥੩॥੧॥"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "tab hee aatam tat ko dharase param purakh keh paavai ||3||1||",
+          "hindi": "तब ही आतम तत को दरसे परम पुरख कह पावै ॥३॥१॥",
+          "en": "tab hee aatam tat ko dharase param purakh keh paavai ||3||1||",
+          "hi": "तब ही आतम तत को दरसे परम पुरख कह पावै ॥३॥१॥",
+          "ipa": "t̪əb hi əɑt̪əm t̪ət̪ kɔ d̪ərəse pərəm pʊrəkʰ kəh pɑʋæ.3.1.",
+          "ur": "تب هیِ آتم تت کو درسے پرم پُرکھ که پاوَے ۔۔۳۔۔۱۔۔"
+        },
+        "pageNo": 709,
+        "lineNo": 105814,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 2,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 5,
+      "verse": {
+        "verseId": 1325,
+        "verse": {
+          "gurmukhi": "rwmklI pwiqswhI 10 ]",
+          "unicode": "ਰਾਮਕਲੀ ਪਾਤਿਸਾਹੀ ੧੦ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "rwmklIpwiqswhI10]",
+          "unicode": "ਰਾਮਕਲੀਪਾਤਿਸਾਹੀ੧੦॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "RAMKALI OF THE TENTH KING"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "rwmkwlI pwqSwhI 10:",
+              "unicode": "ਰਾਮਕਾਲੀ ਪਾਤਸ਼ਾਹੀ ੧੦:"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "rwmkwlI pwqSwhI 10:",
+              "unicode": "ਰਾਮਕਾਲੀ ਪਾਤਸ਼ਾਹੀ ੧੦:"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "raamakalee paatisaahee 10 ||",
+          "hindi": "रामकली पातिसाही १० ॥",
+          "en": "raamakalee paatisaahee 10 ||",
+          "hi": "रामकली पातिसाही १० ॥",
+          "ipa": "rɑməkəli pɑt̪ɪsɑhi 1ə0.",
+          "ur": "رامکلیِ پاتساهیِ ۱۰ ۔۔"
+        },
+        "pageNo": 709,
+        "lineNo": 105815,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 6,
+      "verse": {
+        "verseId": 1326,
+        "verse": {
+          "gurmukhi": "ry mn ieh ibiD jogu kmwE ]",
+          "unicode": "ਰੇ ਮਨ ਇਹ ਬਿਧਿ ਜੋਗੁ ਕਮਾਓ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "rymniehibiDjogukmwE]",
+          "unicode": "ਰੇਮਨਇਹਬਿਧਿਜੋਗੁਕਮਾਓ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "O Mind! the Yoga be practised in this way :"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "hy mn! ies qrHw dw Xog kmwE।",
+              "unicode": "ਹੇ ਮਨ! ਇਸ ਤਰ੍ਹਾ ਦਾ ਯੋਗ ਕਮਾਓ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "hy mn! ies qrHw dw Xog kmwE।",
+              "unicode": "ਹੇ ਮਨ! ਇਸ ਤਰ੍ਹਾ ਦਾ ਯੋਗ ਕਮਾਓ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "re man ieh bidh jog kamaao ||",
+          "hindi": "रे मन इह बिधि जोगु कमाओ ॥",
+          "en": "re man ieh bidh jog kamaao ||",
+          "hi": "रे मन इह बिधि जोगु कमाओ ॥",
+          "ipa": "re mən eɪh bɪt̪ə̀ d͡ʒɔG kəmɑo.",
+          "ur": "رے من اه بدھ جوگ کمااو ۔۔"
+        },
+        "pageNo": 709,
+        "lineNo": 105816,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 6,
+      "verse": {
+        "verseId": 1327,
+        "verse": {
+          "gurmukhi": "isM|I swcu Akpt kMTlw iDAwn ibBUq cVwE ]1] rhwau ]",
+          "unicode": "ਸਿੰਙੀ ਸਾਚੁ ਅਕਪਟ ਕੰਠਲਾ ਧਿਆਨ ਬਿਭੂਤ ਚੜਾਓ ॥੧॥ ਰਹਾਉ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "isM|IswcuAkptkMTlwiDAwnibBUqcVwE]1]rhwau]",
+          "unicode": "ਸਿੰਙੀਸਾਚੁਅਕਪਟਕੰਠਲਾਧਿਆਨਬਿਭੂਤਚੜਾਓ॥੧॥ਰਹਾਉ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Consider the Truth as the horn, sincerity the necklace and meditation as ashes to be applied to your body…...Pause."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "sc dI isMgI, Akpt dw kYNTw, iDAwn dI ivBUqI cVRhw ]1] rhwau।",
+              "unicode": "ਸਚ ਦੀ ਸਿੰਗੀ, ਅਕਪਟ ਦਾ ਕੈਂਠਾ, ਧਿਆਨ ਦੀ ਵਿਭੂਤੀ ਚੜ੍ਰਹਾ ॥੧॥ ਰਹਾਉ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "sc dI isMgI, Akpt dw kYNTw, iDAwn dI ivBUqI cVRhw ]1] rhwau।",
+              "unicode": "ਸਚ ਦੀ ਸਿੰਗੀ, ਅਕਪਟ ਦਾ ਕੈਂਠਾ, ਧਿਆਨ ਦੀ ਵਿਭੂਤੀ ਚੜ੍ਰਹਾ ॥੧॥ ਰਹਾਉ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "si(n)n(g)ee saach akapaT ka(n)Thalaa dhiaan bibhoot chaRaao ||1|| rahaau ||",
+          "hindi": "सिंङी साचु अकपट कंठला धिआन बिभूत चड़ाओ ॥१॥ रहाउ ॥",
+          "en": "si(n)n(g)ee saach akapaT ka(n)Thalaa dhiaan bibhoot chaRaao ||1|| rahaau ||",
+          "hi": "सिंङी साचु अकपट कंठला धिआन बिभूत चड़ाओ ॥१॥ रहाउ ॥",
+          "ipa": "sɪŋNi sɑt͡ʃ əkəpəʈ kəŋʈʰəlɑ t̪ɪəɑn bɪɓut̪ t͡ʃəɽɑo.1. rəhɑo.",
+          "ur": "سِںنگیِ ساچ اکپٹ کںٹھلا دھآن ببھُوت چڑااو ۔۔۱۔۔ رهاا ۔۔"
+        },
+        "pageNo": 709,
+        "lineNo": 105817,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 6,
+      "verse": {
+        "verseId": 1328,
+        "verse": {
+          "gurmukhi": "qwqI ghu Awqm bis kr kI iB~Cw nwm ADwrM ]",
+          "unicode": "ਤਾਤੀ ਗਹੁ ਆਤਮ ਬਸਿ ਕਰ ਕੀ ਭਿੱਛਾ ਨਾਮ ਅਧਾਰੰ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "qwqIghuAwqmbiskrkIiB~CwnwmADwrM]",
+          "unicode": "ਤਾਤੀਗਹੁਆਤਮਬਸਿਕਰਕੀਭਿੱਛਾਨਾਮਅਧਾਰੰ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Make self-control your lyre and the prop of the Name as your alms,"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "Awqm (mn) nUM vs krn dI h`Q ivc ikMgrI pkV Aqy nwm nUM iBiCAw (lYx leI) JolI (AwDwr) bxw।",
+              "unicode": "ਆਤਮ (ਮਨ) ਨੂੰ ਵਸ ਕਰਨ ਦੀ ਹੱਥ ਵਿਚ ਕਿੰਗਰੀ ਪਕੜ ਅਤੇ ਨਾਮ ਨੂੰ ਭਿਛਿਆ (ਲੈਣ ਲਈ) ਝੋਲੀ (ਆਧਾਰ) ਬਣਾ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "Awqm (mn) nUM vs krn dI h`Q ivc ikMgrI pkV Aqy nwm nUM iBiCAw (lYx leI) JolI (AwDwr) bxw।",
+              "unicode": "ਆਤਮ (ਮਨ) ਨੂੰ ਵਸ ਕਰਨ ਦੀ ਹੱਥ ਵਿਚ ਕਿੰਗਰੀ ਪਕੜ ਅਤੇ ਨਾਮ ਨੂੰ ਭਿਛਿਆ (ਲੈਣ ਲਈ) ਝੋਲੀ (ਆਧਾਰ) ਬਣਾ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "taatee gahu aatam bas kar kee bhi'chhaa naam adhaara(n) ||",
+          "hindi": "ताती गहु आतम बसि कर की भिच्छा नाम अधारं ॥",
+          "en": "taatee gahu aatam bas kar kee bhi'chhaa naam adhaara(n) ||",
+          "hi": "ताती गहु आतम बसि कर की भिच्छा नाम अधारं ॥",
+          "ipa": "t̪ɑt̪i Gəh əɑt̪əm bəs kər ki ɓɪɕɑ nɑm ət̪ɑrəŋ.",
+          "ur": "تاتیِ گهُ آتم بس کر کیِ بھ~چھا نام ادھارں ۔۔"
+        },
+        "pageNo": 709,
+        "lineNo": 105818,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 6,
+      "verse": {
+        "verseId": 1329,
+        "verse": {
+          "gurmukhi": "bwjy prm qwr qqu hir ko aupjY rwg rswrM ]1]",
+          "unicode": "ਬਾਜੇ ਪਰਮ ਤਾਰ ਤਤੁ ਹਰਿ ਕੋ ਉਪਜੈ ਰਾਗ ਰਸਾਰੰ ॥੧॥"
+        },
+        "larivaar": {
+          "gurmukhi": "bwjyprmqwrqquhirkoaupjYrwgrswrM]1]",
+          "unicode": "ਬਾਜੇਪਰਮਤਾਰਤਤੁਹਰਿਕੋਉਪਜੈਰਾਗਰਸਾਰੰ॥੧॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Then the supreme essence will be played like the main string creating savoury divine music.1."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "prm q`q (prmwqmw) nUM pRwpq krnw hI (ies dI) qwr dw vjxw hovygw Aqy (ies qoN) pRym dw rsIlw rwg inkly ]1]",
+              "unicode": "ਪਰਮ ਤੱਤ (ਪਰਮਾਤਮਾ) ਨੂੰ ਪ੍ਰਾਪਤ ਕਰਨਾ ਹੀ (ਇਸ ਦੀ) ਤਾਰ ਦਾ ਵਜਣਾ ਹੋਵੇਗਾ ਅਤੇ (ਇਸ ਤੋਂ) ਪ੍ਰੇਮ ਦਾ ਰਸੀਲਾ ਰਾਗ ਨਿਕਲੇ ॥੧॥"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "prm q`q (prmwqmw) nUM pRwpq krnw hI (ies dI) qwr dw vjxw hovygw Aqy (ies qoN) pRym dw rsIlw rwg inkly ]1]",
+              "unicode": "ਪਰਮ ਤੱਤ (ਪਰਮਾਤਮਾ) ਨੂੰ ਪ੍ਰਾਪਤ ਕਰਨਾ ਹੀ (ਇਸ ਦੀ) ਤਾਰ ਦਾ ਵਜਣਾ ਹੋਵੇਗਾ ਅਤੇ (ਇਸ ਤੋਂ) ਪ੍ਰੇਮ ਦਾ ਰਸੀਲਾ ਰਾਗ ਨਿਕਲੇ ॥੧॥"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "baaje param taar tat har ko upajai raag rasaara(n) ||1||",
+          "hindi": "बाजे परम तार ततु हरि को उपजै राग रसारं ॥१॥",
+          "en": "baaje param taar tat har ko upajai raag rasaara(n) ||1||",
+          "hi": "बाजे परम तार ततु हरि को उपजै राग रसारं ॥१॥",
+          "ipa": "bɑd͡ʒe pərəm t̪ɑr t̪ət̪ hər kɔ oʊpəd͡ʒæ rɑG rəsɑrəŋ.1.",
+          "ur": "باجے پرم تار تت هر کو اُپجَے راگ رسارں ۔۔۱۔۔"
+        },
+        "pageNo": 709,
+        "lineNo": 105819,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 6,
+      "verse": {
+        "verseId": 1330,
+        "verse": {
+          "gurmukhi": "auGtY qwn qrMg rMig Aiq igAwn gIq bMDwnM ]",
+          "unicode": "ਉਘਟੈ ਤਾਨ ਤਰੰਗ ਰੰਗਿ ਅਤਿ ਗਿਆਨ ਗੀਤ ਬੰਧਾਨੰ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "auGtYqwnqrMgrMigAiqigAwngIqbMDwnM]",
+          "unicode": "ਉਘਟੈਤਾਨਤਰੰਗਰੰਗਿਅਤਿਗਿਆਨਗੀਤਬੰਧਾਨੰ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "The wave of colourful tune will arise, manifesting the song of knowledge,"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "pRym dI lihr (ies ivcoN) rwg dI qwn vjoN pRgt hovy Aqy igAwn gIqw dI mrXwdw hovy।",
+              "unicode": "ਪ੍ਰੇਮ ਦੀ ਲਹਿਰ (ਇਸ ਵਿਚੋਂ) ਰਾਗ ਦੀ ਤਾਨ ਵਜੋਂ ਪ੍ਰਗਟ ਹੋਵੇ ਅਤੇ ਗਿਆਨ ਗੀਤਾ ਦੀ ਮਰਯਾਦਾ ਹੋਵੇ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "pRym dI lihr (ies ivcoN) rwg dI qwn vjoN pRgt hovy Aqy igAwn gIqw dI mrXwdw hovy।",
+              "unicode": "ਪ੍ਰੇਮ ਦੀ ਲਹਿਰ (ਇਸ ਵਿਚੋਂ) ਰਾਗ ਦੀ ਤਾਨ ਵਜੋਂ ਪ੍ਰਗਟ ਹੋਵੇ ਅਤੇ ਗਿਆਨ ਗੀਤਾ ਦੀ ਮਰਯਾਦਾ ਹੋਵੇ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "aughaTai taan tara(n)g ra(n)g at giaan geet ba(n)dhaana(n) ||",
+          "hindi": "उघटै तान तरंग रंगि अति गिआन गीत बंधानं ॥",
+          "en": "aughaTai taan tara(n)g ra(n)g at giaan geet ba(n)dhaana(n) ||",
+          "hi": "उघटै तान तरंग रंगि अति गिआन गीत बंधानं ॥",
+          "ipa": "oʊGʰəʈæ t̪ɑn t̪ərəŋG rəŋG ət̪ Gɪəɑn Git̪ bəŋt̪ɑnəŋ.",
+          "ur": "اُگھٹَے تان ترںگ رںگ ات گآن گیِت بںدھانں ۔۔"
+        },
+        "pageNo": 709,
+        "lineNo": 105820,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 6,
+      "verse": {
+        "verseId": 1331,
+        "verse": {
+          "gurmukhi": "cik cik rhy dyv dwnv muin Cik Cik bÎom ibvwnM ]2]",
+          "unicode": "ਚਕਿ ਚਕਿ ਰਹੇ ਦੇਵ ਦਾਨਵ ਮੁਨਿ ਛਕਿ ਛਕਿ ਬ੍ਯੋਮ ਬਿਵਾਨੰ ॥੨॥"
+        },
+        "larivaar": {
+          "gurmukhi": "cikcikrhydyvdwnvmuinCikCikbÎomibvwnM]2]",
+          "unicode": "ਚਕਿਚਕਿਰਹੇਦੇਵਦਾਨਵਮੁਨਿਛਕਿਛਕਿਬ੍ਯੋਮਬਿਵਾਨੰ॥੨॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "The gods, demons and sages would be amazed enjoying their ride in heavenly chariots.2."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "(AijhI siQqI nUM) vyK ky dyvqy, dYNq Aqy munI hYrwn ho rhy hox Aqy ibmwnw ivc cVRh ky SoBw pRwpq krn ]2]",
+              "unicode": "(ਅਜਿਹੀ ਸਥਿਤੀ ਨੂੰ) ਵੇਖ ਕੇ ਦੇਵਤੇ, ਦੈਂਤ ਅਤੇ ਮੁਨੀ ਹੈਰਾਨ ਹੋ ਰਹੇ ਹੋਣ ਅਤੇ ਬਿਮਾਨਾ ਵਿਚ ਚੜ੍ਰਹ ਕੇ ਸ਼ੋਭਾ ਪ੍ਰਾਪਤ ਕਰਨ ॥੨॥"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "(AijhI siQqI nUM) vyK ky dyvqy, dYNq Aqy munI hYrwn ho rhy hox Aqy ibmwnw ivc cVRh ky SoBw pRwpq krn ]2]",
+              "unicode": "(ਅਜਿਹੀ ਸਥਿਤੀ ਨੂੰ) ਵੇਖ ਕੇ ਦੇਵਤੇ, ਦੈਂਤ ਅਤੇ ਮੁਨੀ ਹੈਰਾਨ ਹੋ ਰਹੇ ਹੋਣ ਅਤੇ ਬਿਮਾਨਾ ਵਿਚ ਚੜ੍ਰਹ ਕੇ ਸ਼ੋਭਾ ਪ੍ਰਾਪਤ ਕਰਨ ॥੨॥"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "chak chak rahe dhev dhaanav mun chhak chhak bayom bivaana(n) ||2||",
+          "hindi": "चकि चकि रहे देव दानव मुनि छकि छकि ब्योम बिवानं ॥२॥",
+          "en": "chak chak rahe dhev dhaanav mun chhak chhak bayom bivaana(n) ||2||",
+          "hi": "चकि चकि रहे देव दानव मुनि छकि छकि ब्योम बिवानं ॥२॥",
+          "ipa": "t͡ʃək t͡ʃək rəhe d̪eʋ d̪ɑnəʋ mʊn ɕək ɕək bəjɔm bɪʋɑnəŋ.2.",
+          "ur": "چک چکِ رهے دےو دانو مُن چھکِ چھکِ بےوم بوانں ۔۔۲۔۔"
+        },
+        "pageNo": 709,
+        "lineNo": 105821,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 6,
+      "verse": {
+        "verseId": 1332,
+        "verse": {
+          "gurmukhi": "Awqm aupdys Bysu sMjm ko jwp su Ajpw jwpY ]",
+          "unicode": "ਆਤਮ ਉਪਦੇਸ ਭੇਸੁ ਸੰਜਮ ਕੋ ਜਾਪ ਸੁ ਅਜਪਾ ਜਾਪੈ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "AwqmaupdysBysusMjmkojwpsuAjpwjwpY]",
+          "unicode": "ਆਤਮਉਪਦੇਸਭੇਸੁਸੰਜਮਕੋਜਾਪਸੁਅਜਪਾਜਾਪੈ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "While instructing the self in the garb of self-restraint and reciting God’s Name inwardly,"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "mn AQvw Awqmw (nUM kwbU krnw) aupdys hovy, sMjm nUM Dwrnw Bys hovy Aqy Ajpw jwp krnw hI jwp hovy।",
+              "unicode": "ਮਨ ਅਥਵਾ ਆਤਮਾ (ਨੂੰ ਕਾਬੂ ਕਰਨਾ) ਉਪਦੇਸ ਹੋਵੇ, ਸੰਜਮ ਨੂੰ ਧਾਰਨਾ ਭੇਸ ਹੋਵੇ ਅਤੇ ਅਜਪਾ ਜਾਪ ਕਰਨਾ ਹੀ ਜਾਪ ਹੋਵੇ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "mn AQvw Awqmw (nUM kwbU krnw) aupdys hovy, sMjm nUM Dwrnw Bys hovy Aqy Ajpw jwp krnw hI jwp hovy।",
+              "unicode": "ਮਨ ਅਥਵਾ ਆਤਮਾ (ਨੂੰ ਕਾਬੂ ਕਰਨਾ) ਉਪਦੇਸ ਹੋਵੇ, ਸੰਜਮ ਨੂੰ ਧਾਰਨਾ ਭੇਸ ਹੋਵੇ ਅਤੇ ਅਜਪਾ ਜਾਪ ਕਰਨਾ ਹੀ ਜਾਪ ਹੋਵੇ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "aatam upadhes bhes sa(n)jam ko jaap su ajapaa jaapai ||",
+          "hindi": "आतम उपदेस भेसु संजम को जाप सु अजपा जापै ॥",
+          "en": "aatam upadhes bhes sa(n)jam ko jaap su ajapaa jaapai ||",
+          "hi": "आतम उपदेस भेसु संजम को जाप सु अजपा जापै ॥",
+          "ipa": "əɑt̪əm oʊpəd̪es ɓes səŋd͡ʒəm kɔ d͡ʒɑp s əd͡ʒəpɑ d͡ʒɑpæ.",
+          "ur": "آتم اُپدےس بھےس سںجم کو جاپ سُ اجپا جاپَے ۔۔"
+        },
+        "pageNo": 709,
+        "lineNo": 105822,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 6,
+      "verse": {
+        "verseId": 1333,
+        "verse": {
+          "gurmukhi": "sdw rhY kMcn sI kwXw kwl n kbhUM bÎwpY ]3]2]",
+          "unicode": "ਸਦਾ ਰਹੈ ਕੰਚਨ ਸੀ ਕਾਯਾ ਕਾਲ ਨ ਕਬਹੂੰ ਬ੍ਯਾਪੈ ॥੩॥੨॥"
+        },
+        "larivaar": {
+          "gurmukhi": "sdwrhYkMcnsIkwXwkwlnkbhUMbÎwpY]3]2]",
+          "unicode": "ਸਦਾਰਹੈਕੰਚਨਸੀਕਾਯਾਕਾਲਨਕਬਹੂੰਬ੍ਯਾਪੈ॥੩॥੨॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "The body will always remain like gold and become immortal.3.2."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "(Aijhy Xog dy kmwaux nwl) kwieAw sdw sony vwg bxI rhygI Aqy kdy vI kwl nhIN ivAwpygw ]3]2]",
+              "unicode": "(ਅਜਿਹੇ ਯੋਗ ਦੇ ਕਮਾਉਣ ਨਾਲ) ਕਾਇਆ ਸਦਾ ਸੋਨੇ ਵਾਗ ਬਣੀ ਰਹੇਗੀ ਅਤੇ ਕਦੇ ਵੀ ਕਾਲ ਨਹੀਂ ਵਿਆਪੇਗਾ ॥੩॥੨॥"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "(Aijhy Xog dy kmwaux nwl) kwieAw sdw sony vwg bxI rhygI Aqy kdy vI kwl nhIN ivAwpygw ]3]2]",
+              "unicode": "(ਅਜਿਹੇ ਯੋਗ ਦੇ ਕਮਾਉਣ ਨਾਲ) ਕਾਇਆ ਸਦਾ ਸੋਨੇ ਵਾਗ ਬਣੀ ਰਹੇਗੀ ਅਤੇ ਕਦੇ ਵੀ ਕਾਲ ਨਹੀਂ ਵਿਆਪੇਗਾ ॥੩॥੨॥"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "sadhaa rahai ka(n)chan see kaayaa kaal na kabahoo(n) bayaapai ||3||2||",
+          "hindi": "सदा रहै कंचन सी काया काल न कबहूँ ब्यापै ॥३॥२॥",
+          "en": "sadhaa rahai ka(n)chan see kaayaa kaal na kabahoo(n) bayaapai ||3||2||",
+          "hi": "सदा रहै कंचन सी काया काल न कबहूँ ब्यापै ॥३॥२॥",
+          "ipa": "səd̪ɑ rəhæ kəŋt͡ʃən si kɑjɑ kɑl nə kəbəhuŋ bəjɑpæ.3.2.",
+          "ur": "سدا رهَے کںچن سیِ کاےا کال ن کبهُوں بےاپَے ۔۔۳۔۔۲۔۔"
+        },
+        "pageNo": 709,
+        "lineNo": 105823,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 2,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 7,
+      "verse": {
+        "verseId": 1334,
+        "verse": {
+          "gurmukhi": "rwmklI pwiqswhI 10 ]",
+          "unicode": "ਰਾਮਕਲੀ ਪਾਤਿਸਾਹੀ ੧੦ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "rwmklIpwiqswhI10]",
+          "unicode": "ਰਾਮਕਲੀਪਾਤਿਸਾਹੀ੧੦॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "RAMKALI OF THE TENTH KING"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "rwmklI pwqSwhI 10:",
+              "unicode": "ਰਾਮਕਲੀ ਪਾਤਸ਼ਾਹੀ ੧੦:"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "rwmklI pwqSwhI 10:",
+              "unicode": "ਰਾਮਕਲੀ ਪਾਤਸ਼ਾਹੀ ੧੦:"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "raamakalee paatisaahee 10 ||",
+          "hindi": "रामकली पातिसाही १० ॥",
+          "en": "raamakalee paatisaahee 10 ||",
+          "hi": "रामकली पातिसाही १० ॥",
+          "ipa": "rɑməkəli pɑt̪ɪsɑhi 1ə0.",
+          "ur": "رامکلیِ پاتساهیِ ۱۰ ۔۔"
+        },
+        "pageNo": 709,
+        "lineNo": 105824,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 8,
+      "verse": {
+        "verseId": 1335,
+        "verse": {
+          "gurmukhi": "pRwnI prm purK pig lwgo ]",
+          "unicode": "ਪ੍ਰਾਨੀ ਪਰਮ ਪੁਰਖ ਪਗਿ ਲਾਗੋ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "pRwnIprmpurKpiglwgo]",
+          "unicode": "ਪ੍ਰਾਨੀਪਰਮਪੁਰਖਪਗਿਲਾਗੋ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "O Man! fall at the feet of the supreme Purusha,"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "hy pRwxI! prm purK dy crnI lg jwE।",
+              "unicode": "ਹੇ ਪ੍ਰਾਣੀ! ਪਰਮ ਪੁਰਖ ਦੇ ਚਰਨੀ ਲਗ ਜਾਓ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "hy pRwxI! prm purK dy crnI lg jwE।",
+              "unicode": "ਹੇ ਪ੍ਰਾਣੀ! ਪਰਮ ਪੁਰਖ ਦੇ ਚਰਨੀ ਲਗ ਜਾਓ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "praanee param purakh pag laago ||",
+          "hindi": "प्रानी परम पुरख पगि लागो ॥",
+          "en": "praanee param purakh pag laago ||",
+          "hi": "प्रानी परम पुरख पगि लागो ॥",
+          "ipa": "pɹɑni pərəm pʊrəkʰ pəG lɑGɔ.",
+          "ur": "پرانیِ پرم پُرکھ پگ لاگو ۔۔"
+        },
+        "pageNo": 709,
+        "lineNo": 105825,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 8,
+      "verse": {
+        "verseId": 1336,
+        "verse": {
+          "gurmukhi": "sovq khw moh inMdRw mY kbhUM suicq hÍY jwgo ]1] rhwau ]",
+          "unicode": "ਸੋਵਤ ਕਹਾ ਮੋਹ ਨਿੰਦ੍ਰਾ ਮੈ ਕਬਹੂੰ ਸੁਚਿਤ ਹ੍ਵੈ ਜਾਗੋ ॥੧॥ ਰਹਾਉ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "sovqkhwmohinMdRwmYkbhUMsuicqhÍYjwgo]1]rhwau]",
+          "unicode": "ਸੋਵਤਕਹਾਮੋਹਨਿੰਦ੍ਰਾਮੈਕਬਹੂੰਸੁਚਿਤਹ੍ਵੈਜਾਗੋ॥੧॥ਰਹਾਉ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Why are you sleeping in worldly attachment, awake sometimes and be vigilant ?.....Pause."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "moh dI nINd ivc iks leI sON rhy ho? kdy qw sucyq ho ky jwgo ]1] rhwau।",
+              "unicode": "ਮੋਹ ਦੀ ਨੀਂਦ ਵਿਚ ਕਿਸ ਲਈ ਸੌਂ ਰਹੇ ਹੋ? ਕਦੇ ਤਾ ਸੁਚੇਤ ਹੋ ਕੇ ਜਾਗੋ ॥੧॥ ਰਹਾਉ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "moh dI nINd ivc iks leI sON rhy ho? kdy qw sucyq ho ky jwgo ]1] rhwau।",
+              "unicode": "ਮੋਹ ਦੀ ਨੀਂਦ ਵਿਚ ਕਿਸ ਲਈ ਸੌਂ ਰਹੇ ਹੋ? ਕਦੇ ਤਾ ਸੁਚੇਤ ਹੋ ਕੇ ਜਾਗੋ ॥੧॥ ਰਹਾਉ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "sovat kahaa moh ni(n)dhraa mai kabahoo(n) suchit havai jaago ||1|| rahaau ||",
+          "hindi": "सोवत कहा मोह निंद्रा मै कबहूँ सुचित ह्वै जागो ॥१॥ रहाउ ॥",
+          "en": "sovat kahaa moh ni(n)dhraa mai kabahoo(n) suchit havai jaago ||1|| rahaau ||",
+          "hi": "सोवत कहा मोह निंद्रा मै कबहूँ सुचित ह्वै जागो ॥१॥ रहाउ ॥",
+          "ipa": "sɔʋət̪ kəhɑ mɔh nɪŋd̪ɹɑ mæ kəbəhuŋ sʊt͡ʃɪt̪ hʋæ d͡ʒɑGɔ.1. rəhɑo.",
+          "ur": "سووت کها موه نںدرا مَے کبهُوں سُچت هوَے جاگو ۔۔۱۔۔ رهاا ۔۔"
+        },
+        "pageNo": 709,
+        "lineNo": 105826,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 8,
+      "verse": {
+        "verseId": 1337,
+        "verse": {
+          "gurmukhi": "AOrn khw aupdysq hY psu qoih pRboD n lwgo ]",
+          "unicode": "ਔਰਨ ਕਹਾ ਉਪਦੇਸਤ ਹੈ ਪਸੁ ਤੋਹਿ ਪ੍ਰਬੋਧ ਨ ਲਾਗੋ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "AOrnkhwaupdysqhYpsuqoihpRboDnlwgo]",
+          "unicode": "ਔਰਨਕਹਾਉਪਦੇਸਤਹੈਪਸੁਤੋਹਿਪ੍ਰਬੋਧਨਲਾਗੋ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "O Animal! why do you preach to others, when you are quite ignorant"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "hy mUrK! horw nUM kI aupdyS krdw hYN? qYnUM (Awp nUM) aupdyS nhIN lgdw।",
+              "unicode": "ਹੇ ਮੂਰਖ! ਹੋਰਾ ਨੂੰ ਕੀ ਉਪਦੇਸ਼ ਕਰਦਾ ਹੈਂ? ਤੈਨੂੰ (ਆਪ ਨੂੰ) ਉਪਦੇਸ਼ ਨਹੀਂ ਲਗਦਾ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "hy mUrK! horw nUM kI aupdyS krdw hYN? qYnUM (Awp nUM) aupdyS nhIN lgdw।",
+              "unicode": "ਹੇ ਮੂਰਖ! ਹੋਰਾ ਨੂੰ ਕੀ ਉਪਦੇਸ਼ ਕਰਦਾ ਹੈਂ? ਤੈਨੂੰ (ਆਪ ਨੂੰ) ਉਪਦੇਸ਼ ਨਹੀਂ ਲਗਦਾ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "aauaran kahaa upadhesat hai pas toh prabodh na laago ||",
+          "hindi": "औरन कहा उपदेसत है पसु तोहि प्रबोध न लागो ॥",
+          "en": "aauaran kahaa upadhesat hai pas toh prabodh na laago ||",
+          "hi": "औरन कहा उपदेसत है पसु तोहि प्रबोध न लागो ॥",
+          "ipa": "əɒərən kəhɑ oʊpəd̪esət̪ hæ pəs t̪ɔh pɹəbɔt̪ə̀ nə lɑGɔ.",
+          "ur": "اَورن کها اُپدےست هَے پس توه پربودھ ن لاگو ۔۔"
+        },
+        "pageNo": 710,
+        "lineNo": 105827,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 8,
+      "verse": {
+        "verseId": 1338,
+        "verse": {
+          "gurmukhi": "isMcq khw pry ibiKXn kh kbhu ibKY rs qÎwgo ]1]",
+          "unicode": "ਸਿੰਚਤ ਕਹਾ ਪਰੇ ਬਿਖਿਯਨ ਕਹ ਕਬਹੁ ਬਿਖੈ ਰਸ ਤ੍ਯਾਗੋ ॥੧॥"
+        },
+        "larivaar": {
+          "gurmukhi": "isMcqkhwpryibiKXnkhkbhuibKYrsqÎwgo]1]",
+          "unicode": "ਸਿੰਚਤਕਹਾਪਰੇਬਿਖਿਯਨਕਹਕਬਹੁਬਿਖੈਰਸਤ੍ਯਾਗੋ॥੧॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Why are you gathering the sins ? Forsake sometimes the poisonous enjoyment.1."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "iviSAW nUM ikauW isMj irhw hYN, kdy qw iviSAW dy rs nUM iqAwg idE ]1]",
+              "unicode": "ਵਿਸ਼ਿਆਂ ਨੂੰ ਕਿਉਾਂ ਸਿੰਜ ਰਿਹਾ ਹੈਂ, ਕਦੇ ਤਾ ਵਿਸ਼ਿਆਂ ਦੇ ਰਸ ਨੂੰ ਤਿਆਗ ਦਿਓ ॥੧॥"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "iviSAW nUM ikauW isMj irhw hYN, kdy qw iviSAW dy rs nUM iqAwg idE ]1]",
+              "unicode": "ਵਿਸ਼ਿਆਂ ਨੂੰ ਕਿਉਾਂ ਸਿੰਜ ਰਿਹਾ ਹੈਂ, ਕਦੇ ਤਾ ਵਿਸ਼ਿਆਂ ਦੇ ਰਸ ਨੂੰ ਤਿਆਗ ਦਿਓ ॥੧॥"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "si(n)chat kahaa pare bikhiyan keh kabahu bikhai ras tayaago ||1||",
+          "hindi": "सिंचत कहा परे बिखियन कह कबहु बिखै रस त्यागो ॥१॥",
+          "en": "si(n)chat kahaa pare bikhiyan keh kabahu bikhai ras tayaago ||1||",
+          "hi": "सिंचत कहा परे बिखियन कह कबहु बिखै रस त्यागो ॥१॥",
+          "ipa": "sɪŋt͡ʃət̪ kəhɑ pəre bɪkʰɪjn kəh kəbəh bɪkʰæ rəs t̪əjɑGɔ.1.",
+          "ur": "سِںچت کها پرے بکھےن که کبهُ بکھَے رس تےاگو ۔۔۱۔۔"
+        },
+        "pageNo": 710,
+        "lineNo": 105828,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 8,
+      "verse": {
+        "verseId": 1339,
+        "verse": {
+          "gurmukhi": "kyvl krm Brm sy cInhu Drm krm Anurwgo ]",
+          "unicode": "ਕੇਵਲ ਕਰਮ ਭਰਮ ਸੇ ਚੀਨਹੁ ਧਰਮ ਕਰਮ ਅਨੁਰਾਗੋ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "kyvlkrmBrmsycInhuDrmkrmAnurwgo]",
+          "unicode": "ਕੇਵਲਕਰਮਭਰਮਸੇਚੀਨਹੁਧਰਮਕਰਮਅਨੁਰਾਗੋ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Consider these actions as illusions and devote yourself to righteous actions,"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "kyvl krm krnw Brm vrgw hI smJo Aqy Drm-krm nwl pRym kro।",
+              "unicode": "ਕੇਵਲ ਕਰਮ ਕਰਨਾ ਭਰਮ ਵਰਗਾ ਹੀ ਸਮਝੋ ਅਤੇ ਧਰਮ-ਕਰਮ ਨਾਲ ਪ੍ਰੇਮ ਕਰੋ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "kyvl krm krnw Brm vrgw hI smJo Aqy Drm-krm nwl pRym kro।",
+              "unicode": "ਕੇਵਲ ਕਰਮ ਕਰਨਾ ਭਰਮ ਵਰਗਾ ਹੀ ਸਮਝੋ ਅਤੇ ਧਰਮ-ਕਰਮ ਨਾਲ ਪ੍ਰੇਮ ਕਰੋ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "keval karam bharam se cheenahu dharam karam anuraago ||",
+          "hindi": "केवल करम भरम से चीनहु धरम करम अनुरागो ॥",
+          "en": "keval karam bharam se cheenahu dharam karam anuraago ||",
+          "hi": "केवल करम भरम से चीनहु धरम करम अनुरागो ॥",
+          "ipa": "keʋəl kərəm ɓərəm se t͡ʃinəh t̪ərəm kərəm ənʊrɑGɔ.",
+          "ur": "کےول کرم بھرم سے چیٍنهُ دھرم کرم انراگو ۔۔"
+        },
+        "pageNo": 710,
+        "lineNo": 105829,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 8,
+      "verse": {
+        "verseId": 1340,
+        "verse": {
+          "gurmukhi": "sMgRh kro sdw ismrn ko prm pwp qij Bwgo ]2]",
+          "unicode": "ਸੰਗ੍ਰਹ ਕਰੋ ਸਦਾ ਸਿਮਰਨ ਕੋ ਪਰਮ ਪਾਪ ਤਜਿ ਭਾਗੋ ॥੨॥"
+        },
+        "larivaar": {
+          "gurmukhi": "sMgRhkrosdwismrnkoprmpwpqijBwgo]2]",
+          "unicode": "ਸੰਗ੍ਰਹਕਰੋਸਦਾਸਿਮਰਨਕੋਪਰਮਪਾਪਤਜਿਭਾਗੋ॥੨॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Absorb yourself in the remembrance of the name of the Lord and abandon and run away from sins.2."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "sdw ismrn nUM iekqr kro Aqy mhw pwpw nUM Cf ky (ienRhw qoN) dUr ho jwE ]2]",
+              "unicode": "ਸਦਾ ਸਿਮਰਨ ਨੂੰ ਇਕਤਰ ਕਰੋ ਅਤੇ ਮਹਾ ਪਾਪਾ ਨੂੰ ਛਡ ਕੇ (ਇਨ੍ਰਹਾ ਤੋਂ) ਦੂਰ ਹੋ ਜਾਓ ॥੨॥"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "sdw ismrn nUM iekqr kro Aqy mhw pwpw nUM Cf ky (ienRhw qoN) dUr ho jwE ]2]",
+              "unicode": "ਸਦਾ ਸਿਮਰਨ ਨੂੰ ਇਕਤਰ ਕਰੋ ਅਤੇ ਮਹਾ ਪਾਪਾ ਨੂੰ ਛਡ ਕੇ (ਇਨ੍ਰਹਾ ਤੋਂ) ਦੂਰ ਹੋ ਜਾਓ ॥੨॥"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "sa(n)greh karo sadhaa simaran ko param paap taj bhaago ||2||",
+          "hindi": "संग्रह करो सदा सिमरन को परम पाप तजि भागो ॥२॥",
+          "en": "sa(n)greh karo sadhaa simaran ko param paap taj bhaago ||2||",
+          "hi": "संग्रह करो सदा सिमरन को परम पाप तजि भागो ॥२॥",
+          "ipa": "səŋGɹəh kərɔ səd̪ɑ sɪmərən kɔ pərəm pɑp t̪əd͡ʒ ɓɑGɔ.2.",
+          "ur": "سںگره کرو سدا سمرن کو پرم پاپ تج بھاگو ۔۔۲۔۔"
+        },
+        "pageNo": 710,
+        "lineNo": 105830,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 8,
+      "verse": {
+        "verseId": 1341,
+        "verse": {
+          "gurmukhi": "jw qy dUK pwp nih BytY kwl jwl qy qwgo ]",
+          "unicode": "ਜਾ ਤੇ ਦੂਖ ਪਾਪ ਨਹਿ ਭੇਟੈ ਕਾਲ ਜਾਲ ਤੇ ਤਾਗੋ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "jwqydUKpwpnihBytYkwljwlqyqwgo]",
+          "unicode": "ਜਾਤੇਦੂਖਪਾਪਨਹਿਭੇਟੈਕਾਲਜਾਲਤੇਤਾਗੋ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "So that the sorrows and sins do not afflict you and you may escape the trap of death"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "(Aijhw kMm kro) ijs kr ky duK Aqy pwp nw Cohx; Aqy kwl jwl nUM smJ sko।",
+              "unicode": "(ਅਜਿਹਾ ਕੰਮ ਕਰੋ) ਜਿਸ ਕਰ ਕੇ ਦੁਖ ਅਤੇ ਪਾਪ ਨਾ ਛੋਹਣ; ਅਤੇ ਕਾਲ ਜਾਲ ਨੂੰ ਸਮਝ ਸਕੋ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "(Aijhw kMm kro) ijs kr ky duK Aqy pwp nw Cohx; Aqy kwl jwl nUM smJ sko।",
+              "unicode": "(ਅਜਿਹਾ ਕੰਮ ਕਰੋ) ਜਿਸ ਕਰ ਕੇ ਦੁਖ ਅਤੇ ਪਾਪ ਨਾ ਛੋਹਣ; ਅਤੇ ਕਾਲ ਜਾਲ ਨੂੰ ਸਮਝ ਸਕੋ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "jaa te dhookh paap neh bheTai kaal jaal te taago ||",
+          "hindi": "जा ते दूख पाप नहि भेटै काल जाल ते तागो ॥",
+          "en": "jaa te dhookh paap neh bheTai kaal jaal te taago ||",
+          "hi": "जा ते दूख पाप नहि भेटै काल जाल ते तागो ॥",
+          "ipa": "d͡ʒɑ t̪e d̪ukʰ pɑp nəh ɓeʈæ kɑl d͡ʒɑl t̪e t̪ɑGɔ.",
+          "ur": "جا تے دُوکھ پاپ نهِ بھےٹَے کال جال تے تاگو ۔۔"
+        },
+        "pageNo": 710,
+        "lineNo": 105831,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 8,
+      "verse": {
+        "verseId": 1342,
+        "verse": {
+          "gurmukhi": "jO suK cwho sdw sBn kO qO hir ky ris pwgo ]3]3]",
+          "unicode": "ਜੌ ਸੁਖ ਚਾਹੋ ਸਦਾ ਸਭਨ ਕੌ ਤੌ ਹਰਿ ਕੇ ਰਸਿ ਪਾਗੋ ॥੩॥੩॥"
+        },
+        "larivaar": {
+          "gurmukhi": "jOsuKcwhosdwsBnkOqOhirkyrispwgo]3]3]",
+          "unicode": "ਜੌਸੁਖਚਾਹੋਸਦਾਸਭਨਕੌਤੌਹਰਿਕੇਰਸਿਪਾਗੋ॥੩॥੩॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "If you want to enjoy all comforts, then absorb yourself in the love of the Lord.3.3."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "jy sdw sB qrRhw dw suK cwhuMdy ho, qw hir dy pRym ivc mgn ho jwE ]3]3]",
+              "unicode": "ਜੇ ਸਦਾ ਸਭ ਤਰ੍ਰਹਾ ਦਾ ਸੁਖ ਚਾਹੁੰਦੇ ਹੋ, ਤਾ ਹਰਿ ਦੇ ਪ੍ਰੇਮ ਵਿਚ ਮਗਨ ਹੋ ਜਾਓ ॥੩॥੩॥"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "jy sdw sB qrRhw dw suK cwhuMdy ho, qw hir dy pRym ivc mgn ho jwE ]3]3]",
+              "unicode": "ਜੇ ਸਦਾ ਸਭ ਤਰ੍ਰਹਾ ਦਾ ਸੁਖ ਚਾਹੁੰਦੇ ਹੋ, ਤਾ ਹਰਿ ਦੇ ਪ੍ਰੇਮ ਵਿਚ ਮਗਨ ਹੋ ਜਾਓ ॥੩॥੩॥"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "jau sukh chaaho sadhaa sabhan kau tau har ke ras paago ||3||3||",
+          "hindi": "जौ सुख चाहो सदा सभन कौ तौ हरि के रसि पागो ॥३॥३॥",
+          "en": "jau sukh chaaho sadhaa sabhan kau tau har ke ras paago ||3||3||",
+          "hi": "जौ सुख चाहो सदा सभन कौ तौ हरि के रसि पागो ॥३॥३॥",
+          "ipa": "d͡ʒɒ sʊkʰ t͡ʃɑhɔ səd̪ɑ səɓən kɒ t̪ɒ hər ke rəs pɑGɔ.3.3.",
+          "ur": "جَو سُکھ چاهو سدا سبھن کَو تَو هر کے رسِ پاگو ۔۔۳۔۔۳۔۔"
+        },
+        "pageNo": 710,
+        "lineNo": 105832,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 2,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 9,
+      "verse": {
+        "verseId": 1343,
+        "verse": {
+          "gurmukhi": "rwgu soriT pwiqswhI 10 ]",
+          "unicode": "ਰਾਗੁ ਸੋਰਠਿ ਪਾਤਿਸਾਹੀ ੧੦ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "rwgusoriTpwiqswhI10]",
+          "unicode": "ਰਾਗੁਸੋਰਠਿਪਾਤਿਸਾਹੀ੧੦॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "RAGA SORATH OF THE TENTH KING"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "rwg sorT pwqSwhI 10:",
+              "unicode": "ਰਾਗ ਸੋਰਠ ਪਾਤਸ਼ਾਹੀ ੧੦:"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "rwg sorT pwqSwhI 10:",
+              "unicode": "ਰਾਗ ਸੋਰਠ ਪਾਤਸ਼ਾਹੀ ੧੦:"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "raag soraTh paatisaahee 10 ||",
+          "hindi": "रागु सोरठि पातिसाही १० ॥",
+          "en": "raag soraTh paatisaahee 10 ||",
+          "hi": "रागु सोरठि पातिसाही १० ॥",
+          "ipa": "rɑG sɔrəʈʰ pɑt̪ɪsɑhi 1ə0.",
+          "ur": "راگ سورٹھ پاتساهیِ ۱۰ ۔۔"
+        },
+        "pageNo": 710,
+        "lineNo": 105833,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 10,
+      "verse": {
+        "verseId": 1344,
+        "verse": {
+          "gurmukhi": "pRB jU qo kh lwj hmwrI ]",
+          "unicode": "ਪ੍ਰਭ ਜੂ ਤੋ ਕਹ ਲਾਜ ਹਮਾਰੀ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "pRBjUqokhlwjhmwrI]",
+          "unicode": "ਪ੍ਰਭਜੂਤੋਕਹਲਾਜਹਮਾਰੀ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "O Lord! You alone can protect my honour! O blue-throated Lord of men! O the Lord of forests wearing blue vests! Pause."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "shy pRBU jI! quhwnUM myrI lwj hY।",
+              "unicode": "ਸਹੇ ਪ੍ਰਭੂ ਜੀ! ਤੁਹਾਨੂੰ ਮੇਰੀ ਲਾਜ ਹੈ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "shy pRBU jI! quhwnUM myrI lwj hY।",
+              "unicode": "ਸਹੇ ਪ੍ਰਭੂ ਜੀ! ਤੁਹਾਨੂੰ ਮੇਰੀ ਲਾਜ ਹੈ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "prabh joo to keh laaj hamaaree ||",
+          "hindi": "प्रभ जू तो कह लाज हमारी ॥",
+          "en": "prabh joo to keh laaj hamaaree ||",
+          "hi": "प्रभ जू तो कह लाज हमारी ॥",
+          "ipa": "pɹəɓ d͡ʒu t̪ɔ kəh lɑd͡ʒ həmɑri.",
+          "ur": "پربھ جُو تو که لاج هماریِ ۔۔"
+        },
+        "pageNo": 710,
+        "lineNo": 105834,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 10,
+      "verse": {
+        "verseId": 1345,
+        "verse": {
+          "gurmukhi": "nIl kMT nrhir nwrwiex nIl bsn bnvwrI ]1] rhwau ]",
+          "unicode": "ਨੀਲ ਕੰਠ ਨਰਹਰਿ ਨਾਰਾਇਣ ਨੀਲ ਬਸਨ ਬਨਵਾਰੀ ॥੧॥ ਰਹਾਉ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "nIlkMTnrhirnwrwiexnIlbsnbnvwrI]1]rhwau]",
+          "unicode": "ਨੀਲਕੰਠਨਰਹਰਿਨਾਰਾਇਣਨੀਲਬਸਨਬਨਵਾਰੀ॥੧॥ਰਹਾਉ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "O Supreme Purusha! Supreme Ishwara! Master of all! Holiest Divinity! living on air"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "(qusIN) nIl kMT, nr hir, nwrwiex, nIly bsqRw vwly Aqy bnvwrI ho ]1] rhwau।",
+              "unicode": "(ਤੁਸੀਂ) ਨੀਲ ਕੰਠ, ਨਰ ਹਰਿ, ਨਾਰਾਇਣ, ਨੀਲੇ ਬਸਤ੍ਰਾ ਵਾਲੇ ਅਤੇ ਬਨਵਾਰੀ ਹੋ ॥੧॥ ਰਹਾਉ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "(qusIN) nIl kMT, nr hir, nwrwiex, nIly bsqRw vwly Aqy bnvwrI ho ]1] rhwau।",
+              "unicode": "(ਤੁਸੀਂ) ਨੀਲ ਕੰਠ, ਨਰ ਹਰਿ, ਨਾਰਾਇਣ, ਨੀਲੇ ਬਸਤ੍ਰਾ ਵਾਲੇ ਅਤੇ ਬਨਵਾਰੀ ਹੋ ॥੧॥ ਰਹਾਉ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "neel ka(n)Th narahar naarain neel basan banavaaree ||1|| rahaau ||",
+          "hindi": "नील कंठ नरहरि नाराइण नील बसन बनवारी ॥१॥ रहाउ ॥",
+          "en": "neel ka(n)Th narahar naarain neel basan banavaaree ||1|| rahaau ||",
+          "hi": "नील कंठ नरहरि नाराइण नील बसन बनवारी ॥१॥ रहाउ ॥",
+          "ipa": "nil kəŋʈʰ nərəhər nɑrɑeɪɳ nil bəsən bənəʋɑri.1. rəhɑo.",
+          "ur": "نیِل کںٹھ نرهر نارااݨ نیِل بسن بنواریِ ۔۔۱۔۔ رهاا ۔۔"
+        },
+        "pageNo": 710,
+        "lineNo": 105835,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 10,
+      "verse": {
+        "verseId": 1346,
+        "verse": {
+          "gurmukhi": "prm purK prmysr suAwmI pwvn paun AhwrI ]",
+          "unicode": "ਪਰਮ ਪੁਰਖ ਪਰਮੇਸਰ ਸੁਆਮੀ ਪਾਵਨ ਪਉਨ ਅਹਾਰੀ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "prmpurKprmysrsuAwmIpwvnpaunAhwrI]",
+          "unicode": "ਪਰਮਪੁਰਖਪਰਮੇਸਰਸੁਆਮੀਪਾਵਨਪਉਨਅਹਾਰੀ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "O the Lord of Lakshmi! the greatest Light! ,"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "hy prm purK, prmysr, suAwmI, pwvn Aqy pOx AwhwrI,",
+              "unicode": "ਹੇ ਪਰਮ ਪੁਰਖ, ਪਰਮੇਸਰ, ਸੁਆਮੀ, ਪਾਵਨ ਅਤੇ ਪੌਣ ਆਹਾਰੀ,"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "hy prm purK, prmysr, suAwmI, pwvn Aqy pOx AwhwrI,",
+              "unicode": "ਹੇ ਪਰਮ ਪੁਰਖ, ਪਰਮੇਸਰ, ਸੁਆਮੀ, ਪਾਵਨ ਅਤੇ ਪੌਣ ਆਹਾਰੀ,"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "param purakh paramesar suaamee paavan paun ahaaree ||",
+          "hindi": "परम पुरख परमेसर सुआमी पावन पउन अहारी ॥",
+          "en": "param purakh paramesar suaamee paavan paun ahaaree ||",
+          "hi": "परम पुरख परमेसर सुआमी पावन पउन अहारी ॥",
+          "ipa": "pərəm pʊrəkʰ pərəmesər sʊəɑmi pɑʋən poʊn əhɑri.",
+          "ur": "پرم پُرکھ پرمےسر سُآمیِ پاون پان اهاریِ ۔۔"
+        },
+        "pageNo": 710,
+        "lineNo": 105836,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 10,
+      "verse": {
+        "verseId": 1347,
+        "verse": {
+          "gurmukhi": "mwDv mhw joiq mDu mrdn mwn mukMd murwrI ]1]",
+          "unicode": "ਮਾਧਵ ਮਹਾ ਜੋਤਿ ਮਧੁ ਮਰਦਨ ਮਾਨ ਮੁਕੰਦ ਮੁਰਾਰੀ ॥੧॥"
+        },
+        "larivaar": {
+          "gurmukhi": "mwDvmhwjoiqmDumrdnmwnmukMdmurwrI]1]",
+          "unicode": "ਮਾਧਵਮਹਾਜੋਤਿਮਧੁਮਰਦਨਮਾਨਮੁਕੰਦਮੁਰਾਰੀ॥੧॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "The Destroyer of the demons Madhu and Mus! and the bestower of salvation!1."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "mwDv, mhw joiq vwly, mDu dy mwn dw mrdn krn vwly, mukMd, murwrI ]1]",
+              "unicode": "ਮਾਧਵ, ਮਹਾ ਜੋਤਿ ਵਾਲੇ, ਮਧੁ ਦੇ ਮਾਨ ਦਾ ਮਰਦਨ ਕਰਨ ਵਾਲੇ, ਮੁਕੰਦ, ਮੁਰਾਰੀ ॥੧॥"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "mwDv, mhw joiq vwly, mDu dy mwn dw mrdn krn vwly, mukMd, murwrI ]1]",
+              "unicode": "ਮਾਧਵ, ਮਹਾ ਜੋਤਿ ਵਾਲੇ, ਮਧੁ ਦੇ ਮਾਨ ਦਾ ਮਰਦਨ ਕਰਨ ਵਾਲੇ, ਮੁਕੰਦ, ਮੁਰਾਰੀ ॥੧॥"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "maadhav mahaa jot madh maradhan maan muka(n)dh muraaree ||1||",
+          "hindi": "माधव महा जोति मधु मरदन मान मुकंद मुरारी ॥१॥",
+          "en": "maadhav mahaa jot madh maradhan maan muka(n)dh muraaree ||1||",
+          "hi": "माधव महा जोति मधु मरदन मान मुकंद मुरारी ॥१॥",
+          "ipa": "mɑt̪əʋ məhɑ d͡ʒɔt̪ mət̪ mərəd̪ən mɑn mʊkəŋd̪ mʊrɑri.1.",
+          "ur": "مادھو مها جوت مدھ مردن مان مُکںد مُراریِ ۔۔۱۔۔"
+        },
+        "pageNo": 710,
+        "lineNo": 105837,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 10,
+      "verse": {
+        "verseId": 1348,
+        "verse": {
+          "gurmukhi": "inribkwr inrjur inMdRw ibnu inribK nrk invwrI ]",
+          "unicode": "ਨਿਰਬਿਕਾਰ ਨਿਰਜੁਰ ਨਿੰਦ੍ਰਾ ਬਿਨੁ ਨਿਰਬਿਖ ਨਰਕ ਨਿਵਾਰੀ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "inribkwrinrjurinMdRwibnuinribKnrkinvwrI]",
+          "unicode": "ਨਿਰਬਿਕਾਰਨਿਰਜੁਰਨਿੰਦ੍ਰਾਬਿਨੁਨਿਰਬਿਖਨਰਕਨਿਵਾਰੀ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "O the Lord without evil, without decay, without sleep, without poison and the Saviour from hell!"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "inrivkwr, inrjur (buFwpy qoN pry) nINdr-rihq, ivSy vwsnwvw qoN pry, nrk qoN bcwaux vwly।",
+              "unicode": "ਨਿਰਵਿਕਾਰ, ਨਿਰਜੁਰ (ਬੁਢਾਪੇ ਤੋਂ ਪਰੇ) ਨੀਂਦਰ-ਰਹਿਤ, ਵਿਸ਼ੇ ਵਾਸਨਾਵਾ ਤੋਂ ਪਰੇ, ਨਰਕ ਤੋਂ ਬਚਾਉਣ ਵਾਲੇ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "inrivkwr, inrjur (buFwpy qoN pry) nINdr-rihq, ivSy vwsnwvw qoN pry, nrk qoN bcwaux vwly।",
+              "unicode": "ਨਿਰਵਿਕਾਰ, ਨਿਰਜੁਰ (ਬੁਢਾਪੇ ਤੋਂ ਪਰੇ) ਨੀਂਦਰ-ਰਹਿਤ, ਵਿਸ਼ੇ ਵਾਸਨਾਵਾ ਤੋਂ ਪਰੇ, ਨਰਕ ਤੋਂ ਬਚਾਉਣ ਵਾਲੇ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "nirabikaar nirajur ni(n)dhraa bin nirabikh narak nivaaree ||",
+          "hindi": "निरबिकार निरजुर निंद्रा बिनु निरबिख नरक निवारी ॥",
+          "en": "nirabikaar nirajur ni(n)dhraa bin nirabikh narak nivaaree ||",
+          "hi": "निरबिकार निरजुर निंद्रा बिनु निरबिख नरक निवारी ॥",
+          "ipa": "nɪrəbɪkɑr nɪrəd͡ʒʊr nɪŋd̪ɹɑ bɪn nɪrəbɪkʰ nərək nɪʋɑri.",
+          "ur": "نِربکار نرجر نںدرا بن نربکھ نرک نواریِ ۔۔"
+        },
+        "pageNo": 710,
+        "lineNo": 105838,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 10,
+      "verse": {
+        "verseId": 1349,
+        "verse": {
+          "gurmukhi": "ikRpw isMD kwl qRY drsI kuikRq pRnwsnkwrI ]2]",
+          "unicode": "ਕ੍ਰਿਪਾ ਸਿੰਧ ਕਾਲ ਤ੍ਰੈ ਦਰਸੀ ਕੁਕ੍ਰਿਤ ਪ੍ਰਨਾਸਨਕਾਰੀ ॥੨॥"
+        },
+        "larivaar": {
+          "gurmukhi": "ikRpwisMDkwlqRYdrsIkuikRqpRnwsnkwrI]2]",
+          "unicode": "ਕ੍ਰਿਪਾਸਿੰਧਕਾਲਤ੍ਰੈਦਰਸੀਕੁਕ੍ਰਿਤਪ੍ਰਨਾਸਨਕਾਰੀ॥੨॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "O the ocean of Mercy! the seer of all times! and the Destroyer of evil actions!....2."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "ikRpw dy smuMdr, qRYkwl drsI, mwVy krmw nUM nSt krn vwly ]2]",
+              "unicode": "ਕ੍ਰਿਪਾ ਦੇ ਸਮੁੰਦਰ, ਤ੍ਰੈਕਾਲ ਦਰਸੀ, ਮਾੜੇ ਕਰਮਾ ਨੂੰ ਨਸ਼ਟ ਕਰਨ ਵਾਲੇ ॥੨॥"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "ikRpw dy smuMdr, qRYkwl drsI, mwVy krmw nUM nSt krn vwly ]2]",
+              "unicode": "ਕ੍ਰਿਪਾ ਦੇ ਸਮੁੰਦਰ, ਤ੍ਰੈਕਾਲ ਦਰਸੀ, ਮਾੜੇ ਕਰਮਾ ਨੂੰ ਨਸ਼ਟ ਕਰਨ ਵਾਲੇ ॥੨॥"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "kirapaa si(n)dh kaal trai dharasee kukirat pranaasanakaaree ||2||",
+          "hindi": "कृपा सिंध काल त्रै दरसी कुकृत प्रनासनकारी ॥२॥",
+          "en": "kirapaa si(n)dh kaal trai dharasee kukirat pranaasanakaaree ||2||",
+          "hi": "कृपा सिंध काल त्रै दरसी कुकृत प्रनासनकारी ॥२॥",
+          "ipa": "kɪɹəpɑ sɪŋt̪ə̀ kɑl t̪ɹæ d̪ərəsi kʊkɪɹət̪ pɹənɑsənəkɑri.2.",
+          "ur": "کِرپا سںدھ کال ترَے درسیِ کُکرت پرناسنکاریِ ۔۔۲۔۔"
+        },
+        "pageNo": 710,
+        "lineNo": 105839,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 10,
+      "verse": {
+        "verseId": 1350,
+        "verse": {
+          "gurmukhi": "Dnurpwin iDRqmwn DrwDr Anibkwr AisDwrI ]",
+          "unicode": "ਧਨੁਰਪਾਨਿ ਧ੍ਰਿਤਮਾਨ ਧਰਾਧਰ ਅਨਬਿਕਾਰ ਅਸਿਧਾਰੀ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "DnurpwiniDRqmwnDrwDrAnibkwrAisDwrI]",
+          "unicode": "ਧਨੁਰਪਾਨਿਧ੍ਰਿਤਮਾਨਧਰਾਧਰਅਨਬਿਕਾਰਅਸਿਧਾਰੀ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "O the wielder of bow! the Patient! the Prop of earth! the Lord without evil! and wielder of the sword!"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "h`Q ivc DnuS Dwrn krn vwly, DIrjvwn, DrqI nUM Dwrn krn vwly, ivkwrw qoN rihq, qlvwr Dwrn krn vwly!",
+              "unicode": "ਹੱਥ ਵਿਚ ਧਨੁਸ਼ ਧਾਰਨ ਕਰਨ ਵਾਲੇ, ਧੀਰਜਵਾਨ, ਧਰਤੀ ਨੂੰ ਧਾਰਨ ਕਰਨ ਵਾਲੇ, ਵਿਕਾਰਾ ਤੋਂ ਰਹਿਤ, ਤਲਵਾਰ ਧਾਰਨ ਕਰਨ ਵਾਲੇ!"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "h`Q ivc DnuS Dwrn krn vwly, DIrjvwn, DrqI nUM Dwrn krn vwly, ivkwrw qoN rihq, qlvwr Dwrn krn vwly!",
+              "unicode": "ਹੱਥ ਵਿਚ ਧਨੁਸ਼ ਧਾਰਨ ਕਰਨ ਵਾਲੇ, ਧੀਰਜਵਾਨ, ਧਰਤੀ ਨੂੰ ਧਾਰਨ ਕਰਨ ਵਾਲੇ, ਵਿਕਾਰਾ ਤੋਂ ਰਹਿਤ, ਤਲਵਾਰ ਧਾਰਨ ਕਰਨ ਵਾਲੇ!"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "dhanurapaan dhiratamaan dharaadhar anabikaar asidhaaree ||",
+          "hindi": "धनुरपानि धृतमान धराधर अनबिकार असिधारी ॥",
+          "en": "dhanurapaan dhiratamaan dharaadhar anabikaar asidhaaree ||",
+          "hi": "धनुरपानि धृतमान धराधर अनबिकार असिधारी ॥",
+          "ipa": "t̪ənʊrəpɑn t̪ɪɹət̪əmɑn t̪ərɑt̪ər ənəbɪkɑr əsɪt̪ɑri.",
+          "ur": "دھنرپان دھرتمان دھرادھر انبکار اسدھاریِ ۔۔"
+        },
+        "pageNo": 710,
+        "lineNo": 105840,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 10,
+      "verse": {
+        "verseId": 1351,
+        "verse": {
+          "gurmukhi": "hO miq mMd crn srnwgiq kr gih lyhu aubwrI ]3]1]4]",
+          "unicode": "ਹੌ ਮਤਿ ਮੰਦ ਚਰਨ ਸਰਨਾਗਤਿ ਕਰ ਗਹਿ ਲੇਹੁ ਉਬਾਰੀ ॥੩॥੧॥੪॥"
+        },
+        "larivaar": {
+          "gurmukhi": "hOmiqmMdcrnsrnwgiqkrgihlyhuaubwrI]3]1]4]",
+          "unicode": "ਹੌਮਤਿਮੰਦਚਰਨਸਰਨਾਗਤਿਕਰਗਹਿਲੇਹੁਉਬਾਰੀ॥੩॥੧॥੪॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "I am unwise, I take refuge at Thy feet, catch hold of my hand and save me.3."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "mYN mMd bu`DIvwlw (qyry) crnw dI Et ivc AwieAw hw; myrw h`Q pkV ky (sMswr swgr qoN) bwhr kF lvo ]3]1]4]",
+              "unicode": "ਮੈਂ ਮੰਦ ਬੁੱਧੀਵਾਲਾ (ਤੇਰੇ) ਚਰਨਾ ਦੀ ਓਟ ਵਿਚ ਆਇਆ ਹਾ; ਮੇਰਾ ਹੱਥ ਪਕੜ ਕੇ (ਸੰਸਾਰ ਸਾਗਰ ਤੋਂ) ਬਾਹਰ ਕਢ ਲਵੋ ॥੩॥੧॥੪॥"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "mYN mMd bu`DIvwlw (qyry) crnw dI Et ivc AwieAw hw; myrw h`Q pkV ky (sMswr swgr qoN) bwhr kF lvo ]3]1]4]",
+              "unicode": "ਮੈਂ ਮੰਦ ਬੁੱਧੀਵਾਲਾ (ਤੇਰੇ) ਚਰਨਾ ਦੀ ਓਟ ਵਿਚ ਆਇਆ ਹਾ; ਮੇਰਾ ਹੱਥ ਪਕੜ ਕੇ (ਸੰਸਾਰ ਸਾਗਰ ਤੋਂ) ਬਾਹਰ ਕਢ ਲਵੋ ॥੩॥੧॥੪॥"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "hau mat ma(n)dh charan saranaagat kar geh leh ubaaree ||3||1||4||",
+          "hindi": "हौ मति मंद चरन सरनागति कर गहि लेहु उबारी ॥३॥१॥४॥",
+          "en": "hau mat ma(n)dh charan saranaagat kar geh leh ubaaree ||3||1||4||",
+          "hi": "हौ मति मंद चरन सरनागति कर गहि लेहु उबारी ॥३॥१॥४॥",
+          "ipa": "hɒ mət̪ məŋd̪ t͡ʃərən sərənɑGət̪ kər Gəh leh oʊbɑri.3.1.4.",
+          "ur": "هَو مت مںد چرن سرناگت کر گهِ لےهُ اُباریِ ۔۔۳۔۔۱۔۔۴۔۔"
+        },
+        "pageNo": 710,
+        "lineNo": 105841,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 2,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 11,
+      "verse": {
+        "verseId": 1352,
+        "verse": {
+          "gurmukhi": "rwgu kilAwx pwiqswhI 10 ]",
+          "unicode": "ਰਾਗੁ ਕਲਿਆਣ ਪਾਤਿਸਾਹੀ ੧੦ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "rwgukilAwxpwiqswhI10]",
+          "unicode": "ਰਾਗੁਕਲਿਆਣਪਾਤਿਸਾਹੀ੧੦॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "RAGA KALYAN OF THE TENTH KING"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "rwg kilAwx pwiqswhI 10:",
+              "unicode": "ਰਾਗ ਕਲਿਆਣ ਪਾਤਿਸਾਹੀ ੧੦:"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "rwg kilAwx pwiqswhI 10:",
+              "unicode": "ਰਾਗ ਕਲਿਆਣ ਪਾਤਿਸਾਹੀ ੧੦:"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "raag kaliaan paatisaahee 10 ||",
+          "hindi": "रागु कलिआण पातिसाही १० ॥",
+          "en": "raag kaliaan paatisaahee 10 ||",
+          "hi": "रागु कलिआण पातिसाही १० ॥",
+          "ipa": "rɑG kəlɪəɑɳ pɑt̪ɪsɑhi 1ə0.",
+          "ur": "راگ کلآݨ پاتساهیِ ۱۰ ۔۔"
+        },
+        "pageNo": 710,
+        "lineNo": 105842,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 12,
+      "verse": {
+        "verseId": 1353,
+        "verse": {
+          "gurmukhi": "ibn krqwr n ikrqm mwno ]",
+          "unicode": "ਬਿਨ ਕਰਤਾਰ ਨ ਕਿਰਤਮ ਮਾਨੋ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "ibnkrqwrnikrqmmwno]",
+          "unicode": "ਬਿਨਕਰਤਾਰਨਕਿਰਤਮਮਾਨੋ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Do not accept anyone else except God as the Creator of the universe"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "ibnw krqwr dy (hor) iksy kIqy hoey (jw isrjy hoey) nUM nw mno।",
+              "unicode": "ਬਿਨਾ ਕਰਤਾਰ ਦੇ (ਹੋਰ) ਕਿਸੇ ਕੀਤੇ ਹੋਏ (ਜਾ ਸਿਰਜੇ ਹੋਏ) ਨੂੰ ਨਾ ਮਨੋ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "ibnw krqwr dy (hor) iksy kIqy hoey (jw isrjy hoey) nUM nw mno।",
+              "unicode": "ਬਿਨਾ ਕਰਤਾਰ ਦੇ (ਹੋਰ) ਕਿਸੇ ਕੀਤੇ ਹੋਏ (ਜਾ ਸਿਰਜੇ ਹੋਏ) ਨੂੰ ਨਾ ਮਨੋ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "bin karataar na kiratam maano ||",
+          "hindi": "बिन करतार न किरतम मानो ॥",
+          "en": "bin karataar na kiratam maano ||",
+          "hi": "बिन करतार न किरतम मानो ॥",
+          "ipa": "bɪn kərət̪ɑr nə kɪrət̪əm mɑnɔ.",
+          "ur": "بٍن کرتار ن کرتم مانو ۔۔"
+        },
+        "pageNo": 710,
+        "lineNo": 105843,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 12,
+      "verse": {
+        "verseId": 1354,
+        "verse": {
+          "gurmukhi": "Awid Ajoin AjY AibnwsI iqh prmysr jwno ]1] rhwau ]",
+          "unicode": "ਆਦਿ ਅਜੋਨਿ ਅਜੈ ਅਬਿਨਾਸੀ ਤਿਹ ਪਰਮੇਸਰ ਜਾਨੋ ॥੧॥ ਰਹਾਉ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "AwidAjoinAjYAibnwsIiqhprmysrjwno]1]rhwau]",
+          "unicode": "ਆਦਿਅਜੋਨਿਅਜੈਅਬਿਨਾਸੀਤਿਹਪਰਮੇਸਰਜਾਨੋ॥੧॥ਰਹਾਉ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "He, the Unborn, Unconquerable and Immortal, was in the beginning, consider Him as Supreme Ishvara……Pause."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "(jo) Awid, AjUn, AjY, AibnwsI hY, aus nUM prmysr jwxo ]1] rhwau।",
+              "unicode": "(ਜੋ) ਆਦਿ, ਅਜੂਨ, ਅਜੈ, ਅਬਿਨਾਸੀ ਹੈ, ਉਸ ਨੂੰ ਪਰਮੇਸਰ ਜਾਣੋ ॥੧॥ ਰਹਾਉ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "(jo) Awid, AjUn, AjY, AibnwsI hY, aus nUM prmysr jwxo ]1] rhwau।",
+              "unicode": "(ਜੋ) ਆਦਿ, ਅਜੂਨ, ਅਜੈ, ਅਬਿਨਾਸੀ ਹੈ, ਉਸ ਨੂੰ ਪਰਮੇਸਰ ਜਾਣੋ ॥੧॥ ਰਹਾਉ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "aadh ajon ajai abinaasee teh paramesar jaano ||1|| rahaau ||",
+          "hindi": "आदि अजोनि अजै अबिनासी तिह परमेसर जानो ॥१॥ रहाउ ॥",
+          "en": "aadh ajon ajai abinaasee teh paramesar jaano ||1|| rahaau ||",
+          "hi": "आदि अजोनि अजै अबिनासी तिह परमेसर जानो ॥१॥ रहाउ ॥",
+          "ipa": "əɑd̪ əd͡ʒɔn əd͡ʒæ əbɪnɑsi t̪ɪh pərəmesər d͡ʒɑnɔ.1. rəhɑo.",
+          "ur": "آد اجون اجَے ابناسیِ ته پرمےسر جانو ۔۔۱۔۔ رهاا ۔۔"
+        },
+        "pageNo": 710,
+        "lineNo": 105844,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 12,
+      "verse": {
+        "verseId": 1355,
+        "verse": {
+          "gurmukhi": "khw BXo jo Awn jgq mY dsk Asur hir Gwey ]",
+          "unicode": "ਕਹਾ ਭਯੋ ਜੋ ਆਨ ਜਗਤ ਮੈ ਦਸਕ ਅਸੁਰ ਹਰਿ ਘਾਏ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "khwBXojoAwnjgqmYdskAsurhirGwey]",
+          "unicode": "ਕਹਾਭਯੋਜੋਆਨਜਗਤਮੈਦਸਕਅਸੁਰਹਰਿਘਾਏ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "What then, if on coming into the world, one killed about ten demons"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "kI hoieAw jy ivSxU (hir) ny jgq ivc Aw ky ds ku dYNq mwr id`qy hn।",
+              "unicode": "ਕੀ ਹੋਇਆ ਜੇ ਵਿਸ਼ਣੂ (ਹਰਿ) ਨੇ ਜਗਤ ਵਿਚ ਆ ਕੇ ਦਸ ਕੁ ਦੈਂਤ ਮਾਰ ਦਿੱਤੇ ਹਨ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "kI hoieAw jy ivSxU (hir) ny jgq ivc Aw ky ds ku dYNq mwr id`qy hn।",
+              "unicode": "ਕੀ ਹੋਇਆ ਜੇ ਵਿਸ਼ਣੂ (ਹਰਿ) ਨੇ ਜਗਤ ਵਿਚ ਆ ਕੇ ਦਸ ਕੁ ਦੈਂਤ ਮਾਰ ਦਿੱਤੇ ਹਨ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "kahaa bhayo jo aan jagat mai dhasak asur har ghaae ||",
+          "hindi": "कहा भयो जो आन जगत मै दसक असुर हरि घाए ॥",
+          "en": "kahaa bhayo jo aan jagat mai dhasak asur har ghaae ||",
+          "hi": "कहा भयो जो आन जगत मै दसक असुर हरि घाए ॥",
+          "ipa": "kəhɑ ɓəjɔ d͡ʒɔ əɑn d͡ʒəGət̪ mæ d̪əsək əsʊr hər Gʰɑee.",
+          "ur": "کها بھےو جو آن جگت مَے دسک اسر هر گھااے ۔۔"
+        },
+        "pageNo": 710,
+        "lineNo": 105845,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 12,
+      "verse": {
+        "verseId": 1356,
+        "verse": {
+          "gurmukhi": "AiDk pRpMc idKwie sBn kh Awpih bRhmu khwey ]1]",
+          "unicode": "ਅਧਿਕ ਪ੍ਰਪੰਚ ਦਿਖਾਇ ਸਭਨ ਕਹ ਆਪਹਿ ਬ੍ਰਹਮੁ ਕਹਾਏ ॥੧॥"
+        },
+        "larivaar": {
+          "gurmukhi": "AiDkpRpMcidKwiesBnkhAwpihbRhmukhwey]1]",
+          "unicode": "ਅਧਿਕਪ੍ਰਪੰਚਦਿਖਾਇਸਭਨਕਹਆਪਹਿਬ੍ਰਹਮੁਕਹਾਏ॥੧॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "And displayed several phenomena to all and caused others to call Him Brahm (God).1."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "swirAW nUM bhuq pRpMc (AwfMbr) ivKw ky Awpxy Awp nUM bRhm AKvwaux lg ipAw ]1]",
+              "unicode": "ਸਾਰਿਆਂ ਨੂੰ ਬਹੁਤ ਪ੍ਰਪੰਚ (ਆਡੰਬਰ) ਵਿਖਾ ਕੇ ਆਪਣੇ ਆਪ ਨੂੰ ਬ੍ਰਹਮ ਅਖਵਾਉਣ ਲਗ ਪਿਆ ॥੧॥"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "swirAW nUM bhuq pRpMc (AwfMbr) ivKw ky Awpxy Awp nUM bRhm AKvwaux lg ipAw ]1]",
+              "unicode": "ਸਾਰਿਆਂ ਨੂੰ ਬਹੁਤ ਪ੍ਰਪੰਚ (ਆਡੰਬਰ) ਵਿਖਾ ਕੇ ਆਪਣੇ ਆਪ ਨੂੰ ਬ੍ਰਹਮ ਅਖਵਾਉਣ ਲਗ ਪਿਆ ॥੧॥"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "adhik prapa(n)ch dhikhai sabhan keh aapeh braham kahaae ||1||",
+          "hindi": "अधिक प्रपंच दिखाइ सभन कह आपहि ब्रहमु कहाए ॥१॥",
+          "en": "adhik prapa(n)ch dhikhai sabhan keh aapeh braham kahaae ||1||",
+          "hi": "अधिक प्रपंच दिखाइ सभन कह आपहि ब्रहमु कहाए ॥१॥",
+          "ipa": "ət̪ɪk pɹəpəŋt͡ʃ d̪ɪkʰɑeɪ səɓən kəh əɑpəh bɹəhəm kəhɑee.1.",
+          "ur": "ادھک پرپںچ دکھاا سبھن که آپه برهم کهااے ۔۔۱۔۔"
+        },
+        "pageNo": 710,
+        "lineNo": 105846,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 12,
+      "verse": {
+        "verseId": 1357,
+        "verse": {
+          "gurmukhi": "BMjn gVHn smrQ sdw pRBu so ikm jwiq ignwXo ]",
+          "unicode": "ਭੰਜਨ ਗੜ੍ਹਨ ਸਮਰਥ ਸਦਾ ਪ੍ਰਭੁ ਸੋ ਕਿਮ ਜਾਤਿ ਗਿਨਾਯੋ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "BMjngVHnsmrQsdwpRBusoikmjwiqignwXo]",
+          "unicode": "ਭੰਜਨਗੜ੍ਹਨਸਮਰਥਸਦਾਪ੍ਰਭੁਸੋਕਿਮਜਾਤਿਗਿਨਾਯੋ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "How can He be called God, the Destroyer, the Creator, the Almighty and Eternal,"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "(jo) pRBU sdw BMnx Aqy GVn dI smrQw rKdw hY, aus nUM (ivSxU) ikvyW mMinAw jw skdw hY।",
+              "unicode": "(ਜੋ) ਪ੍ਰਭੂ ਸਦਾ ਭੰਨਣ ਅਤੇ ਘੜਨ ਦੀ ਸਮਰਥਾ ਰਖਦਾ ਹੈ, ਉਸ ਨੂੰ (ਵਿਸ਼ਣੂ) ਕਿਵੇਾਂ ਮੰਨਿਆ ਜਾ ਸਕਦਾ ਹੈ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "(jo) pRBU sdw BMnx Aqy GVn dI smrQw rKdw hY, aus nUM (ivSxU) ikvyW mMinAw jw skdw hY।",
+              "unicode": "(ਜੋ) ਪ੍ਰਭੂ ਸਦਾ ਭੰਨਣ ਅਤੇ ਘੜਨ ਦੀ ਸਮਰਥਾ ਰਖਦਾ ਹੈ, ਉਸ ਨੂੰ (ਵਿਸ਼ਣੂ) ਕਿਵੇਾਂ ਮੰਨਿਆ ਜਾ ਸਕਦਾ ਹੈ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "bha(n)jan gaRhan samarath sadhaa prabh so kim jaat ginaayo ||",
+          "hindi": "भंजन गड़्हन समरथ सदा प्रभु सो किम जाति गिनायो ॥",
+          "en": "bha(n)jan gaRhan samarath sadhaa prabh so kim jaat ginaayo ||",
+          "hi": "भंजन गड़्हन समरथ सदा प्रभु सो किम जाति गिनायो ॥",
+          "ipa": "ɓəŋd͡ʒən Gəɽʰən səmərət̪ʰ səd̪ɑ pɹəɓ sɔ kɪm d͡ʒɑt̪ Gɪnɑjɔ.",
+          "ur": "بھںجن گڑھن سمرتھ سدا پربھ سو کم جات گناےو ۔۔"
+        },
+        "pageNo": 710,
+        "lineNo": 105847,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 12,
+      "verse": {
+        "verseId": 1358,
+        "verse": {
+          "gurmukhi": "qw qy srb kwl ky Ais ko Gwie bcwie n AwXo ]2]",
+          "unicode": "ਤਾ ਤੇ ਸਰਬ ਕਾਲ ਕੇ ਅਸਿ ਕੋ ਘਾਇ ਬਚਾਇ ਨ ਆਯੋ ॥੨॥"
+        },
+        "larivaar": {
+          "gurmukhi": "qwqysrbkwlkyAiskoGwiebcwienAwXo]2]",
+          "unicode": "ਤਾਤੇਸਰਬਕਾਲਕੇਅਸਿਕੋਘਾਇਬਚਾਇਨਆਯੋ॥੨॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Who could not save himself from the wound-causing sword of mighty Death.2."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "ies leI ik (auh) srb kwl dI qlvwr dy vwr qoN (Awpxy Awp nUM) bcw nhIN sikAw ]2]",
+              "unicode": "ਇਸ ਲਈ ਕਿ (ਉਹ) ਸਰਬ ਕਾਲ ਦੀ ਤਲਵਾਰ ਦੇ ਵਾਰ ਤੋਂ (ਆਪਣੇ ਆਪ ਨੂੰ) ਬਚਾ ਨਹੀਂ ਸਕਿਆ ॥੨॥"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "ies leI ik (auh) srb kwl dI qlvwr dy vwr qoN (Awpxy Awp nUM) bcw nhIN sikAw ]2]",
+              "unicode": "ਇਸ ਲਈ ਕਿ (ਉਹ) ਸਰਬ ਕਾਲ ਦੀ ਤਲਵਾਰ ਦੇ ਵਾਰ ਤੋਂ (ਆਪਣੇ ਆਪ ਨੂੰ) ਬਚਾ ਨਹੀਂ ਸਕਿਆ ॥੨॥"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "taa te sarab kaal ke as ko ghai bachai na aayo ||2||",
+          "hindi": "ता ते सरब काल के असि को घाइ बचाइ न आयो ॥२॥",
+          "en": "taa te sarab kaal ke as ko ghai bachai na aayo ||2||",
+          "hi": "ता ते सरब काल के असि को घाइ बचाइ न आयो ॥२॥",
+          "ipa": "t̪ɑ t̪e sərəb kɑl ke əs kɔ Gʰɑeɪ bət͡ʃɑeɪ nə əɑjɔ.2.",
+          "ur": "تا تے سرب کال کے اس کو گھاا بچاا ن آےو ۔۔۲۔۔"
+        },
+        "pageNo": 710,
+        "lineNo": 105848,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 12,
+      "verse": {
+        "verseId": 1359,
+        "verse": {
+          "gurmukhi": "kYsy qoih qwirhY suin jV Awp fuibXo Bv swgr ]",
+          "unicode": "ਕੈਸੇ ਤੋਹਿ ਤਾਰਿਹੈ ਸੁਨਿ ਜੜ ਆਪ ਡੁਬਿਯੋ ਭਵ ਸਾਗਰ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "kYsyqoihqwirhYsuinjVAwpfuibXoBvswgr]",
+          "unicode": "ਕੈਸੇਤੋਹਿਤਾਰਿਹੈਸੁਨਿਜੜਆਪਡੁਬਿਯੋਭਵਸਾਗਰ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "O fool! listen, how can he cause you to cause the dreadful ocean of Sansara (world), when he himself is drowned in great ocean?"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "hy mUrK! sux। (auh) qYnUM iks qrRhw qwrygw jo Awp Bvswgr ivc fuibAw hoieAw hY।",
+              "unicode": "ਹੇ ਮੂਰਖ! ਸੁਣ। (ਉਹ) ਤੈਨੂੰ ਕਿਸ ਤਰ੍ਰਹਾ ਤਾਰੇਗਾ ਜੋ ਆਪ ਭਵਸਾਗਰ ਵਿਚ ਡੁਬਿਆ ਹੋਇਆ ਹੈ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "hy mUrK! sux। (auh) qYnUM iks qrRhw qwrygw jo Awp Bvswgr ivc fuibAw hoieAw hY।",
+              "unicode": "ਹੇ ਮੂਰਖ! ਸੁਣ। (ਉਹ) ਤੈਨੂੰ ਕਿਸ ਤਰ੍ਰਹਾ ਤਾਰੇਗਾ ਜੋ ਆਪ ਭਵਸਾਗਰ ਵਿਚ ਡੁਬਿਆ ਹੋਇਆ ਹੈ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "kaise toh taarihai sun jaR aap ddubiyo bhav saagar ||",
+          "hindi": "कैसे तोहि तारिहै सुनि जड़ आप डुबियो भव सागर ॥",
+          "en": "kaise toh taarihai sun jaR aap ddubiyo bhav saagar ||",
+          "hi": "कैसे तोहि तारिहै सुनि जड़ आप डुबियो भव सागर ॥",
+          "ipa": "kæse t̪ɔh t̪ɑrɪhæ sʊn d͡ʒəɽ əɑp ɖʊbɪjɔ ɓəʋ sɑGər.",
+          "ur": "کَےسے توه تارهَے سُن جڑ آپ ڈُبےو بھو ساگر ۔۔"
+        },
+        "pageNo": 710,
+        "lineNo": 105849,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 12,
+      "verse": {
+        "verseId": 1360,
+        "verse": {
+          "gurmukhi": "Cuitho kwl Pws qy qb hI gho srin jgqwgr ]3]1]5]",
+          "unicode": "ਛੁਟਿਹੋ ਕਾਲ ਫਾਸ ਤੇ ਤਬ ਹੀ ਗਹੋ ਸਰਨਿ ਜਗਤਾਗਰ ॥੩॥੧॥੫॥"
+        },
+        "larivaar": {
+          "gurmukhi": "CuithokwlPwsqyqbhIghosrinjgqwgr]3]1]5]",
+          "unicode": "ਛੁਟਿਹੋਕਾਲਫਾਸਤੇਤਬਹੀਗਹੋਸਰਨਿਜਗਤਾਗਰ॥੩॥੧॥੫॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "You can escape the trap of death only when you catch hold of the prop of the world and take refuge in Him.3."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "jdoN jgq dy somyW (jgqwgr) dI Srn ivc jweyWgw, qd hI kwl dI PwhI qoN mukq ho skyWgw ]3]1]5]",
+              "unicode": "ਜਦੋਂ ਜਗਤ ਦੇ ਸੋਮੇਾਂ (ਜਗਤਾਗਰ) ਦੀ ਸ਼ਰਨ ਵਿਚ ਜਾਏਾਂਗਾ, ਤਦ ਹੀ ਕਾਲ ਦੀ ਫਾਹੀ ਤੋਂ ਮੁਕਤ ਹੋ ਸਕੇਾਂਗਾ ॥੩॥੧॥੫॥"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "jdoN jgq dy somyW (jgqwgr) dI Srn ivc jweyWgw, qd hI kwl dI PwhI qoN mukq ho skyWgw ]3]1]5]",
+              "unicode": "ਜਦੋਂ ਜਗਤ ਦੇ ਸੋਮੇਾਂ (ਜਗਤਾਗਰ) ਦੀ ਸ਼ਰਨ ਵਿਚ ਜਾਏਾਂਗਾ, ਤਦ ਹੀ ਕਾਲ ਦੀ ਫਾਹੀ ਤੋਂ ਮੁਕਤ ਹੋ ਸਕੇਾਂਗਾ ॥੩॥੧॥੫॥"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "chhuTiho kaal faas te tab hee gaho saran jagataagar ||3||1||5||",
+          "hindi": "छुटिहो काल फास ते तब ही गहो सरनि जगतागर ॥३॥१॥५॥",
+          "en": "chhuTiho kaal faas te tab hee gaho saran jagataagar ||3||1||5||",
+          "hi": "छुटिहो काल फास ते तब ही गहो सरनि जगतागर ॥३॥१॥५॥",
+          "ipa": "ɕʊʈɪhɔ kɑl fɑs t̪e t̪əb hi Gəhɔ sərən d͡ʒəGət̪ɑGər.3.1.5.",
+          "ur": "چھُٹهو کال پھاس تے تب هیِ گهو سرن جگتاگر ۔۔۳۔۔۱۔۔۵۔۔"
+        },
+        "pageNo": 710,
+        "lineNo": 105850,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 2,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 13,
+      "verse": {
+        "verseId": 1361,
+        "verse": {
+          "gurmukhi": "iKAwl pwiqswhI 10 ]",
+          "unicode": "ਖਿਆਲ ਪਾਤਿਸਾਹੀ ੧੦ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "iKAwlpwiqswhI10]",
+          "unicode": "ਖਿਆਲਪਾਤਿਸਾਹੀ੧੦॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "KHYAL OF THE TENTH KING"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "iKAwl pwiqSwhI 10:",
+              "unicode": "ਖਿਆਲ ਪਾਤਿਸ਼ਾਹੀ ੧੦:"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "iKAwl pwiqSwhI 10:",
+              "unicode": "ਖਿਆਲ ਪਾਤਿਸ਼ਾਹੀ ੧੦:"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "khiaal paatisaahee 10 ||",
+          "hindi": "खिआल पातिसाही १० ॥",
+          "en": "khiaal paatisaahee 10 ||",
+          "hi": "खिआल पातिसाही १० ॥",
+          "ipa": "kʰɪəɑl pɑt̪ɪsɑhi 1ə0.",
+          "ur": "کھِآل پاتساهیِ ۱۰ ۔۔"
+        },
+        "pageNo": 711,
+        "lineNo": 105851,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 14,
+      "verse": {
+        "verseId": 1362,
+        "verse": {
+          "gurmukhi": "imqR ipAwry nUM hwlu murIdW dw khxw ]",
+          "unicode": "ਮਿਤ੍ਰ ਪਿਆਰੇ ਨੂੰ ਹਾਲੁ ਮੁਰੀਦਾਂ ਦਾ ਕਹਣਾ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "imqRipAwrynUMhwlumurIdWdwkhxw]",
+          "unicode": "ਮਿਤ੍ਰਪਿਆਰੇਨੂੰਹਾਲੁਮੁਰੀਦਾਂਦਾਕਹਣਾ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Convey to the dear friend the condition of the disciples,"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "ipAwry imqr (pRBU) nUM (Asw) murIdw dw hwl (jw ky) kihxw।",
+              "unicode": "ਪਿਆਰੇ ਮਿਤਰ (ਪ੍ਰਭੂ) ਨੂੰ (ਅਸਾ) ਮੁਰੀਦਾ ਦਾ ਹਾਲ (ਜਾ ਕੇ) ਕਹਿਣਾ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "ipAwry imqr (pRBU) nUM (Asw) murIdw dw hwl (jw ky) kihxw।",
+              "unicode": "ਪਿਆਰੇ ਮਿਤਰ (ਪ੍ਰਭੂ) ਨੂੰ (ਅਸਾ) ਮੁਰੀਦਾ ਦਾ ਹਾਲ (ਜਾ ਕੇ) ਕਹਿਣਾ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "mitr piaare noo(n) haal mureedhaa(n) dhaa kahanaa ||",
+          "hindi": "मित्र पिआरे नूँ हालु मुरीदाँ दा कहणा ॥",
+          "en": "mitr piaare noo(n) haal mureedhaa(n) dhaa kahanaa ||",
+          "hi": "मित्र पिआरे नूँ हालु मुरीदाँ दा कहणा ॥",
+          "ipa": "mɪt̪ɹ pɪəɑre nuŋ hɑl mʊrid̪ɑⁿ d̪ɑ kəhəɳɑ.",
+          "ur": "مِتر پآرے نُوں هال مُریِداں دا کهݨا ۔۔"
+        },
+        "pageNo": 711,
+        "lineNo": 105852,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 14,
+      "verse": {
+        "verseId": 1363,
+        "verse": {
+          "gurmukhi": "quD ibnu rogu rjweIAW dw EFxu nwg invwsW dy rhxw ]",
+          "unicode": "ਤੁਧ ਬਿਨੁ ਰੋਗੁ ਰਜਾਈਆਂ ਦਾ ਓਢਣੁ ਨਾਗ ਨਿਵਾਸਾਂ ਦੇ ਰਹਣਾ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "quDibnurogurjweIAWdwEFxunwginvwsWdyrhxw]",
+          "unicode": "ਤੁਧਬਿਨੁਰੋਗੁਰਜਾਈਆਂਦਾਓਢਣੁਨਾਗਨਿਵਾਸਾਂਦੇਰਹਣਾ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Without Thee, the taking over of quilt is like disease and living in the house is like living with serpents"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "qyry ibnw rzweIAW dw EVnw rog dy smwn hY Aqy invws sQwnw ivc rihxw nwgw ivc (rihxw hY)।",
+              "unicode": "ਤੇਰੇ ਬਿਨਾ ਰਜ਼ਾਈਆਂ ਦਾ ਓੜਨਾ ਰੋਗ ਦੇ ਸਮਾਨ ਹੈ ਅਤੇ ਨਿਵਾਸ ਸਥਾਨਾ ਵਿਚ ਰਹਿਣਾ ਨਾਗਾ ਵਿਚ (ਰਹਿਣਾ ਹੈ)।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "qyry ibnw rzweIAW dw EVnw rog dy smwn hY Aqy invws sQwnw ivc rihxw nwgw ivc (rihxw hY)।",
+              "unicode": "ਤੇਰੇ ਬਿਨਾ ਰਜ਼ਾਈਆਂ ਦਾ ਓੜਨਾ ਰੋਗ ਦੇ ਸਮਾਨ ਹੈ ਅਤੇ ਨਿਵਾਸ ਸਥਾਨਾ ਵਿਚ ਰਹਿਣਾ ਨਾਗਾ ਵਿਚ (ਰਹਿਣਾ ਹੈ)।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "tudh bin rog rajaieeaa(n) dhaa oddan naag nivaasaa(n) dhe rahanaa ||",
+          "hindi": "तुध बिनु रोगु रजाईआँ दा ओढणु नाग निवासाँ दे रहणा ॥",
+          "en": "tudh bin rog rajaieeaa(n) dhaa oddan naag nivaasaa(n) dhe rahanaa ||",
+          "hi": "तुध बिनु रोगु रजाईआँ दा ओढणु नाग निवासाँ दे रहणा ॥",
+          "ipa": "t̪ʊt̪ə̀ bɪn rɔG rəd͡ʒɑeiɑⁿ d̪ɑ oəʈəɳ nɑG nɪʋɑsɑⁿ d̪e rəhəɳɑ.",
+          "ur": "تُدھ بن روگ رجاایآں دا اوڈھݨ ناگ نواساں دے رهݨا ۔۔"
+        },
+        "pageNo": 711,
+        "lineNo": 105853,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 14,
+      "verse": {
+        "verseId": 1364,
+        "verse": {
+          "gurmukhi": "sUl surwhI KMjru ipXwlw ibMg ksweIXW dw shxw ]",
+          "unicode": "ਸੂਲ ਸੁਰਾਹੀ ਖੰਜਰੁ ਪਿਯਾਲਾ ਬਿੰਗ ਕਸਾਈਯਾਂ ਦਾ ਸਹਣਾ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "sUlsurwhIKMjruipXwlwibMgksweIXWdwshxw]",
+          "unicode": "ਸੂਲਸੁਰਾਹੀਖੰਜਰੁਪਿਯਾਲਾਬਿੰਗਕਸਾਈਯਾਂਦਾਸਹਣਾ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "The flask is like the spike, the cup is like a dagger and (the separation) is like enduring the chopper of the butchers,"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "(quhwfy ibnw) surwhI sUl vrgI, ipAwlw ^Mjr dy smwn Aqy (ivXog) ksweIAW dy ivMgy Cury (dI st nUM) sihn krn dy smwn hn।",
+              "unicode": "(ਤੁਹਾਡੇ ਬਿਨਾ) ਸੁਰਾਹੀ ਸੂਲ ਵਰਗੀ, ਪਿਆਲਾ ਖ਼ੰਜਰ ਦੇ ਸਮਾਨ ਅਤੇ (ਵਿਯੋਗ) ਕਸਾਈਆਂ ਦੇ ਵਿੰਗੇ ਛੁਰੇ (ਦੀ ਸਟ ਨੂੰ) ਸਹਿਨ ਕਰਨ ਦੇ ਸਮਾਨ ਹਨ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "(quhwfy ibnw) surwhI sUl vrgI, ipAwlw ^Mjr dy smwn Aqy (ivXog) ksweIAW dy ivMgy Cury (dI st nUM) sihn krn dy smwn hn।",
+              "unicode": "(ਤੁਹਾਡੇ ਬਿਨਾ) ਸੁਰਾਹੀ ਸੂਲ ਵਰਗੀ, ਪਿਆਲਾ ਖ਼ੰਜਰ ਦੇ ਸਮਾਨ ਅਤੇ (ਵਿਯੋਗ) ਕਸਾਈਆਂ ਦੇ ਵਿੰਗੇ ਛੁਰੇ (ਦੀ ਸਟ ਨੂੰ) ਸਹਿਨ ਕਰਨ ਦੇ ਸਮਾਨ ਹਨ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "sool suraahee kha(n)jar piyaalaa bi(n)g kasaieeyaa(n) dhaa sahanaa ||",
+          "hindi": "सूल सुराही खंजरु पियाला बिंग कसाईयाँ दा सहणा ॥",
+          "en": "sool suraahee kha(n)jar piyaalaa bi(n)g kasaieeyaa(n) dhaa sahanaa ||",
+          "hi": "सूल सुराही खंजरु पियाला बिंग कसाईयाँ दा सहणा ॥",
+          "ipa": "sul sʊrɑhi kʰəŋd͡ʒər pɪjɑlɑ bɪŋG kəsɑeijɑⁿ d̪ɑ səhəɳɑ.",
+          "ur": "سُول سُراهیِ کھںجر پےالا بںگ کساایےاں دا سهݨا ۔۔"
+        },
+        "pageNo": 711,
+        "lineNo": 105854,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 14,
+      "verse": {
+        "verseId": 1365,
+        "verse": {
+          "gurmukhi": "XwrVy dw swnUM s`Qr cMgw B`T KyiVAW dw rhxw ]1]1]6]",
+          "unicode": "ਯਾਰੜੇ ਦਾ ਸਾਨੂੰ ਸੱਥਰ ਚੰਗਾ ਭੱਠ ਖੇੜਿਆਂ ਦਾ ਰਹਣਾ ॥੧॥੧॥੬॥"
+        },
+        "larivaar": {
+          "gurmukhi": "XwrVydwswnUMs`QrcMgwB`TKyiVAWdwrhxw]1]1]6]",
+          "unicode": "ਯਾਰੜੇਦਾਸਾਨੂੰਸੱਥਰਚੰਗਾਭੱਠਖੇੜਿਆਂਦਾਰਹਣਾ॥੧॥੧॥੬॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "The pallet of the beloved Friend is most pleasing and the worldly pleasures are like furnace.1.1"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "Xwr (imqr) dw id`qw hoieAw sQr (BUmI-Awsn) swnUM cMgw hY, (pr aus qoN ivCuV ky suK pUrvk) ipMf ivc sOxw BT ivc rihx vrgw hY ]1]1]6]",
+              "unicode": "ਯਾਰ (ਮਿਤਰ) ਦਾ ਦਿੱਤਾ ਹੋਇਆ ਸਥਰ (ਭੂਮੀ-ਆਸਨ) ਸਾਨੂੰ ਚੰਗਾ ਹੈ, (ਪਰ ਉਸ ਤੋਂ ਵਿਛੁੜ ਕੇ ਸੁਖ ਪੂਰਵਕ) ਪਿੰਡ ਵਿਚ ਸੌਣਾ ਭਠ ਵਿਚ ਰਹਿਣ ਵਰਗਾ ਹੈ ॥੧॥੧॥੬॥"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "Xwr (imqr) dw id`qw hoieAw sQr (BUmI-Awsn) swnUM cMgw hY, (pr aus qoN ivCuV ky suK pUrvk) ipMf ivc sOxw BT ivc rihx vrgw hY ]1]1]6]",
+              "unicode": "ਯਾਰ (ਮਿਤਰ) ਦਾ ਦਿੱਤਾ ਹੋਇਆ ਸਥਰ (ਭੂਮੀ-ਆਸਨ) ਸਾਨੂੰ ਚੰਗਾ ਹੈ, (ਪਰ ਉਸ ਤੋਂ ਵਿਛੁੜ ਕੇ ਸੁਖ ਪੂਰਵਕ) ਪਿੰਡ ਵਿਚ ਸੌਣਾ ਭਠ ਵਿਚ ਰਹਿਣ ਵਰਗਾ ਹੈ ॥੧॥੧॥੬॥"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "yaaraRe dhaa saanoo(n) sa'thar cha(n)gaa bha'Th kheRiaa(n) dhaa rahanaa ||1||1||6||",
+          "hindi": "यारड़े दा सानूँ सत्थर चंगा भट्ठ खेड़िआँ दा रहणा ॥१॥१॥६॥",
+          "en": "yaaraRe dhaa saanoo(n) sa'thar cha(n)gaa bha'Th kheRiaa(n) dhaa rahanaa ||1||1||6||",
+          "hi": "यारड़े दा सानूँ सत्थर चंगा भट्ठ खेड़िआँ दा रहणा ॥१॥१॥६॥",
+          "ipa": "jɑrəɽe d̪ɑ sɑnuŋ st̪ʰər t͡ʃəŋGɑ ɓʈʰ kʰeɽɪəɑⁿ d̪ɑ rəhəɳɑ.1.1.6.",
+          "ur": "ےارڑے دا سانُوں سّتھر چںگا بھّٹھ کھےڑآں دا رهݨا ۔۔۱۔۔۱۔۔۶۔۔"
+        },
+        "pageNo": 711,
+        "lineNo": 105855,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 2,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 15,
+      "verse": {
+        "verseId": 1366,
+        "verse": {
+          "gurmukhi": "iqlMg kwPI pwiqswhI 10 ]",
+          "unicode": "ਤਿਲੰਗ ਕਾਫੀ ਪਾਤਿਸਾਹੀ ੧੦ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "iqlMgkwPIpwiqswhI10]",
+          "unicode": "ਤਿਲੰਗਕਾਫੀਪਾਤਿਸਾਹੀ੧੦॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "TILNG KAFI OF THE TENTH KING"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "rwg iqlMg kwPI pwiqSwhI 10:",
+              "unicode": "ਰਾਗ ਤਿਲੰਗ ਕਾਫੀ ਪਾਤਿਸ਼ਾਹੀ ੧੦:"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "rwg iqlMg kwPI pwiqSwhI 10:",
+              "unicode": "ਰਾਗ ਤਿਲੰਗ ਕਾਫੀ ਪਾਤਿਸ਼ਾਹੀ ੧੦:"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "tila(n)g kaafee paatisaahee 10 ||",
+          "hindi": "तिलंग काफी पातिसाही १० ॥",
+          "en": "tila(n)g kaafee paatisaahee 10 ||",
+          "hi": "तिलंग काफी पातिसाही १० ॥",
+          "ipa": "t̪ɪləŋG kɑfi pɑt̪ɪsɑhi 1ə0.",
+          "ur": "تِلںگ کاپھیِ پاتساهیِ ۱۰ ۔۔"
+        },
+        "pageNo": 711,
+        "lineNo": 105856,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 16,
+      "verse": {
+        "verseId": 1367,
+        "verse": {
+          "gurmukhi": "kyvl kwleI krqwr ]",
+          "unicode": "ਕੇਵਲ ਕਾਲਈ ਕਰਤਾਰ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "kyvlkwleIkrqwr]",
+          "unicode": "ਕੇਵਲਕਾਲਈਕਰਤਾਰ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "The supreme Destroyer is alone the Creator,"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "kyvl kwl hI sB dw krqw hY।",
+              "unicode": "ਕੇਵਲ ਕਾਲ ਹੀ ਸਭ ਦਾ ਕਰਤਾ ਹੈ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "kyvl kwl hI sB dw krqw hY।",
+              "unicode": "ਕੇਵਲ ਕਾਲ ਹੀ ਸਭ ਦਾ ਕਰਤਾ ਹੈ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "keval kaaliee karataar ||",
+          "hindi": "केवल कालई करतार ॥",
+          "en": "keval kaaliee karataar ||",
+          "hi": "केवल कालई करतार ॥",
+          "ipa": "keʋəl kɑlei kərət̪ɑr.",
+          "ur": "کےول کالای کرتار ۔۔"
+        },
+        "pageNo": 711,
+        "lineNo": 105857,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 16,
+      "verse": {
+        "verseId": 1368,
+        "verse": {
+          "gurmukhi": "Awid AMq AnMq mUriq gVHn BMjnhwr ]1] rhwau ]",
+          "unicode": "ਆਦਿ ਅੰਤ ਅਨੰਤ ਮੂਰਤਿ ਗੜ੍ਹਨ ਭੰਜਨਹਾਰ ॥੧॥ ਰਹਾਉ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "AwidAMqAnMqmUriqgVHnBMjnhwr]1]rhwau]",
+          "unicode": "ਆਦਿਅੰਤਅਨੰਤਮੂਰਤਿਗੜ੍ਹਨਭੰਜਨਹਾਰ॥੧॥ਰਹਾਉ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "He is in the beginning and in the end, He is the infinite entity, the Creator and the Destroyer…Pause."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "Awid qoN AMq qk AnMq mUrqw bxwaux Aqy BMnx vwlw hY ]1] rhwau।",
+              "unicode": "ਆਦਿ ਤੋਂ ਅੰਤ ਤਕ ਅਨੰਤ ਮੂਰਤਾ ਬਣਾਉਣ ਅਤੇ ਭੰਨਣ ਵਾਲਾ ਹੈ ॥੧॥ ਰਹਾਉ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "Awid qoN AMq qk AnMq mUrqw bxwaux Aqy BMnx vwlw hY ]1] rhwau।",
+              "unicode": "ਆਦਿ ਤੋਂ ਅੰਤ ਤਕ ਅਨੰਤ ਮੂਰਤਾ ਬਣਾਉਣ ਅਤੇ ਭੰਨਣ ਵਾਲਾ ਹੈ ॥੧॥ ਰਹਾਉ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "aadh a(n)t ana(n)t moorat gaRhan bha(n)janahaar ||1|| rahaau ||",
+          "hindi": "आदि अंत अनंत मूरति गड़्हन भंजनहार ॥१॥ रहाउ ॥",
+          "en": "aadh a(n)t ana(n)t moorat gaRhan bha(n)janahaar ||1|| rahaau ||",
+          "hi": "आदि अंत अनंत मूरति गड़्हन भंजनहार ॥१॥ रहाउ ॥",
+          "ipa": "əɑd̪ əŋt̪ ənəŋt̪ murət̪ Gəɽʰən ɓəŋd͡ʒənəhɑr.1. rəhɑo.",
+          "ur": "آد اںت انںت مُورت گڑھن بھںجنهار ۔۔۱۔۔ رهاا ۔۔"
+        },
+        "pageNo": 711,
+        "lineNo": 105858,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 16,
+      "verse": {
+        "verseId": 1369,
+        "verse": {
+          "gurmukhi": "inMd ausqq jaun ky sm sqR imqR n koie ]",
+          "unicode": "ਨਿੰਦ ਉਸਤਤ ਜਉਨ ਕੇ ਸਮ ਸਤ੍ਰ ਮਿਤ੍ਰ ਨ ਕੋਇ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "inMdausqqjaunkysmsqRimqRnkoie]",
+          "unicode": "ਨਿੰਦਉਸਤਤਜਉਨਕੇਸਮਸਤ੍ਰਮਿਤ੍ਰਨਕੋਇ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "The calumny and Praise are equal to him and he has no friend, no foe,"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "ijs leI inMidAw Aqy ausqq iek smwn hY Aqy (ijs dw) koeI vYrI jw imqr nhIN hY।",
+              "unicode": "ਜਿਸ ਲਈ ਨਿੰਦਿਆ ਅਤੇ ਉਸਤਤ ਇਕ ਸਮਾਨ ਹੈ ਅਤੇ (ਜਿਸ ਦਾ) ਕੋਈ ਵੈਰੀ ਜਾ ਮਿਤਰ ਨਹੀਂ ਹੈ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "ijs leI inMidAw Aqy ausqq iek smwn hY Aqy (ijs dw) koeI vYrI jw imqr nhIN hY।",
+              "unicode": "ਜਿਸ ਲਈ ਨਿੰਦਿਆ ਅਤੇ ਉਸਤਤ ਇਕ ਸਮਾਨ ਹੈ ਅਤੇ (ਜਿਸ ਦਾ) ਕੋਈ ਵੈਰੀ ਜਾ ਮਿਤਰ ਨਹੀਂ ਹੈ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "ni(n)dh usatat jaun ke sam satr mitr na koi ||",
+          "hindi": "निंद उसतत जउन के सम सत्र मित्र न कोइ ॥",
+          "en": "ni(n)dh usatat jaun ke sam satr mitr na koi ||",
+          "hi": "निंद उसतत जउन के सम सत्र मित्र न कोइ ॥",
+          "ipa": "nɪŋd̪ oʊsət̪ət̪ d͡ʒoʊn ke səm sət̪ɹ mɪt̪ɹ nə kɔeɪ.",
+          "ur": "نِںد اُستت جان کے سم ستر متر ن کوا ۔۔"
+        },
+        "pageNo": 711,
+        "lineNo": 105859,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 16,
+      "verse": {
+        "verseId": 1370,
+        "verse": {
+          "gurmukhi": "kaun bwt prI iqsY pQ swrQI rQ hoie ]1]",
+          "unicode": "ਕਉਨ ਬਾਟ ਪਰੀ ਤਿਸੈ ਪਥ ਸਾਰਥੀ ਰਥ ਹੋਇ ॥੧॥"
+        },
+        "larivaar": {
+          "gurmukhi": "kaunbwtprIiqsYpQswrQIrQhoie]1]",
+          "unicode": "ਕਉਨਬਾਟਪਰੀਤਿਸੈਪਥਸਾਰਥੀਰਥਹੋਇ॥੧॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Of what crucial necessity, He became the charioteer ?1."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "aus nUM ikhVI AOK Aw bxI sI ik auh Arjn (pQpwrQ) dw rQvwn bixAw sI ]1]",
+              "unicode": "ਉਸ ਨੂੰ ਕਿਹੜੀ ਔਖ ਆ ਬਣੀ ਸੀ ਕਿ ਉਹ ਅਰਜਨ (ਪਥਪਾਰਥ) ਦਾ ਰਥਵਾਨ ਬਣਿਆ ਸੀ ॥੧॥"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "aus nUM ikhVI AOK Aw bxI sI ik auh Arjn (pQpwrQ) dw rQvwn bixAw sI ]1]",
+              "unicode": "ਉਸ ਨੂੰ ਕਿਹੜੀ ਔਖ ਆ ਬਣੀ ਸੀ ਕਿ ਉਹ ਅਰਜਨ (ਪਥਪਾਰਥ) ਦਾ ਰਥਵਾਨ ਬਣਿਆ ਸੀ ॥੧॥"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "kaun baaT paree tisai path saarathee rath hoi ||1||",
+          "hindi": "कउन बाट परी तिसै पथ सारथी रथ होइ ॥१॥",
+          "en": "kaun baaT paree tisai path saarathee rath hoi ||1||",
+          "hi": "कउन बाट परी तिसै पथ सारथी रथ होइ ॥१॥",
+          "ipa": "koʊn bɑʈ pəri t̪ɪsæ pət̪ʰ sɑrət̪ʰi rət̪ʰ hɔeɪ.1.",
+          "ur": "کان باٹ پریِ تسَے پتھ سارتھیِ رتھ هوا ۔۔۱۔۔"
+        },
+        "pageNo": 711,
+        "lineNo": 105860,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 16,
+      "verse": {
+        "verseId": 1371,
+        "verse": {
+          "gurmukhi": "qwq mwq n jwq jwkr puqR pOqR mukMd ]",
+          "unicode": "ਤਾਤ ਮਾਤ ਨ ਜਾਤ ਜਾਕਰ ਪੁਤ੍ਰ ਪੌਤ੍ਰ ਮੁਕੰਦ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "qwqmwqnjwqjwkrpuqRpOqRmukMd]",
+          "unicode": "ਤਾਤਮਾਤਨਜਾਤਜਾਕਰਪੁਤ੍ਰਪੌਤ੍ਰਮੁਕੰਦ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "He, the Giver of salvation, has no father, no mother, no son and no grandson"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "ijs mukMd dw nw ipqw hY, nw mwqw, nw koeI jwiq hY, nw koeI pu`qr poqrw hY।",
+              "unicode": "ਜਿਸ ਮੁਕੰਦ ਦਾ ਨਾ ਪਿਤਾ ਹੈ, ਨਾ ਮਾਤਾ, ਨਾ ਕੋਈ ਜਾਤਿ ਹੈ, ਨਾ ਕੋਈ ਪੁੱਤਰ ਪੋਤਰਾ ਹੈ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "ijs mukMd dw nw ipqw hY, nw mwqw, nw koeI jwiq hY, nw koeI pu`qr poqrw hY।",
+              "unicode": "ਜਿਸ ਮੁਕੰਦ ਦਾ ਨਾ ਪਿਤਾ ਹੈ, ਨਾ ਮਾਤਾ, ਨਾ ਕੋਈ ਜਾਤਿ ਹੈ, ਨਾ ਕੋਈ ਪੁੱਤਰ ਪੋਤਰਾ ਹੈ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "taat maat na jaat jaakar putr pauatr muka(n)dh ||",
+          "hindi": "तात मात न जात जाकर पुत्र पौत्र मुकंद ॥",
+          "en": "taat maat na jaat jaakar putr pauatr muka(n)dh ||",
+          "hi": "तात मात न जात जाकर पुत्र पौत्र मुकंद ॥",
+          "ipa": "t̪ɑt̪ mɑt̪ nə d͡ʒɑt̪ d͡ʒɑkər pʊt̪ɹ pɒət̪ɹ mʊkəŋd̪.",
+          "ur": "تات مات ن جات جاکر پُتر پَوتر مُکںد ۔۔"
+        },
+        "pageNo": 711,
+        "lineNo": 105861,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 16,
+      "verse": {
+        "verseId": 1372,
+        "verse": {
+          "gurmukhi": "kaun kwj khwihNgy qy Awn dyivk nMd ]2]",
+          "unicode": "ਕਉਨ ਕਾਜ ਕਹਾਹਿਂਗੇ ਤੇ ਆਨ ਦੇਵਿਕ ਨੰਦ ॥੨॥"
+        },
+        "larivaar": {
+          "gurmukhi": "kaunkwjkhwihNgyqyAwndyivknMd]2]",
+          "unicode": "ਕਉਨਕਾਜਕਹਾਹਿਂਗੇਤੇਆਨਦੇਵਿਕਨੰਦ॥੨॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "O what necessity he caused others to call Him the son of Devaki ?2."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "(iPr auh) Aw ky iks vwsqy dyvkI dw pu`qr AKvwieAw hY ]2]",
+              "unicode": "(ਫਿਰ ਉਹ) ਆ ਕੇ ਕਿਸ ਵਾਸਤੇ ਦੇਵਕੀ ਦਾ ਪੁੱਤਰ ਅਖਵਾਇਆ ਹੈ ॥੨॥"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "(iPr auh) Aw ky iks vwsqy dyvkI dw pu`qr AKvwieAw hY ]2]",
+              "unicode": "(ਫਿਰ ਉਹ) ਆ ਕੇ ਕਿਸ ਵਾਸਤੇ ਦੇਵਕੀ ਦਾ ਪੁੱਤਰ ਅਖਵਾਇਆ ਹੈ ॥੨॥"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "kaun kaaj kahaahi(n)ge te aan dhevik na(n)dh ||2||",
+          "hindi": "कउन काज कहाहिंगे ते आन देविक नंद ॥२॥",
+          "en": "kaun kaaj kahaahi(n)ge te aan dhevik na(n)dh ||2||",
+          "hi": "कउन काज कहाहिंगे ते आन देविक नंद ॥२॥",
+          "ipa": "koʊn kɑd͡ʒ kəhɑhɪⁿGe t̪e əɑn d̪eʋɪk nəŋd̪.2.",
+          "ur": "کان کاج کهاهںگے تے آن دےوک نںد ۔۔۲۔۔"
+        },
+        "pageNo": 711,
+        "lineNo": 105862,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 16,
+      "verse": {
+        "verseId": 1373,
+        "verse": {
+          "gurmukhi": "dyv dYq idsw ivsw ijh kIn srb pswr ]",
+          "unicode": "ਦੇਵ ਦੈਤ ਦਿਸਾ ਵਿਸਾ ਜਿਹ ਕੀਨ ਸਰਬ ਪਸਾਰ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "dyvdYqidswivswijhkInsrbpswr]",
+          "unicode": "ਦੇਵਦੈਤਦਿਸਾਵਿਸਾਜਿਹਕੀਨਸਰਬਪਸਾਰ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "He, who has created gods, demons, directions and the whole expanse,"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "ijsny dyvqy, dYNq, idSw-ividSw Aqy swrw Kyl pswrw kIqw hY।",
+              "unicode": "ਜਿਸਨੇ ਦੇਵਤੇ, ਦੈਂਤ, ਦਿਸ਼ਾ-ਵਿਦਿਸ਼ਾ ਅਤੇ ਸਾਰਾ ਖੇਲ ਪਸਾਰਾ ਕੀਤਾ ਹੈ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "ijsny dyvqy, dYNq, idSw-ividSw Aqy swrw Kyl pswrw kIqw hY।",
+              "unicode": "ਜਿਸਨੇ ਦੇਵਤੇ, ਦੈਂਤ, ਦਿਸ਼ਾ-ਵਿਦਿਸ਼ਾ ਅਤੇ ਸਾਰਾ ਖੇਲ ਪਸਾਰਾ ਕੀਤਾ ਹੈ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "dhev dhait dhisaa visaa jeh keen sarab pasaar ||",
+          "hindi": "देव दैत दिसा विसा जिह कीन सरब पसार ॥",
+          "en": "dhev dhait dhisaa visaa jeh keen sarab pasaar ||",
+          "hi": "देव दैत दिसा विसा जिह कीन सरब पसार ॥",
+          "ipa": "d̪eʋ d̪æt̪ d̪ɪsɑ ʋɪsɑ d͡ʒɪh kin sərəb pəsɑr.",
+          "ur": "دےو دَےت دسا وسا جه کیٍن سرب پسار ۔۔"
+        },
+        "pageNo": 711,
+        "lineNo": 105863,
+        "updated": "2020-06-17 02:48:31",
+        "visraam": {}
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 16,
+      "verse": {
+        "verseId": 1374,
+        "verse": {
+          "gurmukhi": "kaun aupmw qOn kO muK lyq nwmu murwr ]3]1]7]",
+          "unicode": "ਕਉਨ ਉਪਮਾ ਤੌਨ ਕੌ ਮੁਖ ਲੇਤ ਨਾਮੁ ਮੁਰਾਰ ॥੩॥੧॥੭॥"
+        },
+        "larivaar": {
+          "gurmukhi": "kaunaupmwqOnkOmuKlyqnwmumurwr]3]1]7]",
+          "unicode": "ਕਉਨਉਪਮਾਤੌਨਕੌਮੁਖਲੇਤਨਾਮੁਮੁਰਾਰ॥੩॥੧॥੭॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "On what analogy should he be called Murar? 3."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "aus dI ikhVI aupmw hoeI jy (ausnUM) muK qoN murwrI ikhw jwey ]3]1]7]",
+              "unicode": "ਉਸ ਦੀ ਕਿਹੜੀ ਉਪਮਾ ਹੋਈ ਜੇ (ਉਸਨੂੰ) ਮੁਖ ਤੋਂ ਮੁਰਾਰੀ ਕਿਹਾ ਜਾਏ ॥੩॥੧॥੭॥"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "aus dI ikhVI aupmw hoeI jy (ausnUM) muK qoN murwrI ikhw jwey ]3]1]7]",
+              "unicode": "ਉਸ ਦੀ ਕਿਹੜੀ ਉਪਮਾ ਹੋਈ ਜੇ (ਉਸਨੂੰ) ਮੁਖ ਤੋਂ ਮੁਰਾਰੀ ਕਿਹਾ ਜਾਏ ॥੩॥੧॥੭॥"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "kaun upamaa tauan kau mukh let naam muraar ||3||1||7||",
+          "hindi": "कउन उपमा तौन कौ मुख लेत नामु मुरार ॥३॥१॥७॥",
+          "en": "kaun upamaa tauan kau mukh let naam muraar ||3||1||7||",
+          "hi": "कउन उपमा तौन कौ मुख लेत नामु मुरार ॥३॥१॥७॥",
+          "ipa": "koʊn oʊpəmɑ t̪ɒən kɒ mʊkʰ let̪ nɑm mʊrɑr.3.1.7.",
+          "ur": "کان اُپما تَون کَو مُکھ لےت نام مُرار ۔۔۳۔۔۱۔۔۷۔۔"
+        },
+        "pageNo": 711,
+        "lineNo": 105864,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 2,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 17,
+      "verse": {
+        "verseId": 1375,
+        "verse": {
+          "gurmukhi": "rwg iblwvl pwiqswhI 10 ]",
+          "unicode": "ਰਾਗ ਬਿਲਾਵਲ ਪਾਤਿਸਾਹੀ ੧੦ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "rwgiblwvlpwiqswhI10]",
+          "unicode": "ਰਾਗਬਿਲਾਵਲਪਾਤਿਸਾਹੀ੧੦॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "RAGA BILAWAL OF THE TENTH KING"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "rwg iblwvl pwqSwhI 10:",
+              "unicode": "ਰਾਗ ਬਿਲਾਵਲ ਪਾਤਸ਼ਾਹੀ ੧੦:"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "rwg iblwvl pwqSwhI 10:",
+              "unicode": "ਰਾਗ ਬਿਲਾਵਲ ਪਾਤਸ਼ਾਹੀ ੧੦:"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "raag bilaaval paatisaahee 10 ||",
+          "hindi": "राग बिलावल पातिसाही १० ॥",
+          "en": "raag bilaaval paatisaahee 10 ||",
+          "hi": "राग बिलावल पातिसाही १० ॥",
+          "ipa": "rɑG bɪlɑʋəl pɑt̪ɪsɑhi 1ə0.",
+          "ur": "راگ بلاول پاتساهیِ ۱۰ ۔۔"
+        },
+        "pageNo": 711,
+        "lineNo": 105865,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 18,
+      "verse": {
+        "verseId": 1376,
+        "verse": {
+          "gurmukhi": "so ikm mwns rUp khwey ]",
+          "unicode": "ਸੋ ਕਿਮ ਮਾਨਸ ਰੂਪ ਕਹਾਏ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "soikmmwnsrUpkhwey]",
+          "unicode": "ਸੋਕਿਮਮਾਨਸਰੂਪਕਹਾਏ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "How can He be said to come in human form?"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "ausnUM iks qrRhw mnu`K rUp vwlw ikhw jw skdw hY।",
+              "unicode": "ਉਸਨੂੰ ਕਿਸ ਤਰ੍ਰਹਾ ਮਨੁੱਖ ਰੂਪ ਵਾਲਾ ਕਿਹਾ ਜਾ ਸਕਦਾ ਹੈ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "ausnUM iks qrRhw mnu`K rUp vwlw ikhw jw skdw hY।",
+              "unicode": "ਉਸਨੂੰ ਕਿਸ ਤਰ੍ਰਹਾ ਮਨੁੱਖ ਰੂਪ ਵਾਲਾ ਕਿਹਾ ਜਾ ਸਕਦਾ ਹੈ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "so kim maanas roop kahaae ||",
+          "hindi": "सो किम मानस रूप कहाए ॥",
+          "en": "so kim maanas roop kahaae ||",
+          "hi": "सो किम मानस रूप कहाए ॥",
+          "ipa": "sɔ kɪm mɑnəs rup kəhɑee.",
+          "ur": "سو کم مانس رُوپ کهااے ۔۔"
+        },
+        "pageNo": 711,
+        "lineNo": 105866,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 18,
+      "verse": {
+        "verseId": 1377,
+        "verse": {
+          "gurmukhi": "isD smwiD swD kr hwry kÎohUM n dyKn pwey ]1] rhwau ]",
+          "unicode": "ਸਿਧ ਸਮਾਧਿ ਸਾਧ ਕਰ ਹਾਰੇ ਕ੍ਯੋਹੂੰ ਨ ਦੇਖਨ ਪਾਏ ॥੧॥ ਰਹਾਉ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "isDsmwiDswDkrhwrykÎohUMndyKnpwey]1]rhwau]",
+          "unicode": "ਸਿਧਸਮਾਧਿਸਾਧਕਰਹਾਰੇਕ੍ਯੋਹੂੰਨਦੇਖਨਪਾਏ॥੧॥ਰਹਾਉ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "The Siddha (adept) in deep meditation became tired of the discipline on not seeing Him in any way…..Pause."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "(ijs dy drSn krn leI) is`D log smwDI lgw lgw ky hwr gey hn (pr) ikvyW vI vyK nhIN sky ]1] rhwau।",
+              "unicode": "(ਜਿਸ ਦੇ ਦਰਸ਼ਨ ਕਰਨ ਲਈ) ਸਿੱਧ ਲੋਗ ਸਮਾਧੀ ਲਗਾ ਲਗਾ ਕੇ ਹਾਰ ਗਏ ਹਨ (ਪਰ) ਕਿਵੇਾਂ ਵੀ ਵੇਖ ਨਹੀਂ ਸਕੇ ॥੧॥ ਰਹਾਉ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "(ijs dy drSn krn leI) is`D log smwDI lgw lgw ky hwr gey hn (pr) ikvyW vI vyK nhIN sky ]1] rhwau।",
+              "unicode": "(ਜਿਸ ਦੇ ਦਰਸ਼ਨ ਕਰਨ ਲਈ) ਸਿੱਧ ਲੋਗ ਸਮਾਧੀ ਲਗਾ ਲਗਾ ਕੇ ਹਾਰ ਗਏ ਹਨ (ਪਰ) ਕਿਵੇਾਂ ਵੀ ਵੇਖ ਨਹੀਂ ਸਕੇ ॥੧॥ ਰਹਾਉ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "sidh samaadh saadh kar haare kayohoo(n) na dhekhan paae ||1|| rahaau ||",
+          "hindi": "सिध समाधि साध कर हारे क्योहूँ न देखन पाए ॥१॥ रहाउ ॥",
+          "en": "sidh samaadh saadh kar haare kayohoo(n) na dhekhan paae ||1|| rahaau ||",
+          "hi": "सिध समाधि साध कर हारे क्योहूँ न देखन पाए ॥१॥ रहाउ ॥",
+          "ipa": "sɪt̪ə̀ səmɑt̪ə̀ sɑt̪ə̀ kər hɑre kəjɔhuŋ nə d̪ekʰən pɑee.1. rəhɑo.",
+          "ur": "سِدھ سمادھ سادھ کر هارے کےوهُوں ن دےکھن پااے ۔۔۱۔۔ رهاا ۔۔"
+        },
+        "pageNo": 711,
+        "lineNo": 105867,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 18,
+      "verse": {
+        "verseId": 1378,
+        "verse": {
+          "gurmukhi": "nwrd ibAws prwsr DR¨A sy iDAwvq iDAwn lgwey ]",
+          "unicode": "ਨਾਰਦ ਬਿਆਸ ਪਰਾਸਰ ਧ੍ਰੂਅ ਸੇ ਧਿਆਵਤ ਧਿਆਨ ਲਗਾਏ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "nwrdibAwsprwsrDR¨AsyiDAwvqiDAwnlgwey]",
+          "unicode": "ਨਾਰਦਬਿਆਸਪਰਾਸਰਧ੍ਰੂਅਸੇਧਿਆਵਤਧਿਆਨਲਗਾਏ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Narad, Vyas, Prashar, Dhru, all meditated on Him,"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "nwrd, ibAws, prwSr Aqy DrU vrgy (ijsdw) iDAwn lgw ky iDAwauWdy rhy hn।",
+              "unicode": "ਨਾਰਦ, ਬਿਆਸ, ਪਰਾਸ਼ਰ ਅਤੇ ਧਰੂ ਵਰਗੇ (ਜਿਸਦਾ) ਧਿਆਨ ਲਗਾ ਕੇ ਧਿਆਉਾਂਦੇ ਰਹੇ ਹਨ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "nwrd, ibAws, prwSr Aqy DrU vrgy (ijsdw) iDAwn lgw ky iDAwauWdy rhy hn।",
+              "unicode": "ਨਾਰਦ, ਬਿਆਸ, ਪਰਾਸ਼ਰ ਅਤੇ ਧਰੂ ਵਰਗੇ (ਜਿਸਦਾ) ਧਿਆਨ ਲਗਾ ਕੇ ਧਿਆਉਾਂਦੇ ਰਹੇ ਹਨ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "naaradh biaas paraasar dhraooa se dhiaavat dhiaan lagaae ||",
+          "hindi": "नारद बिआस परासर ध्रूअ से धिआवत धिआन लगाए ॥",
+          "en": "naaradh biaas paraasar dhraooa se dhiaavat dhiaan lagaae ||",
+          "hi": "नारद बिआस परासर ध्रूअ से धिआवत धिआन लगाए ॥",
+          "ipa": "nɑrəd̪ bɪəɑs pərɑsər t̪ə̀ɹəuə se t̪ɪəɑʋət̪ t̪ɪəɑn ləGɑee.",
+          "ur": "نارد بآس پراسر دھر¨ا سے دھآوت دھآن لگااے ۔۔"
+        },
+        "pageNo": 711,
+        "lineNo": 105868,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 18,
+      "verse": {
+        "verseId": 1379,
+        "verse": {
+          "gurmukhi": "byd purwn hwir hT CwifE qdip iDAwn n Awey ]1]",
+          "unicode": "ਬੇਦ ਪੁਰਾਨ ਹਾਰਿ ਹਠ ਛਾਡਿਓ ਤਦਪਿ ਧਿਆਨ ਨ ਆਏ ॥੧॥"
+        },
+        "larivaar": {
+          "gurmukhi": "bydpurwnhwirhTCwifEqdipiDAwnnAwey]1]",
+          "unicode": "ਬੇਦਪੁਰਾਨਹਾਰਿਹਠਛਾਡਿਓਤਦਪਿਧਿਆਨਨਆਏ॥੧॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "The Vedas and Puranas, became tired and forsook insistence, since He could not be visualized.1."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "vydw Aqy purwnw ny hwr ky hT Cf id`qw hY, pr iPr vI (aunRhw dy) iDAwn ivc nhIN AwieAw ]1]",
+              "unicode": "ਵੇਦਾ ਅਤੇ ਪੁਰਾਨਾ ਨੇ ਹਾਰ ਕੇ ਹਠ ਛਡ ਦਿੱਤਾ ਹੈ, ਪਰ ਫਿਰ ਵੀ (ਉਨ੍ਰਹਾ ਦੇ) ਧਿਆਨ ਵਿਚ ਨਹੀਂ ਆਇਆ ॥੧॥"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "vydw Aqy purwnw ny hwr ky hT Cf id`qw hY, pr iPr vI (aunRhw dy) iDAwn ivc nhIN AwieAw ]1]",
+              "unicode": "ਵੇਦਾ ਅਤੇ ਪੁਰਾਨਾ ਨੇ ਹਾਰ ਕੇ ਹਠ ਛਡ ਦਿੱਤਾ ਹੈ, ਪਰ ਫਿਰ ਵੀ (ਉਨ੍ਰਹਾ ਦੇ) ਧਿਆਨ ਵਿਚ ਨਹੀਂ ਆਇਆ ॥੧॥"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "bedh puraan haar haTh chhaaddio tadhap dhiaan na aae ||1||",
+          "hindi": "बेद पुरान हारि हठ छाडिओ तदपि धिआन न आए ॥१॥",
+          "en": "bedh puraan haar haTh chhaaddio tadhap dhiaan na aae ||1||",
+          "hi": "बेद पुरान हारि हठ छाडिओ तदपि धिआन न आए ॥१॥",
+          "ipa": "bed̪ pʊrɑn hɑr həʈʰ ɕɑɖɪo t̪əd̪əp t̪ɪəɑn nə əɑee.1.",
+          "ur": "بےد پُران هار هٹھ چھاڈاو تدپ دھآن ن آاے ۔۔۱۔۔"
+        },
+        "pageNo": 711,
+        "lineNo": 105869,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 18,
+      "verse": {
+        "verseId": 1380,
+        "verse": {
+          "gurmukhi": "dwnv dyv ipswc pRyq qy nyqh nyq khwey ]",
+          "unicode": "ਦਾਨਵ ਦੇਵ ਪਿਸਾਚ ਪ੍ਰੇਤ ਤੇ ਨੇਤਹ ਨੇਤ ਕਹਾਏ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "dwnvdyvipswcpRyqqynyqhnyqkhwey]",
+          "unicode": "ਦਾਨਵਦੇਵਪਿਸਾਚਪ੍ਰੇਤਤੇਨੇਤਹਨੇਤਕਹਾਏ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "By demons, gods, ghosts, spirits, He was called indescribable,"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "dwnv, dyvqy, ipSwc, pRyq vI aus nUM nyiq nyiq (byAMq byAMq) kihMdy hn।",
+              "unicode": "ਦਾਨਵ, ਦੇਵਤੇ, ਪਿਸ਼ਾਚ, ਪ੍ਰੇਤ ਵੀ ਉਸ ਨੂੰ ਨੇਤਿ ਨੇਤਿ (ਬੇਅੰਤ ਬੇਅੰਤ) ਕਹਿੰਦੇ ਹਨ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "dwnv, dyvqy, ipSwc, pRyq vI aus nUM nyiq nyiq (byAMq byAMq) kihMdy hn।",
+              "unicode": "ਦਾਨਵ, ਦੇਵਤੇ, ਪਿਸ਼ਾਚ, ਪ੍ਰੇਤ ਵੀ ਉਸ ਨੂੰ ਨੇਤਿ ਨੇਤਿ (ਬੇਅੰਤ ਬੇਅੰਤ) ਕਹਿੰਦੇ ਹਨ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "dhaanav dhev pisaach pret te neteh net kahaae ||",
+          "hindi": "दानव देव पिसाच प्रेत ते नेतह नेत कहाए ॥",
+          "en": "dhaanav dhev pisaach pret te neteh net kahaae ||",
+          "hi": "दानव देव पिसाच प्रेत ते नेतह नेत कहाए ॥",
+          "ipa": "d̪ɑnəʋ d̪eʋ pɪsɑt͡ʃ pɹet̪ t̪e net̪əh net̪ kəhɑee.",
+          "ur": "دانو دےو پساچ پرےت تے نےته نےت کهااے ۔۔"
+        },
+        "pageNo": 711,
+        "lineNo": 105870,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 18,
+      "verse": {
+        "verseId": 1381,
+        "verse": {
+          "gurmukhi": "sUCm qy sUCm kr cIny ibRDn ibRD bqwey ]2]",
+          "unicode": "ਸੂਛਮ ਤੇ ਸੂਛਮ ਕਰ ਚੀਨੇ ਬ੍ਰਿਧਨ ਬ੍ਰਿਧ ਬਤਾਏ ॥੨॥"
+        },
+        "larivaar": {
+          "gurmukhi": "sUCmqysUCmkrcInyibRDnibRDbqwey]2]",
+          "unicode": "ਸੂਛਮਤੇਸੂਛਮਕਰਚੀਨੇਬ੍ਰਿਧਨਬ੍ਰਿਧਬਤਾਏ॥੨॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "He was considered the finest of the fine and the biggest of the big.2."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "sUKm qoN sUKm (auhI) jwixAw jwdw hY Aqy v`fy qoN v`fw vI auhI disAw jwdw hY ]2]",
+              "unicode": "ਸੂਖਮ ਤੋਂ ਸੂਖਮ (ਉਹੀ) ਜਾਣਿਆ ਜਾਦਾ ਹੈ ਅਤੇ ਵੱਡੇ ਤੋਂ ਵੱਡਾ ਵੀ ਉਹੀ ਦਸਿਆ ਜਾਦਾ ਹੈ ॥੨॥"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "sUKm qoN sUKm (auhI) jwixAw jwdw hY Aqy v`fy qoN v`fw vI auhI disAw jwdw hY ]2]",
+              "unicode": "ਸੂਖਮ ਤੋਂ ਸੂਖਮ (ਉਹੀ) ਜਾਣਿਆ ਜਾਦਾ ਹੈ ਅਤੇ ਵੱਡੇ ਤੋਂ ਵੱਡਾ ਵੀ ਉਹੀ ਦਸਿਆ ਜਾਦਾ ਹੈ ॥੨॥"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "soochham te soochham kar cheene biradhan biradh bataae ||2||",
+          "hindi": "सूछम ते सूछम कर चीने बृधन बृध बताए ॥२॥",
+          "en": "soochham te soochham kar cheene biradhan biradh bataae ||2||",
+          "hi": "सूछम ते सूछम कर चीने बृधन बृध बताए ॥२॥",
+          "ipa": "suɕəm t̪e suɕəm kər t͡ʃine bɪɹət̪ən bɪɹət̪ə̀ bət̪ɑee.2.",
+          "ur": "سُوچھم تے سُوچھم کر چیٍنے بردھن بردھ بتااے ۔۔۲۔۔"
+        },
+        "pageNo": 711,
+        "lineNo": 105871,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 18,
+      "verse": {
+        "verseId": 1382,
+        "verse": {
+          "gurmukhi": "BUm Akws pqwl sBY sij eyk Anyk sdwey ]",
+          "unicode": "ਭੂਮ ਅਕਾਸ ਪਤਾਲ ਸਭੈ ਸਜਿ ਏਕ ਅਨੇਕ ਸਦਾਏ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "BUmAkwspqwlsBYsijeykAnyksdwey]",
+          "unicode": "ਭੂਮਅਕਾਸਪਤਾਲਸਭੈਸਜਿਏਕਅਨੇਕਸਦਾਏ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "He, the One, Created the earth, heaven and the nether-world and was called “Many”"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "DrqI, AwkwS, pwqwl Awid sB nUM bxw ky auh iek qoN Anyk rUpw vwlw sdvwieAw hY।",
+              "unicode": "ਧਰਤੀ, ਆਕਾਸ਼, ਪਾਤਾਲ ਆਦਿ ਸਭ ਨੂੰ ਬਣਾ ਕੇ ਉਹ ਇਕ ਤੋਂ ਅਨੇਕ ਰੂਪਾ ਵਾਲਾ ਸਦਵਾਇਆ ਹੈ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "DrqI, AwkwS, pwqwl Awid sB nUM bxw ky auh iek qoN Anyk rUpw vwlw sdvwieAw hY।",
+              "unicode": "ਧਰਤੀ, ਆਕਾਸ਼, ਪਾਤਾਲ ਆਦਿ ਸਭ ਨੂੰ ਬਣਾ ਕੇ ਉਹ ਇਕ ਤੋਂ ਅਨੇਕ ਰੂਪਾ ਵਾਲਾ ਸਦਵਾਇਆ ਹੈ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "bhoom akaas pataal sabhai saj ek anek sadhaae ||",
+          "hindi": "भूम अकास पताल सभै सजि एक अनेक सदाए ॥",
+          "en": "bhoom akaas pataal sabhai saj ek anek sadhaae ||",
+          "hi": "भूम अकास पताल सभै सजि एक अनेक सदाए ॥",
+          "ipa": "ɓum əkɑs pət̪ɑl səɓæ səd͡ʒ eek ənek səd̪ɑee.",
+          "ur": "بھُوم اکاس پتال سبھَے سج اےک انےک سدااے ۔۔"
+        },
+        "pageNo": 712,
+        "lineNo": 105872,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 18,
+      "verse": {
+        "verseId": 1383,
+        "verse": {
+          "gurmukhi": "so nr kwl Pws qy bwcy jo hir srix isDwey ]3]1]8]",
+          "unicode": "ਸੋ ਨਰ ਕਾਲ ਫਾਸ ਤੇ ਬਾਚੇ ਜੋ ਹਰਿ ਸਰਣਿ ਸਿਧਾਏ ॥੩॥੧॥੮॥"
+        },
+        "larivaar": {
+          "gurmukhi": "sonrkwlPwsqybwcyjohirsrixisDwey]3]1]8]",
+          "unicode": "ਸੋਨਰਕਾਲਫਾਸਤੇਬਾਚੇਜੋਹਰਿਸਰਣਿਸਿਧਾਏ॥੩॥੧॥੮॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "That man is saved from the noose of death, who takes refuge in the Lord.3."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "EhI purS kwl dI PwhI qoN bc skdw hY jo hir dI Srn ivc jwdw hY ]3]1]8]",
+              "unicode": "ਓਹੀ ਪੁਰਸ਼ ਕਾਲ ਦੀ ਫਾਹੀ ਤੋਂ ਬਚ ਸਕਦਾ ਹੈ ਜੋ ਹਰਿ ਦੀ ਸ਼ਰਨ ਵਿਚ ਜਾਦਾ ਹੈ ॥੩॥੧॥੮॥"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "EhI purS kwl dI PwhI qoN bc skdw hY jo hir dI Srn ivc jwdw hY ]3]1]8]",
+              "unicode": "ਓਹੀ ਪੁਰਸ਼ ਕਾਲ ਦੀ ਫਾਹੀ ਤੋਂ ਬਚ ਸਕਦਾ ਹੈ ਜੋ ਹਰਿ ਦੀ ਸ਼ਰਨ ਵਿਚ ਜਾਦਾ ਹੈ ॥੩॥੧॥੮॥"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "so nar kaal faas te baache jo har saran sidhaae ||3||1||8||",
+          "hindi": "सो नर काल फास ते बाचे जो हरि सरणि सिधाए ॥३॥१॥८॥",
+          "en": "so nar kaal faas te baache jo har saran sidhaae ||3||1||8||",
+          "hi": "सो नर काल फास ते बाचे जो हरि सरणि सिधाए ॥३॥१॥८॥",
+          "ipa": "sɔ nər kɑl fɑs t̪e bɑt͡ʃe d͡ʒɔ hər sərəɳ sɪt̪ɑee.3.1.8.",
+          "ur": "سو نر کال پھاس تے باچے جو هر سرݨ سدھااے ۔۔۳۔۔۱۔۔۸۔۔"
+        },
+        "pageNo": 712,
+        "lineNo": 105873,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 2,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 19,
+      "verse": {
+        "verseId": 1384,
+        "verse": {
+          "gurmukhi": "rwg dyvgMDwrI pwiqswhI 10 ]",
+          "unicode": "ਰਾਗ ਦੇਵਗੰਧਾਰੀ ਪਾਤਿਸਾਹੀ ੧੦ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "rwgdyvgMDwrIpwiqswhI10]",
+          "unicode": "ਰਾਗਦੇਵਗੰਧਾਰੀਪਾਤਿਸਾਹੀ੧੦॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "RAGA DEVGANDHARI OF THE TENTH KING"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "rwg dyv gMDwrI pwiqSwhI 10:",
+              "unicode": "ਰਾਗ ਦੇਵ ਗੰਧਾਰੀ ਪਾਤਿਸ਼ਾਹੀ ੧੦:"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "rwg dyv gMDwrI pwiqSwhI 10:",
+              "unicode": "ਰਾਗ ਦੇਵ ਗੰਧਾਰੀ ਪਾਤਿਸ਼ਾਹੀ ੧੦:"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "raag dhevaga(n)dhaaree paatisaahee 10 ||",
+          "hindi": "राग देवगंधारी पातिसाही १० ॥",
+          "en": "raag dhevaga(n)dhaaree paatisaahee 10 ||",
+          "hi": "राग देवगंधारी पातिसाही १० ॥",
+          "ipa": "rɑG d̪eʋəGəŋt̪ɑri pɑt̪ɪsɑhi 1ə0.",
+          "ur": "راگ دےوگںدھاریِ پاتساهیِ ۱۰ ۔۔"
+        },
+        "pageNo": 712,
+        "lineNo": 105874,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 20,
+      "verse": {
+        "verseId": 1385,
+        "verse": {
+          "gurmukhi": "iek ibn dUsr so n icnwr ]",
+          "unicode": "ਇਕ ਬਿਨ ਦੂਸਰ ਸੋ ਨ ਚਿਨਾਰ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "iekibndUsrsonicnwr]",
+          "unicode": "ਇਕਬਿਨਦੂਸਰਸੋਨਚਿਨਾਰ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Do not recognize anyone except ONE"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "iek prmwqmw qoN ibnw (iksy) dUjy nUM nw pCwxo।",
+              "unicode": "ਇਕ ਪਰਮਾਤਮਾ ਤੋਂ ਬਿਨਾ (ਕਿਸੇ) ਦੂਜੇ ਨੂੰ ਨਾ ਪਛਾਣੋ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "iek prmwqmw qoN ibnw (iksy) dUjy nUM nw pCwxo।",
+              "unicode": "ਇਕ ਪਰਮਾਤਮਾ ਤੋਂ ਬਿਨਾ (ਕਿਸੇ) ਦੂਜੇ ਨੂੰ ਨਾ ਪਛਾਣੋ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "eik bin dhoosar so na chinaar ||",
+          "hindi": "इक बिन दूसर सो न चिनार ॥",
+          "en": "eik bin dhoosar so na chinaar ||",
+          "hi": "इक बिन दूसर सो न चिनार ॥",
+          "ipa": "eɪk bɪn d̪usər sɔ nə t͡ʃɪnɑr.",
+          "ur": "ِاک بن دُوسر سو ن چنار ۔۔"
+        },
+        "pageNo": 712,
+        "lineNo": 105875,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [],
+          "igurbani": [],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 20,
+      "verse": {
+        "verseId": 1386,
+        "verse": {
+          "gurmukhi": "BMjn gVn smrQ sdw pRB jwnq hY krqwr ]1] rhwau ]",
+          "unicode": "ਭੰਜਨ ਗੜਨ ਸਮਰਥ ਸਦਾ ਪ੍ਰਭ ਜਾਨਤ ਹੈ ਕਰਤਾਰ ॥੧॥ ਰਹਾਉ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "BMjngVnsmrQsdwpRBjwnqhYkrqwr]1]rhwau]",
+          "unicode": "ਭੰਜਨਗੜਨਸਮਰਥਸਦਾਪ੍ਰਭਜਾਨਤਹੈਕਰਤਾਰ॥੧॥ਰਹਾਉ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "He is always the Destroyer, the Creator and the Almighty  he the Creator is Omniscient…..Pause."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "(jo) pRBU sdw GVn Aqy BMnx dy smrQ hY, auh krqwr sB kuJ jwxdw hY ]1] rhwau।",
+              "unicode": "(ਜੋ) ਪ੍ਰਭੂ ਸਦਾ ਘੜਨ ਅਤੇ ਭੰਨਣ ਦੇ ਸਮਰਥ ਹੈ, ਉਹ ਕਰਤਾਰ ਸਭ ਕੁਝ ਜਾਣਦਾ ਹੈ ॥੧॥ ਰਹਾਉ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "(jo) pRBU sdw GVn Aqy BMnx dy smrQ hY, auh krqwr sB kuJ jwxdw hY ]1] rhwau।",
+              "unicode": "(ਜੋ) ਪ੍ਰਭੂ ਸਦਾ ਘੜਨ ਅਤੇ ਭੰਨਣ ਦੇ ਸਮਰਥ ਹੈ, ਉਹ ਕਰਤਾਰ ਸਭ ਕੁਝ ਜਾਣਦਾ ਹੈ ॥੧॥ ਰਹਾਉ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "bha(n)jan gaRan samarath sadhaa prabh jaanat hai karataar ||1|| rahaau ||",
+          "hindi": "भंजन गड़न समरथ सदा प्रभ जानत है करतार ॥१॥ रहाउ ॥",
+          "en": "bha(n)jan gaRan samarath sadhaa prabh jaanat hai karataar ||1|| rahaau ||",
+          "hi": "भंजन गड़न समरथ सदा प्रभ जानत है करतार ॥१॥ रहाउ ॥",
+          "ipa": "ɓəŋd͡ʒən Gəɽən səmərət̪ʰ səd̪ɑ pɹəɓ d͡ʒɑnət̪ hæ kərət̪ɑr.1. rəhɑo.",
+          "ur": "بھںجن گڑن سمرتھ سدا پربھ جانت هَے کرتار ۔۔۱۔۔ رهاا ۔۔"
+        },
+        "pageNo": 712,
+        "lineNo": 105876,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 20,
+      "verse": {
+        "verseId": 1387,
+        "verse": {
+          "gurmukhi": "khw BieE jo Aq ihq icq kr bhu ibD islw pujweI ]",
+          "unicode": "ਕਹਾ ਭਇਓ ਜੋ ਅਤ ਹਿਤ ਚਿਤ ਕਰ ਬਹੁ ਬਿਧ ਸਿਲਾ ਪੁਜਾਈ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "khwBieEjoAqihqicqkrbhuibDislwpujweI]",
+          "unicode": "ਕਹਾਭਇਓਜੋਅਤਹਿਤਚਿਤਕਰਬਹੁਬਿਧਸਿਲਾਪੁਜਾਈ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Of what use is the worship of the stones with devotion and sincerity in various ways?"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "kI hoieAw jy bhuq ihq icq nwl bhuq qrRhw pQrw dI pUjw kIqI hY।",
+              "unicode": "ਕੀ ਹੋਇਆ ਜੇ ਬਹੁਤ ਹਿਤ ਚਿਤ ਨਾਲ ਬਹੁਤ ਤਰ੍ਰਹਾ ਪਥਰਾ ਦੀ ਪੂਜਾ ਕੀਤੀ ਹੈ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "kI hoieAw jy bhuq ihq icq nwl bhuq qrRhw pQrw dI pUjw kIqI hY।",
+              "unicode": "ਕੀ ਹੋਇਆ ਜੇ ਬਹੁਤ ਹਿਤ ਚਿਤ ਨਾਲ ਬਹੁਤ ਤਰ੍ਰਹਾ ਪਥਰਾ ਦੀ ਪੂਜਾ ਕੀਤੀ ਹੈ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "kahaa bhio jo at hit chit kar bahu bidh silaa pujaiee ||",
+          "hindi": "कहा भइओ जो अत हित चित कर बहु बिध सिला पुजाई ॥",
+          "en": "kahaa bhio jo at hit chit kar bahu bidh silaa pujaiee ||",
+          "hi": "कहा भइओ जो अत हित चित कर बहु बिध सिला पुजाई ॥",
+          "ipa": "kəhɑ ɓeɪo d͡ʒɔ ət̪ hɪt̪ t͡ʃɪt̪ kər bəh bɪt̪ə̀ sɪlɑ pʊd͡ʒɑei.",
+          "ur": "کها بھِااو جو ات هت چت کر بهُ بدھ سلا پُجاای ۔۔"
+        },
+        "pageNo": 712,
+        "lineNo": 105877,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 20,
+      "verse": {
+        "verseId": 1388,
+        "verse": {
+          "gurmukhi": "pRwn QikE pwhn kh prsq kCu kir isD n AweI ]1]",
+          "unicode": "ਪ੍ਰਾਨ ਥਕਿਓ ਪਾਹਨ ਕਹ ਪਰਸਤ ਕਛੁ ਕਰਿ ਸਿਧ ਨ ਆਈ ॥੧॥"
+        },
+        "larivaar": {
+          "gurmukhi": "pRwnQikEpwhnkhprsqkCukirisDnAweI]1]",
+          "unicode": "ਪ੍ਰਾਨਥਕਿਓਪਾਹਨਕਹਪਰਸਤਕਛੁਕਰਿਸਿਧਨਆਈ॥੧॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "The hand became tired of touching the stones, because no spiritual powr accrued.1."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "p`Qrw nUM pUjidAW pUjidAW pRwx Qk gey hn (ArQwq jIvn dw AMq ho igAw hY) pr (Ajy qk) koeI is`DI h`Q nhIN lgI ]1]",
+              "unicode": "ਪੱਥਰਾ ਨੂੰ ਪੂਜਦਿਆਂ ਪੂਜਦਿਆਂ ਪ੍ਰਾਣ ਥਕ ਗਏ ਹਨ (ਅਰਥਾਤ ਜੀਵਨ ਦਾ ਅੰਤ ਹੋ ਗਿਆ ਹੈ) ਪਰ (ਅਜੇ ਤਕ) ਕੋਈ ਸਿੱਧੀ ਹੱਥ ਨਹੀਂ ਲਗੀ ॥੧॥"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "p`Qrw nUM pUjidAW pUjidAW pRwx Qk gey hn (ArQwq jIvn dw AMq ho igAw hY) pr (Ajy qk) koeI is`DI h`Q nhIN lgI ]1]",
+              "unicode": "ਪੱਥਰਾ ਨੂੰ ਪੂਜਦਿਆਂ ਪੂਜਦਿਆਂ ਪ੍ਰਾਣ ਥਕ ਗਏ ਹਨ (ਅਰਥਾਤ ਜੀਵਨ ਦਾ ਅੰਤ ਹੋ ਗਿਆ ਹੈ) ਪਰ (ਅਜੇ ਤਕ) ਕੋਈ ਸਿੱਧੀ ਹੱਥ ਨਹੀਂ ਲਗੀ ॥੧॥"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "praan thakio paahan keh parasat kachh kar sidh na aaiee ||1||",
+          "hindi": "प्रान थकिओ पाहन कह परसत कछु करि सिध न आई ॥१॥",
+          "en": "praan thakio paahan keh parasat kachh kar sidh na aaiee ||1||",
+          "hi": "प्रान थकिओ पाहन कह परसत कछु करि सिध न आई ॥१॥",
+          "ipa": "pɹɑn t̪ʰəkɪo pɑhən kəh pərəsət̪ kəɕ kər sɪt̪ə̀ nə əɑei.1.",
+          "ur": "پران تھکاو پاهن که پرست کچھ کرِ سدھ ن آای ۔۔۱۔۔"
+        },
+        "pageNo": 712,
+        "lineNo": 105878,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 20,
+      "verse": {
+        "verseId": 1389,
+        "verse": {
+          "gurmukhi": "ACq DUp dIp Arpq hY pwhn kCU n KYhY ]",
+          "unicode": "ਅਛਤ ਧੂਪ ਦੀਪ ਅਰਪਤ ਹੈ ਪਾਹਨ ਕਛੂ ਨ ਖੈਹੈ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "ACqDUpdIpArpqhYpwhnkCUnKYhY]",
+          "unicode": "ਅਛਤਧੂਪਦੀਪਅਰਪਤਹੈਪਾਹਨਕਛੂਨਖੈਹੈ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Rice, incense and lamps are offered, but the stones do not eat anything,"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "cwvl, DUp Aqy dIpk Awid Aripq kIqy hn, (pr) p`Qr kuJ nhIN Kwdw।",
+              "unicode": "ਚਾਵਲ, ਧੂਪ ਅਤੇ ਦੀਪਕ ਆਦਿ ਅਰਪਿਤ ਕੀਤੇ ਹਨ, (ਪਰ) ਪੱਥਰ ਕੁਝ ਨਹੀਂ ਖਾਦਾ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "cwvl, DUp Aqy dIpk Awid Aripq kIqy hn, (pr) p`Qr kuJ nhIN Kwdw।",
+              "unicode": "ਚਾਵਲ, ਧੂਪ ਅਤੇ ਦੀਪਕ ਆਦਿ ਅਰਪਿਤ ਕੀਤੇ ਹਨ, (ਪਰ) ਪੱਥਰ ਕੁਝ ਨਹੀਂ ਖਾਦਾ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "achhat dhoop dheep arapat hai paahan kachhoo na khaihai ||",
+          "hindi": "अछत धूप दीप अरपत है पाहन कछू न खैहै ॥",
+          "en": "achhat dhoop dheep arapat hai paahan kachhoo na khaihai ||",
+          "hi": "अछत धूप दीप अरपत है पाहन कछू न खैहै ॥",
+          "ipa": "əɕət̪ t̪up d̪ip ərəpət̪ hæ pɑhən kəɕu nə kʰæhæ.",
+          "ur": "اچھت دھُوپ دیِپ ارپت هَے پاهن کچھُو ن کھَےهَے ۔۔"
+        },
+        "pageNo": 712,
+        "lineNo": 105879,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 20,
+      "verse": {
+        "verseId": 1390,
+        "verse": {
+          "gurmukhi": "qw mYN khW isD hY ry jV qoih kCU br dYhY ]2]",
+          "unicode": "ਤਾ ਮੈਂ ਕਹਾਂ ਸਿਧ ਹੈ ਰੇ ਜੜ ਤੋਹਿ ਕਛੂ ਬਰ ਦੈਹੈ ॥੨॥"
+        },
+        "larivaar": {
+          "gurmukhi": "qwmYNkhWisDhYryjVqoihkCUbrdYhY]2]",
+          "unicode": "ਤਾਮੈਂਕਹਾਂਸਿਧਹੈਰੇਜੜਤੋਹਿਕਛੂਬਰਦੈਹੈ॥੨॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "O fool! where is the spiritual power in them, so that they may bless you with some boon.2."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "hy mUrK! aus ivc kI is`DI hY jo qYnUM kuJ vr dyvygw ]2]",
+              "unicode": "ਹੇ ਮੂਰਖ! ਉਸ ਵਿਚ ਕੀ ਸਿੱਧੀ ਹੈ ਜੋ ਤੈਨੂੰ ਕੁਝ ਵਰ ਦੇਵੇਗਾ ॥੨॥"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "hy mUrK! aus ivc kI is`DI hY jo qYnUM kuJ vr dyvygw ]2]",
+              "unicode": "ਹੇ ਮੂਰਖ! ਉਸ ਵਿਚ ਕੀ ਸਿੱਧੀ ਹੈ ਜੋ ਤੈਨੂੰ ਕੁਝ ਵਰ ਦੇਵੇਗਾ ॥੨॥"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "taa mai(n) kahaa(n) sidh hai re jaR toh kachhoo bar dhaihai ||2||",
+          "hindi": "ता मैं कहाँ सिध है रे जड़ तोहि कछू बर दैहै ॥२॥",
+          "en": "taa mai(n) kahaa(n) sidh hai re jaR toh kachhoo bar dhaihai ||2||",
+          "hi": "ता मैं कहाँ सिध है रे जड़ तोहि कछू बर दैहै ॥२॥",
+          "ipa": "t̪ɑ mæⁿ kəhɑⁿ sɪt̪ə̀ hæ re d͡ʒəɽ t̪ɔh kəɕu bər d̪æhæ.2.",
+          "ur": "تا مَےں کهاں سدھ هَے رے جڑ توه کچھُو بر دَےهَے ۔۔۲۔۔"
+        },
+        "pageNo": 712,
+        "lineNo": 105880,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 20,
+      "verse": {
+        "verseId": 1391,
+        "verse": {
+          "gurmukhi": "jO jIX hoq qO dyq kCu quih kr mn bc krm ibcwr ]",
+          "unicode": "ਜੌ ਜੀਯ ਹੋਤ ਤੌ ਦੇਤ ਕਛੁ ਤੁਹਿ ਕਰ ਮਨ ਬਚ ਕਰਮ ਬਿਚਾਰ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "jOjIXhoqqOdyqkCuquihkrmnbckrmibcwr]",
+          "unicode": "ਜੌਜੀਯਹੋਤਤੌਦੇਤਕਛੁਤੁਹਿਕਰਮਨਬਚਕਰਮਬਿਚਾਰ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Ponder in mind, speech and action  if they had any life they could have given you something,"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "qUM mn, bwxI Aqy krm krky ivcwr lY ik jy aus ivc jIvn huMdw qw qYnUM kuJ zrUr idMdw।",
+              "unicode": "ਤੂੰ ਮਨ, ਬਾਣੀ ਅਤੇ ਕਰਮ ਕਰਕੇ ਵਿਚਾਰ ਲੈ ਕਿ ਜੇ ਉਸ ਵਿਚ ਜੀਵਨ ਹੁੰਦਾ ਤਾ ਤੈਨੂੰ ਕੁਝ ਜ਼ਰੂਰ ਦਿੰਦਾ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "qUM mn, bwxI Aqy krm krky ivcwr lY ik jy aus ivc jIvn huMdw qw qYnUM kuJ zrUr idMdw।",
+              "unicode": "ਤੂੰ ਮਨ, ਬਾਣੀ ਅਤੇ ਕਰਮ ਕਰਕੇ ਵਿਚਾਰ ਲੈ ਕਿ ਜੇ ਉਸ ਵਿਚ ਜੀਵਨ ਹੁੰਦਾ ਤਾ ਤੈਨੂੰ ਕੁਝ ਜ਼ਰੂਰ ਦਿੰਦਾ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "jau jeey hot tau dhet kachh tuh kar man bach karam bichaar ||",
+          "hindi": "जौ जीय होत तौ देत कछु तुहि कर मन बच करम बिचार ॥",
+          "en": "jau jeey hot tau dhet kachh tuh kar man bach karam bichaar ||",
+          "hi": "जौ जीय होत तौ देत कछु तुहि कर मन बच करम बिचार ॥",
+          "ipa": "d͡ʒɒ d͡ʒij hɔt̪ t̪ɒ d̪et̪ kəɕ t̪ʊh kər mən bət͡ʃ kərəm bɪt͡ʃɑr.",
+          "ur": "جَو جیِے هوت تَو دےت کچھ تُه کر من بچ کرم بچار ۔۔"
+        },
+        "pageNo": 712,
+        "lineNo": 105881,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 20,
+      "verse": {
+        "verseId": 1392,
+        "verse": {
+          "gurmukhi": "kyvl eyk srx suAwmI ibnu XO nih kqih auDwr ]3]1]9]",
+          "unicode": "ਕੇਵਲ ਏਕ ਸਰਣ ਸੁਆਮੀ ਬਿਨੁ ਯੌ ਨਹਿ ਕਤਹਿ ਉਧਾਰ ॥੩॥੧॥੯॥"
+        },
+        "larivaar": {
+          "gurmukhi": "kyvleyksrxsuAwmIibnuXOnihkqihauDwr]3]1]9]",
+          "unicode": "ਕੇਵਲਏਕਸਰਣਸੁਆਮੀਬਿਨੁਯੌਨਹਿਕਤਹਿਉਧਾਰ॥੩॥੧॥੯॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "None can get salvation in any way without taking refuge in one Lord.3.1."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "kyvl iek suAwmI dI Srn ivc jwx qoN ibnw (hor) iksy qrRhw vI (qyrw) auDwr nhIN hovygw ]3]1]9]",
+              "unicode": "ਕੇਵਲ ਇਕ ਸੁਆਮੀ ਦੀ ਸ਼ਰਨ ਵਿਚ ਜਾਣ ਤੋਂ ਬਿਨਾ (ਹੋਰ) ਕਿਸੇ ਤਰ੍ਰਹਾ ਵੀ (ਤੇਰਾ) ਉਧਾਰ ਨਹੀਂ ਹੋਵੇਗਾ ॥੩॥੧॥੯॥"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "kyvl iek suAwmI dI Srn ivc jwx qoN ibnw (hor) iksy qrRhw vI (qyrw) auDwr nhIN hovygw ]3]1]9]",
+              "unicode": "ਕੇਵਲ ਇਕ ਸੁਆਮੀ ਦੀ ਸ਼ਰਨ ਵਿਚ ਜਾਣ ਤੋਂ ਬਿਨਾ (ਹੋਰ) ਕਿਸੇ ਤਰ੍ਰਹਾ ਵੀ (ਤੇਰਾ) ਉਧਾਰ ਨਹੀਂ ਹੋਵੇਗਾ ॥੩॥੧॥੯॥"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "keval ek saran suaamee bin yau neh kateh udhaar ||3||1||9||",
+          "hindi": "केवल एक सरण सुआमी बिनु यौ नहि कतहि उधार ॥३॥१॥९॥",
+          "en": "keval ek saran suaamee bin yau neh kateh udhaar ||3||1||9||",
+          "hi": "केवल एक सरण सुआमी बिनु यौ नहि कतहि उधार ॥३॥१॥९॥",
+          "ipa": "keʋəl eek sərəɳ sʊəɑmi bɪn jɒ nəh kət̪əh oʊt̪ɑr.3.1.9.",
+          "ur": "کےول اےک سرݨ سُآمیِ بن ےَو نهِ کته اُدھار ۔۔۳۔۔۱۔۔۹۔۔"
+        },
+        "pageNo": 712,
+        "lineNo": 105882,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 2,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 21,
+      "verse": {
+        "verseId": 1393,
+        "verse": {
+          "gurmukhi": "rwg dyvgMDwrI pwiqswhI 10 ]",
+          "unicode": "ਰਾਗ ਦੇਵਗੰਧਾਰੀ ਪਾਤਿਸਾਹੀ ੧੦ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "rwgdyvgMDwrIpwiqswhI10]",
+          "unicode": "ਰਾਗਦੇਵਗੰਧਾਰੀਪਾਤਿਸਾਹੀ੧੦॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "RAGA DEVGANDHARI OF THE TENTH KING"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "rwg dyvgMDwrI pwiqSwhI 10:",
+              "unicode": "ਰਾਗ ਦੇਵਗੰਧਾਰੀ ਪਾਤਿਸ਼ਾਹੀ ੧੦:"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "rwg dyvgMDwrI pwiqSwhI 10:",
+              "unicode": "ਰਾਗ ਦੇਵਗੰਧਾਰੀ ਪਾਤਿਸ਼ਾਹੀ ੧੦:"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "raag dhevaga(n)dhaaree paatisaahee 10 ||",
+          "hindi": "राग देवगंधारी पातिसाही १० ॥",
+          "en": "raag dhevaga(n)dhaaree paatisaahee 10 ||",
+          "hi": "राग देवगंधारी पातिसाही १० ॥",
+          "ipa": "rɑG d̪eʋəGəŋt̪ɑri pɑt̪ɪsɑhi 1ə0.",
+          "ur": "راگ دےوگںدھاریِ پاتساهیِ ۱۰ ۔۔"
+        },
+        "pageNo": 712,
+        "lineNo": 105883,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 22,
+      "verse": {
+        "verseId": 1394,
+        "verse": {
+          "gurmukhi": "ibnu hir nwm n bwcn pYhY ]",
+          "unicode": "ਬਿਨੁ ਹਰਿ ਨਾਮ ਨ ਬਾਚਨ ਪੈਹੈ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "ibnuhirnwmnbwcnpYhY]",
+          "unicode": "ਬਿਨੁਹਰਿਨਾਮਨਬਾਚਨਪੈਹੈ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "None can be saved without the Name of the Lord,"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "(koeI vI) hir nwm qoN ibnw (kwl qoN) bc nhIN skygw।",
+              "unicode": "(ਕੋਈ ਵੀ) ਹਰਿ ਨਾਮ ਤੋਂ ਬਿਨਾ (ਕਾਲ ਤੋਂ) ਬਚ ਨਹੀਂ ਸਕੇਗਾ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "(koeI vI) hir nwm qoN ibnw (kwl qoN) bc nhIN skygw।",
+              "unicode": "(ਕੋਈ ਵੀ) ਹਰਿ ਨਾਮ ਤੋਂ ਬਿਨਾ (ਕਾਲ ਤੋਂ) ਬਚ ਨਹੀਂ ਸਕੇਗਾ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "bin har naam na baachan paihai ||",
+          "hindi": "बिनु हरि नाम न बाचन पैहै ॥",
+          "en": "bin har naam na baachan paihai ||",
+          "hi": "बिनु हरि नाम न बाचन पैहै ॥",
+          "ipa": "bɪn hər nɑm nə bɑt͡ʃən pæhæ.",
+          "ur": "بٍن هر نام ن باچن پَےهَے ۔۔"
+        },
+        "pageNo": 712,
+        "lineNo": 105884,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 22,
+      "verse": {
+        "verseId": 1395,
+        "verse": {
+          "gurmukhi": "cOdih lok jwih bs kIny qw qy khW plYhY ]1] rhwau ]",
+          "unicode": "ਚੌਦਹਿ ਲੋਕ ਜਾਹਿ ਬਸ ਕੀਨੇ ਤਾ ਤੇ ਕਹਾਂ ਪਲੈਹੈ ॥੧॥ ਰਹਾਉ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "cOdihlokjwihbskInyqwqykhWplYhY]1]rhwau]",
+          "unicode": "ਚੌਦਹਿਲੋਕਜਾਹਿਬਸਕੀਨੇਤਾਤੇਕਹਾਂਪਲੈਹੈ॥੧॥ਰਹਾਉ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "He, who control al the fourteen worlds, how can you run away from Him?...Pause."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "ijs kwl ny cOdw lok vs ivc kIqy hoey hn, aus qoN ikQy Bj ky jwvyWgw ]1] rhwau।",
+              "unicode": "ਜਿਸ ਕਾਲ ਨੇ ਚੌਦਾ ਲੋਕ ਵਸ ਵਿਚ ਕੀਤੇ ਹੋਏ ਹਨ, ਉਸ ਤੋਂ ਕਿਥੇ ਭਜ ਕੇ ਜਾਵੇਾਂਗਾ ॥੧॥ ਰਹਾਉ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "ijs kwl ny cOdw lok vs ivc kIqy hoey hn, aus qoN ikQy Bj ky jwvyWgw ]1] rhwau।",
+              "unicode": "ਜਿਸ ਕਾਲ ਨੇ ਚੌਦਾ ਲੋਕ ਵਸ ਵਿਚ ਕੀਤੇ ਹੋਏ ਹਨ, ਉਸ ਤੋਂ ਕਿਥੇ ਭਜ ਕੇ ਜਾਵੇਾਂਗਾ ॥੧॥ ਰਹਾਉ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "chauadheh lok jaeh bas keene taa te kahaa(n) palaihai ||1|| rahaau ||",
+          "hindi": "चौदहि लोक जाहि बस कीने ता ते कहाँ पलैहै ॥१॥ रहाउ ॥",
+          "en": "chauadheh lok jaeh bas keene taa te kahaa(n) palaihai ||1|| rahaau ||",
+          "hi": "चौदहि लोक जाहि बस कीने ता ते कहाँ पलैहै ॥१॥ रहाउ ॥",
+          "ipa": "t͡ʃɒəd̪əh lɔk d͡ʒɑh bəs kine t̪ɑ t̪e kəhɑⁿ pəlæhæ.1. rəhɑo.",
+          "ur": "چَوده لوک جاه بس کیٍنے تا تے کهاں پلَےهَے ۔۔۱۔۔ رهاا ۔۔"
+        },
+        "pageNo": 712,
+        "lineNo": 105885,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 22,
+      "verse": {
+        "verseId": 1396,
+        "verse": {
+          "gurmukhi": "rwm rhIm aubwr n skhY jw kr nwm rtY hY ]",
+          "unicode": "ਰਾਮ ਰਹੀਮ ਉਬਾਰ ਨ ਸਕਹੈ ਜਾ ਕਰ ਨਾਮ ਰਟੈ ਹੈ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "rwmrhImaubwrnskhYjwkrnwmrtYhY]",
+          "unicode": "ਰਾਮਰਹੀਮਉਬਾਰਨਸਕਹੈਜਾਕਰਨਾਮਰਟੈਹੈ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "You cannot be save by repeating the Names of Ram and Rahim,"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "rwm Aqy rhIm vI (ausnUM) aubwr nhIN skdy, ijnRhw dy (nwm qUM) rtdw hYN,",
+              "unicode": "ਰਾਮ ਅਤੇ ਰਹੀਮ ਵੀ (ਉਸਨੂੰ) ਉਬਾਰ ਨਹੀਂ ਸਕਦੇ, ਜਿਨ੍ਰਹਾ ਦੇ (ਨਾਮ ਤੂੰ) ਰਟਦਾ ਹੈਂ,"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "rwm Aqy rhIm vI (ausnUM) aubwr nhIN skdy, ijnRhw dy (nwm qUM) rtdw hYN,",
+              "unicode": "ਰਾਮ ਅਤੇ ਰਹੀਮ ਵੀ (ਉਸਨੂੰ) ਉਬਾਰ ਨਹੀਂ ਸਕਦੇ, ਜਿਨ੍ਰਹਾ ਦੇ (ਨਾਮ ਤੂੰ) ਰਟਦਾ ਹੈਂ,"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "raam raheem ubaar na sakahai jaa kar naam raTai hai ||",
+          "hindi": "राम रहीम उबार न सकहै जा कर नाम रटै है ॥",
+          "en": "raam raheem ubaar na sakahai jaa kar naam raTai hai ||",
+          "hi": "राम रहीम उबार न सकहै जा कर नाम रटै है ॥",
+          "ipa": "rɑm rəhim oʊbɑr nə səkəhæ d͡ʒɑ kər nɑm rəʈæ hæ.",
+          "ur": "رام رهیِم اُبار ن سکهَے جا کر نام رٹَے هَے ۔۔"
+        },
+        "pageNo": 712,
+        "lineNo": 105886,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 22,
+      "verse": {
+        "verseId": 1397,
+        "verse": {
+          "gurmukhi": "bRhmw ibsn rudR sUrj sis qy bis kwl sbY hY ]1]",
+          "unicode": "ਬ੍ਰਹਮਾ ਬਿਸਨ ਰੁਦ੍ਰ ਸੂਰਜ ਸਸਿ ਤੇ ਬਸਿ ਕਾਲ ਸਬੈ ਹੈ ॥੧॥"
+        },
+        "larivaar": {
+          "gurmukhi": "bRhmwibsnrudRsUrjsisqybiskwlsbYhY]1]",
+          "unicode": "ਬ੍ਰਹਮਾਬਿਸਨਰੁਦ੍ਰਸੂਰਜਸਸਿਤੇਬਸਿਕਾਲਸਬੈਹੈ॥੧॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Brahma, Vishnu Shiva, Sun and Moon, all are subject to the power of Death.1."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "bRhmw, ivSxU, rudR, sUrj, cMdRmw Awid swry kwl dy vs ivc hn ]1]",
+              "unicode": "ਬ੍ਰਹਮਾ, ਵਿਸ਼ਣੂ, ਰੁਦ੍ਰ, ਸੂਰਜ, ਚੰਦ੍ਰਮਾ ਆਦਿ ਸਾਰੇ ਕਾਲ ਦੇ ਵਸ ਵਿਚ ਹਨ ॥੧॥"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "bRhmw, ivSxU, rudR, sUrj, cMdRmw Awid swry kwl dy vs ivc hn ]1]",
+              "unicode": "ਬ੍ਰਹਮਾ, ਵਿਸ਼ਣੂ, ਰੁਦ੍ਰ, ਸੂਰਜ, ਚੰਦ੍ਰਮਾ ਆਦਿ ਸਾਰੇ ਕਾਲ ਦੇ ਵਸ ਵਿਚ ਹਨ ॥੧॥"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "brahamaa bisan rudhr sooraj sas te bas kaal sabai hai ||1||",
+          "hindi": "ब्रहमा बिसन रुद्र सूरज ससि ते बसि काल सबै है ॥१॥",
+          "en": "brahamaa bisan rudhr sooraj sas te bas kaal sabai hai ||1||",
+          "hi": "ब्रहमा बिसन रुद्र सूरज ससि ते बसि काल सबै है ॥१॥",
+          "ipa": "bɹəhəmɑ bɪsən rʊd̪ɹ surəd͡ʒ səs t̪e bəs kɑl səbæ hæ.1.",
+          "ur": "برهما بسن رُدر سُورج سس تے بسِ کال سبَے هَے ۔۔۱۔۔"
+        },
+        "pageNo": 712,
+        "lineNo": 105887,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 22,
+      "verse": {
+        "verseId": 1398,
+        "verse": {
+          "gurmukhi": "byd purwn kurwn sbY mq jwkh nyq khY hY ]",
+          "unicode": "ਬੇਦ ਪੁਰਾਨ ਕੁਰਾਨ ਸਬੈ ਮਤ ਜਾਕਹ ਨੇਤ ਕਹੈ ਹੈ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "bydpurwnkurwnsbYmqjwkhnyqkhYhY]",
+          "unicode": "ਬੇਦਪੁਰਾਨਕੁਰਾਨਸਬੈਮਤਜਾਕਹਨੇਤਕਹੈਹੈ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Vedas, Puranas and holy Quran and all religious system proclaim Him as indescribeable,2."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "vyd, kurwn, purwn (Awid Drm pusqkw) dy swry mq ijs nUM nyiq nyiq (byAMq byAMq) kihMdy hn।",
+              "unicode": "ਵੇਦ, ਕੁਰਾਨ, ਪੁਰਾਨ (ਆਦਿ ਧਰਮ ਪੁਸਤਕਾ) ਦੇ ਸਾਰੇ ਮਤ ਜਿਸ ਨੂੰ ਨੇਤਿ ਨੇਤਿ (ਬੇਅੰਤ ਬੇਅੰਤ) ਕਹਿੰਦੇ ਹਨ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "vyd, kurwn, purwn (Awid Drm pusqkw) dy swry mq ijs nUM nyiq nyiq (byAMq byAMq) kihMdy hn।",
+              "unicode": "ਵੇਦ, ਕੁਰਾਨ, ਪੁਰਾਨ (ਆਦਿ ਧਰਮ ਪੁਸਤਕਾ) ਦੇ ਸਾਰੇ ਮਤ ਜਿਸ ਨੂੰ ਨੇਤਿ ਨੇਤਿ (ਬੇਅੰਤ ਬੇਅੰਤ) ਕਹਿੰਦੇ ਹਨ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "bedh puraan kuraan sabai mat jaakeh net kahai hai ||",
+          "hindi": "बेद पुरान कुरान सबै मत जाकह नेत कहै है ॥",
+          "en": "bedh puraan kuraan sabai mat jaakeh net kahai hai ||",
+          "hi": "बेद पुरान कुरान सबै मत जाकह नेत कहै है ॥",
+          "ipa": "bed̪ pʊrɑn kʊrɑn səbæ mət̪ d͡ʒɑkəh net̪ kəhæ hæ.",
+          "ur": "بےد پُران کُران سبَے مت جاکه نےت کهَے هَے ۔۔"
+        },
+        "pageNo": 712,
+        "lineNo": 105888,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 22,
+      "verse": {
+        "verseId": 1399,
+        "verse": {
+          "gurmukhi": "ieMdR PinMdR muinMdR klp bhu iDAwvq iDAwn n AYhY ]2]",
+          "unicode": "ਇੰਦ੍ਰ ਫਨਿੰਦ੍ਰ ਮੁਨਿੰਦ੍ਰ ਕਲਪ ਬਹੁ ਧਿਆਵਤ ਧਿਆਨ ਨ ਐਹੈ ॥੨॥"
+        },
+        "larivaar": {
+          "gurmukhi": "ieMdRPinMdRmuinMdRklpbhuiDAwvqiDAwnnAYhY]2]",
+          "unicode": "ਇੰਦ੍ਰਫਨਿੰਦ੍ਰਮੁਨਿੰਦ੍ਰਕਲਪਬਹੁਧਿਆਵਤਧਿਆਨਨਐਹੈ॥੨॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Indra, Sheshnaga and the Supreme sage meditated on Him for ages, but could not visualize Him.2."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "ieMdr, SySnwg, mhwmunI (Awid ijs nUM) bhuq klpw qk iDAwauWdy rhy hn (pr auh iPr vI) iDAwn ivc nhIN AwieAw ]2]",
+              "unicode": "ਇੰਦਰ, ਸ਼ੇਸ਼ਨਾਗ, ਮਹਾਮੁਨੀ (ਆਦਿ ਜਿਸ ਨੂੰ) ਬਹੁਤ ਕਲਪਾ ਤਕ ਧਿਆਉਾਂਦੇ ਰਹੇ ਹਨ (ਪਰ ਉਹ ਫਿਰ ਵੀ) ਧਿਆਨ ਵਿਚ ਨਹੀਂ ਆਇਆ ॥੨॥"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "ieMdr, SySnwg, mhwmunI (Awid ijs nUM) bhuq klpw qk iDAwauWdy rhy hn (pr auh iPr vI) iDAwn ivc nhIN AwieAw ]2]",
+              "unicode": "ਇੰਦਰ, ਸ਼ੇਸ਼ਨਾਗ, ਮਹਾਮੁਨੀ (ਆਦਿ ਜਿਸ ਨੂੰ) ਬਹੁਤ ਕਲਪਾ ਤਕ ਧਿਆਉਾਂਦੇ ਰਹੇ ਹਨ (ਪਰ ਉਹ ਫਿਰ ਵੀ) ਧਿਆਨ ਵਿਚ ਨਹੀਂ ਆਇਆ ॥੨॥"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "ei(n)dhr fani(n)dhr muni(n)dhr kalap bahu dhiaavat dhiaan na aaihai ||2||",
+          "hindi": "इंद्र फनिंद्र मुनिंद्र कलप बहु धिआवत धिआन न ऐहै ॥२॥",
+          "en": "ei(n)dhr fani(n)dhr muni(n)dhr kalap bahu dhiaavat dhiaan na aaihai ||2||",
+          "hi": "इंद्र फनिंद्र मुनिंद्र कलप बहु धिआवत धिआन न ऐहै ॥२॥",
+          "ipa": "eɪŋd̪ɹ fənɪŋd̪ɹ mʊnɪŋd̪ɹ kələp bəh t̪ɪəɑʋət̪ t̪ɪəɑn nə æhæ.2.",
+          "ur": "ِاںدر پھنںدر مُنںدر کلپ بهُ دھآوت دھآن ن اَےهَے ۔۔۲۔۔"
+        },
+        "pageNo": 712,
+        "lineNo": 105889,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 22,
+      "verse": {
+        "verseId": 1400,
+        "verse": {
+          "gurmukhi": "jwkr rUp rMg nih jinXq so ikm sÎwm khY hY ]",
+          "unicode": "ਜਾਕਰ ਰੂਪ ਰੰਗ ਨਹਿ ਜਨਿਯਤ ਸੋ ਕਿਮ ਸ੍ਯਾਮ ਕਹੈ ਹੈ ॥"
+        },
+        "larivaar": {
+          "gurmukhi": "jwkrrUprMgnihjinXqsoikmsÎwmkhYhY]",
+          "unicode": "ਜਾਕਰਰੂਪਰੰਗਨਹਿਜਨਿਯਤਸੋਕਿਮਸ੍ਯਾਮਕਹੈਹੈ॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "He, whose form and colour are not, how can he be called black?"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "ijsdw koeI rUp rMg nhIN jwixAw jwdw, (aus nUM) iks qrRhw iSAwm ikhw jw skdw hY।",
+              "unicode": "ਜਿਸਦਾ ਕੋਈ ਰੂਪ ਰੰਗ ਨਹੀਂ ਜਾਣਿਆ ਜਾਦਾ, (ਉਸ ਨੂੰ) ਕਿਸ ਤਰ੍ਰਹਾ ਸ਼ਿਆਮ ਕਿਹਾ ਜਾ ਸਕਦਾ ਹੈ।"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "ijsdw koeI rUp rMg nhIN jwixAw jwdw, (aus nUM) iks qrRhw iSAwm ikhw jw skdw hY।",
+              "unicode": "ਜਿਸਦਾ ਕੋਈ ਰੂਪ ਰੰਗ ਨਹੀਂ ਜਾਣਿਆ ਜਾਦਾ, (ਉਸ ਨੂੰ) ਕਿਸ ਤਰ੍ਰਹਾ ਸ਼ਿਆਮ ਕਿਹਾ ਜਾ ਸਕਦਾ ਹੈ।"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "jaakar roop ra(n)g neh janiyat so kim sayaam kahai hai ||",
+          "hindi": "जाकर रूप रंग नहि जनियत सो किम स्याम कहै है ॥",
+          "en": "jaakar roop ra(n)g neh janiyat so kim sayaam kahai hai ||",
+          "hi": "जाकर रूप रंग नहि जनियत सो किम स्याम कहै है ॥",
+          "ipa": "d͡ʒɑkər rup rəŋG nəh d͡ʒənɪjt̪ sɔ kɪm səjɑm kəhæ hæ.",
+          "ur": "جاکر رُوپ رںگ نهِ جنےت سو کم سےام کهَے هَے ۔۔"
+        },
+        "pageNo": 712,
+        "lineNo": 105890,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 22,
+      "verse": {
+        "verseId": 1401,
+        "verse": {
+          "gurmukhi": "Cutho kwl jwl qy qb hI qWih crn lptYhY ]3]1]10]",
+          "unicode": "ਛੁਟਹੋ ਕਾਲ ਜਾਲ ਤੇ ਤਬ ਹੀ ਤਾਂਹਿ ਚਰਨ ਲਪਟੈਹੈ ॥੩॥੧॥੧੦॥"
+        },
+        "larivaar": {
+          "gurmukhi": "CuthokwljwlqyqbhIqWihcrnlptYhY]3]1]10]",
+          "unicode": "ਛੁਟਹੋਕਾਲਜਾਲਤੇਤਬਹੀਤਾਂਹਿਚਰਨਲਪਟੈਹੈ॥੩॥੧॥੧੦॥"
+        },
+        "translation": {
+          "en": {
+            "bdb": "You can only be liberated from the noose of Death, when you cling to His feet.3.2."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "kwl dy jwl qoN qd hI Klws hoeyWgw (jy) aus (pRBU) dy crnw nwl ilpt jweyWgw ]3]1]10]",
+              "unicode": "ਕਾਲ ਦੇ ਜਾਲ ਤੋਂ ਤਦ ਹੀ ਖਲਾਸ ਹੋਏਾਂਗਾ (ਜੇ) ਉਸ (ਪ੍ਰਭੂ) ਦੇ ਚਰਨਾ ਨਾਲ ਲਿਪਟ ਜਾਏਾਂਗਾ ॥੩॥੧॥੧੦॥"
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": "kwl dy jwl qoN qd hI Klws hoeyWgw (jy) aus (pRBU) dy crnw nwl ilpt jweyWgw ]3]1]10]",
+              "unicode": "ਕਾਲ ਦੇ ਜਾਲ ਤੋਂ ਤਦ ਹੀ ਖਲਾਸ ਹੋਏਾਂਗਾ (ਜੇ) ਉਸ (ਪ੍ਰਭੂ) ਦੇ ਚਰਨਾ ਨਾਲ ਲਿਪਟ ਜਾਏਾਂਗਾ ॥੩॥੧॥੧੦॥"
+            }
+          },
+          "es": {
+            "sn": ""
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "chhuTaho kaal jaal te tab hee taa(n)h charan lapaTaihai ||3||1||10||",
+          "hindi": "छुटहो काल जाल ते तब ही ताँहि चरन लपटैहै ॥३॥१॥१०॥",
+          "en": "chhuTaho kaal jaal te tab hee taa(n)h charan lapaTaihai ||3||1||10||",
+          "hi": "छुटहो काल जाल ते तब ही ताँहि चरन लपटैहै ॥३॥१॥१०॥",
+          "ipa": "ɕʊʈəhɔ kɑl d͡ʒɑl t̪e t̪əb hi t̪ɑⁿəh t͡ʃərən ləpəʈæhæ.3.1.1ə0.",
+          "ur": "چھُٹهو کال جال تے تب هیِ تاںه چرن لپٹَےهَے ۔۔۳۔۔۱۔۔۱۰۔۔"
+        },
+        "pageNo": 712,
+        "lineNo": 105891,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm2": [],
+          "sttm": [],
+          "igurbani": []
+        }
+      }
+    }
+  ]
+}

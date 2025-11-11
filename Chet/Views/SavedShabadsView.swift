@@ -22,17 +22,32 @@ struct SavedShabadsView: View {
     @State private var showingImportInfoAlert = false
     @State private var numberOfImportedShabads = -1
 
+    @State private var showingExporter = false
+
     @State private var isMovingItems = false // New state to enter move selection mode
     @State private var selectedFolders: Set<Folder> = []
+    @State private var isCopyOperation = false // Track if we're copying vs moving
 
     @Environment(\.modelContext) private var modelContext
+    @AppStorage("backupChangeCounter") private var backupChangeCounter = 0
     @State private var showingDestinationPickerSheet = false
 
     var body: some View {
         ZStack {
             VStack {
                 if rootFolders.isEmpty {
-                    Text("No folders yet")
+                    VStack(spacing: 12) {
+                        Image(systemName: "folder")
+                            .font(.system(size: 44))
+                            .foregroundColor(.secondary)
+                        Text("No Folders")
+                            .font(.headline)
+                            .foregroundColor(.primary)
+                        Text("Tap + to create a folder")
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                    }
+                    .frame(maxHeight: .infinity)
                 } else {
                     List {
                         FoldersDisplay(
@@ -67,39 +82,65 @@ struct SavedShabadsView: View {
             }
         }
         .animation(.easeInOut, value: numberOfImportedShabads)
-        .navigationTitle("Saved Shabads")
+        .navigationTitle(editMode?.wrappedValue.isEditing == true && !selectedFolders.isEmpty
+            ? "Selected (\(selectedFolders.count))"
+            : "Saved Shabads")
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
-                Button(action: { showingImportInfoAlert = true }) {
-                    Label("Import", systemImage: "square.and.arrow.down")
+                HStack {
+                    Button(action: { showingImportInfoAlert = true }) {
+                        Label("Import", systemImage: "square.and.arrow.down")
+                    }
+                    Button(action: { showingExporter = true }) {
+                        Label("Export", systemImage: "square.and.arrow.up")
+                    }
                 }
             }
             ToolbarItem(placement: .navigationBarTrailing) {
-                HStack {
-                    EditButton()
+                HStack(spacing: 12) {
                     if editMode?.wrappedValue.isEditing == true {
-                        Button("Move") {
-                            showingDestinationPickerSheet = true
+                        Menu {
+                            Button {
+                                isCopyOperation = false
+                                showingDestinationPickerSheet = true
+                            } label: {
+                                Label("Move", systemImage: "arrow.right")
+                            }
+                            Button {
+                                isCopyOperation = true
+                                showingDestinationPickerSheet = true
+                            } label: {
+                                Label("Copy", systemImage: "doc.on.doc")
+                            }
+                        } label: {
+                            Image(systemName: "ellipsis.circle")
+                                .font(.system(size: 18))
                         }
                         .disabled(selectedFolders.isEmpty)
-                    } else {}
+                    }
 
                     Button(action: { showingNewFolderAlert = true }) {
-                        Label("Add Folder", systemImage: "plus")
+                        Image(systemName: "folder.badge.plus")
+                            .font(.system(size: 18))
                     }
+
+                    EditButton()
                 }
             }
         }
         .sheet(isPresented: $showingDestinationPickerSheet) {
             DestinationFolderSelectionView(
                 onSelect: { selectedF in
-                    performBulkMoveOfFolders(to: selectedF)
+                    if isCopyOperation {
+                        performBulkCopyOfFolders(to: selectedF)
+                    } else {
+                        performBulkMoveOfFolders(to: selectedF)
+                    }
                     showingDestinationPickerSheet = false
-
                 },
-                // Prevent selecting the current folder itself as a destination
-                disabledFolderIDs: selectedFolders.map(\.id) // Pass IDs of folders being moved
-                // rootFolders: rootFolders
+                // Prevent selecting the current folder itself as a destination (only for move)
+                disabledFolderIDs: isCopyOperation ? [] : selectedFolders.map(\.id),
+                operationType: isCopyOperation ? "Copy" : "Move"
             )
         }
         .onChange(of: editMode?.wrappedValue) { newValue in
@@ -142,9 +183,12 @@ struct SavedShabadsView: View {
         } message: {
             Text("ਗੁਰਬਾਣੀ ਖੋਜ (Gurbani Khoj) and iGurbani allow you to export your favorite Shabads. When you export them, it will be saved to a file. You can import that file here and get all your saved data here.")
         }
+        .sheet(isPresented: $showingExporter) {
+            ExportSheet()
+        }
         .fileImporter(
             isPresented: $showingImporter,
-            allowedContentTypes: [.igb, .gkhoj], // ✅ allow both custom extensions
+            allowedContentTypes: [.igb, .gkhoj, .chetBackup], // ✅ allow all three import formats
             allowsMultipleSelection: false
         ) { result in
             do {
@@ -188,6 +232,25 @@ struct SavedShabadsView: View {
                             try? modelContext.save()
                         }
                     }
+                } else if fileExtension == "chet" {
+                    // Restore from Chet backup
+                    Task {
+                        do {
+                            numberOfImportedShabads = 0
+                            try await BackupManager.shared.restoreFromJSON(
+                                data: data,
+                                modelContext: modelContext
+                            ) { count in
+                                numberOfImportedShabads = count
+                            }
+                            numberOfImportedShabads = -1
+                        } catch {
+                            print("Failed to restore backup: \(error.localizedDescription)")
+                            errorMessage = "Failed to restore backup: \(error.localizedDescription)"
+                            showingErrorAlert = true
+                            numberOfImportedShabads = -1
+                        }
+                    }
                 } else {
                     print("Unknown file type: \(fileExtension)")
                 }
@@ -209,8 +272,62 @@ struct SavedShabadsView: View {
             print("Failed to save bulk move: \(error.localizedDescription)")
         }
 
+        // Reload widget if moving folders to Favorites (might contain shabads)
+        if let destination = destination, destination.name == "Favorites" && destination.isSystemFolder {
+            WidgetCenter.shared.reloadTimelines(ofKind: "xyz.gians.Chet.FavShabadsWidget")
+        }
+
         selectedFolders.removeAll()
         editMode?.wrappedValue = .inactive
+    }
+
+    private func performBulkCopyOfFolders(to destination: Folder?) {
+        for selectedFolder in selectedFolders {
+            copyFolderRecursively(selectedFolder, to: destination)
+        }
+
+        do {
+            try modelContext.save()
+        } catch {
+            print("Failed to save bulk copy: \(error.localizedDescription)")
+        }
+
+        // Reload widget if copying folders to Favorites (might contain shabads)
+        if let destination = destination, destination.name == "Favorites" && destination.isSystemFolder {
+            WidgetCenter.shared.reloadTimelines(ofKind: "xyz.gians.Chet.FavShabadsWidget")
+        }
+
+        selectedFolders.removeAll()
+        editMode?.wrappedValue = .inactive
+    }
+
+    private func copyFolderRecursively(_ folder: Folder, to destination: Folder?) {
+        // Create a copy of the folder
+        let copiedFolder = Folder(
+            name: folder.name + " Copy",
+            parentFolder: destination,
+            subfolders: [],
+            isSystemFolder: false,
+            sortIndex: 0
+        )
+        modelContext.insert(copiedFolder)
+
+        // Copy all shabads
+        for shabad in folder.savedShabads {
+            let copiedShabad = SavedShabad(
+                folder: copiedFolder,
+                sbdRes: shabad.sbdRes,
+                indexOfSelectedLine: shabad.indexOfSelectedLine,
+                addedAt: Date(),
+                sortIndex: shabad.sortIndex
+            )
+            modelContext.insert(copiedShabad)
+        }
+
+        // Recursively copy subfolders
+        for subfolder in folder.subfolders {
+            copyFolderRecursively(subfolder, to: copiedFolder)
+        }
     }
 }
 
@@ -232,6 +349,7 @@ struct FoldersContentView: View {
     @State private var selectedFolders: Set<Folder> = []
     @State private var selectedShabads: Set<SavedShabad> = []
     @State private var showingDestinationPickerSheet = false
+    @State private var isCopyOperation = false
 
     var body: some View {
         List {
@@ -245,23 +363,43 @@ struct FoldersContentView: View {
                 selectedShabads: $selectedShabads
             )
         }
-        .navigationTitle(folder.name)
+        .navigationTitle({
+            if editMode?.wrappedValue.isEditing == true {
+                let totalSelected = selectedFolders.count + selectedShabads.count
+                return totalSelected > 0 ? "Selected (\(totalSelected))" : folder.name
+            }
+            return folder.name
+        }())
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                HStack {
-                    EditButton() // This manages the environment's editMode
-                    // "Move" button only appears when in edit mode AND items are selected
+                HStack(spacing: 12) {
                     if editMode?.wrappedValue.isEditing == true {
-                        Button("Move") {
-                            showingDestinationPickerSheet = true
+                        Menu {
+                            Button {
+                                isCopyOperation = false
+                                showingDestinationPickerSheet = true
+                            } label: {
+                                Label("Move", systemImage: "arrow.right")
+                            }
+                            Button {
+                                isCopyOperation = true
+                                showingDestinationPickerSheet = true
+                            } label: {
+                                Label("Copy", systemImage: "doc.on.doc")
+                            }
+                        } label: {
+                            Image(systemName: "ellipsis.circle")
+                                .font(.system(size: 18))
                         }
                         .disabled(selectedFolders.isEmpty && selectedShabads.isEmpty)
                     }
 
-                    // Always show "Add Folder" button
                     Button(action: { showingNewFolderAlert = true }) {
-                        Label("Add Folder", systemImage: "plus")
+                        Image(systemName: "folder.badge.plus")
+                            .font(.system(size: 18))
                     }
+
+                    EditButton()
                 }
             }
         }
@@ -280,13 +418,16 @@ struct FoldersContentView: View {
         .sheet(isPresented: $showingDestinationPickerSheet) {
             DestinationFolderSelectionView(
                 onSelect: { selectedF in
-                    performBulkMove(to: selectedF)
+                    if isCopyOperation {
+                        performBulkCopy(to: selectedF)
+                    } else {
+                        performBulkMove(to: selectedF)
+                    }
                     showingDestinationPickerSheet = false
-
                 },
-                // Prevent selecting the current folder itself as a destination
-                disabledFolderIDs: selectedFolders.map(\.id) // Pass IDs of folders being moved
-                // rootFolders: rootFolders
+                // Prevent selecting the current folder itself as a destination (only for move)
+                disabledFolderIDs: isCopyOperation ? [] : selectedFolders.map(\.id),
+                operationType: isCopyOperation ? "Copy" : "Move"
             )
         }
         .onChange(of: editMode?.wrappedValue) { newValue in
@@ -309,9 +450,21 @@ struct FoldersContentView: View {
             selectedFolder.parentFolder = destination
         }
 
+        // Track if any shabads are being moved to/from Favorites
+        var shouldReloadWidget = false
+
         for selectedShabad in selectedShabads {
+            // Check if moving FROM Favorites
+            if selectedShabad.folder?.name == "Favorites" && selectedShabad.folder?.isSystemFolder == true {
+                shouldReloadWidget = true
+            }
+
             if let destination = destination {
                 selectedShabad.folder = destination
+                // Check if moving TO Favorites
+                if destination.name == "Favorites" && destination.isSystemFolder {
+                    shouldReloadWidget = true
+                }
             }
         }
 
@@ -322,9 +475,80 @@ struct FoldersContentView: View {
             print("Failed to save bulk move: \(error.localizedDescription)")
         }
 
+        // Reload widget if any shabads moved to/from Favorites folder
+        if shouldReloadWidget {
+            WidgetCenter.shared.reloadTimelines(ofKind: "xyz.gians.Chet.FavShabadsWidget")
+        }
+
         selectedFolders.removeAll()
         selectedShabads.removeAll()
         editMode?.wrappedValue = .inactive
+    }
+
+    private func performBulkCopy(to destination: Folder?) {
+        // Copy folders
+        for selectedFolder in selectedFolders {
+            copyFolderRecursively(selectedFolder, to: destination)
+        }
+
+        // Copy shabads
+        for selectedShabad in selectedShabads {
+            if let destination = destination {
+                let copiedShabad = SavedShabad(
+                    folder: destination,
+                    sbdRes: selectedShabad.sbdRes,
+                    indexOfSelectedLine: selectedShabad.indexOfSelectedLine,
+                    addedAt: Date(),
+                    sortIndex: selectedShabad.sortIndex
+                )
+                modelContext.insert(copiedShabad)
+            }
+        }
+
+        do {
+            try modelContext.save()
+            print("Bulk copy successful.")
+        } catch {
+            print("Failed to save bulk copy: \(error.localizedDescription)")
+        }
+
+        // Reload widget if copying to Favorites folder
+        if let destination = destination, destination.name == "Favorites" && destination.isSystemFolder {
+            WidgetCenter.shared.reloadTimelines(ofKind: "xyz.gians.Chet.FavShabadsWidget")
+        }
+
+        selectedFolders.removeAll()
+        selectedShabads.removeAll()
+        editMode?.wrappedValue = .inactive
+    }
+
+    private func copyFolderRecursively(_ folder: Folder, to destination: Folder?) {
+        // Create a copy of the folder
+        let copiedFolder = Folder(
+            name: folder.name + " Copy",
+            parentFolder: destination,
+            subfolders: [],
+            isSystemFolder: false,
+            sortIndex: 0
+        )
+        modelContext.insert(copiedFolder)
+
+        // Copy all shabads
+        for shabad in folder.savedShabads {
+            let copiedShabad = SavedShabad(
+                folder: copiedFolder,
+                sbdRes: shabad.sbdRes,
+                indexOfSelectedLine: shabad.indexOfSelectedLine,
+                addedAt: Date(),
+                sortIndex: shabad.sortIndex
+            )
+            modelContext.insert(copiedShabad)
+        }
+
+        // Recursively copy subfolders
+        for subfolder in folder.subfolders {
+            copyFolderRecursively(subfolder, to: copiedFolder)
+        }
     }
 }
 
@@ -363,24 +587,53 @@ struct FoldersDisplay: View {
     var body: some View {
         Section(parentFolder == nil ? "Folders (\(subfolders.count))" : "Subfolders (\(subfolders.count))") {
             ForEach(subfolders) { sub in
-                HStack {
-                    if editMode?.wrappedValue.isEditing == true {
-                        Image(systemName: selectedFolders.contains(sub) ? "checkmark.circle.fill" : "circle")
-                            .foregroundColor(.accentColor)
-                            .onTapGesture {
-                                toggleSelection(for: sub)
-                            }
+                if editMode?.wrappedValue.isEditing == true {
+                    // In edit mode: make entire row tappable for selection
+                    Button(action: {
+                        withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
+                            toggleSelection(for: sub)
+                        }
+                    }) {
+                        HStack(spacing: 12) {
+                            Image(systemName: selectedFolders.contains(sub) ? "checkmark.circle.fill" : "circle")
+                                .foregroundColor(selectedFolders.contains(sub) ? .accentColor : .secondary)
+                                .font(.system(size: 22))
+
+                            Label(sub.name, systemImage: "folder")
+                                .foregroundColor(.primary)
+
+                            Spacer()
+
+                            Image(systemName: "chevron.right")
+                                .font(.system(size: 14, weight: .semibold))
+                                .foregroundColor(.secondary.opacity(0.5))
+                        }
+                        .padding(.vertical, 4)
+                        .background(
+                            selectedFolders.contains(sub)
+                                ? Color.accentColor.opacity(0.08)
+                                : Color.clear
+                        )
+                        .cornerRadius(8)
+                        .contentShape(Rectangle())
                     }
+                    .buttonStyle(PlainButtonStyle())
+                } else {
+                    // Not in edit mode: normal navigation link
                     NavigationLink(destination: FoldersContentView(folder: sub)) {
                         Label(sub.name, systemImage: "folder")
                     }
                 }
-                .swipeActions(edge: .leading) {
-                    Button("Rename") {
-                        editingFolder = sub
-                        newName = sub.name
-                    }
-                    .tint(.blue)
+
+                if editMode?.wrappedValue.isEditing != true {
+                    EmptyView()
+                        .swipeActions(edge: .leading) {
+                            Button("Rename") {
+                                editingFolder = sub
+                                newName = sub.name
+                            }
+                            .tint(.blue)
+                        }
                 }
             }
             .onMove(perform: moveItems)
@@ -464,34 +717,67 @@ struct ShabadsDisplay: View {
     var body: some View {
         Section("Shabads (\(folder.savedShabads.count))") {
             ForEach(the_shabads) { svdSbd in
-                HStack {
-                    if editMode?.wrappedValue.isEditing == true {
-                        // Checkbox for selection in edit mode
-                        Image(systemName: selectedShabads.contains(svdSbd) ? "checkmark.circle.fill" : "circle")
-                            .foregroundColor(.accentColor)
-                            .onTapGesture {
-                                if selectedShabads.contains(svdSbd) {
-                                    selectedShabads.remove(svdSbd)
-                                } else {
-                                    selectedShabads.insert(svdSbd)
-                                }
+                if editMode?.wrappedValue.isEditing == true {
+                    // In edit mode: make entire row tappable for selection
+                    Button(action: {
+                        withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
+                            if selectedShabads.contains(svdSbd) {
+                                selectedShabads.remove(svdSbd)
+                            } else {
+                                selectedShabads.insert(svdSbd)
                             }
+                        }
+                    }) {
+                        HStack(spacing: 12) {
+                            Image(systemName: selectedShabads.contains(svdSbd) ? "checkmark.circle.fill" : "circle")
+                                .foregroundColor(selectedShabads.contains(svdSbd) ? .accentColor : .secondary)
+                                .font(.system(size: 22))
+
+                            RowView(
+                                verse: svdSbd.sbdRes.verses[svdSbd.indexOfSelectedLine < 0 ? 0 : svdSbd.indexOfSelectedLine],
+                                source: svdSbd.sbdRes.shabadInfo.source,
+                                writer: svdSbd.sbdRes.shabadInfo.writer,
+                                raag: svdSbd.sbdRes.shabadInfo.raag,
+                                pageNo: svdSbd.sbdRes.shabadInfo.pageNo,
+                                the_date: svdSbd.addedAt,
+                                searchQuery: "",
+                                allVerses: svdSbd.sbdRes.verses
+                            )
+
+                            Spacer()
+
+                            Image(systemName: "chevron.right")
+                                .font(.system(size: 14, weight: .semibold))
+                                .foregroundColor(.secondary.opacity(0.5))
+                        }
+                        .padding(.vertical, 4)
+                        .background(
+                            selectedShabads.contains(svdSbd)
+                                ? Color.accentColor.opacity(0.08)
+                                : Color.clear
+                        )
+                        .cornerRadius(8)
+                        .contentShape(Rectangle())
                     }
+                    .buttonStyle(PlainButtonStyle())
+                } else {
+                    // Not in edit mode: normal navigation link
                     NavigationLink(destination: ShabadViewDisplayWrapper(sbdRes: svdSbd.sbdRes, indexOfLine: svdSbd.indexOfSelectedLine, onIndexChange: { newIndex in
                         svdSbd.indexOfSelectedLine = newIndex
-                        // WidgetCenter.shared.reloadTimelines(ofKind: "xyz.gians.Chet.FavShabadsWidget")
                         WidgetCenter.shared.reloadAllTimelines()
                     })) {
                         RowView(
-                            verse: svdSbd.sbdRes.verses[svdSbd.indexOfSelectedLine],
+                            verse: svdSbd.sbdRes.verses[svdSbd.indexOfSelectedLine < 0 ? 0 : svdSbd.indexOfSelectedLine],
                             source: svdSbd.sbdRes.shabadInfo.source,
                             writer: svdSbd.sbdRes.shabadInfo.writer,
+                            raag: svdSbd.sbdRes.shabadInfo.raag,
                             pageNo: svdSbd.sbdRes.shabadInfo.pageNo,
-                            the_date: svdSbd.addedAt
+                            the_date: svdSbd.addedAt,
+                            searchQuery: "",
+                            allVerses: svdSbd.sbdRes.verses
                         )
                     }
                 }
-                .contentShape(Rectangle()) // Make HStack tappable for selection
             }
             .onMove(perform: moveItems)
             .onDelete(perform: handleDelete)
@@ -512,6 +798,11 @@ struct ShabadsDisplay: View {
         for (i, s) in current.enumerated() {
             s.sortIndex = current.count - i
         }
+
+        // Reload FavShabadsWidget if deleting from Favorites folder
+        if folder.name == "Favorites" && folder.isSystemFolder {
+            WidgetCenter.shared.reloadTimelines(ofKind: "xyz.gians.Chet.FavShabadsWidget")
+        }
     }
 
     private func moveItems(_ indices: IndexSet, _ newOffset: Int) {
@@ -520,6 +811,11 @@ struct ShabadsDisplay: View {
 
         for (i, s) in reordered.reversed().enumerated() {
             s.sortIndex = i
+        }
+
+        // Reload FavShabadsWidget if reordering in Favorites folder (order matters for rotation!)
+        if folder.name == "Favorites" && folder.isSystemFolder {
+            WidgetCenter.shared.reloadTimelines(ofKind: "xyz.gians.Chet.FavShabadsWidget")
         }
     }
 }
@@ -546,6 +842,7 @@ struct DestinationFolderSelectionView: View {
 
     let onSelect: (Folder?) -> Void
     let disabledFolderIDs: [UUID]
+    let operationType: String
 
     @Query(filter: #Predicate<Folder> { $0.parentFolder == nil },
            sort: [SortDescriptor(\.sortIndex)])
@@ -602,19 +899,18 @@ struct DestinationFolderSelectionView: View {
             }
 
             .listStyle(.sidebar)
-            .navigationTitle("Select Destination")
+            .navigationTitle("\(operationType) to...")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Move") {
+                    Button(operationType) {
                         onSelect(selectedFolder)
                         dismiss()
                     }
-                    .disabled(!isRootSelected && selectedFolder == nil) // 👈 works now
+                    .disabled(!isRootSelected && selectedFolder == nil)
                 }
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel") {
-                        // showingDestinationPickerSheet = false
                         dismiss()
                     }
                 }

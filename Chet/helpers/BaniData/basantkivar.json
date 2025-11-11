@@ -1,0 +1,1484 @@
+{
+  "baniInfo": {
+    "baniID": 104,
+    "gurmukhi": "bsMq kI vwr",
+    "unicode": "\u0a2c\u0a38\u0a70\u0a24 \u0a15\u0a40 \u0a35\u0a3e\u0a30",
+    "english": "basa(n)t kee vaar",
+    "hindi": "\u092c\u0938\u0902\u0924 \u0915\u0940 \u0935\u093e\u0930",
+    "en": "basa(n)t kee vaar",
+    "hi": "\u092c\u0938\u0902\u0924 \u0915\u0940 \u0935\u093e\u0930",
+    "ipa": "b\u0259s\u0259\u014bt\u032a ki \u028b\u0251r",
+    "ur": "\u0628\u0633\u06ba\u062a \u06a9\u06cc\u0650 \u0648\u0627\u0631",
+    "source": {
+      "sourceId": "G",
+      "gurmukhi": "sRI gurU gRMQ swihb jI",
+      "unicode": "\u0a38\u0a4d\u0a30\u0a40 \u0a17\u0a41\u0a30\u0a42 \u0a17\u0a4d\u0a30\u0a70\u0a25 \u0a38\u0a3e\u0a39\u0a3f\u0a2c \u0a1c\u0a40",
+      "english": "Sri Guru Granth Sahib Ji",
+      "pageNo": 1193
+    },
+    "raag": {
+      "raagId": 29,
+      "gurmukhi": "rwgu bsMq",
+      "unicode": "\u0a30\u0a3e\u0a17\u0a41 \u0a2c\u0a38\u0a70\u0a24",
+      "english": "Raag Basant",
+      "raagWithPage": "Basant (1168-1196)"
+    },
+    "writer": {
+      "writerId": null,
+      "gurmukhi": null,
+      "unicode": null,
+      "english": null
+    }
+  },
+  "verses": [
+    {
+      "header": 1,
+      "mangalPosition": "above",
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 1,
+      "verse": {
+        "verseId": 16470,
+        "verse": {
+          "gurmukhi": "<> siqgur pRswid ]",
+          "unicode": "\u0a74 \u0a38\u0a24\u0a3f\u0a17\u0a41\u0a30 \u0a2a\u0a4d\u0a30\u0a38\u0a3e\u0a26\u0a3f \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "<>siqgurpRswid]",
+          "unicode": "\u0a74\u0a38\u0a24\u0a3f\u0a17\u0a41\u0a30\u0a2a\u0a4d\u0a30\u0a38\u0a3e\u0a26\u0a3f\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "One Universal Creator God. By The Grace Of The True Guru:",
+            "ms": "There is but one God. By the True Guru's grace, He is attained.",
+            "ssk": "One Universal Creator God. By The Grace Of The True Guru:"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "vwihgurU kyvl iek hY[ s\u00a4cy gurW dI dieAw duAwrw auh pwieAw jWdw hY[",
+              "unicode": "\u0a35\u0a3e\u0a39\u0a3f\u0a17\u0a41\u0a30\u0a42 \u0a15\u0a47\u0a35\u0a32 \u0a07\u0a15 \u0a39\u0a48\u0964 \u0a38\u0a71\u0a1a\u0a47 \u0a17\u0a41\u0a30\u0a3e\u0a02 \u0a26\u0a40 \u0a26\u0a07\u0a06 \u0a26\u0a41\u0a06\u0a30\u0a3e \u0a09\u0a39 \u0a2a\u0a3e\u0a07\u0a06 \u0a1c\u0a3e\u0a02\u0a26\u0a3e \u0a39\u0a48\u0964"
+            }
+          },
+          "es": {
+            "sn": "Un Dios Creador Universal, por la Gracia del Verdadero Guru."
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "ikOankaar satigur prasaadh ||",
+          "hindi": "\u0a74 \u0938\u0924\u093f\u0917\u0941\u0930 \u092a\u094d\u0930\u0938\u093e\u0926\u093f \u0965",
+          "en": "ikOankaar satigur prasaadh ||",
+          "hi": "\u0a74 \u0938\u0924\u093f\u0917\u0941\u0930 \u092a\u094d\u0930\u0938\u093e\u0926\u093f \u0965",
+          "ipa": "\u026ak o\u0259\u014bk\u0251\u027e s\u0259t\u032a\u026aG\u028ar p\u0279\u0259s\u0251d\u032a.",
+          "ur": "\u0627\u06a9 \u0627\u0648\u0646\u06a9\u0627\u0631 \u0633\u062a\u06af\u0631 \u067e\u0631\u0633\u0627\u062f \u06d4\u06d4"
+        },
+        "pageNo": 1193,
+        "lineNo": 6,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 0,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 0,
+              "t": "v"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 2,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 2,
+      "verse": {
+        "verseId": 16471,
+        "verse": {
+          "gurmukhi": "bsMq kI vwr mhlu 5",
+          "unicode": "\u0a2c\u0a38\u0a70\u0a24 \u0a15\u0a40 \u0a35\u0a3e\u0a30 \u0a2e\u0a39\u0a32\u0a41 \u0a6b"
+        },
+        "larivaar": {
+          "gurmukhi": "bsMqkIvwrmhlu5",
+          "unicode": "\u0a2c\u0a38\u0a70\u0a24\u0a15\u0a40\u0a35\u0a3e\u0a30\u0a2e\u0a39\u0a32\u0a41\u0a6b"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Basant Kee Vaar, Fifth Mehla:",
+            "ms": "Var of Basant. 5th Guru.",
+            "ssk": "Basant Kee Vaar, Fifth Mehl:"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "bsMq kI vwr[ pMjvIN pwiqSwhI[",
+              "unicode": "\u0a2c\u0a38\u0a70\u0a24 \u0a15\u0a40 \u0a35\u0a3e\u0a30\u0964 \u0a2a\u0a70\u0a1c\u0a35\u0a40\u0a02 \u0a2a\u0a3e\u0a24\u0a3f\u0a36\u0a3e\u0a39\u0a40\u0964"
+            }
+          },
+          "es": {
+            "sn": "Var de Rag Basant Mejl Guru Aryan Dev, Quinto Canal Divino."
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "basa(n)t kee vaar mahal panjavaa",
+          "hindi": "\u092c\u0938\u0902\u0924 \u0915\u0940 \u0935\u093e\u0930 \u092e\u0939\u0932\u0941 \u096b",
+          "en": "basa(n)t kee vaar mahal panjavaa",
+          "hi": "\u092c\u0938\u0902\u0924 \u0915\u0940 \u0935\u093e\u0930 \u092e\u0939\u0932\u0941 \u096b",
+          "ipa": "b\u0259s\u0259\u014bt\u032a ki \u028b\u0251r m\u0259h\u0259l 5",
+          "ur": "\u0628\u0633\u06ba\u062a \u06a9\u06cc\u0650 \u0648\u0627\u0631 \u0645\u0647\u0644 \u06f5"
+        },
+        "pageNo": 1193,
+        "lineNo": 6,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 2,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 2,
+              "t": "v"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 1,
+      "mangalPosition": "current",
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 3,
+      "verse": {
+        "verseId": 16472,
+        "verse": {
+          "gurmukhi": "<> siqgur pRswid ]",
+          "unicode": "\u0a74 \u0a38\u0a24\u0a3f\u0a17\u0a41\u0a30 \u0a2a\u0a4d\u0a30\u0a38\u0a3e\u0a26\u0a3f \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "<>siqgurpRswid]",
+          "unicode": "\u0a74\u0a38\u0a24\u0a3f\u0a17\u0a41\u0a30\u0a2a\u0a4d\u0a30\u0a38\u0a3e\u0a26\u0a3f\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "One Universal Creator God. By The Grace Of The True Guru:",
+            "ms": "There is but one God. By the True Guru's grace, He is attained.",
+            "ssk": "One Universal Creator God. By The Grace Of The True Guru:"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ft": {
+              "gurmukhi": "",
+              "unicode": ""
+            },
+            "bdb": {
+              "gurmukhi": null,
+              "unicode": null
+            },
+            "ms": {
+              "gurmukhi": "vwihgurU kyvl iek hY[ s\u00a4cy gurW dI dieAw duAwrw auh pwieAw jWdw hY[",
+              "unicode": "\u0a35\u0a3e\u0a39\u0a3f\u0a17\u0a41\u0a30\u0a42 \u0a15\u0a47\u0a35\u0a32 \u0a07\u0a15 \u0a39\u0a48\u0964 \u0a38\u0a71\u0a1a\u0a47 \u0a17\u0a41\u0a30\u0a3e\u0a02 \u0a26\u0a40 \u0a26\u0a07\u0a06 \u0a26\u0a41\u0a06\u0a30\u0a3e \u0a09\u0a39 \u0a2a\u0a3e\u0a07\u0a06 \u0a1c\u0a3e\u0a02\u0a26\u0a3e \u0a39\u0a48\u0964"
+            }
+          },
+          "es": {
+            "sn": "Un Dios Creador Universal, por la Gracia del Verdadero Guru."
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "ikOankaar satigur prasaadh ||",
+          "hindi": "\u0a74 \u0938\u0924\u093f\u0917\u0941\u0930 \u092a\u094d\u0930\u0938\u093e\u0926\u093f \u0965",
+          "en": "ikOankaar satigur prasaadh ||",
+          "hi": "\u0a74 \u0938\u0924\u093f\u0917\u0941\u0930 \u092a\u094d\u0930\u0938\u093e\u0926\u093f \u0965",
+          "ipa": "\u026ak o\u0259\u014bk\u0251\u027e s\u0259t\u032a\u026aG\u028ar p\u0279\u0259s\u0251d\u032a.",
+          "ur": "\u0627\u06a9 \u0627\u0648\u0646\u06a9\u0627\u0631 \u0633\u062a\u06af\u0631 \u067e\u0631\u0633\u0627\u062f \u06d4\u06d4"
+        },
+        "pageNo": 1193,
+        "lineNo": 6,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 0,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 0,
+              "t": "v"
+            }
+          ],
+          "sttm2": []
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 4,
+      "verse": {
+        "verseId": 16473,
+        "verse": {
+          "gurmukhi": "hir kw nwmu iDAwie kY hohu hirAw BweI ]",
+          "unicode": "\u0a39\u0a30\u0a3f \u0a15\u0a3e \u0a28\u0a3e\u0a2e\u0a41 \u0a27\u0a3f\u0a06\u0a07 \u0a15\u0a48 \u0a39\u0a4b\u0a39\u0a41 \u0a39\u0a30\u0a3f\u0a06 \u0a2d\u0a3e\u0a08 \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "hirkwnwmuiDAwiekYhohuhirAwBweI]",
+          "unicode": "\u0a39\u0a30\u0a3f\u0a15\u0a3e\u0a28\u0a3e\u0a2e\u0a41\u0a27\u0a3f\u0a06\u0a07\u0a15\u0a48\u0a39\u0a4b\u0a39\u0a41\u0a39\u0a30\u0a3f\u0a06\u0a2d\u0a3e\u0a08\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Meditate on the Lord's Name, and blossom forth in green abundance.",
+            "ms": "Contemplating God's Name, flower thou, O my brother.",
+            "ssk": "Meditate on the Lord's Name, and blossom forth in green abundance."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "hy BweI! prmwqmw dw nwm ismr ky Awqmk jIvn vwlw bx jw (ijvyN pwxI imlx nwl ru`K \u0192 hirAwvl iml jWdI hY) [ ",
+              "unicode": "\u0a39\u0a47 \u0a2d\u0a3e\u0a08! \u0a2a\u0a30\u0a2e\u0a3e\u0a24\u0a2e\u0a3e \u0a26\u0a3e \u0a28\u0a3e\u0a2e \u0a38\u0a3f\u0a2e\u0a30 \u0a15\u0a47 \u0a06\u0a24\u0a2e\u0a15 \u0a1c\u0a40\u0a35\u0a28 \u0a35\u0a3e\u0a32\u0a3e \u0a2c\u0a23 \u0a1c\u0a3e (\u0a1c\u0a3f\u0a35\u0a47\u0a02 \u0a2a\u0a3e\u0a23\u0a40 \u0a2e\u0a3f\u0a32\u0a23 \u0a28\u0a3e\u0a32 \u0a30\u0a41\u0a71\u0a16 \u0a28\u0a42\u0a70 \u0a39\u0a30\u0a3f\u0a06\u0a35\u0a32 \u0a2e\u0a3f\u0a32 \u0a1c\u0a3e\u0a02\u0a26\u0a40 \u0a39\u0a48) \u0964 "
+            },
+            "ft": {
+              "gurmukhi": "hy BweI! hrI ky nwm ko (iDAwie) jp kr ky hirAw hohu, Bwv guxoN shq hohu]",
+              "unicode": "\u0a39\u0a47 \u0a2d\u0a3e\u0a08! \u0a39\u0a30\u0a40 \u0a15\u0a47 \u0a28\u0a3e\u0a2e \u0a15\u0a4b (\u0a27\u0a3f\u0a06\u0a07) \u0a1c\u0a2a \u0a15\u0a30 \u0a15\u0a47 \u0a39\u0a30\u0a3f\u0a06 \u0a39\u0a4b\u0a39\u0a41, \u0a2d\u0a3e\u0a35 \u0a17\u0a41\u0a23\u0a4b\u0a02 \u0a38\u0a39\u0a24 \u0a39\u0a4b\u0a39\u0a41\u0965"
+            },
+            "bdb": {
+              "gurmukhi": "hy BweI! prmwqmw dw nwm ismr ky Awqmk jIvn vwlw bx jw (ijvyN pwxI imlx nwl ru`K \u0192 hirAwvl iml jWdI hY) [ ",
+              "unicode": "\u0a39\u0a47 \u0a2d\u0a3e\u0a08! \u0a2a\u0a30\u0a2e\u0a3e\u0a24\u0a2e\u0a3e \u0a26\u0a3e \u0a28\u0a3e\u0a2e \u0a38\u0a3f\u0a2e\u0a30 \u0a15\u0a47 \u0a06\u0a24\u0a2e\u0a15 \u0a1c\u0a40\u0a35\u0a28 \u0a35\u0a3e\u0a32\u0a3e \u0a2c\u0a23 \u0a1c\u0a3e (\u0a1c\u0a3f\u0a35\u0a47\u0a02 \u0a2a\u0a3e\u0a23\u0a40 \u0a2e\u0a3f\u0a32\u0a23 \u0a28\u0a3e\u0a32 \u0a30\u0a41\u0a71\u0a16 \u0a28\u0a42\u0a70 \u0a39\u0a30\u0a3f\u0a06\u0a35\u0a32 \u0a2e\u0a3f\u0a32 \u0a1c\u0a3e\u0a02\u0a26\u0a40 \u0a39\u0a48) \u0964 "
+            },
+            "ms": {
+              "gurmukhi": "vwihgurU dw nwm AwrwDn krn duAwrw, qUM pRPulq ho, hy vIr!",
+              "unicode": "\u0a35\u0a3e\u0a39\u0a3f\u0a17\u0a41\u0a30\u0a42 \u0a26\u0a3e \u0a28\u0a3e\u0a2e \u0a06\u0a30\u0a3e\u0a27\u0a28 \u0a15\u0a30\u0a28 \u0a26\u0a41\u0a06\u0a30\u0a3e, \u0a24\u0a42\u0a70 \u0a2a\u0a4d\u0a30\u0a2b\u0a41\u0a32\u0a24 \u0a39\u0a4b, \u0a39\u0a47 \u0a35\u0a40\u0a30!"
+            }
+          },
+          "es": {
+            "sn": "Contempla el Naam, el Nombre del Se\u00f1or y florece para siempre, pues has sido bendecida con esa auspiciosa estaci\u00f3n de Primavera, "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "har kaa naam dhiaai kai hoh hariaa bhaiee ||",
+          "hindi": "\u0939\u0930\u093f \u0915\u093e \u0928\u093e\u092e\u0941 \u0927\u093f\u0906\u0907 \u0915\u0948 \u0939\u094b\u0939\u0941 \u0939\u0930\u093f\u0906 \u092d\u093e\u0908 \u0965",
+          "en": "har kaa naam dhiaai kai hoh hariaa bhaiee ||",
+          "hi": "\u0939\u0930\u093f \u0915\u093e \u0928\u093e\u092e\u0941 \u0927\u093f\u0906\u0907 \u0915\u0948 \u0939\u094b\u0939\u0941 \u0939\u0930\u093f\u0906 \u092d\u093e\u0908 \u0965",
+          "ipa": "h\u0259r k\u0251 n\u0251m t\u032a\u026a\u0259\u0251e\u026a k\u00e6 h\u0254h h\u0259r\u026a\u0259\u0251 \u0253\u0251ei.",
+          "ur": "\u0647\u0631 \u06a9\u0627 \u0646\u0627\u0645 \u062f\u06be\u0622\u0627 \u06a9\u064e\u06d2 \u0647\u0648\u0647\u064f \u0647\u0631\u0650\u0622 \u0628\u06be\u0627\u0627\u06cc \u06d4\u06d4"
+        },
+        "pageNo": 1193,
+        "lineNo": 7,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 4,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 4,
+              "t": "v"
+            }
+          ],
+          "sttm2": [
+            {
+              "p": 4,
+              "t": "v"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 4,
+      "verse": {
+        "verseId": 16474,
+        "verse": {
+          "gurmukhi": "krim ilKMqY pweIAY ieh ruiq suhweI ]",
+          "unicode": "\u0a15\u0a30\u0a2e\u0a3f \u0a32\u0a3f\u0a16\u0a70\u0a24\u0a48 \u0a2a\u0a3e\u0a08\u0a10 \u0a07\u0a39 \u0a30\u0a41\u0a24\u0a3f \u0a38\u0a41\u0a39\u0a3e\u0a08 \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "krimilKMqYpweIAYiehruiqsuhweI]",
+          "unicode": "\u0a15\u0a30\u0a2e\u0a3f\u0a32\u0a3f\u0a16\u0a70\u0a24\u0a48\u0a2a\u0a3e\u0a08\u0a10\u0a07\u0a39\u0a30\u0a41\u0a24\u0a3f\u0a38\u0a41\u0a39\u0a3e\u0a08\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "By your high destiny, you have been blessed with this wondrous spring of the soul.",
+            "ms": "In accordance with the writ of destiny, thou are blessed with this beauteous season.",
+            "ssk": "By your high destiny, you have been blessed with this wondrous spring of the soul."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "(nwm jpx vwsqy mnu`Kw jnm dw) ieh sohxw smw (pUrbly kIqy krmW Anuswr pRBU vloN) ilKy b^SS dy lyK dy au~GVn nwl hI imldw hY [ ",
+              "unicode": "(\u0a28\u0a3e\u0a2e \u0a1c\u0a2a\u0a23 \u0a35\u0a3e\u0a38\u0a24\u0a47 \u0a2e\u0a28\u0a41\u0a71\u0a16\u0a3e \u0a1c\u0a28\u0a2e \u0a26\u0a3e) \u0a07\u0a39 \u0a38\u0a4b\u0a39\u0a23\u0a3e \u0a38\u0a2e\u0a3e (\u0a2a\u0a42\u0a30\u0a2c\u0a32\u0a47 \u0a15\u0a40\u0a24\u0a47 \u0a15\u0a30\u0a2e\u0a3e\u0a02 \u0a05\u0a28\u0a41\u0a38\u0a3e\u0a30 \u0a2a\u0a4d\u0a30\u0a2d\u0a42 \u0a35\u0a32\u0a4b\u0a02) \u0a32\u0a3f\u0a16\u0a47 \u0a2c\u0a59\u0a36\u0a36 \u0a26\u0a47 \u0a32\u0a47\u0a16 \u0a26\u0a47 \u0a09\u0a71\u0a18\u0a5c\u0a28 \u0a28\u0a3e\u0a32 \u0a39\u0a40 \u0a2e\u0a3f\u0a32\u0a26\u0a3e \u0a39\u0a48 \u0964 "
+            },
+            "ft": {
+              "gurmukhi": "prMqU suB krm ilKy hUey hovYN qO hrI kw D\u00cewvnw pweIqw hY[ nwm jpxy ko eyh mwnuK dyhI rUpI (ruiq) suhweI soBnIk hY]",
+              "unicode": "\u0a2a\u0a30\u0a70\u0a24\u0a42 \u0a38\u0a41\u0a2d \u0a15\u0a30\u0a2e \u0a32\u0a3f\u0a16\u0a47 \u0a39\u0a42\u0a0f \u0a39\u0a4b\u0a35\u0a48\u0a02 \u0a24\u0a4c \u0a39\u0a30\u0a40 \u0a15\u0a3e \u0a27\u0a4d\u0a2f\u0a3e\u0a35\u0a28\u0a3e \u0a2a\u0a3e\u0a08\u0a24\u0a3e \u0a39\u0a48\u0964 \u0a28\u0a3e\u0a2e \u0a1c\u0a2a\u0a23\u0a47 \u0a15\u0a4b \u0a0f\u0a39 \u0a2e\u0a3e\u0a28\u0a41\u0a16 \u0a26\u0a47\u0a39\u0a40 \u0a30\u0a42\u0a2a\u0a40 (\u0a30\u0a41\u0a24\u0a3f) \u0a38\u0a41\u0a39\u0a3e\u0a08 \u0a38\u0a4b\u0a2d\u0a28\u0a40\u0a15 \u0a39\u0a48\u0965"
+            },
+            "bdb": {
+              "gurmukhi": "(nwm jpx vwsqy mnu`Kw jnm dw) ieh sohxw smw (pUrbly kIqy krmW Anuswr pRBU vloN) ilKy b^SS dy lyK dy au~GVn nwl hI imldw hY [ ",
+              "unicode": "(\u0a28\u0a3e\u0a2e \u0a1c\u0a2a\u0a23 \u0a35\u0a3e\u0a38\u0a24\u0a47 \u0a2e\u0a28\u0a41\u0a71\u0a16\u0a3e \u0a1c\u0a28\u0a2e \u0a26\u0a3e) \u0a07\u0a39 \u0a38\u0a4b\u0a39\u0a23\u0a3e \u0a38\u0a2e\u0a3e (\u0a2a\u0a42\u0a30\u0a2c\u0a32\u0a47 \u0a15\u0a40\u0a24\u0a47 \u0a15\u0a30\u0a2e\u0a3e\u0a02 \u0a05\u0a28\u0a41\u0a38\u0a3e\u0a30 \u0a2a\u0a4d\u0a30\u0a2d\u0a42 \u0a35\u0a32\u0a4b\u0a02) \u0a32\u0a3f\u0a16\u0a47 \u0a2c\u0a59\u0a36\u0a36 \u0a26\u0a47 \u0a32\u0a47\u0a16 \u0a26\u0a47 \u0a09\u0a71\u0a18\u0a5c\u0a28 \u0a28\u0a3e\u0a32 \u0a39\u0a40 \u0a2e\u0a3f\u0a32\u0a26\u0a3e \u0a39\u0a48 \u0964 "
+            },
+            "ms": {
+              "gurmukhi": "pRwlbMD dI ilKqwkwr Anuswr qY\u0192 ieh suMdr mOsm prwpq hoieAw hY[",
+              "unicode": "\u0a2a\u0a4d\u0a30\u0a3e\u0a32\u0a2c\u0a70\u0a27 \u0a26\u0a40 \u0a32\u0a3f\u0a16\u0a24\u0a3e\u0a15\u0a3e\u0a30 \u0a05\u0a28\u0a41\u0a38\u0a3e\u0a30 \u0a24\u0a48\u0a28\u0a42\u0a70 \u0a07\u0a39 \u0a38\u0a41\u0a70\u0a26\u0a30 \u0a2e\u0a4c\u0a38\u0a2e \u0a2a\u0a30\u0a3e\u0a2a\u0a24 \u0a39\u0a4b\u0a07\u0a06 \u0a39\u0a48\u0964"
+            }
+          },
+          "es": {
+            "sn": "con el nacimiento humano, debido a tu Elevado Destino."
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "karam likha(n)tai paieeaai ieh rut suhaiee ||",
+          "hindi": "\u0915\u0930\u092e\u093f \u0932\u093f\u0916\u0902\u0924\u0948 \u092a\u093e\u0908\u0910 \u0907\u0939 \u0930\u0941\u0924\u093f \u0938\u0941\u0939\u093e\u0908 \u0965",
+          "en": "karam likha(n)tai paieeaai ieh rut suhaiee ||",
+          "hi": "\u0915\u0930\u092e\u093f \u0932\u093f\u0916\u0902\u0924\u0948 \u092a\u093e\u0908\u0910 \u0907\u0939 \u0930\u0941\u0924\u093f \u0938\u0941\u0939\u093e\u0908 \u0965",
+          "ipa": "k\u0259r\u0259m l\u026ak\u02b0\u0259\u014bt\u032a\u00e6 p\u0251ei\u00e6 e\u026ah r\u028at\u032a s\u028ah\u0251ei.",
+          "ur": "\u06a9\u0631\u0645 \u0644\u06a9\u06be\u06ba\u062a\u064e\u06d2 \u067e\u0627\u0627\u06cc\u0627\u064e\u06d2 \u0627\u0647 \u0631\u064f\u062a \u0633\u064f\u0647\u0627\u0627\u06cc \u06d4\u06d4"
+        },
+        "pageNo": 1193,
+        "lineNo": 7,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 2,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 2,
+              "t": "v"
+            }
+          ],
+          "sttm2": [
+            {
+              "p": 2,
+              "t": "v"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 4,
+      "verse": {
+        "verseId": 16475,
+        "verse": {
+          "gurmukhi": "vxu iqRxu iqRBvxu mauilAw AMimRq Plu pweI ]",
+          "unicode": "\u0a35\u0a23\u0a41 \u0a24\u0a4d\u0a30\u0a3f\u0a23\u0a41 \u0a24\u0a4d\u0a30\u0a3f\u0a2d\u0a35\u0a23\u0a41 \u0a2e\u0a09\u0a32\u0a3f\u0a06 \u0a05\u0a70\u0a2e\u0a4d\u0a30\u0a3f\u0a24 \u0a2b\u0a32\u0a41 \u0a2a\u0a3e\u0a08 \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "vxuiqRxuiqRBvxumauilAwAMimRqPlupweI]",
+          "unicode": "\u0a35\u0a23\u0a41\u0a24\u0a4d\u0a30\u0a3f\u0a23\u0a41\u0a24\u0a4d\u0a30\u0a3f\u0a2d\u0a35\u0a23\u0a41\u0a2e\u0a09\u0a32\u0a3f\u0a06\u0a05\u0a70\u0a2e\u0a4d\u0a30\u0a3f\u0a24\u0a2b\u0a32\u0a41\u0a2a\u0a3e\u0a08\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "See all the three worlds in bloom, and obtain the Fruit of Ambrosial Nectar.",
+            "ms": "Obtaining the ambrosial fruit of the Name the woods, grass and the three worlds have bloomed.",
+            "ssk": "See all the three worlds in bloom, and obtain the Fruit of Ambrosial Nectar."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "(ijvyN vrKw nwl) jMgl bnspqI swrw jgq iKV pYNdw hY, (iqvyN aus mnu`K dw lUM lUM iKV pYNdw hY jo) AMimRq nwm-rUp Pl hwsl kr lYNdw hY [",
+              "unicode": "(\u0a1c\u0a3f\u0a35\u0a47\u0a02 \u0a35\u0a30\u0a16\u0a3e \u0a28\u0a3e\u0a32) \u0a1c\u0a70\u0a17\u0a32 \u0a2c\u0a28\u0a38\u0a2a\u0a24\u0a40 \u0a38\u0a3e\u0a30\u0a3e \u0a1c\u0a17\u0a24 \u0a16\u0a3f\u0a5c \u0a2a\u0a48\u0a02\u0a26\u0a3e \u0a39\u0a48, (\u0a24\u0a3f\u0a35\u0a47\u0a02 \u0a09\u0a38 \u0a2e\u0a28\u0a41\u0a71\u0a16 \u0a26\u0a3e \u0a32\u0a42\u0a70 \u0a32\u0a42\u0a70 \u0a16\u0a3f\u0a5c \u0a2a\u0a48\u0a02\u0a26\u0a3e \u0a39\u0a48 \u0a1c\u0a4b) \u0a05\u0a70\u0a2e\u0a4d\u0a30\u0a3f\u0a24 \u0a28\u0a3e\u0a2e-\u0a30\u0a42\u0a2a \u0a2b\u0a32 \u0a39\u0a3e\u0a38\u0a32 \u0a15\u0a30 \u0a32\u0a48\u0a02\u0a26\u0a3e \u0a39\u0a48 \u0964"
+            },
+            "ft": {
+              "gurmukhi": "ijs sqw kr vx, iqRx Ar iqRBvx rUp bRhmWf pRPulq ho rhw hY, so AMimRq Pl rUp cyqn sqw pweI hY]",
+              "unicode": "\u0a1c\u0a3f\u0a38 \u0a38\u0a24\u0a3e \u0a15\u0a30 \u0a35\u0a23, \u0a24\u0a4d\u0a30\u0a3f\u0a23 \u0a05\u0a30 \u0a24\u0a4d\u0a30\u0a3f\u0a2d\u0a35\u0a23 \u0a30\u0a42\u0a2a \u0a2c\u0a4d\u0a30\u0a39\u0a2e\u0a3e\u0a02\u0a21 \u0a2a\u0a4d\u0a30\u0a2b\u0a41\u0a32\u0a24 \u0a39\u0a4b \u0a30\u0a39\u0a3e \u0a39\u0a48, \u0a38\u0a4b \u0a05\u0a70\u0a2e\u0a4d\u0a30\u0a3f\u0a24 \u0a2b\u0a32 \u0a30\u0a42\u0a2a \u0a1a\u0a47\u0a24\u0a28 \u0a38\u0a24\u0a3e \u0a2a\u0a3e\u0a08 \u0a39\u0a48\u0965"
+            },
+            "bdb": {
+              "gurmukhi": "(ijvyN vrKw nwl) jMgl bnspqI swrw jgq iKV pYNdw hY, (iqvyN aus mnu`K dw lUM lUM iKV pYNdw hY jo) AMimRq nwm-rUp Pl hwsl kr lYNdw hY [",
+              "unicode": "(\u0a1c\u0a3f\u0a35\u0a47\u0a02 \u0a35\u0a30\u0a16\u0a3e \u0a28\u0a3e\u0a32) \u0a1c\u0a70\u0a17\u0a32 \u0a2c\u0a28\u0a38\u0a2a\u0a24\u0a40 \u0a38\u0a3e\u0a30\u0a3e \u0a1c\u0a17\u0a24 \u0a16\u0a3f\u0a5c \u0a2a\u0a48\u0a02\u0a26\u0a3e \u0a39\u0a48, (\u0a24\u0a3f\u0a35\u0a47\u0a02 \u0a09\u0a38 \u0a2e\u0a28\u0a41\u0a71\u0a16 \u0a26\u0a3e \u0a32\u0a42\u0a70 \u0a32\u0a42\u0a70 \u0a16\u0a3f\u0a5c \u0a2a\u0a48\u0a02\u0a26\u0a3e \u0a39\u0a48 \u0a1c\u0a4b) \u0a05\u0a70\u0a2e\u0a4d\u0a30\u0a3f\u0a24 \u0a28\u0a3e\u0a2e-\u0a30\u0a42\u0a2a \u0a2b\u0a32 \u0a39\u0a3e\u0a38\u0a32 \u0a15\u0a30 \u0a32\u0a48\u0a02\u0a26\u0a3e \u0a39\u0a48 \u0964"
+            },
+            "ms": {
+              "gurmukhi": "nwm dy AMimRq-meI myvy \u0192 pw ky, jMgl, GwA Aqy iqMn jhwn pRPulq ho gey hn[",
+              "unicode": "\u0a28\u0a3e\u0a2e \u0a26\u0a47 \u0a05\u0a70\u0a2e\u0a4d\u0a30\u0a3f\u0a24-\u0a2e\u0a08 \u0a2e\u0a47\u0a35\u0a47 \u0a28\u0a42\u0a70 \u0a2a\u0a3e \u0a15\u0a47, \u0a1c\u0a70\u0a17\u0a32, \u0a18\u0a3e\u0a05 \u0a05\u0a24\u0a47 \u0a24\u0a3f\u0a70\u0a28 \u0a1c\u0a39\u0a3e\u0a28 \u0a2a\u0a4d\u0a30\u0a2b\u0a41\u0a32\u0a24 \u0a39\u0a4b \u0a17\u0a0f \u0a39\u0a28\u0964"
+            }
+          },
+          "es": {
+            "sn": "Voltea alrededor y ve los tres mundos en flor y la vegetaci\u00f3n toda dando sus frutos de N\u00e9ctar,"
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "van tiran tirabhavan mauliaa a(n)mirat fal paiee ||",
+          "hindi": "\u0935\u0923\u0941 \u0924\u0943\u0923\u0941 \u0924\u0943\u092d\u0935\u0923\u0941 \u092e\u0909\u0932\u093f\u0906 \u0905\u0902\u092e\u0943\u0924 \u092b\u0932\u0941 \u092a\u093e\u0908 \u0965",
+          "en": "van tiran tirabhavan mauliaa a(n)mirat fal paiee ||",
+          "hi": "\u0935\u0923\u0941 \u0924\u0943\u0923\u0941 \u0924\u0943\u092d\u0935\u0923\u0941 \u092e\u0909\u0932\u093f\u0906 \u0905\u0902\u092e\u0943\u0924 \u092b\u0932\u0941 \u092a\u093e\u0908 \u0965",
+          "ipa": "\u028b\u0259\u0273 t\u032a\u026a\u0279\u0259\u0273 t\u032a\u026a\u0279\u0259\u0253\u0259\u028b\u0259\u0273 mo\u028al\u026a\u0259\u0251 \u0259\u014bm\u026a\u0279\u0259t\u032a f\u0259l p\u0251ei.",
+          "ur": "\u0648\u0768 \u062a\u0631\u0768 \u062a\u0631\u0628\u06be\u0648\u0768 \u0645\u0627\u0644\u0622 \u0627\u06ba\u0645\u0631\u062a \u067e\u06be\u0644 \u067e\u0627\u0627\u06cc \u06d4\u06d4"
+        },
+        "pageNo": 1193,
+        "lineNo": 7,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 3,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 3,
+              "t": "v"
+            }
+          ],
+          "sttm2": [
+            {
+              "p": 3,
+              "t": "v"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 4,
+      "verse": {
+        "verseId": 16476,
+        "verse": {
+          "gurmukhi": "imil swDU suKu aUpjY lQI sB CweI ]",
+          "unicode": "\u0a2e\u0a3f\u0a32\u0a3f \u0a38\u0a3e\u0a27\u0a42 \u0a38\u0a41\u0a16\u0a41 \u0a0a\u0a2a\u0a1c\u0a48 \u0a32\u0a25\u0a40 \u0a38\u0a2d \u0a1b\u0a3e\u0a08 \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "imilswDUsuKuaUpjYlQIsBCweI]",
+          "unicode": "\u0a2e\u0a3f\u0a32\u0a3f\u0a38\u0a3e\u0a27\u0a42\u0a38\u0a41\u0a16\u0a41\u0a0a\u0a2a\u0a1c\u0a48\u0a32\u0a25\u0a40\u0a38\u0a2d\u0a1b\u0a3e\u0a08\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Meeting with the Holy Saints, peace wells up, and all sins are erased.",
+            "ms": "Meeting with the saints bliss wells up and all the darkness of sins is dispelled.",
+            "ssk": "Meeting with the Holy Saints, peace wells up, and all sins are erased."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "gurU \u0192 iml ky (aus dy ihrdy ivc) suK pYdw huMdw hY, aus dy mn dI mYl lih jWdI hY [",
+              "unicode": "\u0a17\u0a41\u0a30\u0a42 \u0a28\u0a42\u0a70 \u0a2e\u0a3f\u0a32 \u0a15\u0a47 (\u0a09\u0a38 \u0a26\u0a47 \u0a39\u0a3f\u0a30\u0a26\u0a47 \u0a35\u0a3f\u0a1a) \u0a38\u0a41\u0a16 \u0a2a\u0a48\u0a26\u0a3e \u0a39\u0a41\u0a70\u0a26\u0a3e \u0a39\u0a48, \u0a09\u0a38 \u0a26\u0a47 \u0a2e\u0a28 \u0a26\u0a40 \u0a2e\u0a48\u0a32 \u0a32\u0a39\u0a3f \u0a1c\u0a3e\u0a02\u0a26\u0a40 \u0a39\u0a48 \u0964"
+            },
+            "ft": {
+              "gurmukhi": "swDU ky imlwp sy suKu auqpq huMdw hY, iesI kr sqsMg d\u00cdwrw hm ko suK hUAw hY AOru AMqhkrn sy AividAw rUp PweI auqr geI hY]",
+              "unicode": "\u0a38\u0a3e\u0a27\u0a42 \u0a15\u0a47 \u0a2e\u0a3f\u0a32\u0a3e\u0a2a \u0a38\u0a47 \u0a38\u0a41\u0a16\u0a41 \u0a09\u0a24\u0a2a\u0a24 \u0a39\u0a41\u0a70\u0a26\u0a3e \u0a39\u0a48, \u0a07\u0a38\u0a40 \u0a15\u0a30 \u0a38\u0a24\u0a38\u0a70\u0a17 \u0a26\u0a4d\u0a35\u0a3e\u0a30\u0a3e \u0a39\u0a2e \u0a15\u0a4b \u0a38\u0a41\u0a16 \u0a39\u0a42\u0a06 \u0a39\u0a48 \u0a14\u0a30\u0a41 \u0a05\u0a70\u0a24\u0a39\u0a15\u0a30\u0a28 \u0a38\u0a47 \u0a05\u0a35\u0a3f\u0a26\u0a3f\u0a06 \u0a30\u0a42\u0a2a \u0a2b\u0a3e\u0a08 \u0a09\u0a24\u0a30 \u0a17\u0a08 \u0a39\u0a48\u0965"
+            },
+            "bdb": {
+              "gurmukhi": "gurU \u0192 iml ky (aus dy ihrdy ivc) suK pYdw huMdw hY, aus dy mn dI mYl lih jWdI hY [",
+              "unicode": "\u0a17\u0a41\u0a30\u0a42 \u0a28\u0a42\u0a70 \u0a2e\u0a3f\u0a32 \u0a15\u0a47 (\u0a09\u0a38 \u0a26\u0a47 \u0a39\u0a3f\u0a30\u0a26\u0a47 \u0a35\u0a3f\u0a1a) \u0a38\u0a41\u0a16 \u0a2a\u0a48\u0a26\u0a3e \u0a39\u0a41\u0a70\u0a26\u0a3e \u0a39\u0a48, \u0a09\u0a38 \u0a26\u0a47 \u0a2e\u0a28 \u0a26\u0a40 \u0a2e\u0a48\u0a32 \u0a32\u0a39\u0a3f \u0a1c\u0a3e\u0a02\u0a26\u0a40 \u0a39\u0a48 \u0964"
+            },
+            "ms": {
+              "gurmukhi": "sMqW nwl iml ky psMnqw auqpMn huMdI hY Aqy pwpW dw swrw AnHyrw dUr ho jWdw hY[",
+              "unicode": "\u0a38\u0a70\u0a24\u0a3e\u0a02 \u0a28\u0a3e\u0a32 \u0a2e\u0a3f\u0a32 \u0a15\u0a47 \u0a2a\u0a38\u0a70\u0a28\u0a24\u0a3e \u0a09\u0a24\u0a2a\u0a70\u0a28 \u0a39\u0a41\u0a70\u0a26\u0a40 \u0a39\u0a48 \u0a05\u0a24\u0a47 \u0a2a\u0a3e\u0a2a\u0a3e\u0a02 \u0a26\u0a3e \u0a38\u0a3e\u0a30\u0a3e \u0a05\u0a28\u0a4d\u0a39\u0a47\u0a30\u0a3e \u0a26\u0a42\u0a30 \u0a39\u0a4b \u0a1c\u0a3e\u0a02\u0a26\u0a3e \u0a39\u0a48\u0964"
+            }
+          },
+          "es": {
+            "sn": " s\u00ed, encontrando al Santo, eres bendecido con \u00c9xtasis y liberado de la consecuencia de tus acciones. "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "mil saadhoo sukh uoopajai lathee sabh chhaiee ||",
+          "hindi": "\u092e\u093f\u0932\u093f \u0938\u093e\u0927\u0942 \u0938\u0941\u0916\u0941 \u090a\u092a\u091c\u0948 \u0932\u0925\u0940 \u0938\u092d \u091b\u093e\u0908 \u0965",
+          "en": "mil saadhoo sukh uoopajai lathee sabh chhaiee ||",
+          "hi": "\u092e\u093f\u0932\u093f \u0938\u093e\u0927\u0942 \u0938\u0941\u0916\u0941 \u090a\u092a\u091c\u0948 \u0932\u0925\u0940 \u0938\u092d \u091b\u093e\u0908 \u0965",
+          "ipa": "m\u026al s\u0251t\u032au s\u028ak\u02b0 oup\u0259d\u0361\u0292\u00e6 l\u0259t\u032a\u02b0i s\u0259\u0253 \u0255\u0251ei.",
+          "ur": "\u0645\u0650\u0644 \u0633\u0627\u062f\u06be\u064f\u0648 \u0633\u064f\u06a9\u06be \u0627\u064f\u0648\u067e\u062c\u064e\u06d2 \u0644\u062a\u06be\u06cc\u0650 \u0633\u0628\u06be \u0686\u06be\u0627\u0627\u06cc \u06d4\u06d4"
+        },
+        "pageNo": 1193,
+        "lineNo": 8,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 3,
+              "t": "v"
+            },
+            {
+              "p": 1,
+              "t": "y"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 3,
+              "t": "v"
+            },
+            {
+              "p": 1,
+              "t": "y"
+            }
+          ],
+          "sttm2": [
+            {
+              "p": 3,
+              "t": "v"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 4,
+      "verse": {
+        "verseId": 16477,
+        "verse": {
+          "gurmukhi": "nwnku ismrY eyku nwmu iPir bhuiV n DweI ]1]",
+          "unicode": "\u0a28\u0a3e\u0a28\u0a15\u0a41 \u0a38\u0a3f\u0a2e\u0a30\u0a48 \u0a0f\u0a15\u0a41 \u0a28\u0a3e\u0a2e\u0a41 \u0a2b\u0a3f\u0a30\u0a3f \u0a2c\u0a39\u0a41\u0a5c\u0a3f \u0a28 \u0a27\u0a3e\u0a08 \u0965\u0a67\u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "nwnkuismrYeykunwmuiPirbhuiVnDweI]1]",
+          "unicode": "\u0a28\u0a3e\u0a28\u0a15\u0a41\u0a38\u0a3f\u0a2e\u0a30\u0a48\u0a0f\u0a15\u0a41\u0a28\u0a3e\u0a2e\u0a41\u0a2b\u0a3f\u0a30\u0a3f\u0a2c\u0a39\u0a41\u0a5c\u0a3f\u0a28\u0a27\u0a3e\u0a08\u0965\u0a67\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "O Nanak, remember in meditation the One Name, and you shall never again be consigned to the womb of reincarnation.. ||1||",
+            "ms": "Nanak utters but the One Lord's Name, and he shall wander not in existences again.",
+            "ssk": "O Nanak, remember in meditation the One Name, and you shall never again be consigned to the womb of reincarnation.. ||1||"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "nwnk (BI) pRBU dw hI nwm ismrdw hY (qy jo mnu`K ismrdw hY aus \u0192) muV muV jnm mrn dy gyV ivc Btkxw nhIN pYNdw [1[",
+              "unicode": "\u0a28\u0a3e\u0a28\u0a15 (\u0a2d\u0a40) \u0a2a\u0a4d\u0a30\u0a2d\u0a42 \u0a26\u0a3e \u0a39\u0a40 \u0a28\u0a3e\u0a2e \u0a38\u0a3f\u0a2e\u0a30\u0a26\u0a3e \u0a39\u0a48 (\u0a24\u0a47 \u0a1c\u0a4b \u0a2e\u0a28\u0a41\u0a71\u0a16 \u0a38\u0a3f\u0a2e\u0a30\u0a26\u0a3e \u0a39\u0a48 \u0a09\u0a38 \u0a28\u0a42\u0a70) \u0a2e\u0a41\u0a5c \u0a2e\u0a41\u0a5c \u0a1c\u0a28\u0a2e \u0a2e\u0a30\u0a28 \u0a26\u0a47 \u0a17\u0a47\u0a5c \u0a35\u0a3f\u0a1a \u0a2d\u0a1f\u0a15\u0a23\u0a3e \u0a28\u0a39\u0a40\u0a02 \u0a2a\u0a48\u0a02\u0a26\u0a3e \u0964\u0a67\u0964"
+            },
+            "ft": {
+              "gurmukhi": "sRI gurU jI khqy hYN: eyk nwm ky ismrny kr ky iPir iPir cOrwsI myN nhIN dOVIqw, Bwv jnm mrn sy rihq hovIqw hY]1]",
+              "unicode": "\u0a38\u0a4d\u0a30\u0a40 \u0a17\u0a41\u0a30\u0a42 \u0a1c\u0a40 \u0a15\u0a39\u0a24\u0a47 \u0a39\u0a48\u0a02: \u0a0f\u0a15 \u0a28\u0a3e\u0a2e \u0a15\u0a47 \u0a38\u0a3f\u0a2e\u0a30\u0a28\u0a47 \u0a15\u0a30 \u0a15\u0a47 \u0a2b\u0a3f\u0a30\u0a3f \u0a2b\u0a3f\u0a30\u0a3f \u0a1a\u0a4c\u0a30\u0a3e\u0a38\u0a40 \u0a2e\u0a47\u0a02 \u0a28\u0a39\u0a40\u0a02 \u0a26\u0a4c\u0a5c\u0a40\u0a24\u0a3e, \u0a2d\u0a3e\u0a35 \u0a1c\u0a28\u0a2e \u0a2e\u0a30\u0a28 \u0a38\u0a47 \u0a30\u0a39\u0a3f\u0a24 \u0a39\u0a4b\u0a35\u0a40\u0a24\u0a3e \u0a39\u0a48\u0965\u0a67\u0965"
+            },
+            "bdb": {
+              "gurmukhi": "nwnk (BI) pRBU dw hI nwm ismrdw hY (qy jo mnu`K ismrdw hY aus \u0192) muV muV jnm mrn dy gyV ivc Btkxw nhIN pYNdw [1[",
+              "unicode": "\u0a28\u0a3e\u0a28\u0a15 (\u0a2d\u0a40) \u0a2a\u0a4d\u0a30\u0a2d\u0a42 \u0a26\u0a3e \u0a39\u0a40 \u0a28\u0a3e\u0a2e \u0a38\u0a3f\u0a2e\u0a30\u0a26\u0a3e \u0a39\u0a48 (\u0a24\u0a47 \u0a1c\u0a4b \u0a2e\u0a28\u0a41\u0a71\u0a16 \u0a38\u0a3f\u0a2e\u0a30\u0a26\u0a3e \u0a39\u0a48 \u0a09\u0a38 \u0a28\u0a42\u0a70) \u0a2e\u0a41\u0a5c \u0a2e\u0a41\u0a5c \u0a1c\u0a28\u0a2e \u0a2e\u0a30\u0a28 \u0a26\u0a47 \u0a17\u0a47\u0a5c \u0a35\u0a3f\u0a1a \u0a2d\u0a1f\u0a15\u0a23\u0a3e \u0a28\u0a39\u0a40\u0a02 \u0a2a\u0a48\u0a02\u0a26\u0a3e \u0964\u0a67\u0964"
+            },
+            "ms": {
+              "gurmukhi": "nwnk kyvl iek sweIN dy nwm dw aucwrn krdw hY, Aqy auh muV ky jUnIAW AMdr nhIN Btkygw[",
+              "unicode": "\u0a28\u0a3e\u0a28\u0a15 \u0a15\u0a47\u0a35\u0a32 \u0a07\u0a15 \u0a38\u0a3e\u0a08\u0a02 \u0a26\u0a47 \u0a28\u0a3e\u0a2e \u0a26\u0a3e \u0a09\u0a1a\u0a3e\u0a30\u0a28 \u0a15\u0a30\u0a26\u0a3e \u0a39\u0a48, \u0a05\u0a24\u0a47 \u0a09\u0a39 \u0a2e\u0a41\u0a5c \u0a15\u0a47 \u0a1c\u0a42\u0a28\u0a40\u0a06\u0a02 \u0a05\u0a70\u0a26\u0a30 \u0a28\u0a39\u0a40\u0a02 \u0a2d\u0a1f\u0a15\u0a47\u0a17\u0a3e\u0964"
+            }
+          },
+          "es": {
+            "sn": "Nanak medita s\u00f3lo en el Nombre de Dios, \u00e9l no ser\u00e1 puesto otra vez en ning\u00fan otro vientre. (1)"
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "naanak simarai ek naam fir bahuR na dhaiee ||1||",
+          "hindi": "\u0928\u093e\u0928\u0915\u0941 \u0938\u093f\u092e\u0930\u0948 \u090f\u0915\u0941 \u0928\u093e\u092e\u0941 \u092b\u093f\u0930\u093f \u092c\u0939\u0941\u095c\u093f \u0928 \u0927\u093e\u0908 \u0965\u0967\u0965",
+          "en": "naanak simarai ek naam fir bahuR na dhaiee ||1||",
+          "hi": "\u0928\u093e\u0928\u0915\u0941 \u0938\u093f\u092e\u0930\u0948 \u090f\u0915\u0941 \u0928\u093e\u092e\u0941 \u092b\u093f\u0930\u093f \u092c\u0939\u0941\u095c\u093f \u0928 \u0927\u093e\u0908 \u0965\u0967\u0965",
+          "ipa": "n\u0251n\u0259k s\u026am\u0259r\u00e6 eek n\u0251m f\u026ar b\u0259h\u028a\u027d n\u0259 t\u032a\u0251ei.1.",
+          "ur": "\u0646\u0627\u0646\u06a9 \u0633\u0645\u0631\u064e\u06d2 \u0627\u06d2\u06a9 \u0646\u0627\u0645 \u067e\u06be\u0631 \u0628\u0647\u064f\u0691 \u0646 \u062f\u06be\u0627\u0627\u06cc \u06d4\u06d4\u06f1\u06d4\u06d4"
+        },
+        "pageNo": 1193,
+        "lineNo": 8,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 3,
+              "t": "v"
+            },
+            {
+              "p": 0,
+              "t": "y"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 3,
+              "t": "v"
+            },
+            {
+              "p": 0,
+              "t": "y"
+            }
+          ],
+          "sttm2": [
+            {
+              "p": 3,
+              "t": "v"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 5,
+      "verse": {
+        "verseId": 16478,
+        "verse": {
+          "gurmukhi": "pMjy bDy mhwblI kir scw FoAw ]",
+          "unicode": "\u0a2a\u0a70\u0a1c\u0a47 \u0a2c\u0a27\u0a47 \u0a2e\u0a39\u0a3e\u0a2c\u0a32\u0a40 \u0a15\u0a30\u0a3f \u0a38\u0a1a\u0a3e \u0a22\u0a4b\u0a06 \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "pMjybDymhwblIkirscwFoAw]",
+          "unicode": "\u0a2a\u0a70\u0a1c\u0a47\u0a2c\u0a27\u0a47\u0a2e\u0a39\u0a3e\u0a2c\u0a32\u0a40\u0a15\u0a30\u0a3f\u0a38\u0a1a\u0a3e\u0a22\u0a4b\u0a06\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "The five powerful desires are bound down, when you lean on the True Lord.",
+            "ms": "Obtaining the support of the True Name, I have chained the five very powerful demons.",
+            "ssk": "The five powerful desires are bound down, when you lean on the True Lord."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "ijs mnu`K ny (pRBU dw ismrn-rUp) s`cI Bytw (pRBU dI hzUrI ivc) pyS kIqI hY,",
+              "unicode": "\u0a1c\u0a3f\u0a38 \u0a2e\u0a28\u0a41\u0a71\u0a16 \u0a28\u0a47 (\u0a2a\u0a4d\u0a30\u0a2d\u0a42 \u0a26\u0a3e \u0a38\u0a3f\u0a2e\u0a30\u0a28-\u0a30\u0a42\u0a2a) \u0a38\u0a71\u0a1a\u0a40 \u0a2d\u0a47\u0a1f\u0a3e (\u0a2a\u0a4d\u0a30\u0a2d\u0a42 \u0a26\u0a40 \u0a39\u0a5b\u0a42\u0a30\u0a40 \u0a35\u0a3f\u0a1a) \u0a2a\u0a47\u0a36 \u0a15\u0a40\u0a24\u0a40 \u0a39\u0a48,"
+            },
+            "ft": {
+              "gurmukhi": "scw jo prmys\u00cdr hY, iqs kw (FoAw) Awsrw vw imlwp kr ky ijs ny pMj kwmwidk ibkwr bWDy hYN]",
+              "unicode": "\u0a38\u0a1a\u0a3e \u0a1c\u0a4b \u0a2a\u0a30\u0a2e\u0a47\u0a38\u0a4d\u0a35\u0a30 \u0a39\u0a48, \u0a24\u0a3f\u0a38 \u0a15\u0a3e (\u0a22\u0a4b\u0a06) \u0a06\u0a38\u0a30\u0a3e \u0a35\u0a3e \u0a2e\u0a3f\u0a32\u0a3e\u0a2a \u0a15\u0a30 \u0a15\u0a47 \u0a1c\u0a3f\u0a38 \u0a28\u0a47 \u0a2a\u0a70\u0a1c \u0a15\u0a3e\u0a2e\u0a3e\u0a26\u0a3f\u0a15 \u0a2c\u0a3f\u0a15\u0a3e\u0a30 \u0a2c\u0a3e\u0a02\u0a27\u0a47 \u0a39\u0a48\u0a02\u0965"
+            },
+            "bdb": {
+              "gurmukhi": "ijs mnu`K ny (pRBU dw ismrn-rUp) s`cI Bytw (pRBU dI hzUrI ivc) pyS kIqI hY,",
+              "unicode": "\u0a1c\u0a3f\u0a38 \u0a2e\u0a28\u0a41\u0a71\u0a16 \u0a28\u0a47 (\u0a2a\u0a4d\u0a30\u0a2d\u0a42 \u0a26\u0a3e \u0a38\u0a3f\u0a2e\u0a30\u0a28-\u0a30\u0a42\u0a2a) \u0a38\u0a71\u0a1a\u0a40 \u0a2d\u0a47\u0a1f\u0a3e (\u0a2a\u0a4d\u0a30\u0a2d\u0a42 \u0a26\u0a40 \u0a39\u0a5b\u0a42\u0a30\u0a40 \u0a35\u0a3f\u0a1a) \u0a2a\u0a47\u0a36 \u0a15\u0a40\u0a24\u0a40 \u0a39\u0a48,"
+            },
+            "ms": {
+              "gurmukhi": "s\u00a4cy nwm dw Awsrw lY ky, mYN prm blvwn pMjW BUqinAW \u0192 nrV ilAw hY[",
+              "unicode": "\u0a38\u0a71\u0a1a\u0a47 \u0a28\u0a3e\u0a2e \u0a26\u0a3e \u0a06\u0a38\u0a30\u0a3e \u0a32\u0a48 \u0a15\u0a47, \u0a2e\u0a48\u0a02 \u0a2a\u0a30\u0a2e \u0a2c\u0a32\u0a35\u0a3e\u0a28 \u0a2a\u0a70\u0a1c\u0a3e\u0a02 \u0a2d\u0a42\u0a24\u0a28\u0a3f\u0a06\u0a02 \u0a28\u0a42\u0a70 \u0a28\u0a30\u0a5c \u0a32\u0a3f\u0a06 \u0a39\u0a48\u0964"
+            }
+          },
+          "es": {
+            "sn": "Apoy\u00e1ndose en el Uno Verdadero, uno controla a las cinco pasiones, "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "pa(n)je badhe mahaabalee kar sachaa ddoaa ||",
+          "hindi": "\u092a\u0902\u091c\u0947 \u092c\u0927\u0947 \u092e\u0939\u093e\u092c\u0932\u0940 \u0915\u0930\u093f \u0938\u091a\u093e \u0922\u094b\u0906 \u0965",
+          "en": "pa(n)je badhe mahaabalee kar sachaa ddoaa ||",
+          "hi": "\u092a\u0902\u091c\u0947 \u092c\u0927\u0947 \u092e\u0939\u093e\u092c\u0932\u0940 \u0915\u0930\u093f \u0938\u091a\u093e \u0922\u094b\u0906 \u0965",
+          "ipa": "p\u0259\u014bd\u0361\u0292e b\u0259t\u032ae m\u0259h\u0251b\u0259li k\u0259r s\u0259t\u0361\u0283\u0251 \u0288\u0254\u0259\u0251.",
+          "ur": "\u067e\u06ba\u062c\u06d2 \u0628\u062f\u06be\u06d2 \u0645\u0647\u0627\u0628\u0644\u06cc\u0650 \u06a9\u0631 \u0633\u0686\u0627 \u0688\u06be\u0648\u0622 \u06d4\u06d4"
+        },
+        "pageNo": 1193,
+        "lineNo": 9,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 2,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 2,
+              "t": "v"
+            }
+          ],
+          "sttm2": [
+            {
+              "p": 2,
+              "t": "v"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 5,
+      "verse": {
+        "verseId": 16479,
+        "verse": {
+          "gurmukhi": "Awpxy crx jpwieAnu ivic dXu KVoAw ]",
+          "unicode": "\u0a06\u0a2a\u0a23\u0a47 \u0a1a\u0a30\u0a23 \u0a1c\u0a2a\u0a3e\u0a07\u0a05\u0a28\u0a41 \u0a35\u0a3f\u0a1a\u0a3f \u0a26\u0a2f\u0a41 \u0a16\u0a5c\u0a4b\u0a06 \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "AwpxycrxjpwieAnuivicdXuKVoAw]",
+          "unicode": "\u0a06\u0a2a\u0a23\u0a47\u0a1a\u0a30\u0a23\u0a1c\u0a2a\u0a3e\u0a07\u0a05\u0a28\u0a41\u0a35\u0a3f\u0a1a\u0a3f\u0a26\u0a2f\u0a41\u0a16\u0a5c\u0a4b\u0a06\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "The Lord Himself leads us to dwell at His Feet. He stands right in our midst.",
+            "ms": "Standing within my mind, the Lord has made me meditate on His feet.",
+            "ssk": "The Lord Himself leads us to dwell at His Feet. He stands right in our midst."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "pRBU ny aus dy kwmwidk pMjy hI v`fy blI ivkwr bMnH id`qy hn, (ijs krky) aus dy swry hI rog qy shsy imt jWdy hn,",
+              "unicode": "\u0a2a\u0a4d\u0a30\u0a2d\u0a42 \u0a28\u0a47 \u0a09\u0a38 \u0a26\u0a47 \u0a15\u0a3e\u0a2e\u0a3e\u0a26\u0a3f\u0a15 \u0a2a\u0a70\u0a1c\u0a47 \u0a39\u0a40 \u0a35\u0a71\u0a21\u0a47 \u0a2c\u0a32\u0a40 \u0a35\u0a3f\u0a15\u0a3e\u0a30 \u0a2c\u0a70\u0a28\u0a4d\u0a39 \u0a26\u0a3f\u0a71\u0a24\u0a47 \u0a39\u0a28, (\u0a1c\u0a3f\u0a38 \u0a15\u0a30\u0a15\u0a47) \u0a09\u0a38 \u0a26\u0a47 \u0a38\u0a3e\u0a30\u0a47 \u0a39\u0a40 \u0a30\u0a4b\u0a17 \u0a24\u0a47 \u0a38\u0a39\u0a38\u0a47 \u0a2e\u0a3f\u0a1f \u0a1c\u0a3e\u0a02\u0a26\u0a47 \u0a39\u0a28,"
+            },
+            "ft": {
+              "gurmukhi": "iqs ky bIc (dXu) vwihgurU Awp KVw ho kr ArQwq rK\u00cek ho ky Apxy crn jpwey hYN, Bwv Apxy crnoN kw D\u00cewnu krwXw hY]",
+              "unicode": "\u0a24\u0a3f\u0a38 \u0a15\u0a47 \u0a2c\u0a40\u0a1a (\u0a26\u0a2f\u0a41) \u0a35\u0a3e\u0a39\u0a3f\u0a17\u0a41\u0a30\u0a42 \u0a06\u0a2a \u0a16\u0a5c\u0a3e \u0a39\u0a4b \u0a15\u0a30 \u0a05\u0a30\u0a25\u0a3e\u0a24 \u0a30\u0a16\u0a4d\u0a2f\u0a15 \u0a39\u0a4b \u0a15\u0a47 \u0a05\u0a2a\u0a23\u0a47 \u0a1a\u0a30\u0a28 \u0a1c\u0a2a\u0a3e\u0a0f \u0a39\u0a48\u0a02, \u0a2d\u0a3e\u0a35 \u0a05\u0a2a\u0a23\u0a47 \u0a1a\u0a30\u0a28\u0a4b\u0a02 \u0a15\u0a3e \u0a27\u0a4d\u0a2f\u0a3e\u0a28\u0a41 \u0a15\u0a30\u0a3e\u0a2f\u0a3e \u0a39\u0a48\u0965"
+            },
+            "bdb": {
+              "gurmukhi": "pRBU ny aus dy kwmwidk pMjy hI v`fy blI ivkwr bMnH id`qy hn, (ijs krky) aus dy swry hI rog qy shsy imt jWdy hn,",
+              "unicode": "\u0a2a\u0a4d\u0a30\u0a2d\u0a42 \u0a28\u0a47 \u0a09\u0a38 \u0a26\u0a47 \u0a15\u0a3e\u0a2e\u0a3e\u0a26\u0a3f\u0a15 \u0a2a\u0a70\u0a1c\u0a47 \u0a39\u0a40 \u0a35\u0a71\u0a21\u0a47 \u0a2c\u0a32\u0a40 \u0a35\u0a3f\u0a15\u0a3e\u0a30 \u0a2c\u0a70\u0a28\u0a4d\u0a39 \u0a26\u0a3f\u0a71\u0a24\u0a47 \u0a39\u0a28, (\u0a1c\u0a3f\u0a38 \u0a15\u0a30\u0a15\u0a47) \u0a09\u0a38 \u0a26\u0a47 \u0a38\u0a3e\u0a30\u0a47 \u0a39\u0a40 \u0a30\u0a4b\u0a17 \u0a24\u0a47 \u0a38\u0a39\u0a38\u0a47 \u0a2e\u0a3f\u0a1f \u0a1c\u0a3e\u0a02\u0a26\u0a47 \u0a39\u0a28,"
+            },
+            "ms": {
+              "gurmukhi": "myry mn AMdr Klo suAwmI ny myry pwsoN Awpxy pYrW dw ismrn krvwieAw hY[",
+              "unicode": "\u0a2e\u0a47\u0a30\u0a47 \u0a2e\u0a28 \u0a05\u0a70\u0a26\u0a30 \u0a16\u0a32\u0a4b \u0a38\u0a41\u0a06\u0a2e\u0a40 \u0a28\u0a47 \u0a2e\u0a47\u0a30\u0a47 \u0a2a\u0a3e\u0a38\u0a4b\u0a02 \u0a06\u0a2a\u0a23\u0a47 \u0a2a\u0a48\u0a30\u0a3e\u0a02 \u0a26\u0a3e \u0a38\u0a3f\u0a2e\u0a30\u0a28 \u0a15\u0a30\u0a35\u0a3e\u0a07\u0a06 \u0a39\u0a48\u0964"
+            }
+          },
+          "es": {
+            "sn": "ah\u00ed Dios se para en medio de uno y lo trae a habitar a Sus Pies."
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "aapane charan japaian vich dhay khaRoaa ||",
+          "hindi": "\u0906\u092a\u0923\u0947 \u091a\u0930\u0923 \u091c\u092a\u093e\u0907\u0905\u0928\u0941 \u0935\u093f\u091a\u093f \u0926\u092f\u0941 \u0916\u095c\u094b\u0906 \u0965",
+          "en": "aapane charan japaian vich dhay khaRoaa ||",
+          "hi": "\u0906\u092a\u0923\u0947 \u091a\u0930\u0923 \u091c\u092a\u093e\u0907\u0905\u0928\u0941 \u0935\u093f\u091a\u093f \u0926\u092f\u0941 \u0916\u095c\u094b\u0906 \u0965",
+          "ipa": "\u0259\u0251p\u0259\u0273e t\u0361\u0283\u0259r\u0259\u0273 d\u0361\u0292\u0259p\u0251\u026an \u028b\u026at\u0361\u0283 d\u032a\u0259j k\u02b0\u0259\u027d\u0254\u0259\u0251.",
+          "ur": "\u0622\u067e\u0768\u06d2 \u0686\u0631\u0768 \u062c\u067e\u0627\u0627\u0627\u0646 \u0648\u0686 \u062f\u06d2 \u06a9\u06be\u0691\u0648\u0622 \u06d4\u06d4"
+        },
+        "pageNo": 1193,
+        "lineNo": 9,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 2,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 2,
+              "t": "v"
+            }
+          ],
+          "sttm2": [
+            {
+              "p": 2,
+              "t": "v"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 5,
+      "verse": {
+        "verseId": 16480,
+        "verse": {
+          "gurmukhi": "rog sog siB imit gey inq nvw inroAw ]",
+          "unicode": "\u0a30\u0a4b\u0a17 \u0a38\u0a4b\u0a17 \u0a38\u0a2d\u0a3f \u0a2e\u0a3f\u0a1f\u0a3f \u0a17\u0a0f \u0a28\u0a3f\u0a24 \u0a28\u0a35\u0a3e \u0a28\u0a3f\u0a30\u0a4b\u0a06 \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "rogsogsiBimitgeyinqnvwinroAw]",
+          "unicode": "\u0a30\u0a4b\u0a17\u0a38\u0a4b\u0a17\u0a38\u0a2d\u0a3f\u0a2e\u0a3f\u0a1f\u0a3f\u0a17\u0a0f\u0a28\u0a3f\u0a24\u0a28\u0a35\u0a3e\u0a28\u0a3f\u0a30\u0a4b\u0a06\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "All sorrows and sicknesses are eradicated, and you become ever-fresh and rejuvenated.",
+            "ms": "I am rid of all the ailments and sorrow, and am ever hale and hearty.",
+            "ssk": "All sorrows and sicknesses are eradicated, and you become ever-fresh and rejuvenated."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "auh sdw pivq\u00ae-Awqmw qy Arog rihMdw hY [ ",
+              "unicode": "\u0a09\u0a39 \u0a38\u0a26\u0a3e \u0a2a\u0a35\u0a3f\u0a24\u0a4d\u0a30-\u0a06\u0a24\u0a2e\u0a3e \u0a24\u0a47 \u0a05\u0a30\u0a4b\u0a17 \u0a30\u0a39\u0a3f\u0a70\u0a26\u0a3e \u0a39\u0a48 \u0964 "
+            },
+            "ft": {
+              "gurmukhi": "iqs ky rog AOr sog sB dUr ho gey hYN AOr vhu inq hI (nvw) nvIn ArQwq KusI AO (inroAw) Arog hUAw hY, Bwv hMkwr rog sy rihq hUAw hY]",
+              "unicode": "\u0a24\u0a3f\u0a38 \u0a15\u0a47 \u0a30\u0a4b\u0a17 \u0a14\u0a30 \u0a38\u0a4b\u0a17 \u0a38\u0a2d \u0a26\u0a42\u0a30 \u0a39\u0a4b \u0a17\u0a0f \u0a39\u0a48\u0a02 \u0a14\u0a30 \u0a35\u0a39\u0a41 \u0a28\u0a3f\u0a24 \u0a39\u0a40 (\u0a28\u0a35\u0a3e) \u0a28\u0a35\u0a40\u0a28 \u0a05\u0a30\u0a25\u0a3e\u0a24 \u0a16\u0a41\u0a38\u0a40 \u0a14 (\u0a28\u0a3f\u0a30\u0a4b\u0a06) \u0a05\u0a30\u0a4b\u0a17 \u0a39\u0a42\u0a06 \u0a39\u0a48, \u0a2d\u0a3e\u0a35 \u0a39\u0a70\u0a15\u0a3e\u0a30 \u0a30\u0a4b\u0a17 \u0a38\u0a47 \u0a30\u0a39\u0a3f\u0a24 \u0a39\u0a42\u0a06 \u0a39\u0a48\u0965"
+            },
+            "bdb": {
+              "gurmukhi": "auh sdw pivq\u00ae-Awqmw qy Arog rihMdw hY [ ",
+              "unicode": "\u0a09\u0a39 \u0a38\u0a26\u0a3e \u0a2a\u0a35\u0a3f\u0a24\u0a4d\u0a30-\u0a06\u0a24\u0a2e\u0a3e \u0a24\u0a47 \u0a05\u0a30\u0a4b\u0a17 \u0a30\u0a39\u0a3f\u0a70\u0a26\u0a3e \u0a39\u0a48 \u0964 "
+            },
+            "ms": {
+              "gurmukhi": "myrIAW swrIAW bImwrIAW qy APsos dUr ho ghy hn Aqy mYN hmySW nO-br-nO hW[",
+              "unicode": "\u0a2e\u0a47\u0a30\u0a40\u0a06\u0a02 \u0a38\u0a3e\u0a30\u0a40\u0a06\u0a02 \u0a2c\u0a40\u0a2e\u0a3e\u0a30\u0a40\u0a06\u0a02 \u0a24\u0a47 \u0a05\u0a2b\u0a38\u0a4b\u0a38 \u0a26\u0a42\u0a30 \u0a39\u0a4b \u0a17\u0a39\u0a47 \u0a39\u0a28 \u0a05\u0a24\u0a47 \u0a2e\u0a48\u0a02 \u0a39\u0a2e\u0a47\u0a36\u0a3e\u0a02 \u0a28\u0a4c-\u0a2c\u0a30-\u0a28\u0a4c \u0a39\u0a3e\u0a02\u0964"
+            }
+          },
+          "es": {
+            "sn": "Uno se libera de sus tristezas y males, estando siempre fresco "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "rog sog sabh miT ge nit navaa niroaa ||",
+          "hindi": "\u0930\u094b\u0917 \u0938\u094b\u0917 \u0938\u092d\u093f \u092e\u093f\u091f\u093f \u0917\u090f \u0928\u093f\u0924 \u0928\u0935\u093e \u0928\u093f\u0930\u094b\u0906 \u0965",
+          "en": "rog sog sabh miT ge nit navaa niroaa ||",
+          "hi": "\u0930\u094b\u0917 \u0938\u094b\u0917 \u0938\u092d\u093f \u092e\u093f\u091f\u093f \u0917\u090f \u0928\u093f\u0924 \u0928\u0935\u093e \u0928\u093f\u0930\u094b\u0906 \u0965",
+          "ipa": "r\u0254G s\u0254G s\u0259\u0253 m\u026a\u0288 Gee n\u026at\u032a n\u0259\u028b\u0251 n\u026ar\u0254\u0259\u0251.",
+          "ur": "\u0631\u0648\u06af \u0633\u0648\u06af \u0633\u0628\u06be \u0645\u0679\u0650 \u06af\u0627\u06d2 \u0646\u062a \u0646\u0648\u0627 \u0646\u0631\u0648\u0622 \u06d4\u06d4"
+        },
+        "pageNo": 1193,
+        "lineNo": 10,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 4,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 4,
+              "t": "v"
+            }
+          ],
+          "sttm2": [
+            {
+              "p": 4,
+              "t": "v"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 5,
+      "verse": {
+        "verseId": 16481,
+        "verse": {
+          "gurmukhi": "idnu rYix nwmu iDAwiedw iPir pwie n moAw ]",
+          "unicode": "\u0a26\u0a3f\u0a28\u0a41 \u0a30\u0a48\u0a23\u0a3f \u0a28\u0a3e\u0a2e\u0a41 \u0a27\u0a3f\u0a06\u0a07\u0a26\u0a3e \u0a2b\u0a3f\u0a30\u0a3f \u0a2a\u0a3e\u0a07 \u0a28 \u0a2e\u0a4b\u0a06 \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "idnurYixnwmuiDAwiedwiPirpwienmoAw]",
+          "unicode": "\u0a26\u0a3f\u0a28\u0a41\u0a30\u0a48\u0a23\u0a3f\u0a28\u0a3e\u0a2e\u0a41\u0a27\u0a3f\u0a06\u0a07\u0a26\u0a3e\u0a2b\u0a3f\u0a30\u0a3f\u0a2a\u0a3e\u0a07\u0a28\u0a2e\u0a4b\u0a06\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Night and day, meditate on the Naam, the Name of the Lord. You shall never again die.",
+            "ms": "Contemplating the Lord's Name day and night I shall die not again.",
+            "ssk": "Night and day, meditate on the Naam, the Name of the Lord. You shall never again die."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "auh mnu`K idn rwq prmwqmw dw nwm ismrdw hY, aus \u0192 jnm mrn dw gyV nhIN lwxw pYNdw [",
+              "unicode": "\u0a09\u0a39 \u0a2e\u0a28\u0a41\u0a71\u0a16 \u0a26\u0a3f\u0a28 \u0a30\u0a3e\u0a24 \u0a2a\u0a30\u0a2e\u0a3e\u0a24\u0a2e\u0a3e \u0a26\u0a3e \u0a28\u0a3e\u0a2e \u0a38\u0a3f\u0a2e\u0a30\u0a26\u0a3e \u0a39\u0a48, \u0a09\u0a38 \u0a28\u0a42\u0a70 \u0a1c\u0a28\u0a2e \u0a2e\u0a30\u0a28 \u0a26\u0a3e \u0a17\u0a47\u0a5c \u0a28\u0a39\u0a40\u0a02 \u0a32\u0a3e\u0a23\u0a3e \u0a2a\u0a48\u0a02\u0a26\u0a3e \u0964"
+            },
+            "ft": {
+              "gurmukhi": "so rwiq idn nwm ko D\u00cewvqw hY iPr vhu murJwvxw nhIN pwvqw hY, Bwv sokvwn nhIN hoqw; vw (moAw) mrxu nhIN pwvqw hY]",
+              "unicode": "\u0a38\u0a4b \u0a30\u0a3e\u0a24\u0a3f \u0a26\u0a3f\u0a28 \u0a28\u0a3e\u0a2e \u0a15\u0a4b \u0a27\u0a4d\u0a2f\u0a3e\u0a35\u0a24\u0a3e \u0a39\u0a48 \u0a2b\u0a3f\u0a30 \u0a35\u0a39\u0a41 \u0a2e\u0a41\u0a30\u0a1d\u0a3e\u0a35\u0a23\u0a3e \u0a28\u0a39\u0a40\u0a02 \u0a2a\u0a3e\u0a35\u0a24\u0a3e \u0a39\u0a48, \u0a2d\u0a3e\u0a35 \u0a38\u0a4b\u0a15\u0a35\u0a3e\u0a28 \u0a28\u0a39\u0a40\u0a02 \u0a39\u0a4b\u0a24\u0a3e; \u0a35\u0a3e (\u0a2e\u0a4b\u0a06) \u0a2e\u0a30\u0a23\u0a41 \u0a28\u0a39\u0a40\u0a02 \u0a2a\u0a3e\u0a35\u0a24\u0a3e \u0a39\u0a48\u0965"
+            },
+            "bdb": {
+              "gurmukhi": "auh mnu`K idn rwq prmwqmw dw nwm ismrdw hY, aus \u0192 jnm mrn dw gyV nhIN lwxw pYNdw [",
+              "unicode": "\u0a09\u0a39 \u0a2e\u0a28\u0a41\u0a71\u0a16 \u0a26\u0a3f\u0a28 \u0a30\u0a3e\u0a24 \u0a2a\u0a30\u0a2e\u0a3e\u0a24\u0a2e\u0a3e \u0a26\u0a3e \u0a28\u0a3e\u0a2e \u0a38\u0a3f\u0a2e\u0a30\u0a26\u0a3e \u0a39\u0a48, \u0a09\u0a38 \u0a28\u0a42\u0a70 \u0a1c\u0a28\u0a2e \u0a2e\u0a30\u0a28 \u0a26\u0a3e \u0a17\u0a47\u0a5c \u0a28\u0a39\u0a40\u0a02 \u0a32\u0a3e\u0a23\u0a3e \u0a2a\u0a48\u0a02\u0a26\u0a3e \u0964"
+            },
+            "ms": {
+              "gurmukhi": "idn qy rwq pRBU dy nwm dw ismrn krn duAwrw mYN muV ky nhIN mrWgw[",
+              "unicode": "\u0a26\u0a3f\u0a28 \u0a24\u0a47 \u0a30\u0a3e\u0a24 \u0a2a\u0a4d\u0a30\u0a2d\u0a42 \u0a26\u0a47 \u0a28\u0a3e\u0a2e \u0a26\u0a3e \u0a38\u0a3f\u0a2e\u0a30\u0a28 \u0a15\u0a30\u0a28 \u0a26\u0a41\u0a06\u0a30\u0a3e \u0a2e\u0a48\u0a02 \u0a2e\u0a41\u0a5c \u0a15\u0a47 \u0a28\u0a39\u0a40\u0a02 \u0a2e\u0a30\u0a3e\u0a02\u0a17\u0a3e\u0964"
+            }
+          },
+          "es": {
+            "sn": "y renovado para habitar en el Naam, el Nombre del Se\u00f1or, d\u00eda y noche y no morir nunca m\u00e1s."
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "dhin rain naam dhiaaidhaa fir pai na moaa ||",
+          "hindi": "\u0926\u093f\u0928\u0941 \u0930\u0948\u0923\u093f \u0928\u093e\u092e\u0941 \u0927\u093f\u0906\u0907\u0926\u093e \u092b\u093f\u0930\u093f \u092a\u093e\u0907 \u0928 \u092e\u094b\u0906 \u0965",
+          "en": "dhin rain naam dhiaaidhaa fir pai na moaa ||",
+          "hi": "\u0926\u093f\u0928\u0941 \u0930\u0948\u0923\u093f \u0928\u093e\u092e\u0941 \u0927\u093f\u0906\u0907\u0926\u093e \u092b\u093f\u0930\u093f \u092a\u093e\u0907 \u0928 \u092e\u094b\u0906 \u0965",
+          "ipa": "d\u032a\u026an r\u00e6\u0273 n\u0251m t\u032a\u026a\u0259\u0251e\u026ad\u032a\u0251 f\u026ar p\u0251e\u026a n\u0259 m\u0254\u0259\u0251.",
+          "ur": "\u062f\u064d\u0646 \u0631\u064e\u06d2\u0768 \u0646\u0627\u0645 \u062f\u06be\u0622\u0627\u062f\u0627 \u067e\u06be\u0631 \u067e\u0627\u0650\u0627 \u0646 \u0645\u0648\u0622 \u06d4\u06d4"
+        },
+        "pageNo": 1193,
+        "lineNo": 10,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 3,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 3,
+              "t": "v"
+            }
+          ],
+          "sttm2": [
+            {
+              "p": 3,
+              "t": "v"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 5,
+      "verse": {
+        "verseId": 16482,
+        "verse": {
+          "gurmukhi": "ijs qy aupijAw nwnkw soeI iPir hoAw ]2]",
+          "unicode": "\u0a1c\u0a3f\u0a38 \u0a24\u0a47 \u0a09\u0a2a\u0a1c\u0a3f\u0a06 \u0a28\u0a3e\u0a28\u0a15\u0a3e \u0a38\u0a4b\u0a08 \u0a2b\u0a3f\u0a30\u0a3f \u0a39\u0a4b\u0a06 \u0965\u0a68\u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "ijsqyaupijAwnwnkwsoeIiPirhoAw]2]",
+          "unicode": "\u0a1c\u0a3f\u0a38\u0a24\u0a47\u0a09\u0a2a\u0a1c\u0a3f\u0a06\u0a28\u0a3e\u0a28\u0a15\u0a3e\u0a38\u0a4b\u0a08\u0a2b\u0a3f\u0a30\u0a3f\u0a39\u0a4b\u0a06\u0965\u0a68\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "And the One, from whom we came, O Nanak, into Him we merge once again. ||2||",
+            "ms": "O Nanak, I have ultimately become He, from whom I had issued forth.",
+            "ssk": "And the One, from whom we came, O Nanak, into Him we merge once again. ||2||"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "hy nwnk! ijs prmwqmw qoN auh pYdw hoieAw sI (ismrn dI brkiq nwl) ausy dw rUp ho jWdw hY [2[",
+              "unicode": "\u0a39\u0a47 \u0a28\u0a3e\u0a28\u0a15! \u0a1c\u0a3f\u0a38 \u0a2a\u0a30\u0a2e\u0a3e\u0a24\u0a2e\u0a3e \u0a24\u0a4b\u0a02 \u0a09\u0a39 \u0a2a\u0a48\u0a26\u0a3e \u0a39\u0a4b\u0a07\u0a06 \u0a38\u0a40 (\u0a38\u0a3f\u0a2e\u0a30\u0a28 \u0a26\u0a40 \u0a2c\u0a30\u0a15\u0a24\u0a3f \u0a28\u0a3e\u0a32) \u0a09\u0a38\u0a47 \u0a26\u0a3e \u0a30\u0a42\u0a2a \u0a39\u0a4b \u0a1c\u0a3e\u0a02\u0a26\u0a3e \u0a39\u0a48 \u0964\u0a68\u0964"
+            },
+            "ft": {
+              "gurmukhi": "sRI gurU jI khqy hYN: jhW sy jIau auqpMn\u00ce hUAw Qw vhI iPr hUAw, Bwv prmys\u00cdr swQ AByd hUAw hY]2]\u00c7pRSn:",
+              "unicode": "\u0a38\u0a4d\u0a30\u0a40 \u0a17\u0a41\u0a30\u0a42 \u0a1c\u0a40 \u0a15\u0a39\u0a24\u0a47 \u0a39\u0a48\u0a02: \u0a1c\u0a39\u0a3e\u0a02 \u0a38\u0a47 \u0a1c\u0a40\u0a09 \u0a09\u0a24\u0a2a\u0a70\u0a28\u0a4d\u0a2f \u0a39\u0a42\u0a06 \u0a25\u0a3e \u0a35\u0a39\u0a40 \u0a2b\u0a3f\u0a30 \u0a39\u0a42\u0a06, \u0a2d\u0a3e\u0a35 \u0a2a\u0a30\u0a2e\u0a47\u0a38\u0a4d\u0a35\u0a30 \u0a38\u0a3e\u0a25 \u0a05\u0a2d\u0a47\u0a26 \u0a39\u0a42\u0a06 \u0a39\u0a48\u0965\u0a68\u0965\u262c\u0a2a\u0a4d\u0a30\u0a36\u0a28:"
+            },
+            "bdb": {
+              "gurmukhi": "hy nwnk! ijs prmwqmw qoN auh pYdw hoieAw sI (ismrn dI brkiq nwl) ausy dw rUp ho jWdw hY [2[",
+              "unicode": "\u0a39\u0a47 \u0a28\u0a3e\u0a28\u0a15! \u0a1c\u0a3f\u0a38 \u0a2a\u0a30\u0a2e\u0a3e\u0a24\u0a2e\u0a3e \u0a24\u0a4b\u0a02 \u0a09\u0a39 \u0a2a\u0a48\u0a26\u0a3e \u0a39\u0a4b\u0a07\u0a06 \u0a38\u0a40 (\u0a38\u0a3f\u0a2e\u0a30\u0a28 \u0a26\u0a40 \u0a2c\u0a30\u0a15\u0a24\u0a3f \u0a28\u0a3e\u0a32) \u0a09\u0a38\u0a47 \u0a26\u0a3e \u0a30\u0a42\u0a2a \u0a39\u0a4b \u0a1c\u0a3e\u0a02\u0a26\u0a3e \u0a39\u0a48 \u0964\u0a68\u0964"
+            },
+            "ms": {
+              "gurmukhi": "hy nwnk! mYN EVk \u0192 auhI ho igAw hW, ijs qoN mYN auqpMn hoieAw sI[",
+              "unicode": "\u0a39\u0a47 \u0a28\u0a3e\u0a28\u0a15! \u0a2e\u0a48\u0a02 \u0a13\u0a5c\u0a15 \u0a28\u0a42\u0a70 \u0a09\u0a39\u0a40 \u0a39\u0a4b \u0a17\u0a3f\u0a06 \u0a39\u0a3e\u0a02, \u0a1c\u0a3f\u0a38 \u0a24\u0a4b\u0a02 \u0a2e\u0a48\u0a02 \u0a09\u0a24\u0a2a\u0a70\u0a28 \u0a39\u0a4b\u0a07\u0a06 \u0a38\u0a40\u0964"
+            }
+          },
+          "es": {
+            "sn": "El ser se convierte en Lo Mismo de donde vino. (2)"
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "jis te upajiaa naanakaa soiee fir hoaa ||2||",
+          "hindi": "\u091c\u093f\u0938 \u0924\u0947 \u0909\u092a\u091c\u093f\u0906 \u0928\u093e\u0928\u0915\u093e \u0938\u094b\u0908 \u092b\u093f\u0930\u093f \u0939\u094b\u0906 \u0965\u0968\u0965",
+          "en": "jis te upajiaa naanakaa soiee fir hoaa ||2||",
+          "hi": "\u091c\u093f\u0938 \u0924\u0947 \u0909\u092a\u091c\u093f\u0906 \u0928\u093e\u0928\u0915\u093e \u0938\u094b\u0908 \u092b\u093f\u0930\u093f \u0939\u094b\u0906 \u0965\u0968\u0965",
+          "ipa": "d\u0361\u0292\u026as t\u032ae o\u028ap\u0259d\u0361\u0292\u026a\u0259\u0251 n\u0251n\u0259k\u0251 s\u0254ei f\u026ar h\u0254\u0259\u0251.2.",
+          "ur": "\u062c\u0650\u0633 \u062a\u06d2 \u0627\u064f\u067e\u062c\u0622 \u0646\u0627\u0646\u06a9\u0627 \u0633\u0648\u0627\u06cc \u067e\u06be\u0631 \u0647\u0648\u0622 \u06d4\u06d4\u06f2\u06d4\u06d4"
+        },
+        "pageNo": 1193,
+        "lineNo": 11,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 3,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 3,
+              "t": "v"
+            }
+          ],
+          "sttm2": [
+            {
+              "p": 3,
+              "t": "v"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 6,
+      "verse": {
+        "verseId": 16483,
+        "verse": {
+          "gurmukhi": "ikQhu aupjY kh rhY kh mwih smwvY ]",
+          "unicode": "\u0a15\u0a3f\u0a25\u0a39\u0a41 \u0a09\u0a2a\u0a1c\u0a48 \u0a15\u0a39 \u0a30\u0a39\u0a48 \u0a15\u0a39 \u0a2e\u0a3e\u0a39\u0a3f \u0a38\u0a2e\u0a3e\u0a35\u0a48 \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "ikQhuaupjYkhrhYkhmwihsmwvY]",
+          "unicode": "\u0a15\u0a3f\u0a25\u0a39\u0a41\u0a09\u0a2a\u0a1c\u0a48\u0a15\u0a39\u0a30\u0a39\u0a48\u0a15\u0a39\u0a2e\u0a3e\u0a39\u0a3f\u0a38\u0a2e\u0a3e\u0a35\u0a48\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Where do we come from? Where do we live? Where do we go in the end?",
+            "ms": "Where from springs the man, where lives he, and in what does he merge?",
+            "ssk": "Where do we come from? Where do we live? Where do we go in the end?"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "swry jIv Ksm-pRBU dy pYdw kIqy hoey hn,",
+              "unicode": "\u0a38\u0a3e\u0a30\u0a47 \u0a1c\u0a40\u0a35 \u0a16\u0a38\u0a2e-\u0a2a\u0a4d\u0a30\u0a2d\u0a42 \u0a26\u0a47 \u0a2a\u0a48\u0a26\u0a3e \u0a15\u0a40\u0a24\u0a47 \u0a39\u0a4b\u0a0f \u0a39\u0a28,"
+            },
+            "ft": {
+              "gurmukhi": "khW sy jgq auqpq hoqw hY AOr khW iesiQq rihqw hY AOr AMq ko iks myN smwvqw hY?\u00c7ies kw au`qR: ijs qy ijs prmys\u00cdr sy jgq auqpq hUAw hY, iqsI myN iesQq hY[ punh AMq ko BI soeI rUp hUAw hY, Bwv sy klpiq vsqU AiDsTwn sy iBMn nhIN hoqI hY[ ies myN jg\u00cewsU ky icMqn kw pRkwru hY, Bwv AYsy icMqn kro vw pRs\u02dc pK myN eyhu au`qr hY]",
+              "unicode": "\u0a15\u0a39\u0a3e\u0a02 \u0a38\u0a47 \u0a1c\u0a17\u0a24 \u0a09\u0a24\u0a2a\u0a24 \u0a39\u0a4b\u0a24\u0a3e \u0a39\u0a48 \u0a14\u0a30 \u0a15\u0a39\u0a3e\u0a02 \u0a07\u0a38\u0a25\u0a3f\u0a24 \u0a30\u0a39\u0a3f\u0a24\u0a3e \u0a39\u0a48 \u0a14\u0a30 \u0a05\u0a70\u0a24 \u0a15\u0a4b \u0a15\u0a3f\u0a38 \u0a2e\u0a47\u0a02 \u0a38\u0a2e\u0a3e\u0a35\u0a24\u0a3e \u0a39\u0a48?\u262c\u0a07\u0a38 \u0a15\u0a3e \u0a09\u0a71\u0a24\u0a4d\u0a30: \u0a1c\u0a3f\u0a38 \u0a24\u0a47 \u0a1c\u0a3f\u0a38 \u0a2a\u0a30\u0a2e\u0a47\u0a38\u0a4d\u0a35\u0a30 \u0a38\u0a47 \u0a1c\u0a17\u0a24 \u0a09\u0a24\u0a2a\u0a24 \u0a39\u0a42\u0a06 \u0a39\u0a48, \u0a24\u0a3f\u0a38\u0a40 \u0a2e\u0a47\u0a02 \u0a07\u0a38\u0a25\u0a24 \u0a39\u0a48\u0964 \u0a2a\u0a41\u0a28\u0a39 \u0a05\u0a70\u0a24 \u0a15\u0a4b \u0a2d\u0a40 \u0a38\u0a4b\u0a08 \u0a30\u0a42\u0a2a \u0a39\u0a42\u0a06 \u0a39\u0a48, \u0a2d\u0a3e\u0a35 \u0a38\u0a47 \u0a15\u0a32\u0a2a\u0a24\u0a3f \u0a35\u0a38\u0a24\u0a42 \u0a05\u0a27\u0a3f\u0a38\u0a20\u0a3e\u0a28 \u0a38\u0a47 \u0a2d\u0a3f\u0a70\u0a28 \u0a28\u0a39\u0a40\u0a02 \u0a39\u0a4b\u0a24\u0a40 \u0a39\u0a48\u0964 \u0a07\u0a38 \u0a2e\u0a47\u0a02 \u0a1c\u0a17\u0a4d\u0a2f\u0a3e\u0a38\u0a42 \u0a15\u0a47 \u0a1a\u0a3f\u0a70\u0a24\u0a28 \u0a15\u0a3e \u0a2a\u0a4d\u0a30\u0a15\u0a3e\u0a30\u0a41 \u0a39\u0a48, \u0a2d\u0a3e\u0a35 \u0a10\u0a38\u0a47 \u0a1a\u0a3f\u0a70\u0a24\u0a28 \u0a15\u0a30\u0a4b \u0a35\u0a3e \u0a2a\u0a4d\u0a30\u0a38\u0a4d\u0a28 \u0a2a\u0a16 \u0a2e\u0a47\u0a02 \u0a0f\u0a39\u0a41 \u0a09\u0a71\u0a24\u0a30 \u0a39\u0a48\u0965"
+            },
+            "bdb": {
+              "gurmukhi": "swry jIv Ksm-pRBU dy pYdw kIqy hoey hn,",
+              "unicode": "\u0a38\u0a3e\u0a30\u0a47 \u0a1c\u0a40\u0a35 \u0a16\u0a38\u0a2e-\u0a2a\u0a4d\u0a30\u0a2d\u0a42 \u0a26\u0a47 \u0a2a\u0a48\u0a26\u0a3e \u0a15\u0a40\u0a24\u0a47 \u0a39\u0a4b\u0a0f \u0a39\u0a28,"
+            },
+            "ms": {
+              "gurmukhi": "bMdw ikQoN auqpMn huMdw hY, ikQy auh rihMdw hY Aqy kwhdy iv`c auh lIn ho jWdw hY[",
+              "unicode": "\u0a2c\u0a70\u0a26\u0a3e \u0a15\u0a3f\u0a25\u0a4b\u0a02 \u0a09\u0a24\u0a2a\u0a70\u0a28 \u0a39\u0a41\u0a70\u0a26\u0a3e \u0a39\u0a48, \u0a15\u0a3f\u0a25\u0a47 \u0a09\u0a39 \u0a30\u0a39\u0a3f\u0a70\u0a26\u0a3e \u0a39\u0a48 \u0a05\u0a24\u0a47 \u0a15\u0a3e\u0a39\u0a26\u0a47 \u0a35\u0a3f\u0a71\u0a1a \u0a09\u0a39 \u0a32\u0a40\u0a28 \u0a39\u0a4b \u0a1c\u0a3e\u0a02\u0a26\u0a3e \u0a39\u0a48\u0964"
+            }
+          },
+          "es": {
+            "sn": "\u00bfDe d\u00f3nde viene el ser humano, en d\u00f3nde vive y a d\u00f3nde va?"
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "kithahu upajai keh rahai keh maeh samaavai ||",
+          "hindi": "\u0915\u093f\u0925\u0939\u0941 \u0909\u092a\u091c\u0948 \u0915\u0939 \u0930\u0939\u0948 \u0915\u0939 \u092e\u093e\u0939\u093f \u0938\u092e\u093e\u0935\u0948 \u0965",
+          "en": "kithahu upajai keh rahai keh maeh samaavai ||",
+          "hi": "\u0915\u093f\u0925\u0939\u0941 \u0909\u092a\u091c\u0948 \u0915\u0939 \u0930\u0939\u0948 \u0915\u0939 \u092e\u093e\u0939\u093f \u0938\u092e\u093e\u0935\u0948 \u0965",
+          "ipa": "k\u026at\u032a\u02b0\u0259h o\u028ap\u0259d\u0361\u0292\u00e6 k\u0259h r\u0259h\u00e6 k\u0259h m\u0251h s\u0259m\u0251\u028b\u00e6.",
+          "ur": "\u06a9\u0650\u062a\u06be\u0647\u064f \u0627\u064f\u067e\u062c\u064e\u06d2 \u06a9\u0647 \u0631\u0647\u064e\u06d2 \u06a9\u0647 \u0645\u0627\u0647 \u0633\u0645\u0627\u0648\u064e\u06d2 \u06d4\u06d4"
+        },
+        "pageNo": 1193,
+        "lineNo": 11,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 3,
+              "t": "v"
+            },
+            {
+              "p": 1,
+              "t": "y"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 3,
+              "t": "v"
+            },
+            {
+              "p": 1,
+              "t": "y"
+            }
+          ],
+          "sttm2": [
+            {
+              "p": 3,
+              "t": "v"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 6,
+      "verse": {
+        "verseId": 16484,
+        "verse": {
+          "gurmukhi": "jIA jMq siB Ksm ky kauxu kImiq pwvY ]",
+          "unicode": "\u0a1c\u0a40\u0a05 \u0a1c\u0a70\u0a24 \u0a38\u0a2d\u0a3f \u0a16\u0a38\u0a2e \u0a15\u0a47 \u0a15\u0a09\u0a23\u0a41 \u0a15\u0a40\u0a2e\u0a24\u0a3f \u0a2a\u0a3e\u0a35\u0a48 \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "jIAjMqsiBKsmkykauxukImiqpwvY]",
+          "unicode": "\u0a1c\u0a40\u0a05\u0a1c\u0a70\u0a24\u0a38\u0a2d\u0a3f\u0a16\u0a38\u0a2e\u0a15\u0a47\u0a15\u0a09\u0a23\u0a41\u0a15\u0a40\u0a2e\u0a24\u0a3f\u0a2a\u0a3e\u0a35\u0a48\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "All creatures belong to God, our Lord and Master. Who can place a value on Him?",
+            "ms": "Men and all other beings belong to the Lord. Who can appraise their worth?",
+            "ssk": "All creatures belong to God, our Lord and Master. Who can place a value on Him?"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "koeI BI (Awpxy pYdw krn vwly dy guxW dw) mu`l nhIN pw skdw, (koeI nhIN d`s skdw ik) pRBU ikQoN pYdw huMdw hY ikQy rihMdw hY qy ikQy lIn ho jWdw hY [",
+              "unicode": "\u0a15\u0a4b\u0a08 \u0a2d\u0a40 (\u0a06\u0a2a\u0a23\u0a47 \u0a2a\u0a48\u0a26\u0a3e \u0a15\u0a30\u0a28 \u0a35\u0a3e\u0a32\u0a47 \u0a26\u0a47 \u0a17\u0a41\u0a23\u0a3e\u0a02 \u0a26\u0a3e) \u0a2e\u0a41\u0a71\u0a32 \u0a28\u0a39\u0a40\u0a02 \u0a2a\u0a3e \u0a38\u0a15\u0a26\u0a3e, (\u0a15\u0a4b\u0a08 \u0a28\u0a39\u0a40\u0a02 \u0a26\u0a71\u0a38 \u0a38\u0a15\u0a26\u0a3e \u0a15\u0a3f) \u0a2a\u0a4d\u0a30\u0a2d\u0a42 \u0a15\u0a3f\u0a25\u0a4b\u0a02 \u0a2a\u0a48\u0a26\u0a3e \u0a39\u0a41\u0a70\u0a26\u0a3e \u0a39\u0a48 \u0a15\u0a3f\u0a25\u0a47 \u0a30\u0a39\u0a3f\u0a70\u0a26\u0a3e \u0a39\u0a48 \u0a24\u0a47 \u0a15\u0a3f\u0a25\u0a47 \u0a32\u0a40\u0a28 \u0a39\u0a4b \u0a1c\u0a3e\u0a02\u0a26\u0a3e \u0a39\u0a48 \u0964"
+            },
+            "ft": {
+              "gurmukhi": "Coty bfy jo jIv sB (Ksm) prmys\u00cdr ky hYN AOr kImq pwvxy vwlw kOx hY? Bwv sy vohI Ksmu kImiq pwauxy vwlw hY[ horu koeI jwx nhIN skqw hY, Bwv eIsr ky sMklp AMdr isRs\u2020I iesiQqI lYqw hY]",
+              "unicode": "\u0a1b\u0a4b\u0a1f\u0a47 \u0a2c\u0a21\u0a47 \u0a1c\u0a4b \u0a1c\u0a40\u0a35 \u0a38\u0a2d (\u0a16\u0a38\u0a2e) \u0a2a\u0a30\u0a2e\u0a47\u0a38\u0a4d\u0a35\u0a30 \u0a15\u0a47 \u0a39\u0a48\u0a02 \u0a14\u0a30 \u0a15\u0a40\u0a2e\u0a24 \u0a2a\u0a3e\u0a35\u0a23\u0a47 \u0a35\u0a3e\u0a32\u0a3e \u0a15\u0a4c\u0a23 \u0a39\u0a48? \u0a2d\u0a3e\u0a35 \u0a38\u0a47 \u0a35\u0a4b\u0a39\u0a40 \u0a16\u0a38\u0a2e\u0a41 \u0a15\u0a40\u0a2e\u0a24\u0a3f \u0a2a\u0a3e\u0a09\u0a23\u0a47 \u0a35\u0a3e\u0a32\u0a3e \u0a39\u0a48\u0964 \u0a39\u0a4b\u0a30\u0a41 \u0a15\u0a4b\u0a08 \u0a1c\u0a3e\u0a23 \u0a28\u0a39\u0a40\u0a02 \u0a38\u0a15\u0a24\u0a3e \u0a39\u0a48, \u0a2d\u0a3e\u0a35 \u0a08\u0a38\u0a30 \u0a15\u0a47 \u0a38\u0a70\u0a15\u0a32\u0a2a \u0a05\u0a70\u0a26\u0a30 \u0a38\u0a4d\u0a30\u0a3f\u0a38\u0a4d\u0a1f\u0a40 \u0a07\u0a38\u0a25\u0a3f\u0a24\u0a40 \u0a32\u0a48\u0a24\u0a3e \u0a39\u0a48\u0965"
+            },
+            "bdb": {
+              "gurmukhi": "koeI BI (Awpxy pYdw krn vwly dy guxW dw) mu`l nhIN pw skdw, (koeI nhIN d`s skdw ik) pRBU ikQoN pYdw huMdw hY ikQy rihMdw hY qy ikQy lIn ho jWdw hY [",
+              "unicode": "\u0a15\u0a4b\u0a08 \u0a2d\u0a40 (\u0a06\u0a2a\u0a23\u0a47 \u0a2a\u0a48\u0a26\u0a3e \u0a15\u0a30\u0a28 \u0a35\u0a3e\u0a32\u0a47 \u0a26\u0a47 \u0a17\u0a41\u0a23\u0a3e\u0a02 \u0a26\u0a3e) \u0a2e\u0a41\u0a71\u0a32 \u0a28\u0a39\u0a40\u0a02 \u0a2a\u0a3e \u0a38\u0a15\u0a26\u0a3e, (\u0a15\u0a4b\u0a08 \u0a28\u0a39\u0a40\u0a02 \u0a26\u0a71\u0a38 \u0a38\u0a15\u0a26\u0a3e \u0a15\u0a3f) \u0a2a\u0a4d\u0a30\u0a2d\u0a42 \u0a15\u0a3f\u0a25\u0a4b\u0a02 \u0a2a\u0a48\u0a26\u0a3e \u0a39\u0a41\u0a70\u0a26\u0a3e \u0a39\u0a48 \u0a15\u0a3f\u0a25\u0a47 \u0a30\u0a39\u0a3f\u0a70\u0a26\u0a3e \u0a39\u0a48 \u0a24\u0a47 \u0a15\u0a3f\u0a25\u0a47 \u0a32\u0a40\u0a28 \u0a39\u0a4b \u0a1c\u0a3e\u0a02\u0a26\u0a3e \u0a39\u0a48 \u0964"
+            },
+            "ms": {
+              "gurmukhi": "ienswn qy hor swry jIv mwlk dI mlkIAq hn[ aunHW dw mu`l kOx pw skdw hY?",
+              "unicode": "\u0a07\u0a28\u0a38\u0a3e\u0a28 \u0a24\u0a47 \u0a39\u0a4b\u0a30 \u0a38\u0a3e\u0a30\u0a47 \u0a1c\u0a40\u0a35 \u0a2e\u0a3e\u0a32\u0a15 \u0a26\u0a40 \u0a2e\u0a32\u0a15\u0a40\u0a05\u0a24 \u0a39\u0a28\u0964 \u0a09\u0a28\u0a4d\u0a39\u0a3e\u0a02 \u0a26\u0a3e \u0a2e\u0a41\u0a71\u0a32 \u0a15\u0a4c\u0a23 \u0a2a\u0a3e \u0a38\u0a15\u0a26\u0a3e \u0a39\u0a48?"
+            }
+          },
+          "es": {
+            "sn": "Todas las criaturas pertenecen a Dios, \u00bfqui\u00e9n podr\u00eda Evaluarlo?"
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "jeea ja(n)t sabh khasam ke kaun keemat paavai ||",
+          "hindi": "\u091c\u0940\u0905 \u091c\u0902\u0924 \u0938\u092d\u093f \u0916\u0938\u092e \u0915\u0947 \u0915\u0909\u0923\u0941 \u0915\u0940\u092e\u0924\u093f \u092a\u093e\u0935\u0948 \u0965",
+          "en": "jeea ja(n)t sabh khasam ke kaun keemat paavai ||",
+          "hi": "\u091c\u0940\u0905 \u091c\u0902\u0924 \u0938\u092d\u093f \u0916\u0938\u092e \u0915\u0947 \u0915\u0909\u0923\u0941 \u0915\u0940\u092e\u0924\u093f \u092a\u093e\u0935\u0948 \u0965",
+          "ipa": "d\u0361\u0292i\u0259 d\u0361\u0292\u0259\u014bt\u032a s\u0259\u0253 k\u02b0\u0259s\u0259m ke ko\u028a\u0273 kim\u0259t\u032a p\u0251\u028b\u00e6.",
+          "ur": "\u062c\u06cc\u0650\u0627 \u062c\u06ba\u062a \u0633\u0628\u06be \u06a9\u06be\u0633\u0645 \u06a9\u06d2 \u06a9\u0627\u0768 \u06a9\u06cc\u0650\u0645\u062a \u067e\u0627\u0648\u064e\u06d2 \u06d4\u06d4"
+        },
+        "pageNo": 1193,
+        "lineNo": 11,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 4,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 4,
+              "t": "v"
+            }
+          ],
+          "sttm2": [
+            {
+              "p": 4,
+              "t": "v"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 6,
+      "verse": {
+        "verseId": 16485,
+        "verse": {
+          "gurmukhi": "khin iDAwiein suxin inq sy Bgq suhwvY ]",
+          "unicode": "\u0a15\u0a39\u0a28\u0a3f \u0a27\u0a3f\u0a06\u0a07\u0a28\u0a3f \u0a38\u0a41\u0a23\u0a28\u0a3f \u0a28\u0a3f\u0a24 \u0a38\u0a47 \u0a2d\u0a17\u0a24 \u0a38\u0a41\u0a39\u0a3e\u0a35\u0a48 \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "khiniDAwieinsuxininqsyBgqsuhwvY]",
+          "unicode": "\u0a15\u0a39\u0a28\u0a3f\u0a27\u0a3f\u0a06\u0a07\u0a28\u0a3f\u0a38\u0a41\u0a23\u0a28\u0a3f\u0a28\u0a3f\u0a24\u0a38\u0a47\u0a2d\u0a17\u0a24\u0a38\u0a41\u0a39\u0a3e\u0a35\u0a48\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "Those who meditate, listen and chant, those devotees are blessed and beautified.",
+            "ms": "Beauteous are the saints, who ever utter, contemplate and hear the Lord's Name.",
+            "ssk": "Those who meditate, listen and chant, those devotees are blessed and beautified."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "jo jo aus pRBU dy gux aucwrdy hn cyqy krdy hn suxdy hn auh Bgq sohxy (jIvn vwly) ho jWdy hn [",
+              "unicode": "\u0a1c\u0a4b \u0a1c\u0a4b \u0a09\u0a38 \u0a2a\u0a4d\u0a30\u0a2d\u0a42 \u0a26\u0a47 \u0a17\u0a41\u0a23 \u0a09\u0a1a\u0a3e\u0a30\u0a26\u0a47 \u0a39\u0a28 \u0a1a\u0a47\u0a24\u0a47 \u0a15\u0a30\u0a26\u0a47 \u0a39\u0a28 \u0a38\u0a41\u0a23\u0a26\u0a47 \u0a39\u0a28 \u0a09\u0a39 \u0a2d\u0a17\u0a24 \u0a38\u0a4b\u0a39\u0a23\u0a47 (\u0a1c\u0a40\u0a35\u0a28 \u0a35\u0a3e\u0a32\u0a47) \u0a39\u0a4b \u0a1c\u0a3e\u0a02\u0a26\u0a47 \u0a39\u0a28 \u0964"
+            },
+            "ft": {
+              "gurmukhi": "jo bwxI kr ky hrI nwm ko khqy hYN AOr mn kr ky D\u00cewvqy hYN AOr inqwpRiq hrI js ko suxqy hYN sy Bgq soBnIk hYN]",
+              "unicode": "\u0a1c\u0a4b \u0a2c\u0a3e\u0a23\u0a40 \u0a15\u0a30 \u0a15\u0a47 \u0a39\u0a30\u0a40 \u0a28\u0a3e\u0a2e \u0a15\u0a4b \u0a15\u0a39\u0a24\u0a47 \u0a39\u0a48\u0a02 \u0a14\u0a30 \u0a2e\u0a28 \u0a15\u0a30 \u0a15\u0a47 \u0a27\u0a4d\u0a2f\u0a3e\u0a35\u0a24\u0a47 \u0a39\u0a48\u0a02 \u0a14\u0a30 \u0a28\u0a3f\u0a24\u0a3e\u0a2a\u0a4d\u0a30\u0a24\u0a3f \u0a39\u0a30\u0a40 \u0a1c\u0a38 \u0a15\u0a4b \u0a38\u0a41\u0a23\u0a24\u0a47 \u0a39\u0a48\u0a02 \u0a38\u0a47 \u0a2d\u0a17\u0a24 \u0a38\u0a4b\u0a2d\u0a28\u0a40\u0a15 \u0a39\u0a48\u0a02\u0965"
+            },
+            "bdb": {
+              "gurmukhi": "jo jo aus pRBU dy gux aucwrdy hn cyqy krdy hn suxdy hn auh Bgq sohxy (jIvn vwly) ho jWdy hn [",
+              "unicode": "\u0a1c\u0a4b \u0a1c\u0a4b \u0a09\u0a38 \u0a2a\u0a4d\u0a30\u0a2d\u0a42 \u0a26\u0a47 \u0a17\u0a41\u0a23 \u0a09\u0a1a\u0a3e\u0a30\u0a26\u0a47 \u0a39\u0a28 \u0a1a\u0a47\u0a24\u0a47 \u0a15\u0a30\u0a26\u0a47 \u0a39\u0a28 \u0a38\u0a41\u0a23\u0a26\u0a47 \u0a39\u0a28 \u0a09\u0a39 \u0a2d\u0a17\u0a24 \u0a38\u0a4b\u0a39\u0a23\u0a47 (\u0a1c\u0a40\u0a35\u0a28 \u0a35\u0a3e\u0a32\u0a47) \u0a39\u0a4b \u0a1c\u0a3e\u0a02\u0a26\u0a47 \u0a39\u0a28 \u0964"
+            },
+            "ms": {
+              "gurmukhi": "sohxy sun\u00a4Ky hn swDU, jo suAwmI dy nwm \u0192 sdw aucwrdy, ismrdy Aqy sRvx krdy hn[",
+              "unicode": "\u0a38\u0a4b\u0a39\u0a23\u0a47 \u0a38\u0a41\u0a28\u0a71\u0a16\u0a47 \u0a39\u0a28 \u0a38\u0a3e\u0a27\u0a42, \u0a1c\u0a4b \u0a38\u0a41\u0a06\u0a2e\u0a40 \u0a26\u0a47 \u0a28\u0a3e\u0a2e \u0a28\u0a42\u0a70 \u0a38\u0a26\u0a3e \u0a09\u0a1a\u0a3e\u0a30\u0a26\u0a47, \u0a38\u0a3f\u0a2e\u0a30\u0a26\u0a47 \u0a05\u0a24\u0a47 \u0a38\u0a4d\u0a30\u0a35\u0a23 \u0a15\u0a30\u0a26\u0a47 \u0a39\u0a28\u0964"
+            }
+          },
+          "es": {
+            "sn": "Los que recitan, escuchan y meditan en Dios, oh benditos, benditos son esos Devotos."
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "kahan dhiaain sunan nit se bhagat suhaavai ||",
+          "hindi": "\u0915\u0939\u0928\u093f \u0927\u093f\u0906\u0907\u0928\u093f \u0938\u0941\u0923\u0928\u093f \u0928\u093f\u0924 \u0938\u0947 \u092d\u0917\u0924 \u0938\u0941\u0939\u093e\u0935\u0948 \u0965",
+          "en": "kahan dhiaain sunan nit se bhagat suhaavai ||",
+          "hi": "\u0915\u0939\u0928\u093f \u0927\u093f\u0906\u0907\u0928\u093f \u0938\u0941\u0923\u0928\u093f \u0928\u093f\u0924 \u0938\u0947 \u092d\u0917\u0924 \u0938\u0941\u0939\u093e\u0935\u0948 \u0965",
+          "ipa": "k\u0259h\u0259n t\u032a\u026a\u0259\u0251e\u026an s\u028a\u0273\u0259n n\u026at\u032a se \u0253\u0259G\u0259t\u032a s\u028ah\u0251\u028b\u00e6.",
+          "ur": "\u06a9\u0647\u0646 \u062f\u06be\u0622\u0627\u0646 \u0633\u064f\u0768\u0646 \u0646\u062a \u0633\u06d2 \u0628\u06be\u06af\u062a \u0633\u064f\u0647\u0627\u0648\u064e\u06d2 \u06d4\u06d4"
+        },
+        "pageNo": 1193,
+        "lineNo": 12,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 3,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 3,
+              "t": "v"
+            }
+          ],
+          "sttm2": [
+            {
+              "p": 3,
+              "t": "v"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 6,
+      "verse": {
+        "verseId": 16486,
+        "verse": {
+          "gurmukhi": "Agmu Agocru swihbo dUsru lvY n lwvY ]",
+          "unicode": "\u0a05\u0a17\u0a2e\u0a41 \u0a05\u0a17\u0a4b\u0a1a\u0a30\u0a41 \u0a38\u0a3e\u0a39\u0a3f\u0a2c\u0a4b \u0a26\u0a42\u0a38\u0a30\u0a41 \u0a32\u0a35\u0a48 \u0a28 \u0a32\u0a3e\u0a35\u0a48 \u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "AgmuAgocruswihbodUsrulvYnlwvY]",
+          "unicode": "\u0a05\u0a17\u0a2e\u0a41\u0a05\u0a17\u0a4b\u0a1a\u0a30\u0a41\u0a38\u0a3e\u0a39\u0a3f\u0a2c\u0a4b\u0a26\u0a42\u0a38\u0a30\u0a41\u0a32\u0a35\u0a48\u0a28\u0a32\u0a3e\u0a35\u0a48\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "The Lord God is Inaccessible and Unfathomable; there is no other equal to Him.",
+            "ms": "Inaccessible and Inapprehensible is the Lord. None else can equal Him.",
+            "ssk": "The Lord God is Inaccessible and Unfathomable; there is no other equal to Him."
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "prmwqmw AphuMc hY, ieMid\u00aeAW dI phuMc qoN pry hY sB dw mwlk hY, koeI aus dI brwbrI nhIN kr skdw [ ",
+              "unicode": "\u0a2a\u0a30\u0a2e\u0a3e\u0a24\u0a2e\u0a3e \u0a05\u0a2a\u0a39\u0a41\u0a70\u0a1a \u0a39\u0a48, \u0a07\u0a70\u0a26\u0a4d\u0a30\u0a3f\u0a06\u0a02 \u0a26\u0a40 \u0a2a\u0a39\u0a41\u0a70\u0a1a \u0a24\u0a4b\u0a02 \u0a2a\u0a30\u0a47 \u0a39\u0a48 \u0a38\u0a2d \u0a26\u0a3e \u0a2e\u0a3e\u0a32\u0a15 \u0a39\u0a48, \u0a15\u0a4b\u0a08 \u0a09\u0a38 \u0a26\u0a40 \u0a2c\u0a30\u0a3e\u0a2c\u0a30\u0a40 \u0a28\u0a39\u0a40\u0a02 \u0a15\u0a30 \u0a38\u0a15\u0a26\u0a3e \u0964 "
+            },
+            "ft": {
+              "gurmukhi": "vhu (swihbo) vwihgurU Agm hY, Agocru hY, dUsrw koeI aus ky (lvY) sdRs nhIN lweIqw hY]",
+              "unicode": "\u0a35\u0a39\u0a41 (\u0a38\u0a3e\u0a39\u0a3f\u0a2c\u0a4b) \u0a35\u0a3e\u0a39\u0a3f\u0a17\u0a41\u0a30\u0a42 \u0a05\u0a17\u0a2e \u0a39\u0a48, \u0a05\u0a17\u0a4b\u0a1a\u0a30\u0a41 \u0a39\u0a48, \u0a26\u0a42\u0a38\u0a30\u0a3e \u0a15\u0a4b\u0a08 \u0a09\u0a38 \u0a15\u0a47 (\u0a32\u0a35\u0a48) \u0a38\u0a26\u0a4d\u0a30\u0a38 \u0a28\u0a39\u0a40\u0a02 \u0a32\u0a3e\u0a08\u0a24\u0a3e \u0a39\u0a48\u0965"
+            },
+            "bdb": {
+              "gurmukhi": "prmwqmw AphuMc hY, ieMid\u00aeAW dI phuMc qoN pry hY sB dw mwlk hY, koeI aus dI brwbrI nhIN kr skdw [ ",
+              "unicode": "\u0a2a\u0a30\u0a2e\u0a3e\u0a24\u0a2e\u0a3e \u0a05\u0a2a\u0a39\u0a41\u0a70\u0a1a \u0a39\u0a48, \u0a07\u0a70\u0a26\u0a4d\u0a30\u0a3f\u0a06\u0a02 \u0a26\u0a40 \u0a2a\u0a39\u0a41\u0a70\u0a1a \u0a24\u0a4b\u0a02 \u0a2a\u0a30\u0a47 \u0a39\u0a48 \u0a38\u0a2d \u0a26\u0a3e \u0a2e\u0a3e\u0a32\u0a15 \u0a39\u0a48, \u0a15\u0a4b\u0a08 \u0a09\u0a38 \u0a26\u0a40 \u0a2c\u0a30\u0a3e\u0a2c\u0a30\u0a40 \u0a28\u0a39\u0a40\u0a02 \u0a15\u0a30 \u0a38\u0a15\u0a26\u0a3e \u0964 "
+            },
+            "ms": {
+              "gurmukhi": "phuMc qoN pry qy soc smJ qoN aucyrw hY swihb[ hor koeI aus dI brwbrI nhIN kr skdw[",
+              "unicode": "\u0a2a\u0a39\u0a41\u0a70\u0a1a \u0a24\u0a4b\u0a02 \u0a2a\u0a30\u0a47 \u0a24\u0a47 \u0a38\u0a4b\u0a1a \u0a38\u0a2e\u0a1d \u0a24\u0a4b\u0a02 \u0a09\u0a1a\u0a47\u0a30\u0a3e \u0a39\u0a48 \u0a38\u0a3e\u0a39\u0a3f\u0a2c\u0964 \u0a39\u0a4b\u0a30 \u0a15\u0a4b\u0a08 \u0a09\u0a38 \u0a26\u0a40 \u0a2c\u0a30\u0a3e\u0a2c\u0a30\u0a40 \u0a28\u0a39\u0a40\u0a02 \u0a15\u0a30 \u0a38\u0a15\u0a26\u0a3e\u0964"
+            }
+          },
+          "es": {
+            "sn": "Dios es Infinito e Imperceptible y no hay nada ni nadie que Lo puede igualar. "
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "agam agochar saahibo dhoosar lavai na laavai ||",
+          "hindi": "\u0905\u0917\u092e\u0941 \u0905\u0917\u094b\u091a\u0930\u0941 \u0938\u093e\u0939\u093f\u092c\u094b \u0926\u0942\u0938\u0930\u0941 \u0932\u0935\u0948 \u0928 \u0932\u093e\u0935\u0948 \u0965",
+          "en": "agam agochar saahibo dhoosar lavai na laavai ||",
+          "hi": "\u0905\u0917\u092e\u0941 \u0905\u0917\u094b\u091a\u0930\u0941 \u0938\u093e\u0939\u093f\u092c\u094b \u0926\u0942\u0938\u0930\u0941 \u0932\u0935\u0948 \u0928 \u0932\u093e\u0935\u0948 \u0965",
+          "ipa": "\u0259G\u0259m \u0259G\u0254t\u0361\u0283\u0259r s\u0251h\u026ab\u0254 d\u032aus\u0259r l\u0259\u028b\u00e6 n\u0259 l\u0251\u028b\u00e6.",
+          "ur": "\u0627\u06af\u0645 \u0627\u06af\u0648\u0686\u0631 \u0633\u0627\u0647\u0628\u0648 \u062f\u064f\u0648\u0633\u0631 \u0644\u0648\u064e\u06d2 \u0646 \u0644\u0627\u0648\u064e\u06d2 \u06d4\u06d4"
+        },
+        "pageNo": 1193,
+        "lineNo": 12,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 2,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 2,
+              "t": "v"
+            }
+          ],
+          "sttm2": [
+            {
+              "p": 2,
+              "t": "v"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "header": 0,
+      "mangalPosition": null,
+      "existsSGPC": 1,
+      "existsMedium": 1,
+      "existsTaksal": 1,
+      "existsBuddhaDal": 1,
+      "paragraph": 6,
+      "verse": {
+        "verseId": 16487,
+        "verse": {
+          "gurmukhi": "scu pUrY guir aupdyisAw nwnku suxwvY ]3]1]",
+          "unicode": "\u0a38\u0a1a\u0a41 \u0a2a\u0a42\u0a30\u0a48 \u0a17\u0a41\u0a30\u0a3f \u0a09\u0a2a\u0a26\u0a47\u0a38\u0a3f\u0a06 \u0a28\u0a3e\u0a28\u0a15\u0a41 \u0a38\u0a41\u0a23\u0a3e\u0a35\u0a48 \u0965\u0a69\u0965\u0a67\u0965"
+        },
+        "larivaar": {
+          "gurmukhi": "scupUrYguiraupdyisAwnwnkusuxwvY]3]1]",
+          "unicode": "\u0a38\u0a1a\u0a41\u0a2a\u0a42\u0a30\u0a48\u0a17\u0a41\u0a30\u0a3f\u0a09\u0a2a\u0a26\u0a47\u0a38\u0a3f\u0a06\u0a28\u0a3e\u0a28\u0a15\u0a41\u0a38\u0a41\u0a23\u0a3e\u0a35\u0a48\u0965\u0a69\u0965\u0a67\u0965"
+        },
+        "translation": {
+          "en": {
+            "bdb": "The Perfect Guru has taught this Truth. Nanak proclaims it to the world. ||3||1||",
+            "ms": "The perfect Guru has instructed Nanak in Truth and this is what he preaches into the world.",
+            "ssk": "The Perfect Guru has taught this Truth. Nanak proclaims it to the world. ||3||1||"
+          },
+          "pu": {
+            "ss": {
+              "gurmukhi": "nwnk aus sdw-iQr pRBU dI is&iq-swlwh suxWdw hY, pUry gurU ny auh pRBU nyVy ivKw id`qw hY (AMdr v`sdw ivKw id`qw hY) [3[1[",
+              "unicode": "\u0a28\u0a3e\u0a28\u0a15 \u0a09\u0a38 \u0a38\u0a26\u0a3e-\u0a25\u0a3f\u0a30 \u0a2a\u0a4d\u0a30\u0a2d\u0a42 \u0a26\u0a40 \u0a38\u0a3f\u0a5e\u0a24\u0a3f-\u0a38\u0a3e\u0a32\u0a3e\u0a39 \u0a38\u0a41\u0a23\u0a3e\u0a02\u0a26\u0a3e \u0a39\u0a48, \u0a2a\u0a42\u0a30\u0a47 \u0a17\u0a41\u0a30\u0a42 \u0a28\u0a47 \u0a09\u0a39 \u0a2a\u0a4d\u0a30\u0a2d\u0a42 \u0a28\u0a47\u0a5c\u0a47 \u0a35\u0a3f\u0a16\u0a3e \u0a26\u0a3f\u0a71\u0a24\u0a3e \u0a39\u0a48 (\u0a05\u0a70\u0a26\u0a30 \u0a35\u0a71\u0a38\u0a26\u0a3e \u0a35\u0a3f\u0a16\u0a3e \u0a26\u0a3f\u0a71\u0a24\u0a3e \u0a39\u0a48) \u0964\u0a69\u0964\u0a67\u0964"
+            },
+            "ft": {
+              "gurmukhi": "pUry sRI gurU rwmdws jI ny eyh scw aupdys kIAw[ sRI gurU jI khqy hYN: soeI AiDkwrIEN ko suxwvqw hUM eyk prmys\u00cdr sy ibnW dUjw koeI nhIN hY]3]1]\u00c7smwn b\u00cewpkqw idKwvqy hUey khqy hYN:",
+              "unicode": "\u0a2a\u0a42\u0a30\u0a47 \u0a38\u0a4d\u0a30\u0a40 \u0a17\u0a41\u0a30\u0a42 \u0a30\u0a3e\u0a2e\u0a26\u0a3e\u0a38 \u0a1c\u0a40 \u0a28\u0a47 \u0a0f\u0a39 \u0a38\u0a1a\u0a3e \u0a09\u0a2a\u0a26\u0a47\u0a38 \u0a15\u0a40\u0a06\u0964 \u0a38\u0a4d\u0a30\u0a40 \u0a17\u0a41\u0a30\u0a42 \u0a1c\u0a40 \u0a15\u0a39\u0a24\u0a47 \u0a39\u0a48\u0a02: \u0a38\u0a4b\u0a08 \u0a05\u0a27\u0a3f\u0a15\u0a3e\u0a30\u0a40\u0a13\u0a02 \u0a15\u0a4b \u0a38\u0a41\u0a23\u0a3e\u0a35\u0a24\u0a3e \u0a39\u0a42\u0a70 \u0a0f\u0a15 \u0a2a\u0a30\u0a2e\u0a47\u0a38\u0a4d\u0a35\u0a30 \u0a38\u0a47 \u0a2c\u0a3f\u0a28\u0a3e\u0a02 \u0a26\u0a42\u0a1c\u0a3e \u0a15\u0a4b\u0a08 \u0a28\u0a39\u0a40\u0a02 \u0a39\u0a48\u0965\u0a69\u0965\u0a67\u0965\u262c\u0a38\u0a2e\u0a3e\u0a28 \u0a2c\u0a4d\u0a2f\u0a3e\u0a2a\u0a15\u0a24\u0a3e \u0a26\u0a3f\u0a16\u0a3e\u0a35\u0a24\u0a47 \u0a39\u0a42\u0a0f \u0a15\u0a39\u0a24\u0a47 \u0a39\u0a48\u0a02:"
+            },
+            "bdb": {
+              "gurmukhi": "nwnk aus sdw-iQr pRBU dI is&iq-swlwh suxWdw hY, pUry gurU ny auh pRBU nyVy ivKw id`qw hY (AMdr v`sdw ivKw id`qw hY) [3[1[",
+              "unicode": "\u0a28\u0a3e\u0a28\u0a15 \u0a09\u0a38 \u0a38\u0a26\u0a3e-\u0a25\u0a3f\u0a30 \u0a2a\u0a4d\u0a30\u0a2d\u0a42 \u0a26\u0a40 \u0a38\u0a3f\u0a5e\u0a24\u0a3f-\u0a38\u0a3e\u0a32\u0a3e\u0a39 \u0a38\u0a41\u0a23\u0a3e\u0a02\u0a26\u0a3e \u0a39\u0a48, \u0a2a\u0a42\u0a30\u0a47 \u0a17\u0a41\u0a30\u0a42 \u0a28\u0a47 \u0a09\u0a39 \u0a2a\u0a4d\u0a30\u0a2d\u0a42 \u0a28\u0a47\u0a5c\u0a47 \u0a35\u0a3f\u0a16\u0a3e \u0a26\u0a3f\u0a71\u0a24\u0a3e \u0a39\u0a48 (\u0a05\u0a70\u0a26\u0a30 \u0a35\u0a71\u0a38\u0a26\u0a3e \u0a35\u0a3f\u0a16\u0a3e \u0a26\u0a3f\u0a71\u0a24\u0a3e \u0a39\u0a48) \u0964\u0a69\u0964\u0a67\u0964"
+            },
+            "ms": {
+              "gurmukhi": "pUrn gurW ny nwnk \u0192 s`c dI isK-mq id`qI hY Aqy ieh hI sMswr \u0192 prcwrdw hY[",
+              "unicode": "\u0a2a\u0a42\u0a30\u0a28 \u0a17\u0a41\u0a30\u0a3e\u0a02 \u0a28\u0a47 \u0a28\u0a3e\u0a28\u0a15 \u0a28\u0a42\u0a70 \u0a38\u0a71\u0a1a \u0a26\u0a40 \u0a38\u0a3f\u0a16-\u0a2e\u0a24 \u0a26\u0a3f\u0a71\u0a24\u0a40 \u0a39\u0a48 \u0a05\u0a24\u0a47 \u0a07\u0a39 \u0a39\u0a40 \u0a38\u0a70\u0a38\u0a3e\u0a30 \u0a28\u0a42\u0a70 \u0a2a\u0a30\u0a1a\u0a3e\u0a30\u0a26\u0a3e \u0a39\u0a48\u0964"
+            }
+          },
+          "es": {
+            "sn": "El Guru Perfecto ha instruido a Nanak en Su Verdad y \u00e9ste es Su Mensaje al ser humano. (3-1)"
+          },
+          "hi": {}
+        },
+        "transliteration": {
+          "english": "sach poorai gur upadhesiaa naanak sunaavai ||3||1||",
+          "hindi": "\u0938\u091a\u0941 \u092a\u0942\u0930\u0948 \u0917\u0941\u0930\u093f \u0909\u092a\u0926\u0947\u0938\u093f\u0906 \u0928\u093e\u0928\u0915\u0941 \u0938\u0941\u0923\u093e\u0935\u0948 \u0965\u0969\u0965\u0967\u0965",
+          "en": "sach poorai gur upadhesiaa naanak sunaavai ||3||1||",
+          "hi": "\u0938\u091a\u0941 \u092a\u0942\u0930\u0948 \u0917\u0941\u0930\u093f \u0909\u092a\u0926\u0947\u0938\u093f\u0906 \u0928\u093e\u0928\u0915\u0941 \u0938\u0941\u0923\u093e\u0935\u0948 \u0965\u0969\u0965\u0967\u0965",
+          "ipa": "s\u0259t\u0361\u0283 pur\u00e6 G\u028ar o\u028ap\u0259d\u032aes\u026a\u0259\u0251 n\u0251n\u0259k s\u028a\u0273\u0251\u028b\u00e6.3.1.",
+          "ur": "\u0633\u0686 \u067e\u064f\u0648\u0631\u064e\u06d2 \u06af\u064f\u0631 \u0627\u064f\u067e\u062f\u06d2\u0633\u0622 \u0646\u0627\u0646\u06a9 \u0633\u064f\u0768\u0627\u0648\u064e\u06d2 \u06d4\u06d4\u06f3\u06d4\u06d4\u06f1\u06d4\u06d4"
+        },
+        "pageNo": 1193,
+        "lineNo": 13,
+        "updated": "2020-06-11 00:19:50",
+        "visraam": {
+          "sttm": [
+            {
+              "p": 3,
+              "t": "v"
+            }
+          ],
+          "igurbani": [
+            {
+              "p": 3,
+              "t": "v"
+            }
+          ],
+          "sttm2": [
+            {
+              "p": 3,
+              "t": "v"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

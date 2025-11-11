@@ -84,6 +84,11 @@ open Chet.xcodeproj
 - **Translation Sources**: Each language (English/Punjabi/Hindi/Spanish) has multiple source options (BDB, MS, SSK, etc.)
 - **Text Scaling**: Independent scale factors for Gurbani, each translation language, and transliteration
 - **Visraam Sources**: sttm, sttm2, igurbani (pause marker data sources)
+- **Widget-Specific Settings**: Stored in `UserDefaults.appGroup` for cross-target access:
+  - `randSbdRefreshInterval`: Refresh interval in hours (1/3/6/12/24)
+  - `favSbdRefreshInterval`: Favorites widget refresh interval
+  - `randShabadList`: Encoded array of pre-fetched shabads for offline widget timeline
+- **Backup Settings**: `backupChangeCounter` (triggers auto-backup at 5), `lastBackupTime` (timestamp)
 
 ## Important Patterns and Conventions
 
@@ -112,12 +117,25 @@ open Chet.xcodeproj
 - Search triggers automatically on text change if length > 2
 - Results show highlighted searched line when navigating to shabad
 
-### Import/Export Support
-- iGurbani format (.igb): JSON with nested folder structure
-- Gurbani Khoj format (.gkhoj): PropertyList (plist) format
-- Import creates new root folder with app name prefix
-- Shows live import progress counter using ZStack overlay
-- Import functions use async callbacks for progress updates
+### Import/Export Support (Chet/helpers/importData.swift, Chet/helpers/BackupManager.swift)
+- **Supported Import Formats**:
+  - iGurbani format (.igb): JSON with nested folder structure
+  - Gurbani Khoj format (.gkhoj): PropertyList (plist) format
+  - Chet backup format (.chet): JSON with complete app state including settings
+- **Custom UTTypes**: Defined for .igb, .gkhoj, and .chet file extensions in importData.swift
+- **ID Mapping Files**: sttmid_to_id.json and igurbaniuid_to_id.json for cross-app shabad ID conversion
+- **Fuzzy Line Matching**: Uses Levenshtein distance algorithm to match saved lines when importing from other apps
+- **Import Process**: Creates timestamped import folder with app name prefix, shows live progress counter using ZStack overlay
+- **Backup System**:
+  - **BackupManager.shared**: Singleton @MainActor class for automatic and manual backups (BackupManager.swift:416)
+  - **Auto-backup**: Triggers every 5 changes (tracked by backupChangeCounter @AppStorage key), debounced with 5-minute minimum interval
+  - **Storage**: iCloud Drive with local Documents folder fallback at `Documents/Chet Backups/`
+  - **Retention**: Keeps 10 most recent backups, auto-cleans old ones by creation date
+  - **Backup Format**: ChetBackup struct includes all settings, folder hierarchy, shabads, and metadata with ISO8601 date encoding
+  - **SettingsStorage enum** (BackupManager.swift:418-493): Helper for exporting/importing all @AppStorage values from both UserDefaults.standard and UserDefaults.appGroup
+  - **Export UI**: ExportSheet.swift provides manual export with share sheet integration
+  - **Restore Process**: Creates timestamped import folder, fetches shabads from API, preserves all metadata and timestamps
+- Import/export preserves folder hierarchy, timestamps, sort order, and all app settings
 
 ## Development Notes
 
@@ -133,5 +151,10 @@ open Chet.xcodeproj
 - App entry point: `Chet/ChetApp.swift`
 - Data models: `Chet/Models.swift`
 - API functions: `Chet/helpers/helper_funcs.swift`
+- Import data handling: `Chet/helpers/importData.swift`
+- Backup management: `Chet/helpers/BackupManager.swift`
+- Main views: `Chet/Views/` (SearchView, ShabadView, SavedShabadsView, SettingsView, HukamnamaView, HistoryView, ExportSheet)
 - Shared widget views: `WidgetViews.swift` (root directory)
+- Widget targets: `RandomShabadWidget/`, `HukamnamaWidget/`, `FavShabadsWidget/`
+- Custom fonts: `Fonts/` (9 Gurmukhi fonts)
 - App group ID: `group.xyz.gians.Chet` (also in entitlements files)

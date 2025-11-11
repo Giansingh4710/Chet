@@ -10,26 +10,23 @@ import SwiftUI
 import WidgetKit
 
 struct ContentView: View {
-    @Binding var selectedID: WidgetUrlShabadID?
+    @Binding var selectedID: IdentifiableInt?
     @Binding var isInFavorites: Bool
     @Binding var shouldFocusSearch: Bool
     @Environment(\.colorScheme) private var colorScheme
     @State private var selectedTab = 0
     @State private var searchNavPath = NavigationPath()
+    @State private var baniNavPath = NavigationPath()
     @State private var favoritesNavPath = NavigationPath()
     @State private var settingsNavPath = NavigationPath()
 
+    @State private var triggerSearchFocus = false // Internal trigger after nav is cleared
     @State private var editMode: EditMode = .inactive
 
     var body: some View {
         TabView(selection: $selectedTab) {
             NavigationStack(path: $searchNavPath) {
-                SearchView(shouldFocusSearchBar: $shouldFocusSearch)
-            }
-            .onChange(of: selectedTab) { oldValue, newValue in
-                if oldValue == newValue && newValue == 0 {
-                    searchNavPath = NavigationPath()
-                }
+                SearchView(shouldFocusSearchBar: $triggerSearchFocus)
             }
             .tabItem {
                 Image(systemName: "magnifyingglass")
@@ -37,7 +34,6 @@ struct ContentView: View {
             }
             .tag(0)
 
-            // Other tabs remain the same
             NavigationStack(path: $favoritesNavPath) {
                 SavedShabadsView()
                     .environment(\.editMode, $editMode) // inject editMode here
@@ -45,16 +41,20 @@ struct ContentView: View {
                         ShabadViewFromWidgetURL(id: id_obj.id, isInFavorites: isInFavorites)
                     }
             }
-            .onChange(of: selectedTab) { oldValue, newValue in
-                if oldValue == newValue && newValue == 1 {
-                    favoritesNavPath = NavigationPath()
-                }
-            }
             .tabItem {
                 Image(systemName: "bookmark")
                 Text("Saved")
             }
             .tag(1)
+
+            NavigationStack(path: $baniNavPath) {
+                BaniListView()
+            }
+            .tabItem {
+                Image(systemName: "book.fill")
+                Text("Banis")
+            }
+            .tag(2)
 
             NavigationStack(path: $settingsNavPath) {
                 SettingsView()
@@ -63,7 +63,7 @@ struct ContentView: View {
                 Image(systemName: "gear")
                 Text("Settings")
             }
-            .tag(2)
+            .tag(3)
         }
         .onChange(of: selectedID) { id_obj in
             if let id_obj = id_obj {
@@ -74,12 +74,25 @@ struct ContentView: View {
         }
         .onChange(of: shouldFocusSearch) { _, newValue in
             if newValue {
-                selectedTab = 0 // Switch to Search tab first
-                selectedID = nil // remove selectedID
+                // Step 1: Clear all navigation immediately
+                searchNavPath = NavigationPath()
+                baniNavPath = NavigationPath()
+                favoritesNavPath = NavigationPath()
+                settingsNavPath = NavigationPath()
+                selectedID = nil
 
+                // Step 2: Switch to Search tab
+                selectedTab = 0
+
+                // Step 3: Wait for navigation to clear, then trigger search focus
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                    searchNavPath = NavigationPath()
-                    shouldFocusSearch = false // Reset flag
+                    triggerSearchFocus = true
+                }
+
+                // Step 4: Reset flags after SearchView has had time to focus
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+                    shouldFocusSearch = false
+                    triggerSearchFocus = false
                 }
             }
         }

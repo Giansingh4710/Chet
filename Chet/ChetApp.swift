@@ -11,7 +11,7 @@ import SwiftUI
 @main
 struct ChetApp: App {
     @AppStorage("colorScheme") private var colorScheme: String = "system"
-    @State private var selectedID: WidgetUrlShabadID?
+    @State private var selectedID: IdentifiableInt?
     @State private var isInFavorites: Bool = false
     @State private var shouldFocusSearch: Bool = false
 
@@ -29,7 +29,7 @@ struct ChetApp: App {
                        let idstr = url.pathComponents.dropFirst().first,
                        let id = Int(idstr)
                     {
-                        selectedID = WidgetUrlShabadID(id: id)
+                        selectedID = IdentifiableInt(id: id)
                         isInFavorites = url.host == "favshabadid"
                     } else if url.host == "search" {
                         shouldFocusSearch = true // Trigger search focus
@@ -49,6 +49,6 @@ struct ChetApp: App {
     }
 }
 
-struct WidgetUrlShabadID: Identifiable, Hashable, Equatable {
+struct IdentifiableInt: Identifiable, Hashable, Equatable {
     let id: Int
 }
