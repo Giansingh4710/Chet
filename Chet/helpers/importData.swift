@@ -15,7 +15,6 @@ func parseArrayForGKImports(
     folderName: String = "Gurbani Khoj Imports",
     onShabadImported: @escaping () async -> Void
 ) async -> Folder {
-    let sttmids = loadSttmids()
     let folder = Folder(name: folderName)
     modelContext.insert(folder)
 
@@ -35,16 +34,12 @@ func parseArrayForGKImports(
                let text = sub[0] as? String,
                let id = (sub[1] as? Int) ?? Int((sub[1] as? String) ?? "")
             {
-                if let gurbaninowIDString = sttmids[id],
-                   let gurbaninowID = Int(gurbaninowIDString)
-                {
-                    if let savedShadab = try await getSavedSbdObj(sbdID: gurbaninowID, savedLine: text, folder: folder) {
-                        savedShadab.sortIndex = sortCounter
-                        sortCounter -= 1
-                        modelContext.insert(savedShadab)
-                        folder.savedShabads.append(savedShadab)
-                        await onShabadImported()
-                    }
+                if let savedShadab = try await getSavedSbdObj(sbdID: id, savedLine: text, folder: folder) {
+                    savedShadab.sortIndex = sortCounter
+                    sortCounter -= 1
+                    modelContext.insert(savedShadab)
+                    folder.savedShabads.append(savedShadab)
+                    await onShabadImported()
                 }
             }
             // Case 2: duplicate leaf [text, page, text, page]
@@ -52,14 +47,10 @@ func parseArrayForGKImports(
                     let text = sub[0] as? String,
                     let id = (sub[1] as? Int) ?? Int((sub[1] as? String) ?? "")
             {
-                if let gurbaninowIDString = sttmids[id],
-                   let gurbaninowID = Int(gurbaninowIDString)
-                {
-                    if let savedShadab = try await getSavedSbdObj(sbdID: gurbaninowID, savedLine: text, folder: folder) {
-                        modelContext.insert(savedShadab)
-                        folder.savedShabads.append(savedShadab)
-                        await onShabadImported()
-                    }
+                if let savedShadab = try await getSavedSbdObj(sbdID: id, savedLine: text, folder: folder) {
+                    modelContext.insert(savedShadab)
+                    folder.savedShabads.append(savedShadab)
+                    await onShabadImported()
                 }
             }
 
@@ -155,21 +146,6 @@ func loadiGurbaniids() -> [String: Int] {
     do {
         let data = try Data(contentsOf: url)
         let codes = try JSONDecoder().decode([String: Int].self, from: data)
-        return codes
-    } catch {
-        return [:]
-    }
-}
-
-func loadSttmids() -> [Int: String] {
-    guard let url = Bundle.main.url(forResource: "sttmid_to_id", withExtension: "json") else {
-        return [:]
-    }
-
-    do {
-        let data = try Data(contentsOf: url)
-        // let codes = try JSONDecoder().decode([String: String].self, from: data)
-        let codes = try JSONDecoder().decode([Int: String].self, from: data)
         return codes
     } catch {
         return [:]

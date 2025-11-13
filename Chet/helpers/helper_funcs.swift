@@ -97,7 +97,7 @@ func searchGurbani(from searchText: String, queryString: String = "searchtype=0"
     }
 
     let query = trimmed.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? trimmed
-    let urlString = "https://api.banidb.com/v2/search/\(query)?\(queryString)&results=200"
+    let urlString = "https://api.banidb.com/v2/search/\(query)?\(queryString)&results=1000"
 
     print("🌐 API URL: \(urlString)")
 

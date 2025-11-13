@@ -320,12 +320,17 @@ extension ModelContainer {
                 let existing = try? context.fetch(FetchDescriptor<Folder>())
 
                 if existing?.isEmpty ?? true {
+                    let favoritesFolder = Folder(name: "Favorites", isSystemFolder: true)
                     let defaults = [
-                        Folder(name: "Favorites", isSystemFolder: true),
+                        favoritesFolder,
                         Folder(name: "Keertan"),
                     ]
                     defaults.forEach { context.insert($0) }
                     try? context.save()
+
+                    // Set Favorites folder as default widget folder
+                    UserDefaults.appGroup.set(favoritesFolder.id.uuidString, forKey: "favShabadsWidgetFolderID")
+                    UserDefaults.appGroup.set("Favorites", forKey: "favShabadsWidgetFolderName")
                 }
             }
 

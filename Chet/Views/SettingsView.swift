@@ -23,6 +23,8 @@ struct SettingsView: View {
     @State private var isBackingUp = false
     @AppStorage("lastBackupTime") private var lastBackupTime: Double = 0
     @State private var selectedWidgetTab: WidgetTab = .random
+    @State private var backupMessage: String?
+    @State private var showBackupToast = false
 
     var body: some View {
         VStack(spacing: 0) {
@@ -142,10 +144,14 @@ struct SettingsView: View {
                             isBackingUp = true
                             do {
                                 let data = try await BackupManager.shared.exportToJSON(modelContext: context)
-                                _ = try await BackupManager.shared.saveToiCloud(data: data)
+                                let url = try await BackupManager.shared.saveToiCloud(data: data)
                                 lastBackupTime = Date().timeIntervalSince1970
+                                backupMessage = "Backup saved successfully"
+                                showBackupToast = true
                             } catch {
                                 print("Manual backup failed: \(error.localizedDescription)")
+                                backupMessage = "Backup failed: \(error.localizedDescription)"
+                                showBackupToast = true
                             }
                             isBackingUp = false
                         }
@@ -161,24 +167,7 @@ struct SettingsView: View {
                     }
                     .disabled(isBackingUp)
 
-                    Button(action: {
-                        // Open backup folder in Files app (iCloud or local)
-                        let backupURL: URL?
-                        if let iCloudURL = FileManager.default.url(forUbiquityContainerIdentifier: nil)?
-                            .appendingPathComponent("Documents")
-                            .appendingPathComponent("Chet Backups")
-                        {
-                            backupURL = iCloudURL
-                        } else if let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-                            backupURL = documentsURL.appendingPathComponent("Chet Backups")
-                        } else {
-                            backupURL = nil
-                        }
-
-                        if let url = backupURL {
-                            UIApplication.shared.open(url)
-                        }
-                    }) {
+                    NavigationLink(destination: BackupsListView()) {
                         Label("View Backups", systemImage: "folder")
                     }
                 } header: {
@@ -193,6 +182,30 @@ struct SettingsView: View {
         }
         .alert(item: $infoType) { type in
             Alert(title: Text("Info"), message: Text(type.message), dismissButton: .default(Text("OK")))
+        }
+        .overlay(alignment: .top) {
+            if showBackupToast, let message = backupMessage {
+                HStack(spacing: 12) {
+                    Image(systemName: message.contains("failed") ? "xmark.circle.fill" : "checkmark.circle.fill")
+                        .foregroundColor(.white)
+                    Text(message)
+                        .foregroundColor(.white)
+                        .font(.subheadline)
+                }
+                .padding()
+                .background(message.contains("failed") ? Color.red : Color.green)
+                .cornerRadius(10)
+                .shadow(radius: 10)
+                .padding(.top, 50)
+                .transition(.move(edge: .top).combined(with: .opacity))
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                        withAnimation {
+                            showBackupToast = false
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -240,6 +253,7 @@ struct FontPicker: View {
     var body: some View {
         HStack {
             Label("Font", systemImage: "textformat.size")
+            Text("( cyq )").font(resolveFont(size: 20, fontType: fontType))
             Spacer()
             Picker("", selection: $fontType) {
                 Text("Unicode").tag("Unicode")

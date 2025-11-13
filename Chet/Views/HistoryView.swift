@@ -81,7 +81,7 @@ struct ShabadHistoryView: View {
                     }
                     .padding(.horizontal)
                     .padding(.vertical, 8)
-                    .onChange(of: searchText) { oldValue, newValue in
+                    .onChange(of: searchText) { _, newValue in
                         // Cancel previous search task
                         searchTask?.cancel()
 
@@ -165,35 +165,32 @@ struct ShabadHistoryView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 HStack(spacing: 12) {
-                    HStack(spacing: 4) {
-                        Image(systemName: "clock.arrow.circlepath")
-                            .font(.caption)
-                            .foregroundColor(.secondary)
-                        if !debouncedSearchText.isEmpty {
-                            Text("\(filteredHistoryItems.count) of \(historyItems.count)")
-                                .font(.caption)
-                                .foregroundColor(.secondary)
-                        } else {
-                            Text("\(historyItems.count)")
-                                .font(.caption)
-                                .foregroundColor(.secondary)
-                        }
+                    if !debouncedSearchText.isEmpty {
+                        Text("\(filteredHistoryItems.count) of \(historyItems.count)")
+                            .font(.subheadline)
+                            .fontWeight(.medium)
+                            .foregroundColor(.primary)
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 6)
+                            .background(Color(.systemGray5))
+                            .cornerRadius(8)
+                    } else {
+                        Text("\(historyItems.count)")
+                            .font(.subheadline)
+                            .fontWeight(.medium)
+                            .foregroundColor(.primary)
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 6)
+                            .background(Color(.systemGray5))
+                            .cornerRadius(8)
                     }
-                    .padding(.horizontal, 6)
-                    .padding(.vertical, 4)
-                    .background(Color(.systemGray5))
-                    .cornerRadius(6)
-
-                    if !historyItems.isEmpty {
-                        Button(role: .destructive) {
-                            showDeleteAllAlert = true
-                        } label: {
-                            Label("Delete All", systemImage: "trash.fill")
-                                .labelStyle(.iconOnly)
-                                .foregroundColor(.red)
-                                .font(.system(size: 16))
-                        }
-                    }
+                }
+            }
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: {
+                    showDeleteAllAlert = true
+                }) {
+                    Image(systemName: "trash")
                 }
             }
         }
@@ -215,8 +212,9 @@ struct ShabadHistoryView: View {
         for verse in history.sbdRes.verses {
             // Check Gurmukhi text
             if verse.verse.unicode.lowercased().contains(query) ||
-               verse.verse.gurmukhi.lowercased().contains(query) ||
-               verse.larivaar.unicode.lowercased().contains(query) {
+                verse.verse.gurmukhi.lowercased().contains(query) ||
+                verse.larivaar.unicode.lowercased().contains(query)
+            {
                 return true
             }
 
@@ -303,7 +301,10 @@ struct RowView: View {
 
     @AppStorage("CompactRowViewSetting") private var compactRowViewSetting = false
     @AppStorage("settings.larivaarOn") private var larivaarOn: Bool = true
+    @AppStorage("settings.larivaarAssist") private var larivaarAssist: Bool = false
     @AppStorage("fontType") private var fontType: String = "Unicode"
+
+    @Environment(\.colorScheme) private var colorScheme
 
     let formatter: DateFormatter = {
         let f = DateFormatter()
@@ -472,28 +473,69 @@ struct RowView: View {
     }
 
     var highlightedGurmukhiText: AttributedString {
-        var attributed = AttributedString(gurmukhiText)
         let fontSize: Double = compactRowViewSetting ? 20.0 : 24.0
-        attributed.font = resolveFont(size: fontSize, fontType: fontType == "Unicode" ? "AnmolLipiSG" : fontType)
 
-        if searchQuery.isEmpty {
+        // Apply larivaar assist colors if enabled and in larivaar mode
+        if larivaarAssist && larivaarOn {
+            // Get the verse text WITH spaces for splitting into words
+            let textWithSpaces = fontType == "Unicode" ? verse.verse.unicode : verse.verse.gurmukhi
+            let words = textWithSpaces.components(separatedBy: " ")
+
+            // Build attributed string word by word
+            var result = AttributedString("")
+            for (index, word) in words.enumerated() {
+                let color = AppColors.larivaarAssistColor(index: index, for: colorScheme)
+                var wordAttr = AttributedString(word)
+                wordAttr.foregroundColor = color
+                wordAttr.font = resolveFont(size: fontSize, fontType: fontType == "Unicode" ? "AnmolLipiSG" : fontType)
+                result = result + wordAttr
+
+                // No spaces in larivaar mode
+            }
+
+            // Apply search highlighting (overwrites colors)
+            if !searchQuery.isEmpty {
+                let fullText = String(result.characters)
+                let lowercaseText = fullText.lowercased()
+                let lowercaseQuery = searchQuery.lowercased()
+
+                var searchStartIndex = lowercaseText.startIndex
+                while searchStartIndex < lowercaseText.endIndex,
+                      let range = lowercaseText.range(of: lowercaseQuery, range: searchStartIndex ..< lowercaseText.endIndex)
+                {
+                    if let attributedRange = Range<AttributedString.Index>(range, in: result) {
+                        result[attributedRange].backgroundColor = Color.yellow.opacity(0.4)
+                        result[attributedRange].foregroundColor = .primary
+                    }
+                    searchStartIndex = range.upperBound
+                }
+            }
+
+            return result
+        } else {
+            // Normal mode (no larivaar assist)
+            var attributed = AttributedString(gurmukhiText)
+            attributed.font = resolveFont(size: fontSize, fontType: fontType == "Unicode" ? "AnmolLipiSG" : fontType)
+
+            // Apply search highlighting
+            if !searchQuery.isEmpty {
+                let lowercaseText = gurmukhiText.lowercased()
+                let lowercaseQuery = searchQuery.lowercased()
+
+                var searchStartIndex = lowercaseText.startIndex
+                while searchStartIndex < lowercaseText.endIndex,
+                      let range = lowercaseText.range(of: lowercaseQuery, range: searchStartIndex ..< lowercaseText.endIndex)
+                {
+                    if let attributedRange = Range<AttributedString.Index>(range, in: attributed) {
+                        attributed[attributedRange].backgroundColor = Color.yellow.opacity(0.4)
+                        attributed[attributedRange].foregroundColor = .primary
+                    }
+                    searchStartIndex = range.upperBound
+                }
+            }
+
             return attributed
         }
-
-        let lowercaseText = gurmukhiText.lowercased()
-        let lowercaseQuery = searchQuery.lowercased()
-
-        var searchStartIndex = lowercaseText.startIndex
-        while searchStartIndex < lowercaseText.endIndex,
-              let range = lowercaseText.range(of: lowercaseQuery, range: searchStartIndex..<lowercaseText.endIndex) {
-            if let attributedRange = Range<AttributedString.Index>(range, in: attributed) {
-                attributed[attributedRange].backgroundColor = Color.yellow.opacity(0.4)
-                attributed[attributedRange].foregroundColor = .primary
-            }
-            searchStartIndex = range.upperBound
-        }
-
-        return attributed
     }
 
     func highlightedTranslationText(_ text: String) -> AttributedString {
@@ -508,7 +550,8 @@ struct RowView: View {
 
         var searchStartIndex = lowercaseText.startIndex
         while searchStartIndex < lowercaseText.endIndex,
-              let range = lowercaseText.range(of: lowercaseQuery, range: searchStartIndex..<lowercaseText.endIndex) {
+              let range = lowercaseText.range(of: lowercaseQuery, range: searchStartIndex ..< lowercaseText.endIndex)
+        {
             if let attributedRange = Range<AttributedString.Index>(range, in: attributed) {
                 attributed[attributedRange].backgroundColor = Color.yellow.opacity(0.4)
                 attributed[attributedRange].foregroundColor = .primary
@@ -531,7 +574,8 @@ struct RowView: View {
 
         var searchStartIndex = lowercaseText.startIndex
         while searchStartIndex < lowercaseText.endIndex,
-              let range = lowercaseText.range(of: lowercaseQuery, range: searchStartIndex..<lowercaseText.endIndex) {
+              let range = lowercaseText.range(of: lowercaseQuery, range: searchStartIndex ..< lowercaseText.endIndex)
+        {
             if let attributedRange = Range<AttributedString.Index>(range, in: attributed) {
                 attributed[attributedRange].backgroundColor = Color.yellow.opacity(0.4)
                 attributed[attributedRange].foregroundColor = .primary
@@ -638,4 +682,3 @@ struct RowView: View {
         return nil
     }
 }
-

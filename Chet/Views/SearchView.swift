@@ -1289,7 +1289,10 @@ struct SearchResultRowView: View {
 
     @AppStorage("CompactRowViewSetting") private var compactRowViewSetting = false
     @AppStorage("settings.larivaarOn") private var larivaarOn: Bool = true
+    @AppStorage("settings.larivaarAssist") private var larivaarAssist: Bool = false
     @AppStorage("fontType") private var fontType: String = "Unicode"
+
+    @Environment(\.colorScheme) private var colorScheme
 
     var gurmukhiText: String {
         if fontType == "Unicode" {
@@ -1306,10 +1309,50 @@ struct SearchResultRowView: View {
     }
 
     var gurmukhiAttributedString: AttributedString {
-        var attributed = createHighlightedAttributedString(text: gurmukhiText, searchQuery: searchQuery, searchType: searchType)
         let fontSize: Double = compactRowViewSetting ? 20.0 : 24.0
-        attributed.font = resolveFont(size: fontSize, fontType: fontType == "Unicode" ? "AnmolLipiSG" : fontType)
-        return attributed
+
+        // Apply larivaar assist colors if enabled and in larivaar mode
+        if larivaarAssist && larivaarOn {
+            // Get the verse text WITH spaces for splitting into words
+            let textWithSpaces = fontType == "Unicode" ? verse.verse.unicode : verse.verse.gurmukhi
+            let words = textWithSpaces.components(separatedBy: " ")
+
+            // Build attributed string word by word
+            var result = AttributedString("")
+            for (index, word) in words.enumerated() {
+                let color = AppColors.larivaarAssistColor(index: index, for: colorScheme)
+                var wordAttr = AttributedString(word)
+                wordAttr.foregroundColor = color
+                wordAttr.font = resolveFont(size: fontSize, fontType: fontType == "Unicode" ? "AnmolLipiSG" : fontType)
+                result = result + wordAttr
+
+                // No spaces in larivaar mode
+            }
+
+            // Apply search highlighting (overwrites colors)
+            if !searchQuery.isEmpty {
+                let fullText = String(result.characters)
+                let lowercaseText = fullText.lowercased()
+                let lowercaseQuery = searchQuery.lowercased()
+
+                var searchStartIndex = lowercaseText.startIndex
+                while searchStartIndex < lowercaseText.endIndex,
+                      let range = lowercaseText.range(of: lowercaseQuery, range: searchStartIndex..<lowercaseText.endIndex) {
+                    if let attributedRange = Range<AttributedString.Index>(range, in: result) {
+                        result[attributedRange].backgroundColor = Color.orange.opacity(0.25)
+                        result[attributedRange].foregroundColor = .primary
+                    }
+                    searchStartIndex = range.upperBound
+                }
+            }
+
+            return result
+        } else {
+            // Normal mode (no larivaar assist)
+            var attributed = createHighlightedAttributedString(text: gurmukhiText, searchQuery: searchQuery, searchType: searchType)
+            attributed.font = resolveFont(size: fontSize, fontType: fontType == "Unicode" ? "AnmolLipiSG" : fontType)
+            return attributed
+        }
     }
 
     var translationAttributedString: AttributedString {

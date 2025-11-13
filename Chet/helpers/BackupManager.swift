@@ -25,6 +25,7 @@ struct ChetBackup: Codable {
 
         // Shabad Display
         var larivaarOn: Bool
+        var larivaarAssist: Bool
         var textScale: Double
         var swipeToGoToNextShabad: Bool
         var qwertyKeyboard: Bool
@@ -47,6 +48,9 @@ struct ChetBackup: Codable {
         // Widget Settings
         var randSbdRefreshInterval: Int
         var favSbdRefreshInterval: Int
+
+        // Bani Settings
+        var favoriteBanis: String // JSON string of favorite bani order
     }
 }
 
@@ -74,7 +78,7 @@ struct BackupShabad: Codable, Identifiable {
 class BackupManager {
     static let shared = BackupManager()
 
-    private let maxBackupCount = 10
+    private let maxBackupCount = 5 // Keep max 5 daily backups
     private var lastBackupTime: Date?
     private let minimumBackupInterval: TimeInterval = 300 // 5 minutes
 
@@ -83,6 +87,60 @@ class BackupManager {
         if let timestamp = UserDefaults.standard.object(forKey: "lastAutoBackupTime") as? Date {
             lastBackupTime = timestamp
         }
+    }
+
+    // MARK: - Daily Backup
+
+    /// Performs daily backup check - creates backup if one doesn't exist for today
+    func performDailyBackupIfNeeded(modelContext: ModelContext) async {
+        let calendar = Calendar.current
+        let today = calendar.startOfDay(for: Date())
+
+        // Check if we already have a backup for today
+        guard let backupFolderURL = getBackupFolderURL() else {
+            print("❌ Cannot access backup folder for daily backup")
+            return
+        }
+
+        // Create backup folder if it doesn't exist
+        try? FileManager.default.createDirectory(at: backupFolderURL, withIntermediateDirectories: true)
+
+        // Get today's backup filename
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let todayString = dateFormatter.string(from: today)
+        let todayBackupName = "Chet_Daily_\(todayString).chet"
+        let todayBackupURL = backupFolderURL.appendingPathComponent(todayBackupName)
+
+        // Check if today's backup already exists
+        if FileManager.default.fileExists(atPath: todayBackupURL.path) {
+            print("✅ Daily backup already exists for \(todayString)")
+            return
+        }
+
+        // Create today's backup
+        do {
+            print("💾 Creating daily backup for \(todayString)...")
+            let data = try await exportToJSON(modelContext: modelContext)
+            try data.write(to: todayBackupURL)
+            print("✅ Daily backup created: \(todayBackupURL.lastPathComponent)")
+
+            // Clean up old backups (keep only last 5)
+            try await cleanupOldBackups(in: backupFolderURL)
+
+            // Update last backup time
+            UserDefaults.standard.set(Date(), forKey: "lastAutoBackupTime")
+            UserDefaults.standard.set(Date().timeIntervalSince1970, forKey: "lastBackupTime")
+        } catch {
+            print("❌ Daily backup failed: \(error.localizedDescription)")
+        }
+    }
+
+    private func getBackupFolderURL() -> URL? {
+        guard let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+            return nil
+        }
+        return documentsURL.appendingPathComponent("Chet Backups")
     }
 
     // MARK: - Export Methods
@@ -160,26 +218,15 @@ class BackupManager {
         )
     }
 
-    /// Saves backup data to iCloud Drive (or local Documents if iCloud unavailable)
+    /// Saves backup data to Documents folder (accessible via Files app with UIFileSharingEnabled)
     func saveToiCloud(data: Data, filename: String? = nil) async throws -> URL {
-        // Try to get iCloud Drive Documents directory first
-        let backupURL: URL
-
-        if let iCloudURL = FileManager.default.url(forUbiquityContainerIdentifier: nil)?
-            .appendingPathComponent("Documents")
-            .appendingPathComponent("Chet Backups")
-        {
-            // iCloud is available
-            backupURL = iCloudURL
-            print("💾 Using iCloud Drive for backup")
-        } else {
-            // Fallback to local Documents directory
-            guard let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
-                throw BackupError.iCloudNotAvailable
-            }
-            backupURL = documentsURL.appendingPathComponent("Chet Backups")
-            print("💾 iCloud not available, using local storage for backup")
+        // Use Documents directory which is accessible via Files app
+        guard let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+            throw BackupError.iCloudNotAvailable
         }
+
+        let backupURL = documentsURL.appendingPathComponent("Chet Backups")
+        print("💾 Using Documents folder for backup (accessible in Files app)")
 
         // Create directory if it doesn't exist
         try FileManager.default.createDirectory(at: backupURL, withIntermediateDirectories: true)
@@ -196,6 +243,8 @@ class BackupManager {
         try data.write(to: fileURL)
 
         print("✅ Backup saved to: \(fileURL.path)")
+        print("✅ File size: \(ByteCountFormatter.string(fromByteCount: Int64(data.count), countStyle: .file))")
+        print("✅ Files app access: Enabled (via UIFileSharingEnabled)")
 
         // Clean up old backups (keep only last 10)
         try await cleanupOldBackups(in: backupURL)
@@ -428,6 +477,7 @@ enum SettingsStorage {
 
             // Shabad Display
             larivaarOn: defaults.bool(forKey: "settings.larivaarOn"),
+            larivaarAssist: defaults.bool(forKey: "settings.larivaarAssist"),
             textScale: defaults.double(forKey: "settings.textScale") != 0 ? defaults.double(forKey: "settings.textScale") : 1.0,
             swipeToGoToNextShabad: defaults.bool(forKey: "swipeToGoToNextShabadSetting"),
             qwertyKeyboard: defaults.bool(forKey: "settings.qwertyKeyboard"),
@@ -449,7 +499,10 @@ enum SettingsStorage {
 
             // Widget Settings
             randSbdRefreshInterval: appGroupDefaults.integer(forKey: "randSbdRefreshInterval") != 0 ? appGroupDefaults.integer(forKey: "randSbdRefreshInterval") : 3,
-            favSbdRefreshInterval: appGroupDefaults.integer(forKey: "favSbdRefreshInterval") != 0 ? appGroupDefaults.integer(forKey: "favSbdRefreshInterval") : 3
+            favSbdRefreshInterval: appGroupDefaults.integer(forKey: "favSbdRefreshInterval") != 0 ? appGroupDefaults.integer(forKey: "favSbdRefreshInterval") : 3,
+
+            // Bani Settings
+            favoriteBanis: defaults.string(forKey: "favoriteBanis") ?? "[]"
         )
     }
 
@@ -464,6 +517,7 @@ enum SettingsStorage {
 
         // Shabad Display
         defaults.set(settings.larivaarOn, forKey: "settings.larivaarOn")
+        defaults.set(settings.larivaarAssist, forKey: "settings.larivaarAssist")
         defaults.set(settings.textScale, forKey: "settings.textScale")
         defaults.set(settings.swipeToGoToNextShabad, forKey: "swipeToGoToNextShabadSetting")
         defaults.set(settings.qwertyKeyboard, forKey: "settings.qwertyKeyboard")
@@ -486,6 +540,9 @@ enum SettingsStorage {
         // Widget Settings
         appGroupDefaults.set(settings.randSbdRefreshInterval, forKey: "randSbdRefreshInterval")
         appGroupDefaults.set(settings.favSbdRefreshInterval, forKey: "favSbdRefreshInterval")
+
+        // Bani Settings
+        defaults.set(settings.favoriteBanis, forKey: "favoriteBanis")
 
         defaults.synchronize()
         appGroupDefaults.synchronize()

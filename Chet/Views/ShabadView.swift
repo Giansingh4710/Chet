@@ -564,31 +564,31 @@ struct CopySheetView: View {
 
                                 if let a = verse.transliteration.value(for: selectedTransliterationSource) {
                                     Text(a)
-                                        .foregroundColor(colorScheme == .dark ? Color(red: 0.75, green: 0.75, blue: 0.75) : Color(red: 0.5, green: 0.5, blue: 0.5))
+                                        .foregroundColor(AppColors.transliterationColor(for: colorScheme))
                                         .lineSpacing(2)
                                         .opacity(0.9)
                                 }
                                 if let a = verse.translation.getTranslation(for: "english", source: selectedEnglishSource) {
                                     Text(a)
-                                        .foregroundColor(colorScheme == .dark ? Color(red: 0.7, green: 0.85, blue: 1.0) : Color(red: 0.2, green: 0.4, blue: 0.7))
+                                        .foregroundColor(AppColors.englishTranslationColor(for: colorScheme))
                                         .lineSpacing(2)
                                 }
 
                                 if let a = verse.translation.getTranslation(for: "punjabi", source: selectedPunjabiSource) {
                                     Text(a)
-                                        .foregroundColor(colorScheme == .dark ? Color(red: 1.0, green: 0.85, blue: 0.6) : Color(red: 0.65, green: 0.45, blue: 0.2))
+                                        .foregroundColor(AppColors.punjabiTranslationColor(for: colorScheme))
                                         .lineSpacing(2)
                                 }
 
                                 if let a = verse.translation.getTranslation(for: "hindi", source: selectedHindiSource) {
                                     Text(a)
-                                        .foregroundColor(colorScheme == .dark ? Color(red: 0.9, green: 0.75, blue: 0.85) : Color(red: 0.6, green: 0.3, blue: 0.5))
+                                        .foregroundColor(AppColors.hindiTranslationColor(for: colorScheme))
                                         .lineSpacing(2)
                                 }
 
                                 if let a = verse.translation.getTranslation(for: "spanish", source: selectedSpanishSource) {
                                     Text(a)
-                                        .foregroundColor(colorScheme == .dark ? Color(red: 0.85, green: 0.95, blue: 0.75) : Color(red: 0.4, green: 0.6, blue: 0.3))
+                                        .foregroundColor(AppColors.spanishTranslationColor(for: colorScheme))
                                         .lineSpacing(2)
                                 }
                             }
@@ -1084,35 +1084,35 @@ struct GurbaniLineView: View {
             if let a = verse.transliteration.value(for: selectedTransliterationSource) {
                 Text(a)
                     .font(.system(size: 16 * transliterationTextScale * gestureScale, design: .monospaced))
-                    .foregroundColor(colorScheme == .dark ? Color(red: 0.75, green: 0.75, blue: 0.75) : Color(red: 0.5, green: 0.5, blue: 0.5))
+                    .foregroundColor(AppColors.transliterationColor(for: colorScheme))
                     .lineSpacing(2)
                     .opacity(0.9)
             }
             if let a = verse.translation.getTranslation(for: "english", source: selectedEnglishSource) {
                 Text(a)
                     .font(.system(size: 17 * enTransTextScale * gestureScale, design: .rounded))
-                    .foregroundColor(colorScheme == .dark ? Color(red: 0.7, green: 0.85, blue: 1.0) : Color(red: 0.2, green: 0.4, blue: 0.7))
+                    .foregroundColor(AppColors.englishTranslationColor(for: colorScheme))
                     .lineSpacing(2)
             }
 
             if let a = verse.translation.getTranslation(for: "punjabi", source: selectedPunjabiSource) {
                 Text(a)
                     .font(.system(size: 16 * punjabiTranslationTextScale * gestureScale))
-                    .foregroundColor(colorScheme == .dark ? Color(red: 1.0, green: 0.85, blue: 0.6) : Color(red: 0.65, green: 0.45, blue: 0.2))
+                    .foregroundColor(AppColors.punjabiTranslationColor(for: colorScheme))
                     .lineSpacing(2)
             }
 
             if let a = verse.translation.getTranslation(for: "hindi", source: selectedHindiSource) {
                 Text(a)
                     .font(.system(size: 16 * hindiTranslationTextScale * gestureScale))
-                    .foregroundColor(colorScheme == .dark ? Color(red: 0.9, green: 0.75, blue: 0.85) : Color(red: 0.6, green: 0.3, blue: 0.5))
+                    .foregroundColor(AppColors.hindiTranslationColor(for: colorScheme))
                     .lineSpacing(2)
             }
 
             if let a = verse.translation.getTranslation(for: "spanish", source: selectedSpanishSource) {
                 Text(a)
                     .font(.system(size: 16 * spanishTranslationTextScale * gestureScale))
-                    .foregroundColor(colorScheme == .dark ? Color(red: 0.85, green: 0.95, blue: 0.75) : Color(red: 0.4, green: 0.6, blue: 0.3))
+                    .foregroundColor(AppColors.spanishTranslationColor(for: colorScheme))
                     .lineSpacing(2)
             }
         }
@@ -1149,23 +1149,9 @@ struct GurbaniLineView: View {
             let color: Color
 
             if let visraamType = visraamPoints[index] {
-                switch visraamType {
-                case "v": // small pause
-                    color = colorScheme == .dark ? Color(red: 1.0, green: 0.5, blue: 0.3) : Color(red: 0.9, green: 0.2, blue: 0.0)
-                case "y": // big pause
-                    color = colorScheme == .dark ? Color(red: 0.3, green: 1.0, blue: 0.3) : Color(red: 0.0, green: 0.7, blue: 0.0)
-                default:
-                    color = .primary
-                }
-            } else if larivaarAssist {
-                let isEvenWord = index % 2 == 0
-                color = isEvenWord
-                    ? (colorScheme == .dark
-                        ? Color(red: 0.75, green: 0.85, blue: 1.0) // soft sky blue
-                        : Color(red: 0.05, green: 0.25, blue: 0.55)) // muted navy
-                    : (colorScheme == .dark
-                        ? Color(red: 1.0, green: 0.8, blue: 0.65) // warm apricot
-                        : Color(red: 0.55, green: 0.35, blue: 0.05)) // amber brown
+                color = AppColors.visraamColor(type: visraamType, for: colorScheme)
+            } else if larivaarAssist && lineLarivaar {
+                color = AppColors.larivaarAssistColor(index: index, for: colorScheme)
             } else {
                 color = .primary // Normal mode - just primary color
             }
@@ -1194,31 +1180,63 @@ struct SaveToFolderSheet: View {
 
     @Environment(\.modelContext) private var modelContext
     @AppStorage("backupChangeCounter") private var backupChangeCounter = 0
+    @State private var showBackupToast = false
+    @State private var backupMessage = ""
 
     var body: some View {
-        NavigationStack {
-            List(rootFolders, id: \.id, children: \.subfoldersOrNil) { folder in
-                Toggle(isOn: Binding(
-                    get: { isShabadSaved(in: folder) },
-                    set: { newValue in
-                        if newValue {
-                            save(to: folder)
-                        } else {
-                            remove(from: folder)
+        ZStack {
+            NavigationStack {
+                List(rootFolders, id: \.id, children: \.subfoldersOrNil) { folder in
+                    Toggle(isOn: Binding(
+                        get: { isShabadSaved(in: folder) },
+                        set: { newValue in
+                            if newValue {
+                                save(to: folder)
+                            } else {
+                                remove(from: folder)
+                            }
                         }
+                    )) {
+                        Text(folder.name)
                     }
-                )) {
-                    Text(folder.name)
+                    .toggleStyle(.switch)
                 }
-                .toggleStyle(.switch)
+                .navigationTitle("Save to Folders")
+                .toolbar {
+                    ToolbarItem(placement: .cancellationAction) {
+                        Button("Close") {}
+                    }
+                }
             }
-            .navigationTitle("Save to Folders")
-            .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("Close") {}
+
+            // Backup toast notification
+            if showBackupToast {
+                VStack {
+                    Spacer()
+                    HStack(spacing: 12) {
+                        Image(systemName: "checkmark.circle.fill")
+                            .foregroundColor(.green)
+                            .font(.title3)
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text("Backup Created")
+                                .font(.headline)
+                            Text(backupMessage)
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                        Spacer()
+                    }
+                    .padding()
+                    .background(.ultraThinMaterial)
+                    .cornerRadius(12)
+                    .shadow(radius: 10)
+                    .padding()
                 }
+                .transition(.move(edge: .bottom).combined(with: .opacity))
+                .zIndex(999)
             }
         }
+        .animation(.spring(response: 0.4, dampingFraction: 0.8), value: showBackupToast)
     }
 
     private func isShabadSaved(in folder: Folder) -> Bool {
@@ -1248,11 +1266,35 @@ struct SaveToFolderSheet: View {
             Task {
                 do {
                     let data = try await BackupManager.shared.exportToJSON(modelContext: modelContext)
-                    _ = try await BackupManager.shared.saveToiCloud(data: data)
+                    let url = try await BackupManager.shared.saveToiCloud(data: data)
                     UserDefaults.standard.set(Date().timeIntervalSince1970, forKey: "lastBackupTime")
                     print("✅ Auto-backup completed after 5 changes")
+
+                    // Show toast notification
+                    await MainActor.run {
+                        let location = url.path.contains("iCloud") ? "iCloud Drive" : "Documents"
+                        backupMessage = "Saved to \(location)/Chet Backups/"
+                        showBackupToast = true
+
+                        // Hide toast after 4 seconds
+                        Task {
+                            try? await Task.sleep(nanoseconds: 4_000_000_000)
+                            showBackupToast = false
+                        }
+                    }
                 } catch {
                     print("❌ Auto-backup failed: \(error.localizedDescription)")
+
+                    // Show error toast
+                    await MainActor.run {
+                        backupMessage = "Backup failed"
+                        showBackupToast = true
+
+                        Task {
+                            try? await Task.sleep(nanoseconds: 3_000_000_000)
+                            showBackupToast = false
+                        }
+                    }
                 }
             }
             backupChangeCounter = 0

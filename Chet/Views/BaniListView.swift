@@ -9,208 +9,273 @@ import SwiftUI
 
 struct BaniListView: View {
     @State private var expandedCategories: Set<String> = []
+    @AppStorage("favoriteBanis") private var favoriteBanisData: String = "[]"
+    @AppStorage("fontType") private var fontType: String = "Unicode"
+    @Environment(\.editMode) private var editMode
+
+    private var favoriteBanis: [String] {
+        if let data = favoriteBanisData.data(using: .utf8),
+           let array = try? JSONDecoder().decode([String].self, from: data)
+        {
+            return array
+        }
+        return []
+    }
+
+    private func toggleFavorite(_ baniTitle: String) {
+        var favorites = favoriteBanis
+        if let index = favorites.firstIndex(of: baniTitle) {
+            favorites.remove(at: index)
+        } else {
+            favorites.append(baniTitle)
+        }
+        saveFavorites(favorites)
+    }
+
+    private func moveFavorite(from source: IndexSet, to destination: Int) {
+        var favorites = favoriteBanis
+        favorites.move(fromOffsets: source, toOffset: destination)
+        saveFavorites(favorites)
+    }
+
+    private func saveFavorites(_ favorites: [String]) {
+        if let data = try? JSONEncoder().encode(favorites),
+           let string = String(data: data, encoding: .utf8)
+        {
+            favoriteBanisData = string
+        }
+    }
 
     private let banis: [(title: String, items: [String])] = [
-        ("Nitnem", [
-            "ਜਪੁਜੀ ਸਾਹਿਬ",
-            "ਜਾਪੁ ਸਾਹਿਬ",
-            "ਤ੍ਵ ਪ੍ਰਸਾਦਿ ਸਵੱਯੇ (ਸ੍ਰਾਵਗ ਸੁੱਧ)",
-            "ਬੇਨਤੀ ਚੌਪਈ ਸਾਹਿਬ",
-            "ਅਨੰਦੁ ਸਾਹਿਬ",
-            "ਰਹਰਾਸਿ ਸਾਹਿਬ",
-            "ਸੋਹਿਲਾ ਸਾਹਿਬ",
+        ("inqnym", [
+            "jpujI swihb",
+            "jwpu swihb",
+            "qÍ pRswid sv`Xy (sRwvg su`D)",
+            "bynqI cOpeI swihb",
+            "Anµdu swihb",
+            "rhrwis swihb",
+            "soihlw swihb",
         ]),
-        ("Fun Size", [
-            "ਲਾਵਾਂ",
-            "ਕੁਚਜੀ",
-            "ਸੁਚਜੀ",
-            "ਗੁਣਵੰਤੀ",
-            "ਫੁਨਹੇ ਮਹਲਾ ੫",
-            "ਚਉਬੋਲੇ",
-            "ਰਾਮਕਲੀ ਕੀ ਵਾਰ (ਰਾਇ ਬਲਵੰਡਿ ਤਥਾ ਸਤੈ)",
-            "ਬਸੰਤ ਕੀ ਵਾਰ",
+        ("ਬੇਅੰਤ ਬਾਣੀਆਂ", [
+            "lwvW",
+            "kucjI",
+            "sucjI",
+            "guxvMqI",
+            "Punhy mhlw 5",
+            "cauboly",
+            "rwmklI kI vwr (rwie blvMif qQw sqY)",
+            "bsMq kI vwr",
         ]),
-        ("5 Granthi", [
-            "ਸੁਖਮਨੀ ਸਾਹਿਬ",
-            "ਆਸਾ ਦੀ ਵਾਰ",
-            "ਬਾਵਨ ਅਖਰੀ",
-            "ਸਿਧ ਗੋਸਟਿ",
-            "ਦਖਣੀ ਓਅੰਕਾਰੁ",
+        ("5 gRMQI", [
+            "suKmnI swihb",
+            "Awsw dI vwr",
+            "bwvn AKrI",
+            "isD gosit",
+            "dKxI EAMkwru",
         ]),
-        ("22 Vaaran", [
-            "ਸਿਰੀਰਾਗ ਕੀ ਵਾਰ ਮਹਲਾ ੪",
-            "ਵਾਰ ਮਾਝ ਕੀ",
-            "ਗਉੜੀ ਕੀ ਵਾਰ ਮਹਲਾ ੪",
-            "ਗਉੜੀ ਕੀ ਵਾਰ ਮਹਲਾ ੫",
-            "ਆਸਾ ਦੀ ਵਾਰ",
-            "ਗੂਜਰੀ ਕੀ ਵਾਰ ਮਹਲਾ ੩",
-            "ਰਾਗੁ ਗੂਜਰੀ ਵਾਰ ਮਹਲਾ ੫",
-            "ਬਿਹਾਗੜੇ ਕੀ ਵਾਰ ਮਹਲਾ ੪",
-            "ਵਡਹੰਸ ਕੀ ਵਾਰ ਮਹਲਾ ੪",
-            "ਰਾਗੁ ਸੋਰਠਿ ਵਾਰ ਮਹਲੇ ੪ ਕੀ",
-            "ਜੈਤਸਰੀ ਕੀ ਵਾਰ",
-            "ਵਾਰ ਸੂਹੀ ਕੀ",
-            "ਬਿਲਾਵਲੁ ਕੀ ਵਾਰ ਮਹਲਾ ੪",
-            "ਰਾਮਕਲੀ ਕੀ ਵਾਰ ਮਹਲਾ ੩",
-            "ਰਾਮਕਲੀ ਕੀ ਵਾਰ ਮਹਲਾ ੫",
-            "ਰਾਮਕਲੀ ਕੀ ਵਾਰ (ਰਾਇ ਬਲਵੰਡਿ ਤਥਾ ਸਤੈ)",
-            "ਮਾਰੂ ਵਾਰ ਮਹਲਾ ੩",
-            "ਮਾਰੂ ਵਾਰ ਮਹਲਾ ੫ ਡਖਣੇ",
-            "ਬਸੰਤ ਕੀ ਵਾਰ",
-            "ਸਾਰੰਗ ਕੀ ਵਾਰ ਮਹਲਾ ੪",
-            "ਵਾਰ ਮਲਾਰ ਕੀ ਮਹਲਾ ੧",
-            "ਕਾਨੜੇ ਕੀ ਵਾਰ ਮਹਲਾ ੪",
+        ("22 vwrw", [
+            "isrIrwg kI vwr mhlw 4",
+            "vwr mwJ kI",
+            "gauVI kI vwr mhlw 4",
+            "gauVI kI vwr mhlw 5",
+            "Awsw dI vwr",
+            "gUjrI kI vwr mhlw 3",
+            "rwgu gUjrI vwr mhlw 5",
+            "ibhwgVy kI vwr mhlw 4",
+            "vfhMs kI vwr mhlw 4",
+            "rwgu soriT vwr mhly 4 kI",
+            "jYqsrI kI vwr",
+            "vwr sUhI kI",
+            "iblwvlu kI vwr mhlw 4",
+            "rwmklI kI vwr mhlw 3",
+            "rwmklI kI vwr mhlw 5",
+            "rwmklI kI vwr (rwie blvMif qQw sqY)",
+            "mwrU vwr mhlw 3",
+            "mwrU vwr mhlw 5 fKxy",
+            "bsMq kI vwr",
+            "swrMg kI vwr mhlw 4",
+            "vwr mlwr kI mhlw 1",
+            "kwnVy kI vwr mhlw 4",
         ]),
-        ("Bhagat Bani", [
-            "ਰਾਗੁ ਸਿਰੀਰਾਗੁ (ਕਬੀਰ ਜੀਉ ਕਾ)",
-            "ਰਾਗੁ ਗਉੜੀ",
-            "ਰਾਗੁ ਆਸਾ",
-            "ਰਾਗੁ ਗੂਜਰੀ",
-            "ਰਾਗੁ ਸੋਰਠਿ",
-            "ਰਾਗੁ ਧਨਾਸਰੀ",
-            "ਰਾਗੁ ਜੈਤਸਰੀ",
-            "ਰਾਗੁ ਟੋਡੀ (ਬਾਣੀ ਭਗਤਾਂ ਕੀ)",
-            "ਰਾਗੁ ਤਿਲੰਗ (ਬਾਣੀ ਭਗਤਾ ਕੀ ਕਬੀਰ ਜੀ)",
-            "ਰਾਗੁ ਸੂਹੀ",
-            "ਰਾਗੁ ਬਿਲਾਵਲੁ",
-            "ਰਾਗੁ ਗੋਂਡ",
-            "ਰਾਮਕਲੀ ਕੀ ਵਾਰ ਮਹਲਾ ੩",
-            "ਰਾਗੁ ਮਾਲੀ ਗਉੜਾ",
-            "ਰਾਗੁ ਮਾਰੂ",
-            "ਰਾਗੁ ਕੇਦਾਰਾ",
-            "ਰਾਗੁ ਭੈਰਉ",
-            "ਰਾਗੁ ਬਸੰਤੁ",
-            "ਰਾਗੁ ਸਾਰੰਗ",
-            "ਵਾਰ ਮਲਾਰ ਕੀ ਮਹਲਾ ੧",
-            "ਰਾਗੁ ਕਾਨੜਾ",
-            "ਰਾਗੁ ਪ੍ਰਭਾਤੀ",
-            "ਸਲੋਕ ਭਗਤ ਕਬੀਰ ਜੀਉ ਕੇ",
-            "ਸਲੋਕ ਸੇਖ ਫਰੀਦ ਕੇ",
+        ("Bgq bwxI", [
+            "rwgu isrIrwgu (kbIr jIau kw)",
+            "rwgu gauVI",
+            "rwgu Awsw",
+            "rwgu gUjrI",
+            "rwgu soriT",
+            "rwgu DnwsrI",
+            "rwgu jYqsrI",
+            "rwgu tofI (bwxI BgqW kI)",
+            "rwgu iqlMg (bwxI Bgqw kI kbIr jI)",
+            "rwgu sUhI",
+            "rwgu iblwvlu",
+            "rwgu goNf",
+            "rwmklI kI vwr mhlw 3",
+            "rwgu mwlI gauVw",
+            "rwgu mwrU",
+            "rwgu kydwrw",
+            "rwgu BYrau",
+            "rwgu bsMqu",
+            "rwgu swrMg",
+            "vwr mlwr kI mhlw 1",
+            "rwgu kwnVw",
+            "rwgu pRBwqI",
+            "slok Bgq kbIr jIau ky",
+            "slok syK PrId ky",
         ]),
-        ("Svaiye", [
-            "ਸਵਯੇ ਸ੍ਰੀ ਮੁਖਬਾਕੵ ਮਹਲਾ ੫ - ੧",
-            "ਸਵਯੇ ਸ੍ਰੀ ਮੁਖਬਾਕੵ ਮਹਲਾ ੫ - ੨",
-            "ਸਵਈਏ ਮਹਲੇ ਪਹਿਲੇ ਕੇ",
-            "ਸਵਈਏ ਮਹਲੇ ਦੂਜੇ ਕੇ",
-            "ਸਵਈਏ ਮਹਲੇ ਤੀਜੇ ਕੇ",
-            "ਸਵਈਏ ਮਹਲੇ ਚਉਥੇ ਕੇ",
-            "ਸਵਈਏ ਮਹਲੇ ਪੰਜਵੇ ਕੇ",
+        ("svXy", [
+            "svXy sRI muKbwk´ mhlw 5 - 1",
+            "svXy sRI muKbwk´ mhlw 5 - 2",
+            "sveIey mhly pihly ky",
+            "sveIey mhly dUjy ky",
+            "sveIey mhly qIjy ky",
+            "sveIey mhly cauQy ky",
+            "sveIey mhly pMjvy ky",
         ]),
-        ("Dasam", [
-            "ਉਗ੍ਰਦੰਤੀ",
-            "ਅਕਾਲ ਉਸਤਤ",
-            "ਚੰਡੀ ਦੀ ਵਾਰ",
-            "ਸ਼ਸਤ੍ਰ ਨਾਮ ਮਾਲਾ",
+        ("dsm", [
+            "jwpu swihb",
+            "Akwl ausqq cOpeI",
+            "Akwl ausqq",
+            "qÍ pRswid sv`Xy (sRwvg su`D)",
+            "qÍ pRswid sv`Xy (dInn kI)",
+            "AQ cMfIcirqR",
+            "cMfI dI vwr",
+            "SsqR nwm mwlw",
+            "bynqI cOpeI swihb",
+            "sRI BgauqI AsqoqR (pMQ pRkwS)",
+            "sRI BgauqI AsqoqR (sRI hzUr swihb)",
+            "augRdMqI",
+            "bwrh mwhw svYXw",
+            "Sbd hzwry pwiqSwhI 10",
         ]),
-        ("All Banis", [
-            "ਆਰਤੀ",
-            "ਰਾਗੁ ਆਸਾ",
-            "ਅਕਾਲ ਉਸਤਤ ਚੌਪਈ",
-            "ਅਕਾਲ ਉਸਤਤ",
-            "ਅਨੰਦੁ ਸਾਹਿਬ",
-            "ਅਰਦਾਸ",
-            "ਆਸਾ ਦੀ ਵਾਰ",
-            "ਅਥ ਚੰਡੀਚਰਿਤ੍ਰ",
-            "ਬਾਰਹ ਮਾਹਾ ਮਾਂਝ",
-            "ਬਾਰਹ ਮਾਹਾ ਸਵੈਯਾ",
-            "ਬਾਵਨ ਅਖਰੀ ਕਬੀਰ ਜੀਉ ਕੀ",
-            "ਰਾਗੁ ਬਸੰਤੁ",
-            "ਬਸੰਤ ਕੀ ਵਾਰ",
-            "ਬਾਵਨ ਅਖਰੀ",
-            "ਸ੍ਰੀ ਭਗਉਤੀ ਅਸਤੋਤ੍ਰ (ਪੰਥ ਪ੍ਰਕਾਸ਼)",
-            "ਸ੍ਰੀ ਭਗਉਤੀ ਅਸਤੋਤ੍ਰ (ਸ੍ਰੀ ਹਜ਼ੂਰ ਸਾਹਿਬ)",
-            "ਰਾਗੁ ਭੈਰਉ",
-            "ਬਿਹਾਗੜੇ ਕੀ ਵਾਰ ਮਹਲਾ ੪",
-            "ਰਾਗੁ ਬਿਲਾਵਲੁ",
-            "ਬਿਲਾਵਲੁ ਕੀ ਵਾਰ ਮਹਲਾ ੪",
-            "ਬਿਰਹੜੇ",
-            "ਚੰਡੀ ਦੀ ਵਾਰ",
-            "ਚਉਬੋਲੇ",
-            "ਬੇਨਤੀ ਚੌਪਈ ਸਾਹਿਬ",
-            "ਦਖਣੀ ਓਅੰਕਾਰੁ",
-            "ਰਾਗੁ ਧਨਾਸਰੀ",
-            "ਦੁਖ ਭੰਜਨੀ ਸਾਹਿਬ",
-            "ਫੁਨਹੇ ਮਹਲਾ ੫",
-            "ਰਾਗੁ ਗਉੜੀ",
-            "ਗਉੜੀ ਕੀ ਵਾਰ ਮਹਲਾ ੪",
-            "ਗਉੜੀ ਕੀ ਵਾਰ ਮਹਲਾ ੫",
-            "ਘੋੜੀਆ",
-            "ਰਾਗੁ ਗੋਂਡ",
-            "ਰਾਗੁ ਗੂਜਰੀ",
-            "ਗੂਜਰੀ ਕੀ ਵਾਰ ਮਹਲਾ ੩",
-            "ਰਾਗੁ ਗੂਜਰੀ ਵਾਰ ਮਹਲਾ ੫",
-            "ਗੁਣਵੰਤੀ",
-            "ਜਾਪੁ ਸਾਹਿਬ",
-            "ਰਾਗੁ ਜੈਤਸਰੀ",
-            "ਜੈਤਸਰੀ ਕੀ ਵਾਰ",
-            "ਜਪੁਜੀ ਸਾਹਿਬ",
-            "ਰਾਗੁ ਕਾਨੜਾ",
-            "ਕਾਨੜੇ ਕੀ ਵਾਰ ਮਹਲਾ ੪",
-            "ਕਰਹਲੇ",
-            "ਰਾਗੁ ਕੇਦਾਰਾ",
-            "ਕੁਚਜੀ",
-            "ਲਾਵਾਂ",
-            "ਵਾਰ ਮਾਝ ਕੀ",
-            "ਰਾਗੁ ਮਾਲੀ ਗਉੜਾ",
-            "ਮਾਰੂ ਵਾਰ ਮਹਲਾ ੩",
-            "ਰਾਗੁ ਮਾਰੂ",
-            "ਰਾਗੁ ਮਲਾਰ",
-            "ਵਾਰ ਮਲਾਰ ਕੀ ਮਹਲਾ ੧",
-            "ਉਗ੍ਰਦੰਤੀ",
-            "ਪਟੀ ਲਿਖੀ",
-            "ਪਟੀ ਮਹਲਾ ੩",
-            "ਰਾਗੁ ਪ੍ਰਭਾਤੀ",
-            "ਰਾਗ ਮਾਲਾ",
-            "ਰਾਗੁ ਰਾਮਕਲੀ (ਸਦੁ)",
-            "ਰਾਮਕਲੀ ਕੀ ਵਾਰ ਮਹਲਾ ੩",
-            "ਰਾਮਕਲੀ ਕੀ ਵਾਰ ਮਹਲਾ ੫",
-            "ਰਾਮਕਲੀ ਕੀ ਵਾਰ (ਰਾਇ ਬਲਵੰਡਿ ਤਥਾ ਸਤੈ)",
-            "ਰਹਰਾਸਿ ਸਾਹਿਬ",
-            "ਮਹਲਾ ੫ ਰੁਤੀ",
-            "ਰਾਗੁ ਸਾਰੰਗ",
-            "ਰਾਮਕਲੀ ਸਦੁ",
-            "ਸਲੋਕ ਸੇਖ ਫਰੀਦ ਕੇ",
-            "ਸਲੋਕ ਭਗਤ ਕਬੀਰ ਜੀਉ ਕੇ",
-            "ਸਲੋਕ ਮਹਲਾ ੯",
-            "ਸਾਰੰਗ ਕੀ ਵਾਰ ਮਹਲਾ ੪",
-            "ਸ਼ਬਦ ਹਜ਼ਾਰੇ",
-            "ਸ਼ਬਦ ਹਜ਼ਾਰੇ ਪਾਤਿਸ਼ਾਹੀ ੧੦",
-            "ਸ਼ਸਤ੍ਰ ਨਾਮ ਮਾਲਾ",
-            "ਸਿਧ ਗੋਸਟਿ",
-            "ਸਵਯੇ ਸ੍ਰੀ ਮੁਖਬਾਕੵ ਮਹਲਾ ੫ - ੧",
-            "ਸਵਯੇ ਸ੍ਰੀ ਮੁਖਬਾਕੵ ਮਹਲਾ ੫ - ੨",
-            "ਸਿਰੀਰਾਗ ਕੀ ਵਾਰ ਮਹਲਾ ੪",
-            "ਸੋਹਿਲਾ ਸਾਹਿਬ",
-            "ਰਾਗੁ ਸੂਹੀ",
-            "ਵਾਰ ਸੂਹੀ ਕੀ",
-            "ਰਾਗੁ ਸੋਰਠਿ",
-            "ਰਾਗੁ ਸੋਰਠਿ ਵਾਰ ਮਹਲੇ ੪ ਕੀ",
-            "ਰਾਗੁ ਸਿਰੀਰਾਗੁ (ਕਬੀਰ ਜੀਉ ਕਾ)",
-            "ਸੁਚਜੀ",
-            "ਸੁਖਮਨਾ ਸਾਹਿਬ",
-            "ਸੁਖਮਨੀ ਸਾਹਿਬ",
-            "ਤ੍ਵ ਪ੍ਰਸਾਦਿ ਸਵੱਯੇ (ਸ੍ਰਾਵਗ ਸੁੱਧ)",
-            "ਤ੍ਵ ਪ੍ਰਸਾਦਿ ਸਵੱਯੇ (ਦੀਨਨ ਕੀ)",
-            "ਸਵਈਏ ਮਹਲੇ ਪਹਿਲੇ ਕੇ",
-            "ਸਵਈਏ ਮਹਲੇ ਦੂਜੇ ਕੇ",
-            "ਸਵਈਏ ਮਹਲੇ ਤੀਜੇ ਕੇ",
-            "ਸਵਈਏ ਮਹਲੇ ਚਉਥੇ ਕੇ",
-            "ਸਵਈਏ ਮਹਲੇ ਪੰਜਵੇ ਕੇ",
-            "ਥਿਤੰੀ ਕਬੀਰ ਜੀ ਕੰੀ",
-            "ਥਿਤੀ ਮਹਲਾ ੧",
-            "ਥਿਤੀ ਮਹਲਾ ੫",
-            "ਰਾਗੁ ਤਿਲੰਗ (ਬਾਣੀ ਭਗਤਾ ਕੀ ਕਬੀਰ ਜੀ)",
-            "ਰਾਗੁ ਟੋਡੀ (ਬਾਣੀ ਭਗਤਾਂ ਕੀ)",
-            "ਗਉੜੀ ਵਾਰ ਕਬੀਰ ਜੀਉ ਕੇ",
-            "ਮਾਰੂ ਵਾਰ ਮਹਲਾ ੫ ਡਖਣੇ",
-            "ਬਿਲਾਵਲੁ ਮਹਲਾ ੩ ਵਾਰ ਸਤ",
-            "ਵਡਹੰਸ ਕੀ ਵਾਰ ਮਹਲਾ ੪",
-            "ਵਣਜਾਰਾ",
+        ("swrIAwN bwxIAwN", [
+            "gur mMqR",
+            "jpujI swihb",
+            "rhrwis swihb",
+            "soihlw swihb",
+            "vxjwrw",
+            "isrIrwg kI vwr mhlw 4",
+            "rwgu isrIrwgu (kbIr jIau kw)",
+            "bwrh mwhw mWJ",
+            "vwr mwJ kI",
+            "krhly",
+            "bwvn AKrI",
+            "suKmnI swihb",
+            "iQqI mhlw 5",
+            "gauVI kI vwr mhlw 4",
+            "gauVI kI vwr mhlw 5",
+            "rwgu gauVI",
+            "bwvn AKrI kbIr jIau kI",
+            "iQqMØI kbIr jI kMØI",
+            "gauVI vwr kbIr jIau ky",
+            "ibrhVy",
+            "ptI ilKI",
+            "ptI mhlw 3",
+            "Awsw dI vwr",
+            "rwgu Awsw",
+            "gUjrI kI vwr mhlw 3",
+            "rwgu gUjrI vwr mhlw 5",
+            "rwgu gUjrI",
+            "ibhwgVy kI vwr mhlw 4",
+            "GoVIAw",
+            "vfhMs kI vwr mhlw 4",
+            "rwgu soriT vwr mhly 4 kI",
+            "rwgu soriT",
+            "rwgu DnwsrI",
+            "jYqsrI kI vwr",
+            "rwgu jYqsrI",
+            "rwgu tofI (bwxI BgqW kI)",
+            "rwgu iqlMg (bwxI Bgqw kI kbIr jI)",
+            "kucjI",
+            "sucjI",
+            "guxvMqI",
+            "lwvW",
+            "vwr sUhI kI",
+            "rwgu sUhI",
+            "suKmnw swihb",
+            "iQqI mhlw 1",
+            "iblwvlu mhlw 3 vwr sq",
+            "iblwvlu kI vwr mhlw 4",
+            "rwgu iblwvlu",
+            "rwgu goNf",
+            "Anµdu swihb",
+            "rwgu rwmklI (sdu)",
+            "rwmklI sdu",
+            "mhlw 5 ruqI",
+            "dKxI EAMkwru",
+            "isD gosit",
+            "rwmklI kI vwr mhlw 3",
+            "rwmklI kI vwr mhlw 5",
+            "rwmklI kI vwr (rwie blvMif qQw sqY)",
+            "rwgu mwlI gauVw",
+            "mwrU vwr mhlw 3",
+            "mwrU vwr mhlw 5 fKxy",
+            "rwgu mwrU",
+            "rwgu kydwrw",
+            "rwgu BYrau",
+            "rwgu bsMqu",
+            "bsMq kI vwr",
+            "swrMg kI vwr mhlw 4",
+            "rwgu swrMg",
+            "vwr mlwr kI mhlw 1",
+            "rwgu mlwr",
+            "kwnVy kI vwr mhlw 4",
+            "rwgu kwnVw",
+            "rwgu pRBwqI",
+            "Punhy mhlw 5",
+            "cauboly",
+            "slok Bgq kbIr jIau ky",
+            "slok syK PrId ky",
+            "svXy sRI muKbwk´ mhlw 5 - 1",
+            "svXy sRI muKbwk´ mhlw 5 - 2",
+            "sveIey mhly pihly ky",
+            "sveIey mhly dUjy ky",
+            "sveIey mhly qIjy ky",
+            "sveIey mhly cauQy ky",
+            "sveIey mhly pMjvy ky",
+            "slok mhlw 9",
+            "rwg mwlw",
+            "AwrqI",
+            "Sbd hzwry",
+            "duK BMjnI swihb",
+            "Ardws",
+            "jwpu swihb",
+            "Akwl ausqq cOpeI",
+            "Akwl ausqq",
+            "qÍ pRswid sv`Xy (sRwvg su`D)",
+            "qÍ pRswid sv`Xy (dInn kI)",
+            "AQ cMfIcirqR",
+            "cMfI dI vwr",
+            "SsqR nwm mwlw",
+            "bynqI cOpeI swihb",
+            "sRI BgauqI AsqoqR (pMQ pRkwS)",
+            "sRI BgauqI AsqoqR (sRI hzUr swihb)",
+            "augRdMqI",
+            "bwrh mwhw svYXw",
+            "Sbd hzwry pwiqSwhI 10",
         ]),
     ]
 
     var body: some View {
         List {
+            if !favoriteBanis.isEmpty {
+                Section {
+                    ForEach(favoriteBanis, id: \.self) { baniTitle in
+                        baniRow(baniTitle: baniTitle, isFavorite: true)
+                    }
+                    .onMove(perform: moveFavorite)
+                } header: {
+                    HStack {
+                        Image(systemName: "star.fill")
+                            .foregroundColor(.yellow)
+                        Text("Favorites")
+                        Spacer()
+                        Text("(\(favoriteBanis.count))")
+                            .foregroundColor(.secondary)
+                    }
+                }
+            }
+
             ForEach(banis, id: \.title) { category in
                 DisclosureGroup(
                     isExpanded: Binding(
@@ -225,22 +290,56 @@ struct BaniListView: View {
                     )
                 ) {
                     ForEach(category.items, id: \.self) { baniTitle in
-                        NavigationLink(destination: BaniView(baniTitle: baniTitle)) {
-                            HStack {
-                                Text(baniTitle)
-                                    .foregroundColor(.primary)
-                            }
-                            .padding(.vertical, 4)
-                        }
+                        baniRow(baniTitle: baniTitle, isFavorite: favoriteBanis.contains(baniTitle))
                     }
                 } label: {
-                    Text(category.title)
-                        .font(.headline)
+                    HStack {
+                        Text(category.title)
+                            .font(resolveFont(size: 20, fontType: fontType == "Unicode" ? "AnmolLipiSG" : fontType))
+                        Spacer()
+                        Text("(\(category.items.count))")
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                    }
                 }
             }
         }
         .navigationTitle("Banis")
         .listStyle(.insetGrouped)
+        .toolbar {
+            if !favoriteBanis.isEmpty {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    EditButton()
+                }
+            }
+        }
+    }
+
+    private func baniRow(baniTitle: String, isFavorite: Bool) -> some View {
+        ZStack {
+            NavigationLink(destination: BaniView(baniTitle: baniTitle)) {
+                EmptyView()
+            }
+            .opacity(0)
+
+            HStack {
+                Text(baniTitle)
+                    .font(resolveFont(size: 18, fontType: fontType == "Unicode" ? "AnmolLipiSG" : fontType))
+                    .foregroundColor(.primary)
+
+                Spacer()
+
+                Button(action: {
+                    toggleFavorite(baniTitle)
+                }) {
+                    Image(systemName: isFavorite ? "star.fill" : "star")
+                        .foregroundColor(isFavorite ? .yellow : .gray)
+                        .font(.system(size: 18))
+                }
+                .buttonStyle(.borderless)
+            }
+            .padding(.vertical, 4)
+        }
     }
 
     private func getCategoryIcon(_ title: String) -> String {

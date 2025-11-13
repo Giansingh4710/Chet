@@ -99,6 +99,11 @@ struct SavedShabadsView: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 HStack(spacing: 12) {
                     if editMode?.wrappedValue.isEditing == true {
+                        Button(action: selectAllFolders) {
+                            Image(systemName: selectedFolders.count == rootFolders.count ? "checklist.unchecked" : "checklist")
+                                .font(.system(size: 18))
+                        }
+
                         Menu {
                             Button {
                                 isCopyOperation = false
@@ -261,6 +266,16 @@ struct SavedShabadsView: View {
         }
     }
 
+    private func selectAllFolders() {
+        if selectedFolders.count == rootFolders.count {
+            // Deselect all
+            selectedFolders.removeAll()
+        } else {
+            // Select all
+            selectedFolders = Set(rootFolders)
+        }
+    }
+
     private func performBulkMoveOfFolders(to destination: Folder?) {
         for selectedFolder in selectedFolders {
             selectedFolder.parentFolder = destination
@@ -374,6 +389,13 @@ struct FoldersContentView: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 HStack(spacing: 12) {
                     if editMode?.wrappedValue.isEditing == true {
+                        Button(action: selectAll) {
+                            let totalItems = folder.subfolders.count + folder.savedShabads.count
+                            let totalSelected = selectedFolders.count + selectedShabads.count
+                            Image(systemName: totalSelected == totalItems ? "checklist.unchecked" : "checklist")
+                                .font(.system(size: 18))
+                        }
+
                         Menu {
                             Button {
                                 isCopyOperation = false
@@ -442,6 +464,21 @@ struct FoldersContentView: View {
             for (i, f) in folder.subfolders.enumerated() {
                 print("        Folder #\(i): \(f.name)")
             }
+        }
+    }
+
+    private func selectAll() {
+        let totalItems = folder.subfolders.count + folder.savedShabads.count
+        let totalSelected = selectedFolders.count + selectedShabads.count
+
+        if totalSelected == totalItems {
+            // Deselect all
+            selectedFolders.removeAll()
+            selectedShabads.removeAll()
+        } else {
+            // Select all
+            selectedFolders = Set(folder.subfolders)
+            selectedShabads = Set(folder.savedShabads)
         }
     }
 
@@ -566,6 +603,11 @@ struct FoldersDisplay: View {
 
     @State private var showingErrorAlert = false
     @State private var errorMessage: String = ""
+
+    // Widget folder selection
+    @AppStorage("favShabadsWidgetFolderID", store: UserDefaults.appGroup) private var widgetFolderID: String = ""
+    @AppStorage("favShabadsWidgetFolderName", store: UserDefaults.appGroup) private var widgetFolderName: String = ""
+    @State private var showingWidgetInfoAlert = false
     init(parentFolder: Folder?, selectedFolders: Binding<Set<Folder>>) {
         self.parentFolder = parentFolder
         _selectedFolders = selectedFolders
@@ -621,7 +663,44 @@ struct FoldersDisplay: View {
                 } else {
                     // Not in edit mode: normal navigation link
                     NavigationLink(destination: FoldersContentView(folder: sub)) {
-                        Label(sub.name, systemImage: "folder")
+                        HStack(spacing: 8) {
+                            Label(sub.name, systemImage: "folder")
+
+                            Spacer()
+
+                            // Widget indicator - tappable info button (before the chevron)
+                            if widgetFolderID == sub.id.uuidString {
+                                Button(action: {
+                                    showingWidgetInfoAlert = true
+                                }) {
+                                    Image(systemName: "info.circle.fill")
+                                        .font(.caption)
+                                        .foregroundColor(.accentColor)
+                                }
+                                .buttonStyle(PlainButtonStyle())
+                            }
+                        }
+                    }
+                    .contextMenu {
+                        if widgetFolderID == sub.id.uuidString {
+                            Button(role: .destructive) {
+                                // Remove widget folder selection
+                                widgetFolderID = ""
+                                widgetFolderName = ""
+                                WidgetCenter.shared.reloadTimelines(ofKind: "FavShabadsWidget")
+                            } label: {
+                                Label("Remove from Widget", systemImage: "rectangle.on.rectangle.slash")
+                            }
+                        } else {
+                            Button {
+                                // Set this folder as the widget folder
+                                widgetFolderID = sub.id.uuidString
+                                widgetFolderName = sub.name
+                                WidgetCenter.shared.reloadTimelines(ofKind: "FavShabadsWidget")
+                            } label: {
+                                Label("Use for Widget", systemImage: "rectangle.on.rectangle")
+                            }
+                        }
                     }
                 }
 
@@ -658,6 +737,11 @@ struct FoldersDisplay: View {
                 }
                 editingFolder = nil
             }
+        }
+        .alert("Widget Folder", isPresented: $showingWidgetInfoAlert) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text("This folder is currently used by the Favorites Shabad Widget.\n\nThe widget will rotate through shabads in this folder.\n\nTo change the widget folder:\n• Long-press on this folder and select \"Remove from Widget\"\n• Then long-press on another folder and select \"Use for Widget\"")
         }
     }
 

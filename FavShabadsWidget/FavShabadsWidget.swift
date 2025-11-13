@@ -12,6 +12,10 @@ import WidgetKit
 struct Provider: @preconcurrency TimelineProvider {
     let modelContainer = ModelContainer.shared
 
+    // Key for storing selected widget folder ID
+    private let widgetFolderIDKey = "favShabadsWidgetFolderID"
+    private let widgetFolderNameKey = "favShabadsWidgetFolderName"
+
     @MainActor func placeholder(in _: Context) -> RandSbdForWidget {
         let sbd: ShabadAPIResponse = loadJSON(from: "random_sbd", as: ShabadAPIResponse.self)!
         return RandSbdForWidget(sbd: sbd, date: Date.now, index: 0)
@@ -50,11 +54,28 @@ struct Provider: @preconcurrency TimelineProvider {
         do {
             let context = modelContainer.mainContext
 
-            let descriptor = FetchDescriptor<SavedShabad>(
+            // Check if user has selected a specific folder for the widget
+            if let folderIDString = UserDefaults.appGroup.string(forKey: widgetFolderIDKey),
+               let folderUUID = UUID(uuidString: folderIDString) {
+                // Try to fetch shabads from the selected folder
+                let descriptor = FetchDescriptor<SavedShabad>(
+                    predicate: #Predicate { $0.folder?.id == folderUUID },
+                    sortBy: [SortDescriptor(\.sortIndex)]
+                )
+                let results = try context.fetch(descriptor)
+
+                // If folder exists and has shabads, use them
+                if !results.isEmpty {
+                    return results
+                }
+            }
+
+            // Fallback to "Favorites" folder if no folder selected or selected folder is empty/deleted
+            let fallbackDescriptor = FetchDescriptor<SavedShabad>(
                 predicate: #Predicate { $0.folder?.name == "Favorites" && $0.folder?.parentFolder == nil && $0.folder?.isSystemFolder == true },
                 sortBy: [SortDescriptor(\.sortIndex)]
             )
-            let results = try context.fetch(descriptor)
+            let results = try context.fetch(fallbackDescriptor)
             return results
         } catch {
             print("Widget fetch error: \(error)")
@@ -65,8 +86,17 @@ struct Provider: @preconcurrency TimelineProvider {
 
 struct FavShabadsWidgetEntryView: View {
     var entry: RandSbdForWidget
+
+    private var heading: String {
+        // Get the selected folder name from UserDefaults
+        if let folderName = UserDefaults.appGroup.string(forKey: "favShabadsWidgetFolderName"), !folderName.isEmpty {
+            return "From \(folderName)"
+        }
+        return "From Favorites"
+    }
+
     var body: some View {
-        WidgetEntryView(entry: entry, heading: "From Favorites")
+        WidgetEntryView(entry: entry, heading: heading)
             .widgetURL(URL(string: "chet://favshabadid/\(entry.sbd.shabadInfo.shabadId)")) // custom deep link
         // Text("Favs")
     }

@@ -14,6 +14,7 @@ struct ContentView: View {
     @Binding var isInFavorites: Bool
     @Binding var shouldFocusSearch: Bool
     @Environment(\.colorScheme) private var colorScheme
+    @Environment(\.modelContext) private var modelContext
     @State private var selectedTab = 0
     @State private var searchNavPath = NavigationPath()
     @State private var baniNavPath = NavigationPath()
@@ -98,6 +99,11 @@ struct ContentView: View {
         }
         .onAppear {
             UIApplication.shared.isIdleTimerDisabled = true
+
+            // Perform daily backup check
+            Task {
+                await BackupManager.shared.performDailyBackupIfNeeded(modelContext: modelContext)
+            }
         }
         .onDisappear {
             UIApplication.shared.isIdleTimerDisabled = false

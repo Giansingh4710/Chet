@@ -18,6 +18,9 @@ struct BaniView: View {
         partitionIndexes = bani_partitions[baniFilename] ?? []
     }
 
+    @AppStorage("settings.larivaarAssist") private var larivaarAssist: Bool = false
+    @AppStorage("fontType") private var fontType: String = "Unicode"
+
     @State private var baniData: BaniResponse?
     @State private var isLoading = true
     @State private var errorMessage: String?
@@ -28,13 +31,10 @@ struct BaniView: View {
     @State private var preSelectedLineIdForCopy: Int = 0
     @State private var selectedVerse: Verse?
     @State private var currentSectionIndex: Int = 0
-
-    @AppStorage("settings.larivaarOn") private var larivaarOn: Bool = true
-    @AppStorage("settings.larivaarAssist") private var larivaarAssist: Bool = false
+    @State private var showBaniInfo = false
 
     // Bani-specific settings (separate from ShabadView)
     @AppStorage("bani.textScale") private var textScale: Double = 1.0
-    @AppStorage("bani.fontType") private var fontType: String = "Unicode"
     @AppStorage("bani.visraamSource") private var selectedVisraamSource = "igurbani"
     @AppStorage("bani.englishSource") private var selectedEnglishSource = "bdb"
     @AppStorage("bani.punjabiSource") private var selectedPunjabiSource = "none"
@@ -46,6 +46,9 @@ struct BaniView: View {
     @AppStorage("bani.transliterationTextScale") private var transliterationTextScale: Double = 1.0
     @AppStorage("bani.paragraphMode") private var isParagraphMode: Bool = true
     @AppStorage("bani.recension") private var selectedRecension: String = "taksal"
+    @AppStorage("bani.mangalPosition") private var selectedMangalPosition: String = "current"
+    @AppStorage("bani.enableSections") private var enableSections: Bool = true
+    @AppStorage("swipeToGoToNextShabadSetting") private var swipeToGoToNextShabadSetting = true
 
     @Environment(\.colorScheme) var colorScheme
 
@@ -80,43 +83,38 @@ struct BaniView: View {
                 ScrollViewReader { proxy in
                     ScrollView {
                         VStack(spacing: 24) {
-                            // Show section info if partitions exist
-                            if !partitionIndexes.isEmpty {
-                                HStack {
-                                    Spacer()
-                                    Text("Section \(currentSectionIndex + 1) of \(partitionIndexes.count)")
-                                        .font(.caption)
-                                        .foregroundColor(.secondary)
-                                    Spacer()
-                                }
-                                .padding(.bottom, 4)
-                            }
-
-                            // Show either paragraph mode or line mode
                             if isParagraphMode {
                                 paragraphView(verses: getCurrentSectionVerses())
                             } else {
                                 lineView(verses: getCurrentSectionVerses())
                             }
                         }
-                        .padding(.bottom, 30)
+                        .padding(10)
                     }
                     .background(colorScheme == .dark ? Color.black : Color.white)
                     .onChange(of: currentSectionIndex) { _, _ in
                         withAnimation {
-                            proxy.scrollTo("top", anchor: .top)
+                            proxy.scrollTo(0, anchor: .top)
                         }
                     }
                 }
             }
         }
-        .navigationTitle(baniTitle)
+        .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-            // Section navigation menu (leading)
-            // Previous/Next section buttons (bottom bar)
+            ToolbarItem(placement: .principal) {
+                Button(action: {
+                    showBaniInfo = true
+                }) {
+                    Text(baniTitle)
+                        .font(resolveFont(size: 20, fontType: fontType))
+                        .foregroundColor(.primary)
+                }
+            }
+
             ToolbarItemGroup(placement: .bottomBar) {
-                if !partitionIndexes.isEmpty {
+                if enableSections && !partitionIndexes.isEmpty {
                     Button(action: goToPreviousSection) {
                         Label("Previous", systemImage: "chevron.left")
                     }
@@ -124,10 +122,11 @@ struct BaniView: View {
 
                     Spacer()
 
-                    Text(getSectionTitle(for: currentSectionIndex))
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-                        .lineLimit(1)
+                    Button(action: {
+                        showingSettings = true
+                    }) {
+                        Image(systemName: "gearshape.fill")
+                    }
 
                     Spacer()
 
@@ -135,12 +134,17 @@ struct BaniView: View {
                         Label("Next", systemImage: "chevron.right")
                     }
                     .disabled(!canGoNext)
+                } else {
+                    Button(action: {
+                        showingSettings = true
+                    }) {
+                        Image(systemName: "gearshape.fill")
+                    }
                 }
             }
 
-            // Settings button (trailing)
-            ToolbarItem(placement: .navigationBarTrailing) {
-                if !partitionIndexes.isEmpty {
+            ToolbarItemGroup(placement: .topBarTrailing) {
+                if enableSections && !partitionIndexes.isEmpty {
                     Menu {
                         ForEach(0 ..< partitionIndexes.count, id: \.self) { index in
                             Button(action: {
@@ -155,21 +159,26 @@ struct BaniView: View {
                             }
                         }
                     } label: {
-                        Label("Sections", systemImage: "list.bullet")
+                        // Label("Sections", systemImage: "list.bullet")
+                        Text("\(currentSectionIndex + 1)/\(partitionIndexes.count)")
+                            .font(.subheadline)
+                            .fontWeight(.medium)
+                            .foregroundColor(.primary)
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 6)
+                            .background(Color(.systemGray5))
+                            .cornerRadius(8)
                     }
                 }
             }
-
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button(action: {
-                    showingSettings = true
-                }) {
-                    Image(systemName: "gearshape.fill")
-                }
+        }
+        .sheet(isPresented: $showBaniInfo) {
+            if let baniData = baniData {
+                BaniMetaInfoSheet(info: baniData.baniInfo)
             }
         }
         .sheet(isPresented: $showingSettings) {
-            BaniSettingsSheet(hasRecensionVariation: hasRecensionVariation)
+            BaniSettingsSheet(hasRecensionVariation: hasRecensionVariation, hasMultipleSections: partitionIndexes.count > 1)
                 .presentationDetents([.medium, .large])
         }
         .sheet(isPresented: $showCopySheet) {
@@ -197,6 +206,26 @@ struct BaniView: View {
             .presentationDetents([.medium])
         }
         .gesture(
+            DragGesture()
+                .onEnded { value in
+                    if !swipeToGoToNextShabadSetting {
+                        return
+                    }
+                    if !enableSections || partitionIndexes.isEmpty {
+                        return
+                    }
+                    let horizontalAmount = value.translation.width
+
+                    if horizontalAmount < -50 {
+                        // Swipe left - go to next section
+                        goToNextSection()
+                    } else if horizontalAmount > 50 {
+                        // Swipe right - go to previous section
+                        goToPreviousSection()
+                    }
+                }
+        )
+        .gesture(
             MagnificationGesture()
                 .onChanged { value in
                     gestureScale = value
@@ -206,6 +235,7 @@ struct BaniView: View {
                     gestureScale = 1.0
                 }
         )
+        .animation(.easeInOut, value: currentSectionIndex)
         .onAppear {
             loadBani()
         }
@@ -231,14 +261,14 @@ struct BaniView: View {
 
     // MARK: - Section Navigation Helpers
 
-    /// Get the verses for the current section
+    // Get the verses for the current section
     private func getCurrentSectionVerses() -> [BaniVerse] {
         guard let baniData = baniData else { return [] }
 
         // Get section verses
         let sectionVerses: [BaniVerse]
-        if partitionIndexes.isEmpty {
-            // No partitions, use all verses
+        if !enableSections || partitionIndexes.isEmpty {
+            // Sections disabled or no partitions, use all verses
             sectionVerses = baniData.verses
         } else {
             // Get start index for current section
@@ -257,19 +287,38 @@ struct BaniView: View {
         }
 
         // Apply recension filter
+        let recessionFiltered: [BaniVerse]
         switch selectedRecension {
         case "sgpc":
-            return sectionVerses.filter { $0.existsSGPC == 1 }
+            recessionFiltered = sectionVerses.filter { $0.existsSGPC == 1 }
         case "medium":
-            return sectionVerses.filter { $0.existsMedium == 1 }
+            recessionFiltered = sectionVerses.filter { $0.existsMedium == 1 }
         case "buddhaDal":
-            return sectionVerses.filter { $0.existsBuddhaDal == 1 }
+            recessionFiltered = sectionVerses.filter { $0.existsBuddhaDal == 1 }
         default: // "taksal" (default)
-            return sectionVerses.filter { $0.existsTaksal == 1 }
+            recessionFiltered = sectionVerses.filter { $0.existsTaksal == 1 }
         }
+
+        // Apply mangalPosition filter (only for headers)
+        // If mangalPosition is null, always show the verse
+        // If mangalPosition has a value, only show if it matches the selected filter
+        let mangalFiltered = recessionFiltered.filter { verse in
+            // If it's not a header, always include it
+            if verse.header == 0 {
+                return true
+            }
+            // If mangalPosition is null, include it
+            guard let mangalPos = verse.mangalPosition else {
+                return true
+            }
+            // Only include if it matches the selected mangalPosition
+            return mangalPos == selectedMangalPosition
+        }
+
+        return mangalFiltered
     }
 
-    /// Get section title for display
+    // Get section title for display
     private func getSectionTitle(for sectionIndex: Int) -> String {
         guard let baniData = baniData, !partitionIndexes.isEmpty else { return "" }
         guard sectionIndex < partitionIndexes.count else { return "" }
@@ -282,8 +331,8 @@ struct BaniView: View {
         }
         let verse = baniData.verses[verseIndex]
         let title = verse.verse.verse.unicode
-        if title.count > 30 {
-            return String(title.prefix(30)) + "..."
+        if title.count > 15 {
+            return "\(sectionIndex + 1). " + String(title.prefix(15)) + "..."
         } else {
             return "\(sectionIndex + 1). " + title
         }
@@ -317,7 +366,7 @@ struct BaniView: View {
         }
     }
 
-    /// Navigate to next section
+    // Navigate to next section
     private func goToNextSection() {
         if canGoNext {
             currentSectionIndex += 1
@@ -328,233 +377,28 @@ struct BaniView: View {
         let paragraphs = groupVersesByParagraph(verses)
 
         return ForEach(Array(paragraphs.enumerated()), id: \.offset) { _, paragraph in
-            VStack(alignment: .leading, spacing: 6) {
-                VStack(alignment: .leading, spacing: 0) {
-                    ForEach(paragraph) { baniVerse in
-                        renderGurbaniLine(baniVerse.verse)
-                            .font(resolveFont(size: 22 * textScale * gestureScale, fontType: fontType))
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .contentShape(Rectangle())
-                            .onTapGesture {
-                                larivaarOn.toggle()
-                            }
-                            .onLongPressGesture {
-                                preSelectedLineIdForCopy = baniVerse.verse.verseId
-                                selectedVerse = baniVerse.verse
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
-                                    showWordDefinitions = true
-                                }
-                            }
-                    }
-                }
-                .padding(.horizontal, 2)
-
-                // Combined Transliteration paragraph (if enabled)
-                if selectedTransliterationSource != "none" {
-                    let transliterationText = paragraph.compactMap {
-                        $0.verse.transliteration.value(for: selectedTransliterationSource)
-                    }.joined(separator: " ")
-
-                    if !transliterationText.isEmpty {
-                        Text(transliterationText)
-                            .font(.system(size: 16 * transliterationTextScale * gestureScale, design: .monospaced))
-                            .foregroundColor(colorScheme == .dark ? Color(red: 0.75, green: 0.75, blue: 0.75) : Color(red: 0.5, green: 0.5, blue: 0.5))
-                            .lineSpacing(6)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding(.horizontal, 2)
-                    }
-                }
-
-                // Combined English Translation paragraph (if enabled)
-                if selectedEnglishSource != "none" {
-                    let translationText = paragraph.compactMap {
-                        $0.verse.translation.getTranslation(for: "english", source: selectedEnglishSource)
-                    }.joined(separator: " ")
-
-                    if !translationText.isEmpty {
-                        Text(translationText)
-                            .font(.system(size: 16 * enTransTextScale * gestureScale))
-                            .foregroundColor(.secondary)
-                            .lineSpacing(6)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                    }
-                }
-
-                // Combined Punjabi Translation paragraph (if enabled)
-                if selectedPunjabiSource != "none" {
-                    let translationText = paragraph.compactMap {
-                        $0.verse.translation.getTranslation(for: "punjabi", source: selectedPunjabiSource)
-                    }.joined(separator: " ")
-
-                    if !translationText.isEmpty {
-                        Text(translationText)
-                            .font(.system(size: 16 * punjabiTransTextScale * gestureScale))
-                            .foregroundColor(.secondary)
-                            .lineSpacing(6)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                    }
-                }
-
-                // Combined Hindi Translation paragraph (if enabled)
-                if selectedHindiSource != "none" {
-                    let translationText = paragraph.compactMap {
-                        $0.verse.translation.getTranslation(for: "hindi", source: selectedHindiSource)
-                    }.joined(separator: " ")
-
-                    if !translationText.isEmpty {
-                        Text(translationText)
-                            .font(.system(size: 16 * hindiTransTextScale * gestureScale))
-                            .foregroundColor(.secondary)
-                            .lineSpacing(6)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                    }
+            VStack(alignment: .leading, spacing: 0) {
+                ForEach(paragraph) { verse in
+                    BaniVerseView(verse: verse)
                 }
             }
-            .background(
-                RoundedRectangle(cornerRadius: 8)
-                    .fill(colorScheme == .dark ? Color(.systemGray6).opacity(0.3) : Color(.systemGray6).opacity(0.5))
-            )
+            .padding(.bottom, 6)
         }
     }
 
     private func paragraphView(verses: [BaniVerse]) -> some View {
         let paragraphs = groupVersesByParagraph(verses)
 
-        return ForEach(Array(paragraphs.enumerated()), id: \.offset) { _, paragraph in
-            VStack(alignment: .leading, spacing: 6) {
-                // --- Gurbani Paragraph ---
-                renderParagraph(paragraph: paragraph)
-                    .font(resolveFont(size: 22 * textScale * gestureScale, fontType: fontType))
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .contentShape(Rectangle())
-                    .onTapGesture {
-                        larivaarOn.toggle()
-                    }
-
-                // --- Transliteration ---
-                if selectedTransliterationSource != "none" {
-                    let transliterationText = paragraph.compactMap {
-                        $0.verse.transliteration.value(for: selectedTransliterationSource)
-                    }.joined(separator: " ")
-
-                    if !transliterationText.isEmpty {
-                        Text(transliterationText)
-                            .font(.system(size: 16 * transliterationTextScale * gestureScale, design: .monospaced))
-                            .foregroundColor(colorScheme == .dark ? Color(red: 0.75, green: 0.75, blue: 0.75) : Color(red: 0.5, green: 0.5, blue: 0.5))
-                            .lineSpacing(6)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding(.horizontal, 2)
-                    }
-                }
-
-                // --- English Translation ---
-                if selectedEnglishSource != "none" {
-                    let translationText = paragraph.compactMap {
-                        $0.verse.translation.getTranslation(for: "english", source: selectedEnglishSource)
-                    }.joined(separator: " ")
-
-                    if !translationText.isEmpty {
-                        Text(translationText)
-                            .font(.system(size: 16 * enTransTextScale * gestureScale))
-                            .foregroundColor(.secondary)
-                            .lineSpacing(6)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                    }
-                }
-
-                // --- Punjabi Translation ---
-                if selectedPunjabiSource != "none" {
-                    let translationText = paragraph.compactMap {
-                        $0.verse.translation.getTranslation(for: "punjabi", source: selectedPunjabiSource)
-                    }.joined(separator: " ")
-
-                    if !translationText.isEmpty {
-                        Text(translationText)
-                            .font(.system(size: 16 * punjabiTransTextScale * gestureScale))
-                            .foregroundColor(.secondary)
-                            .lineSpacing(6)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                    }
-                }
-
-                // --- Hindi Translation ---
-                if selectedHindiSource != "none" {
-                    let translationText = paragraph.compactMap {
-                        $0.verse.translation.getTranslation(for: "hindi", source: selectedHindiSource)
-                    }.joined(separator: " ")
-
-                    if !translationText.isEmpty {
-                        Text(translationText)
-                            .font(.system(size: 16 * hindiTransTextScale * gestureScale))
-                            .foregroundColor(.secondary)
-                            .lineSpacing(6)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                    }
-                }
+        return ForEach(Array(paragraphs.enumerated()), id: \.offset) { paragraphIndex, paragraph in
+            VStack(alignment: .leading, spacing: 0) {
+                // Continuous flowing text for the paragraph (including headers)
+                BaniParagraphView(
+                    verses: paragraph,
+                    paragraphId: paragraphIndex
+                )
             }
-            .background(
-                RoundedRectangle(cornerRadius: 8)
-                    .fill(colorScheme == .dark ? Color(.systemGray6).opacity(0.3) : Color(.systemGray6).opacity(0.5))
-            )
+            .padding(.bottom, 6)
         }
-    }
-
-    private func renderParagraph(paragraph: [BaniVerse]) -> Text {
-        var result = Text("")
-
-        for (verseIndex, baniVerse) in paragraph.enumerated() {
-            let words = baniVerse.verse.verse.gurmukhi.components(separatedBy: " ")
-
-            var visraamPoints: [Int: String] = [:] // [position: type]
-            if let visraam = baniVerse.verse.visraam {
-                let selectedVisraamData: [Visraam.VisraamPoint]
-                switch selectedVisraamSource {
-                case "sttm":
-                    selectedVisraamData = visraam.sttm ?? []
-                case "sttm2":
-                    selectedVisraamData = visraam.sttm2 ?? []
-                case "igurbani":
-                    selectedVisraamData = visraam.igurbani ?? []
-                default:
-                    selectedVisraamData = []
-                }
-
-                for point in selectedVisraamData {
-                    visraamPoints[point.p] = point.t
-                }
-            }
-
-            for (index, word) in words.enumerated() {
-                let color: Color
-
-                if let visraamType = visraamPoints[index] {
-                    switch visraamType {
-                    case "v":
-                        color = colorScheme == .dark ? Color(red: 1.0, green: 0.5, blue: 0.3) : Color(red: 0.9, green: 0.2, blue: 0.0)
-                    case "y":
-                        color = colorScheme == .dark ? Color(red: 0.3, green: 1.0, blue: 0.3) : Color(red: 0.0, green: 0.7, blue: 0.0)
-                    default:
-                        color = .primary
-                    }
-                } else if larivaarAssist {
-                    let isEvenWord = index % 2 == 0
-                    color = isEvenWord
-                        ? (colorScheme == .dark ? Color(red: 0.75, green: 0.85, blue: 1.0) : Color(red: 0.05, green: 0.25, blue: 0.55))
-                        : (colorScheme == .dark ? Color(red: 1.0, green: 0.8, blue: 0.65) : Color(red: 0.55, green: 0.35, blue: 0.05))
-                } else {
-                    color = .primary
-                }
-
-                result = result + Text(word).foregroundColor(color)
-
-                // Add a space after each word unless it's the last in the paragraph
-                if verseIndex != paragraph.count - 1 || index < words.count - 1 {
-                    result = result + Text(" ")
-                }
-            }
-        }
-
-        return result
     }
 
     private func groupVersesByParagraph(_ verses: [BaniVerse]) -> [[BaniVerse]] {
@@ -583,177 +427,331 @@ struct BaniView: View {
 
         return paragraphs
     }
+}
 
-    private func renderGurbaniLine(_ verse: Verse) -> Text {
-        // let isLarivaarMode = lineLarivaar
-        let isLarivaarMode = larivaarOn || larivaarAssist
-        let text = fontType == "Unicode" ? verse.verse.unicode : verse.verse.gurmukhi
-        let words = text.components(separatedBy: " ")
+// MARK: - BaniParagraphView (Continuous flowing text)
 
-        // Get visraam points based on selected source
-        var visraamPoints: [Int: String] = [:] // [position: type]
-        if let visraam = verse.visraam {
-            let selectedVisraamData: [Visraam.VisraamPoint]
-            switch selectedVisraamSource {
-            case "sttm":
-                selectedVisraamData = visraam.sttm ?? []
-            case "sttm2":
-                selectedVisraamData = visraam.sttm2 ?? []
-            case "igurbani":
-                selectedVisraamData = visraam.igurbani ?? []
-            default:
-                selectedVisraamData = []
+struct BaniParagraphView: View {
+    let verses: [BaniVerse]
+    let paragraphId: Int
+
+    @AppStorage("settings.larivaarOn") private var globalLarivaarOn: Bool = false
+    @AppStorage("settings.larivaarAssist") private var larivaarAssist: Bool = false
+    @AppStorage("fontType") private var fontType: String = "Unicode"
+    @AppStorage("bani.textScale") private var textScale: Double = 1.0
+    @AppStorage("bani.visraamSource") private var selectedVisraamSource = "igurbani"
+    @AppStorage("bani.transliterationSource") private var selectedTransliterationSource: String = "none"
+    @AppStorage("bani.englishSource") private var selectedEnglishSource: String = "bdb"
+    @AppStorage("bani.punjabiSource") private var selectedPunjabiSource: String = "none"
+    @AppStorage("bani.hindiSource") private var selectedHindiSource: String = "none"
+    @AppStorage("bani.transliterationTextScale") private var transliterationTextScale: Double = 1.0
+    @AppStorage("bani.englishTranslationTextScale") private var enTransTextScale: Double = 1.0
+    @AppStorage("bani.punjabiTranslationTextScale") private var punjabiTransTextScale: Double = 1.0
+    @AppStorage("bani.hindiTranslationTextScale") private var hindiTransTextScale: Double = 1.0
+
+    @State private var localLarivaar: Bool = false
+
+    @Environment(\.colorScheme) var colorScheme
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            formattedParagraphText
+                .font(resolveFont(size: 20 * textScale, fontType: fontType))
+                .lineSpacing(2)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .fixedSize(horizontal: false, vertical: true)
+                .contentShape(Rectangle())
+                .onTapGesture {
+                    withAnimation(.easeInOut(duration: 0.15)) {
+                        localLarivaar.toggle()
+                    }
+                }
+                .onAppear {
+                    localLarivaar = globalLarivaarOn
+                }
+                .onChange(of: globalLarivaarOn) { _, newValue in
+                    localLarivaar = newValue
+                }
+
+            // Transliteration paragraph
+            if selectedTransliterationSource != "none", let transliteration = getParagraphTransliteration() {
+                Text(transliteration)
+                    .font(.system(size: 14 * transliterationTextScale))
+                    .foregroundColor(AppColors.transliterationColor(for: colorScheme))
+                    .frame(maxWidth: .infinity, alignment: .leading)
             }
 
-            for point in selectedVisraamData {
-                visraamPoints[point.p] = point.t
+            // English translation paragraph
+            if let englishTrans = getParagraphTranslation(language: "english", source: selectedEnglishSource) {
+                Text(englishTrans)
+                    .font(.system(size: 14 * enTransTextScale))
+                    .foregroundColor(AppColors.englishTranslationColor(for: colorScheme))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }
+
+            // Punjabi translation paragraph
+            if let punjabiTrans = getParagraphTranslation(language: "punjabi", source: selectedPunjabiSource) {
+                Text(punjabiTrans)
+                    .font(.system(size: 14 * punjabiTransTextScale))
+                    .foregroundColor(AppColors.punjabiTranslationColor(for: colorScheme))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }
+
+            // Hindi translation paragraph
+            if let hindiTrans = getParagraphTranslation(language: "hindi", source: selectedHindiSource) {
+                Text(hindiTrans)
+                    .font(.system(size: 14 * hindiTransTextScale))
+                    .foregroundColor(AppColors.hindiTranslationColor(for: colorScheme))
+                    .frame(maxWidth: .infinity, alignment: .leading)
             }
         }
+    }
 
+    private var formattedParagraphText: Text {
         var result = Text("")
-        for (index, word) in words.enumerated() {
-            let wordText: Text
-            let color: Color
 
-            if let visraamType = visraamPoints[index] {
-                switch visraamType {
-                case "v": // small pause
-                    color = colorScheme == .dark ? Color(red: 1.0, green: 0.5, blue: 0.3) : Color(red: 0.9, green: 0.2, blue: 0.0)
-                case "y": // big pause
-                    color = colorScheme == .dark ? Color(red: 0.3, green: 1.0, blue: 0.3) : Color(red: 0.0, green: 0.7, blue: 0.0)
-                default:
-                    color = .primary
+        for (verseIndex, baniVerse) in verses.enumerated() {
+            let text = fontType == "Unicode" ? baniVerse.verse.verse.unicode : baniVerse.verse.verse.gurmukhi
+            let words = text.components(separatedBy: " ")
+
+            // Get visraam points for this verse
+            var visraamPoints: [Int: String] = [:]
+            if selectedVisraamSource != "none", let visraam = baniVerse.verse.visraam {
+                let selectedVisraamData: [Visraam.VisraamPoint]
+                switch selectedVisraamSource {
+                case "sttm": selectedVisraamData = visraam.sttm ?? []
+                case "sttm2": selectedVisraamData = visraam.sttm2 ?? []
+                case "igurbani": selectedVisraamData = visraam.igurbani ?? []
+                default: selectedVisraamData = []
                 }
-            } else if larivaarAssist {
-                let isEvenWord = index % 2 == 0
-                color = isEvenWord
-                    ? (colorScheme == .dark
-                        ? Color(red: 0.75, green: 0.85, blue: 1.0) // soft sky blue
-                        : Color(red: 0.05, green: 0.25, blue: 0.55)) // muted navy
-                    : (colorScheme == .dark
-                        ? Color(red: 1.0, green: 0.8, blue: 0.65) // warm apricot
-                        : Color(red: 0.55, green: 0.35, blue: 0.05)) // amber brown
-            } else {
-                color = .primary // Normal mode - just primary color
+                for point in selectedVisraamData {
+                    visraamPoints[point.p] = point.t
+                }
             }
 
-            wordText = Text(word).foregroundColor(color)
-            result = result + wordText
+            for (index, word) in words.enumerated() {
+                let color: Color
 
-            // Add space between words only if not in larivaar or larivaar assist mode
-            if index < words.count - 1 && !isLarivaarMode {
+                // Visraam coloring takes priority
+                if let visraamType = visraamPoints[index] {
+                    color = AppColors.visraamColor(type: visraamType, for: colorScheme)
+                } else if larivaarAssist && localLarivaar {
+                    // Larivaar assist ONLY when in larivaar mode
+                    color = AppColors.larivaarAssistColor(index: index, for: colorScheme)
+                } else {
+                    color = .primary
+                }
+
+                result = result + Text(word).foregroundColor(color)
+
+                // Add space between words unless in larivaar mode
+                if index < words.count - 1 && !localLarivaar {
+                    result = result + Text(" ")
+                }
+            }
+
+            // Add space between verses in paragraph (only if not in larivaar mode)
+            if verseIndex < verses.count - 1 && !localLarivaar {
                 result = result + Text(" ")
             }
         }
 
         return result
     }
+
+    private func getParagraphTransliteration() -> String? {
+        var transliterations: [String] = []
+
+        for baniVerse in verses {
+            let transliteration: String?
+            switch selectedTransliterationSource {
+            case "en": transliteration = baniVerse.verse.transliteration.en
+            case "hi": transliteration = baniVerse.verse.transliteration.hi
+            case "ipa": transliteration = baniVerse.verse.transliteration.ipa
+            case "ur": transliteration = baniVerse.verse.transliteration.ur
+            default: transliteration = nil
+            }
+
+            if let trans = transliteration, !trans.isEmpty {
+                transliterations.append(trans)
+            }
+        }
+
+        return transliterations.isEmpty ? nil : transliterations.joined(separator: " ")
+    }
+
+    private func getParagraphTranslation(language: String, source: String) -> String? {
+        guard source != "none" else { return nil }
+
+        var translations: [String] = []
+
+        for baniVerse in verses {
+            if let translation = baniVerse.verse.translation.getTranslation(for: language, source: source), !translation.isEmpty {
+                translations.append(translation)
+            }
+        }
+
+        return translations.isEmpty ? nil : translations.joined(separator: " ")
+    }
+}
+
+struct FlowLayout: Layout {
+    var spacing: CGFloat = 0
+
+    func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache _: inout ()) -> CGSize {
+        let result = FlowResult(
+            in: proposal.replacingUnspecifiedDimensions().width,
+            subviews: subviews,
+            spacing: spacing
+        )
+        return result.size
+    }
+
+    func placeSubviews(in bounds: CGRect, proposal _: ProposedViewSize, subviews: Subviews, cache _: inout ()) {
+        let result = FlowResult(
+            in: bounds.width,
+            subviews: subviews,
+            spacing: spacing
+        )
+        for (index, subview) in subviews.enumerated() {
+            subview.place(at: CGPoint(x: bounds.minX + result.positions[index].x, y: bounds.minY + result.positions[index].y), proposal: .unspecified)
+        }
+    }
+
+    struct FlowResult {
+        var size: CGSize = .zero
+        var positions: [CGPoint] = []
+
+        init(in maxWidth: CGFloat, subviews: Subviews, spacing: CGFloat) {
+            var currentX: CGFloat = 0
+            var currentY: CGFloat = 0
+            var lineHeight: CGFloat = 0
+
+            for subview in subviews {
+                let size = subview.sizeThatFits(.unspecified)
+
+                if currentX + size.width > maxWidth && currentX > 0 {
+                    // Move to next line
+                    currentX = 0
+                    currentY += lineHeight + spacing
+                    lineHeight = 0
+                }
+
+                positions.append(CGPoint(x: currentX, y: currentY))
+                lineHeight = max(lineHeight, size.height)
+                currentX += size.width + spacing
+            }
+
+            size = CGSize(width: maxWidth, height: currentY + lineHeight)
+        }
+    }
 }
 
 let bani_title_to_filename: [String: String] = [
-    "ਰਾਗੁ ਬਿਲਾਵਲੁ": "bilaaval",
-    "ਰਾਗੁ ਬਸੰਤੁ": "basant",
-    "ਰਾਗੁ ਆਸਾ": "aasa",
-    "ਬਾਰਹ ਮਾਹਾ ਮਾਂਝ": "baarehmaha",
-    "ਗੂਜਰੀ ਕੀ ਵਾਰ ਮਹਲਾ ੩": "gujrikivaarm3",
-    "ਰਾਗੁ ਸੋਰਠਿ": "sorat",
-    "ਰਾਗੁ ਗੋਂਡ": "gond",
-    "ਫੁਨਹੇ ਮਹਲਾ ੫": "funhem5",
-    "ਸਲੋਕ ਸੇਖ ਫਰੀਦ ਕੇ": "salokfareed",
-    "ਗੁਣਵੰਤੀ": "gunvanti",
-    "ਅਥ ਚੰਡੀਚਰਿਤ੍ਰ": "athchandichariter",
-    "ਅਰਦਾਸ": "ardas",
-    "ਵਣਜਾਰਾ": "vanjaara",
-    "ਕੁਚਜੀ": "kuchji",
-    "ਰਾਗੁ ਗਉੜੀ": "gauri",
-    "ਬਾਵਨ ਅਖਰੀ ਕਬੀਰ ਜੀਉ ਕੀ": "baavanakhrikabirjee",
-    "ਰਾਗੁ ਮਾਲੀ ਗਉੜਾ": "maaligauri",
-    "ਸੁਚਜੀ": "suchji",
-    "ਥਿਤੰੀ ਕਬੀਰ ਜੀ ਕੰੀ": "thitteekabirjee",
-    "ਸੁਖਮਨੀ ਸਾਹਿਬ": "sukhmani",
-    "ਰਾਮਕਲੀ ਕੀ ਵਾਰ ਮਹਲਾ ੩": "ramkalikivaarm3",
-    "ਬੇਨਤੀ ਚੌਪਈ ਸਾਹਿਬ": "chaupai",
-    "ਮਾਰੂ ਵਾਰ ਮਹਲਾ ੫ ਡਖਣੇ": "vaarmaroodakhnem5",
-    "ਰਾਗੁ ਜੈਤਸਰੀ": "jaitsree",
-    "ਕਰਹਲੇ": "karhalai",
-    "ਰਾਗੁ ਮਲਾਰ": "malaar",
-    "ਮਹਲਾ ੫ ਰੁਤੀ": "ruteem5",
-    "ਸਲੋਕ ਭਗਤ ਕਬੀਰ ਜੀਉ ਕੇ": "salokkabir",
-    "ਰਾਗੁ ਸਿਰੀਰਾਗੁ (ਕਬੀਰ ਜੀਉ ਕਾ)": "sriraag",
-    "ਬਾਰਹ ਮਾਹਾ ਸਵੈਯਾ": "baarehmahasvaye",
-    "ਸ਼ਬਦ ਹਜ਼ਾਰੇ ਪਾਤਿਸ਼ਾਹੀ ੧੦": "shabadhazare10",
-    "ਸਵਈਏ ਮਹਲੇ ਪਹਿਲੇ ਕੇ": "svaiyem1",
-    "ਅਕਾਲ ਉਸਤਤ ਚੌਪਈ": "akaalustatchaupai",
-    "ਰਾਗੁ ਕੇਦਾਰਾ": "kedaara",
-    "ਸਾਰੰਗ ਕੀ ਵਾਰ ਮਹਲਾ ੪": "sarangkivaarm4",
-    "ਸਿਧ ਗੋਸਟਿ": "sidhgosht",
-    "ਰਾਗੁ ਗੂਜਰੀ ਵਾਰ ਮਹਲਾ ੫": "gujrikivaarm5",
-    "ਥਿਤੀ ਮਹਲਾ ੧": "thitteem1",
-    "ਰਾਮਕਲੀ ਕੀ ਵਾਰ ਮਹਲਾ ੫": "ramkalikivaarm5",
-    "ਪਟੀ ਲਿਖੀ": "patteelikhee",
-    "ਅਕਾਲ ਉਸਤਤ": "akalustat",
-    "ਸਵਯੇ ਸ੍ਰੀ ਮੁਖਬਾਕੵ ਮਹਲਾ ੫ - ੨": "sirimukhbaakm1b",
-    "ਵਡਹੰਸ ਕੀ ਵਾਰ ਮਹਲਾ ੪": "vadhanskeevaarm4",
-    "ਗਉੜੀ ਵਾਰ ਕਬੀਰ ਜੀਉ ਕੇ": "vaarkabirjee",
-    "ਸ੍ਰੀ ਭਗਉਤੀ ਅਸਤੋਤ੍ਰ (ਪੰਥ ਪ੍ਰਕਾਸ਼)": "bhagautiastotr",
-    "ਆਸਾ ਦੀ ਵਾਰ": "asadivar",
-    "ਸ਼ਸਤ੍ਰ ਨਾਮ ਮਾਲਾ": "shastarnaammala",
-    "ਰਾਗੁ ਸਾਰੰਗ": "saarang",
-    "ਜਾਪੁ ਸਾਹਿਬ": "jaap",
-    "ਬਿਲਾਵਲੁ ਕੀ ਵਾਰ ਮਹਲਾ ੪": "bilaavalkivaar",
-    "ਰਾਗੁ ਤਿਲੰਗ (ਬਾਣੀ ਭਗਤਾ ਕੀ ਕਬੀਰ ਜੀ)": "tilang",
-    "ਦਖਣੀ ਓਅੰਕਾਰੁ": "dhakhnioankar",
-    "ਦੁਖ ਭੰਜਨੀ ਸਾਹਿਬ": "dukhbhanjani",
-    "ਬਸੰਤ ਕੀ ਵਾਰ": "basantkivar",
-    "ਸਵਈਏ ਮਹਲੇ ਤੀਜੇ ਕੇ": "svaiyem3",
-    "ਰਾਗੁ ਧਨਾਸਰੀ": "dhanasari",
-    "ਵਾਰ ਮਲਾਰ ਕੀ ਮਹਲਾ ੧": "malaarkivaarm1",
-    "ਗਉੜੀ ਕੀ ਵਾਰ ਮਹਲਾ ੫": "gaurikivaarm5",
-    "ਬਿਰਹੜੇ": "birharre",
-    "ਰਾਗੁ ਟੋਡੀ (ਬਾਣੀ ਭਗਤਾਂ ਕੀ)": "toddee",
-    "ਰਾਗੁ ਰਾਮਕਲੀ (ਸਦੁ)": "ramkali",
-    "ਰਾਗੁ ਮਾਰੂ": "maaru",
-    "ਰਾਮਕਲੀ ਕੀ ਵਾਰ (ਰਾਇ ਬਲਵੰਡਿ ਤਥਾ ਸਤੈ)": "ramkalikivar",
-    "ਚੰਡੀ ਦੀ ਵਾਰ": "chandidivar",
-    "ਰਾਗੁ ਸੂਹੀ": "soohee",
-    "ਸਲੋਕ ਮਹਲਾ ੯": "salokm9",
-    "ਸੋਹਿਲਾ ਸਾਹਿਬ": "sohila",
-    "ਸਵਯੇ ਸ੍ਰੀ ਮੁਖਬਾਕੵ ਮਹਲਾ ੫ - ੧": "sirimukhbaakm1a",
-    "ਸ਼ਬਦ ਹਜ਼ਾਰੇ": "shabadhazare",
-    "ਰਹਰਾਸਿ ਸਾਹਿਬ": "rehras",
-    "ਤ੍ਵ ਪ੍ਰਸਾਦਿ ਸਵੱਯੇ (ਸ੍ਰਾਵਗ ਸੁੱਧ)": "svaiye",
-    "ਰਾਗੁ ਪ੍ਰਭਾਤੀ": "prabhaati",
-    "ਆਰਤੀ": "aarti",
-    "ਸੁਖਮਨਾ ਸਾਹਿਬ": "sukhmana",
-    "ਗਉੜੀ ਕੀ ਵਾਰ ਮਹਲਾ ੪": "gaurikivaarm4",
-    "ਘੋੜੀਆ": "ghorrian",
-    "ਬਿਹਾਗੜੇ ਕੀ ਵਾਰ ਮਹਲਾ ੪": "bihagrakivaarm4",
-    "ਸਵਈਏ ਮਹਲੇ ਦੂਜੇ ਕੇ": "svaiyem2",
-    "ਅਨੰਦੁ ਸਾਹਿਬ": "anand",
-    "ਲਾਵਾਂ": "lavaa",
-    "ਰਾਗੁ ਗੂਜਰੀ": "gujri",
-    "ਬਾਵਨ ਅਖਰੀ": "bavanakhree",
-    "ਰਾਮਕਲੀ ਸਦੁ": "sadd",
-    "ਰਾਗ ਮਾਲਾ": "raagmala",
-    "ਜੈਤਸਰੀ ਕੀ ਵਾਰ": "jaitsrikivar",
-    "ਸ੍ਰੀ ਭਗਉਤੀ ਅਸਤੋਤ੍ਰ (ਸ੍ਰੀ ਹਜ਼ੂਰ ਸਾਹਿਬ)": "bhagautiastotrhazoor",
-    "ਸਵਈਏ ਮਹਲੇ ਪੰਜਵੇ ਕੇ": "svaiyem5",
-    "ਵਾਰ ਮਾਝ ਕੀ": "maajhkivaar",
-    "ਕਾਨੜੇ ਕੀ ਵਾਰ ਮਹਲਾ ੪": "kaanrekivaarm4",
-    "ਪਟੀ ਮਹਲਾ ੩": "patteem3",
-    "ਸਵਈਏ ਮਹਲੇ ਚਉਥੇ ਕੇ": "svaiyem4",
-    "ਰਾਗੁ ਸੋਰਠਿ ਵਾਰ ਮਹਲੇ ੪ ਕੀ": "soratkivaarm4",
-    "ਤ੍ਵ ਪ੍ਰਸਾਦਿ ਸਵੱਯੇ (ਦੀਨਨ ਕੀ)": "svaiyedeenan",
-    "ਰਾਗੁ ਭੈਰਉ": "bhairo",
-    "ਉਗ੍ਰਦੰਤੀ": "ogardanti",
-    "ਸਿਰੀਰਾਗ ਕੀ ਵਾਰ ਮਹਲਾ ੪": "siriraagkivaar",
-    "ਵਾਰ ਸੂਹੀ ਕੀ": "soohikivaar",
-    "ਮਾਰੂ ਵਾਰ ਮਹਲਾ ੩": "maarookivaarm3",
-    "ਰਾਗੁ ਕਾਨੜਾ": "kaanra",
-    "ਬਿਲਾਵਲੁ ਮਹਲਾ ੩ ਵਾਰ ਸਤ": "vaarsat",
-    "ਚਉਬੋਲੇ": "chaubole",
-    "ਜਪੁਜੀ ਸਾਹਿਬ": "japji",
-    "ਥਿਤੀ ਮਹਲਾ ੫": "thitteem5",
+    "gur mMqR": "gurmantar",
+    "jpujI swihb": "japji",
+    "rhrwis swihb": "rehras",
+    "soihlw swihb": "sohila",
+    "vxjwrw": "vanjaara",
+    "isrIrwg kI vwr mhlw 4": "siriraagkivaar",
+    "rwgu isrIrwgu (kbIr jIau kw)": "sriraag",
+    "bwrh mwhw mWJ": "baarehmaha",
+    "vwr mwJ kI": "maajhkivaar",
+    "krhly": "karhalai",
+    "bwvn AKrI": "bavanakhree",
+    "suKmnI swihb": "sukhmani",
+    "iQqI mhlw 5": "thitteem5",
+    "gauVI kI vwr mhlw 4": "gaurikivaarm4",
+    "gauVI kI vwr mhlw 5": "gaurikivaarm5",
+    "rwgu gauVI": "gauri",
+    "bwvn AKrI kbIr jIau kI": "baavanakhrikabirjee",
+    "iQqMØI kbIr jI kMØI": "thitteekabirjee",
+    "gauVI vwr kbIr jIau ky": "vaarkabirjee",
+    "ibrhVy": "birharre",
+    "ptI ilKI": "patteelikhee",
+    "ptI mhlw 3": "patteem3",
+    "Awsw dI vwr": "asadivar",
+    "rwgu Awsw": "aasa",
+    "gUjrI kI vwr mhlw 3": "gujrikivaarm3",
+    "rwgu gUjrI vwr mhlw 5": "gujrikivaarm5",
+    "rwgu gUjrI": "gujri",
+    "ibhwgVy kI vwr mhlw 4": "bihagrakivaarm4",
+    "GoVIAw": "ghorrian",
+    "vfhMs kI vwr mhlw 4": "vadhanskeevaarm4",
+    "rwgu soriT vwr mhly 4 kI": "soratkivaarm4",
+    "rwgu soriT": "sorat",
+    "rwgu DnwsrI": "dhanasari",
+    "jYqsrI kI vwr": "jaitsrikivar",
+    "rwgu jYqsrI": "jaitsree",
+    "rwgu tofI (bwxI BgqW kI)": "toddee",
+    "rwgu iqlMg (bwxI Bgqw kI kbIr jI)": "tilang",
+    "kucjI": "kuchji",
+    "sucjI": "suchji",
+    "guxvMqI": "gunvanti",
+    "lwvW": "lavaa",
+    "vwr sUhI kI": "soohikivaar",
+    "rwgu sUhI": "soohee",
+    "suKmnw swihb": "sukhmana",
+    "iQqI mhlw 1": "thitteem1",
+    "iblwvlu mhlw 3 vwr sq": "vaarsat",
+    "iblwvlu kI vwr mhlw 4": "bilaavalkivaar",
+    "rwgu iblwvlu": "bilaaval",
+    "rwgu goNf": "gond",
+    "Anµdu swihb": "anand",
+    "rwgu rwmklI (sdu)": "ramkali",
+    "rwmklI sdu": "sadd",
+    "mhlw 5 ruqI": "ruteem5",
+    "dKxI EAMkwru": "dhakhnioankar",
+    "isD gosit": "sidhgosht",
+    "rwmklI kI vwr mhlw 3": "ramkalikivaarm3",
+    "rwmklI kI vwr mhlw 5": "ramkalikivaarm5",
+    "rwmklI kI vwr (rwie blvMif qQw sqY)": "ramkalikivar",
+    "rwgu mwlI gauVw": "maaligauri",
+    "mwrU vwr mhlw 3": "maarookivaarm3",
+    "mwrU vwr mhlw 5 fKxy": "vaarmaroodakhnem5",
+    "rwgu mwrU": "maaru",
+    "rwgu kydwrw": "kedaara",
+    "rwgu BYrau": "bhairo",
+    "rwgu bsMqu": "basant",
+    "bsMq kI vwr": "basantkivar",
+    "swrMg kI vwr mhlw 4": "sarangkivaarm4",
+    "rwgu swrMg": "saarang",
+    "vwr mlwr kI mhlw 1": "malaarkivaarm1",
+    "rwgu mlwr": "malaar",
+    "kwnVy kI vwr mhlw 4": "kaanrekivaarm4",
+    "rwgu kwnVw": "kaanra",
+    "rwgu pRBwqI": "prabhaati",
+    "Punhy mhlw 5": "funhem5",
+    "cauboly": "chaubole",
+    "slok Bgq kbIr jIau ky": "salokkabir",
+    "slok syK PrId ky": "salokfareed",
+    "svXy sRI muKbwk´ mhlw 5 - 1": "sirimukhbaakm1a",
+    "svXy sRI muKbwk´ mhlw 5 - 2": "sirimukhbaakm1b",
+    "sveIey mhly pihly ky": "svaiyem1",
+    "sveIey mhly dUjy ky": "svaiyem2",
+    "sveIey mhly qIjy ky": "svaiyem3",
+    "sveIey mhly cauQy ky": "svaiyem4",
+    "sveIey mhly pMjvy ky": "svaiyem5",
+    "slok mhlw 9": "salokm9",
+    "rwg mwlw": "raagmala",
+    "AwrqI": "aarti",
+    "Sbd hzwry": "shabadhazare",
+    "duK BMjnI swihb": "dukhbhanjani",
+    "Ardws": "ardas",
+    "jwpu swihb": "jaap",
+    "Akwl ausqq cOpeI": "akaalustatchaupai",
+    "Akwl ausqq": "akalustat",
+    "qÍ pRswid sv`Xy (sRwvg su`D)": "svaiye",
+    "qÍ pRswid sv`Xy (dInn kI)": "svaiyedeenan",
+    "AQ cMfIcirqR": "athchandichariter",
+    "cMfI dI vwr": "chandidivar",
+    "SsqR nwm mwlw": "shastarnaammala",
+    "bynqI cOpeI swihb": "chaupai",
+    "sRI BgauqI AsqoqR (pMQ pRkwS)": "bhagautiastotr",
+    "sRI BgauqI AsqoqR (sRI hzUr swihb)": "bhagautiastotrhazoor",
+    "augRdMqI": "ogardanti",
+    "bwrh mwhw svYXw": "baarehmahasvaye",
+    "Sbd hzwry pwiqSwhI 10": "shabadhazare10",
 ]
 
 let bani_partitions: [String: [Int]] = [
@@ -795,10 +793,10 @@ let bani_partitions: [String: [Int]] = [
     "gujrikivaarm3": [0, 14, 31, 44, 60, 80, 94, 112, 130, 145, 165, 183, 204, 221, 238, 256, 273, 293, 314, 335, 348, 362],
     "gujrikivaarm5": [0, 18, 35, 50, 65, 80, 95, 110, 125, 140, 155, 170, 185, 200, 215, 230, 244, 259, 274, 289, 314],
     "gunvanti": [0],
-    "jaap": [0, 11, 120, 181, 238, 248, 288, 309, 342, 371, 380, 393, 410, 531, 568, 581, 602, 647, 688, 745, 762, 795],
+    "jaap": [0, 11, 120, 181, 248, 288, 342, 371, 380, 393, 410, 531, 568, 581, 602, 647, 688, 745, 762, 795],
     "jaitsree": [0],
     "jaitsrikivar": [0, 9, 20, 31, 42, 53, 64, 75, 86, 97, 108, 119, 131, 142, 153, 164, 175, 186, 197, 208],
-    "japji": [0, 10, 48, 60, 84, 108, 132, 171, 199, 241, 267, 299, 316, 335, 371, 378],
+    "japji": [0, 16, 48, 60, 84, 108, 132, 171, 199, 241, 267, 299, 316, 335, 371, 378],
     "kaanra": [0],
     "kaanrekivaarm4": [0, 14, 30, 48, 69, 88, 105, 117, 131, 148, 163, 178, 190, 202, 217],
     "karhalai": [0],
@@ -811,7 +809,7 @@ let bani_partitions: [String: [Int]] = [
     "maaru": [0, 62, 87, 92, 105, 116, 134, 143],
     "malaar": [0, 30, 39, 50, 59],
     "malaarkivaarm1": [0, 19, 34, 51, 66, 83, 100, 122, 145, 163, 183, 203, 222, 241, 256, 275, 293, 308, 329, 364, 390, 420, 445, 464, 494, 539, 554],
-    "ogardanti": [0, 49, 52, 97, 100, 145, 148, 193, 196, 241, 244, 289, 294],
+    "ogardanti": [0, 49, 97, 145, 193, 241, 289],
     "patteelikhee": [0],
     "patteem3": [0],
     "prabhaati": [0, 13, 28, 39, 50, 59, 72, 81, 92],
@@ -901,9 +899,7 @@ func printAllBaniPartitions() {
 
 struct BaniSettingsSheet: View {
     let hasRecensionVariation: Bool
-
-    @AppStorage("settings.larivaarOn") private var larivaarOn: Bool = true
-    @AppStorage("settings.larivaarAssist") private var larivaarAssist: Bool = false
+    let hasMultipleSections: Bool
 
     @AppStorage("bani.textScale") private var textScale: Double = 1.0
     @AppStorage("bani.visraamSource") private var selectedVisraamSource: String = "igurbani"
@@ -917,9 +913,12 @@ struct BaniSettingsSheet: View {
     @AppStorage("bani.transliterationTextScale") private var transliterationTextScale: Double = 1.0
     @AppStorage("bani.fontType") private var fontType: String = "Unicode"
     @AppStorage("bani.paragraphMode") private var isParagraphMode: Bool = true
+    @AppStorage("bani.enableSections") private var enableSections: Bool = true
     @AppStorage("bani.recension") private var selectedRecension: String = "taksal"
+    @AppStorage("bani.mangalPosition") private var selectedMangalPosition: String = "current"
 
     private let visraamSources = ["none", "sttm", "igurbani", "sttm2"]
+    private let mangalPositionOptions = ["above", "current"]
     private let englishSources: [(name: String, value: String)] = [
         ("None", "none"),
         ("Bani DB", "bdb"),
@@ -998,6 +997,21 @@ struct BaniSettingsSheet: View {
                             .padding(.vertical, 10)
                             .background(Color(.systemBackground))
 
+                            // Enable Sections (only show if there are multiple sections)
+                            if hasMultipleSections {
+                                Divider().padding(.leading)
+                                HStack {
+                                    Text("Enable Sections")
+                                        .font(.subheadline)
+                                    Spacer()
+                                    Toggle("", isOn: $enableSections)
+                                        .labelsHidden()
+                                }
+                                .padding(.horizontal)
+                                .padding(.vertical, 10)
+                                .background(Color(.systemBackground))
+                            }
+
                             // Recension Filter (only show if there's variation)
                             if hasRecensionVariation {
                                 VStack(alignment: .leading, spacing: 8) {
@@ -1018,6 +1032,25 @@ struct BaniSettingsSheet: View {
                                 }
                                 .background(Color(.systemBackground))
                             }
+
+                            Divider().padding(.leading)
+
+                            // Mangal Position Filter
+                            VStack(alignment: .leading, spacing: 8) {
+                                Text("Mangal Position")
+                                    .font(.subheadline)
+                                    .padding(.horizontal)
+                                    .padding(.top, 10)
+
+                                Picker("Mangal Position", selection: $selectedMangalPosition) {
+                                    Text("Above").tag("above")
+                                    Text("Current").tag("current")
+                                }
+                                .pickerStyle(.segmented)
+                                .padding(.horizontal)
+                                .padding(.bottom, 10)
+                            }
+                            .background(Color(.systemBackground))
 
                             Divider().padding(.leading)
 
@@ -1107,141 +1140,122 @@ struct BaniSettingsOptionPickerSlider: View {
     }
 }
 
-struct BaniLineView: View {
-    let baniVerse: BaniVerse
-    let gestureScale: Double
+struct BaniVerseView: View {
+    let verse: BaniVerse
 
-    @AppStorage("bani.larivaarOn") private var larivaarOn: Bool = false
-    @AppStorage("bani.larivaarAssist") private var larivaarAssist: Bool = false
+    @AppStorage("settings.larivaarOn") private var globalLarivaarOn: Bool = false
+    @AppStorage("settings.larivaarAssist") private var larivaarAssist: Bool = false
+    @AppStorage("bani.fontType") private var fontType: String = "Unicode"
     @AppStorage("bani.textScale") private var textScale: Double = 1.0
     @AppStorage("bani.visraamSource") private var selectedVisraamSource = "igurbani"
-    @AppStorage("bani.englishSource") private var selectedEnglishSource = "bdb"
-    @AppStorage("bani.punjabiSource") private var selectedPunjabiSource = "none"
-    @AppStorage("bani.hindiSource") private var selectedHindiSource = "none"
+    @AppStorage("bani.transliterationSource") private var selectedTransliterationSource: String = "none"
+    @AppStorage("bani.englishSource") private var selectedEnglishSource: String = "bdb"
+    @AppStorage("bani.punjabiSource") private var selectedPunjabiSource: String = "none"
+    @AppStorage("bani.hindiSource") private var selectedHindiSource: String = "none"
+    @AppStorage("bani.transliterationTextScale") private var transliterationTextScale: Double = 1.0
     @AppStorage("bani.englishTranslationTextScale") private var enTransTextScale: Double = 1.0
     @AppStorage("bani.punjabiTranslationTextScale") private var punjabiTransTextScale: Double = 1.0
     @AppStorage("bani.hindiTranslationTextScale") private var hindiTransTextScale: Double = 1.0
-    @AppStorage("bani.transliterationSource") private var selectedTransliterationSource = "none"
-    @AppStorage("bani.transliterationTextScale") private var transliterationTextScale: Double = 1.0
-    @AppStorage("bani.fontType") private var fontType: String = "Unicode"
 
-    @State private var lineLarivaar = false
+    @State private var localLarivaar: Bool = false
+    @State private var showDefinitionsSheet: Bool = false
+
     @Environment(\.colorScheme) var colorScheme
 
+    init(verse: BaniVerse) {
+        self.verse = verse
+    }
+
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            // Gurbani line with tap to toggle larivaar
-            renderGurbaniLine(baniVerse.verse)
-                .font(resolveFont(size: 20 * textScale * gestureScale, fontType: fontType))
-                .fontWeight(.medium)
-                .lineSpacing(4)
+        VStack(alignment: .leading, spacing: 4) {
+            formattedGurbaniText
+                .font(resolveFont(size: 20 * textScale, fontType: fontType))
+                .lineSpacing(2)
                 .frame(maxWidth: .infinity, alignment: .leading)
+                .fixedSize(horizontal: false, vertical: true)
                 .contentShape(Rectangle())
                 .onTapGesture {
-                    lineLarivaar.toggle()
+                    withAnimation(.easeInOut(duration: 0.15)) {
+                        localLarivaar.toggle()
+                    }
                 }
-                .onAppear {
-                    lineLarivaar = larivaarOn
+                .onLongPressGesture {
+                    showDefinitionsSheet = true
                 }
-                .onChange(of: larivaarOn) {
-                    lineLarivaar = larivaarOn
-                }
-                .padding(.bottom, hasAnyTranslation ? 6 : 0)
 
-            // Transliteration (if enabled)
-            if selectedTransliterationSource != "none",
-               let transliteration = baniVerse.verse.transliteration.value(for: selectedTransliterationSource)
-            {
+            // Transliteration
+            if selectedTransliterationSource != "none", let transliteration = getTransliteration() {
                 Text(transliteration)
-                    .font(.system(size: 15 * transliterationTextScale * gestureScale, design: .monospaced))
-                    .foregroundColor(colorScheme == .dark ? Color(red: 0.75, green: 0.75, blue: 0.75) : Color(red: 0.5, green: 0.5, blue: 0.5))
-                    .lineSpacing(3)
+                    .font(.system(size: 14 * transliterationTextScale))
+                    .foregroundColor(AppColors.transliterationColor(for: colorScheme))
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .opacity(0.9)
-                    .padding(.bottom, 3)
             }
 
-            // English Translation (if enabled)
-            if selectedEnglishSource != "none",
-               let translation = baniVerse.verse.translation.getTranslation(for: "english", source: selectedEnglishSource)
-            {
-                Text(translation)
-                    .font(.system(size: 16 * enTransTextScale * gestureScale, design: .rounded))
-                    .foregroundColor(colorScheme == .dark ? Color(red: 0.7, green: 0.85, blue: 1.0) : Color(red: 0.2, green: 0.4, blue: 0.7))
-                    .lineSpacing(3)
+            // English Translation
+            if let englishTrans = verse.verse.translation.getTranslation(for: "english", source: selectedEnglishSource) {
+                Text(englishTrans)
+                    .font(.system(size: 14 * enTransTextScale))
+                    .foregroundColor(AppColors.englishTranslationColor(for: colorScheme))
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.bottom, 3)
             }
 
-            // Punjabi Translation (if enabled)
-            if selectedPunjabiSource != "none",
-               let translation = baniVerse.verse.translation.getTranslation(for: "punjabi", source: selectedPunjabiSource)
-            {
-                Text(translation)
-                    .font(.system(size: 15 * punjabiTransTextScale * gestureScale))
-                    .foregroundColor(colorScheme == .dark ? Color(red: 1.0, green: 0.85, blue: 0.6) : Color(red: 0.65, green: 0.45, blue: 0.2))
-                    .lineSpacing(3)
+            // Punjabi Translation
+            if let punjabiTrans = verse.verse.translation.getTranslation(for: "punjabi", source: selectedPunjabiSource) {
+                Text(punjabiTrans)
+                    .font(.system(size: 14 * punjabiTransTextScale))
+                    .foregroundColor(AppColors.punjabiTranslationColor(for: colorScheme))
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.bottom, 3)
             }
 
-            // Hindi Translation (if enabled)
-            if selectedHindiSource != "none",
-               let translation = baniVerse.verse.translation.getTranslation(for: "hindi", source: selectedHindiSource)
-            {
-                Text(translation)
-                    .font(.system(size: 15 * hindiTransTextScale * gestureScale))
-                    .foregroundColor(colorScheme == .dark ? Color(red: 0.9, green: 0.75, blue: 0.85) : Color(red: 0.6, green: 0.3, blue: 0.5))
-                    .lineSpacing(3)
+            // Hindi Translation
+            if let hindiTrans = verse.verse.translation.getTranslation(for: "hindi", source: selectedHindiSource) {
+                Text(hindiTrans)
+                    .font(.system(size: 14 * hindiTransTextScale))
+                    .foregroundColor(AppColors.hindiTranslationColor(for: colorScheme))
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.bottom, 3)
-            }
-
-            // Header divider with extra spacing
-            if baniVerse.header == 1 {
-                Divider()
-                    .padding(.top, 8)
-                    .padding(.bottom, 4)
             }
         }
-        .padding(.vertical, 10)
-    }
-
-    // Helper to check if any translation/transliteration is enabled
-    private var hasAnyTranslation: Bool {
-        selectedTransliterationSource != "none" ||
-            selectedEnglishSource != "none" ||
-            selectedPunjabiSource != "none" ||
-            selectedHindiSource != "none"
-    }
-
-    // Render Gurbani line with visraam highlighting
-    private func renderGurbaniLine(_ verse: Verse) -> Text {
-        let text: String
-        let isLarivaarMode = lineLarivaar || larivaarAssist
-
-        if isLarivaarMode {
-            text = fontType == "Unicode" ? verse.larivaar.unicode : verse.larivaar.gurmukhi
-        } else {
-            text = fontType == "Unicode" ? verse.verse.unicode : verse.verse.gurmukhi
+        .onAppear {
+            localLarivaar = globalLarivaarOn
         }
+        .onChange(of: globalLarivaarOn) { _, newValue in
+            localLarivaar = newValue
+        }
+        .sheet(isPresented: $showDefinitionsSheet) {
+            WordDefinitionsSheet(
+                verse: verse.verse,
+                preSelectedLineIdForCopy: Binding(
+                    get: { nil },
+                    set: { _ in }
+                )
+            )
+        }
+    }
+
+    private func getTransliteration() -> String? {
+        switch selectedTransliterationSource {
+        case "en": return verse.verse.transliteration.en
+        case "hi": return verse.verse.transliteration.hi
+        case "ipa": return verse.verse.transliteration.ipa
+        case "ur": return verse.verse.transliteration.ur
+        default: return nil
+        }
+    }
+
+    private var formattedGurbaniText: Text {
+        let text = fontType == "Unicode" ? verse.verse.verse.unicode : verse.verse.verse.gurmukhi
         let words = text.components(separatedBy: " ")
 
         // Get visraam points
         var visraamPoints: [Int: String] = [:]
-        if let visraam = verse.visraam {
+        if selectedVisraamSource != "none", let visraam = verse.verse.visraam {
             let selectedVisraamData: [Visraam.VisraamPoint]
             switch selectedVisraamSource {
-            case "sttm":
-                selectedVisraamData = visraam.sttm ?? []
-            case "sttm2":
-                selectedVisraamData = visraam.sttm2 ?? []
-            case "igurbani":
-                selectedVisraamData = visraam.igurbani ?? []
-            default:
-                selectedVisraamData = []
+            case "sttm": selectedVisraamData = visraam.sttm ?? []
+            case "sttm2": selectedVisraamData = visraam.sttm2 ?? []
+            case "igurbani": selectedVisraamData = visraam.igurbani ?? []
+            default: selectedVisraamData = []
             }
-
             for point in selectedVisraamData {
                 visraamPoints[point.p] = point.t
             }
@@ -1249,48 +1263,143 @@ struct BaniLineView: View {
 
         var result = Text("")
         for (index, word) in words.enumerated() {
-            let wordText: Text
             let color: Color
 
-            // Check if this word has a visraam marker
+            // Visraam coloring takes priority
             if let visraamType = visraamPoints[index] {
-                // Word has visraam - always use visraam color regardless of assist mode
-                switch visraamType {
-                case "v": // small pause
-                    color = colorScheme == .dark ? Color(red: 1.0, green: 0.5, blue: 0.3) : Color(red: 0.9, green: 0.2, blue: 0.0)
-                case "y": // big pause
-                    color = colorScheme == .dark ? Color(red: 0.3, green: 1.0, blue: 0.3) : Color(red: 0.0, green: 0.7, blue: 0.0)
-                default:
-                    // Unknown visraam type - fall through to alternating colors if assist is on
-                    if larivaarAssist {
-                        let isEvenWord = index % 2 == 0
-                        color = isEvenWord
-                            ? (colorScheme == .dark ? Color(red: 0.7, green: 0.85, blue: 1.0) : Color(red: 0.1, green: 0.2, blue: 0.6))
-                            : (colorScheme == .dark ? Color(red: 1.0, green: 0.85, blue: 0.5) : Color(red: 0.6, green: 0.45, blue: 0.0))
-                    } else {
-                        color = .primary
-                    }
-                }
-            } else if larivaarAssist {
-                // No visraam marker - use alternating colors for larivaar assist
-                let isEvenWord = index % 2 == 0
-                color = isEvenWord
-                    ? (colorScheme == .dark ? Color(red: 0.7, green: 0.85, blue: 1.0) : Color(red: 0.1, green: 0.2, blue: 0.6))
-                    : (colorScheme == .dark ? Color(red: 1.0, green: 0.85, blue: 0.5) : Color(red: 0.6, green: 0.45, blue: 0.0))
+                color = AppColors.visraamColor(type: visraamType, for: colorScheme)
+            } else if larivaarAssist && localLarivaar {
+                // Larivaar assist ONLY applies when IN larivaar mode (no spaces)
+                color = AppColors.larivaarAssistColor(index: index, for: colorScheme)
             } else {
-                // Normal mode - just primary color
                 color = .primary
             }
 
-            wordText = Text(word).foregroundColor(color)
-            result = result + wordText
+            result = result + Text(word).foregroundColor(color)
 
-            // Add space between words (except for last word), only if not in larivaar mode
-            if index < words.count - 1 && !isLarivaarMode {
+            // Add space between words unless in larivaar mode
+            if index < words.count - 1 && !localLarivaar {
                 result = result + Text(" ")
             }
         }
 
+        return result
+    }
+}
+
+// MARK: - Bani Meta Info Sheet
+
+struct BaniMetaInfoSheet: View {
+    let info: BaniInfo
+
+    private let labelFont = Font.caption2.weight(.semibold)
+    private let valueFont = Font.caption2
+
+    var body: some View {
+        NavigationView {
+            ScrollView {
+                VStack(spacing: 8) {
+                    Text("Bani Info — Full Metadata")
+                        .font(.subheadline).bold()
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.bottom, 2)
+
+                    ForEach(chunkedPairs, id: \.0) { _, pairTuple in
+                        HStack(alignment: .top, spacing: 12) {
+                            PairView(label: pairTuple.0.label, value: pairTuple.0.value,
+                                     labelFont: labelFont, valueFont: valueFont)
+
+                            if let second = pairTuple.1 {
+                                PairView(label: second.label, value: second.value,
+                                         labelFont: labelFont, valueFont: valueFont)
+                            } else {
+                                Spacer(minLength: 0)
+                            }
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                }
+                .padding(.horizontal, 10)
+                .padding(.vertical, 8)
+            }
+            .navigationTitle("Bani Info")
+            .navigationBarTitleDisplayMode(.inline)
+        }
+    }
+
+    private struct PairView: View {
+        let label: String
+        let value: String
+        let labelFont: Font
+        let valueFont: Font
+
+        var body: some View {
+            VStack(alignment: .leading, spacing: 2) {
+                Text(label + ":")
+                    .font(labelFont)
+                    .foregroundColor(.secondary)
+                    .lineLimit(1)
+                    .truncationMode(.tail)
+
+                Text(value)
+                    .font(valueFont)
+                    .foregroundColor(value == "None" ? .gray : .primary)
+                    .lineLimit(3)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+        }
+    }
+
+    private var allPairs: [(label: String, value: String)] {
+        let items: [(String, String?)] = [
+            ("baniID", "\(info.baniID)"),
+            ("gurmukhi", info.gurmukhi),
+            ("unicode", info.unicode),
+            ("english", info.english),
+            ("hindi", info.hindi),
+            ("en (transliteration)", info.en),
+            ("hi (transliteration)", info.hi),
+            ("ipa", info.ipa),
+            ("ur", info.ur),
+
+            // Source
+            ("source.sourceId", info.source?.sourceId),
+            ("source.gurmukhi", info.source?.gurmukhi),
+            ("source.unicode", info.source?.unicode),
+            ("source.english", info.source?.english),
+            ("source.pageNo", info.source?.pageNo.map { "\($0)" }),
+
+            // Raag
+            ("raag.raagId", info.raag?.raagId.map { "\($0)" }),
+            ("raag.gurmukhi", info.raag?.gurmukhi),
+            ("raag.unicode", info.raag?.unicode),
+            ("raag.english", info.raag?.english),
+            ("raag.raagWithPage", info.raag?.raagWithPage),
+
+            // Writer
+            ("writer.writerId", info.writer?.writerId.map { "\($0)" }),
+            ("writer.gurmukhi", info.writer?.gurmukhi),
+            ("writer.unicode", info.writer?.unicode),
+            ("writer.english", info.writer?.english),
+        ]
+
+        return items.map { label, raw in
+            let trimmed = raw?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+            return (label: label, value: trimmed.isEmpty ? "None" : trimmed)
+        }
+    }
+
+    private var chunkedPairs: [(Int, ((label: String, value: String), (label: String, value: String)?))] {
+        var result: [(Int, ((label: String, value: String), (label: String, value: String)?))] = []
+        let pairs = allPairs
+        var i = 0
+        while i < pairs.count {
+            let first = pairs[i]
+            let second: (label: String, value: String)? = (i + 1 < pairs.count) ? pairs[i + 1] : nil
+            result.append((i / 2, (first, second)))
+            i += 2
+        }
         return result
     }
 }
