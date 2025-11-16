@@ -18,6 +18,7 @@ struct BaniView: View {
         partitionIndexes = bani_partitions[baniFilename] ?? []
     }
 
+    @AppStorage("settings.larivaarOn") private var globalLarivaarOn: Bool = true
     @AppStorage("settings.larivaarAssist") private var larivaarAssist: Bool = false
     @AppStorage("fontType") private var fontType: String = "Unicode"
 
@@ -36,7 +37,7 @@ struct BaniView: View {
     // Bani-specific settings (separate from ShabadView)
     @AppStorage("bani.textScale") private var textScale: Double = 1.0
     @AppStorage("bani.visraamSource") private var selectedVisraamSource = "igurbani"
-    @AppStorage("bani.englishSource") private var selectedEnglishSource = "bdb"
+    @AppStorage("bani.englishSource") private var selectedEnglishSource: String = "none"
     @AppStorage("bani.punjabiSource") private var selectedPunjabiSource = "none"
     @AppStorage("bani.hindiSource") private var selectedHindiSource = "none"
     @AppStorage("bani.transliterationSource") private var selectedTransliterationSource = "none"
@@ -44,13 +45,23 @@ struct BaniView: View {
     @AppStorage("bani.punjabiTranslationTextScale") private var punjabiTransTextScale: Double = 1.0
     @AppStorage("bani.hindiTranslationTextScale") private var hindiTransTextScale: Double = 1.0
     @AppStorage("bani.transliterationTextScale") private var transliterationTextScale: Double = 1.0
-    @AppStorage("bani.paragraphMode") private var isParagraphMode: Bool = true
-    @AppStorage("bani.recension") private var selectedRecension: String = "taksal"
+    @AppStorage("bani.paragraphMode") private var isParagraphMode: Bool = false
+    @AppStorage("bani.recension") private var selectedRecension: String = "SGPC"
     @AppStorage("bani.mangalPosition") private var selectedMangalPosition: String = "current"
     @AppStorage("bani.enableSections") private var enableSections: Bool = true
+
+    // Autoscroll state
+    @State private var isAutoscrolling = false
+    @State private var showControlsModal = false
+    @State private var autoscrollSpeed: Double = 30.0
+    @State private var scrollController: AutoScrollViewController<AnyView>?
     @AppStorage("swipeToGoToNextShabadSetting") private var swipeToGoToNextShabadSetting = true
 
     @Environment(\.colorScheme) var colorScheme
+
+    // Cache for paragraph grouping to avoid recomputing on every render
+    @State private var cachedParagraphs: [[BaniVerse]] = []
+    @State private var lastCachedVerses: [BaniVerse] = []
 
     /// Check if bani has recension variation (at least one field differs from 1)
     private var hasRecensionVariation: Bool {
@@ -80,27 +91,126 @@ struct BaniView: View {
                 }
                 .padding()
             } else if let baniData = baniData {
-                ScrollViewReader { proxy in
-                    ScrollView {
-                        VStack(spacing: 24) {
+                AutoScrollView(controller: $scrollController) {
+                    AnyView(
+                        LazyVStack(spacing: 4, pinnedViews: []) {
                             if isParagraphMode {
                                 paragraphView(verses: getCurrentSectionVerses())
                             } else {
-                                lineView(verses: getCurrentSectionVerses())
+                                individualLinesView(verses: getCurrentSectionVerses())
                             }
                         }
+                        .id(isParagraphMode) // 👈 Forces rebuild when AppStorage toggles
                         .padding(10)
-                    }
-                    .background(colorScheme == .dark ? Color.black : Color.white)
-                    .onChange(of: currentSectionIndex) { _, _ in
-                        withAnimation {
-                            proxy.scrollTo(0, anchor: .top)
+                        .background(colorScheme == .dark ? Color.black : Color.white)
+                    )
+                }
+                .onChange(of: currentSectionIndex) { _, _ in
+                    scrollController?.scrollToTop()
+                }
+                .onChange(of: scrollController) { _, newController in
+                    // Set callback to update UI when scrolling ends
+                    newController?.onScrollEnd = {
+                        DispatchQueue.main.async {
+                            isAutoscrolling = false
                         }
                     }
                 }
             }
+
+            // Floating Autoscroll Controls Modal
+            if showControlsModal {
+                Color.black.opacity(0.3)
+                    .ignoresSafeArea()
+                    .onTapGesture {
+                        withAnimation {
+                            showControlsModal = false
+                        }
+                    }
+
+                VStack(spacing: 20) {
+                    // Header
+                    HStack {
+                        Text("Auto Scroll")
+                            .font(.headline)
+                        Spacer()
+                        Button(action: {
+                            withAnimation {
+                                showControlsModal = false
+                            }
+                        }) {
+                            Image(systemName: "xmark.circle.fill")
+                                .font(.title2)
+                                .foregroundColor(.secondary)
+                        }
+                    }
+
+                    Divider()
+
+                    // Speed Control
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text("Scroll Speed")
+                            .font(.subheadline)
+                            .fontWeight(.semibold)
+
+                        HStack(spacing: 12) {
+                            Image(systemName: "tortoise.fill")
+                                .font(.title3)
+                                .foregroundColor(.secondary)
+
+                            VStack(spacing: 4) {
+                                Slider(value: Binding(
+                                    get: { autoscrollSpeed },
+                                    set: { newValue in
+                                        autoscrollSpeed = newValue
+                                        scrollController?.setScrollSpeed(newValue)
+                                    }
+                                ), in: 10 ... 100, step: 5)
+
+                                Text("\(Int(autoscrollSpeed)) pts/sec")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                            }
+
+                            Image(systemName: "hare.fill")
+                                .font(.title3)
+                                .foregroundColor(.secondary)
+                        }
+                    }
+
+                    // Pause/Resume Button
+                    Button(action: {
+                        if isAutoscrolling {
+                            // Pause
+                            isAutoscrolling = false
+                            scrollController?.stopScrolling()
+                        } else {
+                            // Resume
+                            isAutoscrolling = true
+                            scrollController?.startScrolling(speed: autoscrollSpeed)
+                        }
+                    }) {
+                        HStack {
+                            Image(systemName: isAutoscrolling ? "pause.fill" : "play.fill")
+                            Text(isAutoscrolling ? "Pause" : "Resume")
+                        }
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color.accentColor)
+                        .cornerRadius(12)
+                    }
+                }
+                .padding(24)
+                .background(Color(UIColor.systemBackground))
+                .cornerRadius(20)
+                .shadow(radius: 20)
+                .padding(.horizontal, 40)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .transition(.scale.combined(with: .opacity))
+            }
         }
-        .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .principal) {
@@ -110,6 +220,13 @@ struct BaniView: View {
                     Text(baniTitle)
                         .font(resolveFont(size: 20, fontType: fontType))
                         .foregroundColor(.primary)
+                }
+            }
+
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: toggleAutoscroll) {
+                    Image(systemName: isAutoscrolling ? "pause.circle.fill" : "play.circle.fill")
+                        .font(.title3)
                 }
             }
 
@@ -178,7 +295,7 @@ struct BaniView: View {
             }
         }
         .sheet(isPresented: $showingSettings) {
-            BaniSettingsSheet(hasRecensionVariation: hasRecensionVariation, hasMultipleSections: partitionIndexes.count > 1)
+            BaniSettingsSheet(hasRecensionVariation: hasRecensionVariation)
                 .presentationDetents([.medium, .large])
         }
         .sheet(isPresented: $showCopySheet) {
@@ -239,6 +356,14 @@ struct BaniView: View {
         .onAppear {
             loadBani()
         }
+        .onDisappear {
+            // Stop autoscrolling when leaving the view
+            if isAutoscrolling {
+                isAutoscrolling = false
+                showControlsModal = false
+                scrollController?.stopScrolling()
+            }
+        }
     }
 
     private func loadBani() {
@@ -248,74 +373,64 @@ struct BaniView: View {
             return
         }
 
-        do {
-            let data = try Data(contentsOf: url)
-            baniData = try JSONDecoder().decode(BaniResponse.self, from: data)
-            isLoading = false
-        } catch {
-            errorMessage = "Failed to load bani: \(error.localizedDescription)"
-            print("❌ JSON Decode Error: \(error)")
-            isLoading = false
+        // Load and decode JSON on background thread to avoid blocking UI
+        Task.detached(priority: .userInitiated) {
+            do {
+                let data = try Data(contentsOf: url)
+                let decoded = try JSONDecoder().decode(BaniResponse.self, from: data)
+
+                // Update UI on main thread
+                await MainActor.run {
+                    self.baniData = decoded
+                    self.isLoading = false
+                }
+            } catch {
+                await MainActor.run {
+                    self.errorMessage = "Failed to load bani: \(error.localizedDescription)"
+                    print("❌ JSON Decode Error: \(error)")
+                    self.isLoading = false
+                }
+            }
         }
     }
 
-    // MARK: - Section Navigation Helpers
-
-    // Get the verses for the current section
     private func getCurrentSectionVerses() -> [BaniVerse] {
         guard let baniData = baniData else { return [] }
 
-        // Get section verses
-        let sectionVerses: [BaniVerse]
-        if !enableSections || partitionIndexes.isEmpty {
-            // Sections disabled or no partitions, use all verses
-            sectionVerses = baniData.verses
-        } else {
-            // Get start index for current section
-            let startIndex = partitionIndexes[currentSectionIndex]
-
-            // Get end index (either next partition or end of verses)
-            let endIndex: Int
-            if currentSectionIndex < partitionIndexes.count - 1 {
-                endIndex = partitionIndexes[currentSectionIndex + 1]
-            } else {
-                endIndex = baniData.verses.count
+        // 1 — Extract the verses for the current section
+        let sectionVerses: [BaniVerse] = {
+            guard enableSections, !partitionIndexes.isEmpty else {
+                return baniData.verses
             }
 
-            // Get verses in range
-            sectionVerses = Array(baniData.verses[startIndex ..< endIndex])
-        }
+            let start = partitionIndexes[currentSectionIndex]
+            let end = (currentSectionIndex < partitionIndexes.count - 1)
+                ? partitionIndexes[currentSectionIndex + 1]
+                : baniData.verses.count
 
-        // Apply recension filter
-        let recessionFiltered: [BaniVerse]
-        switch selectedRecension {
-        case "sgpc":
-            recessionFiltered = sectionVerses.filter { $0.existsSGPC == 1 }
-        case "medium":
-            recessionFiltered = sectionVerses.filter { $0.existsMedium == 1 }
-        case "buddhaDal":
-            recessionFiltered = sectionVerses.filter { $0.existsBuddhaDal == 1 }
-        default: // "taksal" (default)
-            recessionFiltered = sectionVerses.filter { $0.existsTaksal == 1 }
-        }
+            return Array(baniData.verses[start ..< end])
+        }()
 
-        // Apply mangalPosition filter (only for headers)
-        // If mangalPosition is null, always show the verse
-        // If mangalPosition has a value, only show if it matches the selected filter
-        let mangalFiltered = recessionFiltered.filter { verse in
-            // If it's not a header, always include it
-            if verse.header == 0 {
-                return true
+        // 2 — Apply recension filter
+        let filteredByRecension: [BaniVerse] = sectionVerses.filter { verse in
+            switch selectedRecension {
+            case "sgpc": return verse.existsSGPC == 1
+            case "medium": return verse.existsMedium == 1
+            case "buddhaDal": return verse.existsBuddhaDal == 1
+            default: return verse.existsTaksal == 1 // "taksal"
             }
-            // If mangalPosition is null, include it
+        }
+
+        // 3 — Apply mangalPosition filtering
+        return filteredByRecension.filter { verse in
+            guard verse.header > 0 else { return true } // Only filter headers
+
             guard let mangalPos = verse.mangalPosition else {
-                return true
+                return true // No mangal position = always show
             }
-            // Only include if it matches the selected mangalPosition
-            return mangalPos == selectedMangalPosition
-        }
 
-        return mangalFiltered
+            return mangalPos == selectedMangalPosition // Match filter
+        }
     }
 
     // Get section title for display
@@ -373,31 +488,95 @@ struct BaniView: View {
         }
     }
 
-    private func lineView(verses: [BaniVerse]) -> some View {
+    private func toggleAutoscroll() {
+        if isAutoscrolling {
+            // Pause autoscrolling
+            withAnimation {
+                isAutoscrolling = false
+            }
+            scrollController?.stopScrolling()
+        } else {
+            // Start autoscrolling and show controls modal on first use
+            withAnimation {
+                isAutoscrolling = true
+                showControlsModal = true
+            }
+            scrollController?.startScrolling(speed: autoscrollSpeed)
+        }
+    }
+
+    private func getCachedParagraphs(for verses: [BaniVerse]) -> [[BaniVerse]] {
+        // Check if we need to recompute (verses changed)
+        if verses.count != lastCachedVerses.count ||
+            zip(verses, lastCachedVerses).contains(where: { $0.id != $1.id })
+        {
+            // Verses changed, recompute and cache
+            let newParagraphs = groupVersesByParagraph(verses)
+            DispatchQueue.main.async {
+                self.cachedParagraphs = newParagraphs
+                self.lastCachedVerses = verses
+            }
+            return newParagraphs
+        }
+        // Return cached paragraphs
+        return cachedParagraphs.isEmpty ? groupVersesByParagraph(verses) : cachedParagraphs
+    }
+
+    private func individualLinesView(verses: [BaniVerse]) -> some View {
         let paragraphs = groupVersesByParagraph(verses)
 
         return ForEach(Array(paragraphs.enumerated()), id: \.offset) { _, paragraph in
-            VStack(alignment: .leading, spacing: 0) {
-                ForEach(paragraph) { verse in
-                    BaniVerseView(verse: verse)
+            VStack(alignment: .leading) {
+                ForEach(Array(paragraph.enumerated()), id: \.offset) { _, verse in
+                    BaniVerseView(
+                        verse: verse,
+                        preSelectedLineIdForCopy: $preSelectedLineIdForCopy,
+                        showCopySheet: $showCopySheet,
+                        globalLarivaarOn: $globalLarivaarOn,
+                        larivaarAssist: $larivaarAssist,
+                        fontType: $fontType,
+                        textScale: $textScale,
+                        selectedVisraamSource: $selectedVisraamSource,
+                        selectedTransliterationSource: $selectedTransliterationSource,
+                        selectedEnglishSource: $selectedEnglishSource,
+                        selectedPunjabiSource: $selectedPunjabiSource,
+                        selectedHindiSource: $selectedHindiSource,
+                        transliterationTextScale: $transliterationTextScale,
+                        enTransTextScale: $enTransTextScale,
+                        punjabiTransTextScale: $punjabiTransTextScale,
+                        hindiTransTextScale: $hindiTransTextScale
+                    )
                 }
             }
-            .padding(.bottom, 6)
+            .padding(.bottom, 24)
         }
     }
 
     private func paragraphView(verses: [BaniVerse]) -> some View {
-        let paragraphs = groupVersesByParagraph(verses)
+        let paragraphs = getCachedParagraphs(for: verses)
 
         return ForEach(Array(paragraphs.enumerated()), id: \.offset) { paragraphIndex, paragraph in
-            VStack(alignment: .leading, spacing: 0) {
+            VStack(alignment: .leading) {
                 // Continuous flowing text for the paragraph (including headers)
                 BaniParagraphView(
                     verses: paragraph,
-                    paragraphId: paragraphIndex
+                    paragraphId: paragraphIndex,
+                    globalLarivaarOn: $globalLarivaarOn,
+                    larivaarAssist: $larivaarAssist,
+                    fontType: $fontType,
+                    textScale: $textScale,
+                    selectedVisraamSource: $selectedVisraamSource,
+                    selectedTransliterationSource: $selectedTransliterationSource,
+                    selectedEnglishSource: $selectedEnglishSource,
+                    selectedPunjabiSource: $selectedPunjabiSource,
+                    selectedHindiSource: $selectedHindiSource,
+                    transliterationTextScale: $transliterationTextScale,
+                    enTransTextScale: $enTransTextScale,
+                    punjabiTransTextScale: $punjabiTransTextScale,
+                    hindiTransTextScale: $hindiTransTextScale
                 )
             }
-            .padding(.bottom, 6)
+            .padding(.bottom, 24)
         }
     }
 
@@ -429,25 +608,24 @@ struct BaniView: View {
     }
 }
 
-// MARK: - BaniParagraphView (Continuous flowing text)
-
 struct BaniParagraphView: View {
     let verses: [BaniVerse]
     let paragraphId: Int
 
-    @AppStorage("settings.larivaarOn") private var globalLarivaarOn: Bool = false
-    @AppStorage("settings.larivaarAssist") private var larivaarAssist: Bool = false
-    @AppStorage("fontType") private var fontType: String = "Unicode"
-    @AppStorage("bani.textScale") private var textScale: Double = 1.0
-    @AppStorage("bani.visraamSource") private var selectedVisraamSource = "igurbani"
-    @AppStorage("bani.transliterationSource") private var selectedTransliterationSource: String = "none"
-    @AppStorage("bani.englishSource") private var selectedEnglishSource: String = "bdb"
-    @AppStorage("bani.punjabiSource") private var selectedPunjabiSource: String = "none"
-    @AppStorage("bani.hindiSource") private var selectedHindiSource: String = "none"
-    @AppStorage("bani.transliterationTextScale") private var transliterationTextScale: Double = 1.0
-    @AppStorage("bani.englishTranslationTextScale") private var enTransTextScale: Double = 1.0
-    @AppStorage("bani.punjabiTranslationTextScale") private var punjabiTransTextScale: Double = 1.0
-    @AppStorage("bani.hindiTranslationTextScale") private var hindiTransTextScale: Double = 1.0
+    // Settings passed as bindings to avoid duplicate @AppStorage subscriptions
+    @Binding var globalLarivaarOn: Bool
+    @Binding var larivaarAssist: Bool
+    @Binding var fontType: String
+    @Binding var textScale: Double
+    @Binding var selectedVisraamSource: String
+    @Binding var selectedTransliterationSource: String
+    @Binding var selectedEnglishSource: String
+    @Binding var selectedPunjabiSource: String
+    @Binding var selectedHindiSource: String
+    @Binding var transliterationTextScale: Double
+    @Binding var enTransTextScale: Double
+    @Binding var punjabiTransTextScale: Double
+    @Binding var hindiTransTextScale: Double
 
     @State private var localLarivaar: Bool = false
 
@@ -455,7 +633,7 @@ struct BaniParagraphView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
-            formattedParagraphText
+            Text(AttributedString(formattedParagraphAttributedString))
                 .font(resolveFont(size: 20 * textScale, fontType: fontType))
                 .lineSpacing(2)
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -507,8 +685,8 @@ struct BaniParagraphView: View {
         }
     }
 
-    private var formattedParagraphText: Text {
-        var result = Text("")
+    private var formattedParagraphAttributedString: NSAttributedString {
+        let result = NSMutableAttributedString()
 
         for (verseIndex, baniVerse) in verses.enumerated() {
             let text = fontType == "Unicode" ? baniVerse.verse.verse.unicode : baniVerse.verse.verse.gurmukhi
@@ -530,29 +708,30 @@ struct BaniParagraphView: View {
             }
 
             for (index, word) in words.enumerated() {
-                let color: Color
+                let color: UIColor
 
                 // Visraam coloring takes priority
                 if let visraamType = visraamPoints[index] {
-                    color = AppColors.visraamColor(type: visraamType, for: colorScheme)
+                    color = UIColor(AppColors.visraamColor(type: visraamType, for: colorScheme))
                 } else if larivaarAssist && localLarivaar {
                     // Larivaar assist ONLY when in larivaar mode
-                    color = AppColors.larivaarAssistColor(index: index, for: colorScheme)
+                    color = UIColor(AppColors.larivaarAssistColor(index: index, for: colorScheme))
                 } else {
-                    color = .primary
+                    color = colorScheme == .dark ? .white : .black
                 }
 
-                result = result + Text(word).foregroundColor(color)
+                let attributes: [NSAttributedString.Key: Any] = [.foregroundColor: color]
+                result.append(NSAttributedString(string: word, attributes: attributes))
 
                 // Add space between words unless in larivaar mode
                 if index < words.count - 1 && !localLarivaar {
-                    result = result + Text(" ")
+                    result.append(NSAttributedString(string: " "))
                 }
             }
 
             // Add space between verses in paragraph (only if not in larivaar mode)
             if verseIndex < verses.count - 1 && !localLarivaar {
-                result = result + Text(" ")
+                result.append(NSAttributedString(string: " "))
             }
         }
 
@@ -754,21 +933,22 @@ let bani_title_to_filename: [String: String] = [
     "Sbd hzwry pwiqSwhI 10": "shabadhazare10",
 ]
 
+// start of frame index
 let bani_partitions: [String: [Int]] = [
     "aarti": [0],
     "aasa": [0, 14, 26, 44, 55, 66, 77, 88, 99, 110, 124, 133, 144, 155, 170, 183, 196, 208, 221, 234, 247, 260, 273, 284, 293, 302, 311, 320, 329, 338, 347, 356, 363, 370, 381, 392, 403, 414, 426, 437, 448, 457, 464, 477, 486, 495, 504, 521, 534, 553, 566],
     "akaalustatchaupai": [0],
-    "akalustat": [0, 8, 49, 90, 131, 212, 293, 374, 576, 657, 819, 840, 921, 970, 1011, 1068],
+    "akalustat": [0, 49, 90, 131, 212, 293, 374, 495, 576, 657, 738, 819, 840, 921, 970, 1011, 1068],
     "anand": [0],
     "ardas": [0],
-    "asadivar": [0, 21, 61, 99, 135, 179, 210, 248, 276, 318, 352, 386, 415, 447, 478, 518, 557, 579, 607, 637, 663, 683, 714, 732],
+    "asadivar": [0, 26, 66, 104, 140, 184, 215, 253, 281, 323, 357, 391, 420, 452, 483, 523, 562, 584, 612, 642, 668, 688, 720, 737],
     "athchandichariter": [0, 22],
     "baarehmaha": [0],
     "baarehmahasvaye": [0],
     "baavanakhrikabirjee": [0],
     "basant": [0, 90, 101, 118, 147, 168],
     "basantkivar": [0, 8],
-    "bavanakhree": [0, 12, 15, 26, 29, 38, 41, 50, 53, 61, 64, 73, 76, 84, 87, 96, 99, 108, 111, 120, 123, 132, 135, 144, 147, 156, 159, 168, 170, 178, 181, 190, 193, 202, 205, 214, 217, 226, 229, 238, 241, 250, 253, 262, 265, 273, 276, 285, 288, 297, 300, 309, 312, 321, 324, 333, 336, 344, 347, 356, 359, 368, 371, 380, 383, 392, 395, 404, 407, 415, 418, 427, 430, 437, 440, 449, 452, 461, 464, 473, 476, 485, 488, 497, 500, 508, 511, 522, 525, 533, 536, 545, 548, 556, 559, 567, 570, 578, 581, 590, 593, 602, 605, 613, 616, 625, 628, 637, 640, 649, 654, 663],
+    "bavanakhree": [0, 26, 38, 50, 61, 73, 84, 96, 108, 120, 132, 144, 156, 168, 178, 190, 202, 214, 226, 238, 250, 262, 273, 285, 297, 309, 321, 333, 344, 356, 368, 380, 392, 404, 415, 427, 437, 449, 461, 473, 485, 497, 508, 511, 525, 536, 545, 548, 556, 559, 567, 570, 578, 581, 590, 593, 602, 613, 625, 637, 649],
     "bhagautiastotr": [0],
     "bhagautiastotrhazoor": [0],
     "bhairo": [0, 139, 244, 314, 373, 483, 522, 543],
@@ -780,10 +960,10 @@ let bani_partitions: [String: [Int]] = [
     "chaubole": [0],
     // "chaupai": [0, 5, 42, 154, 159, 165, 170],
     "chaupai": [0], // has diff in taksali/ BD mode
-    "dhakhnioankar": [0],
+    "dhakhnioankar": [0, 12, 16, 20, 24, 28, 32, 40, 48, 56, 64, 68, 72, 80, 88, 96, 104, 112, 120, 128, 136, 145, 153, 161, 169, 177, 185, 194, 202, 210, 218, 226, 234, 242, 250, 254, 262, 270, 278, 287, 295, 303, 311, 319, 327, 335, 343, 351, 359, 367, 375, 383, 391, 395],
     "dhanasari": [0, 42, 99, 124, 142, 152, 159],
     "dukhbhanjani": [0, 12, 23, 34, 45, 56, 67, 74, 85, 96, 111, 118, 125, 132, 139, 146, 157, 164, 173, 180, 187, 194, 201, 208, 219, 226, 233, 240, 247, 254, 261, 268, 275, 282],
-    "funhem5": [0],
+    "funhem5": [ 0, 6, 10, 14, 18, 22, 26, 30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90],
     "gauri": [0, 14, 25, 36, 47, 58, 69, 80, 91, 102, 113, 124, 135, 146, 157, 170, 185, 200, 219, 228, 237, 246, 255, 264, 273, 281, 288, 297, 306, 315, 324, 332, 341, 350, 357, 364, 388, 395, 442, 451, 458, 475, 488, 499, 508, 517, 526, 539, 550, 563, 574, 585, 596, 607, 618, 629, 640, 651, 661, 671, 682, 691, 698, 705, 713, 720, 727, 734, 755, 764, 775, 943, 950, 1017, 1052, 1062, 1087, 1098, 1108],
     "gaurikivaarm4": [0, 15, 29, 41, 53, 69, 88, 111, 136, 160, 183, 204, 226, 254, 283, 318, 338, 358, 378, 397, 427, 449, 468, 484, 500, 516, 538, 640],
     "gaurikivaarm5": [0, 15, 27, 39, 51, 63, 75, 87, 99, 113, 125, 137, 149, 161, 173, 185, 206, 218, 230, 242, 256],
@@ -793,7 +973,7 @@ let bani_partitions: [String: [Int]] = [
     "gujrikivaarm3": [0, 14, 31, 44, 60, 80, 94, 112, 130, 145, 165, 183, 204, 221, 238, 256, 273, 293, 314, 335, 348, 362],
     "gujrikivaarm5": [0, 18, 35, 50, 65, 80, 95, 110, 125, 140, 155, 170, 185, 200, 215, 230, 244, 259, 274, 289, 314],
     "gunvanti": [0],
-    "jaap": [0, 11, 120, 181, 248, 288, 342, 371, 380, 393, 410, 531, 568, 581, 602, 647, 688, 745, 762, 795],
+    "jaap": [0, 120, 181, 248, 288, 342, 371, 410, 531, 602, 647, 688],
     "jaitsree": [0],
     "jaitsrikivar": [0, 9, 20, 31, 42, 53, 64, 75, 86, 97, 108, 119, 131, 142, 153, 164, 175, 186, 197, 208],
     "japji": [0, 16, 48, 60, 84, 108, 132, 171, 199, 241, 267, 299, 316, 335, 371, 378],
@@ -802,14 +982,14 @@ let bani_partitions: [String: [Int]] = [
     "karhalai": [0],
     "kedaara": [0, 55],
     "kuchji": [0],
-    "lavaa": [0],
+    "lavaa": [0, 8, 14, 20],
     "maajhkivaar": [0, 3, 38, 62, 81, 104, 125, 145, 171, 189, 215, 239, 259, 292, 331, 355, 378, 398, 424, 453, 475, 495, 512, 535, 553, 570, 585, 624],
     "maaligauri": [0],
     "maarookivaarm3": [0, 14, 34, 49, 63, 75, 87, 100, 112, 132, 148, 162, 176, 191, 208, 225, 242, 267, 280, 299, 311, 323],
     "maaru": [0, 62, 87, 92, 105, 116, 134, 143],
     "malaar": [0, 30, 39, 50, 59],
     "malaarkivaarm1": [0, 19, 34, 51, 66, 83, 100, 122, 145, 163, 183, 203, 222, 241, 256, 275, 293, 308, 329, 364, 390, 420, 445, 464, 494, 539, 554],
-    "ogardanti": [0, 49, 97, 145, 193, 241, 289],
+    "ogardanti": [0, 52, 100, 148, 196, 244, 294],
     "patteelikhee": [0],
     "patteem3": [0],
     "prabhaati": [0, 13, 28, 39, 50, 59, 72, 81, 92],
@@ -830,7 +1010,7 @@ let bani_partitions: [String: [Int]] = [
     "shabadhazare": [0, 18, 36, 50, 71, 82, 94],
     "shabadhazare10": [0, 12, 21, 30, 39, 48, 53, 62, 71, 80],
     "shastarnaammala": [0],
-    "sidhgosht": [0, 3, 7, 9, 13, 17, 21, 25, 29, 33, 37, 41, 45, 49, 53, 57, 61, 65, 69, 73, 77, 83, 89, 95, 101, 107, 113, 119, 125, 131, 137, 143, 149, 155, 161, 167, 173, 179, 185, 191, 197, 203, 209, 215, 221, 227, 233, 239, 245, 251, 257, 263, 269, 274, 280, 286, 292, 298, 304, 310, 316, 322, 328, 334, 340, 346, 352, 358, 364, 370, 376, 382, 388, 394, 400],
+    "sidhgosht": [0, 8, 16, 24, 32, 40, 48, 56, 64, 72, 82, 94, 106, 118, 130, 142, 154, 172, 190, 202, 220, 232, 250, 268, 279, 291, 303, 321, 333, 345, 357, 369, 381, 393],
     "sirimukhbaakm1a": [0],
     "sirimukhbaakm1b": [0],
     "siriraagkivaar": [0, 14, 26, 40, 58, 73, 86, 103, 122, 146, 162, 184, 212, 229, 260, 272, 292, 308, 327, 342, 356],
@@ -899,11 +1079,12 @@ func printAllBaniPartitions() {
 
 struct BaniSettingsSheet: View {
     let hasRecensionVariation: Bool
-    let hasMultipleSections: Bool
+
+    @AppStorage("fontType") private var fontType: String = "Unicode"
 
     @AppStorage("bani.textScale") private var textScale: Double = 1.0
     @AppStorage("bani.visraamSource") private var selectedVisraamSource: String = "igurbani"
-    @AppStorage("bani.englishSource") private var selectedEnglishSource: String = "bdb"
+    @AppStorage("bani.englishSource") private var selectedEnglishSource: String = "none"
     @AppStorage("bani.punjabiSource") private var selectedPunjabiSource: String = "none"
     @AppStorage("bani.hindiSource") private var selectedHindiSource: String = "none"
     @AppStorage("bani.englishTranslationTextScale") private var enTransTextScale: Double = 1.0
@@ -911,10 +1092,9 @@ struct BaniSettingsSheet: View {
     @AppStorage("bani.hindiTranslationTextScale") private var hindiTransTextScale: Double = 1.0
     @AppStorage("bani.transliterationSource") private var selectedTransliterationSource: String = "none"
     @AppStorage("bani.transliterationTextScale") private var transliterationTextScale: Double = 1.0
-    @AppStorage("bani.fontType") private var fontType: String = "Unicode"
-    @AppStorage("bani.paragraphMode") private var isParagraphMode: Bool = true
+    @AppStorage("bani.paragraphMode") private var isParagraphMode: Bool = false
     @AppStorage("bani.enableSections") private var enableSections: Bool = true
-    @AppStorage("bani.recension") private var selectedRecension: String = "taksal"
+    @AppStorage("bani.recension") private var selectedRecension: String = "SGPC"
     @AppStorage("bani.mangalPosition") private var selectedMangalPosition: String = "current"
 
     private let visraamSources = ["none", "sttm", "igurbani", "sttm2"]
@@ -997,20 +1177,17 @@ struct BaniSettingsSheet: View {
                             .padding(.vertical, 10)
                             .background(Color(.systemBackground))
 
-                            // Enable Sections (only show if there are multiple sections)
-                            if hasMultipleSections {
-                                Divider().padding(.leading)
-                                HStack {
-                                    Text("Enable Sections")
-                                        .font(.subheadline)
-                                    Spacer()
-                                    Toggle("", isOn: $enableSections)
-                                        .labelsHidden()
-                                }
-                                .padding(.horizontal)
-                                .padding(.vertical, 10)
-                                .background(Color(.systemBackground))
+                            Divider().padding(.leading)
+                            HStack {
+                                Text("Enable Sections")
+                                    .font(.subheadline)
+                                Spacer()
+                                Toggle("", isOn: $enableSections)
+                                    .labelsHidden()
                             }
+                            .padding(.horizontal)
+                            .padding(.vertical, 10)
+                            .background(Color(.systemBackground))
 
                             // Recension Filter (only show if there's variation)
                             if hasRecensionVariation {
@@ -1051,14 +1228,12 @@ struct BaniSettingsSheet: View {
                                 .padding(.bottom, 10)
                             }
                             .background(Color(.systemBackground))
-
                             Divider().padding(.leading)
 
-                            BaniSettingsOptionPickerSlider(title: "Gurbani Font", selectedItem: $fontType, options: fonts, textScale: $textScale)
-
+                            SettingsOptionPickerSlider(title: "Gurbani Font", selectedItem: .constant(""), options: [], textScale: $textScale)
                             Divider().padding(.leading)
 
-                            BaniSettingsOptionPickerSlider(title: "Transliteration", selectedItem: $selectedTransliterationSource, options: transliterationSources, textScale: $transliterationTextScale)
+                            SettingsOptionPickerSlider(title: "Transliteration", selectedItem: $selectedTransliterationSource, options: transliterationSources, textScale: $transliterationTextScale)
                         }
                         .background(Color(.systemBackground))
                         .cornerRadius(10)
@@ -1074,15 +1249,15 @@ struct BaniSettingsSheet: View {
                             .padding(.horizontal)
 
                         VStack(spacing: 0) {
-                            BaniSettingsOptionPickerSlider(title: "English", selectedItem: $selectedEnglishSource, options: englishSources, textScale: $enTransTextScale)
+                            SettingsOptionPickerSlider(title: "English", selectedItem: $selectedEnglishSource, options: englishSources, textScale: $enTransTextScale)
 
                             Divider().padding(.leading)
 
-                            BaniSettingsOptionPickerSlider(title: "Punjabi", selectedItem: $selectedPunjabiSource, options: punjabiSources, textScale: $punjabiTransTextScale)
+                            SettingsOptionPickerSlider(title: "Punjabi", selectedItem: $selectedPunjabiSource, options: punjabiSources, textScale: $punjabiTransTextScale)
 
                             Divider().padding(.leading)
 
-                            BaniSettingsOptionPickerSlider(title: "Hindi", selectedItem: $selectedHindiSource, options: hindiSources, textScale: $hindiTransTextScale)
+                            SettingsOptionPickerSlider(title: "Hindi", selectedItem: $selectedHindiSource, options: hindiSources, textScale: $hindiTransTextScale)
                         }
                         .background(Color(.systemBackground))
                         .cornerRadius(10)
@@ -1098,77 +1273,34 @@ struct BaniSettingsSheet: View {
     }
 }
 
-struct BaniSettingsOptionPickerSlider: View {
-    let title: String
-    @Binding var selectedItem: String
-    let options: [(name: String, value: String)]
-    @Binding var textScale: Double
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 6) {
-            HStack {
-                Text(title)
-                    .font(.subheadline)
-                    .foregroundColor(.primary)
-                Spacer()
-                Picker(title, selection: $selectedItem) {
-                    ForEach(options, id: \.value) { option in
-                        Text(option.name).tag(option.value)
-                    }
-                }
-                .pickerStyle(.menu)
-                .labelsHidden()
-            }
-
-            if selectedItem != "none" {
-                HStack(spacing: 6) {
-                    Image(systemName: "textformat.size.smaller")
-                        .font(.caption2)
-                        .foregroundColor(.secondary)
-                        .frame(width: 14)
-                    Slider(value: $textScale, in: 0.5 ... 2.5, step: 0.1)
-                        .tint(.accentColor)
-                    Image(systemName: "textformat.size.larger")
-                        .font(.caption2)
-                        .foregroundColor(.secondary)
-                        .frame(width: 14)
-                }
-            }
-        }
-        .padding(.horizontal)
-        .padding(.vertical, 10)
-    }
-}
-
 struct BaniVerseView: View {
     let verse: BaniVerse
+    @Binding var preSelectedLineIdForCopy: Int
+    @Binding var showCopySheet: Bool
 
-    @AppStorage("settings.larivaarOn") private var globalLarivaarOn: Bool = false
-    @AppStorage("settings.larivaarAssist") private var larivaarAssist: Bool = false
-    @AppStorage("bani.fontType") private var fontType: String = "Unicode"
-    @AppStorage("bani.textScale") private var textScale: Double = 1.0
-    @AppStorage("bani.visraamSource") private var selectedVisraamSource = "igurbani"
-    @AppStorage("bani.transliterationSource") private var selectedTransliterationSource: String = "none"
-    @AppStorage("bani.englishSource") private var selectedEnglishSource: String = "bdb"
-    @AppStorage("bani.punjabiSource") private var selectedPunjabiSource: String = "none"
-    @AppStorage("bani.hindiSource") private var selectedHindiSource: String = "none"
-    @AppStorage("bani.transliterationTextScale") private var transliterationTextScale: Double = 1.0
-    @AppStorage("bani.englishTranslationTextScale") private var enTransTextScale: Double = 1.0
-    @AppStorage("bani.punjabiTranslationTextScale") private var punjabiTransTextScale: Double = 1.0
-    @AppStorage("bani.hindiTranslationTextScale") private var hindiTransTextScale: Double = 1.0
+    // Settings passed as bindings to avoid duplicate @AppStorage subscriptions
+    @Binding var globalLarivaarOn: Bool
+    @Binding var larivaarAssist: Bool
+    @Binding var fontType: String
+    @Binding var textScale: Double
+    @Binding var selectedVisraamSource: String
+    @Binding var selectedTransliterationSource: String
+    @Binding var selectedEnglishSource: String
+    @Binding var selectedPunjabiSource: String
+    @Binding var selectedHindiSource: String
+    @Binding var transliterationTextScale: Double
+    @Binding var enTransTextScale: Double
+    @Binding var punjabiTransTextScale: Double
+    @Binding var hindiTransTextScale: Double
 
     @State private var localLarivaar: Bool = false
     @State private var showDefinitionsSheet: Bool = false
 
     @Environment(\.colorScheme) var colorScheme
 
-    init(verse: BaniVerse) {
-        self.verse = verse
-    }
-
     var body: some View {
-        VStack(alignment: .leading, spacing: 4) {
-            formattedGurbaniText
+        VStack(alignment: .leading) {
+            Text(AttributedString(formattedGurbaniAttributedString))
                 .font(resolveFont(size: 20 * textScale, fontType: fontType))
                 .lineSpacing(2)
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -1226,7 +1358,12 @@ struct BaniVerseView: View {
                 verse: verse.verse,
                 preSelectedLineIdForCopy: Binding(
                     get: { nil },
-                    set: { _ in }
+                    set: { newValue in
+                        if let id = newValue?.id {
+                            preSelectedLineIdForCopy = id
+                            showCopySheet = true
+                        }
+                    }
                 )
             )
         }
@@ -1242,7 +1379,7 @@ struct BaniVerseView: View {
         }
     }
 
-    private var formattedGurbaniText: Text {
+    private var formattedGurbaniAttributedString: NSAttributedString {
         let text = fontType == "Unicode" ? verse.verse.verse.unicode : verse.verse.verse.gurmukhi
         let words = text.components(separatedBy: " ")
 
@@ -1261,25 +1398,26 @@ struct BaniVerseView: View {
             }
         }
 
-        var result = Text("")
+        let result = NSMutableAttributedString()
         for (index, word) in words.enumerated() {
-            let color: Color
+            let color: UIColor
 
             // Visraam coloring takes priority
             if let visraamType = visraamPoints[index] {
-                color = AppColors.visraamColor(type: visraamType, for: colorScheme)
+                color = UIColor(AppColors.visraamColor(type: visraamType, for: colorScheme))
             } else if larivaarAssist && localLarivaar {
                 // Larivaar assist ONLY applies when IN larivaar mode (no spaces)
-                color = AppColors.larivaarAssistColor(index: index, for: colorScheme)
+                color = UIColor(AppColors.larivaarAssistColor(index: index, for: colorScheme))
             } else {
-                color = .primary
+                color = colorScheme == .dark ? .white : .black
             }
 
-            result = result + Text(word).foregroundColor(color)
+            let attributes: [NSAttributedString.Key: Any] = [.foregroundColor: color]
+            result.append(NSAttributedString(string: word, attributes: attributes))
 
             // Add space between words unless in larivaar mode
             if index < words.count - 1 && !localLarivaar {
-                result = result + Text(" ")
+                result.append(NSAttributedString(string: " "))
             }
         }
 
@@ -1401,5 +1539,151 @@ struct BaniMetaInfoSheet: View {
             i += 2
         }
         return result
+    }
+}
+
+// MARK: - Scroll Offset Preference Key
+
+struct ScrollOffsetPreferenceKey: PreferenceKey {
+    static var defaultValue: CGFloat = 0
+
+    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
+        value = nextValue()
+    }
+}
+
+// MARK: - Auto Scroll View
+
+struct AutoScrollView<Content: View>: UIViewControllerRepresentable {
+    @Binding var controller: AutoScrollViewController<Content>?
+    let content: () -> Content
+
+    func makeUIViewController(context _: Context) -> AutoScrollViewController<Content> {
+        let viewController = AutoScrollViewController(content: content())
+        DispatchQueue.main.async {
+            controller = viewController
+        }
+        return viewController
+    }
+
+    func updateUIViewController(_ uiViewController: AutoScrollViewController<Content>, context _: Context) {
+        uiViewController.updateContent(content: content())
+    }
+}
+
+class AutoScrollViewController<Content: View>: UIViewController, UIScrollViewDelegate {
+    private var hostingController: UIHostingController<Content>
+    private var scrollView: UIScrollView
+    private var scrollTimer: Timer?
+    private(set) var isPaused = false
+    private var scrollSpeed: Double = 30.0
+    var onScrollEnd: (() -> Void)?
+
+    init(content: Content) {
+        hostingController = UIHostingController(rootView: content)
+        scrollView = UIScrollView()
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        scrollView.delegate = self
+        scrollView.backgroundColor = .clear
+        scrollView.showsVerticalScrollIndicator = true
+        scrollView.showsHorizontalScrollIndicator = false
+
+        // Remove extra insets and offsets
+        scrollView.contentInsetAdjustmentBehavior = .never
+        scrollView.contentInset = .zero
+        scrollView.scrollIndicatorInsets = .zero
+        scrollView.contentOffset = .zero
+
+        addChild(hostingController)
+        hostingController.view.translatesAutoresizingMaskIntoConstraints = true
+        scrollView.addSubview(hostingController.view)
+        hostingController.didMove(toParent: self)
+
+        view.addSubview(scrollView)
+
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+        ])
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        let width = scrollView.bounds.width
+        guard width > 0 else { return }
+
+        let size = hostingController.sizeThatFits(in: CGSize(width: width, height: CGFloat.greatestFiniteMagnitude))
+        hostingController.view.frame = CGRect(x: 0, y: 0, width: width, height: size.height)
+        scrollView.contentSize = CGSize(width: width, height: size.height)
+    }
+
+    func updateContent(content: Content) {
+        hostingController.rootView = content
+        view.setNeedsLayout()
+        view.layoutIfNeeded()
+    }
+
+    func scrollToTop() {
+        scrollView.setContentOffset(.zero, animated: true)
+    }
+
+    func startScrolling(speed: Double) {
+        stopScrolling() // Stop any existing timer
+        scrollSpeed = speed
+        isPaused = false
+
+        // Timer fires every 50ms for smooth scrolling
+        scrollTimer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { [weak self] _ in
+            guard let self = self, !self.isPaused else { return }
+
+            let currentOffset = self.scrollView.contentOffset.y
+            let maxOffset = max(0, self.scrollView.contentSize.height - self.scrollView.bounds.height)
+
+            // Calculate scroll amount: speed (pts/sec) * 0.05 (sec)
+            let scrollAmount = self.scrollSpeed * 0.05
+
+            let newOffset = min(currentOffset + scrollAmount, maxOffset)
+
+            // Stop at the end
+            if newOffset >= maxOffset {
+                self.stopScrolling()
+                self.onScrollEnd?()
+                return
+            }
+
+            self.scrollView.setContentOffset(CGPoint(x: 0, y: newOffset), animated: false)
+        }
+    }
+
+    func stopScrolling() {
+        scrollTimer?.invalidate()
+        scrollTimer = nil
+        isPaused = false
+    }
+
+    func pauseScrolling() {
+        isPaused = true
+    }
+
+    func resumeScrolling() {
+        isPaused = false
+    }
+
+    func setScrollSpeed(_ speed: Double) {
+        scrollSpeed = speed
     }
 }

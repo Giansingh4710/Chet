@@ -20,7 +20,7 @@ struct LockScreenInLineView: View {
     var body: some View {
         if let verse = entry.sbd.verses.first {
             getGurbaniLine(verse, fontType: fontType, selectedVisraamSource: selectedVisraamSource, larivaarOn: larivaarOn, larivaarAssist: larivaarAssist, colorScheme: colorScheme)
-                .font(.caption2)
+                .font(resolveFont(size: 16, fontType: fontType))
                 .lineLimit(1)
         } else {
             Text("Vaheguru").font(.caption2)
@@ -42,7 +42,7 @@ struct LockScreenRectangularView: View {
         VStack(alignment: .leading, spacing: 4) {
             if let verse = entry.sbd.verses.first {
                 getGurbaniLine(verse, fontType: fontType, selectedVisraamSource: selectedVisraamSource, larivaarOn: larivaarOn, larivaarAssist: larivaarAssist, colorScheme: colorScheme)
-                    .font(.headline)
+                    .font(resolveFont(size: 20, fontType: fontType))
                     .lineLimit(2)
 
                 if let transliteration = verse.transliteration.value(for: selectedTransliterationSource) {
@@ -80,7 +80,6 @@ struct HomeScreenView: View {
     let lines: Int
     let colorScheme: ColorScheme
 
-
     var body: some View {
         let verses = getVerses()
 
@@ -101,7 +100,7 @@ struct HomeScreenView: View {
                 ForEach(verses, id: \.verseId) { verse in
                     VStack(alignment: .leading, spacing: 2) {
                         getGurbaniLine(verse, fontType: fontType, selectedVisraamSource: selectedVisraamSource, larivaarOn: larivaarOn, larivaarAssist: larivaarAssist, colorScheme: colorScheme)
-                            .font(.headline)
+                            .font(resolveFont(size: 20, fontType: fontType))
                             .lineLimit(2)
 
                         if let transliteration = verse.transliteration.value(for: selectedTransliterationSource) {
@@ -192,15 +191,16 @@ struct WidgetEntryView: View {
 
     @Environment(\.widgetFamily) var widgetFamily
     @Environment(\.colorScheme) var colorScheme
-    @AppStorage("fontType") private var fontType = "Unicode"
-    @AppStorage("settings.visraamSource") private var selectedVisraamSource = "igurbani"
-    @AppStorage("settings.larivaarOn") private var larivaarOn = false
-    @AppStorage("settings.larivaarAssist") private var larivaarAssist = false
-    @AppStorage("settings.englishSource") private var selectedEnglishSource = "bdb"
-    @AppStorage("settings.punjabiSource") private var selectedPunjabiSource = "none"
-    @AppStorage("settings.hindiSource") private var selectedHindiSource = "none"
-    @AppStorage("settings.spanishSource") private var selectedSpanishSource = "none"
-    @AppStorage("settings.transliterationSource") private var selectedTransliterationSource = "none"
+
+    @AppStorage("fontType", store: UserDefaults.appGroup) private var fontType = "Unicode"
+    @AppStorage("settings.visraamSource", store: UserDefaults.appGroup) private var selectedVisraamSource = "igurbani"
+    @AppStorage("settings.larivaarOn", store: UserDefaults.appGroup) private var larivaarOn = false
+    @AppStorage("settings.larivaarAssist", store: UserDefaults.appGroup) private var larivaarAssist = false
+    @AppStorage("settings.englishSource", store: UserDefaults.appGroup) private var selectedEnglishSource = "bdb"
+    @AppStorage("settings.punjabiSource", store: UserDefaults.appGroup) private var selectedPunjabiSource = "none"
+    @AppStorage("settings.hindiSource", store: UserDefaults.appGroup) private var selectedHindiSource = "none"
+    @AppStorage("settings.spanishSource", store: UserDefaults.appGroup) private var selectedSpanishSource = "none"
+    @AppStorage("settings.transliterationSource", store: UserDefaults.appGroup) private var selectedTransliterationSource = "none"
 
     var body: some View {
         switch widgetFamily {
@@ -223,19 +223,10 @@ struct WidgetEntryView: View {
 }
 
 func getGurbaniLine(_ verse: Verse, fontType: String, selectedVisraamSource: String, larivaarOn: Bool, larivaarAssist: Bool, colorScheme: ColorScheme) -> Text {
-    // Choose between larivaar and regular text
-    let text: String
-    let isLarivaarMode = larivaarOn || larivaarAssist
-
-    if isLarivaarMode {
-        text = fontType == "Unicode" ? verse.larivaar.unicode : verse.larivaar.gurmukhi
-    } else {
-        text = fontType == "Unicode" ? verse.verse.unicode : verse.verse.gurmukhi
-    }
-
+    let text = fontType == "Unicode" ? verse.verse.unicode : verse.verse.gurmukhi
+    print("text: \(text), \(fontType)")
     let words = text.components(separatedBy: " ")
 
-    // Get visraam points based on selected source
     var visraamPoints: [Int: String] = [:] // [position: type]
     if let visraam = verse.visraam {
         let selectedVisraamData: [Visraam.VisraamPoint]
@@ -260,45 +251,21 @@ func getGurbaniLine(_ verse: Verse, fontType: String, selectedVisraamSource: Str
         let wordText: Text
         let color: Color
 
-        // Check if this word has a visraam marker
         if let visraamType = visraamPoints[index] {
-            // Word has visraam - always use visraam color regardless of assist mode
-            switch visraamType {
-            case "v": // small pause
-                color = colorScheme == .dark ? Color(red: 1.0, green: 0.5, blue: 0.3) : Color(red: 0.9, green: 0.2, blue: 0.0)
-            case "y": // big pause
-                color = colorScheme == .dark ? Color(red: 0.3, green: 1.0, blue: 0.3) : Color(red: 0.0, green: 0.7, blue: 0.0)
-            default:
-                // Unknown visraam type - fall through to alternating colors if assist is on
-                if larivaarAssist {
-                    let isEvenWord = index % 2 == 0
-                    color = isEvenWord
-                        ? (colorScheme == .dark ? Color(red: 0.7, green: 0.85, blue: 1.0) : Color(red: 0.1, green: 0.2, blue: 0.6))
-                        : (colorScheme == .dark ? Color(red: 1.0, green: 0.85, blue: 0.5) : Color(red: 0.6, green: 0.45, blue: 0.0))
-                } else {
-                    color = .primary
-                }
-            }
-        } else if larivaarAssist {
-            // No visraam marker - use alternating colors for larivaar assist
-            let isEvenWord = index % 2 == 0
-            color = isEvenWord
-                ? (colorScheme == .dark ? Color(red: 0.7, green: 0.85, blue: 1.0) : Color(red: 0.1, green: 0.2, blue: 0.6))
-                : (colorScheme == .dark ? Color(red: 1.0, green: 0.85, blue: 0.5) : Color(red: 0.6, green: 0.45, blue: 0.0))
+            color = AppColors.visraamColor(type: visraamType, for: colorScheme)
+        } else if larivaarAssist && larivaarOn {
+            color = AppColors.larivaarAssistColor(index: index, for: colorScheme)
         } else {
-            // Normal mode - just primary color
-            color = .primary
+            color = .primary // Normal mode - just primary color
         }
 
         wordText = Text(word).foregroundColor(color)
         result = result + wordText
 
-        // Add space between words only if not in larivaar or larivaar assist mode
-        if index < words.count - 1 && !isLarivaarMode {
+        if index < words.count - 1 && !larivaarOn {
             result = result + Text(" ")
         }
     }
-
     return result
 }
 

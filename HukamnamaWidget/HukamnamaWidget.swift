@@ -25,12 +25,12 @@ struct Provider: TimelineProvider {
         fetchHukamWrapper { response in
             var entries: [RandSbdForWidget] = []
             let currentDate = Date()
-            let entryDate = Calendar.current.date(byAdding: .hour, value: 24, to: currentDate)!
+            let nextRefreshDate = Calendar.current.date(byAdding: .hour, value: 24, to: currentDate)!
             let hukam = response!
             let sbd = getSbdObjFromHukamObj(hukamObj: hukam)
-            let entry = RandSbdForWidget(sbd: sbd, date: Date.now, index: 0)
+            let entry = RandSbdForWidget(sbd: sbd, date: currentDate, index: 0)
             entries.append(entry)
-            let timeline = Timeline(entries: entries, policy: .atEnd)
+            let timeline = Timeline(entries: entries, policy: .after(nextRefreshDate))
             completion(timeline)
         }
     }

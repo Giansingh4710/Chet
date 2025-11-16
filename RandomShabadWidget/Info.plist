@@ -7,5 +7,16 @@
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.widgetkit-extension</string>
 	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>AnmolLipiBoldTrue.ttf</string>
+		<string>AnmolLipiSG.ttf</string>
+		<string>GurbaniAkharHeavyTrue.ttf</string>
+		<string>GurbaniAkharThickTrue.ttf</string>
+		<string>GurbaniAkharTrue.ttf</string>
+		<string>NotoSansGurmukhiBoldTrue.ttf</string>
+		<string>NotoSansGurmukhiTrue.ttf</string>
+		<string>PrabhkiTrue.ttf</string>
+	</array>
 </dict>
 </plist>

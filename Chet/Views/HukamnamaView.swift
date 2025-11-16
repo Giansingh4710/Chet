@@ -99,13 +99,18 @@ struct HukamnamaDisplayView: View {
         getSbdObjFromHukamObj(hukamObj: hukamnamaResponse)
     }
 
+    @State private var dummyFolderIndex: Int? = nil
+
     var body: some View {
         ZStack {
             // Main content using ShabadViewDisplay
             ShabadViewDisplay(
                 sbdRes: combinedShabad,
                 fetchNewShabad: { _ in }, // Not used for Hukamnama
-                indexOfLine: indexOfLine
+                navigateToSavedShabad: { _ in }, // Not used for Hukamnama
+                indexOfLine: indexOfLine,
+                folderShabads: nil,
+                currentFolderIndex: $dummyFolderIndex
             )
 
             // Custom navigation overlay for date navigation

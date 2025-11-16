@@ -128,6 +128,80 @@ func parseArrayForiGurbani(
     return folder
 }
 
+func parseArrayForKeertanPothi(
+    _ array: [[String: Any]],
+    modelContext: ModelContext,
+    onShabadImported: @escaping () async -> Void
+) async -> Folder {
+    // Create parent folder for all pothis
+    let parentFolder = Folder(name: "Keertan Pothi Imports")
+    modelContext.insert(parentFolder)
+
+    let isoFormatter = ISO8601DateFormatter()
+    isoFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+
+    for pothiData in array {
+        // Extract pothi metadata
+        guard let pothiInfo = pothiData["pothi"] as? [String: Any],
+              let pothiName = pothiInfo["Name"] as? String,
+              let shabadList = pothiData["shabadList"] as? [[String: Any]]
+        else {
+            print("Failed to parse pothi structure")
+            continue
+        }
+
+        // Create subfolder for this pothi
+        let folder = Folder(name: pothiName, parentFolder: parentFolder)
+        modelContext.insert(folder)
+        parentFolder.subfolders.append(folder)
+
+        // Process shabads in this pothi
+        var sortCounter = shabadList.count
+        for shabadData in shabadList {
+            guard let shabadId = shabadData["ShabadId"] as? Int else {
+                print("ShabadId not found in shabad data")
+                continue
+            }
+
+            do {
+                // Try to fetch the shabad using the ID directly
+                // (Assuming Keertan Pothi uses BaniDB IDs)
+                let sbdRes = try await fetchShabadResponse(from: shabadId)
+
+                // Find the saved line using VerseId
+                var lineIndex = 0
+                if let verseId = shabadData["VerseId"] as? Int {
+                    // Find the verse with matching ID
+                    if let foundIndex = sbdRes.verses.firstIndex(where: { $0.id == verseId }) {
+                        lineIndex = foundIndex
+                    } else {
+                        print("⚠️ VerseId \(verseId) not found in shabad \(shabadId), using first line")
+                    }
+                }
+
+                let savedShabad = SavedShabad(folder: folder, sbdRes: sbdRes, indexOfSelectedLine: lineIndex)
+
+                // Preserve sort order from Keertan Pothi
+                if let sortOrder = shabadData["SortOrder"] as? Int {
+                    savedShabad.sortIndex = sortOrder
+                } else {
+                    savedShabad.sortIndex = sortCounter
+                    sortCounter -= 1
+                }
+
+                modelContext.insert(savedShabad)
+                folder.savedShabads.append(savedShabad)
+                await onShabadImported()
+            } catch {
+                print("❌ Error fetching shabad ID \(shabadId): \(error)")
+                continue
+            }
+        }
+    }
+
+    return parentFolder
+}
+
 func getSavedSbdObj(sbdID: Int, savedLine: String, folder: Folder) async throws -> SavedShabad? {
     do {
         let sbdRes = try await fetchShabadResponse(from: sbdID)

@@ -99,11 +99,6 @@ struct ContentView: View {
         }
         .onAppear {
             UIApplication.shared.isIdleTimerDisabled = true
-
-            // Perform daily backup check
-            Task {
-                await BackupManager.shared.performDailyBackupIfNeeded(modelContext: modelContext)
-            }
         }
         .onDisappear {
             UIApplication.shared.isIdleTimerDisabled = false

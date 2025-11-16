@@ -88,6 +88,7 @@
 		A053D08E2E666D47004E371B /* FavShabadsWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FavShabadsWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A053D0DD2E668FF8004E371B /* FavShabadsWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FavShabadsWidgetExtension.entitlements; sourceTree = "<group>"; };
 		A0636BF92E770A50005955C2 /* RandomShabadWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RandomShabadWidgetExtension.entitlements; sourceTree = "<group>"; };
+		A0HUKAM02E665500004E371B /* HukamnamaWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HukamnamaWidgetExtension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -115,6 +116,7 @@
 		A053D0A52E666EA5004E371B /* Exceptions for "Chet" folder in "FavShabadsWidgetExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				ColorTheme.swift,
 				helpers/helper_funcs.swift,
 				helpers/sample_data/random_sbd.json,
 				Models.swift,
@@ -124,6 +126,7 @@
 		A053D0E22E679C24004E371B /* Exceptions for "Chet" folder in "RandomShabadWidgetExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				ColorTheme.swift,
 				helpers/helper_funcs.swift,
 				helpers/sample_data/random_sbd.json,
 				Models.swift,
@@ -133,6 +136,7 @@
 		A053D0E32E679C24004E371B /* Exceptions for "Chet" folder in "HukamnamaWidgetExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				ColorTheme.swift,
 				helpers/helper_funcs.swift,
 				helpers/sample_data/hukam.json,
 				helpers/sample_data/random_sbd.json,
@@ -260,6 +264,7 @@
 				A0636BF92E770A50005955C2 /* RandomShabadWidgetExtension.entitlements */,
 				A053D18B2E7491CF004E371B /* Fonts */,
 				A053D0DD2E668FF8004E371B /* FavShabadsWidgetExtension.entitlements */,
+				A0HUKAM02E665500004E371B /* HukamnamaWidgetExtension.entitlements */,
 				A053D0832E665D2E004E371B /* WidgetViews.swift */,
 				A053CFFE2E6626BF004E371B /* Chet */,
 				A053D00F2E6626C0004E371B /* ChetTests */,
@@ -936,6 +941,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = HukamnamaWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = UXX67B9ASA;
@@ -963,6 +969,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = HukamnamaWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = UXX67B9ASA;

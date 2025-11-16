@@ -29,7 +29,6 @@ struct SavedShabadsView: View {
     @State private var isCopyOperation = false // Track if we're copying vs moving
 
     @Environment(\.modelContext) private var modelContext
-    @AppStorage("backupChangeCounter") private var backupChangeCounter = 0
     @State private var showingDestinationPickerSheet = false
 
     var body: some View {
@@ -186,14 +185,14 @@ struct SavedShabadsView: View {
             }
             Button("Cancel", role: .cancel) {}
         } message: {
-            Text("ਗੁਰਬਾਣੀ ਖੋਜ (Gurbani Khoj) and iGurbani allow you to export your favorite Shabads. When you export them, it will be saved to a file. You can import that file here and get all your saved data here.")
+            Text("ਗੁਰਬਾਣੀ ਖੋਜ (Gurbani Khoj), iGurbani, and Keertan Pothi allow you to export your favorite Shabads. When you export them, it will be saved to a file. You can import that file here and get all your saved data here.")
         }
         .sheet(isPresented: $showingExporter) {
             ExportSheet()
         }
         .fileImporter(
             isPresented: $showingImporter,
-            allowedContentTypes: [.igb, .gkhoj, .chetBackup], // ✅ allow all three import formats
+            allowedContentTypes: [.igb, .gkhoj, .chetBackup, .json], // ✅ allow all four import formats (including Keertan Pothi)
             allowsMultipleSelection: false
         ) { result in
             do {
@@ -256,6 +255,35 @@ struct SavedShabadsView: View {
                             numberOfImportedShabads = -1
                         }
                     }
+                } else if fileExtension == "json" {
+                    // Try to parse as Keertan Pothi format
+                    if let json = try? JSONSerialization.jsonObject(with: data) as? [[String: Any]] {
+                        // Check if it's Keertan Pothi format (array of objects with "pothi" and "shabadList")
+                        if let firstItem = json.first,
+                           firstItem["pothi"] != nil,
+                           firstItem["shabadList"] != nil
+                        {
+                            Task {
+                                numberOfImportedShabads = 0
+                                _ = await parseArrayForKeertanPothi(json, modelContext: modelContext) {
+                                    await MainActor.run {
+                                        numberOfImportedShabads += 1
+                                    }
+                                }
+                                numberOfImportedShabads = -1
+                                // Parent folder and subfolders are already inserted in parseArrayForKeertanPothi
+                                try? modelContext.save()
+                            }
+                        } else {
+                            print("JSON file doesn't match Keertan Pothi format")
+                            errorMessage = "JSON file doesn't match any supported format"
+                            showingErrorAlert = true
+                        }
+                    } else {
+                        print("Failed to parse JSON file")
+                        errorMessage = "Failed to parse JSON file"
+                        showingErrorAlert = true
+                    }
                 } else {
                     print("Unknown file type: \(fileExtension)")
                 }
@@ -289,7 +317,7 @@ struct SavedShabadsView: View {
 
         // Reload widget if moving folders to Favorites (might contain shabads)
         if let destination = destination, destination.name == "Favorites" && destination.isSystemFolder {
-            WidgetCenter.shared.reloadTimelines(ofKind: "xyz.gians.Chet.FavShabadsWidget")
+            WidgetCenter.shared.reloadTimelines(ofKind: "FavShabadsWidget")
         }
 
         selectedFolders.removeAll()
@@ -309,7 +337,7 @@ struct SavedShabadsView: View {
 
         // Reload widget if copying folders to Favorites (might contain shabads)
         if let destination = destination, destination.name == "Favorites" && destination.isSystemFolder {
-            WidgetCenter.shared.reloadTimelines(ofKind: "xyz.gians.Chet.FavShabadsWidget")
+            WidgetCenter.shared.reloadTimelines(ofKind: "FavShabadsWidget")
         }
 
         selectedFolders.removeAll()
@@ -514,7 +542,7 @@ struct FoldersContentView: View {
 
         // Reload widget if any shabads moved to/from Favorites folder
         if shouldReloadWidget {
-            WidgetCenter.shared.reloadTimelines(ofKind: "xyz.gians.Chet.FavShabadsWidget")
+            WidgetCenter.shared.reloadTimelines(ofKind: "FavShabadsWidget")
         }
 
         selectedFolders.removeAll()
@@ -551,7 +579,7 @@ struct FoldersContentView: View {
 
         // Reload widget if copying to Favorites folder
         if let destination = destination, destination.name == "Favorites" && destination.isSystemFolder {
-            WidgetCenter.shared.reloadTimelines(ofKind: "xyz.gians.Chet.FavShabadsWidget")
+            WidgetCenter.shared.reloadTimelines(ofKind: "FavShabadsWidget")
         }
 
         selectedFolders.removeAll()
@@ -845,11 +873,17 @@ struct ShabadsDisplay: View {
                     }
                     .buttonStyle(PlainButtonStyle())
                 } else {
-                    // Not in edit mode: normal navigation link
-                    NavigationLink(destination: ShabadViewDisplayWrapper(sbdRes: svdSbd.sbdRes, indexOfLine: svdSbd.indexOfSelectedLine, onIndexChange: { newIndex in
-                        svdSbd.indexOfSelectedLine = newIndex
-                        WidgetCenter.shared.reloadAllTimelines()
-                    })) {
+                    // Not in edit mode: normal navigation link with folder context
+                    NavigationLink(destination: ShabadViewDisplayWrapper(
+                        sbdRes: svdSbd.sbdRes,
+                        indexOfLine: svdSbd.indexOfSelectedLine,
+                        onIndexChange: { newIndex in
+                            svdSbd.indexOfSelectedLine = newIndex
+                            WidgetCenter.shared.reloadAllTimelines()
+                        },
+                        folderShabads: the_shabads,
+                        currentShabadIndex: the_shabads.firstIndex(where: { $0.id == svdSbd.id })
+                    )) {
                         RowView(
                             verse: svdSbd.sbdRes.verses[svdSbd.indexOfSelectedLine < 0 ? 0 : svdSbd.indexOfSelectedLine],
                             source: svdSbd.sbdRes.shabadInfo.source,
@@ -885,7 +919,7 @@ struct ShabadsDisplay: View {
 
         // Reload FavShabadsWidget if deleting from Favorites folder
         if folder.name == "Favorites" && folder.isSystemFolder {
-            WidgetCenter.shared.reloadTimelines(ofKind: "xyz.gians.Chet.FavShabadsWidget")
+            WidgetCenter.shared.reloadTimelines(ofKind: "FavShabadsWidget")
         }
     }
 
@@ -899,7 +933,7 @@ struct ShabadsDisplay: View {
 
         // Reload FavShabadsWidget if reordering in Favorites folder (order matters for rotation!)
         if folder.name == "Favorites" && folder.isSystemFolder {
-            WidgetCenter.shared.reloadTimelines(ofKind: "xyz.gians.Chet.FavShabadsWidget")
+            WidgetCenter.shared.reloadTimelines(ofKind: "FavShabadsWidget")
         }
     }
 }

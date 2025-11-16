@@ -91,12 +91,11 @@ class BackupManager {
 
     // MARK: - Daily Backup
 
-    /// Performs daily backup check - creates backup if one doesn't exist for today
-    func performDailyBackupIfNeeded(modelContext: ModelContext) async {
+    /// Creates/replaces daily backup when shabad is added - one backup per day
+    func performDailyBackup(modelContext: ModelContext) async {
         let calendar = Calendar.current
         let today = calendar.startOfDay(for: Date())
 
-        // Check if we already have a backup for today
         guard let backupFolderURL = getBackupFolderURL() else {
             print("❌ Cannot access backup folder for daily backup")
             return
@@ -112,18 +111,12 @@ class BackupManager {
         let todayBackupName = "Chet_Daily_\(todayString).chet"
         let todayBackupURL = backupFolderURL.appendingPathComponent(todayBackupName)
 
-        // Check if today's backup already exists
-        if FileManager.default.fileExists(atPath: todayBackupURL.path) {
-            print("✅ Daily backup already exists for \(todayString)")
-            return
-        }
-
-        // Create today's backup
+        // Create/replace today's backup
         do {
-            print("💾 Creating daily backup for \(todayString)...")
+            print("💾 Creating/updating daily backup for \(todayString)...")
             let data = try await exportToJSON(modelContext: modelContext)
             try data.write(to: todayBackupURL)
-            print("✅ Daily backup created: \(todayBackupURL.lastPathComponent)")
+            print("✅ Daily backup saved: \(todayBackupURL.lastPathComponent)")
 
             // Clean up old backups (keep only last 5)
             try await cleanupOldBackups(in: backupFolderURL)

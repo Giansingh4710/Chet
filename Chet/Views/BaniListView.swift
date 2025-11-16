@@ -56,7 +56,14 @@ struct BaniListView: View {
             "rhrwis swihb",
             "soihlw swihb",
         ]),
-        ("ਬੇਅੰਤ ਬਾਣੀਆਂ", [
+        ("5 gRMQI", [
+            "bwvn AKrI",
+            "suKmnI swihb",
+            "Awsw dI vwr",
+            "isD gosit",
+            "dKxI EAMkwru",
+        ]),
+        ("byAMq bwxIAwN", [
             "lwvW",
             "kucjI",
             "sucjI",
@@ -65,13 +72,8 @@ struct BaniListView: View {
             "cauboly",
             "rwmklI kI vwr (rwie blvMif qQw sqY)",
             "bsMq kI vwr",
-        ]),
-        ("5 gRMQI", [
-            "suKmnI swihb",
-            "Awsw dI vwr",
-            "bwvn AKrI",
-            "isD gosit",
-            "dKxI EAMkwru",
+            "Sbd hzwry",
+            "Sbd hzwry pwiqSwhI 10",
         ]),
         ("22 vwrw", [
             "isrIrwg kI vwr mhlw 4",
@@ -258,24 +260,6 @@ struct BaniListView: View {
 
     var body: some View {
         List {
-            if !favoriteBanis.isEmpty {
-                Section {
-                    ForEach(favoriteBanis, id: \.self) { baniTitle in
-                        baniRow(baniTitle: baniTitle, isFavorite: true)
-                    }
-                    .onMove(perform: moveFavorite)
-                } header: {
-                    HStack {
-                        Image(systemName: "star.fill")
-                            .foregroundColor(.yellow)
-                        Text("Favorites")
-                        Spacer()
-                        Text("(\(favoriteBanis.count))")
-                            .foregroundColor(.secondary)
-                    }
-                }
-            }
-
             ForEach(banis, id: \.title) { category in
                 DisclosureGroup(
                     isExpanded: Binding(
@@ -299,6 +283,24 @@ struct BaniListView: View {
                         Spacer()
                         Text("(\(category.items.count))")
                             .font(.subheadline)
+                            .foregroundColor(.secondary)
+                    }
+                }
+            }
+
+            if !favoriteBanis.isEmpty {
+                Section {
+                    ForEach(favoriteBanis, id: \.self) { baniTitle in
+                        baniRow(baniTitle: baniTitle, isFavorite: true)
+                    }
+                    .onMove(perform: moveFavorite)
+                } header: {
+                    HStack {
+                        Image(systemName: "star.fill")
+                            .foregroundColor(.yellow)
+                        Text("Favorites")
+                        Spacer()
+                        Text("(\(favoriteBanis.count))")
                             .foregroundColor(.secondary)
                     }
                 }

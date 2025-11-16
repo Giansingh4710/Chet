@@ -46,7 +46,13 @@ struct SettingsView: View {
                                 if !setting {
                                     larivaarAssist = false
                                 }
-                                WidgetCenter.shared.reloadAllTimelines()
+                                UserDefaults.appGroup.set(setting, forKey: "settings.larivaarOn")
+                                UserDefaults.appGroup.synchronize()
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                    WidgetCenter.shared.reloadTimelines(ofKind: "HukamnamaWidget")
+                                    WidgetCenter.shared.reloadTimelines(ofKind: "RandomShabadWidget")
+                                    WidgetCenter.shared.reloadTimelines(ofKind: "FavShabadsWidget")
+                                }
                             }
                     }
                     if larivaarOn {
@@ -54,8 +60,14 @@ struct SettingsView: View {
                             Label("Larivaar Assist", systemImage: "textformat")
                             Spacer()
                             Toggle("", isOn: $larivaarAssist)
-                                .onChange(of: larivaarAssist) { _ in
-                                    WidgetCenter.shared.reloadAllTimelines()
+                                .onChange(of: larivaarAssist) { setting in
+                                    UserDefaults.appGroup.set(setting, forKey: "settings.larivaarAssist")
+                                    UserDefaults.appGroup.synchronize()
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                        WidgetCenter.shared.reloadTimelines(ofKind: "HukamnamaWidget")
+                                        WidgetCenter.shared.reloadTimelines(ofKind: "RandomShabadWidget")
+                                        WidgetCenter.shared.reloadTimelines(ofKind: "FavShabadsWidget")
+                                    }
                                 }
                         }
                     }
@@ -268,8 +280,15 @@ struct FontPicker: View {
                 Text("The Actual Characters").tag("The Actual Characters")
             }
             .pickerStyle(.menu)
-            .onChange(of: fontType) { _ in
-                WidgetCenter.shared.reloadAllTimelines()
+            .onChange(of: fontType) { setting in
+                print("Font changed to \(setting)")
+                UserDefaults.appGroup.set(setting, forKey: "fontType")
+                UserDefaults.appGroup.synchronize()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    WidgetCenter.shared.reloadTimelines(ofKind: "HukamnamaWidget")
+                    WidgetCenter.shared.reloadTimelines(ofKind: "RandomShabadWidget")
+                    WidgetCenter.shared.reloadTimelines(ofKind: "FavShabadsWidget")
+                }
             }
         }
     }

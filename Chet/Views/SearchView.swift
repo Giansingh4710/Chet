@@ -15,7 +15,6 @@ struct SearchView: View {
     @State private var selectedShabad: ShabadAPIResponse?
     @State private var isNavigatingToSearchedSbd = false
     @State private var isNavigatingToHukam = false
-    @State private var isNavigatingToHistory = false
 
     @State private var showingPunjabiKeyboard = false
     @State private var searchType: SearchType = .auto
@@ -131,9 +130,6 @@ struct SearchView: View {
                         }
                         .navigationDestination(isPresented: $isNavigatingToHukam) {
                             HukamnamaView()
-                        }
-                        .navigationDestination(isPresented: $isNavigatingToHistory) {
-                            ShabadHistoryView()
                         }
                         .padding(.top, 4)
                     }
@@ -383,9 +379,7 @@ struct SearchView: View {
         .navigationTitle(searchText.isEmpty ? "Gurbani Search" : "\(results.count) Results")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                Button {
-                    isNavigatingToHistory = true
-                } label: {
+                NavigationLink(destination: ShabadHistoryView()) {
                     HStack(spacing: 4) {
                         Image(systemName: "clock.arrow.circlepath")
                             .font(.subheadline)
@@ -1337,7 +1331,8 @@ struct SearchResultRowView: View {
 
                 var searchStartIndex = lowercaseText.startIndex
                 while searchStartIndex < lowercaseText.endIndex,
-                      let range = lowercaseText.range(of: lowercaseQuery, range: searchStartIndex..<lowercaseText.endIndex) {
+                      let range = lowercaseText.range(of: lowercaseQuery, range: searchStartIndex ..< lowercaseText.endIndex)
+                {
                     if let attributedRange = Range<AttributedString.Index>(range, in: result) {
                         result[attributedRange].backgroundColor = Color.orange.opacity(0.25)
                         result[attributedRange].foregroundColor = .primary

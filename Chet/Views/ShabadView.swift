@@ -11,11 +11,17 @@ struct ShabadViewDisplayWrapper: View {
     @State var onBaseSbd = true // if on the shabad that was loaded at first
     private let baseIndexOfLine: Int
 
-    init(sbdRes: ShabadAPIResponse, indexOfLine: Int, onIndexChange: ((Int) -> Void)? = nil) {
+    // Folder navigation context (optional)
+    let folderShabads: [SavedShabad]?
+    @State private var currentFolderIndex: Int?
+
+    init(sbdRes: ShabadAPIResponse, indexOfLine: Int, onIndexChange: ((Int) -> Void)? = nil, folderShabads: [SavedShabad]? = nil, currentShabadIndex: Int? = nil) {
         self.sbdRes = sbdRes
         self.indexOfLine = indexOfLine
         self.onIndexChange = onIndexChange
         baseIndexOfLine = indexOfLine
+        self.folderShabads = folderShabads
+        _currentFolderIndex = State(initialValue: currentShabadIndex)
     }
 
     // @Environment(\.dismiss) private var dismiss
@@ -30,9 +36,25 @@ struct ShabadViewDisplayWrapper: View {
         } else if let errorMessage = errorMessage {
             Text(errorMessage).foregroundColor(.red)
         } else if let sbdRes2 = sbdRes2 {
-            ShabadViewDisplay(sbdRes: sbdRes2, fetchNewShabad: fetchNewShabad, indexOfLine: indexOfLine, onIndexChange: onBaseSbd ? onIndexChange : nil)
+            ShabadViewDisplay(
+                sbdRes: sbdRes2,
+                fetchNewShabad: fetchNewShabad,
+                navigateToSavedShabad: navigateToSavedShabad,
+                indexOfLine: indexOfLine,
+                onIndexChange: onBaseSbd ? onIndexChange : nil,
+                folderShabads: folderShabads,
+                currentFolderIndex: $currentFolderIndex
+            )
         } else {
-            ShabadViewDisplay(sbdRes: sbdRes, fetchNewShabad: fetchNewShabad, indexOfLine: indexOfLine, onIndexChange: onBaseSbd ? onIndexChange : nil)
+            ShabadViewDisplay(
+                sbdRes: sbdRes,
+                fetchNewShabad: fetchNewShabad,
+                navigateToSavedShabad: navigateToSavedShabad,
+                indexOfLine: indexOfLine,
+                onIndexChange: onBaseSbd ? onIndexChange : nil,
+                folderShabads: folderShabads,
+                currentFolderIndex: $currentFolderIndex
+            )
         }
     }
 
@@ -48,8 +70,8 @@ struct ShabadViewDisplayWrapper: View {
                     indexOfLine = baseIndexOfLine
                 } else {
                     onBaseSbd = false
-                    // indexOfLine = -1
-                    indexOfLine = 0
+                    indexOfLine = -1
+                    // indexOfLine = 0
                 }
             }
         } catch {
@@ -59,14 +81,28 @@ struct ShabadViewDisplayWrapper: View {
             }
         }
     }
+
+    /// Navigate to a SavedShabad object directly (for folder navigation)
+    func navigateToSavedShabad(_ savedShabad: SavedShabad) {
+        isLoadingShabad = false
+        sbdRes2 = savedShabad.sbdRes
+        indexOfLine = savedShabad.indexOfSelectedLine
+        onBaseSbd = false
+    }
 }
 
 struct ShabadViewDisplay: View {
     let sbdRes: ShabadAPIResponse
     let fetchNewShabad: (Int) async -> Void
+    let navigateToSavedShabad: (SavedShabad) -> Void
     @State var indexOfLine: Int
     var onIndexChange: ((Int) -> Void)? = nil // optional callback
 
+    // Folder navigation context (optional)
+    let folderShabads: [SavedShabad]?
+    @Binding var currentFolderIndex: Int?
+
+    @AppStorage("settings.navigateThroughFolder") private var navigateThroughFolder: Bool = false
     @AppStorage("settings.textScale") private var textScale: Double = 1.0
     @AppStorage("settings.englishTranslationTextScale") private var enTransTextScale: Double = 1.0 // English / common
     @AppStorage("settings.punjabiTranslationTextScale") private var punjabiTranslationTextScale: Double = 1.0
@@ -87,6 +123,56 @@ struct ShabadViewDisplay: View {
     @State private var selectedLineIndex = 0
 
     @State private var hasAppeared = false
+
+    // MARK: - Folder Navigation Helpers
+
+    /// Get previous shabad from folder with circular navigation
+    private var previousFolderShabad: SavedShabad? {
+        guard navigateThroughFolder,
+              let folderShabads = folderShabads,
+              folderShabads.count > 1, // Need at least 2 shabads to navigate
+              let currentIndex = currentFolderIndex
+        else { return nil }
+
+        // Circular: if at start, go to end
+        let prevIndex = currentIndex == 0 ? folderShabads.count - 1 : currentIndex - 1
+        return folderShabads[prevIndex]
+    }
+
+    /// Get next shabad from folder with circular navigation
+    private var nextFolderShabad: SavedShabad? {
+        guard navigateThroughFolder,
+              let folderShabads = folderShabads,
+              folderShabads.count > 1, // Need at least 2 shabads to navigate
+              let currentIndex = currentFolderIndex
+        else { return nil }
+
+        // Circular: if at end, go to start
+        let nextIndex = currentIndex == folderShabads.count - 1 ? 0 : currentIndex + 1
+        return folderShabads[nextIndex]
+    }
+
+    /// Navigate to a folder shabad (uses actual SavedShabad object)
+    private func navigateToFolderShabad(_ shabad: SavedShabad, direction: Int) {
+        guard let folderShabads = folderShabads,
+              let currentIndex = currentFolderIndex
+        else { return }
+
+        // Calculate new index with circular navigation
+        if direction < 0 {
+            // Going backward
+            currentFolderIndex = currentIndex == 0 ? folderShabads.count - 1 : currentIndex - 1
+        } else {
+            // Going forward
+            currentFolderIndex = currentIndex == folderShabads.count - 1 ? 0 : currentIndex + 1
+        }
+
+        // Use the actual SavedShabad object - preserves line index and reflects changes
+        navigateToSavedShabad(shabad)
+
+        // Update the onIndexChange callback for the new shabad
+        indexOfLine = shabad.indexOfSelectedLine
+    }
 
     var body: some View {
         ZStack {
@@ -168,7 +254,24 @@ struct ShabadViewDisplay: View {
                 Spacer()
                 HStack {
                     // Prev Button
-                    if let prevID = sbdRes.navigation.previous {
+                    if let prevShabad = previousFolderShabad {
+                        // Folder navigation mode (circular)
+                        Button {
+                            navigateToFolderShabad(prevShabad, direction: -1)
+                        } label: {
+                            ZStack(alignment: .bottomTrailing) {
+                                Image(systemName: "chevron.left")
+                                    .font(.title2)
+                                    .frame(width: 44, height: 44)
+                                // Folder indicator - better positioned
+                                Image(systemName: "folder.fill")
+                                    .font(.system(size: 8))
+                                    .foregroundColor(.accentColor)
+                                    .offset(x: 2, y: 2)
+                            }
+                        }
+                    } else if let prevID = sbdRes.navigation.previous {
+                        // API navigation (when no folder context OR setting is off)
                         Button {
                             Task { await fetchNewShabad(prevID) }
                         } label: {
@@ -177,6 +280,7 @@ struct ShabadViewDisplay: View {
                                 .frame(width: 44, height: 44)
                         }
                     } else {
+                        // No navigation available
                         Spacer().frame(width: 44)
                     }
 
@@ -201,7 +305,24 @@ struct ShabadViewDisplay: View {
                     Spacer()
 
                     // Next Button
-                    if let nextID = sbdRes.navigation.next {
+                    if let nextShabad = nextFolderShabad {
+                        // Folder navigation mode (circular)
+                        Button {
+                            navigateToFolderShabad(nextShabad, direction: 1)
+                        } label: {
+                            ZStack(alignment: .bottomTrailing) {
+                                Image(systemName: "chevron.right")
+                                    .font(.title2)
+                                    .frame(width: 44, height: 44)
+                                // Folder indicator - better positioned
+                                Image(systemName: "folder.fill")
+                                    .font(.system(size: 8))
+                                    .foregroundColor(.accentColor)
+                                    .offset(x: 2, y: 2)
+                            }
+                        }
+                    } else if let nextID = sbdRes.navigation.next {
+                        // API navigation (when no folder context OR setting is off)
                         Button {
                             Task { await fetchNewShabad(nextID) }
                         } label: {
@@ -210,6 +331,7 @@ struct ShabadViewDisplay: View {
                                 .frame(width: 44, height: 44)
                         }
                     } else {
+                        // No navigation available
                         Spacer().frame(width: 44)
                     }
                 }
@@ -249,7 +371,7 @@ struct ShabadViewDisplay: View {
                     gestureScale = 1.0
                 }
         )
-        .navigationBarTitle("\(sbdRes.shabadInfo.writer.english ?? "Unknown")", displayMode: .inline)
+        .navigationBarTitle("\(sbdRes.shabadInfo.writer.english ?? "Unknown") (\(sbdRes.verses.count))", displayMode: .inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
@@ -294,7 +416,7 @@ struct ShabadViewDisplay: View {
             .presentationDetents([.medium])
         }
         .sheet(isPresented: $showingSettings) {
-            SettingsSheet()
+            SettingsSheet(hasFolder: folderShabads != nil)
                 .presentationDetents([.medium])
         }
         .sheet(isPresented: $showingSaved) {
@@ -309,6 +431,8 @@ struct ShabadViewDisplay: View {
 }
 
 struct SettingsSheet: View {
+    let hasFolder: Bool  // Whether viewing from a folder context
+
     @AppStorage("settings.textScale") private var textScale: Double = 1.0
 
     // Selected source for each language
@@ -325,6 +449,8 @@ struct SettingsSheet: View {
 
     @AppStorage("settings.transliterationSource") private var selectedTransliterationSource: String = "none"
     @AppStorage("settings.transliterationTextScale") private var transliterationTextScale: Double = 1.0
+
+    @AppStorage("settings.navigateThroughFolder") private var navigateThroughFolder: Bool = false
 
     // Available sources (tweak as needed)
     private let visraamSources = ["none", "sttm", "igurbani", "sttm2"]
@@ -390,6 +516,13 @@ struct SettingsSheet: View {
                             .padding(.horizontal)
 
                         VStack(spacing: 0) {
+                            // Only show folder navigation toggle when viewing from a folder
+                            if hasFolder {
+                                NavigationFolderToggle()
+
+                                Divider().padding(.leading)
+                            }
+
                             // Visraam
                             HStack {
                                 Text("Visraam")
@@ -403,11 +536,10 @@ struct SettingsSheet: View {
                             }
                             .padding(.horizontal)
                             .padding(.vertical, 10)
-                            .background(Color(.systemBackground))
 
                             Divider().padding(.leading)
 
-                            SettingsOptionPickerSlider(title: "Gurbani Font", selectedItem: $fontType, options: fonts, textScale: $textScale)
+                            SettingsOptionPickerSlider(title: "Gurbani Font", selectedItem: .constant(""), options: [], textScale: $textScale)
 
                             Divider().padding(.leading)
 
@@ -452,24 +584,41 @@ struct SettingsSheet: View {
             .navigationTitle("Settings")
             .navigationBarTitleDisplayMode(.inline)
         }
-        .onChange(of: selectedVisraamSource) { reloadAllWidgets() }
-        .onChange(of: fontType) { reloadAllWidgets() }
-        .onChange(of: selectedEnglishSource) { reloadAllWidgets() }
-        .onChange(of: selectedPunjabiSource) { reloadAllWidgets() }
-        .onChange(of: selectedHindiSource) { reloadAllWidgets() }
-        .onChange(of: selectedSpanishSource) { reloadAllWidgets() }
-        .onChange(of: selectedTransliterationSource) { reloadAllWidgets() }
+        .onChange(of: selectedVisraamSource) { syncSettingAndReloadWidgets() }
+        .onChange(of: fontType) { syncSettingAndReloadWidgets() }
+        .onChange(of: selectedEnglishSource) { syncSettingAndReloadWidgets() }
+        .onChange(of: selectedPunjabiSource) { syncSettingAndReloadWidgets() }
+        .onChange(of: selectedHindiSource) { syncSettingAndReloadWidgets() }
+        .onChange(of: selectedSpanishSource) { syncSettingAndReloadWidgets() }
+        .onChange(of: selectedTransliterationSource) { syncSettingAndReloadWidgets() }
     }
 
-    private func reloadAllWidgets() {
-        WidgetCenter.shared.reloadAllTimelines()
+    private func syncSettingAndReloadWidgets() {
+        // Sync all widget-relevant settings to app group
+        UserDefaults.appGroup.set(fontType, forKey: "fontType")
+        UserDefaults.appGroup.set(selectedVisraamSource, forKey: "settings.visraamSource")
+        UserDefaults.appGroup.set(selectedEnglishSource, forKey: "settings.englishSource")
+        UserDefaults.appGroup.set(selectedPunjabiSource, forKey: "settings.punjabiSource")
+        UserDefaults.appGroup.set(selectedHindiSource, forKey: "settings.hindiSource")
+        UserDefaults.appGroup.set(selectedSpanishSource, forKey: "settings.spanishSource")
+        UserDefaults.appGroup.set(selectedTransliterationSource, forKey: "settings.transliterationSource")
+
+        // Force immediate persistence
+        UserDefaults.appGroup.synchronize()
+
+        // Reload all widgets with new settings (with small delay to ensure settings are persisted)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            WidgetCenter.shared.reloadTimelines(ofKind: "HukamnamaWidget")
+            WidgetCenter.shared.reloadTimelines(ofKind: "RandomShabadWidget")
+            WidgetCenter.shared.reloadTimelines(ofKind: "FavShabadsWidget")
+        }
     }
 }
 
 struct SettingsOptionPickerSlider: View {
     let title: String
-    @Binding var selectedItem: String
-    let options: [(name: String, value: String)]
+    @Binding var selectedItem: String // always provided, but ignored if no options
+    let options: [(name: String, value: String)] // always provided, but can be empty
     @Binding var textScale: Double
 
     var body: some View {
@@ -478,24 +627,34 @@ struct SettingsOptionPickerSlider: View {
                 Text(title)
                     .font(.subheadline)
                     .foregroundColor(.primary)
+
                 Spacer()
-                Picker(title, selection: $selectedItem) {
-                    ForEach(options, id: \.value) { option in
-                        Text(option.name).tag(option.value)
+
+                // Show picker ONLY if options exist
+                if !options.isEmpty {
+                    Picker(title, selection: $selectedItem) {
+                        ForEach(options, id: \.value) { option in
+                            Text(option.name).tag(option.value)
+                        }
                     }
+                    .pickerStyle(.menu)
+                    .labelsHidden()
                 }
-                .pickerStyle(.menu)
-                .labelsHidden()
             }
 
-            if selectedItem != "none" {
+            // Slider logic:
+            // - If options IS empty → ALWAYS show the slider
+            // - If options EXISTS → show slider only when selectedItem != "none"
+            if options.isEmpty || selectedItem != "none" {
                 HStack(spacing: 6) {
                     Image(systemName: "textformat.size.smaller")
                         .font(.caption2)
                         .foregroundColor(.secondary)
                         .frame(width: 14)
+
                     Slider(value: $textScale, in: 0.5 ... 2.5, step: 0.1)
                         .tint(.accentColor)
+
                     Image(systemName: "textformat.size.larger")
                         .font(.caption2)
                         .foregroundColor(.secondary)
@@ -1179,64 +1338,31 @@ struct SaveToFolderSheet: View {
     ) private var rootFolders: [Folder]
 
     @Environment(\.modelContext) private var modelContext
-    @AppStorage("backupChangeCounter") private var backupChangeCounter = 0
-    @State private var showBackupToast = false
-    @State private var backupMessage = ""
 
     var body: some View {
-        ZStack {
-            NavigationStack {
-                List(rootFolders, id: \.id, children: \.subfoldersOrNil) { folder in
-                    Toggle(isOn: Binding(
-                        get: { isShabadSaved(in: folder) },
-                        set: { newValue in
-                            if newValue {
-                                save(to: folder)
-                            } else {
-                                remove(from: folder)
-                            }
+        NavigationStack {
+            List(rootFolders, id: \.id, children: \.subfoldersOrNil) { folder in
+                Toggle(isOn: Binding(
+                    get: { isShabadSaved(in: folder) },
+                    set: { newValue in
+                        if newValue {
+                            save(to: folder)
+                        } else {
+                            remove(from: folder)
                         }
-                    )) {
-                        Text(folder.name)
                     }
-                    .toggleStyle(.switch)
+                )) {
+                    Text(folder.name)
                 }
-                .navigationTitle("Save to Folders")
-                .toolbar {
-                    ToolbarItem(placement: .cancellationAction) {
-                        Button("Close") {}
-                    }
-                }
+                .toggleStyle(.switch)
             }
-
-            // Backup toast notification
-            if showBackupToast {
-                VStack {
-                    Spacer()
-                    HStack(spacing: 12) {
-                        Image(systemName: "checkmark.circle.fill")
-                            .foregroundColor(.green)
-                            .font(.title3)
-                        VStack(alignment: .leading, spacing: 2) {
-                            Text("Backup Created")
-                                .font(.headline)
-                            Text(backupMessage)
-                                .font(.caption)
-                                .foregroundColor(.secondary)
-                        }
-                        Spacer()
-                    }
-                    .padding()
-                    .background(.ultraThinMaterial)
-                    .cornerRadius(12)
-                    .shadow(radius: 10)
-                    .padding()
+            .navigationTitle("Save to Folders")
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Close") {}
                 }
-                .transition(.move(edge: .bottom).combined(with: .opacity))
-                .zIndex(999)
             }
         }
-        .animation(.spring(response: 0.4, dampingFraction: 0.8), value: showBackupToast)
     }
 
     private func isShabadSaved(in folder: Folder) -> Bool {
@@ -1257,47 +1383,12 @@ struct SaveToFolderSheet: View {
 
         // Only reload FavShabadsWidget if saving to the Favorites folder
         if folder.name == "Favorites" && folder.isSystemFolder {
-            WidgetCenter.shared.reloadTimelines(ofKind: "xyz.gians.Chet.FavShabadsWidget")
+            WidgetCenter.shared.reloadTimelines(ofKind: "FavShabadsWidget")
         }
 
-        // Increment backup counter and trigger backup if threshold reached
-        backupChangeCounter += 1
-        if backupChangeCounter >= 5 {
-            Task {
-                do {
-                    let data = try await BackupManager.shared.exportToJSON(modelContext: modelContext)
-                    let url = try await BackupManager.shared.saveToiCloud(data: data)
-                    UserDefaults.standard.set(Date().timeIntervalSince1970, forKey: "lastBackupTime")
-                    print("✅ Auto-backup completed after 5 changes")
-
-                    // Show toast notification
-                    await MainActor.run {
-                        let location = url.path.contains("iCloud") ? "iCloud Drive" : "Documents"
-                        backupMessage = "Saved to \(location)/Chet Backups/"
-                        showBackupToast = true
-
-                        // Hide toast after 4 seconds
-                        Task {
-                            try? await Task.sleep(nanoseconds: 4_000_000_000)
-                            showBackupToast = false
-                        }
-                    }
-                } catch {
-                    print("❌ Auto-backup failed: \(error.localizedDescription)")
-
-                    // Show error toast
-                    await MainActor.run {
-                        backupMessage = "Backup failed"
-                        showBackupToast = true
-
-                        Task {
-                            try? await Task.sleep(nanoseconds: 3_000_000_000)
-                            showBackupToast = false
-                        }
-                    }
-                }
-            }
-            backupChangeCounter = 0
+        // Trigger daily backup asynchronously (non-blocking)
+        Task.detached { [modelContext] in
+            await BackupManager.shared.performDailyBackup(modelContext: modelContext)
         }
     }
 
@@ -1309,7 +1400,40 @@ struct SaveToFolderSheet: View {
 
         // Reload FavShabadsWidget if removing from the Favorites folder
         if folder.name == "Favorites" && folder.isSystemFolder {
-            WidgetCenter.shared.reloadTimelines(ofKind: "xyz.gians.Chet.FavShabadsWidget")
+            WidgetCenter.shared.reloadTimelines(ofKind: "FavShabadsWidget")
+        }
+    }
+}
+
+struct NavigationFolderToggle: View {
+    @AppStorage("settings.navigateThroughFolder") private var navigateThroughFolder: Bool = false
+    @State private var showingInfo = false
+
+    var body: some View {
+        HStack {
+            Text("Navigate Through Folder")
+                .font(.subheadline)
+
+            Button {
+                showingInfo = true
+            } label: {
+                Image(systemName: "info.circle")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            }
+            .buttonStyle(.plain)
+
+            Spacer()
+
+            Toggle("", isOn: $navigateThroughFolder)
+                .labelsHidden()
+        }
+        .padding(.horizontal)
+        .padding(.vertical, 10)
+        .alert("Navigate Through Folder", isPresented: $showingInfo) {
+            Button("OK", role: .cancel) { }
+        } message: {
+            Text("When enabled, next/previous buttons navigate through saved shabads in the current folder with circular wrap-around. When disabled, navigation uses the API to move through related shabads.")
         }
     }
 }
@@ -1354,3 +1478,4 @@ struct PreviewContextView<Content: View, Preview: View>: UIViewRepresentable {
         }
     }
 }
+
